@@ -9,7 +9,7 @@ A buildless, responsive teaching atlas of foundational organic reactions. Chines
 - Independent S/O/R/G filters applied to the **same** event, step-count filters and local favorites.
 - A complete pathway reader that shows every listed step, its full equation, electron flow and intermediate in sequence, plus step-specific SORG rationale and scope notes.
 - Source-linked, attributed online mechanism figures for selected pathways. These figures supplement the written full mechanisms; generic in-page SVGs are explicitly labeled as local-step schematics.
-- Complete mechanism panels with direct online mechanism sources; a two-state orbital-coupling/mixing teaching model accepts explicit orbital-energy-gap and coupling inputs.
+- Complete mechanism panels with direct online mechanism sources; reaction-specific quantum-chemistry observables and literature evidence are shown separately from values that have not yet been computed.
 - Deep links such as `#reaction/sn2`, keyboard navigation and responsive layouts.
 
 ## SORG v0.1
@@ -35,7 +35,7 @@ Open `dist/index.html` directly in a modern browser. No npm dependencies or runt
 python3 -m http.server 8000 --directory dist
 ```
 
-Sources are external links, but diagrams, data, filtering, favorites and the two-state mixing model work locally. Favorites are stored only in that browser. They are not synced between devices.
+Sources are external links, but diagrams, data, filtering and favorites work locally. Favorites are stored only in that browser. They are not synced between devices.
 
 ## Update the content
 
@@ -58,7 +58,8 @@ The `.openai/hosting.json` file belongs to the private Sites deployment and is i
 
 Mechanisms and pedagogical facts are checked against John McMurry, *Organic Chemistry*, OpenStax (2023), Chemistry LibreTexts, and IUPAC Gold Book. Each entry lists its own sources. These sources do not assign or validate the SORG codes.
 
-- The two-state model reports eigenvalue splitting and a model-defined mixing index from user-entered Δε and V<sub>DA</sub>. These are not reaction-specific quantum-chemical results; no DFT/IRC calculations have been performed.
+- Quantum-data fields distinguish sourced literature results from missing reaction-specific calculations. The SN2 card includes a clearly identified related gas-phase model reaction from Kubelka and Bickelhaupt (ZORA-OLYP/TZ2P), with qualitative activation-strain and orbital-analysis findings; its substrate and nucleophile differ from the card's HO⁻ + CH₃Br example. No values are transferred between them. No new DFT/IRC calculations have been performed.
+- Descriptor lists for the other reactions are proposed electronic-structure observables, not results. Electronic coupling values require defined donor/acceptor fragments and diabatic states; they are not presented as universal across reaction classes.
 - Energy profiles are schematic and have no measured or computed height, depth, or net energy direction.
 - Every reaction record marks its displayed pathway as complete for the named substrate and stated conditions. The selected substrate, reagents and work-up define each pathway; solvent-mediated proton relays are written as net proton-transfer events and identified in scope notes.
 - Selected Commons image figures are hot-linked and credited with their file page and license next to each figure. They are supporting references; the step-by-step text remains the authoritative pathway for this specific example.

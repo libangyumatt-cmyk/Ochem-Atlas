@@ -312,6 +312,12 @@
       "url": "https://goldbook.iupac.org/terms/view/T06470",
       "publisher": "IUPAC",
       "checked": "2026-10-12"
+    },
+    "qc_sn2": {
+      "title": "Kubelka & Bickelhaupt · Activation Strain Analysis of SN2 Reactions at C, N, O, and F Centers",
+      "url": "https://doi.org/10.1021/acs.jpca.6b12240",
+      "publisher": "Journal of Physical Chemistry A (2017), 121, 885–891",
+      "checked": "2026-10-12"
     }
   },
   "reactions": [
@@ -355,7 +361,15 @@
       "level": "acid",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。"
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "quantumData": {
+        "status": "not-yet-computed",
+        "descriptors": [
+          "同一溶剂和构象下的电荷/电子密度变化",
+          "供体—受体轨道能量与 NBO 二阶相互作用（注明分区方案）"
+        ],
+        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+      }
     },
     {
       "id": "lewis",
@@ -393,7 +407,15 @@
       "level": "基础",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。"
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "quantumData": {
+        "status": "not-yet-computed",
+        "descriptors": [
+          "同一溶剂和构象下的电荷/电子密度变化",
+          "供体—受体轨道能量与 NBO 二阶相互作用（注明分区方案）"
+        ],
+        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+      }
     },
     {
       "id": "sn2",
@@ -432,7 +454,24 @@
       "level": "基础",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。"
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "quantumData": {
+        "status": "literature-qualitative",
+        "descriptors": [
+          "气相反应势能面",
+          "ΔE_strain 与 ΔE_interaction",
+          "Pauli 排斥、静电作用、轨道相互作用",
+          "反应中心空 σ*(A–Cl) 受体轨道能量"
+        ],
+        "benchmark": {
+          "reaction": "Cl⁻ + CH₃Cl → [Cl···CH₃···Cl]‡ → CH₃Cl + Cl⁻",
+          "relation": "相近模型基准；与本卡 HO⁻ + CH₃Br 底物不同",
+          "method": "ZORA-OLYP/TZ2P；气相；作者对比 C/N/O/F 反应中心，沿 Nu–A 与 A–LG 距离相对 TS 的坐标分析。",
+          "finding": "对 C、N、O 系列，势能面有反应复合物极小值和中心势垒；趋势主要关联 interaction energy，并与反应中心空 σ*(A–Cl) 受体轨道能量降低有关。论文还分解了 Pauli、静电和轨道项。摘要/图文未在本条摘录可核验的数值表，因此不填数值。",
+          "source": "qc_sn2"
+        },
+        "note": "文献结果属于 Cl⁻ + CH₃Cl，不是本卡 HO⁻ + CH₃Br；不能把其轨道能级或能量分解数值直接移植到本卡。本站仍未对本卡做计算。"
+      }
     },
     {
       "id": "williamson",
@@ -470,7 +509,15 @@
       "level": "基础",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。"
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "quantumData": {
+        "status": "not-yet-computed",
+        "descriptors": [
+          "反应坐标上的 ΔE_strain / ΔE_interaction",
+          "EDA 的 Pauli、静电、轨道项及 σ*(C–LG) 能量"
+        ],
+        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+      }
     },
     {
       "id": "sn1-core",
@@ -517,7 +564,15 @@
       "level": "基础",
       "note": "若 Nu 是 H₂O 或 ROH，形成 oxonium 后通常还有去质子化。见 SN1 solvolysis 条目。",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。"
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "quantumData": {
+        "status": "not-yet-computed",
+        "descriptors": [
+          "反应坐标上的 ΔE_strain / ΔE_interaction",
+          "EDA 的 Pauli、静电、轨道项及 σ*(C–LG) 能量"
+        ],
+        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+      }
     },
     {
       "id": "sn1-water",
@@ -574,7 +629,15 @@
       "level": "基础",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。"
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "quantumData": {
+        "status": "not-yet-computed",
+        "descriptors": [
+          "反应坐标上的 ΔE_strain / ΔE_interaction",
+          "EDA 的 Pauli、静电、轨道项及 σ*(C–LG) 能量"
+        ],
+        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+      }
     },
     {
       "id": "hbr",
@@ -621,7 +684,15 @@
       "level": "基础",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。"
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "quantumData": {
+        "status": "not-yet-computed",
+        "descriptors": [
+          "沿反应坐标的电荷转移与前线轨道能级",
+          "关键中间体/过渡态的电子密度与键级"
+        ],
+        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+      }
     },
     {
       "id": "hydration",
@@ -677,7 +748,15 @@
       "level": "基础",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。"
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "quantumData": {
+        "status": "not-yet-computed",
+        "descriptors": [
+          "沿反应坐标的电荷转移与前线轨道能级",
+          "关键中间体/过渡态的电子密度与键级"
+        ],
+        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+      }
     },
     {
       "id": "e2",
@@ -715,7 +794,15 @@
       "level": "基础",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。"
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "quantumData": {
+        "status": "not-yet-computed",
+        "descriptors": [
+          "E2 反应坐标与 ΔE_strain / ΔE_interaction",
+          "σ(C–H) / σ*(C–LG) 轨道作用与几何扭转扫描"
+        ],
+        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+      }
     },
     {
       "id": "e1",
@@ -762,7 +849,15 @@
       "level": "基础",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。"
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "quantumData": {
+        "status": "not-yet-computed",
+        "descriptors": [
+          "E2 反应坐标与 ΔE_strain / ΔE_interaction",
+          "σ(C–H) / σ*(C–LG) 轨道作用与几何扭转扫描"
+        ],
+        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+      }
     },
     {
       "id": "carbonyl-add",
@@ -800,7 +895,15 @@
       "level": "基础",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。"
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "quantumData": {
+        "status": "not-yet-computed",
+        "descriptors": [
+          "供体 HOMO—受体 LUMO 能隙及轨道作用能",
+          "羰基碳电荷、C–O/C–Nu 键级与反应坐标"
+        ],
+        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+      }
     },
     {
       "id": "hydride",
@@ -860,7 +963,15 @@
       "level": "基础",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。"
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "quantumData": {
+        "status": "not-yet-computed",
+        "descriptors": [
+          "供体 HOMO—受体 LUMO 能隙及轨道作用能",
+          "羰基碳电荷、C–O/C–Nu 键级与反应坐标"
+        ],
+        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+      }
     },
     {
       "id": "grignard",
@@ -920,7 +1031,15 @@
       "level": "基础",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。"
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "quantumData": {
+        "status": "not-yet-computed",
+        "descriptors": [
+          "供体 HOMO—受体 LUMO 能隙及轨道作用能",
+          "羰基碳电荷、C–O/C–Nu 键级与反应坐标"
+        ],
+        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+      }
     },
     {
       "id": "cyanohydrin",
@@ -967,7 +1086,15 @@
       "level": "基础",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。"
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "quantumData": {
+        "status": "not-yet-computed",
+        "descriptors": [
+          "供体 HOMO—受体 LUMO 能隙及轨道作用能",
+          "羰基碳电荷、C–O/C–Nu 键级与反应坐标"
+        ],
+        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+      }
     },
     {
       "id": "acyl",
@@ -1014,7 +1141,15 @@
       "level": "基础",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。"
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "quantumData": {
+        "status": "not-yet-computed",
+        "descriptors": [
+          "供体 HOMO—受体 LUMO 能隙及轨道作用能",
+          "羰基碳电荷、C–O/C–Nu 键级与反应坐标"
+        ],
+        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+      }
     },
     {
       "id": "epoxide",
@@ -1061,7 +1196,15 @@
       "level": "基础",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。"
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "quantumData": {
+        "status": "not-yet-computed",
+        "descriptors": [
+          "反应坐标上的 ΔE_strain / ΔE_interaction",
+          "EDA 的 Pauli、静电、轨道项及 σ*(C–LG) 能量"
+        ],
+        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+      }
     },
     {
       "id": "aldol",
@@ -1117,7 +1260,15 @@
       "level": "基础",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。"
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "quantumData": {
+        "status": "not-yet-computed",
+        "descriptors": [
+          "供体 HOMO—受体 LUMO 能隙及轨道作用能",
+          "羰基碳电荷、C–O/C–Nu 键级与反应坐标"
+        ],
+        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+      }
     },
     {
       "id": "radical-add",
@@ -1155,7 +1306,15 @@
       "level": "基础",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。"
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "quantumData": {
+        "status": "not-yet-computed",
+        "descriptors": [
+          "自旋密度/自旋布居与 SOMO 系数",
+          "断键/成键坐标上的自旋态及键级变化"
+        ],
+        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+      }
     },
     {
       "id": "radical-combine",
@@ -1193,7 +1352,15 @@
       "level": "基础",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。"
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "quantumData": {
+        "status": "not-yet-computed",
+        "descriptors": [
+          "自旋密度/自旋布居与 SOMO 系数",
+          "断键/成键坐标上的自旋态及键级变化"
+        ],
+        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+      }
     },
     {
       "id": "radical-chain",
@@ -1240,7 +1407,15 @@
       "level": "基础",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。"
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "quantumData": {
+        "status": "not-yet-computed",
+        "descriptors": [
+          "自旋密度/自旋布居与 SOMO 系数",
+          "断键/成键坐标上的自旋态及键级变化"
+        ],
+        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+      }
     },
     {
       "id": "diels-alder",
@@ -1279,7 +1454,15 @@
       "level": "基础",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。"
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "quantumData": {
+        "status": "not-yet-computed",
+        "descriptors": [
+          "前线轨道相位/系数与对称允许性",
+          "沿协同反应坐标的键级演化和轨道相互作用能"
+        ],
+        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+      }
     },
     {
       "id": "claisen",
@@ -1317,7 +1500,15 @@
       "level": "基础",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。"
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "quantumData": {
+        "status": "not-yet-computed",
+        "descriptors": [
+          "前线轨道相位/系数与对称允许性",
+          "沿协同反应坐标的键级演化和轨道相互作用能"
+        ],
+        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+      }
     },
     {
       "id": "electrocyclic",
@@ -1355,7 +1546,15 @@
       "level": "基础",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。"
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "quantumData": {
+        "status": "not-yet-computed",
+        "descriptors": [
+          "前线轨道相位/系数与对称允许性",
+          "沿协同反应坐标的键级演化和轨道相互作用能"
+        ],
+        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+      }
     },
     {
       "id": "e1cb-dehydration",
@@ -1409,6 +1608,14 @@
         "href": "https://commons.wikimedia.org/wiki/File:E1cb-mechanism.svg",
         "alt": "E1cB elimination mechanism",
         "credit": "Matthias M. · Wikimedia Commons · Public domain"
+      },
+      "quantumData": {
+        "status": "not-yet-computed",
+        "descriptors": [
+          "E2 反应坐标与 ΔE_strain / ΔE_interaction",
+          "σ(C–H) / σ*(C–LG) 轨道作用与几何扭转扫描"
+        ],
+        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
       }
     },
     {
@@ -1462,6 +1669,14 @@
         "href": "https://commons.wikimedia.org/wiki/File:Alkene-bromine-addition-2D-skeletal.png",
         "alt": "Bromonium-ion formation and anti opening in alkene bromination",
         "credit": "Benjah-bmm27 · Wikimedia Commons · Public domain"
+      },
+      "quantumData": {
+        "status": "not-yet-computed",
+        "descriptors": [
+          "沿反应坐标的电荷转移与前线轨道能级",
+          "关键中间体/过渡态的电子密度与键级"
+        ],
+        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
       }
     },
     {
@@ -1524,6 +1739,14 @@
         "href": "https://commons.wikimedia.org/wiki/File:NBS_Bromohydrin_Formation_Scheme.png",
         "alt": "Halohydrin formation scheme",
         "credit": "~K · Wikimedia Commons · Public domain; NBS halohydrin scheme"
+      },
+      "quantumData": {
+        "status": "not-yet-computed",
+        "descriptors": [
+          "沿反应坐标的电荷转移与前线轨道能级",
+          "关键中间体/过渡态的电子密度与键级"
+        ],
+        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
       }
     },
     {
@@ -1595,6 +1818,14 @@
         "href": "https://commons.wikimedia.org/wiki/File:Nitration_of_benzene.svg",
         "alt": "Benzene nitration mechanism",
         "credit": "Yikrazuul · Wikimedia Commons · Public domain"
+      },
+      "quantumData": {
+        "status": "not-yet-computed",
+        "descriptors": [
+          "芳香 π 轨道系数及亲电体—芳环相互作用",
+          "σ-complex 的电荷/自旋密度与芳香性指标"
+        ],
+        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
       }
     },
     {
@@ -1675,6 +1906,14 @@
         "href": "https://commons.wikimedia.org/wiki/File:Fischer_esterification_mechanism.svg",
         "alt": "Fischer esterification mechanism",
         "credit": "V8rik · Wikimedia Commons · Public domain"
+      },
+      "quantumData": {
+        "status": "not-yet-computed",
+        "descriptors": [
+          "供体 HOMO—受体 LUMO 能隙及轨道作用能",
+          "羰基碳电荷、C–O/C–Nu 键级与反应坐标"
+        ],
+        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
       }
     },
     {
@@ -1764,6 +2003,14 @@
         "href": "https://commons.wikimedia.org/wiki/File:Mechanism_imine_formation_general.svg",
         "alt": "General imine formation mechanism",
         "credit": "Wikimedia Commons · CC BY-SA 4.0"
+      },
+      "quantumData": {
+        "status": "not-yet-computed",
+        "descriptors": [
+          "供体 HOMO—受体 LUMO 能隙及轨道作用能",
+          "羰基碳电荷、C–O/C–Nu 键级与反应坐标"
+        ],
+        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
       }
     },
     {
@@ -1845,6 +2092,14 @@
         "href": "https://commons.wikimedia.org/wiki/File:E1cB_aldol_condensation.svg",
         "alt": "Aldol addition and E1cB dehydration",
         "credit": "Wikimedia Commons · E1cB aldol-condensation scheme"
+      },
+      "quantumData": {
+        "status": "not-yet-computed",
+        "descriptors": [
+          "供体 HOMO—受体 LUMO 能隙及轨道作用能",
+          "羰基碳电荷、C–O/C–Nu 键级与反应坐标"
+        ],
+        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
       }
     },
     {
@@ -1902,7 +2157,15 @@
       "level": "基础",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。"
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "quantumData": {
+        "status": "not-yet-computed",
+        "descriptors": [
+          "反应坐标上的 ΔE_strain / ΔE_interaction",
+          "EDA 的 Pauli、静电、轨道项及 σ*(C–LG) 能量"
+        ],
+        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+      }
     }
   ]
 }

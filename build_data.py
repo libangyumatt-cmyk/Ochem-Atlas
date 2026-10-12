@@ -46,6 +46,7 @@ sources.update({
  'aldolcond':{'title':'Chemistry LibreTexts · Dehydration of aldol products','url':'https://chem.libretexts.org/Bookshelves/Organic_Chemistry/Organic_Chemistry_(OpenStax)/23%3A_Carbonyl_Condensation_Reactions/23.03%3A_Dehydration_of_Aldol_Products_-_Synthesis_of_Enones','publisher':'Chemistry LibreTexts','checked':'2026-10-12'},
  'epoxideacid':{'title':'OpenStax · Acid-catalyzed epoxide ring opening','url':'https://openstax.org/books/organic-chemistry/pages/18-5-reactions-of-epoxides-ring-opening','publisher':'John McMurry / OpenStax','checked':'2026-10-12'},
 })
+sources['qc_sn2']={'title':'Kubelka & Bickelhaupt · Activation Strain Analysis of SN2 Reactions at C, N, O, and F Centers','url':'https://doi.org/10.1021/acs.jpca.6b12240','publisher':'Journal of Physical Chemistry A (2017), 121, 885–891','checked':'2026-10-12'}
 
 axes=[
  {'key':'S','name':'电子态','en':'Electronic state','question':'以什么电子态参与？','values':{'1':'闭壳层 / 成对电子','2':'开壳层 / 自由基','3':'激发态 / 态变换'},'note':'这里按反应事件涉及的电子态标记；S2 不表示产物一定仍是自由基。S3 与 S1/S2 可能重叠。'},
@@ -177,6 +178,29 @@ figures={
 }
 for r in reactions:
  if r['id'] in figures:r['figure']=figures[r['id']]
+
+# Reaction-appropriate electronic-structure observables. These are analysis
+# targets, not fabricated computed values. The SN2 literature case is a related
+# benchmark with a different substrate/nucleophile from the teaching card.
+qc_targets={
+ '酸碱反应':['同一溶剂和构象下的电荷/电子密度变化','供体—受体轨道能量与 NBO 二阶相互作用（注明分区方案）'],
+ '取代反应':['反应坐标上的 ΔE_strain / ΔE_interaction','EDA 的 Pauli、静电、轨道项及 σ*(C–LG) 能量'],
+ '消除反应':['E2 反应坐标与 ΔE_strain / ΔE_interaction','σ(C–H) / σ*(C–LG) 轨道作用与几何扭转扫描'],
+ '烯烃反应':['沿反应坐标的电荷转移与前线轨道能级','关键中间体/过渡态的电子密度与键级'],
+ '羰基反应':['供体 HOMO—受体 LUMO 能隙及轨道作用能','羰基碳电荷、C–O/C–Nu 键级与反应坐标'],
+ '周环反应':['前线轨道相位/系数与对称允许性','沿协同反应坐标的键级演化和轨道相互作用能'],
+ '自由基反应':['自旋密度/自旋布居与 SOMO 系数','断键/成键坐标上的自旋态及键级变化'],
+ '芳香取代':['芳香 π 轨道系数及亲电体—芳环相互作用','σ-complex 的电荷/自旋密度与芳香性指标'],
+}
+for r in reactions:
+    r['quantumData']={'status':'not-yet-computed','descriptors':qc_targets.get(r['family'],['电子密度/电荷分布','轨道作用与键级沿反应坐标的变化']),
+                      'note':'本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。'}
+sn2=next(r for r in reactions if r['id']=='sn2')
+sn2['quantumData']={
+ 'status':'literature-qualitative',
+ 'descriptors':['气相反应势能面','ΔE_strain 与 ΔE_interaction','Pauli 排斥、静电作用、轨道相互作用','反应中心空 σ*(A–Cl) 受体轨道能量'],
+ 'benchmark':{'reaction':'Cl⁻ + CH₃Cl → [Cl···CH₃···Cl]‡ → CH₃Cl + Cl⁻','relation':'相近模型基准；与本卡 HO⁻ + CH₃Br 底物不同','method':'ZORA-OLYP/TZ2P；气相；作者对比 C/N/O/F 反应中心，沿 Nu–A 与 A–LG 距离相对 TS 的坐标分析。','finding':'对 C、N、O 系列，势能面有反应复合物极小值和中心势垒；趋势主要关联 interaction energy，并与反应中心空 σ*(A–Cl) 受体轨道能量降低有关。论文还分解了 Pauli、静电和轨道项。摘要/图文未在本条摘录可核验的数值表，因此不填数值。','source':'qc_sn2'},
+ 'note':'文献结果属于 Cl⁻ + CH₃Cl，不是本卡 HO⁻ + CH₃Br；不能把其轨道能级或能量分解数值直接移植到本卡。本站仍未对本卡做计算。'}
 
 payload={'version':'0.1.0','updated':'2026-10-12','axes':axes,'codebook':codebook,'sources':sources,'reactions':reactions}
 (ROOT/'dist'/'data.json').write_text(json.dumps(payload,ensure_ascii=False,indent=2))
