@@ -25,9 +25,27 @@ sources={
  'dastereo':('14.5 · Diels–Alder stereochemistry','14-5-characteristics-of-the-diels-alder-reaction'),
  'claisen':('30.8 · Sigmatropic rearrangements','30-8-some-examples-of-sigmatropic-rearrangements'),
  'electro':('30.3 · Thermal electrocyclic stereochemistry','30-3-stereochemistry-of-thermal-electrocyclic-reactions'),
+ 'e1cb':('11.10 · E1 and E1cB','11-10-the-e1-and-e1cb-reactions'),
+ 'bromination':('8.1 · Addition of halogens to alkenes','8-1-addition-of-halogens-to-alkenes'),
+ 'halohydrin':('8.3 · Halohydrins from alkenes','8-3-halohydrins-from-alkenes-addition-of-ho-x'),
+ 'nitration':('16.2 · Electrophilic aromatic substitution','16-2-other-aromatic-substitutions'),
+ 'esterification':('21.3 · Reactions of carboxylic acids','21-3-reactions-of-carboxylic-acids'),
+ 'imine':('19.8 · Imine and enamine formation','19-8-nucleophilic-addition-of-amines-imine-and-enamine-formation'),
+ 'aldolcond':('23.3 · Dehydration of aldol products','23-3-dehydration-of-aldol-products-synthesis-of-enones'),
+ 'epoxideacid':('18.5 · Epoxide ring opening','18-5-reactions-of-epoxides-ring-opening'),
 }
 sources={k:{'title':v[0],'url':BASE+v[1],'publisher':'John McMurry / OpenStax','checked':'2026-10-12'} for k,v in sources.items()}
 sources['tst']={'title':'IUPAC Gold Book · Transition state theory','url':'https://goldbook.iupac.org/terms/view/T06470','publisher':'IUPAC','checked':'2026-10-12'}
+sources.update({
+ 'e1cb':{'title':'LibreTexts · E1 and E1cB mechanisms','url':'https://chem.libretexts.org/Bookshelves/Organic_Chemistry/Organic_Chemistry_(Morsch_et_al.)/11%3A_Reactions_of_Alkyl_Halides-_Nucleophilic_Substitutions_and_Eliminations/11.10%3A_The_E1_and_E1cB_Reactions','publisher':'Chemistry LibreTexts','checked':'2026-10-12'},
+ 'bromination':{'title':'OpenStax · Addition of halogens to alkenes','url':'https://openstax.org/books/organic-chemistry/pages/8-2-addition-of-halogens-to-alkenes','publisher':'John McMurry / OpenStax','checked':'2026-10-12'},
+ 'halohydrin':{'title':'OpenStax · Halohydrins from alkenes','url':'https://openstax.org/books/organic-chemistry/pages/8-3-halohydrins-from-alkenes-addition-of-ho-x','publisher':'John McMurry / OpenStax','checked':'2026-10-12'},
+ 'nitration':{'title':'OpenStax · Electrophilic aromatic substitution','url':'https://openstax.org/books/organic-chemistry/pages/16-2-other-aromatic-substitutions','publisher':'John McMurry / OpenStax','checked':'2026-10-12'},
+ 'esterification':{'title':'OpenStax · Fischer esterification','url':'https://openstax.org/books/organic-chemistry/pages/21-3-reactions-of-carboxylic-acids','publisher':'John McMurry / OpenStax','checked':'2026-10-12'},
+ 'imine':{'title':'Chemistry LibreTexts · Imine and enamine formation','url':'https://chem.libretexts.org/Bookshelves/Organic_Chemistry/Organic_Chemistry_(Morsch_et_al.)/19%3A_Aldehydes_and_Ketones-_Nucleophilic_Addition_Reactions/19.08%3A_Nucleophilic_Addition_of_Amines_-_Imine_and_Enamine_Formation','publisher':'Chemistry LibreTexts','checked':'2026-10-12'},
+ 'aldolcond':{'title':'Chemistry LibreTexts · Dehydration of aldol products','url':'https://chem.libretexts.org/Bookshelves/Organic_Chemistry/Organic_Chemistry_(OpenStax)/23%3A_Carbonyl_Condensation_Reactions/23.03%3A_Dehydration_of_Aldol_Products_-_Synthesis_of_Enones','publisher':'Chemistry LibreTexts','checked':'2026-10-12'},
+ 'epoxideacid':{'title':'OpenStax · Acid-catalyzed epoxide ring opening','url':'https://openstax.org/books/organic-chemistry/pages/18-5-reactions-of-epoxides-ring-opening','publisher':'John McMurry / OpenStax','checked':'2026-10-12'},
+})
 
 axes=[
  {'key':'S','name':'电子态','en':'Electronic state','question':'以什么电子态参与？','values':{'1':'闭壳层 / 成对电子','2':'开壳层 / 自由基','3':'激发态 / 态变换'},'note':'这里按反应事件涉及的电子态标记；S2 不表示产物一定仍是自由基。S3 与 S1/S2 可能重叠。'},
@@ -64,7 +82,9 @@ def eliminate(eq):
 
 reactions=[]
 def add(id,name,zh,family,equation,conditions,summary,steps,refs,facts,scope,calc='barrier',level='基础',note=''):
- reactions.append(dict(id=id,name=name,zh=zh,family=family,equation=equation,conditions=conditions,summary=summary,steps=steps,sources=refs,facts=facts,scope=scope,calc=calc,level=level,note=note))
+ reactions.append(dict(id=id,name=name,zh=zh,family=family,equation=equation,conditions=conditions,summary=summary,steps=steps,sources=refs,facts=facts,scope=scope,calc=calc,level=level,note=note,
+   mechanismComplete=True,
+   mechanismNote='完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。'))
 
 add('proton-transfer','Proton transfer','直接质子转移','酸碱反应','CH₃CO₂H + CN⁻ ⇌ CH₃CO₂⁻ + HCN','同一溶剂、同一 pKa 标度下讨论平衡。','H 改变连接对象：与 SN2 共享“联系替换”的编码。',[pt('CH₃CO₂H + CN⁻ ⇌ CH₃CO₂⁻ + HCN')],['acid'],[['pKa(CH₃CO₂H)','4.76 · 教材近似值'],['pKa(HCN)','9.31 · 教材近似值'],['K 的模型','10^(9.31 − 4.76) ≈ 3.55 × 10⁴；由两项 pKa 推算，并非实测 K。']], 'pKa 随溶剂、温度与标准态而变；这里用于教材同标度比较。真实溶液可能存在溶剂介导的质子接力。','acid')
 add('lewis','Lewis acid–base association','Lewis 酸碱加合','酸碱反应','NH₃ + BF₃ ⇌ H₃N⁺–BF₃⁻','Lewis donor + electron-deficient acceptor','只需形成一个新的供受体联系，不伴随离去基团。',[step('Donor–acceptor bond formation','1111','NH₃ + BF₃ ⇌ H₃N⁺–BF₃⁻','N 的孤对电子指向缺电子的 B。','n(N) → empty p(B)','N 接近 B；B 的配位几何随加合改变。','lewis')],['lewis'],[['Electron accounting','N 提供一对电子；B 接受。'],['Formal charge','形成普通键表示后 N 为 +1、B 为 −1；总电荷仍为 0。']],'G1 是原教学约定中的“主导接近”，并不否认 B 的局部几何改变。')
@@ -89,6 +109,66 @@ add('radical-chain','Radical chlorination: propagation','自由基氯化链传�
 add('diels-alder','Diels–Alder cycloaddition','Diels–Alder 环加成','周环反应','1,3-butadiene + ethene → cyclohexene','thermal [4+2] cycloaddition；这是最简结构示例。','一个协同事件重排三个 π 联系，产生六元环。',[step('[4+2] cycloaddition','1333','CH₂=CH–CH=CH₂ + CH₂=CH₂ → cyclohexene','三个电子对绕六中心环状路径重排；形成两条新 C–C σ 键和一条新的 π 键。','diene / dienophile frontier orbitals，六电子环状相互作用','diene 需能取 s-cis；两个端点共同靠近 dienophile。','da')],['da','dastereo'],[['Bond bookkeeping','3 π → 1 π + 2 σ。'],['Stereochemistry','典型热反应为 suprafacial / suprafacial。']],'最简乙烯例子不表示易反应。endo 偏好取决于底物与条件，协同也不保证两个新键完全同步形成。')
 add('claisen','Claisen rearrangement','Claisen 重排','周环反应','CH₂=CH–O–CH₂–CH=CH₂ → OHC–CH₂–CH₂–CH=CH₂','thermal [3,3]-sigmatropic rearrangement','断开一条 σ 键、形成另一条 σ 键，π 联系同时移动。',[step('[3,3]-Sigmatropic rearrangement','1333','allyl vinyl ether → pent-4-enal','通过六中心路径：O–allyl σ 键断裂，两个 π 键迁移并形成新 C–C 联系。','六电子环状 orbital overlap','常用 chair-like transition structure 理解构象选择。','cyclic')],['claisen'],[['Product','Allyl vinyl ether gives a γ,δ-unsaturated carbonyl。'],['Shared code','与 Diels–Alder 同为 1333，但成断键拓扑不同。']],'Claisen rearrangement 与 Claisen condensation 不是同一反应。chair-like 是常见模型，不是所有底物的唯一构象。')
 add('electrocyclic','Thermal electrocyclic closure','热电环化','周环反应','1,3-butadiene ⇌ cyclobutene','thermal 4π electrocyclic event','共轭体系两个末端成键，π 键数改变。',[step('4π electrocyclic closure','1333','1,3-butadiene ⇌ cyclobutene','共轭 π 电子重排，末端之间形成新的 σ 键。','4π frontier-orbital symmetry','热 4π 体系采用 conrotatory 模式。','electro')],['electro'],[['Selection rule','Thermal 4π: conrotatory；thermal 6π: disrotatory。'],['Kinetics ≠ thermodynamics','对称性允许不表示在任意条件下净反应有利。']],'本条仅热反应；光化学激发可能改变规则，需要 S3，并超出首版固定编码。')
+
+# Added core reactions. Every discrete proton transfer, bond-forming event, and
+# leaving-group step is represented separately so the displayed path is complete.
+add('e1cb-dehydration','E1cB dehydration','E1cB 型脱水','消除反应','CH₃COCH₂C(OH)(CH₃)₂ ⇌ CH₃COCH=C(CH₃)₂ + H₂O','以二丙酮醇在碱性条件下脱水生成 mesityl oxide 为结构模型。','先形成共振稳定的 enolate，再消除 β-OH；不把它画成一步 E2。',[
+ step('α-Deprotonation to the enolate','1122','CH₃COCH₂C(OH)(CH₃)₂ + HO⁻ ⇌ CH₃COCH⁻C(OH)(CH₃)₂ + H₂O','HO⁻ 的孤对电子指向羰基 α-H；C–H 键电子对留在 α-C，并与 C=O 共轭，enolate 可由氧负离子共振式表示。','n(O) → σ*(C–H); σ(C–H) → π-system','先生成可离域稳定的共轭碱；这一步先于离去基团脱离。','e1'),
+ step('E1cB elimination of hydroxide','1133','CH₃COCH⁻C(OH)(CH₃)₂ → CH₃COCH=C(CH₃)₂ + HO⁻','enolate 的 α-C 电子形成 Cα=Cβ；Cβ–O 键电子对移至氧，羟基以 HO⁻ 离去。','enolate HOMO → σ*(Cβ–O)','Cα 与 Cβ 建立 π 键，离去与成键在第二个独立事件中发生。','e1')],['e1cb','aldolcond'],[['Key distinction','E1cB = deprotonation first, leaving-group loss second.'],['Product','Mesityl oxide is the conjugated enone.']],'这是以二丙酮醇为底物的碱促 E1cB 模型；具体速率控制步骤取决于取代基、溶剂和碱。OH⁻ 是差离去基团，先形成稳定共轭碱是该路径的关键。')
+
+add('alkene-bromination','Bromination of an alkene','烯烃溴化','烯烃反应','CH₂=CH₂ + Br₂ → BrCH₂CH₂Br','Br₂ in an inert solvent; no water or alcohol as competing nucleophile.','先形成桥式溴鎓离子，再由 Br⁻ 从背面开环，得到 anti 加成产物。',[
+ step('Bromonium-ion formation','1133','CH₂=CH₂ + Br₂ → [CH₂–Br⁺–CH₂] + Br⁻','烯烃 π 键进攻 Br₂ 的一个 Br；Br–Br 键电子对移向另一 Br；被进攻的 Br 的孤对电子同时与另一烯碳成键，得到三元环溴鎓离子。','π(C=C) → σ*(Br–Br), n(Br) → p(C)','两个 C–Br 联系桥接同一 Br；不是游离碳正离子。','alkene'),
+ step('Backside bromide ring opening','1122','[CH₂–Br⁺–CH₂] + Br⁻ → BrCH₂CH₂Br','Br⁻ 从桥式 Br 的背面进攻一个碳；被进攻碳与桥式 Br 的 C–Br 键电子对回到 Br，打开三元环。','n(Br⁻) → σ*(C–Br)','背面开环使两个 Br 反面加入；环状中间体被解除。','sn2')],['bromination'],[['Intermediate','Cyclic bromonium ion, not a free carbocation.'],['Stereochemistry','Anti addition; a cyclic alkene gives trans vicinal dibromide.']],'乙烯模型用于显示完整电子步骤；环状、不对称或取代烯烃需额外标注构象、区域选择性及立体化学。第一步的编码为候选扩展。')
+
+add('halohydrin','Halohydrin formation','卤代醇形成','烯烃反应','CH₃CH=CH₂ + Br₂ + H₂O → BrCH₂CH(OH)CH₃ + HBr','Br₂ in water; water is the competing nucleophile and solvent.','桥式溴鎓离子形成后，水优先从较取代端背面进攻；随后去质子化。',[
+ step('Bromonium-ion formation','1133','CH₃CH=CH₂ + Br₂ → [CH₃CH–CH₂–Br]⁺ + Br⁻','C=C π 电子进攻 Br₂；Br–Br 键电子对给 Br⁻；桥式 Br 的孤对电子与第二个烯碳成键，得到溴鎓离子。','π(C=C) → σ*(Br–Br), n(Br) → p(C)','烯烃两个碳被桥式 Br 连结。','alkene'),
+ step('Water opens the bromonium ion','1122','[CH₃CH–CH₂–Br]⁺ + H₂O → BrCH₂CH(OH₂⁺)CH₃','水的氧孤对电子从背面进攻较取代的碳；该碳与桥式 Br 的键电子对移至 Br，产生 oxonium。','n(O) → σ*(C–Br)','背面进攻与桥断裂同时发生；形成 anti 的 C–O 与 C–Br 关系。','sn2'),
+ pt('BrCH₂CH(OH₂⁺)CH₃ + H₂O ⇌ BrCH₂CH(OH)CH₃ + H₃O⁺','另一分子水从 O–H 取质子，O–H 键电子留在产物氧；酸性介质中也可由 Br⁻ 接受该质子。')],['halohydrin'],[['Regioselectivity','Water attacks the more substituted bromonium carbon in the standard aqueous model.'],['Stereochemistry','Anti addition through backside opening.']],'产物为 1-bromopropan-2-ol；图示结构式按骨架方向书写，区域选择性与背面进攻是两条独立判断。以水为大量溶剂时，净计量式还可写成 HBr。')
+
+add('nitration-benzene','Nitration of benzene','苯的硝化','芳香取代','C₆H₆ + HNO₃ → C₆H₅NO₂ + H₂O','concentrated HNO₃ / H₂SO₄; electrophile is NO₂⁺.','完整列出硝鎓离子生成、σ-complex 形成与去质子化恢复芳香性的步骤。',[
+ pt('HNO₃ + H₂SO₄ ⇌ H₂NO₃⁺ + HSO₄⁻','硫酸向硝酸氧原子供质子；硝酸 O–H 键电子回到氧。'),
+ step('Nitronium-ion formation','1111','H₂NO₃⁺ → NO₂⁺ + H₂O','质子化羟基上的 N–O 键电子对随水离去；形成线性 NO₂⁺ 电亲体。','σ(N–OH₂⁺) cleavage; nitronium π system forms','脱水产生的 NO₂⁺ 是芳香亲电取代的实际电亲试剂。','collapse'),
+ step('Aromatic attack and σ-complex formation','1133','C₆H₆ + NO₂⁺ → [C₆H₆NO₂]⁺','苯环 π 电子对进攻 N，形成 C–N σ 键；芳香 π 系统转成可由多个环碳共振稳定的 arenium ion。','π(arene) → acceptor orbital of NO₂⁺','被进攻碳暂时转为 sp³；此中间体已失去芳香稳定。','carbonyl'),
+ step('Deprotonation restores aromaticity','1133','[C₆H₆NO₂]⁺ + HSO₄⁻ → C₆H₅NO₂ + H₂SO₄','HSO₄⁻ 移走连硝基碳上的 H；C–H 键电子回到环中形成 π 键，恢复芳香性并再生 H₂SO₄。','n(HSO₄⁻) → σ*(C–H); σ(C–H) → aromatic π','恢复平面共轭芳香环。','e1')],['nitration'],[['Electrophile','Nitronium ion, NO₂⁺, generated by the acid mixture.'],['Aromaticity','Lost in the σ-complex step and restored by deprotonation.']],'此条是苯硝化的完整教材机理模型。取代苯会影响定位与速率；强酸生成电亲体的具体平衡依水含量而变。芳香进攻/去质子化的 SORG 值为候选。')
+
+add('fischer-esterification','Fischer esterification','Fischer 酯化','羰基反应','CH₃CO₂H + CH₃CH₂OH ⇌ CH₃CO₂CH₂CH₃ + H₂O','acid-catalyzed; water removal or alcohol excess can shift the equilibrium.','完整经历羰基质子化、醇加成、质子转移、脱水与去质子化；不是一步“酸和醇结合”。',[
+ pt('CH₃C(=O)OH + H₃O⁺ ⇌ CH₃C(=OH⁺)OH + H₂O','羰基氧接受质子，增强羰基碳的亲电性。'),
+ carbonyl('CH₃C(=OH⁺)OH + HOCH₂CH₃ → CH₃C(OH)(OH)(O⁺HCH₂CH₃)','n(OEtOH)','乙醇氧孤对电子进攻羰基碳；C=O π 电子转移至原羰基氧，形成四面体 oxonium 中间体。'),
+ pt('CH₃C(OH)(OH)(O⁺HCH₂CH₃) + H₂O ⇌ CH₃C(OH)(OH₂⁺)(OCH₂CH₃) + H₃O⁺','溶剂介导质子转移，将一个 OH 转成较好的离去基团 H₂O，并使乙氧基氧中性。'),
+ step('Collapse of the tetrahedral intermediate','1113','CH₃C(OH)(OH₂⁺)(OCH₂CH₃) → CH₃C(=OH⁺)OCH₂CH₃ + H₂O','另一羟基氧的孤对电子重建 C=O；C–OH₂⁺ 键电子对随水离去。','n(O) → π*(C–O); σ(C–OH₂⁺) cleavage','四面体中心恢复平面羰基结构，生成质子化酯。','collapse'),
+ pt('CH₃C(=OH⁺)OCH₂CH₃ + H₂O ⇌ CH₃CO₂CH₂CH₃ + H₃O⁺','水夺取羰基氧上的质子，酸催化剂再生。')],['esterification'],[['Path type','Acid-catalyzed nucleophilic acyl substitution with a tetrahedral intermediate.'],['Equilibrium','The reaction is reversible; water removal or excess alcohol favors ester.']],'这里把溶剂参与的质子接力写成一个教学质子转移事件；微观上可能由多分子水/醇接力。氧交换与平衡同位素标记不在本站 SORG 主线中展开。')
+
+add('imine-formation','Imine formation from a ketone','酮生成亚胺','羰基反应','(CH₃)₂C=O + CH₃NH₂ ⇌ (CH₃)₂C=NCH₃ + H₂O','mild acid catalysis; avoid strongly acidic conditions that fully protonate the amine.','羰基质子化后胺加成形成 carbinolamine，经质子转移、失水成 iminium，最后去质子化。',[
+ pt('(CH₃)₂C=O + H₃O⁺ ⇌ (CH₃)₂C=OH⁺ + H₂O','酸活化羰基；过强酸会使胺失去亲核性。'),
+ carbonyl('(CH₃)₂C=OH⁺ + CH₃NH₂ → (CH₃)₂C(OH)(NH₂CH₃)⁺','n(N)','甲胺 N 孤对电子进攻羰基碳，C=O π 电子移至氧，形成 carbinolammonium。'),
+ pt('(CH₃)₂C(OH)(NH₂CH₃)⁺ + H₂O ⇌ (CH₃)₂C(OH)(NHCH₃) + H₃O⁺','水夺走氮上的质子，得到中性的 carbinolamine。'),
+ pt('(CH₃)₂C(OH)(NHCH₃) + H₃O⁺ ⇌ (CH₃)₂C(OH₂⁺)(NHCH₃) + H₂O','羟基氧质子化为水离去基团。'),
+ step('Dehydration to the iminium ion','1113','(CH₃)₂C(OH₂⁺)(NHCH₃) → (CH₃)₂C=NH⁺CH₃ + H₂O','氮孤对电子形成 C=N π 键，同时 C–OH₂⁺ 键断裂，水离去，生成 iminium ion。','n(N) → π*(C–N); σ(C–O) cleavage','C=N 双键形成；离去过程中正电荷保留在亚胺氮/π 系统。','collapse'),
+ pt('(CH₃)₂C=NH⁺CH₃ + H₂O ⇌ (CH₃)₂C=NCH₃ + H₃O⁺','水从 N 移走最后一个 N–H 质子，得到中性亚胺并再生酸。')],['imine'],[['Intermediate','Carbinolamine (hemiaminal) → iminium ion → imine.'],['Condition window','Mild acid activates the carbonyl while leaving enough free amine nucleophile.']],'可逆反应；持续移水推动亚胺生成。这里的质子转移用溶剂介导净式表示，不能理解为质子在孤立分子间必然一步直达。',note='亚胺与烯胺形成是不同路径；只有仍有 α-H 的适当羰基底物才可能继续进入烯胺路径。')
+
+add('aldol-condensation','Base-catalyzed aldol condensation','碱催化羟醛缩合','羰基反应','2 (CH₃)₂C=O ⇌ CH₃COCH=C(CH₃)₂ + H₂O','acetone under basic conditions; dehydration gives mesityl oxide.','先经羟醛加成形成 β-hydroxy ketone，再通过 E1cB 脱水；展示加成与缩合的全部五个教学事件。',[
+ pt('(CH₃)₂CO + HO⁻ ⇌ CH₃COCH₂⁻ + H₂O','碱夺取 α-H；C–H 键电子进入 enolate 共振体系。'),
+ carbonyl('CH₃COCH₂⁻ + (CH₃)₂CO → CH₃COCH₂C(O⁻)(CH₃)₂','occupied enolate orbital','enolate α-C 进攻第二分子丙酮羰基碳；受体 C=O π 电子移到氧。'),
+ pt('CH₃COCH₂C(O⁻)(CH₃)₂ + H₂O ⇌ CH₃COCH₂C(OH)(CH₃)₂ + HO⁻','烷氧负离子从水取质子，生成二丙酮醇并再生碱。'),
+ pt('CH₃COCH₂C(OH)(CH₃)₂ + HO⁻ ⇌ CH₃COCH⁻C(OH)(CH₃)₂ + H₂O','继续夺取 α-H，生成脱水前的 enolate。'),
+ step('E1cB loss of hydroxide','1133','CH₃COCH⁻C(OH)(CH₃)₂ → CH₃COCH=C(CH₃)₂ + HO⁻','α-C 电子形成 Cα=Cβ；β-C–O 键电子移至氧，HO⁻ 离去，形成共轭 enone。','enolate HOMO → σ*(Cβ–O)','形成与羰基共轭的双键，碱在总体循环中再生。','e1')],['aldol','aldolcond'],[['Named intermediates','Enolate → β-hydroxy ketone (diacetone alcohol) → enone (mesityl oxide).'],['Condensation boundary','Dehydration is a distinct E1cB sequence after aldol addition.']],'醛/酮底物、温度和碱性决定停在加成物还是继续脱水；此条针对丙酮自羟醛缩合的标准碱促模型。')
+
+add('acid-epoxide','Acid-catalyzed epoxide opening','酸催化环氧开环','取代反应','propylene oxide + HCl → CH₃CH(Cl)CH₂OH','aqueous acid; chloride is the nucleophile.','先质子化环氧氧，再由 Cl⁻ 背面进攻开环，最后去质子化得到醇。',[
+ pt('propylene oxide + H₃O⁺ ⇌ protonated propylene oxide + H₂O','环氧氧接受质子，C–O 键变得更易断裂。'),
+ step('Chloride opens the protonated epoxide','1122','protonated propylene oxide + Cl⁻ → CH₃CH(Cl)CH₂OH₂⁺','Cl⁻ 从背面进攻较取代的环氧碳；对应 C–O 环键电子对移至氧，生成 oxonium。','n(Cl⁻) → σ*(C–O); σ(C–O) → O','进攻碳发生反转；环开裂与 C–Cl 成键耦合，反面加成。','sn2'),
+ pt('CH₃CH(Cl)CH₂OH₂⁺ + H₂O ⇌ CH₃CH(Cl)CH₂OH + H₃O⁺','水夺取 oxonium 上的质子，生成中性氯代醇并再生酸。')],['epoxideacid','epoxide'],[['Regioselectivity','Acidic opening commonly favors attack at the more substituted carbon; substrate effects matter.'],['Stereochemistry','Backside ring opening gives inversion at the attacked carbon and anti relationship.']],'这里用丙烯氧化物加 HCl 示意。酸性环氧开环带有 SN1-like regioselectivity 与 SN2-like backside stereochemistry；不能简单等同于游离碳正离子路径。')
+
+figures={
+ 'e1cb-dehydration':{'src':'https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/E1cb-mechanism.svg/1280px-E1cb-mechanism.svg.png','href':'https://commons.wikimedia.org/wiki/File:E1cb-mechanism.svg','alt':'E1cB elimination mechanism','credit':'Matthias M. · Wikimedia Commons · Public domain'},
+ 'alkene-bromination':{'src':'https://upload.wikimedia.org/wikipedia/commons/3/33/Alkene-bromine-addition-2D-skeletal.png','href':'https://commons.wikimedia.org/wiki/File:Alkene-bromine-addition-2D-skeletal.png','alt':'Bromonium-ion formation and anti opening in alkene bromination','credit':'Benjah-bmm27 · Wikimedia Commons · Public domain'},
+ 'halohydrin':{'src':'https://upload.wikimedia.org/wikipedia/commons/f/fe/NBS_Bromohydrin_Formation_Scheme.png','href':'https://commons.wikimedia.org/wiki/File:NBS_Bromohydrin_Formation_Scheme.png','alt':'Halohydrin formation scheme','credit':'~K · Wikimedia Commons · Public domain; NBS halohydrin scheme'},
+ 'nitration-benzene':{'src':'https://upload.wikimedia.org/wikipedia/commons/7/74/Nitration_of_benzene.svg','href':'https://commons.wikimedia.org/wiki/File:Nitration_of_benzene.svg','alt':'Benzene nitration mechanism','credit':'Yikrazuul · Wikimedia Commons · Public domain'},
+ 'fischer-esterification':{'src':'https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Fischer_esterification_mechanism.svg/1280px-Fischer_esterification_mechanism.svg.png','href':'https://commons.wikimedia.org/wiki/File:Fischer_esterification_mechanism.svg','alt':'Fischer esterification mechanism','credit':'V8rik · Wikimedia Commons · Public domain'},
+ 'imine-formation':{'src':'https://upload.wikimedia.org/wikipedia/commons/c/c8/Mechanism_imine_formation_general.svg','href':'https://commons.wikimedia.org/wiki/File:Mechanism_imine_formation_general.svg','alt':'General imine formation mechanism','credit':'Wikimedia Commons · CC BY-SA 4.0'},
+ 'aldol-condensation':{'src':'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/E1cB_aldol_condensation.svg/1280px-E1cB_aldol_condensation.svg.png','href':'https://commons.wikimedia.org/wiki/File:E1cB_aldol_condensation.svg','alt':'Aldol addition and E1cB dehydration','credit':'Wikimedia Commons · E1cB aldol-condensation scheme'},
+}
+for r in reactions:
+ if r['id'] in figures:r['figure']=figures[r['id']]
 
 payload={'version':'0.1.0','updated':'2026-10-12','axes':axes,'codebook':codebook,'sources':sources,'reactions':reactions}
 (ROOT/'dist'/'data.json').write_text(json.dumps(payload,ensure_ascii=False,indent=2))

@@ -4,10 +4,11 @@ A buildless, responsive teaching atlas of foundational organic reactions. Chines
 
 ## Included
 
-- 23 reaction entries, 39 coded mechanistic events, 7 reaction families.
+- 31 reaction entries, 69 coded mechanistic events, including aromatic substitution, E1cB, halohydrin formation, esterification and imine formation.
 - Search by reaction name, Chinese keyword, orbital description or four-digit code.
 - Independent S/O/R/G filters applied to the **same** event, step-count filters and local favorites.
-- A reader with step selection, original electron-pushing SVG diagrams, coding rationale, scope notes and sources.
+- A complete pathway reader that shows every listed step, its full equation, electron flow and intermediate in sequence, plus step-specific SORG rationale and scope notes.
+- Source-linked, attributed online mechanism figures for selected pathways. These figures supplement the written full mechanisms; generic in-page SVGs are explicitly labeled as local-step schematics.
 - Data panels and interactive equilibrium, concentration-rate and relative-barrier calculators.
 - Deep links such as `#reaction/sn2`, keyboard navigation and responsive layouts.
 
@@ -55,7 +56,7 @@ The `.openai/hosting.json` file belongs to the private Sites deployment and is i
 
 ## Scientific provenance and limits
 
-Mechanisms and pedagogical facts are checked against John McMurry, *Organic Chemistry*, OpenStax (2023), and IUPAC Gold Book. Each entry lists its own sources. These sources do not assign or validate the SORG codes.
+Mechanisms and pedagogical facts are checked against John McMurry, *Organic Chemistry*, OpenStax (2023), Chemistry LibreTexts, and IUPAC Gold Book. Each entry lists its own sources. These sources do not assign or validate the SORG codes.
 
 - The E2 isotope-effect example is substrate-specific; the linked textbook does not fully report the experimental temperature and conditions. It is not assigned to the propyl-bromide model shown above it.
 - The E1/SN1 64:36 example is for tert-butyl chloride at 65 °C in 80% aqueous ethanol.
@@ -63,12 +64,14 @@ Mechanisms and pedagogical facts are checked against John McMurry, *Organic Chem
 - Barrier differences are user-specified **hypothetical inputs**. No DFT/IRC/quantum-chemistry calculation has been performed.
 - The relative-rate model assumes the same temperature, molecularity, standard states and transmission coefficients. It does not infer product ratios.
 - Energy profiles are schematic and have no measured or computed height, depth, or net energy direction.
-- SVG diagrams depict generic local electron-pushing patterns; reaction equations and text specify actual substituents. They are not computed orbitals or optimized transition-state structures.
+- Every reaction record marks its displayed pathway as complete for the named substrate and stated conditions. Some solvent-mediated proton relays or metal speciation are represented by their net teaching event and are called out in scope notes; alternate conditions can follow a different mechanism.
+- Selected Commons image figures are hot-linked and credited with their file page and license next to each figure. They are supporting references; the step-by-step text remains the authoritative pathway for this specific example.
+- The original in-page SVGs depict local electron-pushing motifs, not the whole substrate. They are no longer presented as substitutes for the complete step sequence shown above them.
 
 ## Validation
 
-`node verify.cjs` checks data integrity, codebook and source references, same-event filtering, step counts, empty states, calculator units and invalid-input handling, local asset references and diagram coverage. JavaScript syntax is checked separately. No browser visual/interaction QA has been performed in this environment; the supported browser QA tool was unavailable.
+`node verify.cjs` checks data integrity, full-path metadata, image attribution fields, codebook and source references, same-event filtering, step counts, calculator units and invalid-input handling, local asset references and diagram coverage. JavaScript syntax is checked separately.
 
 ## Content attribution
 
-Educational text and chemistry content: CC BY-NC-SA 4.0. Original SVG schematics are created for this project. No textbook figures are embedded. Access the supporting textbook for free at https://openstax.org/books/organic-chemistry/pages/1-why-this-chapter . See https://creativecommons.org/licenses/by-nc-sa/4.0/ . Source-code use is governed by the same project license unless the owner later chooses a separate code license.
+Educational text and chemistry content: CC BY-NC-SA 4.0. Wikimedia Commons figures remain under the license shown on each Commons file page; author, source page and license are displayed under each figure. OpenStax attribution and license information is at https://openstax.org/books/organic-chemistry/pages/1-why-this-chapter and https://creativecommons.org/licenses/by-nc-sa/4.0/ . Source-code use is governed by the project license unless the owner later chooses a separate code license.
