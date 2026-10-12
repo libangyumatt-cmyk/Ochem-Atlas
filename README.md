@@ -4,12 +4,12 @@ A buildless, responsive teaching atlas of foundational organic reactions. Chines
 
 ## Included
 
-- 31 reaction entries, 69 coded mechanistic events, including aromatic substitution, E1cB, halohydrin formation, esterification and imine formation.
+- 31 reaction entries, 70 coded mechanistic events, including aromatic substitution, E1cB, halohydrin formation, esterification and imine formation.
 - Search by reaction name, Chinese keyword, orbital description or four-digit code.
 - Independent S/O/R/G filters applied to the **same** event, step-count filters and local favorites.
 - A complete pathway reader that shows every listed step, its full equation, electron flow and intermediate in sequence, plus step-specific SORG rationale and scope notes.
 - Source-linked, attributed online mechanism figures for selected pathways. These figures supplement the written full mechanisms; generic in-page SVGs are explicitly labeled as local-step schematics.
-- Data panels and interactive equilibrium, concentration-rate and relative-barrier calculators.
+- Complete mechanism panels with direct online mechanism sources; a two-state orbital-coupling/mixing teaching model accepts explicit orbital-energy-gap and coupling inputs.
 - Deep links such as `#reaction/sn2`, keyboard navigation and responsive layouts.
 
 ## SORG v0.1
@@ -25,7 +25,7 @@ This is a project-specific, provisional **teaching index**, not an IUPAC taxonom
 
 Inherited project assignments: `1111`, `1122`, `2211`, `1333`. The carbonyl code `1113` retains an earlier candidate; `1133` and `2222` are explicitly marked as candidate extensions. “Inherited” means inherited from the project's earlier discussion, **not experimentally validated**. More than one reaction can have the same code.
 
-Use one code for each event. Preserve repeated codes. Aqueous SN1 has ionization, water capture **and deprotonation**, whereas the anionic-capture core model has two events. The Grignard and hydride entries explicitly identify simplified metal speciation; their displayed events do not claim to enumerate every microscopic elementary step.
+Use one code for each event. Preserve repeated codes. Aqueous SN1 has ionization, water capture **and deprotonation**, whereas the anionic-capture core model has two events. The Grignard and lithium aluminum hydride entries now show metal coordination, bond transfer, and aqueous work-up explicitly for the stated model species; solution aggregation and secondary salt equilibria remain part of the scope notes.
 
 ## Local use
 
@@ -35,7 +35,7 @@ Open `dist/index.html` directly in a modern browser. No npm dependencies or runt
 python3 -m http.server 8000 --directory dist
 ```
 
-Sources are external links, but diagrams, data, filtering, favorites and calculators work locally. Favorites are stored only in that browser. They are not synced between devices.
+Sources are external links, but diagrams, data, filtering, favorites and the two-state mixing model work locally. Favorites are stored only in that browser. They are not synced between devices.
 
 ## Update the content
 
@@ -46,7 +46,7 @@ python3 build_data.py
 node verify.cjs
 ```
 
-This produces `dist/data.json` (downloadable structured data) and `dist/data.js` (the same data embedded for offline use). Do not edit only one generated copy.
+This produces `dist/data.json` (downloadable structured data) and `dist/data.js` (the same data embedded for offline use). Do not edit only one generated copy. Reaction detail panels link directly to their online mechanism references.
 
 ## GitHub Pages
 
@@ -58,19 +58,15 @@ The `.openai/hosting.json` file belongs to the private Sites deployment and is i
 
 Mechanisms and pedagogical facts are checked against John McMurry, *Organic Chemistry*, OpenStax (2023), Chemistry LibreTexts, and IUPAC Gold Book. Each entry lists its own sources. These sources do not assign or validate the SORG codes.
 
-- The E2 isotope-effect example is substrate-specific; the linked textbook does not fully report the experimental temperature and conditions. It is not assigned to the propyl-bromide model shown above it.
-- The E1/SN1 64:36 example is for tert-butyl chloride at 65 °C in 80% aqueous ethanol.
-- The acid calculator uses the textbook comparison values 4.76 and 9.31. Cross-solvent or inconsistent-standard-state pKa comparisons are invalid.
-- Barrier differences are user-specified **hypothetical inputs**. No DFT/IRC/quantum-chemistry calculation has been performed.
-- The relative-rate model assumes the same temperature, molecularity, standard states and transmission coefficients. It does not infer product ratios.
+- The two-state model reports eigenvalue splitting and a model-defined mixing index from user-entered Δε and V<sub>DA</sub>. These are not reaction-specific quantum-chemical results; no DFT/IRC calculations have been performed.
 - Energy profiles are schematic and have no measured or computed height, depth, or net energy direction.
-- Every reaction record marks its displayed pathway as complete for the named substrate and stated conditions. Some solvent-mediated proton relays or metal speciation are represented by their net teaching event and are called out in scope notes; alternate conditions can follow a different mechanism.
+- Every reaction record marks its displayed pathway as complete for the named substrate and stated conditions. The selected substrate, reagents and work-up define each pathway; solvent-mediated proton relays are written as net proton-transfer events and identified in scope notes.
 - Selected Commons image figures are hot-linked and credited with their file page and license next to each figure. They are supporting references; the step-by-step text remains the authoritative pathway for this specific example.
 - The original in-page SVGs depict local electron-pushing motifs, not the whole substrate. They are no longer presented as substitutes for the complete step sequence shown above them.
 
 ## Validation
 
-`node verify.cjs` checks data integrity, full-path metadata, image attribution fields, codebook and source references, same-event filtering, step counts, calculator units and invalid-input handling, local asset references and diagram coverage. JavaScript syntax is checked separately.
+`node verify.cjs` checks data integrity, full-path metadata, image attribution fields, codebook and source references, same-event filtering, step counts, orbital-mixing equations and invalid-input handling, local asset references and diagram coverage. JavaScript syntax is checked separately.
 
 ## Content attribution
 

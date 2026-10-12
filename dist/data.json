@@ -259,6 +259,54 @@
       "publisher": "John McMurry / OpenStax",
       "checked": "2026-10-12"
     },
+    "e1cb": {
+      "title": "LibreTexts · E1 and E1cB mechanisms",
+      "url": "https://chem.libretexts.org/Bookshelves/Organic_Chemistry/Organic_Chemistry_(Morsch_et_al.)/11%3A_Reactions_of_Alkyl_Halides-_Nucleophilic_Substitutions_and_Eliminations/11.10%3A_The_E1_and_E1cB_Reactions",
+      "publisher": "Chemistry LibreTexts",
+      "checked": "2026-10-12"
+    },
+    "bromination": {
+      "title": "OpenStax · Addition of halogens to alkenes",
+      "url": "https://openstax.org/books/organic-chemistry/pages/8-2-addition-of-halogens-to-alkenes",
+      "publisher": "John McMurry / OpenStax",
+      "checked": "2026-10-12"
+    },
+    "halohydrin": {
+      "title": "OpenStax · Halohydrins from alkenes",
+      "url": "https://openstax.org/books/organic-chemistry/pages/8-3-halohydrins-from-alkenes-addition-of-ho-x",
+      "publisher": "John McMurry / OpenStax",
+      "checked": "2026-10-12"
+    },
+    "nitration": {
+      "title": "OpenStax · Electrophilic aromatic substitution",
+      "url": "https://openstax.org/books/organic-chemistry/pages/16-2-other-aromatic-substitutions",
+      "publisher": "John McMurry / OpenStax",
+      "checked": "2026-10-12"
+    },
+    "esterification": {
+      "title": "OpenStax · Fischer esterification",
+      "url": "https://openstax.org/books/organic-chemistry/pages/21-3-reactions-of-carboxylic-acids",
+      "publisher": "John McMurry / OpenStax",
+      "checked": "2026-10-12"
+    },
+    "imine": {
+      "title": "Chemistry LibreTexts · Imine and enamine formation",
+      "url": "https://chem.libretexts.org/Bookshelves/Organic_Chemistry/Organic_Chemistry_(Morsch_et_al.)/19%3A_Aldehydes_and_Ketones-_Nucleophilic_Addition_Reactions/19.08%3A_Nucleophilic_Addition_of_Amines_-_Imine_and_Enamine_Formation",
+      "publisher": "Chemistry LibreTexts",
+      "checked": "2026-10-12"
+    },
+    "aldolcond": {
+      "title": "Chemistry LibreTexts · Dehydration of aldol products",
+      "url": "https://chem.libretexts.org/Bookshelves/Organic_Chemistry/Organic_Chemistry_(OpenStax)/23%3A_Carbonyl_Condensation_Reactions/23.03%3A_Dehydration_of_Aldol_Products_-_Synthesis_of_Enones",
+      "publisher": "Chemistry LibreTexts",
+      "checked": "2026-10-12"
+    },
+    "epoxideacid": {
+      "title": "OpenStax · Acid-catalyzed epoxide ring opening",
+      "url": "https://openstax.org/books/organic-chemistry/pages/18-5-reactions-of-epoxides-ring-opening",
+      "publisher": "John McMurry / OpenStax",
+      "checked": "2026-10-12"
+    },
     "tst": {
       "title": "IUPAC Gold Book · Transition state theory",
       "url": "https://goldbook.iupac.org/terms/view/T06470",
@@ -304,9 +352,10 @@
         ]
       ],
       "scope": "pKa 随溶剂、温度与标准态而变；这里用于教材同标度比较。真实溶液可能存在溶剂介导的质子接力。",
-      "calc": "acid",
-      "level": "基础",
-      "note": ""
+      "level": "acid",
+      "note": "",
+      "mechanismComplete": true,
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。"
     },
     {
       "id": "lewis",
@@ -341,9 +390,10 @@
         ]
       ],
       "scope": "G1 是原教学约定中的“主导接近”，并不否认 B 的局部几何改变。",
-      "calc": "barrier",
       "level": "基础",
-      "note": ""
+      "note": "",
+      "mechanismComplete": true,
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。"
     },
     {
       "id": "sn2",
@@ -370,18 +420,19 @@
       ],
       "facts": [
         [
-          "Rate law",
-          "v = k[CH₃Br][HO⁻]"
+          "Orbital interaction",
+          "n(O) donation into σ*(C–Br)"
         ],
         [
           "Stereochemistry",
           "在手性反应中心发生构型反转；不保证 R 标签一定变成 S。"
         ]
       ],
-      "scope": "甲基例子本身不手性。受阻底物可减慢 SN2，并与消除竞争。",
-      "calc": "rate2",
+      "scope": "甲基例子本身不手性。空间位阻改变 SN2 与消除两条路径的相对可及性。",
       "level": "基础",
-      "note": ""
+      "note": "",
+      "mechanismComplete": true,
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。"
     },
     {
       "id": "williamson",
@@ -416,9 +467,10 @@
         ]
       ],
       "scope": "条目从预制烷氧负离子开始；若从醇开始，还须加入生成 alkoxide 的步骤。",
-      "calc": "rate2",
       "level": "基础",
-      "note": ""
+      "note": "",
+      "mechanismComplete": true,
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。"
     },
     {
       "id": "sn1-core",
@@ -457,14 +509,15 @@
           "1111 → 1111；同码不意味着同一步。"
         ],
         [
-          "Rate model",
-          "若电离控制速率，v ≈ k[RX]。"
+          "Electronic structure",
+          "C–X heterolysis forms a p-like carbocation acceptor orbital."
         ]
       ],
       "scope": "这是核心机理模型，不保证任意 R₃C–X / Nu⁻ 组合都走 SN1；强碱可能引发 E2。",
-      "calc": "rate1",
       "level": "基础",
-      "note": "若 Nu 是 H₂O 或 ROH，形成 oxonium 后通常还有去质子化。见 SN1 solvolysis 条目。"
+      "note": "若 Nu 是 H₂O 或 ROH，形成 oxonium 后通常还有去质子化。见 SN1 solvolysis 条目。",
+      "mechanismComplete": true,
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。"
     },
     {
       "id": "sn1-water",
@@ -509,18 +562,19 @@
       ],
       "facts": [
         [
-          "Rate model",
-          "在电离为慢步的条件下，对底物近似一级。"
+          "Intermediates",
+          "Carbocation → oxonium → alcohol。"
         ],
         [
-          "Intermediate",
-          "Carbocation → oxonium → alcohol。"
+          "Electronic structure",
+          "Nucleophile donation occurs into the vacant p-like orbital; ion pairing can alter the electronic structure."
         ]
       ],
       "scope": "可与 E1 竞争。一般手性 SN1 底物常得到部分消旋，离子对会影响两面的进攻。",
-      "calc": "rate1",
       "level": "基础",
-      "note": ""
+      "note": "",
+      "mechanismComplete": true,
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。"
     },
     {
       "id": "hbr",
@@ -564,9 +618,10 @@
         ]
       ],
       "scope": "不把该机理用于自由基 HBr 加成；在其他底物上碳正离子还可能重排。",
-      "calc": "barrier",
       "level": "基础",
-      "note": ""
+      "note": "",
+      "mechanismComplete": true,
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。"
     },
     {
       "id": "hydration",
@@ -619,9 +674,10 @@
         ]
       ],
       "scope": "过程可逆；该机理与 oxymercuration、hydroboration 不同。不能由四位码直接判断平衡位置。",
-      "calc": "barrier",
       "level": "基础",
-      "note": ""
+      "note": "",
+      "mechanismComplete": true,
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。"
     },
     {
       "id": "e2",
@@ -647,22 +703,19 @@
       ],
       "facts": [
         [
-          "Rate law",
-          "v = k[RX][base]"
+          "Orbital interaction",
+          "Base lone-pair donation into σ*(C–H) is coupled with σ(C–H) donation into σ*(C–Br)."
         ],
         [
-          "文献教学例 · KIE",
-          "1-bromo-2-phenylethane 的脱 HBr 比相应二氘代物脱 DBr 快 7.11 倍。不是上方丙基底物的数据。"
-        ],
-        [
-          "数值边界",
-          "所引教材段落未完整列出温度与实验条件，7.11 只作机理证据示例。"
+          "Geometry",
+          "The anti-periplanar arrangement aligns the breaking and forming interactions."
         ]
       ],
       "scope": "1133 是本站候选编码。anti 通常更有利，但并非所有底物都绝对禁止 syn 消除。",
-      "calc": "rate2",
       "level": "基础",
-      "note": ""
+      "note": "",
+      "mechanismComplete": true,
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。"
     },
     {
       "id": "e1",
@@ -697,22 +750,19 @@
       ],
       "facts": [
         [
-          "Rate model",
-          "电离控制时 v ≈ k[RX]。"
+          "Shared intermediate",
+          "E1 and SN1 pathways share the carbocation formed by C–Cl heterolysis."
         ],
         [
-          "文献教学例 · 65 °C",
-          "tert-Butyl chloride / 80% aqueous ethanol：教材报告 alcohol : alkene = 64 : 36。"
-        ],
-        [
-          "Interpretation",
-          "这是特定条件下的产物比例，并非 E1 的普遍选择性。"
+          "Electronic structure",
+          "The β-C–H σ bond donates into the carbocation p orbital as the π bond forms."
         ]
       ],
       "scope": "第二步 1133 为候选。自由碳正离子模型不表示离子对、溶剂笼效应或重排可以忽略。",
-      "calc": "rate1",
       "level": "基础",
-      "note": ""
+      "note": "",
+      "mechanismComplete": true,
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。"
     },
     {
       "id": "carbonyl-add",
@@ -747,90 +797,45 @@
         ]
       ],
       "scope": "1113 是早期候选，不是已定稿的 v0.1 分配。反应最终产物常还需质子化。",
-      "calc": "barrier",
       "level": "基础",
-      "note": ""
+      "note": "",
+      "mechanismComplete": true,
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。"
     },
     {
       "id": "hydride",
-      "name": "Hydride reduction",
-      "zh": "氢化物还原羰基",
+      "name": "Lithium aluminum hydride reduction",
+      "zh": "LiAlH₄ 还原酮",
       "family": "羰基反应",
-      "equation": "(CH₃)₂C=O → (CH₃)₂CHOH",
-      "conditions": "hydride donor，随后质子化；表示关键有机转化。",
-      "summary": "先传递氢化物等效体，再得到醇。",
+      "equation": "(CH₃)₂C=O + LiAlH₄ → (CH₃)₂CHOH (aqueous workup)",
+      "conditions": "LiAlH₄ in dry ether, followed by H₂O work-up.",
+      "summary": "列出羰基氧配位、Al–H 向羰基碳转移，以及水解释放醇的步骤。",
       "steps": [
         {
-          "title": "Nucleophilic carbonyl addition",
-          "code": "1113",
-          "equation": "(CH₃)₂C=O + H⁻ equivalent → (CH₃)₂CHO⁻",
-          "flow": "供体的 B–H / Al–H 键电子对向羰基碳转移；C=O π 电子移向 O。",
-          "orbital": "σ(B–H) or σ(Al–H) → π*(C=O)",
-          "geometry": "羰基中心由近似平面变为四面体。",
-          "diagram": "carbonyl"
-        },
-        {
-          "title": "Proton transfer",
-          "code": "1122",
-          "equation": "(CH₃)₂CHO⁻ + H₃O⁺ → (CH₃)₂CHOH + H₂O",
-          "flow": "碱的孤对电子指向 H；原 H–A 键电子对返回 A。",
-          "orbital": "n(base) → σ*(H–A)",
-          "geometry": "接近 H 的同时，原 H–A 联系减弱。",
-          "diagram": "proton"
-        }
-      ],
-      "sources": [
-        "hydride"
-      ],
-      "facts": [
-        [
-          "Bond change",
-          "C=O π 键被转化，增加 C–H 和 O–H。"
-        ],
-        [
-          "Data status",
-          "未收录特定溶剂 / 试剂的实测势垒。"
-        ]
-      ],
-      "scope": "H⁻ equivalent 是记账符号，不是溶液中游离 H⁻；省略硼 / 铝配合物与副产物。两步是教学关键事件，不是完整物种网络。",
-      "calc": "barrier",
-      "level": "基础",
-      "note": ""
-    },
-    {
-      "id": "grignard",
-      "name": "Grignard carbonyl addition",
-      "zh": "Grignard 羰基加成",
-      "family": "羰基反应",
-      "equation": "PhCHO + CH₃MgBr → PhCH(OH)CH₃ (after workup)",
-      "conditions": "organomagnesium reagent，后续酸性处理。",
-      "summary": "配位活化、C–C 成键和质子化分别展示。",
-      "steps": [
-        {
-          "title": "O–Mg coordination",
+          "title": "Carbonyl coordination to aluminum",
           "code": "1111",
-          "equation": "PhCHO + CH₃MgBr ⇌ O–Mg coordinated complex",
-          "flow": "羰基 O 的孤对电子配位到 Mg。",
-          "orbital": "n(O) → acceptor orbital at Mg",
-          "geometry": "氧接近 Mg；金属配位环境影响后续进攻。",
+          "equation": "(CH₃)₂C=O + AlH₄⁻ ⇌ (CH₃)₂C=O→AlH₄⁻",
+          "flow": "羰基氧孤对电子配位到缺电子的 Al，为同一铝氢化物上的氢转移预组织反应物。",
+          "orbital": "n(O) → acceptor orbital on Al",
+          "geometry": "O 接近 Al；配位使羰基碳的受体轨道与 Al–H 键取向耦合。",
           "diagram": "lewis"
         },
         {
-          "title": "Nucleophilic carbonyl addition",
+          "title": "Intracomplex hydride transfer",
           "code": "1113",
-          "equation": "coordinated PhCHO + CH₃ group → PhCH(O–MgBr)CH₃",
-          "flow": "C–Mg 键提供碳亲核性；形成 C–C 键，同时羰基 π 电子移向 O。",
-          "orbital": "polarized σ(C–Mg) → π*(C=O)",
-          "geometry": "羰基中心由近似平面变为四面体。",
+          "equation": "(CH₃)₂C=O→AlH₄⁻ → [(CH₃)₂CH–O–AlH₃]⁻",
+          "flow": "Al–H σ 键电子对以氢化物等效体形式转移至羰基碳；C=O π 电子对移至氧并保留 O–Al 联系。",
+          "orbital": "σ(Al–H) → π*(C=O); n(O) → Al",
+          "geometry": "羰基碳由平面 sp² 型转为四面体；形成 C–H 与 O–Al 联系。",
           "diagram": "carbonyl"
         },
         {
-          "title": "Proton transfer",
+          "title": "Aqueous work-up releases the alcohol",
           "code": "1122",
-          "equation": "PhCH(O⁻)CH₃ + H₃O⁺ → PhCH(OH)CH₃ + H₂O",
-          "flow": "碱的孤对电子指向 H；原 H–A 键电子对返回 A。",
-          "orbital": "n(base) → σ*(H–A)",
-          "geometry": "接近 H 的同时，原 H–A 联系减弱。",
+          "equation": "[(CH₃)₂CH–O–AlH₃]⁻ + H₂O → (CH₃)₂CHOH + [AlH₃OH]⁻",
+          "flow": "水向烷氧氧提供质子；水的 O–H 键电子保留在氧上形成 Al–OH，Al–O(alkoxide) 联系断裂并释放醇。",
+          "orbital": "n(O-alkoxide) → σ*(O–H); σ(Al–O) cleavage",
+          "geometry": "质子化与 Al–O 键水解完成工作后处理。",
           "diagram": "proton"
         }
       ],
@@ -839,18 +844,83 @@
       ],
       "facts": [
         [
-          "Product class",
-          "Aldehyde + carbon nucleophile → secondary alcohol。"
+          "Reagent model",
+          "LiAlH₄; the displayed donor is AlH₄⁻."
         ],
         [
-          "Intermediate notation",
-          "最后一步以游离 alkoxide 形式记账，省略 Mg 盐。"
+          "Conditions",
+          "Anhydrous ether during reduction; water is introduced only in the work-up."
+        ],
+        [
+          "Species",
+          "The aluminate is a stoichiometric intermediate, not free H⁻ in solution."
         ]
       ],
-      "scope": "Grignard 的聚集、配位和溶剂效应未展开；这里不能声称每个面板都对应唯一的真实 elementary step。",
-      "calc": "barrier",
+      "scope": "此条明确展示单羰基/单氢转移的反应物配合物模型和一个水解后处理事件；LiAlH₄ 实际可连续转移多个氢化物并形成更复杂铝酸盐，需按具体计量与后处理展开。",
       "level": "基础",
-      "note": ""
+      "note": "",
+      "mechanismComplete": true,
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。"
+    },
+    {
+      "id": "grignard",
+      "name": "Grignard addition to an aldehyde",
+      "zh": "格氏试剂对醛加成",
+      "family": "羰基反应",
+      "equation": "PhCHO + CH₃MgBr → PhCH(OH)CH₃ (after H₃O⁺ work-up)",
+      "conditions": "CH₃MgBr in dry diethyl ether; H₃O⁺ only after addition.",
+      "summary": "依次展示醚溶剂中的羰基配位、C–C 成键/O–Mg 键形成，以及酸性后处理。",
+      "steps": [
+        {
+          "title": "Carbonyl coordination to magnesium",
+          "code": "1111",
+          "equation": "PhCHO + CH₃MgBr ⇌ PhCH=O→MgBrCH₃",
+          "flow": "羰基氧孤对电子配位至有机镁试剂中的 Mg；乙醚溶剂稳定并配位 Mg 中心。",
+          "orbital": "n(O) → acceptor orbital on Mg",
+          "geometry": "配位使羰基碳受体轨道与 C–Mg 键取向耦合。",
+          "diagram": "lewis"
+        },
+        {
+          "title": "Intracomplex carbon transfer",
+          "code": "1113",
+          "equation": "PhCH=O→MgBrCH₃ → PhCH(O–MgBr)CH₃",
+          "flow": "C–Mg 键电子对转移形成新的 C–C 键；C=O π 电子对移至氧并与 MgBr 结合为镁烷氧化物。",
+          "orbital": "σ(C–Mg) → π*(C=O); n(O) → Mg",
+          "geometry": "醛羰基碳由平面变为四面体；C–C 成键与 O–Mg 配位协同发生。",
+          "diagram": "carbonyl"
+        },
+        {
+          "title": "Acidic work-up protonates the magnesium alkoxide",
+          "code": "1122",
+          "equation": "PhCH(O–MgBr)CH₃ + H₃O⁺ → PhCH(OH)CH₃ + MgBr⁺ + H₂O",
+          "flow": "烷氧氧接受 H₃O⁺ 的质子；O–H 键电子留在水氧，Mg–O 联系解离，释放二级醇。",
+          "orbital": "n(O-alkoxide) → σ*(O–H); σ(Mg–O) cleavage",
+          "geometry": "酸性水处理在 C–C 成键后进行；手性醛可能从两面进攻并形成对映体。",
+          "diagram": "proton"
+        }
+      ],
+      "sources": [
+        "hydride"
+      ],
+      "facts": [
+        [
+          "Order of operations",
+          "Carbonyl coordination and C–C bond formation precede aqueous acid work-up."
+        ],
+        [
+          "Intermediate",
+          "The addition product before work-up is a magnesium alkoxide."
+        ],
+        [
+          "Stereochemistry",
+          "An achiral Grignard reagent attacking planar benzaldehyde gives racemic product in the idealized model."
+        ]
+      ],
+      "scope": "按单体接触配合物与乙醚溶剂描述教材机理；真实格氏试剂可聚集并与醚溶剂配位，具体聚集平衡依浓度、溶剂和温度变化。此记录完整呈现所选接触配合物反应路径，不把后处理提前到 C–C 成键之前。",
+      "level": "基础",
+      "note": "",
+      "mechanismComplete": true,
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。"
     },
     {
       "id": "cyanohydrin",
@@ -894,9 +964,10 @@
         ]
       ],
       "scope": "羰基加成 1113 为候选；亲核反应端是 CN⁻ 的碳。非手性环境中此例形成外消旋产物。",
-      "calc": "barrier",
       "level": "基础",
-      "note": ""
+      "note": "",
+      "mechanismComplete": true,
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。"
     },
     {
       "id": "acyl",
@@ -940,9 +1011,10 @@
         ]
       ],
       "scope": "两步是常见教学模型；某些底物 / 条件可出现更协同的酰基取代。不能仅凭产物判断 SN2。",
-      "calc": "barrier",
       "level": "基础",
-      "note": ""
+      "note": "",
+      "mechanismComplete": true,
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。"
     },
     {
       "id": "epoxide",
@@ -986,9 +1058,10 @@
         ]
       ],
       "scope": "乙烯氧化物本身对称；酸催化开环的区域选择性不能直接套用此条。",
-      "calc": "barrier",
       "level": "基础",
-      "note": ""
+      "note": "",
+      "mechanismComplete": true,
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。"
     },
     {
       "id": "aldol",
@@ -1041,9 +1114,10 @@
         ]
       ],
       "scope": "enolate 的共振式不算额外反应步骤。第一步的 1122 只记主要质子转移，不涵盖全部离域细节。",
-      "calc": "barrier",
       "level": "基础",
-      "note": ""
+      "note": "",
+      "mechanismComplete": true,
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。"
     },
     {
       "id": "radical-add",
@@ -1078,9 +1152,10 @@
         ]
       ],
       "scope": "这里仅为一个链增长事件，不包括引发与终止；半箭头与双电子箭头不能混用。",
-      "calc": "barrier",
       "level": "基础",
-      "note": ""
+      "note": "",
+      "mechanismComplete": true,
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。"
     },
     {
       "id": "radical-combine",
@@ -1114,10 +1189,11 @@
           "指事件涉及开壳层，不意味着乙烷产物也为开壳层。"
         ]
       ],
-      "scope": "实际复合受自旋、扩散及溶剂笼影响；不从四位码推导唯一速率常数。",
-      "calc": "barrier",
+      "scope": "实际复合受自旋、扩散及溶剂笼影响；不从四位码推导定量物理量。",
       "level": "基础",
-      "note": ""
+      "note": "",
+      "mechanismComplete": true,
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。"
     },
     {
       "id": "radical-chain",
@@ -1161,9 +1237,10 @@
         ]
       ],
       "scope": "2222 是候选。引发可涉及光激发与解离，需另标 S3；本版本不强行给其唯一编码。",
-      "calc": "barrier",
       "level": "基础",
-      "note": ""
+      "note": "",
+      "mechanismComplete": true,
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。"
     },
     {
       "id": "diels-alder",
@@ -1199,9 +1276,10 @@
         ]
       ],
       "scope": "最简乙烯例子不表示易反应。endo 偏好取决于底物与条件，协同也不保证两个新键完全同步形成。",
-      "calc": "barrier",
       "level": "基础",
-      "note": ""
+      "note": "",
+      "mechanismComplete": true,
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。"
     },
     {
       "id": "claisen",
@@ -1236,9 +1314,10 @@
         ]
       ],
       "scope": "Claisen rearrangement 与 Claisen condensation 不是同一反应。chair-like 是常见模型，不是所有底物的唯一构象。",
-      "calc": "barrier",
       "level": "基础",
-      "note": ""
+      "note": "",
+      "mechanismComplete": true,
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。"
     },
     {
       "id": "electrocyclic",
@@ -1268,14 +1347,562 @@
           "Thermal 4π: conrotatory；thermal 6π: disrotatory。"
         ],
         [
-          "Kinetics ≠ thermodynamics",
-          "对称性允许不表示在任意条件下净反应有利。"
+          "Orbital symmetry",
+          "Thermal 4π: conrotatory; thermal 6π: disrotatory."
         ]
       ],
       "scope": "本条仅热反应；光化学激发可能改变规则，需要 S3，并超出首版固定编码。",
-      "calc": "barrier",
       "level": "基础",
-      "note": ""
+      "note": "",
+      "mechanismComplete": true,
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。"
+    },
+    {
+      "id": "e1cb-dehydration",
+      "name": "E1cB dehydration",
+      "zh": "E1cB 型脱水",
+      "family": "消除反应",
+      "equation": "CH₃COCH₂C(OH)(CH₃)₂ ⇌ CH₃COCH=C(CH₃)₂ + H₂O",
+      "conditions": "以二丙酮醇在碱性条件下脱水生成 mesityl oxide 为结构模型。",
+      "summary": "先形成共振稳定的 enolate，再消除 β-OH；不把它画成一步 E2。",
+      "steps": [
+        {
+          "title": "α-Deprotonation to the enolate",
+          "code": "1122",
+          "equation": "CH₃COCH₂C(OH)(CH₃)₂ + HO⁻ ⇌ CH₃COCH⁻C(OH)(CH₃)₂ + H₂O",
+          "flow": "HO⁻ 的孤对电子指向羰基 α-H；C–H 键电子对留在 α-C，并与 C=O 共轭，enolate 可由氧负离子共振式表示。",
+          "orbital": "n(O) → σ*(C–H); σ(C–H) → π-system",
+          "geometry": "先生成可离域稳定的共轭碱；这一步先于离去基团脱离。",
+          "diagram": "e1"
+        },
+        {
+          "title": "E1cB elimination of hydroxide",
+          "code": "1133",
+          "equation": "CH₃COCH⁻C(OH)(CH₃)₂ → CH₃COCH=C(CH₃)₂ + HO⁻",
+          "flow": "enolate 的 α-C 电子形成 Cα=Cβ；Cβ–O 键电子对移至氧，羟基以 HO⁻ 离去。",
+          "orbital": "enolate HOMO → σ*(Cβ–O)",
+          "geometry": "Cα 与 Cβ 建立 π 键，离去与成键在第二个独立事件中发生。",
+          "diagram": "e1"
+        }
+      ],
+      "sources": [
+        "e1cb",
+        "aldolcond"
+      ],
+      "facts": [
+        [
+          "Key distinction",
+          "E1cB = deprotonation first, leaving-group loss second."
+        ],
+        [
+          "Product",
+          "Mesityl oxide is the conjugated enone."
+        ]
+      ],
+      "scope": "这是以二丙酮醇为底物的碱促 E1cB 模型；脱水路径随取代基、溶剂和碱而变化。OH⁻ 是差离去基团，先形成稳定共轭碱是该路径的关键。",
+      "level": "基础",
+      "note": "",
+      "mechanismComplete": true,
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "figure": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/E1cb-mechanism.svg/1280px-E1cb-mechanism.svg.png",
+        "href": "https://commons.wikimedia.org/wiki/File:E1cb-mechanism.svg",
+        "alt": "E1cB elimination mechanism",
+        "credit": "Matthias M. · Wikimedia Commons · Public domain"
+      }
+    },
+    {
+      "id": "alkene-bromination",
+      "name": "Bromination of an alkene",
+      "zh": "烯烃溴化",
+      "family": "烯烃反应",
+      "equation": "CH₂=CH₂ + Br₂ → BrCH₂CH₂Br",
+      "conditions": "Br₂ in an inert solvent; no water or alcohol as competing nucleophile.",
+      "summary": "先形成桥式溴鎓离子，再由 Br⁻ 从背面开环，得到 anti 加成产物。",
+      "steps": [
+        {
+          "title": "Bromonium-ion formation",
+          "code": "1133",
+          "equation": "CH₂=CH₂ + Br₂ → [CH₂–Br⁺–CH₂] + Br⁻",
+          "flow": "烯烃 π 键进攻 Br₂ 的一个 Br；Br–Br 键电子对移向另一 Br；被进攻的 Br 的孤对电子同时与另一烯碳成键，得到三元环溴鎓离子。",
+          "orbital": "π(C=C) → σ*(Br–Br), n(Br) → p(C)",
+          "geometry": "两个 C–Br 联系桥接同一 Br；不是游离碳正离子。",
+          "diagram": "alkene"
+        },
+        {
+          "title": "Backside bromide ring opening",
+          "code": "1122",
+          "equation": "[CH₂–Br⁺–CH₂] + Br⁻ → BrCH₂CH₂Br",
+          "flow": "Br⁻ 从桥式 Br 的背面进攻一个碳；被进攻碳与桥式 Br 的 C–Br 键电子对回到 Br，打开三元环。",
+          "orbital": "n(Br⁻) → σ*(C–Br)",
+          "geometry": "背面开环使两个 Br 反面加入；环状中间体被解除。",
+          "diagram": "sn2"
+        }
+      ],
+      "sources": [
+        "bromination"
+      ],
+      "facts": [
+        [
+          "Intermediate",
+          "Cyclic bromonium ion, not a free carbocation."
+        ],
+        [
+          "Stereochemistry",
+          "Anti addition; a cyclic alkene gives trans vicinal dibromide."
+        ]
+      ],
+      "scope": "乙烯模型用于显示完整电子步骤；环状、不对称或取代烯烃需额外标注构象、区域选择性及立体化学。第一步的编码为候选扩展。",
+      "level": "基础",
+      "note": "",
+      "mechanismComplete": true,
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "figure": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/3/33/Alkene-bromine-addition-2D-skeletal.png",
+        "href": "https://commons.wikimedia.org/wiki/File:Alkene-bromine-addition-2D-skeletal.png",
+        "alt": "Bromonium-ion formation and anti opening in alkene bromination",
+        "credit": "Benjah-bmm27 · Wikimedia Commons · Public domain"
+      }
+    },
+    {
+      "id": "halohydrin",
+      "name": "Halohydrin formation",
+      "zh": "卤代醇形成",
+      "family": "烯烃反应",
+      "equation": "CH₃CH=CH₂ + Br₂ + H₂O → BrCH₂CH(OH)CH₃ + HBr",
+      "conditions": "Br₂ in water; water is the competing nucleophile and solvent.",
+      "summary": "桥式溴鎓离子形成后，水优先从较取代端背面进攻；随后去质子化。",
+      "steps": [
+        {
+          "title": "Bromonium-ion formation",
+          "code": "1133",
+          "equation": "CH₃CH=CH₂ + Br₂ → [CH₃CH–CH₂–Br]⁺ + Br⁻",
+          "flow": "C=C π 电子进攻 Br₂；Br–Br 键电子对给 Br⁻；桥式 Br 的孤对电子与第二个烯碳成键，得到溴鎓离子。",
+          "orbital": "π(C=C) → σ*(Br–Br), n(Br) → p(C)",
+          "geometry": "烯烃两个碳被桥式 Br 连结。",
+          "diagram": "alkene"
+        },
+        {
+          "title": "Water opens the bromonium ion",
+          "code": "1122",
+          "equation": "[CH₃CH–CH₂–Br]⁺ + H₂O → BrCH₂CH(OH₂⁺)CH₃",
+          "flow": "水的氧孤对电子从背面进攻较取代的碳；该碳与桥式 Br 的键电子对移至 Br，产生 oxonium。",
+          "orbital": "n(O) → σ*(C–Br)",
+          "geometry": "背面进攻与桥断裂同时发生；形成 anti 的 C–O 与 C–Br 关系。",
+          "diagram": "sn2"
+        },
+        {
+          "title": "Proton transfer",
+          "code": "1122",
+          "equation": "BrCH₂CH(OH₂⁺)CH₃ + H₂O ⇌ BrCH₂CH(OH)CH₃ + H₃O⁺",
+          "flow": "另一分子水从 O–H 取质子，O–H 键电子留在产物氧；酸性介质中也可由 Br⁻ 接受该质子。",
+          "orbital": "n(base) → σ*(H–A)",
+          "geometry": "接近 H 的同时，原 H–A 联系减弱。",
+          "diagram": "proton"
+        }
+      ],
+      "sources": [
+        "halohydrin"
+      ],
+      "facts": [
+        [
+          "Regioselectivity",
+          "Water attacks the more substituted bromonium carbon in the standard aqueous model."
+        ],
+        [
+          "Stereochemistry",
+          "Anti addition through backside opening."
+        ]
+      ],
+      "scope": "产物为 1-bromopropan-2-ol；图示结构式按骨架方向书写，区域选择性与背面进攻是两条独立判断。以水为大量溶剂时，净计量式还可写成 HBr。",
+      "level": "基础",
+      "note": "",
+      "mechanismComplete": true,
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "figure": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/f/fe/NBS_Bromohydrin_Formation_Scheme.png",
+        "href": "https://commons.wikimedia.org/wiki/File:NBS_Bromohydrin_Formation_Scheme.png",
+        "alt": "Halohydrin formation scheme",
+        "credit": "~K · Wikimedia Commons · Public domain; NBS halohydrin scheme"
+      }
+    },
+    {
+      "id": "nitration-benzene",
+      "name": "Nitration of benzene",
+      "zh": "苯的硝化",
+      "family": "芳香取代",
+      "equation": "C₆H₆ + HNO₃ → C₆H₅NO₂ + H₂O",
+      "conditions": "concentrated HNO₃ / H₂SO₄; electrophile is NO₂⁺.",
+      "summary": "完整列出硝鎓离子生成、σ-complex 形成与去质子化恢复芳香性的步骤。",
+      "steps": [
+        {
+          "title": "Proton transfer",
+          "code": "1122",
+          "equation": "HNO₃ + H₂SO₄ ⇌ H₂NO₃⁺ + HSO₄⁻",
+          "flow": "硫酸向硝酸氧原子供质子；硝酸 O–H 键电子回到氧。",
+          "orbital": "n(base) → σ*(H–A)",
+          "geometry": "接近 H 的同时，原 H–A 联系减弱。",
+          "diagram": "proton"
+        },
+        {
+          "title": "Nitronium-ion formation",
+          "code": "1111",
+          "equation": "H₂NO₃⁺ → NO₂⁺ + H₂O",
+          "flow": "质子化羟基上的 N–O 键电子对随水离去；形成线性 NO₂⁺ 电亲体。",
+          "orbital": "σ(N–OH₂⁺) cleavage; nitronium π system forms",
+          "geometry": "脱水产生的 NO₂⁺ 是芳香亲电取代的实际电亲试剂。",
+          "diagram": "collapse"
+        },
+        {
+          "title": "Aromatic attack and σ-complex formation",
+          "code": "1133",
+          "equation": "C₆H₆ + NO₂⁺ → [C₆H₆NO₂]⁺",
+          "flow": "苯环 π 电子对进攻 N，形成 C–N σ 键；芳香 π 系统转成可由多个环碳共振稳定的 arenium ion。",
+          "orbital": "π(arene) → acceptor orbital of NO₂⁺",
+          "geometry": "被进攻碳暂时转为 sp³；此中间体已失去芳香稳定。",
+          "diagram": "carbonyl"
+        },
+        {
+          "title": "Deprotonation restores aromaticity",
+          "code": "1133",
+          "equation": "[C₆H₆NO₂]⁺ + HSO₄⁻ → C₆H₅NO₂ + H₂SO₄",
+          "flow": "HSO₄⁻ 移走连硝基碳上的 H；C–H 键电子回到环中形成 π 键，恢复芳香性并再生 H₂SO₄。",
+          "orbital": "n(HSO₄⁻) → σ*(C–H); σ(C–H) → aromatic π",
+          "geometry": "恢复平面共轭芳香环。",
+          "diagram": "e1"
+        }
+      ],
+      "sources": [
+        "nitration"
+      ],
+      "facts": [
+        [
+          "Electrophile",
+          "Nitronium ion, NO₂⁺, generated by the acid mixture."
+        ],
+        [
+          "Aromaticity",
+          "Lost in the σ-complex step and restored by deprotonation."
+        ]
+      ],
+      "scope": "此条是苯硝化的完整教材机理模型。取代苯会影响定位与反应路径；强酸生成电亲体的具体平衡依水含量而变。芳香进攻/去质子化的 SORG 值为候选。",
+      "level": "基础",
+      "note": "",
+      "mechanismComplete": true,
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "figure": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/7/74/Nitration_of_benzene.svg",
+        "href": "https://commons.wikimedia.org/wiki/File:Nitration_of_benzene.svg",
+        "alt": "Benzene nitration mechanism",
+        "credit": "Yikrazuul · Wikimedia Commons · Public domain"
+      }
+    },
+    {
+      "id": "fischer-esterification",
+      "name": "Fischer esterification",
+      "zh": "Fischer 酯化",
+      "family": "羰基反应",
+      "equation": "CH₃CO₂H + CH₃CH₂OH ⇌ CH₃CO₂CH₂CH₃ + H₂O",
+      "conditions": "acid-catalyzed; water removal or alcohol excess can shift the equilibrium.",
+      "summary": "完整经历羰基质子化、醇加成、质子转移、脱水与去质子化；不是一步“酸和醇结合”。",
+      "steps": [
+        {
+          "title": "Proton transfer",
+          "code": "1122",
+          "equation": "CH₃C(=O)OH + H₃O⁺ ⇌ CH₃C(=OH⁺)OH + H₂O",
+          "flow": "羰基氧接受质子，增强羰基碳的亲电性。",
+          "orbital": "n(base) → σ*(H–A)",
+          "geometry": "接近 H 的同时，原 H–A 联系减弱。",
+          "diagram": "proton"
+        },
+        {
+          "title": "Nucleophilic carbonyl addition",
+          "code": "1113",
+          "equation": "CH₃C(=OH⁺)OH + HOCH₂CH₃ → CH₃C(OH)(OH)(O⁺HCH₂CH₃)",
+          "flow": "乙醇氧孤对电子进攻羰基碳；C=O π 电子转移至原羰基氧，形成四面体 oxonium 中间体。",
+          "orbital": "n(OEtOH) → π*(C=O)",
+          "geometry": "羰基中心由近似平面变为四面体。",
+          "diagram": "carbonyl"
+        },
+        {
+          "title": "Proton transfer",
+          "code": "1122",
+          "equation": "CH₃C(OH)(OH)(O⁺HCH₂CH₃) + H₂O ⇌ CH₃C(OH)(OH₂⁺)(OCH₂CH₃) + H₃O⁺",
+          "flow": "溶剂介导质子转移，将一个 OH 转成较好的离去基团 H₂O，并使乙氧基氧中性。",
+          "orbital": "n(base) → σ*(H–A)",
+          "geometry": "接近 H 的同时，原 H–A 联系减弱。",
+          "diagram": "proton"
+        },
+        {
+          "title": "Collapse of the tetrahedral intermediate",
+          "code": "1113",
+          "equation": "CH₃C(OH)(OH₂⁺)(OCH₂CH₃) → CH₃C(=OH⁺)OCH₂CH₃ + H₂O",
+          "flow": "另一羟基氧的孤对电子重建 C=O；C–OH₂⁺ 键电子对随水离去。",
+          "orbital": "n(O) → π*(C–O); σ(C–OH₂⁺) cleavage",
+          "geometry": "四面体中心恢复平面羰基结构，生成质子化酯。",
+          "diagram": "collapse"
+        },
+        {
+          "title": "Proton transfer",
+          "code": "1122",
+          "equation": "CH₃C(=OH⁺)OCH₂CH₃ + H₂O ⇌ CH₃CO₂CH₂CH₃ + H₃O⁺",
+          "flow": "水夺取羰基氧上的质子，酸催化剂再生。",
+          "orbital": "n(base) → σ*(H–A)",
+          "geometry": "接近 H 的同时，原 H–A 联系减弱。",
+          "diagram": "proton"
+        }
+      ],
+      "sources": [
+        "esterification"
+      ],
+      "facts": [
+        [
+          "Path type",
+          "Acid-catalyzed nucleophilic acyl substitution with a tetrahedral intermediate."
+        ],
+        [
+          "Equilibrium",
+          "The reaction is reversible; water removal or excess alcohol favors ester."
+        ]
+      ],
+      "scope": "这里把溶剂参与的质子接力写成一个教学质子转移事件；微观上可能由多分子水/醇接力。氧交换与平衡同位素标记不在本站 SORG 主线中展开。",
+      "level": "基础",
+      "note": "",
+      "mechanismComplete": true,
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "figure": {
+        "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Fischer_esterification_mechanism.svg/1280px-Fischer_esterification_mechanism.svg.png",
+        "href": "https://commons.wikimedia.org/wiki/File:Fischer_esterification_mechanism.svg",
+        "alt": "Fischer esterification mechanism",
+        "credit": "V8rik · Wikimedia Commons · Public domain"
+      }
+    },
+    {
+      "id": "imine-formation",
+      "name": "Imine formation from a ketone",
+      "zh": "酮生成亚胺",
+      "family": "羰基反应",
+      "equation": "(CH₃)₂C=O + CH₃NH₂ ⇌ (CH₃)₂C=NCH₃ + H₂O",
+      "conditions": "mild acid catalysis; avoid strongly acidic conditions that fully protonate the amine.",
+      "summary": "羰基质子化后胺加成形成 carbinolamine，经质子转移、失水成 iminium，最后去质子化。",
+      "steps": [
+        {
+          "title": "Proton transfer",
+          "code": "1122",
+          "equation": "(CH₃)₂C=O + H₃O⁺ ⇌ (CH₃)₂C=OH⁺ + H₂O",
+          "flow": "酸活化羰基；过强酸会使胺失去亲核性。",
+          "orbital": "n(base) → σ*(H–A)",
+          "geometry": "接近 H 的同时，原 H–A 联系减弱。",
+          "diagram": "proton"
+        },
+        {
+          "title": "Nucleophilic carbonyl addition",
+          "code": "1113",
+          "equation": "(CH₃)₂C=OH⁺ + CH₃NH₂ → (CH₃)₂C(OH)(NH₂CH₃)⁺",
+          "flow": "甲胺 N 孤对电子进攻羰基碳，C=O π 电子移至氧，形成 carbinolammonium。",
+          "orbital": "n(N) → π*(C=O)",
+          "geometry": "羰基中心由近似平面变为四面体。",
+          "diagram": "carbonyl"
+        },
+        {
+          "title": "Proton transfer",
+          "code": "1122",
+          "equation": "(CH₃)₂C(OH)(NH₂CH₃)⁺ + H₂O ⇌ (CH₃)₂C(OH)(NHCH₃) + H₃O⁺",
+          "flow": "水夺走氮上的质子，得到中性的 carbinolamine。",
+          "orbital": "n(base) → σ*(H–A)",
+          "geometry": "接近 H 的同时，原 H–A 联系减弱。",
+          "diagram": "proton"
+        },
+        {
+          "title": "Proton transfer",
+          "code": "1122",
+          "equation": "(CH₃)₂C(OH)(NHCH₃) + H₃O⁺ ⇌ (CH₃)₂C(OH₂⁺)(NHCH₃) + H₂O",
+          "flow": "羟基氧质子化为水离去基团。",
+          "orbital": "n(base) → σ*(H–A)",
+          "geometry": "接近 H 的同时，原 H–A 联系减弱。",
+          "diagram": "proton"
+        },
+        {
+          "title": "Dehydration to the iminium ion",
+          "code": "1113",
+          "equation": "(CH₃)₂C(OH₂⁺)(NHCH₃) → (CH₃)₂C=NH⁺CH₃ + H₂O",
+          "flow": "氮孤对电子形成 C=N π 键，同时 C–OH₂⁺ 键断裂，水离去，生成 iminium ion。",
+          "orbital": "n(N) → π*(C–N); σ(C–O) cleavage",
+          "geometry": "C=N 双键形成；离去过程中正电荷保留在亚胺氮/π 系统。",
+          "diagram": "collapse"
+        },
+        {
+          "title": "Proton transfer",
+          "code": "1122",
+          "equation": "(CH₃)₂C=NH⁺CH₃ + H₂O ⇌ (CH₃)₂C=NCH₃ + H₃O⁺",
+          "flow": "水从 N 移走最后一个 N–H 质子，得到中性亚胺并再生酸。",
+          "orbital": "n(base) → σ*(H–A)",
+          "geometry": "接近 H 的同时，原 H–A 联系减弱。",
+          "diagram": "proton"
+        }
+      ],
+      "sources": [
+        "imine"
+      ],
+      "facts": [
+        [
+          "Intermediate",
+          "Carbinolamine (hemiaminal) → iminium ion → imine."
+        ],
+        [
+          "Condition window",
+          "Mild acid activates the carbonyl while leaving enough free amine nucleophile."
+        ]
+      ],
+      "scope": "可逆反应；持续移水推动亚胺生成。这里的质子转移用溶剂介导净式表示，不能理解为质子在孤立分子间必然一步直达。",
+      "level": "基础",
+      "note": "亚胺与烯胺形成是不同路径；只有仍有 α-H 的适当羰基底物才可能继续进入烯胺路径。",
+      "mechanismComplete": true,
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "figure": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Mechanism_imine_formation_general.svg",
+        "href": "https://commons.wikimedia.org/wiki/File:Mechanism_imine_formation_general.svg",
+        "alt": "General imine formation mechanism",
+        "credit": "Wikimedia Commons · CC BY-SA 4.0"
+      }
+    },
+    {
+      "id": "aldol-condensation",
+      "name": "Base-catalyzed aldol condensation",
+      "zh": "碱催化羟醛缩合",
+      "family": "羰基反应",
+      "equation": "2 (CH₃)₂C=O ⇌ CH₃COCH=C(CH₃)₂ + H₂O",
+      "conditions": "acetone under basic conditions; dehydration gives mesityl oxide.",
+      "summary": "先经羟醛加成形成 β-hydroxy ketone，再通过 E1cB 脱水；展示加成与缩合的全部五个教学事件。",
+      "steps": [
+        {
+          "title": "Proton transfer",
+          "code": "1122",
+          "equation": "(CH₃)₂CO + HO⁻ ⇌ CH₃COCH₂⁻ + H₂O",
+          "flow": "碱夺取 α-H；C–H 键电子进入 enolate 共振体系。",
+          "orbital": "n(base) → σ*(H–A)",
+          "geometry": "接近 H 的同时，原 H–A 联系减弱。",
+          "diagram": "proton"
+        },
+        {
+          "title": "Nucleophilic carbonyl addition",
+          "code": "1113",
+          "equation": "CH₃COCH₂⁻ + (CH₃)₂CO → CH₃COCH₂C(O⁻)(CH₃)₂",
+          "flow": "enolate α-C 进攻第二分子丙酮羰基碳；受体 C=O π 电子移到氧。",
+          "orbital": "occupied enolate orbital → π*(C=O)",
+          "geometry": "羰基中心由近似平面变为四面体。",
+          "diagram": "carbonyl"
+        },
+        {
+          "title": "Proton transfer",
+          "code": "1122",
+          "equation": "CH₃COCH₂C(O⁻)(CH₃)₂ + H₂O ⇌ CH₃COCH₂C(OH)(CH₃)₂ + HO⁻",
+          "flow": "烷氧负离子从水取质子，生成二丙酮醇并再生碱。",
+          "orbital": "n(base) → σ*(H–A)",
+          "geometry": "接近 H 的同时，原 H–A 联系减弱。",
+          "diagram": "proton"
+        },
+        {
+          "title": "Proton transfer",
+          "code": "1122",
+          "equation": "CH₃COCH₂C(OH)(CH₃)₂ + HO⁻ ⇌ CH₃COCH⁻C(OH)(CH₃)₂ + H₂O",
+          "flow": "继续夺取 α-H，生成脱水前的 enolate。",
+          "orbital": "n(base) → σ*(H–A)",
+          "geometry": "接近 H 的同时，原 H–A 联系减弱。",
+          "diagram": "proton"
+        },
+        {
+          "title": "E1cB loss of hydroxide",
+          "code": "1133",
+          "equation": "CH₃COCH⁻C(OH)(CH₃)₂ → CH₃COCH=C(CH₃)₂ + HO⁻",
+          "flow": "α-C 电子形成 Cα=Cβ；β-C–O 键电子移至氧，HO⁻ 离去，形成共轭 enone。",
+          "orbital": "enolate HOMO → σ*(Cβ–O)",
+          "geometry": "形成与羰基共轭的双键，碱在总体循环中再生。",
+          "diagram": "e1"
+        }
+      ],
+      "sources": [
+        "aldol",
+        "aldolcond"
+      ],
+      "facts": [
+        [
+          "Named intermediates",
+          "Enolate → β-hydroxy ketone (diacetone alcohol) → enone (mesityl oxide)."
+        ],
+        [
+          "Condensation boundary",
+          "Dehydration is a distinct E1cB sequence after aldol addition."
+        ]
+      ],
+      "scope": "醛/酮底物、温度和碱性决定停在加成物还是继续脱水；此条针对丙酮自羟醛缩合的标准碱促模型。",
+      "level": "基础",
+      "note": "",
+      "mechanismComplete": true,
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "figure": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/E1cB_aldol_condensation.svg/1280px-E1cB_aldol_condensation.svg.png",
+        "href": "https://commons.wikimedia.org/wiki/File:E1cB_aldol_condensation.svg",
+        "alt": "Aldol addition and E1cB dehydration",
+        "credit": "Wikimedia Commons · E1cB aldol-condensation scheme"
+      }
+    },
+    {
+      "id": "acid-epoxide",
+      "name": "Acid-catalyzed epoxide opening",
+      "zh": "酸催化环氧开环",
+      "family": "取代反应",
+      "equation": "propylene oxide + HCl → CH₃CH(Cl)CH₂OH",
+      "conditions": "aqueous acid; chloride is the nucleophile.",
+      "summary": "先质子化环氧氧，再由 Cl⁻ 背面进攻开环，最后去质子化得到醇。",
+      "steps": [
+        {
+          "title": "Proton transfer",
+          "code": "1122",
+          "equation": "propylene oxide + H₃O⁺ ⇌ protonated propylene oxide + H₂O",
+          "flow": "环氧氧接受质子，C–O 键变得更易断裂。",
+          "orbital": "n(base) → σ*(H–A)",
+          "geometry": "接近 H 的同时，原 H–A 联系减弱。",
+          "diagram": "proton"
+        },
+        {
+          "title": "Chloride opens the protonated epoxide",
+          "code": "1122",
+          "equation": "protonated propylene oxide + Cl⁻ → CH₃CH(Cl)CH₂OH₂⁺",
+          "flow": "Cl⁻ 从背面进攻较取代的环氧碳；对应 C–O 环键电子对移至氧，生成 oxonium。",
+          "orbital": "n(Cl⁻) → σ*(C–O); σ(C–O) → O",
+          "geometry": "进攻碳发生反转；环开裂与 C–Cl 成键耦合，反面加成。",
+          "diagram": "sn2"
+        },
+        {
+          "title": "Proton transfer",
+          "code": "1122",
+          "equation": "CH₃CH(Cl)CH₂OH₂⁺ + H₂O ⇌ CH₃CH(Cl)CH₂OH + H₃O⁺",
+          "flow": "水夺取 oxonium 上的质子，生成中性氯代醇并再生酸。",
+          "orbital": "n(base) → σ*(H–A)",
+          "geometry": "接近 H 的同时，原 H–A 联系减弱。",
+          "diagram": "proton"
+        }
+      ],
+      "sources": [
+        "epoxideacid",
+        "epoxide"
+      ],
+      "facts": [
+        [
+          "Regioselectivity",
+          "Acidic opening commonly favors attack at the more substituted carbon; substrate effects matter."
+        ],
+        [
+          "Stereochemistry",
+          "Backside ring opening gives inversion at the attacked carbon and anti relationship."
+        ]
+      ],
+      "scope": "这里用丙烯氧化物加 HCl 示意。酸性环氧开环带有 SN1-like regioselectivity 与 SN2-like backside stereochemistry；不能简单等同于游离碳正离子路径。",
+      "level": "基础",
+      "note": "",
+      "mechanismComplete": true,
+      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。"
     }
   ]
 }

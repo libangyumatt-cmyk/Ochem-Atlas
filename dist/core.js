@@ -11,20 +11,14 @@
     const hay=[reaction.name,reaction.zh,reaction.family,reaction.equation,reaction.summary,reaction.conditions,...reaction.steps.flatMap(s=>[s.code,s.title,s.orbital,s.flow])].join(' ').toLowerCase();
     return !q||hay.includes(q);
   }
-  function calculate(type,a,b){
-    if(!Number.isFinite(a)||!Number.isFinite(b))throw new Error('请填入有效数字。');
-    if(type==='acid'){
-      if(Math.abs(a)>100||Math.abs(b)>100)throw new Error('本教学工具的 pKa 输入范围为 −100 到 100。');
-      return {value:Math.pow(10,b-a),log10:b-a};
-    }
-    if(type==='rate1'||type==='rate2'){
-      if(a<0||b<0||a>1000000||b>1000000)throw new Error('浓度倍数须在 0 到 10⁶ 之间。');
-      return {value:type==='rate1'?a:a*b};
-    }
-    if(b<=0||b>5000||Math.abs(a)>200)throw new Error('温度须为 0–5000 K（不含 0）；能垒差须在 ±200 kJ/mol 内。');
-    const log10=1000*a/(R*b*Math.LN10);
-    return {value:Math.exp(1000*a/(R*b)),log10};
+  function orbitalMixing(deltaE,V){
+    if(!Number.isFinite(deltaE)||!Number.isFinite(V))throw new Error('请输入有效的轨道能量与耦合矩阵元。');
+    if(Math.abs(deltaE)>100||Math.abs(V)>100)throw new Error('教学模型输入范围为 −100 到 100 eV。');
+    const splitting=Math.hypot(deltaE,2*V);
+    if(splitting===0)throw new Error('两个未耦合态完全简并时，此混合指标没有定义。');
+    const mixing=(4*V*V)/(splitting*splitting);
+    return {splitting,mixing,lowerStateDonorWeight:deltaE===0?0.5:(1+deltaE/splitting)/2};
   }
-  const api={matches,calculate,R};
+  const api={matches,orbitalMixing,R};
   if(typeof module!=='undefined')module.exports=api;else root.SorgCore=api;
 })(typeof window!=='undefined'?window:globalThis);
