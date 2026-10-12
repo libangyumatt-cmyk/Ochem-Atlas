@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#203c43">
+  <meta name="description" content="SORG 有机反应图谱：以电子态、轨道相互作用、键联系变化和几何变化理解基础反应。逐步编码、电子推动机理与可追溯的教学计算。">
+  <title>SORG · 有机反应图谱</title>
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="data.js" defer></script>
+  <script src="core.js" defer></script>
+  <script src="diagrams.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#atlas">跳至反应库</a>
+<header class="header">
+  <a href="#" class="brand" aria-label="SORG 首页"><span class="brand-mark">S<span>•</span></span><span>SORG<span class="brand-sub">ORGANIC REACTION ATLAS</span></span></a>
+  <nav aria-label="主导航"><a href="#principles">分类原理</a><a href="#atlas">反应图谱</a><a href="#method">方法与来源</a><button id="show-saved" class="nav-save" title="显示本机收藏">收藏 <span id="saved-count">0</span></button></nav>
+</header>
+<main>
+<section class="hero wrap">
+  <div class="hero-text"><div class="eyebrow"><span class="dot"></span> AN ORGANIC CHEMISTRY FIELD GUIDE <span class="version">v0.1</span></div>
+    <h1>从反应名称，<br>走向反应的<span class="accent">结构。</span></h1>
+    <p class="hero-description">用四个维度读懂有机反应。把熟悉的反应拆成电子与原子的变化，让看似不同的机理，在同一张图谱里相遇。</p>
+    <div class="hero-actions"><a class="primary" href="#atlas">探索反应图谱 <span>↗</span></a><a class="quiet-link" href="#principles">四位编码，怎样读？ <span>↓</span></a></div>
+    <div class="hero-meta"><span><b id="reaction-total">23</b> 个反应条目</span><span><b id="event-total">39</b> 个分步事件</span><span>持续修订的教学原型</span></div>
+  </div>
+  <div class="hero-figure"><div class="figure-head"><span>REACTION ANATOMY</span><span>01 / SORG</span></div><div class="hero-tabs" role="group" aria-label="切换反应示例"><button data-hero="sn2" class="active" aria-pressed="true">SN2</button><button data-hero="sn1-core" aria-pressed="false">SN1 · 两步</button><button data-hero="diels-alder" aria-pressed="false">Diels–Alder</button></div><div id="hero-example"></div><div class="figure-foot"><span>从一个事件开始理解</span><button id="hero-open">展开机理 ↗</button></div></div>
+</section>
+
+<section id="principles" class="principles wrap section">
+  <div class="section-heading"><div><div class="eyebrow">01 / THE CLASSIFICATION</div><h2>四个问题，一个编码。</h2></div><p>编码顺序始终是 <strong>S → O → R → G</strong>。<br>同码表示共享粗粒度特征，不代表反应完全相同。</p></div>
+  <div class="axis-grid" id="axis-grid"></div>
+  <div class="principle-note"><span class="note-symbol">∴</span><div><strong>我们依据什么分类？</strong><p>借助电子态、供受体轨道与前线轨道、电子对 / 单电子推动，以及原子核几何变化，对<strong>每个关键机理事件</strong>做四维描述。SORG 是本项目自定义的教学索引，不是已被验证的量子力学不变量，也不是 IUPAC 标准。O、R 的边界仍可修订。</p></div><a href="#method" class="quiet-link">阅读分配规则 ↗</a></div>
+  <div class="reading-example"><div><span class="label">READ AN EXAMPLE</span><strong>为什么 SN2 和质子转移都是 1122？</strong><p>都是闭壳层的供受体过程；一个旧联系被新联系替换，接近和离去相耦合。反应中心及轨道具体形状，留在机理层描述。</p></div><div id="example-code"></div></div>
+</section>
+
+<section id="atlas" class="atlas section wrap">
+  <div class="section-heading"><div><div class="eyebrow">02 / EXPLORE THE ATLAS</div><h2>找到反应之间的联系。</h2></div><a class="data-link" href="data.json" download="sorg-reactions.json">下载反应数据 ↓</a></div>
+  <div class="atlas-layout">
+    <aside class="filters" aria-label="反应筛选"><div class="filter-title"><h3>筛选图谱</h3><button id="reset">重置</button></div><fieldset><legend>按反应类型</legend><div id="family-filters"></div></fieldset><fieldset><legend>按 SORG 维度</legend><p class="small-note">所有维度须在同一个步骤中匹配。</p><div id="axis-filters"></div></fieldset><fieldset><legend>按步骤数</legend><label for="step-filter" class="sr-only">步骤数</label><select id="step-filter"><option value="all">全部步骤数</option><option value="1">单步事件</option><option value="2">两步路径</option><option value="3">三步路径</option></select></fieldset><label class="check"><input type="checkbox" id="candidate-filter"> 包含候选编码的条目</label><label class="check"><input type="checkbox" id="saved-filter"> 仅看本机收藏</label><div class="filter-foot">编码的是步骤，<br>理解的是整个反应。</div></aside>
+    <div class="results"><div class="search-row"><label class="search-box"><span aria-hidden="true">⌕</span><span class="sr-only">搜索名称、编码或关键词</span><input id="search" type="search" placeholder="搜索反应、编码或关键词，如 SN2 / 1113 / 羰基" autocomplete="off"><kbd>/</kbd></label></div><div class="results-top"><p id="result-count" aria-live="polite"></p><span><i class="status-dot"></i> 沿用编码 <i class="status-dot candidate"></i> 候选编码</span></div><div id="active-filters" class="active-filters"></div><div class="reaction-grid" id="reaction-grid"></div><div id="empty" class="empty" hidden><span>∅</span><h3>暂时没有匹配的反应</h3><p>尝试放宽某个维度，或重置筛选。</p><button class="primary" id="empty-reset">显示全部反应</button></div></div>
+  </div>
+</section>
+
+<section class="method section" id="method"><div class="wrap"><div class="section-heading"><div><div class="eyebrow">03 / METHOD & EVIDENCE</div><h2>让简化有依据，<br>也让边界看得见。</h2></div><p>先让常见反应有一个可用的位置。<br>保留机理细节，允许分类继续生长。</p></div><div class="method-grid"><article><span class="method-num">01</span><h3>一个事件，一次编码</h3><p>不同 elementary events 分开编码。重复编码也要保留：SN1 的电离与捕获都是 1111；水作亲核体时，还需 1122 去质子化。共振式、同一步内多支电子箭头均不另算一步。</p></article><article><span class="method-num">02</span><h3>编码保留原约定</h3><p>1122、1111、2211、1333 沿用先前教学方案。“沿用”只说明项目来源，并不等于科学验证。羰基 1113 沿用早期候选；E2 的 1133 与原子转移 2222 为本站候选扩展。</p></article><article><span class="method-num">03</span><h3>数据说明它的条件</h3><p>教材数值给出底物和已知条件；缺失的实验信息明确标出。交互计算展示公式推论，默认的能垒差是假设输入。本站尚未运行 DFT、IRC 或其他量子化学计算。</p></article></div><details class="method-details"><summary>查看完整分类字典与边界 <span>＋</span></summary><div id="codebook"></div></details><details class="method-details"><summary>参考来源与内容说明 <span>＋</span></summary><p>机理依据 John McMurry 的 OpenStax《Organic Chemistry》及 IUPAC Gold Book；来源支持化学事实，不为 SORG 编码背书。本站示意图为原创简化图，不是计算得到的轨道或过渡态。反应文字与教学整理按 CC BY-NC-SA 4.0 提供。</p><p>Access for free at <a href="https://openstax.org/books/organic-chemistry/pages/1-why-this-chapter" target="_blank" rel="noopener">OpenStax Organic Chemistry</a> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p><div id="all-sources" class="all-sources"></div></details><div class="scope-note"><strong>首版范围</strong><p>以基础极性反应、自由基链事件与热周环反应为主。S3 激发态与 O4/R4 电子转移已保留在字典中，暂未强行收录。金属聚集、溶剂显式参与及完整反应网络尚未展开；各条目会说明其简化层级。</p></div></div></section>
+</main>
+<footer class="wrap footer"><a class="brand" href="#"><span class="brand-mark">S<span>•</span></span><span>SORG<span class="brand-sub">A MAP, STILL GROWING.</span></span></a><p>Ochem Atlas · 教学原型 v0.1<br>23 reactions / 39 events · 2026.10<br><a href="sorg-atlas-source.zip" download>下载 GitHub 源码 ↓</a></p><a href="#principles">回到分类原理 ↑</a></footer>
+
+<dialog id="reaction-dialog" aria-labelledby="dialog-title"><div class="dialog-shell"><div class="dialog-toolbar"><span id="dialog-breadcrumb"></span><div><button id="save-reaction" class="small-button">☆ 收藏</button><button id="close-dialog" class="icon-button" aria-label="关闭反应详情">×</button></div></div><div class="dialog-body"><div class="eyebrow" id="dialog-category"></div><h2 id="dialog-title"></h2><p id="dialog-zh" class="dialog-zh"></p><div class="equation-box" id="dialog-equation"></div><p class="conditions" id="dialog-conditions"></p><div id="dialog-path" class="code-path"></div><p id="dialog-summary" class="dialog-summary"></p><div class="detail-tabs" role="tablist" aria-label="反应内容"><button role="tab" id="tab-mechanism" aria-selected="true" aria-controls="panel-mechanism" tabindex="0" data-tab="mechanism">机理与编码</button><button role="tab" id="tab-data" aria-selected="false" aria-controls="panel-data" tabindex="-1" data-tab="data">数据与计算</button><button role="tab" id="tab-sources" aria-selected="false" aria-controls="panel-sources" tabindex="-1" data-tab="sources">范围与来源</button></div><section id="panel-mechanism" role="tabpanel" aria-labelledby="tab-mechanism"></section><section id="panel-data" role="tabpanel" aria-labelledby="tab-data" hidden></section><section id="panel-sources" role="tabpanel" aria-labelledby="tab-sources" hidden></section></div></div></dialog>
+<div id="toast" role="status" class="toast" hidden></div>
+<noscript><p class="wrap">请开启 JavaScript 以使用反应筛选、机理和计算器。完整数据也可从 <a href="data.json">data.json</a> 下载。</p></noscript>
+</body></html>

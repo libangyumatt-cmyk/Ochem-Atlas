@@ -1,0 +1,1281 @@
+{
+  "version": "0.1.0",
+  "updated": "2026-10-12",
+  "axes": [
+    {
+      "key": "S",
+      "name": "电子态",
+      "en": "Electronic state",
+      "question": "以什么电子态参与？",
+      "values": {
+        "1": "闭壳层 / 成对电子",
+        "2": "开壳层 / 自由基",
+        "3": "激发态 / 态变换"
+      },
+      "note": "这里按反应事件涉及的电子态标记；S2 不表示产物一定仍是自由基。S3 与 S1/S2 可能重叠。"
+    },
+    {
+      "key": "O",
+      "name": "轨道相互作用",
+      "en": "Orbital interaction",
+      "question": "主要的电子相互作用是什么？",
+      "values": {
+        "1": "供体—受体",
+        "2": "单占轨道参与",
+        "3": "协同环状相互作用",
+        "4": "电子转移耦合"
+      },
+      "note": "取主要教学描述，不声称唯一轨道分解。O2 与 O4 存在交叉；所有反应都涉及轨道，O3 特指周环式协同。"
+    },
+    {
+      "key": "R",
+      "name": "键联系变化",
+      "en": "Bond reorganization",
+      "question": "主要改变了什么联系？",
+      "values": {
+        "1": "主要成键 / 断键",
+        "2": "联系替换",
+        "3": "多键重分布",
+        "4": "电子转移"
+      },
+      "note": "记录主要变化，不是完整键变化清单；R1 允许伴随局部 π 键级变化。详细成断键仍需看机理。"
+    },
+    {
+      "key": "G",
+      "name": "几何变化",
+      "en": "Nuclear geometry",
+      "question": "原子怎样接近与重排？",
+      "values": {
+        "1": "单一接近 / 分离",
+        "2": "接近—离去交换",
+        "3": "集体几何重排"
+      },
+      "note": "按显著的核几何变化粗分。G3 也可用于羰基平面→四面体的教学描述；这类边界标为候选。"
+    }
+  ],
+  "codebook": {
+    "1111": {
+      "status": "inherited",
+      "label": "成键或断键",
+      "why": [
+        "主要采用闭壳层描述",
+        "用供受体或极性键电子对描述",
+        "以一项成键 / 断键为主",
+        "以接近或分离为主"
+      ],
+      "boundary": "SN1 电离沿用原约定：O1 是极性电子对记账，不表示离去时一定存在新的供受体成键。烯烃质子化也沿用原分类，伴随的 π 键变化需另看机理。"
+    },
+    "1122": {
+      "status": "inherited",
+      "label": "极性联系替换",
+      "why": [
+        "电子对参与",
+        "占据轨道向受体轨道作用",
+        "一个联系被另一个取代",
+        "接近与离去在同一步耦合"
+      ],
+      "boundary": "SN2 与直接质子转移可以同码；编码不区分反应中心是 C 还是 H。"
+    },
+    "2211": {
+      "status": "inherited",
+      "label": "自由基成键",
+      "why": [
+        "至少一个开壳层参与者",
+        "单占轨道参与",
+        "主要形成一项新联系",
+        "以反应中心接近为主"
+      ],
+      "boundary": "自由基加成可伴随 π 键变为 σ 键；自由基复合最终可得到闭壳层产物。"
+    },
+    "1333": {
+      "status": "inherited",
+      "label": "周环协同重排",
+      "why": [
+        "热反应的闭壳层基态模型",
+        "环状轨道相互作用",
+        "多个键协同重分布",
+        "多个反应中心集体变化"
+      ],
+      "boundary": "协同不等于同步；相同四位码不能区分环加成、电环化和 σ 迁移，需同时保留反应名称。"
+    },
+    "1113": {
+      "status": "candidate",
+      "label": "羰基加成 / 消除",
+      "why": [
+        "闭壳层电子对模型",
+        "n 或 σ → π*；逆向过程为羰基恢复",
+        "以亲核成键或离去断键为主",
+        "羰基中心平面与四面体之间重排"
+      ],
+      "boundary": "沿用早期候选值，尚未成为 v0.1 的固定分配。若强调 π 键级变化，R3 也是可讨论的边界。"
+    },
+    "1133": {
+      "status": "candidate",
+      "label": "极性多键重排",
+      "why": [
+        "成对电子参与",
+        "碱 / 底物的供受体相互作用",
+        "C–H、C–X 与 C=C 等联系耦合改变",
+        "多个中心需协同调整或形成平面 π 系统"
+      ],
+      "boundary": "本站新增的候选编码，用于 E2 及 E1 的烯烃形成步。E2 的协同并不自动意味着 O3 周环反应。"
+    },
+    "2222": {
+      "status": "candidate",
+      "label": "自由基原子转移",
+      "why": [
+        "自由基参与",
+        "单占轨道与 σ 键相互作用",
+        "原子从一个中心转移至另一个中心",
+        "接近与离去相耦合"
+      ],
+      "boundary": "本站候选，用于 H / 卤原子转移；不是已完成量子化学验证的分类。"
+    }
+  },
+  "sources": {
+    "acid": {
+      "title": "2.9 · Acid–base equilibria",
+      "url": "https://openstax.org/books/organic-chemistry/pages/2-9-predicting-acid-base-reactions-from-pka-values",
+      "publisher": "John McMurry / OpenStax",
+      "checked": "2026-10-12"
+    },
+    "lewis": {
+      "title": "2.11 · Lewis acids and bases",
+      "url": "https://openstax.org/books/organic-chemistry/pages/2-11-acids-and-bases-the-lewis-definition",
+      "publisher": "John McMurry / OpenStax",
+      "checked": "2026-10-12"
+    },
+    "sn2": {
+      "title": "11.2 · The SN2 reaction",
+      "url": "https://openstax.org/books/organic-chemistry/pages/11-2-the-sn2-reaction",
+      "publisher": "John McMurry / OpenStax",
+      "checked": "2026-10-12"
+    },
+    "sn2scope": {
+      "title": "11.3 · SN2 scope and stereochemistry",
+      "url": "https://openstax.org/books/organic-chemistry/pages/11-3-characteristics-of-the-sn2-reaction",
+      "publisher": "John McMurry / OpenStax",
+      "checked": "2026-10-12"
+    },
+    "sn1": {
+      "title": "11.4 · The SN1 reaction",
+      "url": "https://openstax.org/books/organic-chemistry/pages/11-4-the-sn1-reaction",
+      "publisher": "John McMurry / OpenStax",
+      "checked": "2026-10-12"
+    },
+    "e2": {
+      "title": "11.8 · E2 and kinetic isotope effects",
+      "url": "https://openstax.org/books/organic-chemistry/pages/11-8-the-e2-reaction-and-the-deuterium-isotope-effect",
+      "publisher": "John McMurry / OpenStax",
+      "checked": "2026-10-12"
+    },
+    "e1": {
+      "title": "11.10 · E1 and E1cB",
+      "url": "https://openstax.org/books/organic-chemistry/pages/11-10-the-e1-and-e1cb-reactions",
+      "publisher": "John McMurry / OpenStax",
+      "checked": "2026-10-12"
+    },
+    "alkene": {
+      "title": "7.7 · Electrophilic addition",
+      "url": "https://openstax.org/books/organic-chemistry/pages/7-7-electrophilic-addition-reactions-of-alkenes",
+      "publisher": "John McMurry / OpenStax",
+      "checked": "2026-10-12"
+    },
+    "hydration": {
+      "title": "8.4 · Alkene hydration",
+      "url": "https://openstax.org/books/organic-chemistry/pages/8-4-hydration-of-alkenes-addition-of-h2o-by-oxymercuration",
+      "publisher": "John McMurry / OpenStax",
+      "checked": "2026-10-12"
+    },
+    "ether": {
+      "title": "18.2 · Williamson ether synthesis",
+      "url": "https://openstax.org/books/organic-chemistry/pages/18-2-preparing-ethers",
+      "publisher": "John McMurry / OpenStax",
+      "checked": "2026-10-12"
+    },
+    "epoxide": {
+      "title": "18.5 · Epoxide ring opening",
+      "url": "https://openstax.org/books/organic-chemistry/pages/18-5-reactions-of-epoxides-ring-opening",
+      "publisher": "John McMurry / OpenStax",
+      "checked": "2026-10-12"
+    },
+    "carbonyl": {
+      "title": "19.4 · Nucleophilic carbonyl addition",
+      "url": "https://openstax.org/books/organic-chemistry/pages/19-4-nucleophilic-addition-reactions-of-aldehydes-and-ketones",
+      "publisher": "John McMurry / OpenStax",
+      "checked": "2026-10-12"
+    },
+    "hydride": {
+      "title": "19.7 · Hydride and Grignard addition",
+      "url": "https://openstax.org/books/organic-chemistry/pages/19-7-nucleophilic-addition-of-hydride-and-grignard-reagents-alcohol-formation",
+      "publisher": "John McMurry / OpenStax",
+      "checked": "2026-10-12"
+    },
+    "cyanohydrin": {
+      "title": "19.6 · Cyanohydrin formation",
+      "url": "https://openstax.org/books/organic-chemistry/pages/19-6-nucleophilic-addition-of-hcn-cyanohydrin-formation",
+      "publisher": "John McMurry / OpenStax",
+      "checked": "2026-10-12"
+    },
+    "acyl": {
+      "title": "21.2 · Nucleophilic acyl substitution",
+      "url": "https://openstax.org/books/organic-chemistry/pages/21-2-nucleophilic-acyl-substitution-reactions",
+      "publisher": "John McMurry / OpenStax",
+      "checked": "2026-10-12"
+    },
+    "aldol": {
+      "title": "23.1 · Aldol addition",
+      "url": "https://openstax.org/books/organic-chemistry/pages/23-1-carbonyl-condensations-the-aldol-reaction",
+      "publisher": "John McMurry / OpenStax",
+      "checked": "2026-10-12"
+    },
+    "radical": {
+      "title": "6.6 · Radical reactions",
+      "url": "https://openstax.org/books/organic-chemistry/pages/6-6-radical-reactions",
+      "publisher": "John McMurry / OpenStax",
+      "checked": "2026-10-12"
+    },
+    "da": {
+      "title": "14.4 · Diels–Alder cycloaddition",
+      "url": "https://openstax.org/books/organic-chemistry/pages/14-4-the-diels-alder-cycloaddition-reaction",
+      "publisher": "John McMurry / OpenStax",
+      "checked": "2026-10-12"
+    },
+    "dastereo": {
+      "title": "14.5 · Diels–Alder stereochemistry",
+      "url": "https://openstax.org/books/organic-chemistry/pages/14-5-characteristics-of-the-diels-alder-reaction",
+      "publisher": "John McMurry / OpenStax",
+      "checked": "2026-10-12"
+    },
+    "claisen": {
+      "title": "30.8 · Sigmatropic rearrangements",
+      "url": "https://openstax.org/books/organic-chemistry/pages/30-8-some-examples-of-sigmatropic-rearrangements",
+      "publisher": "John McMurry / OpenStax",
+      "checked": "2026-10-12"
+    },
+    "electro": {
+      "title": "30.3 · Thermal electrocyclic stereochemistry",
+      "url": "https://openstax.org/books/organic-chemistry/pages/30-3-stereochemistry-of-thermal-electrocyclic-reactions",
+      "publisher": "John McMurry / OpenStax",
+      "checked": "2026-10-12"
+    },
+    "tst": {
+      "title": "IUPAC Gold Book · Transition state theory",
+      "url": "https://goldbook.iupac.org/terms/view/T06470",
+      "publisher": "IUPAC",
+      "checked": "2026-10-12"
+    }
+  },
+  "reactions": [
+    {
+      "id": "proton-transfer",
+      "name": "Proton transfer",
+      "zh": "直接质子转移",
+      "family": "酸碱反应",
+      "equation": "CH₃CO₂H + CN⁻ ⇌ CH₃CO₂⁻ + HCN",
+      "conditions": "同一溶剂、同一 pKa 标度下讨论平衡。",
+      "summary": "H 改变连接对象：与 SN2 共享“联系替换”的编码。",
+      "steps": [
+        {
+          "title": "Proton transfer",
+          "code": "1122",
+          "equation": "CH₃CO₂H + CN⁻ ⇌ CH₃CO₂⁻ + HCN",
+          "flow": "碱的孤对电子指向 H；原 H–A 键电子对返回 A。",
+          "orbital": "n(base) → σ*(H–A)",
+          "geometry": "接近 H 的同时，原 H–A 联系减弱。",
+          "diagram": "proton"
+        }
+      ],
+      "sources": [
+        "acid"
+      ],
+      "facts": [
+        [
+          "pKa(CH₃CO₂H)",
+          "4.76 · 教材近似值"
+        ],
+        [
+          "pKa(HCN)",
+          "9.31 · 教材近似值"
+        ],
+        [
+          "K 的模型",
+          "10^(9.31 − 4.76) ≈ 3.55 × 10⁴；由两项 pKa 推算，并非实测 K。"
+        ]
+      ],
+      "scope": "pKa 随溶剂、温度与标准态而变；这里用于教材同标度比较。真实溶液可能存在溶剂介导的质子接力。",
+      "calc": "acid",
+      "level": "基础",
+      "note": ""
+    },
+    {
+      "id": "lewis",
+      "name": "Lewis acid–base association",
+      "zh": "Lewis 酸碱加合",
+      "family": "酸碱反应",
+      "equation": "NH₃ + BF₃ ⇌ H₃N⁺–BF₃⁻",
+      "conditions": "Lewis donor + electron-deficient acceptor",
+      "summary": "只需形成一个新的供受体联系，不伴随离去基团。",
+      "steps": [
+        {
+          "title": "Donor–acceptor bond formation",
+          "code": "1111",
+          "equation": "NH₃ + BF₃ ⇌ H₃N⁺–BF₃⁻",
+          "flow": "N 的孤对电子指向缺电子的 B。",
+          "orbital": "n(N) → empty p(B)",
+          "geometry": "N 接近 B；B 的配位几何随加合改变。",
+          "diagram": "lewis"
+        }
+      ],
+      "sources": [
+        "lewis"
+      ],
+      "facts": [
+        [
+          "Electron accounting",
+          "N 提供一对电子；B 接受。"
+        ],
+        [
+          "Formal charge",
+          "形成普通键表示后 N 为 +1、B 为 −1；总电荷仍为 0。"
+        ]
+      ],
+      "scope": "G1 是原教学约定中的“主导接近”，并不否认 B 的局部几何改变。",
+      "calc": "barrier",
+      "level": "基础",
+      "note": ""
+    },
+    {
+      "id": "sn2",
+      "name": "SN2 substitution",
+      "zh": "双分子亲核取代",
+      "family": "取代反应",
+      "equation": "HO⁻ + CH₃Br → CH₃OH + Br⁻",
+      "conditions": "以甲基底物示意；溶剂影响亲核性。",
+      "summary": "成键和断键在同一个 elementary event 中完成。",
+      "steps": [
+        {
+          "title": "Backside displacement",
+          "code": "1122",
+          "equation": "HO⁻ + CH₃Br → CH₃OH + Br⁻",
+          "flow": "O 的孤对电子指向甲基碳；C–Br 键电子对指向 Br。",
+          "orbital": "n(O) → σ*(C–Br)",
+          "geometry": "Nu–C–Br 近似共线，背面进攻。",
+          "diagram": "sn2"
+        }
+      ],
+      "sources": [
+        "sn2",
+        "sn2scope"
+      ],
+      "facts": [
+        [
+          "Rate law",
+          "v = k[CH₃Br][HO⁻]"
+        ],
+        [
+          "Stereochemistry",
+          "在手性反应中心发生构型反转；不保证 R 标签一定变成 S。"
+        ]
+      ],
+      "scope": "甲基例子本身不手性。受阻底物可减慢 SN2，并与消除竞争。",
+      "calc": "rate2",
+      "level": "基础",
+      "note": ""
+    },
+    {
+      "id": "williamson",
+      "name": "Williamson ether synthesis",
+      "zh": "Williamson 醚合成",
+      "family": "取代反应",
+      "equation": "CH₃O⁻ + CH₃CH₂Br → CH₃OCH₂CH₃ + Br⁻",
+      "conditions": "预先形成的 alkoxide + primary alkyl halide",
+      "summary": "换一种亲核体，仍然沿用 SN2 的电子与几何模式。",
+      "steps": [
+        {
+          "title": "Alkoxide displacement",
+          "code": "1122",
+          "equation": "CH₃O⁻ + CH₃CH₂Br → CH₃OCH₂CH₃ + Br⁻",
+          "flow": "烷氧负离子 O 进攻连 Br 的碳，C–Br 键电子对移向 Br。",
+          "orbital": "n(O) → σ*(C–Br)",
+          "geometry": "从离去基团背面接近。",
+          "diagram": "sn2"
+        }
+      ],
+      "sources": [
+        "ether"
+      ],
+      "facts": [
+        [
+          "Reaction center",
+          "亲核氧形成新的 C–O σ 键。"
+        ],
+        [
+          "Substrate choice",
+          "甲基或较少受阻的一级底物有利于取代。"
+        ]
+      ],
+      "scope": "条目从预制烷氧负离子开始；若从醇开始，还须加入生成 alkoxide 的步骤。",
+      "calc": "rate2",
+      "level": "基础",
+      "note": ""
+    },
+    {
+      "id": "sn1-core",
+      "name": "SN1: ionization & capture",
+      "zh": "SN1 核心两步",
+      "family": "取代反应",
+      "equation": "R₃C–X + Nu⁻ → R₃C–Nu + X⁻",
+      "conditions": "能够形成较稳定碳正离子的底物；条件须使电离可行。",
+      "summary": "以阴离子亲核体作形式模型，展示真正的两步编码。",
+      "steps": [
+        {
+          "title": "Heterolytic ionization",
+          "code": "1111",
+          "equation": "R₃C–X → R₃C⁺ + X⁻",
+          "flow": "C–X 键的两个电子都归离去基团 X。",
+          "orbital": "σ(C–X) 的电子对随异裂保留在 X",
+          "geometry": "C 与 X 分离，碳正离子中心趋于平面。",
+          "diagram": "ion"
+        },
+        {
+          "title": "Carbocation capture",
+          "code": "1111",
+          "equation": "R₃C⁺ + Nu⁻ → R₃C–Nu",
+          "flow": "亲核体孤对电子指向带正电的碳，形成新 σ 键。",
+          "orbital": "n(Nu) → p(C⁺)",
+          "geometry": "亲核体接近平面碳正离子的一个面。",
+          "diagram": "capture"
+        }
+      ],
+      "sources": [
+        "sn1"
+      ],
+      "facts": [
+        [
+          "Two events",
+          "1111 → 1111；同码不意味着同一步。"
+        ],
+        [
+          "Rate model",
+          "若电离控制速率，v ≈ k[RX]。"
+        ]
+      ],
+      "scope": "这是核心机理模型，不保证任意 R₃C–X / Nu⁻ 组合都走 SN1；强碱可能引发 E2。",
+      "calc": "rate1",
+      "level": "基础",
+      "note": "若 Nu 是 H₂O 或 ROH，形成 oxonium 后通常还有去质子化。见 SN1 solvolysis 条目。"
+    },
+    {
+      "id": "sn1-water",
+      "name": "SN1 solvolysis",
+      "zh": "SN1 水解完整路径",
+      "family": "取代反应",
+      "equation": "(CH₃)₃CBr + 2 H₂O → (CH₃)₃COH + H₃O⁺ + Br⁻",
+      "conditions": "water / polar protic medium",
+      "summary": "水进攻后仍须去质子化，不能把氧鎓离子当作中性醇。",
+      "steps": [
+        {
+          "title": "Heterolytic ionization",
+          "code": "1111",
+          "equation": "(CH₃)₃CBr → (CH₃)₃C⁺ + Br⁻",
+          "flow": "C–X 键的两个电子都归离去基团 X。",
+          "orbital": "σ(C–X) 的电子对随异裂保留在 X",
+          "geometry": "C 与 X 分离，碳正离子中心趋于平面。",
+          "diagram": "ion"
+        },
+        {
+          "title": "Carbocation capture",
+          "code": "1111",
+          "equation": "(CH₃)₃C⁺ + H₂O → (CH₃)₃COH₂⁺",
+          "flow": "亲核体孤对电子指向带正电的碳，形成新 σ 键。",
+          "orbital": "n(Nu) → p(C⁺)",
+          "geometry": "亲核体接近平面碳正离子的一个面。",
+          "diagram": "capture"
+        },
+        {
+          "title": "Proton transfer",
+          "code": "1122",
+          "equation": "(CH₃)₃COH₂⁺ + H₂O → (CH₃)₃COH + H₃O⁺",
+          "flow": "碱的孤对电子指向 H；原 H–A 键电子对返回 A。",
+          "orbital": "n(base) → σ*(H–A)",
+          "geometry": "接近 H 的同时，原 H–A 联系减弱。",
+          "diagram": "proton"
+        }
+      ],
+      "sources": [
+        "sn1",
+        "e1"
+      ],
+      "facts": [
+        [
+          "Rate model",
+          "在电离为慢步的条件下，对底物近似一级。"
+        ],
+        [
+          "Intermediate",
+          "Carbocation → oxonium → alcohol。"
+        ]
+      ],
+      "scope": "可与 E1 竞争。一般手性 SN1 底物常得到部分消旋，离子对会影响两面的进攻。",
+      "calc": "rate1",
+      "level": "基础",
+      "note": ""
+    },
+    {
+      "id": "hbr",
+      "name": "Electrophilic HBr addition",
+      "zh": "HBr 亲电加成",
+      "family": "烯烃反应",
+      "equation": "CH₃CH=CH₂ + HBr → CH₃CHBrCH₃",
+      "conditions": "极性加成路径；无自由基引发条件。",
+      "summary": "先生成碳正离子，再由溴离子捕获。",
+      "steps": [
+        {
+          "title": "Alkene protonation",
+          "code": "1111",
+          "equation": "CH₃CH=CH₂ + HBr → (CH₃)₂CH⁺ + Br⁻",
+          "flow": "C=C 的 π 电子对与 H 成键；H–A 键电子对移向 A。",
+          "orbital": "π(C=C) → σ*(H–A)",
+          "geometry": "先形成一条 C–H 键，另一碳成为碳正离子。",
+          "diagram": "alkene"
+        },
+        {
+          "title": "Carbocation capture",
+          "code": "1111",
+          "equation": "(CH₃)₂CH⁺ + Br⁻ → CH₃CHBrCH₃",
+          "flow": "亲核体孤对电子指向带正电的碳，形成新 σ 键。",
+          "orbital": "n(Nu) → p(C⁺)",
+          "geometry": "亲核体接近平面碳正离子的一个面。",
+          "diagram": "capture"
+        }
+      ],
+      "sources": [
+        "alkene"
+      ],
+      "facts": [
+        [
+          "Regiochemistry",
+          "此例主路径给 Markovnikov 加成产物。"
+        ],
+        [
+          "Key intermediate",
+          "Secondary carbocation。"
+        ]
+      ],
+      "scope": "不把该机理用于自由基 HBr 加成；在其他底物上碳正离子还可能重排。",
+      "calc": "barrier",
+      "level": "基础",
+      "note": ""
+    },
+    {
+      "id": "hydration",
+      "name": "Acid-catalyzed hydration",
+      "zh": "酸催化烯烃水合",
+      "family": "烯烃反应",
+      "equation": "CH₃CH=CH₂ + H₂O ⇌ (CH₃)₂CHOH",
+      "conditions": "aqueous acid；H₃O⁺ 是催化剂。",
+      "summary": "三步循环中酸被消耗后再生。",
+      "steps": [
+        {
+          "title": "Alkene protonation",
+          "code": "1111",
+          "equation": "CH₃CH=CH₂ + H₃O⁺ → (CH₃)₂CH⁺ + H₂O",
+          "flow": "C=C 的 π 电子对与 H 成键；H–A 键电子对移向 A。",
+          "orbital": "π(C=C) → σ*(H–A)",
+          "geometry": "先形成一条 C–H 键，另一碳成为碳正离子。",
+          "diagram": "alkene"
+        },
+        {
+          "title": "Carbocation capture",
+          "code": "1111",
+          "equation": "(CH₃)₂CH⁺ + H₂O → (CH₃)₂CHOH₂⁺",
+          "flow": "亲核体孤对电子指向带正电的碳，形成新 σ 键。",
+          "orbital": "n(Nu) → p(C⁺)",
+          "geometry": "亲核体接近平面碳正离子的一个面。",
+          "diagram": "capture"
+        },
+        {
+          "title": "Proton transfer",
+          "code": "1122",
+          "equation": "(CH₃)₂CHOH₂⁺ + H₂O → (CH₃)₂CHOH + H₃O⁺",
+          "flow": "碱的孤对电子指向 H；原 H–A 键电子对返回 A。",
+          "orbital": "n(base) → σ*(H–A)",
+          "geometry": "接近 H 的同时，原 H–A 联系减弱。",
+          "diagram": "proton"
+        }
+      ],
+      "sources": [
+        "hydration"
+      ],
+      "facts": [
+        [
+          "Catalyst balance",
+          "H₃O⁺ 在最后一步再生。"
+        ],
+        [
+          "Regiochemistry",
+          "在该底物上形成 2-propanol。"
+        ]
+      ],
+      "scope": "过程可逆；该机理与 oxymercuration、hydroboration 不同。不能由四位码直接判断平衡位置。",
+      "calc": "barrier",
+      "level": "基础",
+      "note": ""
+    },
+    {
+      "id": "e2",
+      "name": "E2 elimination",
+      "zh": "双分子消除",
+      "family": "消除反应",
+      "equation": "CH₃CHBrCH₃ + EtO⁻ → CH₂=CHCH₃ + EtOH + Br⁻",
+      "conditions": "strong base；可达到 anti-periplanar 构象。",
+      "summary": "三个电子对移动相耦合，但按极性消除编码，不归入周环 O3。",
+      "steps": [
+        {
+          "title": "Concerted β-elimination",
+          "code": "1133",
+          "equation": "CH₃CHBrCH₃ + EtO⁻ → CH₂=CHCH₃ + EtOH + Br⁻",
+          "flow": "碱进攻 β-H；C–H 电子对形成 C=C；C–Br 电子对移向 Br。",
+          "orbital": "n(base) → σ*(C–H)，σ(C–H) 与 σ*(C–Br) 耦合",
+          "geometry": "通常偏好 H–C–C–Br anti-periplanar。",
+          "diagram": "e2"
+        }
+      ],
+      "sources": [
+        "e2"
+      ],
+      "facts": [
+        [
+          "Rate law",
+          "v = k[RX][base]"
+        ],
+        [
+          "文献教学例 · KIE",
+          "1-bromo-2-phenylethane 的脱 HBr 比相应二氘代物脱 DBr 快 7.11 倍。不是上方丙基底物的数据。"
+        ],
+        [
+          "数值边界",
+          "所引教材段落未完整列出温度与实验条件，7.11 只作机理证据示例。"
+        ]
+      ],
+      "scope": "1133 是本站候选编码。anti 通常更有利，但并非所有底物都绝对禁止 syn 消除。",
+      "calc": "rate2",
+      "level": "基础",
+      "note": ""
+    },
+    {
+      "id": "e1",
+      "name": "E1 elimination",
+      "zh": "单分子消除",
+      "family": "消除反应",
+      "equation": "(CH₃)₃CCl + H₂O → (CH₃)₂C=CH₂ + H₃O⁺ + Cl⁻",
+      "conditions": "polar protic solvent；可与 SN1 竞争。",
+      "summary": "与 SN1 共用电离步，之后通过脱质子形成 π 键。",
+      "steps": [
+        {
+          "title": "Heterolytic ionization",
+          "code": "1111",
+          "equation": "(CH₃)₃CCl → (CH₃)₃C⁺ + Cl⁻",
+          "flow": "C–X 键的两个电子都归离去基团 X。",
+          "orbital": "σ(C–X) 的电子对随异裂保留在 X",
+          "geometry": "C 与 X 分离，碳正离子中心趋于平面。",
+          "diagram": "ion"
+        },
+        {
+          "title": "Alkene formation",
+          "code": "1133",
+          "equation": "(CH₃)₃C⁺ + H₂O → (CH₃)₂C=CH₂ + H₃O⁺",
+          "flow": "碱孤对电子指向 β-H；C–H 键电子对形成邻位 C=C。",
+          "orbital": "n(base) 与 σ(C–H) / p(C⁺) 耦合",
+          "geometry": "形成 π 键的两个碳趋于共平面。",
+          "diagram": "e1"
+        }
+      ],
+      "sources": [
+        "e1"
+      ],
+      "facts": [
+        [
+          "Rate model",
+          "电离控制时 v ≈ k[RX]。"
+        ],
+        [
+          "文献教学例 · 65 °C",
+          "tert-Butyl chloride / 80% aqueous ethanol：教材报告 alcohol : alkene = 64 : 36。"
+        ],
+        [
+          "Interpretation",
+          "这是特定条件下的产物比例，并非 E1 的普遍选择性。"
+        ]
+      ],
+      "scope": "第二步 1133 为候选。自由碳正离子模型不表示离子对、溶剂笼效应或重排可以忽略。",
+      "calc": "rate1",
+      "level": "基础",
+      "note": ""
+    },
+    {
+      "id": "carbonyl-add",
+      "name": "Carbonyl nucleophilic addition",
+      "zh": "羰基亲核加成事件",
+      "family": "羰基反应",
+      "equation": "R₂C=O + Nu⁻ → R₂C(O⁻)Nu",
+      "conditions": "从亲核体与羰基的反应事件开始。",
+      "summary": "用同一局部模式理解许多醛、酮反应。",
+      "steps": [
+        {
+          "title": "Nucleophilic carbonyl addition",
+          "code": "1113",
+          "equation": "R₂C=O + Nu⁻ → R₂C(O⁻)Nu",
+          "flow": "亲核体的电子对指向羰基碳，同时 C=O 的 π 电子对移至氧。",
+          "orbital": "n(Nu) → π*(C=O)",
+          "geometry": "羰基中心由近似平面变为四面体。",
+          "diagram": "carbonyl"
+        }
+      ],
+      "sources": [
+        "carbonyl"
+      ],
+      "facts": [
+        [
+          "Geometry",
+          "Trigonal planar → tetrahedral。"
+        ],
+        [
+          "Electronic change",
+          "形成 C–Nu；C=O 的 π 电子对移至氧。"
+        ]
+      ],
+      "scope": "1113 是早期候选，不是已定稿的 v0.1 分配。反应最终产物常还需质子化。",
+      "calc": "barrier",
+      "level": "基础",
+      "note": ""
+    },
+    {
+      "id": "hydride",
+      "name": "Hydride reduction",
+      "zh": "氢化物还原羰基",
+      "family": "羰基反应",
+      "equation": "(CH₃)₂C=O → (CH₃)₂CHOH",
+      "conditions": "hydride donor，随后质子化；表示关键有机转化。",
+      "summary": "先传递氢化物等效体，再得到醇。",
+      "steps": [
+        {
+          "title": "Nucleophilic carbonyl addition",
+          "code": "1113",
+          "equation": "(CH₃)₂C=O + H⁻ equivalent → (CH₃)₂CHO⁻",
+          "flow": "供体的 B–H / Al–H 键电子对向羰基碳转移；C=O π 电子移向 O。",
+          "orbital": "σ(B–H) or σ(Al–H) → π*(C=O)",
+          "geometry": "羰基中心由近似平面变为四面体。",
+          "diagram": "carbonyl"
+        },
+        {
+          "title": "Proton transfer",
+          "code": "1122",
+          "equation": "(CH₃)₂CHO⁻ + H₃O⁺ → (CH₃)₂CHOH + H₂O",
+          "flow": "碱的孤对电子指向 H；原 H–A 键电子对返回 A。",
+          "orbital": "n(base) → σ*(H–A)",
+          "geometry": "接近 H 的同时，原 H–A 联系减弱。",
+          "diagram": "proton"
+        }
+      ],
+      "sources": [
+        "hydride"
+      ],
+      "facts": [
+        [
+          "Bond change",
+          "C=O π 键被转化，增加 C–H 和 O–H。"
+        ],
+        [
+          "Data status",
+          "未收录特定溶剂 / 试剂的实测势垒。"
+        ]
+      ],
+      "scope": "H⁻ equivalent 是记账符号，不是溶液中游离 H⁻；省略硼 / 铝配合物与副产物。两步是教学关键事件，不是完整物种网络。",
+      "calc": "barrier",
+      "level": "基础",
+      "note": ""
+    },
+    {
+      "id": "grignard",
+      "name": "Grignard carbonyl addition",
+      "zh": "Grignard 羰基加成",
+      "family": "羰基反应",
+      "equation": "PhCHO + CH₃MgBr → PhCH(OH)CH₃ (after workup)",
+      "conditions": "organomagnesium reagent，后续酸性处理。",
+      "summary": "配位活化、C–C 成键和质子化分别展示。",
+      "steps": [
+        {
+          "title": "O–Mg coordination",
+          "code": "1111",
+          "equation": "PhCHO + CH₃MgBr ⇌ O–Mg coordinated complex",
+          "flow": "羰基 O 的孤对电子配位到 Mg。",
+          "orbital": "n(O) → acceptor orbital at Mg",
+          "geometry": "氧接近 Mg；金属配位环境影响后续进攻。",
+          "diagram": "lewis"
+        },
+        {
+          "title": "Nucleophilic carbonyl addition",
+          "code": "1113",
+          "equation": "coordinated PhCHO + CH₃ group → PhCH(O–MgBr)CH₃",
+          "flow": "C–Mg 键提供碳亲核性；形成 C–C 键，同时羰基 π 电子移向 O。",
+          "orbital": "polarized σ(C–Mg) → π*(C=O)",
+          "geometry": "羰基中心由近似平面变为四面体。",
+          "diagram": "carbonyl"
+        },
+        {
+          "title": "Proton transfer",
+          "code": "1122",
+          "equation": "PhCH(O⁻)CH₃ + H₃O⁺ → PhCH(OH)CH₃ + H₂O",
+          "flow": "碱的孤对电子指向 H；原 H–A 键电子对返回 A。",
+          "orbital": "n(base) → σ*(H–A)",
+          "geometry": "接近 H 的同时，原 H–A 联系减弱。",
+          "diagram": "proton"
+        }
+      ],
+      "sources": [
+        "hydride"
+      ],
+      "facts": [
+        [
+          "Product class",
+          "Aldehyde + carbon nucleophile → secondary alcohol。"
+        ],
+        [
+          "Intermediate notation",
+          "最后一步以游离 alkoxide 形式记账，省略 Mg 盐。"
+        ]
+      ],
+      "scope": "Grignard 的聚集、配位和溶剂效应未展开；这里不能声称每个面板都对应唯一的真实 elementary step。",
+      "calc": "barrier",
+      "level": "基础",
+      "note": ""
+    },
+    {
+      "id": "cyanohydrin",
+      "name": "Cyanohydrin formation",
+      "zh": "氰醇形成",
+      "family": "羰基反应",
+      "equation": "PhCHO + HCN ⇌ PhCH(OH)CN",
+      "conditions": "CN⁻ 催化的教材机理模型。",
+      "summary": "亲核加成后从 HCN 取质子，同时再生 CN⁻。",
+      "steps": [
+        {
+          "title": "Nucleophilic carbonyl addition",
+          "code": "1113",
+          "equation": "PhCHO + CN⁻ → PhCH(O⁻)CN",
+          "flow": "亲核体的电子对指向羰基碳，同时 C=O 的 π 电子对移至氧。",
+          "orbital": "n(C of CN⁻) → π*(C=O)",
+          "geometry": "羰基中心由近似平面变为四面体。",
+          "diagram": "carbonyl"
+        },
+        {
+          "title": "Proton transfer",
+          "code": "1122",
+          "equation": "PhCH(O⁻)CN + HCN → PhCH(OH)CN + CN⁻",
+          "flow": "碱的孤对电子指向 H；原 H–A 键电子对返回 A。",
+          "orbital": "n(base) → σ*(H–A)",
+          "geometry": "接近 H 的同时，原 H–A 联系减弱。",
+          "diagram": "proton"
+        }
+      ],
+      "sources": [
+        "cyanohydrin"
+      ],
+      "facts": [
+        [
+          "Catalyst balance",
+          "CN⁻ 在加成步消耗，在质子转移步再生。"
+        ],
+        [
+          "Reversibility",
+          "Cyanohydrin formation 是可逆过程。"
+        ]
+      ],
+      "scope": "羰基加成 1113 为候选；亲核反应端是 CN⁻ 的碳。非手性环境中此例形成外消旋产物。",
+      "calc": "barrier",
+      "level": "基础",
+      "note": ""
+    },
+    {
+      "id": "acyl",
+      "name": "Nucleophilic acyl substitution",
+      "zh": "亲核酰基取代",
+      "family": "羰基反应",
+      "equation": "CH₃COCl + CH₃O⁻ → CH₃CO₂CH₃ + Cl⁻",
+      "conditions": "acid chloride + alkoxide",
+      "summary": "总反应是取代，但关键路径是“加成—消除”，与单步 SN2 不同。",
+      "steps": [
+        {
+          "title": "Nucleophilic carbonyl addition",
+          "code": "1113",
+          "equation": "CH₃COCl + CH₃O⁻ → CH₃C(O⁻)(OCH₃)Cl",
+          "flow": "亲核体的电子对指向羰基碳，同时 C=O 的 π 电子对移至氧。",
+          "orbital": "n(Nu) → π*(C=O)",
+          "geometry": "羰基中心由近似平面变为四面体。",
+          "diagram": "carbonyl"
+        },
+        {
+          "title": "Tetrahedral intermediate collapse",
+          "code": "1113",
+          "equation": "CH₃C(O⁻)(OCH₃)Cl → CH₃CO₂CH₃ + Cl⁻",
+          "flow": "O⁻ 的孤对电子恢复 C=O；C–Cl 键电子对移向 Cl。",
+          "orbital": "n(O) 恢复 π(C=O)，与 C–Cl 断裂耦合",
+          "geometry": "四面体中心恢复羰基平面。",
+          "diagram": "collapse"
+        }
+      ],
+      "sources": [
+        "acyl"
+      ],
+      "facts": [
+        [
+          "Path",
+          "Addition → tetrahedral intermediate → elimination。"
+        ],
+        [
+          "Coding",
+          "1113 → 1113，两个方向不同的事件可同码。"
+        ]
+      ],
+      "scope": "两步是常见教学模型；某些底物 / 条件可出现更协同的酰基取代。不能仅凭产物判断 SN2。",
+      "calc": "barrier",
+      "level": "基础",
+      "note": ""
+    },
+    {
+      "id": "epoxide",
+      "name": "Basic epoxide opening",
+      "zh": "碱性条件下环氧开环",
+      "family": "取代反应",
+      "equation": "ethylene oxide + CH₃O⁻ → CH₃OCH₂CH₂O⁻ → CH₃OCH₂CH₂OH",
+      "conditions": "alkoxide attack，随后质子化。",
+      "summary": "环张力释放伴随局部 SN2 型联系替换。",
+      "steps": [
+        {
+          "title": "Ring-opening displacement",
+          "code": "1122",
+          "equation": "ethylene oxide + CH₃O⁻ → CH₃OCH₂CH₂O⁻",
+          "flow": "亲核 O 进攻环氧碳；该 C–O 环键电子对移到环氧 O。",
+          "orbital": "n(Nu) → σ*(C–O)",
+          "geometry": "背面进攻，环打开。",
+          "diagram": "sn2"
+        },
+        {
+          "title": "Proton transfer",
+          "code": "1122",
+          "equation": "CH₃OCH₂CH₂O⁻ + H₃O⁺ → CH₃OCH₂CH₂OH + H₂O",
+          "flow": "碱的孤对电子指向 H；原 H–A 键电子对返回 A。",
+          "orbital": "n(base) → σ*(H–A)",
+          "geometry": "接近 H 的同时，原 H–A 联系减弱。",
+          "diagram": "proton"
+        }
+      ],
+      "sources": [
+        "epoxide"
+      ],
+      "facts": [
+        [
+          "Site selectivity",
+          "不对称环氧化物在碱性条件下通常于较少受阻的碳被进攻。"
+        ],
+        [
+          "Stereochemistry",
+          "进攻位点发生反转。"
+        ]
+      ],
+      "scope": "乙烯氧化物本身对称；酸催化开环的区域选择性不能直接套用此条。",
+      "calc": "barrier",
+      "level": "基础",
+      "note": ""
+    },
+    {
+      "id": "aldol",
+      "name": "Aldol addition",
+      "zh": "羟醛加成",
+      "family": "羰基反应",
+      "equation": "2 CH₃CHO ⇌ CH₃CH(OH)CH₂CHO",
+      "conditions": "base-catalyzed；本条止于 β-hydroxy aldehyde。",
+      "summary": "先产生 enolate，再形成 C–C 键，最后质子化。",
+      "steps": [
+        {
+          "title": "Proton transfer",
+          "code": "1122",
+          "equation": "CH₃CHO + HO⁻ ⇌ enolate + H₂O",
+          "flow": "碱取走 α-H，C–H 电子留在与羰基共轭的体系中；负电荷由 enolate 离域稳定。",
+          "orbital": "n(base) → σ*(H–A)",
+          "geometry": "接近 H 的同时，原 H–A 联系减弱。",
+          "diagram": "proton"
+        },
+        {
+          "title": "Nucleophilic carbonyl addition",
+          "code": "1113",
+          "equation": "enolate + CH₃CHO → CH₃CH(O⁻)CH₂CHO",
+          "flow": "enolate 的 α-C 形成新 C–C 键；受体羰基的 π 电子移到 O。",
+          "orbital": "occupied enolate orbital → π*(C=O)",
+          "geometry": "羰基中心由近似平面变为四面体。",
+          "diagram": "carbonyl"
+        },
+        {
+          "title": "Proton transfer",
+          "code": "1122",
+          "equation": "CH₃CH(O⁻)CH₂CHO + H₂O ⇌ CH₃CH(OH)CH₂CHO + HO⁻",
+          "flow": "碱的孤对电子指向 H；原 H–A 键电子对返回 A。",
+          "orbital": "n(base) → σ*(H–A)",
+          "geometry": "接近 H 的同时，原 H–A 联系减弱。",
+          "diagram": "proton"
+        }
+      ],
+      "sources": [
+        "aldol"
+      ],
+      "facts": [
+        [
+          "Catalyst balance",
+          "HO⁻ 在最后一步再生。"
+        ],
+        [
+          "Addition ≠ condensation",
+          "后续脱水会增加新的事件，不能包含在本条三步编码里。"
+        ]
+      ],
+      "scope": "enolate 的共振式不算额外反应步骤。第一步的 1122 只记主要质子转移，不涵盖全部离域细节。",
+      "calc": "barrier",
+      "level": "基础",
+      "note": ""
+    },
+    {
+      "id": "radical-add",
+      "name": "Radical alkene addition",
+      "zh": "自由基烯烃加成事件",
+      "family": "自由基反应",
+      "equation": "CH₃• + CH₂=CH₂ → CH₃CH₂CH₂•",
+      "conditions": "开壳层自由基参与。",
+      "summary": "形成新 σ 键，同时自由基中心转移到烯烃另一端。",
+      "steps": [
+        {
+          "title": "Radical addition",
+          "code": "2211",
+          "equation": "CH₃• + CH₂=CH₂ → CH₃CH₂CH₂•",
+          "flow": "自由基单电子与 π 键中的一个电子形成新键；另一个 π 电子留在另一碳。",
+          "orbital": "SOMO 与 alkene π / π* 相互作用",
+          "geometry": "自由基接近双键的一端。",
+          "diagram": "radical"
+        }
+      ],
+      "sources": [
+        "radical"
+      ],
+      "facts": [
+        [
+          "Electron accounting",
+          "使用 fishhook arrows 表示单电子移动。"
+        ],
+        [
+          "Spin",
+          "总体系仍为开壳层；不是生成一个游离碳正离子。"
+        ]
+      ],
+      "scope": "这里仅为一个链增长事件，不包括引发与终止；半箭头与双电子箭头不能混用。",
+      "calc": "barrier",
+      "level": "基础",
+      "note": ""
+    },
+    {
+      "id": "radical-combine",
+      "name": "Radical recombination",
+      "zh": "自由基复合",
+      "family": "自由基反应",
+      "equation": "CH₃• + •CH₃ → CH₃CH₃",
+      "conditions": "两个相遇且自旋匹配的自由基。",
+      "summary": "两个单占轨道形成一个电子对，终止自由基链。",
+      "steps": [
+        {
+          "title": "Radical coupling",
+          "code": "2211",
+          "equation": "CH₃• + •CH₃ → CH₃CH₃",
+          "flow": "两个自由基各贡献一个电子，形成新的 C–C σ 键。",
+          "orbital": "SOMO + SOMO → bonding pair",
+          "geometry": "两个反应中心接近。",
+          "diagram": "recombine"
+        }
+      ],
+      "sources": [
+        "radical"
+      ],
+      "facts": [
+        [
+          "Event type",
+          "Chain termination。"
+        ],
+        [
+          "S2 meaning",
+          "指事件涉及开壳层，不意味着乙烷产物也为开壳层。"
+        ]
+      ],
+      "scope": "实际复合受自旋、扩散及溶剂笼影响；不从四位码推导唯一速率常数。",
+      "calc": "barrier",
+      "level": "基础",
+      "note": ""
+    },
+    {
+      "id": "radical-chain",
+      "name": "Radical chlorination: propagation",
+      "zh": "自由基氯化链传播",
+      "family": "自由基反应",
+      "equation": "CH₄ + Cl₂ → CH₃Cl + HCl",
+      "conditions": "从已有 Cl• 的链传播阶段开始。",
+      "summary": "两次原子转移构成传播循环，Cl• 在第二步再生。",
+      "steps": [
+        {
+          "title": "Hydrogen atom abstraction",
+          "code": "2222",
+          "equation": "Cl• + CH₄ → HCl + CH₃•",
+          "flow": "Cl 的单电子与 C–H 键的一个电子形成 H–Cl；剩余电子留在 C。",
+          "orbital": "SOMO(Cl) 与 σ(C–H)",
+          "geometry": "Cl 接近 H，C–H 断裂。",
+          "diagram": "hat"
+        },
+        {
+          "title": "Chlorine atom transfer",
+          "code": "2222",
+          "equation": "CH₃• + Cl₂ → CH₃Cl + Cl•",
+          "flow": "碳自由基与 Cl–Cl 键的一个电子成键；另一个电子留给离去的 Cl。",
+          "orbital": "SOMO(C) 与 σ(Cl–Cl)",
+          "geometry": "碳接近 Cl，Cl–Cl 同时断裂。",
+          "diagram": "hat"
+        }
+      ],
+      "sources": [
+        "radical"
+      ],
+      "facts": [
+        [
+          "Cycle",
+          "消去两侧 Cl• / CH₃• 后得到净反应。"
+        ],
+        [
+          "Scope of two codes",
+          "只编码传播循环，不声称完整反应只有两步。"
+        ]
+      ],
+      "scope": "2222 是候选。引发可涉及光激发与解离，需另标 S3；本版本不强行给其唯一编码。",
+      "calc": "barrier",
+      "level": "基础",
+      "note": ""
+    },
+    {
+      "id": "diels-alder",
+      "name": "Diels–Alder cycloaddition",
+      "zh": "Diels–Alder 环加成",
+      "family": "周环反应",
+      "equation": "1,3-butadiene + ethene → cyclohexene",
+      "conditions": "thermal [4+2] cycloaddition；这是最简结构示例。",
+      "summary": "一个协同事件重排三个 π 联系，产生六元环。",
+      "steps": [
+        {
+          "title": "[4+2] cycloaddition",
+          "code": "1333",
+          "equation": "CH₂=CH–CH=CH₂ + CH₂=CH₂ → cyclohexene",
+          "flow": "三个电子对绕六中心环状路径重排；形成两条新 C–C σ 键和一条新的 π 键。",
+          "orbital": "diene / dienophile frontier orbitals，六电子环状相互作用",
+          "geometry": "diene 需能取 s-cis；两个端点共同靠近 dienophile。",
+          "diagram": "da"
+        }
+      ],
+      "sources": [
+        "da",
+        "dastereo"
+      ],
+      "facts": [
+        [
+          "Bond bookkeeping",
+          "3 π → 1 π + 2 σ。"
+        ],
+        [
+          "Stereochemistry",
+          "典型热反应为 suprafacial / suprafacial。"
+        ]
+      ],
+      "scope": "最简乙烯例子不表示易反应。endo 偏好取决于底物与条件，协同也不保证两个新键完全同步形成。",
+      "calc": "barrier",
+      "level": "基础",
+      "note": ""
+    },
+    {
+      "id": "claisen",
+      "name": "Claisen rearrangement",
+      "zh": "Claisen 重排",
+      "family": "周环反应",
+      "equation": "CH₂=CH–O–CH₂–CH=CH₂ → OHC–CH₂–CH₂–CH=CH₂",
+      "conditions": "thermal [3,3]-sigmatropic rearrangement",
+      "summary": "断开一条 σ 键、形成另一条 σ 键，π 联系同时移动。",
+      "steps": [
+        {
+          "title": "[3,3]-Sigmatropic rearrangement",
+          "code": "1333",
+          "equation": "allyl vinyl ether → pent-4-enal",
+          "flow": "通过六中心路径：O–allyl σ 键断裂，两个 π 键迁移并形成新 C–C 联系。",
+          "orbital": "六电子环状 orbital overlap",
+          "geometry": "常用 chair-like transition structure 理解构象选择。",
+          "diagram": "cyclic"
+        }
+      ],
+      "sources": [
+        "claisen"
+      ],
+      "facts": [
+        [
+          "Product",
+          "Allyl vinyl ether gives a γ,δ-unsaturated carbonyl。"
+        ],
+        [
+          "Shared code",
+          "与 Diels–Alder 同为 1333，但成断键拓扑不同。"
+        ]
+      ],
+      "scope": "Claisen rearrangement 与 Claisen condensation 不是同一反应。chair-like 是常见模型，不是所有底物的唯一构象。",
+      "calc": "barrier",
+      "level": "基础",
+      "note": ""
+    },
+    {
+      "id": "electrocyclic",
+      "name": "Thermal electrocyclic closure",
+      "zh": "热电环化",
+      "family": "周环反应",
+      "equation": "1,3-butadiene ⇌ cyclobutene",
+      "conditions": "thermal 4π electrocyclic event",
+      "summary": "共轭体系两个末端成键，π 键数改变。",
+      "steps": [
+        {
+          "title": "4π electrocyclic closure",
+          "code": "1333",
+          "equation": "1,3-butadiene ⇌ cyclobutene",
+          "flow": "共轭 π 电子重排，末端之间形成新的 σ 键。",
+          "orbital": "4π frontier-orbital symmetry",
+          "geometry": "热 4π 体系采用 conrotatory 模式。",
+          "diagram": "electro"
+        }
+      ],
+      "sources": [
+        "electro"
+      ],
+      "facts": [
+        [
+          "Selection rule",
+          "Thermal 4π: conrotatory；thermal 6π: disrotatory。"
+        ],
+        [
+          "Kinetics ≠ thermodynamics",
+          "对称性允许不表示在任意条件下净反应有利。"
+        ]
+      ],
+      "scope": "本条仅热反应；光化学激发可能改变规则，需要 S3，并超出首版固定编码。",
+      "calc": "barrier",
+      "level": "基础",
+      "note": ""
+    }
+  ]
+}
