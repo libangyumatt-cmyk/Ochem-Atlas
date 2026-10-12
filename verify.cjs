@@ -33,5 +33,5 @@ for(const [a,b] of [[NaN,1],[1,Infinity],[0,0],[101,1]])assert.throws(()=>C.orbi
 const html=fs.readFileSync('dist/index.html','utf8');
 assert.ok(html.includes('31 reactions / 70 events'));assert.doesNotMatch(html,/concentration-rate|relative-barrier/);
 const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);assert.equal(ids.length,new Set(ids).size);
-for(const [,asset] of html.matchAll(/(?:src|href)="([^"#:]+\.(?:js|css|svg|json))"/g))assert.ok(fs.existsSync('dist/'+asset),asset);
+for(const [,asset] of html.matchAll(/(?:src|href)="([^"#:]+\.(?:js|css|svg|json))(?:\?[^"]*)?"/g))assert.ok(fs.existsSync('dist/'+asset),asset);
 console.log('PASS: 31 entries / 70 events; complete pathway metadata, figure attribution, data, diagrams, assets, same-event filters, orbital-mixing model and invalid inputs. Browser QA not run.');
