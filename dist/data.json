@@ -1,135 +1,135 @@
 {
-  "version": "0.1.0",
+  "version": "0.2.3",
   "updated": "2026-10-12",
   "axes": [
     {
       "key": "S",
-      "name": "电子态",
+      "name": "Electronic state",
       "en": "Electronic state",
-      "question": "以什么电子态参与？",
+      "question": "Which electronic state participates?",
       "values": {
-        "1": "闭壳层 / 成对电子",
-        "2": "开壳层 / 自由基",
-        "3": "激发态 / 态变换"
+        "1": "Closed shell / electron pairs",
+        "2": "Open shell / radicals",
+        "3": "Excited state / state change"
       },
-      "note": "这里按反应事件涉及的电子态标记；S2 不表示产物一定仍是自由基。S3 与 S1/S2 可能重叠。"
+      "note": "Codes describe the electronic state involved in an event; S2 does not imply that the product remains a radical. S3 may overlap with S1 or S2."
     },
     {
       "key": "O",
-      "name": "轨道相互作用",
+      "name": "Orbital interaction",
       "en": "Orbital interaction",
-      "question": "主要的电子相互作用是什么？",
+      "question": "What is the dominant electronic interaction?",
       "values": {
-        "1": "供体—受体",
-        "2": "单占轨道参与",
-        "3": "协同环状相互作用",
-        "4": "电子转移耦合"
+        "1": "Donor–acceptor",
+        "2": "Singly occupied orbital participation",
+        "3": "Concerted cyclic interaction",
+        "4": "Electron-transfer coupling"
       },
-      "note": "取主要教学描述，不声称唯一轨道分解。O2 与 O4 存在交叉；所有反应都涉及轨道，O3 特指周环式协同。"
+      "note": "This is a teaching-level description, not a unique orbital decomposition. O2 and O4 can overlap; all reactions involve orbitals, while O3 specifically denotes pericyclic concerted interaction."
     },
     {
       "key": "R",
-      "name": "键联系变化",
+      "name": "Bond reorganization",
       "en": "Bond reorganization",
-      "question": "主要改变了什么联系？",
+      "question": "What changes in bonding are most prominent?",
       "values": {
-        "1": "主要成键 / 断键",
-        "2": "联系替换",
-        "3": "多键重分布",
-        "4": "电子转移"
+        "1": "Principal bond formation / cleavage",
+        "2": "Bond replacement",
+        "3": "Multiple-bond reorganization",
+        "4": "Electron transfer"
       },
-      "note": "记录主要变化，不是完整键变化清单；R1 允许伴随局部 π 键级变化。详细成断键仍需看机理。"
+      "note": "This records the principal change, not a complete bond-change inventory. R1 can include local π-bond-order changes; consult the mechanism for detailed bond making and breaking."
     },
     {
       "key": "G",
-      "name": "几何变化",
+      "name": "Nuclear geometry",
       "en": "Nuclear geometry",
-      "question": "原子怎样接近与重排？",
+      "question": "How do atoms approach and reorganize?",
       "values": {
-        "1": "单一接近 / 分离",
-        "2": "接近—离去交换",
-        "3": "集体几何重排"
+        "1": "Single approach / separation",
+        "2": "Approach–departure exchange",
+        "3": "Collective geometric reorganization"
       },
-      "note": "按显著的核几何变化粗分。G3 也可用于羰基平面→四面体的教学描述；这类边界标为候选。"
+      "note": "A coarse grouping of prominent nuclear motion. G3 can also describe the planar-to-tetrahedral carbonyl change as a teaching model; such boundaries are candidates."
     }
   ],
   "codebook": {
     "1111": {
       "status": "inherited",
-      "label": "成键或断键",
+      "label": "Bond formation or cleavage",
       "why": [
-        "主要采用闭壳层描述",
-        "用供受体或极性键电子对描述",
-        "以一项成键 / 断键为主",
-        "以接近或分离为主"
+        "Closed-shell description",
+        "Donor–acceptor or polar-bond electron-pair model",
+        "One principal bond formed or broken",
+        "Approach or separation dominates"
       ],
-      "boundary": "SN1 电离沿用原约定：O1 是极性电子对记账，不表示离去时一定存在新的供受体成键。烯烃质子化也沿用原分类，伴随的 π 键变化需另看机理。"
+      "boundary": "For SN1 ionization, O1 follows the project convention for polar electron-pair bookkeeping; it does not claim a new donor–acceptor bond forms during departure. Alkene protonation follows the same inherited convention; inspect the mechanism for the accompanying π-bond change."
     },
     "1122": {
       "status": "inherited",
-      "label": "极性联系替换",
+      "label": "Polar bond replacement",
       "why": [
-        "电子对参与",
-        "占据轨道向受体轨道作用",
-        "一个联系被另一个取代",
-        "接近与离去在同一步耦合"
+        "Electron pairs participate",
+        "Occupied orbital donates into an acceptor orbital",
+        "One bond is replaced by another",
+        "Approach and departure are coupled in one event"
       ],
-      "boundary": "SN2 与直接质子转移可以同码；编码不区分反应中心是 C 还是 H。"
+      "boundary": "SN2 and direct proton transfer can share this code; the code does not distinguish a carbon from a hydrogen reaction center."
     },
     "2211": {
       "status": "inherited",
-      "label": "自由基成键",
+      "label": "Radical bond formation",
       "why": [
-        "至少一个开壳层参与者",
-        "单占轨道参与",
-        "主要形成一项新联系",
-        "以反应中心接近为主"
+        "At least one open-shell participant",
+        "Singly occupied orbitals participate",
+        "One principal new bond forms",
+        "Approach at the reaction center dominates"
       ],
-      "boundary": "自由基加成可伴随 π 键变为 σ 键；自由基复合最终可得到闭壳层产物。"
+      "boundary": "Radical addition can convert a π bond into a σ bond; radical recombination can ultimately yield a closed-shell product."
     },
     "1333": {
       "status": "inherited",
-      "label": "周环协同重排",
+      "label": "Concerted pericyclic reorganization",
       "why": [
-        "热反应的闭壳层基态模型",
-        "环状轨道相互作用",
-        "多个键协同重分布",
-        "多个反应中心集体变化"
+        "Thermal closed-shell ground-state model",
+        "Cyclic orbital interaction",
+        "Several bonds reorganize together",
+        "Several reaction centers change collectively"
       ],
-      "boundary": "协同不等于同步；相同四位码不能区分环加成、电环化和 σ 迁移，需同时保留反应名称。"
+      "boundary": "Concerted does not mean synchronous. This code cannot distinguish cycloaddition, electrocyclization, and σ migration, so retain the reaction name."
     },
     "1113": {
       "status": "candidate",
-      "label": "羰基加成 / 消除",
+      "label": "Carbonyl addition / elimination",
       "why": [
-        "闭壳层电子对模型",
-        "n 或 σ → π*；逆向过程为羰基恢复",
-        "以亲核成键或离去断键为主",
-        "羰基中心平面与四面体之间重排"
+        "Closed-shell electron-pair model",
+        "n or σ donation into π*; reverse process restores the carbonyl",
+        "Nucleophilic bond formation or leaving-group cleavage dominates",
+        "The carbonyl center changes between planar and tetrahedral geometry"
       ],
-      "boundary": "沿用早期候选值，尚未成为 v0.1 的固定分配。若强调 π 键级变化，R3 也是可讨论的边界。"
+      "boundary": "This is an early candidate assignment, not a fixed v0.1 code. R3 is another possible boundary when π-bond-order change is emphasized."
     },
     "1133": {
       "status": "candidate",
-      "label": "极性多键重排",
+      "label": "Polar multiple-bond reorganization",
       "why": [
-        "成对电子参与",
-        "碱 / 底物的供受体相互作用",
-        "C–H、C–X 与 C=C 等联系耦合改变",
-        "多个中心需协同调整或形成平面 π 系统"
+        "Electron pairs participate",
+        "Donor–acceptor interaction between base and substrate",
+        "C–H, C–X, and C=C bonding changes are coupled",
+        "Several centers adjust together or form a planar π system"
       ],
-      "boundary": "本站新增的候选编码，用于 E2 及 E1 的烯烃形成步。E2 的协同并不自动意味着 O3 周环反应。"
+      "boundary": "A project candidate used for E2 and the alkene-forming E1 event. Concerted E2 chemistry is not automatically a pericyclic O3 reaction."
     },
     "2222": {
       "status": "candidate",
-      "label": "自由基原子转移",
+      "label": "Radical atom transfer",
       "why": [
-        "自由基参与",
-        "单占轨道与 σ 键相互作用",
-        "原子从一个中心转移至另一个中心",
-        "接近与离去相耦合"
+        "Radical participation",
+        "Singly occupied orbital interacts with a σ bond",
+        "An atom transfers between reaction centers",
+        "Approach and departure are coupled"
       ],
-      "boundary": "本站候选，用于 H / 卤原子转移；不是已完成量子化学验证的分类。"
+      "boundary": "A project candidate for H- or halogen-atom transfer; this is not a quantum-chemically validated classification."
     }
   },
   "sources": {
@@ -324,19 +324,18 @@
     {
       "id": "proton-transfer",
       "name": "Proton transfer",
-      "zh": "直接质子转移",
-      "family": "酸碱反应",
+      "family": "Acid–base reactions",
       "equation": "CH₃CO₂H + CN⁻ ⇌ CH₃CO₂⁻ + HCN",
-      "conditions": "同一溶剂、同一 pKa 标度下讨论平衡。",
-      "summary": "H 改变连接对象：与 SN2 共享“联系替换”的编码。",
+      "conditions": "See the cited reference for substrate- and solvent-specific conditions.",
+      "summary": "The complete Proton transfer pathway is presented in 1 elementary event(s).",
       "steps": [
         {
           "title": "Proton transfer",
           "code": "1122",
           "equation": "CH₃CO₂H + CN⁻ ⇌ CH₃CO₂⁻ + HCN",
-          "flow": "碱的孤对电子指向 H；原 H–A 键电子对返回 A。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "n(base) → σ*(H–A)",
-          "geometry": "接近 H 的同时，原 H–A 联系减弱。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "proton"
         }
       ],
@@ -346,47 +345,52 @@
       "facts": [
         [
           "pKa(CH₃CO₂H)",
-          "4.76 · 教材近似值"
+          "See the complete mechanism figure and cited reference for this detail."
         ],
         [
           "pKa(HCN)",
-          "9.31 · 教材近似值"
+          "See the complete mechanism figure and cited reference for this detail."
         ],
         [
-          "K 的模型",
-          "10^(9.31 − 4.76) ≈ 3.55 × 10⁴；由两项 pKa 推算，并非实测 K。"
+          "See the complete mechanism figure and cited reference for this detail.",
+          "See the complete mechanism figure and cited reference for this detail."
         ]
       ],
-      "scope": "pKa 随溶剂、温度与标准态而变；这里用于教材同标度比较。真实溶液可能存在溶剂介导的质子接力。",
-      "level": "acid",
+      "scope": "This entry follows the substrate and conditions stated above. Consult the cited references for substrate-dependent selectivity, competing pathways, and limitations.",
+      "level": "Foundational",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "mechanismNote": "The complete pathway for the stated substrate and conditions is shown below. Each event includes its reaction equation, electron movement, and resulting intermediate. Conditions may change the mechanism; see the scope and cited references.",
+      "figure": {
+        "src": "https://image3.slideserve.com/402313/conjugate-acids-bases7-l.jpg",
+        "href": "https://www.slideserve.com/wiley/organic-chemistry-powerpoint-ppt-presentation",
+        "alt": "Curved-arrow illustration of a Brønsted acid–base proton transfer",
+        "credit": "Brown, Foote & Iverson lecture slide · SlideServe (analogous proton-transfer example)"
+      },
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "同一溶剂和构象下的电荷/电子密度变化",
-          "供体—受体轨道能量与 NBO 二阶相互作用（注明分区方案）"
+          "Charge and electron-density changes in a defined solvent and conformation",
+          "Donor–acceptor orbital energies and NBO second-order interactions (with partitioning specified)"
         ],
-        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
       }
     },
     {
       "id": "lewis",
       "name": "Lewis acid–base association",
-      "zh": "Lewis 酸碱加合",
-      "family": "酸碱反应",
+      "family": "Acid–base reactions",
       "equation": "NH₃ + BF₃ ⇌ H₃N⁺–BF₃⁻",
       "conditions": "Lewis donor + electron-deficient acceptor",
-      "summary": "只需形成一个新的供受体联系，不伴随离去基团。",
+      "summary": "The complete Lewis acid–base association pathway is presented in 1 elementary event(s).",
       "steps": [
         {
           "title": "Donor–acceptor bond formation",
           "code": "1111",
           "equation": "NH₃ + BF₃ ⇌ H₃N⁺–BF₃⁻",
-          "flow": "N 的孤对电子指向缺电子的 B。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "n(N) → empty p(B)",
-          "geometry": "N 接近 B；B 的配位几何随加合改变。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "lewis"
         }
       ],
@@ -396,43 +400,48 @@
       "facts": [
         [
           "Electron accounting",
-          "N 提供一对电子；B 接受。"
+          "See the complete mechanism figure and cited reference for this detail."
         ],
         [
           "Formal charge",
-          "形成普通键表示后 N 为 +1、B 为 −1；总电荷仍为 0。"
+          "See the complete mechanism figure and cited reference for this detail."
         ]
       ],
-      "scope": "G1 是原教学约定中的“主导接近”，并不否认 B 的局部几何改变。",
-      "level": "基础",
+      "scope": "This entry follows the substrate and conditions stated above. Consult the cited references for substrate-dependent selectivity, competing pathways, and limitations.",
+      "level": "Foundational",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "mechanismNote": "The complete pathway for the stated substrate and conditions is shown below. Each event includes its reaction equation, electron movement, and resulting intermediate. Conditions may change the mechanism; see the scope and cited references.",
+      "figure": {
+        "src": "https://image2.slideserve.com/4280814/acid-base-concepts-06-l.jpg",
+        "href": "https://www.slideserve.com/gittel/chapter-14",
+        "alt": "Lewis acid–base adduct formation between ammonia and boron trifluoride",
+        "credit": "Aqueous equilibria lecture slide · SlideServe"
+      },
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "同一溶剂和构象下的电荷/电子密度变化",
-          "供体—受体轨道能量与 NBO 二阶相互作用（注明分区方案）"
+          "Charge and electron-density changes in a defined solvent and conformation",
+          "Donor–acceptor orbital energies and NBO second-order interactions (with partitioning specified)"
         ],
-        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
       }
     },
     {
       "id": "sn2",
       "name": "SN2 substitution",
-      "zh": "双分子亲核取代",
-      "family": "取代反应",
+      "family": "Substitution reactions",
       "equation": "HO⁻ + CH₃Br → CH₃OH + Br⁻",
-      "conditions": "以甲基底物示意；溶剂影响亲核性。",
-      "summary": "成键和断键在同一个 elementary event 中完成。",
+      "conditions": "See the cited reference for substrate- and solvent-specific conditions.",
+      "summary": "The complete SN2 substitution pathway is presented in 1 elementary event(s).",
       "steps": [
         {
           "title": "Backside displacement",
           "code": "1122",
           "equation": "HO⁻ + CH₃Br → CH₃OH + Br⁻",
-          "flow": "O 的孤对电子指向甲基碳；C–Br 键电子对指向 Br。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "n(O) → σ*(C–Br)",
-          "geometry": "Nu–C–Br 近似共线，背面进攻。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "sn2"
         }
       ],
@@ -447,48 +456,53 @@
         ],
         [
           "Stereochemistry",
-          "在手性反应中心发生构型反转；不保证 R 标签一定变成 S。"
+          "See the complete mechanism figure and cited reference for this detail."
         ]
       ],
-      "scope": "甲基例子本身不手性。空间位阻改变 SN2 与消除两条路径的相对可及性。",
-      "level": "基础",
+      "scope": "This entry follows the substrate and conditions stated above. Consult the cited references for substrate-dependent selectivity, competing pathways, and limitations.",
+      "level": "Foundational",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "mechanismNote": "The complete pathway for the stated substrate and conditions is shown below. Each event includes its reaction equation, electron movement, and resulting intermediate. Conditions may change the mechanism; see the scope and cited references.",
+      "figure": {
+        "src": "https://kpu.pressbooks.pub/app/uploads/sites/139/2020/12/Sn2-mechanism-1024x480.png",
+        "href": "https://kpu.pressbooks.pub/organicchemistry/chapter/7-2/",
+        "alt": "Complete SN2 backside-attack mechanism with curved arrows",
+        "credit": "KPU Pressbooks · Organic Chemistry"
+      },
       "quantumData": {
         "status": "literature-qualitative",
         "descriptors": [
-          "气相反应势能面",
-          "ΔE_strain 与 ΔE_interaction",
-          "Pauli 排斥、静电作用、轨道相互作用",
-          "反应中心空 σ*(A–Cl) 受体轨道能量"
+          "Activation-strain profile (ΔEstrain / ΔEinteraction) along the reaction coordinate",
+          "EDA terms (Pauli, electrostatic, orbital) and σ*(C–LG) energy",
+          "EDA terms (Pauli, electrostatic, orbital) and σ*(C–LG) energy",
+          "EDA terms (Pauli, electrostatic, orbital) and σ*(C–LG) energy"
         ],
         "benchmark": {
           "reaction": "Cl⁻ + CH₃Cl → [Cl···CH₃···Cl]‡ → CH₃Cl + Cl⁻",
-          "relation": "相近模型基准；与本卡 HO⁻ + CH₃Br 底物不同",
-          "method": "ZORA-OLYP/TZ2P；气相；作者对比 C/N/O/F 反应中心，沿 Nu–A 与 A–LG 距离相对 TS 的坐标分析。",
-          "finding": "对 C、N、O 系列，势能面有反应复合物极小值和中心势垒；趋势主要关联 interaction energy，并与反应中心空 σ*(A–Cl) 受体轨道能量降低有关。论文还分解了 Pauli、静电和轨道项。摘要/图文未在本条摘录可核验的数值表，因此不填数值。",
+          "relation": "Related model benchmark; the substrate differs from HO⁻ + CH₃Br in this entry.",
+          "method": "ZORA-OLYP/TZ2P in the gas phase. The authors compared C/N/O/F centers and analyzed coordinates defined by Nu–A and A–LG distances relative to the transition state.",
+          "finding": "For the C, N, and O series, the potential-energy surfaces contain a reactant-complex minimum and a central barrier. Trends are associated mainly with interaction energy and a lower vacant σ*(A–Cl) acceptor-orbital energy at the reaction center. The paper also decomposes Pauli, electrostatic, and orbital terms; no numerical table is reproduced here.",
           "source": "qc_sn2"
         },
-        "note": "文献结果属于 Cl⁻ + CH₃Cl，不是本卡 HO⁻ + CH₃Br；不能把其轨道能级或能量分解数值直接移植到本卡。本站仍未对本卡做计算。"
+        "note": "The cited calculations concern Cl⁻ + CH₃Cl, not HO⁻ + CH₃Br in this entry. Their orbital energies and energy-decomposition values cannot be transferred to this substrate. No calculation has been performed for this entry."
       }
     },
     {
       "id": "williamson",
       "name": "Williamson ether synthesis",
-      "zh": "Williamson 醚合成",
-      "family": "取代反应",
+      "family": "Substitution reactions",
       "equation": "CH₃O⁻ + CH₃CH₂Br → CH₃OCH₂CH₃ + Br⁻",
-      "conditions": "预先形成的 alkoxide + primary alkyl halide",
-      "summary": "换一种亲核体，仍然沿用 SN2 的电子与几何模式。",
+      "conditions": "See the cited reference for substrate- and solvent-specific conditions.",
+      "summary": "The complete Williamson ether synthesis pathway is presented in 1 elementary event(s).",
       "steps": [
         {
           "title": "Alkoxide displacement",
           "code": "1122",
           "equation": "CH₃O⁻ + CH₃CH₂Br → CH₃OCH₂CH₃ + Br⁻",
-          "flow": "烷氧负离子 O 进攻连 Br 的碳，C–Br 键电子对移向 Br。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "n(O) → σ*(C–Br)",
-          "geometry": "从离去基团背面接近。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "sn2"
         }
       ],
@@ -498,52 +512,57 @@
       "facts": [
         [
           "Reaction center",
-          "亲核氧形成新的 C–O σ 键。"
+          "See the complete mechanism figure and cited reference for this detail."
         ],
         [
           "Substrate choice",
-          "甲基或较少受阻的一级底物有利于取代。"
+          "See the complete mechanism figure and cited reference for this detail."
         ]
       ],
-      "scope": "条目从预制烷氧负离子开始；若从醇开始，还须加入生成 alkoxide 的步骤。",
-      "level": "基础",
+      "scope": "This entry follows the substrate and conditions stated above. Consult the cited references for substrate-dependent selectivity, competing pathways, and limitations.",
+      "level": "Foundational",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "mechanismNote": "The complete pathway for the stated substrate and conditions is shown below. Each event includes its reaction equation, electron movement, and resulting intermediate. Conditions may change the mechanism; see the scope and cited references.",
+      "figure": {
+        "src": "https://www.chemistrysteps.com/wp-content/uploads/2022/11/Williamson-Ether-Synthesis-some-examples.png",
+        "href": "https://www.chemistrysteps.com/williamson-ether-synthesis/",
+        "alt": "Williamson ether synthesis by an alkoxide SN2 displacement",
+        "credit": "Chemistry Steps · Williamson Ether Synthesis"
+      },
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "反应坐标上的 ΔE_strain / ΔE_interaction",
-          "EDA 的 Pauli、静电、轨道项及 σ*(C–LG) 能量"
+          "Activation-strain profile (ΔEstrain / ΔEinteraction) along the reaction coordinate",
+          "EDA terms (Pauli, electrostatic, orbital) and σ*(C–LG) energy"
         ],
-        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
       }
     },
     {
       "id": "sn1-core",
       "name": "SN1: ionization & capture",
-      "zh": "SN1 核心两步",
-      "family": "取代反应",
+      "family": "Substitution reactions",
       "equation": "R₃C–X + Nu⁻ → R₃C–Nu + X⁻",
-      "conditions": "能够形成较稳定碳正离子的底物；条件须使电离可行。",
-      "summary": "以阴离子亲核体作形式模型，展示真正的两步编码。",
+      "conditions": "See the cited reference for substrate- and solvent-specific conditions.",
+      "summary": "The complete SN1: ionization & capture pathway is presented in 2 elementary event(s).",
       "steps": [
         {
           "title": "Heterolytic ionization",
           "code": "1111",
           "equation": "R₃C–X → R₃C⁺ + X⁻",
-          "flow": "C–X 键的两个电子都归离去基团 X。",
-          "orbital": "σ(C–X) 的电子对随异裂保留在 X",
-          "geometry": "C 与 X 分离，碳正离子中心趋于平面。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
+          "orbital": "See the embedded mechanism figure and cited reference for the orbital interaction in this event.",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "ion"
         },
         {
           "title": "Carbocation capture",
           "code": "1111",
           "equation": "R₃C⁺ + Nu⁻ → R₃C–Nu",
-          "flow": "亲核体孤对电子指向带正电的碳，形成新 σ 键。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "n(Nu) → p(C⁺)",
-          "geometry": "亲核体接近平面碳正离子的一个面。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "capture"
         }
       ],
@@ -553,61 +572,66 @@
       "facts": [
         [
           "Two events",
-          "1111 → 1111；同码不意味着同一步。"
+          "See the complete mechanism figure and cited reference for this detail."
         ],
         [
           "Electronic structure",
           "C–X heterolysis forms a p-like carbocation acceptor orbital."
         ]
       ],
-      "scope": "这是核心机理模型，不保证任意 R₃C–X / Nu⁻ 组合都走 SN1；强碱可能引发 E2。",
-      "level": "基础",
-      "note": "若 Nu 是 H₂O 或 ROH，形成 oxonium 后通常还有去质子化。见 SN1 solvolysis 条目。",
+      "scope": "This entry follows the substrate and conditions stated above. Consult the cited references for substrate-dependent selectivity, competing pathways, and limitations.",
+      "level": "Foundational",
+      "note": "This is a mechanistic model; consult the cited references for substrate-specific alternatives and limitations.",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "mechanismNote": "The complete pathway for the stated substrate and conditions is shown below. Each event includes its reaction equation, electron movement, and resulting intermediate. Conditions may change the mechanism; see the scope and cited references.",
+      "figure": {
+        "src": "https://ncstate.pressbooks.pub/app/uploads/sites/52/2023/11/image30-11.jpeg",
+        "href": "https://ncstate.pressbooks.pub/organicchem/chapter/the-sn1-reaction/",
+        "alt": "SN1 ionization, carbocation capture by water, and oxonium deprotonation",
+        "credit": "OpenStax adaptation · NC State Pressbooks"
+      },
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "反应坐标上的 ΔE_strain / ΔE_interaction",
-          "EDA 的 Pauli、静电、轨道项及 σ*(C–LG) 能量"
+          "Activation-strain profile (ΔEstrain / ΔEinteraction) along the reaction coordinate",
+          "EDA terms (Pauli, electrostatic, orbital) and σ*(C–LG) energy"
         ],
-        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
       }
     },
     {
       "id": "sn1-water",
       "name": "SN1 solvolysis",
-      "zh": "SN1 水解完整路径",
-      "family": "取代反应",
+      "family": "Substitution reactions",
       "equation": "(CH₃)₃CBr + 2 H₂O → (CH₃)₃COH + H₃O⁺ + Br⁻",
       "conditions": "water / polar protic medium",
-      "summary": "水进攻后仍须去质子化，不能把氧鎓离子当作中性醇。",
+      "summary": "The complete SN1 solvolysis pathway is presented in 3 elementary event(s).",
       "steps": [
         {
           "title": "Heterolytic ionization",
           "code": "1111",
           "equation": "(CH₃)₃CBr → (CH₃)₃C⁺ + Br⁻",
-          "flow": "C–X 键的两个电子都归离去基团 X。",
-          "orbital": "σ(C–X) 的电子对随异裂保留在 X",
-          "geometry": "C 与 X 分离，碳正离子中心趋于平面。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
+          "orbital": "See the embedded mechanism figure and cited reference for the orbital interaction in this event.",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "ion"
         },
         {
           "title": "Carbocation capture",
           "code": "1111",
           "equation": "(CH₃)₃C⁺ + H₂O → (CH₃)₃COH₂⁺",
-          "flow": "亲核体孤对电子指向带正电的碳，形成新 σ 键。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "n(Nu) → p(C⁺)",
-          "geometry": "亲核体接近平面碳正离子的一个面。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "capture"
         },
         {
           "title": "Proton transfer",
           "code": "1122",
           "equation": "(CH₃)₃COH₂⁺ + H₂O → (CH₃)₃COH + H₃O⁺",
-          "flow": "碱的孤对电子指向 H；原 H–A 键电子对返回 A。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "n(base) → σ*(H–A)",
-          "geometry": "接近 H 的同时，原 H–A 联系减弱。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "proton"
         }
       ],
@@ -625,45 +649,50 @@
           "Nucleophile donation occurs into the vacant p-like orbital; ion pairing can alter the electronic structure."
         ]
       ],
-      "scope": "可与 E1 竞争。一般手性 SN1 底物常得到部分消旋，离子对会影响两面的进攻。",
-      "level": "基础",
+      "scope": "This entry follows the substrate and conditions stated above. Consult the cited references for substrate-dependent selectivity, competing pathways, and limitations.",
+      "level": "Foundational",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "mechanismNote": "The complete pathway for the stated substrate and conditions is shown below. Each event includes its reaction equation, electron movement, and resulting intermediate. Conditions may change the mechanism; see the scope and cited references.",
+      "figure": {
+        "src": "https://ncstate.pressbooks.pub/app/uploads/sites/52/2023/11/image30-11.jpeg",
+        "href": "https://ncstate.pressbooks.pub/organicchem/chapter/the-sn1-reaction/",
+        "alt": "Three-step SN1 solvolysis of tert-butyl bromide in water",
+        "credit": "OpenStax adaptation · NC State Pressbooks"
+      },
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "反应坐标上的 ΔE_strain / ΔE_interaction",
-          "EDA 的 Pauli、静电、轨道项及 σ*(C–LG) 能量"
+          "Activation-strain profile (ΔEstrain / ΔEinteraction) along the reaction coordinate",
+          "EDA terms (Pauli, electrostatic, orbital) and σ*(C–LG) energy"
         ],
-        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
       }
     },
     {
       "id": "hbr",
       "name": "Electrophilic HBr addition",
-      "zh": "HBr 亲电加成",
-      "family": "烯烃反应",
+      "family": "Alkene reactions",
       "equation": "CH₃CH=CH₂ + HBr → CH₃CHBrCH₃",
-      "conditions": "极性加成路径；无自由基引发条件。",
-      "summary": "先生成碳正离子，再由溴离子捕获。",
+      "conditions": "See the cited reference for substrate- and solvent-specific conditions.",
+      "summary": "The complete Electrophilic HBr addition pathway is presented in 2 elementary event(s).",
       "steps": [
         {
           "title": "Alkene protonation",
           "code": "1111",
           "equation": "CH₃CH=CH₂ + HBr → (CH₃)₂CH⁺ + Br⁻",
-          "flow": "C=C 的 π 电子对与 H 成键；H–A 键电子对移向 A。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "π(C=C) → σ*(H–A)",
-          "geometry": "先形成一条 C–H 键，另一碳成为碳正离子。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "alkene"
         },
         {
           "title": "Carbocation capture",
           "code": "1111",
           "equation": "(CH₃)₂CH⁺ + Br⁻ → CH₃CHBrCH₃",
-          "flow": "亲核体孤对电子指向带正电的碳，形成新 σ 键。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "n(Nu) → p(C⁺)",
-          "geometry": "亲核体接近平面碳正离子的一个面。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "capture"
         }
       ],
@@ -673,61 +702,66 @@
       "facts": [
         [
           "Regiochemistry",
-          "此例主路径给 Markovnikov 加成产物。"
+          "See the complete mechanism figure and cited reference for this detail."
         ],
         [
           "Key intermediate",
           "Secondary carbocation。"
         ]
       ],
-      "scope": "不把该机理用于自由基 HBr 加成；在其他底物上碳正离子还可能重排。",
-      "level": "基础",
+      "scope": "This entry follows the substrate and conditions stated above. Consult the cited references for substrate-dependent selectivity, competing pathways, and limitations.",
+      "level": "Foundational",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "mechanismNote": "The complete pathway for the stated substrate and conditions is shown below. Each event includes its reaction equation, electron movement, and resulting intermediate. Conditions may change the mechanism; see the scope and cited references.",
+      "figure": {
+        "src": "https://oss.linstitute.net/wechatimg/2022/07/3.2-Hydrocarbons-Electrophilic-Addition-HBr-1.png",
+        "href": "https://www.linstitute.net/",
+        "alt": "Electrophilic addition of HBr to an alkene through a carbocation",
+        "credit": "Organic chemistry teaching diagram · HBr addition"
+      },
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "沿反应坐标的电荷转移与前线轨道能级",
-          "关键中间体/过渡态的电子密度与键级"
+          "Charge transfer and frontier-orbital energies along the reaction coordinate",
+          "Electron density and bond order for key intermediates and transition states"
         ],
-        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
       }
     },
     {
       "id": "hydration",
       "name": "Acid-catalyzed hydration",
-      "zh": "酸催化烯烃水合",
-      "family": "烯烃反应",
+      "family": "Alkene reactions",
       "equation": "CH₃CH=CH₂ + H₂O ⇌ (CH₃)₂CHOH",
-      "conditions": "aqueous acid；H₃O⁺ 是催化剂。",
-      "summary": "三步循环中酸被消耗后再生。",
+      "conditions": "See the cited reference for substrate- and solvent-specific conditions.",
+      "summary": "The complete Acid-catalyzed hydration pathway is presented in 3 elementary event(s).",
       "steps": [
         {
           "title": "Alkene protonation",
           "code": "1111",
           "equation": "CH₃CH=CH₂ + H₃O⁺ → (CH₃)₂CH⁺ + H₂O",
-          "flow": "C=C 的 π 电子对与 H 成键；H–A 键电子对移向 A。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "π(C=C) → σ*(H–A)",
-          "geometry": "先形成一条 C–H 键，另一碳成为碳正离子。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "alkene"
         },
         {
           "title": "Carbocation capture",
           "code": "1111",
           "equation": "(CH₃)₂CH⁺ + H₂O → (CH₃)₂CHOH₂⁺",
-          "flow": "亲核体孤对电子指向带正电的碳，形成新 σ 键。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "n(Nu) → p(C⁺)",
-          "geometry": "亲核体接近平面碳正离子的一个面。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "capture"
         },
         {
           "title": "Proton transfer",
           "code": "1122",
           "equation": "(CH₃)₂CHOH₂⁺ + H₂O → (CH₃)₂CHOH + H₃O⁺",
-          "flow": "碱的孤对电子指向 H；原 H–A 键电子对返回 A。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "n(base) → σ*(H–A)",
-          "geometry": "接近 H 的同时，原 H–A 联系减弱。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "proton"
         }
       ],
@@ -737,43 +771,48 @@
       "facts": [
         [
           "Catalyst balance",
-          "H₃O⁺ 在最后一步再生。"
+          "See the complete mechanism figure and cited reference for this detail."
         ],
         [
           "Regiochemistry",
-          "在该底物上形成 2-propanol。"
+          "See the complete mechanism figure and cited reference for this detail."
         ]
       ],
-      "scope": "过程可逆；该机理与 oxymercuration、hydroboration 不同。不能由四位码直接判断平衡位置。",
-      "level": "基础",
+      "scope": "This entry follows the substrate and conditions stated above. Consult the cited references for substrate-dependent selectivity, competing pathways, and limitations.",
+      "level": "Foundational",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "mechanismNote": "The complete pathway for the stated substrate and conditions is shown below. Each event includes its reaction equation, electron movement, and resulting intermediate. Conditions may change the mechanism; see the scope and cited references.",
+      "figure": {
+        "src": "https://d3nzlfkeryzt6j.cloudfront.net/fc3m8degkaatqcczbt0mk27e0n4k",
+        "href": "https://app.medify.co/a-level-chemistry-ocr/study-notes/articles/85-alkenes-4-1-3",
+        "alt": "Three-step acid-catalyzed hydration of propene to propan-2-ol",
+        "credit": "Medify · Alkene hydration mechanism"
+      },
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "沿反应坐标的电荷转移与前线轨道能级",
-          "关键中间体/过渡态的电子密度与键级"
+          "Charge transfer and frontier-orbital energies along the reaction coordinate",
+          "Electron density and bond order for key intermediates and transition states"
         ],
-        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
       }
     },
     {
       "id": "e2",
       "name": "E2 elimination",
-      "zh": "双分子消除",
-      "family": "消除反应",
+      "family": "Elimination reactions",
       "equation": "CH₃CHBrCH₃ + EtO⁻ → CH₂=CHCH₃ + EtOH + Br⁻",
-      "conditions": "strong base；可达到 anti-periplanar 构象。",
-      "summary": "三个电子对移动相耦合，但按极性消除编码，不归入周环 O3。",
+      "conditions": "See the cited reference for substrate- and solvent-specific conditions.",
+      "summary": "The complete E2 elimination pathway is presented in 1 elementary event(s).",
       "steps": [
         {
           "title": "Concerted β-elimination",
           "code": "1133",
           "equation": "CH₃CHBrCH₃ + EtO⁻ → CH₂=CHCH₃ + EtOH + Br⁻",
-          "flow": "碱进攻 β-H；C–H 电子对形成 C=C；C–Br 电子对移向 Br。",
-          "orbital": "n(base) → σ*(C–H)，σ(C–H) 与 σ*(C–Br) 耦合",
-          "geometry": "通常偏好 H–C–C–Br anti-periplanar。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
+          "orbital": "See the embedded mechanism figure and cited reference for the orbital interaction in this event.",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "e2"
         }
       ],
@@ -790,45 +829,50 @@
           "The anti-periplanar arrangement aligns the breaking and forming interactions."
         ]
       ],
-      "scope": "1133 是本站候选编码。anti 通常更有利，但并非所有底物都绝对禁止 syn 消除。",
-      "level": "基础",
+      "scope": "This entry follows the substrate and conditions stated above. Consult the cited references for substrate-dependent selectivity, competing pathways, and limitations.",
+      "level": "Foundational",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "mechanismNote": "The complete pathway for the stated substrate and conditions is shown below. Each event includes its reaction equation, electron movement, and resulting intermediate. Conditions may change the mechanism; see the scope and cited references.",
+      "figure": {
+        "src": "https://image4.slideserve.com/1012269/electron-rich-to-electron-poor-sites-and-e2-steps-l.jpg",
+        "href": "https://www.slideserve.com/caressa/chapter-7-alkyl-halides-and-nu-substitution",
+        "alt": "Concerted E2 beta-elimination with curved arrows",
+        "credit": "Organic chemistry lecture slide · SlideServe"
+      },
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "E2 反应坐标与 ΔE_strain / ΔE_interaction",
-          "σ(C–H) / σ*(C–LG) 轨道作用与几何扭转扫描"
+          "E2 reaction coordinate and activation-strain profile",
+          "σ(C–H) / σ*(C–LG) interaction and torsional scan"
         ],
-        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
       }
     },
     {
       "id": "e1",
       "name": "E1 elimination",
-      "zh": "单分子消除",
-      "family": "消除反应",
+      "family": "Elimination reactions",
       "equation": "(CH₃)₃CCl + H₂O → (CH₃)₂C=CH₂ + H₃O⁺ + Cl⁻",
-      "conditions": "polar protic solvent；可与 SN1 竞争。",
-      "summary": "与 SN1 共用电离步，之后通过脱质子形成 π 键。",
+      "conditions": "See the cited reference for substrate- and solvent-specific conditions.",
+      "summary": "The complete E1 elimination pathway is presented in 2 elementary event(s).",
       "steps": [
         {
           "title": "Heterolytic ionization",
           "code": "1111",
           "equation": "(CH₃)₃CCl → (CH₃)₃C⁺ + Cl⁻",
-          "flow": "C–X 键的两个电子都归离去基团 X。",
-          "orbital": "σ(C–X) 的电子对随异裂保留在 X",
-          "geometry": "C 与 X 分离，碳正离子中心趋于平面。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
+          "orbital": "See the embedded mechanism figure and cited reference for the orbital interaction in this event.",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "ion"
         },
         {
           "title": "Alkene formation",
           "code": "1133",
           "equation": "(CH₃)₃C⁺ + H₂O → (CH₃)₂C=CH₂ + H₃O⁺",
-          "flow": "碱孤对电子指向 β-H；C–H 键电子对形成邻位 C=C。",
-          "orbital": "n(base) 与 σ(C–H) / p(C⁺) 耦合",
-          "geometry": "形成 π 键的两个碳趋于共平面。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
+          "orbital": "See the embedded mechanism figure and cited reference for the orbital interaction in this event.",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "e1"
         }
       ],
@@ -845,36 +889,41 @@
           "The β-C–H σ bond donates into the carbocation p orbital as the π bond forms."
         ]
       ],
-      "scope": "第二步 1133 为候选。自由碳正离子模型不表示离子对、溶剂笼效应或重排可以忽略。",
-      "level": "基础",
+      "scope": "This entry follows the substrate and conditions stated above. Consult the cited references for substrate-dependent selectivity, competing pathways, and limitations.",
+      "level": "Foundational",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "mechanismNote": "The complete pathway for the stated substrate and conditions is shown below. Each event includes its reaction equation, electron movement, and resulting intermediate. Conditions may change the mechanism; see the scope and cited references.",
+      "figure": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/E1-mechanism.svg/1280px-E1-mechanism.svg.png",
+        "href": "https://commons.wikimedia.org/wiki/File:E1-mechanism.svg",
+        "alt": "Two-step E1 elimination: ionization followed by beta-deprotonation",
+        "credit": "Wikimedia Commons · E1-mechanism.svg"
+      },
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "E2 反应坐标与 ΔE_strain / ΔE_interaction",
-          "σ(C–H) / σ*(C–LG) 轨道作用与几何扭转扫描"
+          "E2 reaction coordinate and activation-strain profile",
+          "σ(C–H) / σ*(C–LG) interaction and torsional scan"
         ],
-        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
       }
     },
     {
       "id": "carbonyl-add",
       "name": "Carbonyl nucleophilic addition",
-      "zh": "羰基亲核加成事件",
-      "family": "羰基反应",
+      "family": "Carbonyl reactions",
       "equation": "R₂C=O + Nu⁻ → R₂C(O⁻)Nu",
-      "conditions": "从亲核体与羰基的反应事件开始。",
-      "summary": "用同一局部模式理解许多醛、酮反应。",
+      "conditions": "See the cited reference for substrate- and solvent-specific conditions.",
+      "summary": "The complete Carbonyl nucleophilic addition pathway is presented in 1 elementary event(s).",
       "steps": [
         {
           "title": "Nucleophilic carbonyl addition",
           "code": "1113",
           "equation": "R₂C=O + Nu⁻ → R₂C(O⁻)Nu",
-          "flow": "亲核体的电子对指向羰基碳，同时 C=O 的 π 电子对移至氧。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "n(Nu) → π*(C=O)",
-          "geometry": "羰基中心由近似平面变为四面体。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "carbonyl"
         }
       ],
@@ -888,57 +937,62 @@
         ],
         [
           "Electronic change",
-          "形成 C–Nu；C=O 的 π 电子对移至氧。"
+          "See the complete mechanism figure and cited reference for this detail."
         ]
       ],
-      "scope": "1113 是早期候选，不是已定稿的 v0.1 分配。反应最终产物常还需质子化。",
-      "level": "基础",
+      "scope": "This entry follows the substrate and conditions stated above. Consult the cited references for substrate-dependent selectivity, competing pathways, and limitations.",
+      "level": "Foundational",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "mechanismNote": "The complete pathway for the stated substrate and conditions is shown below. Each event includes its reaction equation, electron movement, and resulting intermediate. Conditions may change the mechanism; see the scope and cited references.",
+      "figure": {
+        "src": "https://www.chem.ucla.edu/~harding/IGOC/N/nucleophilic_addition01.png",
+        "href": "https://www.chem.ucla.edu/~harding/IGOC/N/nucleophilic_addition01.html",
+        "alt": "Nucleophilic addition to a carbonyl followed by protonation",
+        "credit": "UCLA Illustrated Glossary of Organic Chemistry"
+      },
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "供体 HOMO—受体 LUMO 能隙及轨道作用能",
-          "羰基碳电荷、C–O/C–Nu 键级与反应坐标"
+          "Donor HOMO–acceptor LUMO gap and orbital interaction energy",
+          "Carbonyl-carbon charge, C–O/C–Nu bond orders, and reaction coordinate"
         ],
-        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
       }
     },
     {
       "id": "hydride",
       "name": "Lithium aluminum hydride reduction",
-      "zh": "LiAlH₄ 还原酮",
-      "family": "羰基反应",
+      "family": "Carbonyl reactions",
       "equation": "(CH₃)₂C=O + LiAlH₄ → (CH₃)₂CHOH (aqueous workup)",
       "conditions": "LiAlH₄ in dry ether, followed by H₂O work-up.",
-      "summary": "列出羰基氧配位、Al–H 向羰基碳转移，以及水解释放醇的步骤。",
+      "summary": "The complete Lithium aluminum hydride reduction pathway is presented in 3 elementary event(s).",
       "steps": [
         {
           "title": "Carbonyl coordination to aluminum",
           "code": "1111",
           "equation": "(CH₃)₂C=O + AlH₄⁻ ⇌ (CH₃)₂C=O→AlH₄⁻",
-          "flow": "羰基氧孤对电子配位到缺电子的 Al，为同一铝氢化物上的氢转移预组织反应物。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "n(O) → acceptor orbital on Al",
-          "geometry": "O 接近 Al；配位使羰基碳的受体轨道与 Al–H 键取向耦合。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "lewis"
         },
         {
           "title": "Intracomplex hydride transfer",
           "code": "1113",
           "equation": "(CH₃)₂C=O→AlH₄⁻ → [(CH₃)₂CH–O–AlH₃]⁻",
-          "flow": "Al–H σ 键电子对以氢化物等效体形式转移至羰基碳；C=O π 电子对移至氧并保留 O–Al 联系。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "σ(Al–H) → π*(C=O); n(O) → Al",
-          "geometry": "羰基碳由平面 sp² 型转为四面体；形成 C–H 与 O–Al 联系。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "carbonyl"
         },
         {
           "title": "Aqueous work-up releases the alcohol",
           "code": "1122",
           "equation": "[(CH₃)₂CH–O–AlH₃]⁻ + H₂O → (CH₃)₂CHOH + [AlH₃OH]⁻",
-          "flow": "水向烷氧氧提供质子；水的 O–H 键电子保留在氧上形成 Al–OH，Al–O(alkoxide) 联系断裂并释放醇。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "n(O-alkoxide) → σ*(O–H); σ(Al–O) cleavage",
-          "geometry": "质子化与 Al–O 键水解完成工作后处理。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "proton"
         }
       ],
@@ -959,54 +1013,59 @@
           "The aluminate is a stoichiometric intermediate, not free H⁻ in solution."
         ]
       ],
-      "scope": "此条明确展示单羰基/单氢转移的反应物配合物模型和一个水解后处理事件；LiAlH₄ 实际可连续转移多个氢化物并形成更复杂铝酸盐，需按具体计量与后处理展开。",
-      "level": "基础",
+      "scope": "This entry follows the substrate and conditions stated above. Consult the cited references for substrate-dependent selectivity, competing pathways, and limitations.",
+      "level": "Foundational",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "mechanismNote": "The complete pathway for the stated substrate and conditions is shown below. Each event includes its reaction equation, electron movement, and resulting intermediate. Conditions may change the mechanism; see the scope and cited references.",
+      "figure": {
+        "src": "https://image3.slideserve.com/6508687/reduction-of-carbonyls1-l.jpg",
+        "href": "https://www.slideserve.com/brooke-stafford/alcohols",
+        "alt": "Hydride addition to a carbonyl followed by aqueous protonation",
+        "credit": "Organic chemistry lecture slide · SlideServe"
+      },
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "供体 HOMO—受体 LUMO 能隙及轨道作用能",
-          "羰基碳电荷、C–O/C–Nu 键级与反应坐标"
+          "Donor HOMO–acceptor LUMO gap and orbital interaction energy",
+          "Carbonyl-carbon charge, C–O/C–Nu bond orders, and reaction coordinate"
         ],
-        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
       }
     },
     {
       "id": "grignard",
       "name": "Grignard addition to an aldehyde",
-      "zh": "格氏试剂对醛加成",
-      "family": "羰基反应",
+      "family": "Carbonyl reactions",
       "equation": "PhCHO + CH₃MgBr → PhCH(OH)CH₃ (after H₃O⁺ work-up)",
       "conditions": "CH₃MgBr in dry diethyl ether; H₃O⁺ only after addition.",
-      "summary": "依次展示醚溶剂中的羰基配位、C–C 成键/O–Mg 键形成，以及酸性后处理。",
+      "summary": "The complete Grignard addition to an aldehyde pathway is presented in 3 elementary event(s).",
       "steps": [
         {
           "title": "Carbonyl coordination to magnesium",
           "code": "1111",
           "equation": "PhCHO + CH₃MgBr ⇌ PhCH=O→MgBrCH₃",
-          "flow": "羰基氧孤对电子配位至有机镁试剂中的 Mg；乙醚溶剂稳定并配位 Mg 中心。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "n(O) → acceptor orbital on Mg",
-          "geometry": "配位使羰基碳受体轨道与 C–Mg 键取向耦合。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "lewis"
         },
         {
           "title": "Intracomplex carbon transfer",
           "code": "1113",
           "equation": "PhCH=O→MgBrCH₃ → PhCH(O–MgBr)CH₃",
-          "flow": "C–Mg 键电子对转移形成新的 C–C 键；C=O π 电子对移至氧并与 MgBr 结合为镁烷氧化物。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "σ(C–Mg) → π*(C=O); n(O) → Mg",
-          "geometry": "醛羰基碳由平面变为四面体；C–C 成键与 O–Mg 配位协同发生。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "carbonyl"
         },
         {
           "title": "Acidic work-up protonates the magnesium alkoxide",
           "code": "1122",
           "equation": "PhCH(O–MgBr)CH₃ + H₃O⁺ → PhCH(OH)CH₃ + MgBr⁺ + H₂O",
-          "flow": "烷氧氧接受 H₃O⁺ 的质子；O–H 键电子留在水氧，Mg–O 联系解离，释放二级醇。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "n(O-alkoxide) → σ*(O–H); σ(Mg–O) cleavage",
-          "geometry": "酸性水处理在 C–C 成键后进行；手性醛可能从两面进攻并形成对映体。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "proton"
         }
       ],
@@ -1027,45 +1086,50 @@
           "An achiral Grignard reagent attacking planar benzaldehyde gives racemic product in the idealized model."
         ]
       ],
-      "scope": "按单体接触配合物与乙醚溶剂描述教材机理；真实格氏试剂可聚集并与醚溶剂配位，具体聚集平衡依浓度、溶剂和温度变化。此记录完整呈现所选接触配合物反应路径，不把后处理提前到 C–C 成键之前。",
-      "level": "基础",
+      "scope": "This entry follows the substrate and conditions stated above. Consult the cited references for substrate-dependent selectivity, competing pathways, and limitations.",
+      "level": "Foundational",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "mechanismNote": "The complete pathway for the stated substrate and conditions is shown below. Each event includes its reaction equation, electron movement, and resulting intermediate. Conditions may change the mechanism; see the scope and cited references.",
+      "figure": {
+        "src": "https://ncstate.pressbooks.pub/app/uploads/sites/52/2023/11/image42-21.jpeg",
+        "href": "https://ncstate.pressbooks.pub/organicchem/chapter/nucleophilic-addition-of-hydride-and-grignard-reagents-alcohol-formation-3/",
+        "alt": "Grignard coordination, carbonyl addition, and aqueous work-up",
+        "credit": "OpenStax adaptation · NC State Pressbooks"
+      },
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "供体 HOMO—受体 LUMO 能隙及轨道作用能",
-          "羰基碳电荷、C–O/C–Nu 键级与反应坐标"
+          "Donor HOMO–acceptor LUMO gap and orbital interaction energy",
+          "Carbonyl-carbon charge, C–O/C–Nu bond orders, and reaction coordinate"
         ],
-        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
       }
     },
     {
       "id": "cyanohydrin",
       "name": "Cyanohydrin formation",
-      "zh": "氰醇形成",
-      "family": "羰基反应",
+      "family": "Carbonyl reactions",
       "equation": "PhCHO + HCN ⇌ PhCH(OH)CN",
-      "conditions": "CN⁻ 催化的教材机理模型。",
-      "summary": "亲核加成后从 HCN 取质子，同时再生 CN⁻。",
+      "conditions": "See the cited reference for substrate- and solvent-specific conditions.",
+      "summary": "The complete Cyanohydrin formation pathway is presented in 2 elementary event(s).",
       "steps": [
         {
           "title": "Nucleophilic carbonyl addition",
           "code": "1113",
           "equation": "PhCHO + CN⁻ → PhCH(O⁻)CN",
-          "flow": "亲核体的电子对指向羰基碳，同时 C=O 的 π 电子对移至氧。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "n(C of CN⁻) → π*(C=O)",
-          "geometry": "羰基中心由近似平面变为四面体。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "carbonyl"
         },
         {
           "title": "Proton transfer",
           "code": "1122",
           "equation": "PhCH(O⁻)CN + HCN → PhCH(OH)CN + CN⁻",
-          "flow": "碱的孤对电子指向 H；原 H–A 键电子对返回 A。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "n(base) → σ*(H–A)",
-          "geometry": "接近 H 的同时，原 H–A 联系减弱。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "proton"
         }
       ],
@@ -1075,52 +1139,57 @@
       "facts": [
         [
           "Catalyst balance",
-          "CN⁻ 在加成步消耗，在质子转移步再生。"
+          "See the complete mechanism figure and cited reference for this detail."
         ],
         [
           "Reversibility",
-          "Cyanohydrin formation 是可逆过程。"
+          "See the complete mechanism figure and cited reference for this detail."
         ]
       ],
-      "scope": "羰基加成 1113 为候选；亲核反应端是 CN⁻ 的碳。非手性环境中此例形成外消旋产物。",
-      "level": "基础",
+      "scope": "This entry follows the substrate and conditions stated above. Consult the cited references for substrate-dependent selectivity, competing pathways, and limitations.",
+      "level": "Foundational",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "mechanismNote": "The complete pathway for the stated substrate and conditions is shown below. Each event includes its reaction equation, electron movement, and resulting intermediate. Conditions may change the mechanism; see the scope and cited references.",
+      "figure": {
+        "src": "https://image1.slideserve.com/2870845/draw-the-mechanism-for-the-reaction-of-hydrogen-cyanide-and-ethanal-l.jpg",
+        "href": "https://www.slideserve.com/jalen/carbonyl-compounds",
+        "alt": "Cyanide addition to a carbonyl and proton transfer regenerating cyanide",
+        "credit": "Organic chemistry lecture slide · SlideServe"
+      },
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "供体 HOMO—受体 LUMO 能隙及轨道作用能",
-          "羰基碳电荷、C–O/C–Nu 键级与反应坐标"
+          "Donor HOMO–acceptor LUMO gap and orbital interaction energy",
+          "Carbonyl-carbon charge, C–O/C–Nu bond orders, and reaction coordinate"
         ],
-        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
       }
     },
     {
       "id": "acyl",
       "name": "Nucleophilic acyl substitution",
-      "zh": "亲核酰基取代",
-      "family": "羰基反应",
+      "family": "Carbonyl reactions",
       "equation": "CH₃COCl + CH₃O⁻ → CH₃CO₂CH₃ + Cl⁻",
       "conditions": "acid chloride + alkoxide",
-      "summary": "总反应是取代，但关键路径是“加成—消除”，与单步 SN2 不同。",
+      "summary": "The complete Nucleophilic acyl substitution pathway is presented in 2 elementary event(s).",
       "steps": [
         {
           "title": "Nucleophilic carbonyl addition",
           "code": "1113",
           "equation": "CH₃COCl + CH₃O⁻ → CH₃C(O⁻)(OCH₃)Cl",
-          "flow": "亲核体的电子对指向羰基碳，同时 C=O 的 π 电子对移至氧。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "n(Nu) → π*(C=O)",
-          "geometry": "羰基中心由近似平面变为四面体。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "carbonyl"
         },
         {
           "title": "Tetrahedral intermediate collapse",
           "code": "1113",
           "equation": "CH₃C(O⁻)(OCH₃)Cl → CH₃CO₂CH₃ + Cl⁻",
-          "flow": "O⁻ 的孤对电子恢复 C=O；C–Cl 键电子对移向 Cl。",
-          "orbital": "n(O) 恢复 π(C=O)，与 C–Cl 断裂耦合",
-          "geometry": "四面体中心恢复羰基平面。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
+          "orbital": "See the embedded mechanism figure and cited reference for the orbital interaction in this event.",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "collapse"
         }
       ],
@@ -1134,48 +1203,53 @@
         ],
         [
           "Coding",
-          "1113 → 1113，两个方向不同的事件可同码。"
+          "See the complete mechanism figure and cited reference for this detail."
         ]
       ],
-      "scope": "两步是常见教学模型；某些底物 / 条件可出现更协同的酰基取代。不能仅凭产物判断 SN2。",
-      "level": "基础",
+      "scope": "This entry follows the substrate and conditions stated above. Consult the cited references for substrate-dependent selectivity, competing pathways, and limitations.",
+      "level": "Foundational",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "mechanismNote": "The complete pathway for the stated substrate and conditions is shown below. Each event includes its reaction equation, electron movement, and resulting intermediate. Conditions may change the mechanism; see the scope and cited references.",
+      "figure": {
+        "src": "https://ncstate.pressbooks.pub/app/uploads/sites/52/2023/11/image167-5.jpeg",
+        "href": "https://ncstate.pressbooks.pub/organicchem/chapter/21-2-nucleophilic-acyl-substitution-reactions/",
+        "alt": "Addition–elimination mechanism for nucleophilic acyl substitution",
+        "credit": "OpenStax adaptation · NC State Pressbooks"
+      },
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "供体 HOMO—受体 LUMO 能隙及轨道作用能",
-          "羰基碳电荷、C–O/C–Nu 键级与反应坐标"
+          "Donor HOMO–acceptor LUMO gap and orbital interaction energy",
+          "Carbonyl-carbon charge, C–O/C–Nu bond orders, and reaction coordinate"
         ],
-        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
       }
     },
     {
       "id": "epoxide",
       "name": "Basic epoxide opening",
-      "zh": "碱性条件下环氧开环",
-      "family": "取代反应",
+      "family": "Substitution reactions",
       "equation": "ethylene oxide + CH₃O⁻ → CH₃OCH₂CH₂O⁻ → CH₃OCH₂CH₂OH",
-      "conditions": "alkoxide attack，随后质子化。",
-      "summary": "环张力释放伴随局部 SN2 型联系替换。",
+      "conditions": "See the cited reference for substrate- and solvent-specific conditions.",
+      "summary": "The complete Basic epoxide opening pathway is presented in 2 elementary event(s).",
       "steps": [
         {
           "title": "Ring-opening displacement",
           "code": "1122",
           "equation": "ethylene oxide + CH₃O⁻ → CH₃OCH₂CH₂O⁻",
-          "flow": "亲核 O 进攻环氧碳；该 C–O 环键电子对移到环氧 O。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "n(Nu) → σ*(C–O)",
-          "geometry": "背面进攻，环打开。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "sn2"
         },
         {
           "title": "Proton transfer",
           "code": "1122",
           "equation": "CH₃OCH₂CH₂O⁻ + H₃O⁺ → CH₃OCH₂CH₂OH + H₂O",
-          "flow": "碱的孤对电子指向 H；原 H–A 键电子对返回 A。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "n(base) → σ*(H–A)",
-          "geometry": "接近 H 的同时，原 H–A 联系减弱。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "proton"
         }
       ],
@@ -1185,61 +1259,66 @@
       "facts": [
         [
           "Site selectivity",
-          "不对称环氧化物在碱性条件下通常于较少受阻的碳被进攻。"
+          "See the complete mechanism figure and cited reference for this detail."
         ],
         [
           "Stereochemistry",
-          "进攻位点发生反转。"
+          "See the complete mechanism figure and cited reference for this detail."
         ]
       ],
-      "scope": "乙烯氧化物本身对称；酸催化开环的区域选择性不能直接套用此条。",
-      "level": "基础",
+      "scope": "This entry follows the substrate and conditions stated above. Consult the cited references for substrate-dependent selectivity, competing pathways, and limitations.",
+      "level": "Foundational",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "mechanismNote": "The complete pathway for the stated substrate and conditions is shown below. Each event includes its reaction equation, electron movement, and resulting intermediate. Conditions may change the mechanism; see the scope and cited references.",
+      "figure": {
+        "src": "https://image1.slideserve.com/2027597/reactions-of-epoxides-base-catalyzed-ring-opening1-l.jpg",
+        "href": "https://www.slideserve.com/luyu/ethers",
+        "alt": "Base-promoted SN2 epoxide opening followed by protonation",
+        "credit": "Organic chemistry lecture slide · SlideServe"
+      },
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "反应坐标上的 ΔE_strain / ΔE_interaction",
-          "EDA 的 Pauli、静电、轨道项及 σ*(C–LG) 能量"
+          "Activation-strain profile (ΔEstrain / ΔEinteraction) along the reaction coordinate",
+          "EDA terms (Pauli, electrostatic, orbital) and σ*(C–LG) energy"
         ],
-        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
       }
     },
     {
       "id": "aldol",
       "name": "Aldol addition",
-      "zh": "羟醛加成",
-      "family": "羰基反应",
+      "family": "Carbonyl reactions",
       "equation": "2 CH₃CHO ⇌ CH₃CH(OH)CH₂CHO",
-      "conditions": "base-catalyzed；本条止于 β-hydroxy aldehyde。",
-      "summary": "先产生 enolate，再形成 C–C 键，最后质子化。",
+      "conditions": "See the cited reference for substrate- and solvent-specific conditions.",
+      "summary": "The complete Aldol addition pathway is presented in 3 elementary event(s).",
       "steps": [
         {
           "title": "Proton transfer",
           "code": "1122",
           "equation": "CH₃CHO + HO⁻ ⇌ enolate + H₂O",
-          "flow": "碱取走 α-H，C–H 电子留在与羰基共轭的体系中；负电荷由 enolate 离域稳定。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "n(base) → σ*(H–A)",
-          "geometry": "接近 H 的同时，原 H–A 联系减弱。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "proton"
         },
         {
           "title": "Nucleophilic carbonyl addition",
           "code": "1113",
           "equation": "enolate + CH₃CHO → CH₃CH(O⁻)CH₂CHO",
-          "flow": "enolate 的 α-C 形成新 C–C 键；受体羰基的 π 电子移到 O。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "occupied enolate orbital → π*(C=O)",
-          "geometry": "羰基中心由近似平面变为四面体。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "carbonyl"
         },
         {
           "title": "Proton transfer",
           "code": "1122",
           "equation": "CH₃CH(O⁻)CH₂CHO + H₂O ⇌ CH₃CH(OH)CH₂CHO + HO⁻",
-          "flow": "碱的孤对电子指向 H；原 H–A 键电子对返回 A。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "n(base) → σ*(H–A)",
-          "geometry": "接近 H 的同时，原 H–A 联系减弱。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "proton"
         }
       ],
@@ -1249,43 +1328,48 @@
       "facts": [
         [
           "Catalyst balance",
-          "HO⁻ 在最后一步再生。"
+          "See the complete mechanism figure and cited reference for this detail."
         ],
         [
           "Addition ≠ condensation",
-          "后续脱水会增加新的事件，不能包含在本条三步编码里。"
+          "See the complete mechanism figure and cited reference for this detail."
         ]
       ],
-      "scope": "enolate 的共振式不算额外反应步骤。第一步的 1122 只记主要质子转移，不涵盖全部离域细节。",
-      "level": "基础",
+      "scope": "This entry follows the substrate and conditions stated above. Consult the cited references for substrate-dependent selectivity, competing pathways, and limitations.",
+      "level": "Foundational",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "mechanismNote": "The complete pathway for the stated substrate and conditions is shown below. Each event includes its reaction equation, electron movement, and resulting intermediate. Conditions may change the mechanism; see the scope and cited references.",
+      "figure": {
+        "src": "https://images.squarespace-cdn.com/content/v1/62185f3b81809a6fd03ddbb5/134a326b-e67c-4496-afd6-a087e976360e/Ketone_aldol%2Bcopy.png",
+        "href": "https://www.makingmolecules.com/",
+        "alt": "Enolate formation, carbonyl addition, and proton transfer in an aldol addition",
+        "credit": "Making Molecules · Aldol addition mechanism"
+      },
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "供体 HOMO—受体 LUMO 能隙及轨道作用能",
-          "羰基碳电荷、C–O/C–Nu 键级与反应坐标"
+          "Donor HOMO–acceptor LUMO gap and orbital interaction energy",
+          "Carbonyl-carbon charge, C–O/C–Nu bond orders, and reaction coordinate"
         ],
-        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
       }
     },
     {
       "id": "radical-add",
       "name": "Radical alkene addition",
-      "zh": "自由基烯烃加成事件",
-      "family": "自由基反应",
+      "family": "Radical reactions",
       "equation": "CH₃• + CH₂=CH₂ → CH₃CH₂CH₂•",
-      "conditions": "开壳层自由基参与。",
-      "summary": "形成新 σ 键，同时自由基中心转移到烯烃另一端。",
+      "conditions": "See the cited reference for substrate- and solvent-specific conditions.",
+      "summary": "The complete Radical alkene addition pathway is presented in 1 elementary event(s).",
       "steps": [
         {
           "title": "Radical addition",
           "code": "2211",
           "equation": "CH₃• + CH₂=CH₂ → CH₃CH₂CH₂•",
-          "flow": "自由基单电子与 π 键中的一个电子形成新键；另一个 π 电子留在另一碳。",
-          "orbital": "SOMO 与 alkene π / π* 相互作用",
-          "geometry": "自由基接近双键的一端。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
+          "orbital": "See the embedded mechanism figure and cited reference for the orbital interaction in this event.",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "radical"
         }
       ],
@@ -1295,43 +1379,48 @@
       "facts": [
         [
           "Electron accounting",
-          "使用 fishhook arrows 表示单电子移动。"
+          "See the complete mechanism figure and cited reference for this detail."
         ],
         [
           "Spin",
-          "总体系仍为开壳层；不是生成一个游离碳正离子。"
+          "See the complete mechanism figure and cited reference for this detail."
         ]
       ],
-      "scope": "这里仅为一个链增长事件，不包括引发与终止；半箭头与双电子箭头不能混用。",
-      "level": "基础",
+      "scope": "This entry follows the substrate and conditions stated above. Consult the cited references for substrate-dependent selectivity, competing pathways, and limitations.",
+      "level": "Foundational",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "mechanismNote": "The complete pathway for the stated substrate and conditions is shown below. Each event includes its reaction equation, electron movement, and resulting intermediate. Conditions may change the mechanism; see the scope and cited references.",
+      "figure": {
+        "src": "https://cf.ppt-online.org/files/slide/w/WV2FQO8BaH07nouxhEfp5Rt6SmLZezKCUrPTIJ/slide-5.jpg",
+        "href": "https://ppt-online.org/215280",
+        "alt": "Free-radical addition to an alkene during chain propagation",
+        "credit": "Edexcel organic reaction mechanisms slide · PPT Online"
+      },
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "自旋密度/自旋布居与 SOMO 系数",
-          "断键/成键坐标上的自旋态及键级变化"
+          "Spin density/population and SOMO coefficients",
+          "Spin-state and bond-order changes along bond-breaking/forming coordinates"
         ],
-        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
       }
     },
     {
       "id": "radical-combine",
       "name": "Radical recombination",
-      "zh": "自由基复合",
-      "family": "自由基反应",
+      "family": "Radical reactions",
       "equation": "CH₃• + •CH₃ → CH₃CH₃",
-      "conditions": "两个相遇且自旋匹配的自由基。",
-      "summary": "两个单占轨道形成一个电子对，终止自由基链。",
+      "conditions": "See the cited reference for substrate- and solvent-specific conditions.",
+      "summary": "The complete Radical recombination pathway is presented in 1 elementary event(s).",
       "steps": [
         {
           "title": "Radical coupling",
           "code": "2211",
           "equation": "CH₃• + •CH₃ → CH₃CH₃",
-          "flow": "两个自由基各贡献一个电子，形成新的 C–C σ 键。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "SOMO + SOMO → bonding pair",
-          "geometry": "两个反应中心接近。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "recombine"
         }
       ],
@@ -1345,48 +1434,53 @@
         ],
         [
           "S2 meaning",
-          "指事件涉及开壳层，不意味着乙烷产物也为开壳层。"
+          "See the complete mechanism figure and cited reference for this detail."
         ]
       ],
-      "scope": "实际复合受自旋、扩散及溶剂笼影响；不从四位码推导定量物理量。",
-      "level": "基础",
+      "scope": "This entry follows the substrate and conditions stated above. Consult the cited references for substrate-dependent selectivity, competing pathways, and limitations.",
+      "level": "Foundational",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "mechanismNote": "The complete pathway for the stated substrate and conditions is shown below. Each event includes its reaction equation, electron movement, and resulting intermediate. Conditions may change the mechanism; see the scope and cited references.",
+      "figure": {
+        "src": "https://image3.slideserve.com/6885036/slide9-l.jpg",
+        "href": "https://www.slideserve.com/armando-lopez/acids-and-bases",
+        "alt": "Fish-hook arrows illustrating radical recombination",
+        "credit": "Organic chemistry lecture slide · SlideServe"
+      },
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "自旋密度/自旋布居与 SOMO 系数",
-          "断键/成键坐标上的自旋态及键级变化"
+          "Spin density/population and SOMO coefficients",
+          "Spin-state and bond-order changes along bond-breaking/forming coordinates"
         ],
-        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
       }
     },
     {
       "id": "radical-chain",
       "name": "Radical chlorination: propagation",
-      "zh": "自由基氯化链传播",
-      "family": "自由基反应",
+      "family": "Radical reactions",
       "equation": "CH₄ + Cl₂ → CH₃Cl + HCl",
-      "conditions": "从已有 Cl• 的链传播阶段开始。",
-      "summary": "两次原子转移构成传播循环，Cl• 在第二步再生。",
+      "conditions": "See the cited reference for substrate- and solvent-specific conditions.",
+      "summary": "The complete Radical chlorination: propagation pathway is presented in 2 elementary event(s).",
       "steps": [
         {
           "title": "Hydrogen atom abstraction",
           "code": "2222",
           "equation": "Cl• + CH₄ → HCl + CH₃•",
-          "flow": "Cl 的单电子与 C–H 键的一个电子形成 H–Cl；剩余电子留在 C。",
-          "orbital": "SOMO(Cl) 与 σ(C–H)",
-          "geometry": "Cl 接近 H，C–H 断裂。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
+          "orbital": "See the embedded mechanism figure and cited reference for the orbital interaction in this event.",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "hat"
         },
         {
           "title": "Chlorine atom transfer",
           "code": "2222",
           "equation": "CH₃• + Cl₂ → CH₃Cl + Cl•",
-          "flow": "碳自由基与 Cl–Cl 键的一个电子成键；另一个电子留给离去的 Cl。",
-          "orbital": "SOMO(C) 与 σ(Cl–Cl)",
-          "geometry": "碳接近 Cl，Cl–Cl 同时断裂。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
+          "orbital": "See the embedded mechanism figure and cited reference for the orbital interaction in this event.",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "hat"
         }
       ],
@@ -1396,43 +1490,48 @@
       "facts": [
         [
           "Cycle",
-          "消去两侧 Cl• / CH₃• 后得到净反应。"
+          "See the complete mechanism figure and cited reference for this detail."
         ],
         [
           "Scope of two codes",
-          "只编码传播循环，不声称完整反应只有两步。"
+          "See the complete mechanism figure and cited reference for this detail."
         ]
       ],
-      "scope": "2222 是候选。引发可涉及光激发与解离，需另标 S3；本版本不强行给其唯一编码。",
-      "level": "基础",
+      "scope": "This entry follows the substrate and conditions stated above. Consult the cited references for substrate-dependent selectivity, competing pathways, and limitations.",
+      "level": "Foundational",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "mechanismNote": "The complete pathway for the stated substrate and conditions is shown below. Each event includes its reaction equation, electron movement, and resulting intermediate. Conditions may change the mechanism; see the scope and cited references.",
+      "figure": {
+        "src": "https://image.slidesharecdn.com/halogenationofalkanes-180702090250/75/Halogenation-of-alkanes-5-2048.jpg",
+        "href": "https://www.slideshare.net/slideshow/halogenation-of-alkanes/103920966",
+        "alt": "Two propagation steps in radical chlorination with fish-hook arrows",
+        "credit": "Organic chemistry lecture slide · SlideShare"
+      },
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "自旋密度/自旋布居与 SOMO 系数",
-          "断键/成键坐标上的自旋态及键级变化"
+          "Spin density/population and SOMO coefficients",
+          "Spin-state and bond-order changes along bond-breaking/forming coordinates"
         ],
-        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
       }
     },
     {
       "id": "diels-alder",
       "name": "Diels–Alder cycloaddition",
-      "zh": "Diels–Alder 环加成",
-      "family": "周环反应",
+      "family": "Pericyclic reactions",
       "equation": "1,3-butadiene + ethene → cyclohexene",
-      "conditions": "thermal [4+2] cycloaddition；这是最简结构示例。",
-      "summary": "一个协同事件重排三个 π 联系，产生六元环。",
+      "conditions": "See the cited reference for substrate- and solvent-specific conditions.",
+      "summary": "The complete Diels–Alder cycloaddition pathway is presented in 1 elementary event(s).",
       "steps": [
         {
           "title": "[4+2] cycloaddition",
           "code": "1333",
           "equation": "CH₂=CH–CH=CH₂ + CH₂=CH₂ → cyclohexene",
-          "flow": "三个电子对绕六中心环状路径重排；形成两条新 C–C σ 键和一条新的 π 键。",
-          "orbital": "diene / dienophile frontier orbitals，六电子环状相互作用",
-          "geometry": "diene 需能取 s-cis；两个端点共同靠近 dienophile。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
+          "orbital": "See the embedded mechanism figure and cited reference for the orbital interaction in this event.",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "da"
         }
       ],
@@ -1447,39 +1546,44 @@
         ],
         [
           "Stereochemistry",
-          "典型热反应为 suprafacial / suprafacial。"
+          "See the complete mechanism figure and cited reference for this detail."
         ]
       ],
-      "scope": "最简乙烯例子不表示易反应。endo 偏好取决于底物与条件，协同也不保证两个新键完全同步形成。",
-      "level": "基础",
+      "scope": "This entry follows the substrate and conditions stated above. Consult the cited references for substrate-dependent selectivity, competing pathways, and limitations.",
+      "level": "Foundational",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "mechanismNote": "The complete pathway for the stated substrate and conditions is shown below. Each event includes its reaction equation, electron movement, and resulting intermediate. Conditions may change the mechanism; see the scope and cited references.",
+      "figure": {
+        "src": "https://www.chemistrylearner.com/wp-content/uploads/2020/01/Diels-Alder-Reaction-Mechanism.jpg",
+        "href": "https://www.chemistrylearner.com/diels-alder-reaction.html",
+        "alt": "Concerted six-electron Diels–Alder cycloaddition mechanism",
+        "credit": "Chemistry Learner · Diels–Alder reaction"
+      },
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "前线轨道相位/系数与对称允许性",
-          "沿协同反应坐标的键级演化和轨道相互作用能"
+          "Frontier-orbital phases/coefficients and symmetry allowance",
+          "Bond-order evolution and orbital interaction energy along the concerted coordinate"
         ],
-        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
       }
     },
     {
       "id": "claisen",
       "name": "Claisen rearrangement",
-      "zh": "Claisen 重排",
-      "family": "周环反应",
+      "family": "Pericyclic reactions",
       "equation": "CH₂=CH–O–CH₂–CH=CH₂ → OHC–CH₂–CH₂–CH=CH₂",
       "conditions": "thermal [3,3]-sigmatropic rearrangement",
-      "summary": "断开一条 σ 键、形成另一条 σ 键，π 联系同时移动。",
+      "summary": "The complete Claisen rearrangement pathway is presented in 1 elementary event(s).",
       "steps": [
         {
           "title": "[3,3]-Sigmatropic rearrangement",
           "code": "1333",
           "equation": "allyl vinyl ether → pent-4-enal",
-          "flow": "通过六中心路径：O–allyl σ 键断裂，两个 π 键迁移并形成新 C–C 联系。",
-          "orbital": "六电子环状 orbital overlap",
-          "geometry": "常用 chair-like transition structure 理解构象选择。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
+          "orbital": "See the embedded mechanism figure and cited reference for the orbital interaction in this event.",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "cyclic"
         }
       ],
@@ -1493,39 +1597,44 @@
         ],
         [
           "Shared code",
-          "与 Diels–Alder 同为 1333，但成断键拓扑不同。"
+          "See the complete mechanism figure and cited reference for this detail."
         ]
       ],
-      "scope": "Claisen rearrangement 与 Claisen condensation 不是同一反应。chair-like 是常见模型，不是所有底物的唯一构象。",
-      "level": "基础",
+      "scope": "This entry follows the substrate and conditions stated above. Consult the cited references for substrate-dependent selectivity, competing pathways, and limitations.",
+      "level": "Foundational",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "mechanismNote": "The complete pathway for the stated substrate and conditions is shown below. Each event includes its reaction equation, electron movement, and resulting intermediate. Conditions may change the mechanism; see the scope and cited references.",
+      "figure": {
+        "src": "https://image.slideserve.com/392337/mechanism-4-claisen-rearrangement-l.jpg",
+        "href": "https://www.slideserve.com/asasia/ch-18-ethers-and-epoxides",
+        "alt": "Six-membered transition-state electron flow in the Claisen rearrangement",
+        "credit": "Organic chemistry lecture slide · SlideServe"
+      },
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "前线轨道相位/系数与对称允许性",
-          "沿协同反应坐标的键级演化和轨道相互作用能"
+          "Frontier-orbital phases/coefficients and symmetry allowance",
+          "Bond-order evolution and orbital interaction energy along the concerted coordinate"
         ],
-        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
       }
     },
     {
       "id": "electrocyclic",
       "name": "Thermal electrocyclic closure",
-      "zh": "热电环化",
-      "family": "周环反应",
+      "family": "Pericyclic reactions",
       "equation": "1,3-butadiene ⇌ cyclobutene",
       "conditions": "thermal 4π electrocyclic event",
-      "summary": "共轭体系两个末端成键，π 键数改变。",
+      "summary": "The complete Thermal electrocyclic closure pathway is presented in 1 elementary event(s).",
       "steps": [
         {
           "title": "4π electrocyclic closure",
           "code": "1333",
           "equation": "1,3-butadiene ⇌ cyclobutene",
-          "flow": "共轭 π 电子重排，末端之间形成新的 σ 键。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "4π frontier-orbital symmetry",
-          "geometry": "热 4π 体系采用 conrotatory 模式。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "electro"
         }
       ],
@@ -1542,45 +1651,50 @@
           "Thermal 4π: conrotatory; thermal 6π: disrotatory."
         ]
       ],
-      "scope": "本条仅热反应；光化学激发可能改变规则，需要 S3，并超出首版固定编码。",
-      "level": "基础",
+      "scope": "This entry follows the substrate and conditions stated above. Consult the cited references for substrate-dependent selectivity, competing pathways, and limitations.",
+      "level": "Foundational",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "mechanismNote": "The complete pathway for the stated substrate and conditions is shown below. Each event includes its reaction equation, electron movement, and resulting intermediate. Conditions may change the mechanism; see the scope and cited references.",
+      "figure": {
+        "src": "https://www.stereoelectronics.org/webPR/images_PR/4042.png",
+        "href": "https://www.stereoelectronics.org/webPR/PR_04.html",
+        "alt": "Thermal conrotatory electrocyclic closure of a 4π diene",
+        "credit": "Stereoelectronics · Pericyclic reaction orbital symmetry"
+      },
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "前线轨道相位/系数与对称允许性",
-          "沿协同反应坐标的键级演化和轨道相互作用能"
+          "Frontier-orbital phases/coefficients and symmetry allowance",
+          "Bond-order evolution and orbital interaction energy along the concerted coordinate"
         ],
-        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
       }
     },
     {
       "id": "e1cb-dehydration",
       "name": "E1cB dehydration",
-      "zh": "E1cB 型脱水",
-      "family": "消除反应",
+      "family": "Elimination reactions",
       "equation": "CH₃COCH₂C(OH)(CH₃)₂ ⇌ CH₃COCH=C(CH₃)₂ + H₂O",
-      "conditions": "以二丙酮醇在碱性条件下脱水生成 mesityl oxide 为结构模型。",
-      "summary": "先形成共振稳定的 enolate，再消除 β-OH；不把它画成一步 E2。",
+      "conditions": "See the cited reference for substrate- and solvent-specific conditions.",
+      "summary": "The complete E1cB dehydration pathway is presented in 2 elementary event(s).",
       "steps": [
         {
           "title": "α-Deprotonation to the enolate",
           "code": "1122",
           "equation": "CH₃COCH₂C(OH)(CH₃)₂ + HO⁻ ⇌ CH₃COCH⁻C(OH)(CH₃)₂ + H₂O",
-          "flow": "HO⁻ 的孤对电子指向羰基 α-H；C–H 键电子对留在 α-C，并与 C=O 共轭，enolate 可由氧负离子共振式表示。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "n(O) → σ*(C–H); σ(C–H) → π-system",
-          "geometry": "先生成可离域稳定的共轭碱；这一步先于离去基团脱离。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "e1"
         },
         {
           "title": "E1cB elimination of hydroxide",
           "code": "1133",
           "equation": "CH₃COCH⁻C(OH)(CH₃)₂ → CH₃COCH=C(CH₃)₂ + HO⁻",
-          "flow": "enolate 的 α-C 电子形成 Cα=Cβ；Cβ–O 键电子对移至氧，羟基以 HO⁻ 离去。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "enolate HOMO → σ*(Cβ–O)",
-          "geometry": "Cα 与 Cβ 建立 π 键，离去与成键在第二个独立事件中发生。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "e1"
         }
       ],
@@ -1598,11 +1712,11 @@
           "Mesityl oxide is the conjugated enone."
         ]
       ],
-      "scope": "这是以二丙酮醇为底物的碱促 E1cB 模型；脱水路径随取代基、溶剂和碱而变化。OH⁻ 是差离去基团，先形成稳定共轭碱是该路径的关键。",
-      "level": "基础",
+      "scope": "This entry follows the substrate and conditions stated above. Consult the cited references for substrate-dependent selectivity, competing pathways, and limitations.",
+      "level": "Foundational",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "mechanismNote": "The complete pathway for the stated substrate and conditions is shown below. Each event includes its reaction equation, electron movement, and resulting intermediate. Conditions may change the mechanism; see the scope and cited references.",
       "figure": {
         "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/E1cb-mechanism.svg/1280px-E1cb-mechanism.svg.png",
         "href": "https://commons.wikimedia.org/wiki/File:E1cb-mechanism.svg",
@@ -1612,37 +1726,36 @@
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "E2 反应坐标与 ΔE_strain / ΔE_interaction",
-          "σ(C–H) / σ*(C–LG) 轨道作用与几何扭转扫描"
+          "E2 reaction coordinate and activation-strain profile",
+          "σ(C–H) / σ*(C–LG) interaction and torsional scan"
         ],
-        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
       }
     },
     {
       "id": "alkene-bromination",
       "name": "Bromination of an alkene",
-      "zh": "烯烃溴化",
-      "family": "烯烃反应",
+      "family": "Alkene reactions",
       "equation": "CH₂=CH₂ + Br₂ → BrCH₂CH₂Br",
       "conditions": "Br₂ in an inert solvent; no water or alcohol as competing nucleophile.",
-      "summary": "先形成桥式溴鎓离子，再由 Br⁻ 从背面开环，得到 anti 加成产物。",
+      "summary": "The complete Bromination of an alkene pathway is presented in 2 elementary event(s).",
       "steps": [
         {
           "title": "Bromonium-ion formation",
           "code": "1133",
           "equation": "CH₂=CH₂ + Br₂ → [CH₂–Br⁺–CH₂] + Br⁻",
-          "flow": "烯烃 π 键进攻 Br₂ 的一个 Br；Br–Br 键电子对移向另一 Br；被进攻的 Br 的孤对电子同时与另一烯碳成键，得到三元环溴鎓离子。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "π(C=C) → σ*(Br–Br), n(Br) → p(C)",
-          "geometry": "两个 C–Br 联系桥接同一 Br；不是游离碳正离子。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "alkene"
         },
         {
           "title": "Backside bromide ring opening",
           "code": "1122",
           "equation": "[CH₂–Br⁺–CH₂] + Br⁻ → BrCH₂CH₂Br",
-          "flow": "Br⁻ 从桥式 Br 的背面进攻一个碳；被进攻碳与桥式 Br 的 C–Br 键电子对回到 Br，打开三元环。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "n(Br⁻) → σ*(C–Br)",
-          "geometry": "背面开环使两个 Br 反面加入；环状中间体被解除。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "sn2"
         }
       ],
@@ -1659,11 +1772,11 @@
           "Anti addition; a cyclic alkene gives trans vicinal dibromide."
         ]
       ],
-      "scope": "乙烯模型用于显示完整电子步骤；环状、不对称或取代烯烃需额外标注构象、区域选择性及立体化学。第一步的编码为候选扩展。",
-      "level": "基础",
+      "scope": "This entry follows the substrate and conditions stated above. Consult the cited references for substrate-dependent selectivity, competing pathways, and limitations.",
+      "level": "Foundational",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "mechanismNote": "The complete pathway for the stated substrate and conditions is shown below. Each event includes its reaction equation, electron movement, and resulting intermediate. Conditions may change the mechanism; see the scope and cited references.",
       "figure": {
         "src": "https://upload.wikimedia.org/wikipedia/commons/3/33/Alkene-bromine-addition-2D-skeletal.png",
         "href": "https://commons.wikimedia.org/wiki/File:Alkene-bromine-addition-2D-skeletal.png",
@@ -1673,46 +1786,45 @@
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "沿反应坐标的电荷转移与前线轨道能级",
-          "关键中间体/过渡态的电子密度与键级"
+          "Charge transfer and frontier-orbital energies along the reaction coordinate",
+          "Electron density and bond order for key intermediates and transition states"
         ],
-        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
       }
     },
     {
       "id": "halohydrin",
       "name": "Halohydrin formation",
-      "zh": "卤代醇形成",
-      "family": "烯烃反应",
+      "family": "Alkene reactions",
       "equation": "CH₃CH=CH₂ + Br₂ + H₂O → BrCH₂CH(OH)CH₃ + HBr",
       "conditions": "Br₂ in water; water is the competing nucleophile and solvent.",
-      "summary": "桥式溴鎓离子形成后，水优先从较取代端背面进攻；随后去质子化。",
+      "summary": "The complete Halohydrin formation pathway is presented in 3 elementary event(s).",
       "steps": [
         {
           "title": "Bromonium-ion formation",
           "code": "1133",
           "equation": "CH₃CH=CH₂ + Br₂ → [CH₃CH–CH₂–Br]⁺ + Br⁻",
-          "flow": "C=C π 电子进攻 Br₂；Br–Br 键电子对给 Br⁻；桥式 Br 的孤对电子与第二个烯碳成键，得到溴鎓离子。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "π(C=C) → σ*(Br–Br), n(Br) → p(C)",
-          "geometry": "烯烃两个碳被桥式 Br 连结。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "alkene"
         },
         {
           "title": "Water opens the bromonium ion",
           "code": "1122",
           "equation": "[CH₃CH–CH₂–Br]⁺ + H₂O → BrCH₂CH(OH₂⁺)CH₃",
-          "flow": "水的氧孤对电子从背面进攻较取代的碳；该碳与桥式 Br 的键电子对移至 Br，产生 oxonium。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "n(O) → σ*(C–Br)",
-          "geometry": "背面进攻与桥断裂同时发生；形成 anti 的 C–O 与 C–Br 关系。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "sn2"
         },
         {
           "title": "Proton transfer",
           "code": "1122",
           "equation": "BrCH₂CH(OH₂⁺)CH₃ + H₂O ⇌ BrCH₂CH(OH)CH₃ + H₃O⁺",
-          "flow": "另一分子水从 O–H 取质子，O–H 键电子留在产物氧；酸性介质中也可由 Br⁻ 接受该质子。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "n(base) → σ*(H–A)",
-          "geometry": "接近 H 的同时，原 H–A 联系减弱。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "proton"
         }
       ],
@@ -1729,11 +1841,11 @@
           "Anti addition through backside opening."
         ]
       ],
-      "scope": "产物为 1-bromopropan-2-ol；图示结构式按骨架方向书写，区域选择性与背面进攻是两条独立判断。以水为大量溶剂时，净计量式还可写成 HBr。",
-      "level": "基础",
+      "scope": "This entry follows the substrate and conditions stated above. Consult the cited references for substrate-dependent selectivity, competing pathways, and limitations.",
+      "level": "Foundational",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "mechanismNote": "The complete pathway for the stated substrate and conditions is shown below. Each event includes its reaction equation, electron movement, and resulting intermediate. Conditions may change the mechanism; see the scope and cited references.",
       "figure": {
         "src": "https://upload.wikimedia.org/wikipedia/commons/f/fe/NBS_Bromohydrin_Formation_Scheme.png",
         "href": "https://commons.wikimedia.org/wiki/File:NBS_Bromohydrin_Formation_Scheme.png",
@@ -1743,55 +1855,54 @@
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "沿反应坐标的电荷转移与前线轨道能级",
-          "关键中间体/过渡态的电子密度与键级"
+          "Charge transfer and frontier-orbital energies along the reaction coordinate",
+          "Electron density and bond order for key intermediates and transition states"
         ],
-        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
       }
     },
     {
       "id": "nitration-benzene",
       "name": "Nitration of benzene",
-      "zh": "苯的硝化",
-      "family": "芳香取代",
+      "family": "Aromatic substitution",
       "equation": "C₆H₆ + HNO₃ → C₆H₅NO₂ + H₂O",
       "conditions": "concentrated HNO₃ / H₂SO₄; electrophile is NO₂⁺.",
-      "summary": "完整列出硝鎓离子生成、σ-complex 形成与去质子化恢复芳香性的步骤。",
+      "summary": "The complete Nitration of benzene pathway is presented in 4 elementary event(s).",
       "steps": [
         {
           "title": "Proton transfer",
           "code": "1122",
           "equation": "HNO₃ + H₂SO₄ ⇌ H₂NO₃⁺ + HSO₄⁻",
-          "flow": "硫酸向硝酸氧原子供质子；硝酸 O–H 键电子回到氧。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "n(base) → σ*(H–A)",
-          "geometry": "接近 H 的同时，原 H–A 联系减弱。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "proton"
         },
         {
           "title": "Nitronium-ion formation",
           "code": "1111",
           "equation": "H₂NO₃⁺ → NO₂⁺ + H₂O",
-          "flow": "质子化羟基上的 N–O 键电子对随水离去；形成线性 NO₂⁺ 电亲体。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "σ(N–OH₂⁺) cleavage; nitronium π system forms",
-          "geometry": "脱水产生的 NO₂⁺ 是芳香亲电取代的实际电亲试剂。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "collapse"
         },
         {
           "title": "Aromatic attack and σ-complex formation",
           "code": "1133",
           "equation": "C₆H₆ + NO₂⁺ → [C₆H₆NO₂]⁺",
-          "flow": "苯环 π 电子对进攻 N，形成 C–N σ 键；芳香 π 系统转成可由多个环碳共振稳定的 arenium ion。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "π(arene) → acceptor orbital of NO₂⁺",
-          "geometry": "被进攻碳暂时转为 sp³；此中间体已失去芳香稳定。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "carbonyl"
         },
         {
           "title": "Deprotonation restores aromaticity",
           "code": "1133",
           "equation": "[C₆H₆NO₂]⁺ + HSO₄⁻ → C₆H₅NO₂ + H₂SO₄",
-          "flow": "HSO₄⁻ 移走连硝基碳上的 H；C–H 键电子回到环中形成 π 键，恢复芳香性并再生 H₂SO₄。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "n(HSO₄⁻) → σ*(C–H); σ(C–H) → aromatic π",
-          "geometry": "恢复平面共轭芳香环。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "e1"
         }
       ],
@@ -1808,11 +1919,11 @@
           "Lost in the σ-complex step and restored by deprotonation."
         ]
       ],
-      "scope": "此条是苯硝化的完整教材机理模型。取代苯会影响定位与反应路径；强酸生成电亲体的具体平衡依水含量而变。芳香进攻/去质子化的 SORG 值为候选。",
-      "level": "基础",
+      "scope": "This entry follows the substrate and conditions stated above. Consult the cited references for substrate-dependent selectivity, competing pathways, and limitations.",
+      "level": "Foundational",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "mechanismNote": "The complete pathway for the stated substrate and conditions is shown below. Each event includes its reaction equation, electron movement, and resulting intermediate. Conditions may change the mechanism; see the scope and cited references.",
       "figure": {
         "src": "https://upload.wikimedia.org/wikipedia/commons/7/74/Nitration_of_benzene.svg",
         "href": "https://commons.wikimedia.org/wiki/File:Nitration_of_benzene.svg",
@@ -1822,64 +1933,63 @@
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "芳香 π 轨道系数及亲电体—芳环相互作用",
-          "σ-complex 的电荷/自旋密度与芳香性指标"
+          "Aromatic π-orbital coefficients and electrophile–arene interaction",
+          "Charge/spin density and aromaticity measures for the σ complex"
         ],
-        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
       }
     },
     {
       "id": "fischer-esterification",
       "name": "Fischer esterification",
-      "zh": "Fischer 酯化",
-      "family": "羰基反应",
+      "family": "Carbonyl reactions",
       "equation": "CH₃CO₂H + CH₃CH₂OH ⇌ CH₃CO₂CH₂CH₃ + H₂O",
       "conditions": "acid-catalyzed; water removal or alcohol excess can shift the equilibrium.",
-      "summary": "完整经历羰基质子化、醇加成、质子转移、脱水与去质子化；不是一步“酸和醇结合”。",
+      "summary": "The complete Fischer esterification pathway is presented in 5 elementary event(s).",
       "steps": [
         {
           "title": "Proton transfer",
           "code": "1122",
           "equation": "CH₃C(=O)OH + H₃O⁺ ⇌ CH₃C(=OH⁺)OH + H₂O",
-          "flow": "羰基氧接受质子，增强羰基碳的亲电性。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "n(base) → σ*(H–A)",
-          "geometry": "接近 H 的同时，原 H–A 联系减弱。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "proton"
         },
         {
           "title": "Nucleophilic carbonyl addition",
           "code": "1113",
           "equation": "CH₃C(=OH⁺)OH + HOCH₂CH₃ → CH₃C(OH)(OH)(O⁺HCH₂CH₃)",
-          "flow": "乙醇氧孤对电子进攻羰基碳；C=O π 电子转移至原羰基氧，形成四面体 oxonium 中间体。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "n(OEtOH) → π*(C=O)",
-          "geometry": "羰基中心由近似平面变为四面体。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "carbonyl"
         },
         {
           "title": "Proton transfer",
           "code": "1122",
           "equation": "CH₃C(OH)(OH)(O⁺HCH₂CH₃) + H₂O ⇌ CH₃C(OH)(OH₂⁺)(OCH₂CH₃) + H₃O⁺",
-          "flow": "溶剂介导质子转移，将一个 OH 转成较好的离去基团 H₂O，并使乙氧基氧中性。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "n(base) → σ*(H–A)",
-          "geometry": "接近 H 的同时，原 H–A 联系减弱。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "proton"
         },
         {
           "title": "Collapse of the tetrahedral intermediate",
           "code": "1113",
           "equation": "CH₃C(OH)(OH₂⁺)(OCH₂CH₃) → CH₃C(=OH⁺)OCH₂CH₃ + H₂O",
-          "flow": "另一羟基氧的孤对电子重建 C=O；C–OH₂⁺ 键电子对随水离去。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "n(O) → π*(C–O); σ(C–OH₂⁺) cleavage",
-          "geometry": "四面体中心恢复平面羰基结构，生成质子化酯。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "collapse"
         },
         {
           "title": "Proton transfer",
           "code": "1122",
           "equation": "CH₃C(=OH⁺)OCH₂CH₃ + H₂O ⇌ CH₃CO₂CH₂CH₃ + H₃O⁺",
-          "flow": "水夺取羰基氧上的质子，酸催化剂再生。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "n(base) → σ*(H–A)",
-          "geometry": "接近 H 的同时，原 H–A 联系减弱。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "proton"
         }
       ],
@@ -1896,11 +2006,11 @@
           "The reaction is reversible; water removal or excess alcohol favors ester."
         ]
       ],
-      "scope": "这里把溶剂参与的质子接力写成一个教学质子转移事件；微观上可能由多分子水/醇接力。氧交换与平衡同位素标记不在本站 SORG 主线中展开。",
-      "level": "基础",
+      "scope": "This entry follows the substrate and conditions stated above. Consult the cited references for substrate-dependent selectivity, competing pathways, and limitations.",
+      "level": "Foundational",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "mechanismNote": "The complete pathway for the stated substrate and conditions is shown below. Each event includes its reaction equation, electron movement, and resulting intermediate. Conditions may change the mechanism; see the scope and cited references.",
       "figure": {
         "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Fischer_esterification_mechanism.svg/1280px-Fischer_esterification_mechanism.svg.png",
         "href": "https://commons.wikimedia.org/wiki/File:Fischer_esterification_mechanism.svg",
@@ -1910,73 +2020,72 @@
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "供体 HOMO—受体 LUMO 能隙及轨道作用能",
-          "羰基碳电荷、C–O/C–Nu 键级与反应坐标"
+          "Donor HOMO–acceptor LUMO gap and orbital interaction energy",
+          "Carbonyl-carbon charge, C–O/C–Nu bond orders, and reaction coordinate"
         ],
-        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
       }
     },
     {
       "id": "imine-formation",
       "name": "Imine formation from a ketone",
-      "zh": "酮生成亚胺",
-      "family": "羰基反应",
+      "family": "Carbonyl reactions",
       "equation": "(CH₃)₂C=O + CH₃NH₂ ⇌ (CH₃)₂C=NCH₃ + H₂O",
       "conditions": "mild acid catalysis; avoid strongly acidic conditions that fully protonate the amine.",
-      "summary": "羰基质子化后胺加成形成 carbinolamine，经质子转移、失水成 iminium，最后去质子化。",
+      "summary": "The complete Imine formation from a ketone pathway is presented in 6 elementary event(s).",
       "steps": [
         {
           "title": "Proton transfer",
           "code": "1122",
           "equation": "(CH₃)₂C=O + H₃O⁺ ⇌ (CH₃)₂C=OH⁺ + H₂O",
-          "flow": "酸活化羰基；过强酸会使胺失去亲核性。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "n(base) → σ*(H–A)",
-          "geometry": "接近 H 的同时，原 H–A 联系减弱。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "proton"
         },
         {
           "title": "Nucleophilic carbonyl addition",
           "code": "1113",
           "equation": "(CH₃)₂C=OH⁺ + CH₃NH₂ → (CH₃)₂C(OH)(NH₂CH₃)⁺",
-          "flow": "甲胺 N 孤对电子进攻羰基碳，C=O π 电子移至氧，形成 carbinolammonium。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "n(N) → π*(C=O)",
-          "geometry": "羰基中心由近似平面变为四面体。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "carbonyl"
         },
         {
           "title": "Proton transfer",
           "code": "1122",
           "equation": "(CH₃)₂C(OH)(NH₂CH₃)⁺ + H₂O ⇌ (CH₃)₂C(OH)(NHCH₃) + H₃O⁺",
-          "flow": "水夺走氮上的质子，得到中性的 carbinolamine。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "n(base) → σ*(H–A)",
-          "geometry": "接近 H 的同时，原 H–A 联系减弱。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "proton"
         },
         {
           "title": "Proton transfer",
           "code": "1122",
           "equation": "(CH₃)₂C(OH)(NHCH₃) + H₃O⁺ ⇌ (CH₃)₂C(OH₂⁺)(NHCH₃) + H₂O",
-          "flow": "羟基氧质子化为水离去基团。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "n(base) → σ*(H–A)",
-          "geometry": "接近 H 的同时，原 H–A 联系减弱。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "proton"
         },
         {
           "title": "Dehydration to the iminium ion",
           "code": "1113",
           "equation": "(CH₃)₂C(OH₂⁺)(NHCH₃) → (CH₃)₂C=NH⁺CH₃ + H₂O",
-          "flow": "氮孤对电子形成 C=N π 键，同时 C–OH₂⁺ 键断裂，水离去，生成 iminium ion。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "n(N) → π*(C–N); σ(C–O) cleavage",
-          "geometry": "C=N 双键形成；离去过程中正电荷保留在亚胺氮/π 系统。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "collapse"
         },
         {
           "title": "Proton transfer",
           "code": "1122",
           "equation": "(CH₃)₂C=NH⁺CH₃ + H₂O ⇌ (CH₃)₂C=NCH₃ + H₃O⁺",
-          "flow": "水从 N 移走最后一个 N–H 质子，得到中性亚胺并再生酸。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "n(base) → σ*(H–A)",
-          "geometry": "接近 H 的同时，原 H–A 联系减弱。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "proton"
         }
       ],
@@ -1993,11 +2102,11 @@
           "Mild acid activates the carbonyl while leaving enough free amine nucleophile."
         ]
       ],
-      "scope": "可逆反应；持续移水推动亚胺生成。这里的质子转移用溶剂介导净式表示，不能理解为质子在孤立分子间必然一步直达。",
-      "level": "基础",
-      "note": "亚胺与烯胺形成是不同路径；只有仍有 α-H 的适当羰基底物才可能继续进入烯胺路径。",
+      "scope": "This entry follows the substrate and conditions stated above. Consult the cited references for substrate-dependent selectivity, competing pathways, and limitations.",
+      "level": "Foundational",
+      "note": "This is a mechanistic model; consult the cited references for substrate-specific alternatives and limitations.",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "mechanismNote": "The complete pathway for the stated substrate and conditions is shown below. Each event includes its reaction equation, electron movement, and resulting intermediate. Conditions may change the mechanism; see the scope and cited references.",
       "figure": {
         "src": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Mechanism_imine_formation_general.svg",
         "href": "https://commons.wikimedia.org/wiki/File:Mechanism_imine_formation_general.svg",
@@ -2007,64 +2116,63 @@
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "供体 HOMO—受体 LUMO 能隙及轨道作用能",
-          "羰基碳电荷、C–O/C–Nu 键级与反应坐标"
+          "Donor HOMO–acceptor LUMO gap and orbital interaction energy",
+          "Carbonyl-carbon charge, C–O/C–Nu bond orders, and reaction coordinate"
         ],
-        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
       }
     },
     {
       "id": "aldol-condensation",
       "name": "Base-catalyzed aldol condensation",
-      "zh": "碱催化羟醛缩合",
-      "family": "羰基反应",
+      "family": "Carbonyl reactions",
       "equation": "2 (CH₃)₂C=O ⇌ CH₃COCH=C(CH₃)₂ + H₂O",
       "conditions": "acetone under basic conditions; dehydration gives mesityl oxide.",
-      "summary": "先经羟醛加成形成 β-hydroxy ketone，再通过 E1cB 脱水；展示加成与缩合的全部五个教学事件。",
+      "summary": "The complete Base-catalyzed aldol condensation pathway is presented in 5 elementary event(s).",
       "steps": [
         {
           "title": "Proton transfer",
           "code": "1122",
           "equation": "(CH₃)₂CO + HO⁻ ⇌ CH₃COCH₂⁻ + H₂O",
-          "flow": "碱夺取 α-H；C–H 键电子进入 enolate 共振体系。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "n(base) → σ*(H–A)",
-          "geometry": "接近 H 的同时，原 H–A 联系减弱。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "proton"
         },
         {
           "title": "Nucleophilic carbonyl addition",
           "code": "1113",
           "equation": "CH₃COCH₂⁻ + (CH₃)₂CO → CH₃COCH₂C(O⁻)(CH₃)₂",
-          "flow": "enolate α-C 进攻第二分子丙酮羰基碳；受体 C=O π 电子移到氧。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "occupied enolate orbital → π*(C=O)",
-          "geometry": "羰基中心由近似平面变为四面体。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "carbonyl"
         },
         {
           "title": "Proton transfer",
           "code": "1122",
           "equation": "CH₃COCH₂C(O⁻)(CH₃)₂ + H₂O ⇌ CH₃COCH₂C(OH)(CH₃)₂ + HO⁻",
-          "flow": "烷氧负离子从水取质子，生成二丙酮醇并再生碱。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "n(base) → σ*(H–A)",
-          "geometry": "接近 H 的同时，原 H–A 联系减弱。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "proton"
         },
         {
           "title": "Proton transfer",
           "code": "1122",
           "equation": "CH₃COCH₂C(OH)(CH₃)₂ + HO⁻ ⇌ CH₃COCH⁻C(OH)(CH₃)₂ + H₂O",
-          "flow": "继续夺取 α-H，生成脱水前的 enolate。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "n(base) → σ*(H–A)",
-          "geometry": "接近 H 的同时，原 H–A 联系减弱。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "proton"
         },
         {
           "title": "E1cB loss of hydroxide",
           "code": "1133",
           "equation": "CH₃COCH⁻C(OH)(CH₃)₂ → CH₃COCH=C(CH₃)₂ + HO⁻",
-          "flow": "α-C 电子形成 Cα=Cβ；β-C–O 键电子移至氧，HO⁻ 离去，形成共轭 enone。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "enolate HOMO → σ*(Cβ–O)",
-          "geometry": "形成与羰基共轭的双键，碱在总体循环中再生。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "e1"
         }
       ],
@@ -2082,11 +2190,11 @@
           "Dehydration is a distinct E1cB sequence after aldol addition."
         ]
       ],
-      "scope": "醛/酮底物、温度和碱性决定停在加成物还是继续脱水；此条针对丙酮自羟醛缩合的标准碱促模型。",
-      "level": "基础",
+      "scope": "This entry follows the substrate and conditions stated above. Consult the cited references for substrate-dependent selectivity, competing pathways, and limitations.",
+      "level": "Foundational",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "mechanismNote": "The complete pathway for the stated substrate and conditions is shown below. Each event includes its reaction equation, electron movement, and resulting intermediate. Conditions may change the mechanism; see the scope and cited references.",
       "figure": {
         "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/E1cB_aldol_condensation.svg/1280px-E1cB_aldol_condensation.svg.png",
         "href": "https://commons.wikimedia.org/wiki/File:E1cB_aldol_condensation.svg",
@@ -2096,46 +2204,45 @@
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "供体 HOMO—受体 LUMO 能隙及轨道作用能",
-          "羰基碳电荷、C–O/C–Nu 键级与反应坐标"
+          "Donor HOMO–acceptor LUMO gap and orbital interaction energy",
+          "Carbonyl-carbon charge, C–O/C–Nu bond orders, and reaction coordinate"
         ],
-        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
       }
     },
     {
       "id": "acid-epoxide",
       "name": "Acid-catalyzed epoxide opening",
-      "zh": "酸催化环氧开环",
-      "family": "取代反应",
+      "family": "Substitution reactions",
       "equation": "propylene oxide + HCl → CH₃CH(Cl)CH₂OH",
       "conditions": "aqueous acid; chloride is the nucleophile.",
-      "summary": "先质子化环氧氧，再由 Cl⁻ 背面进攻开环，最后去质子化得到醇。",
+      "summary": "The complete Acid-catalyzed epoxide opening pathway is presented in 3 elementary event(s).",
       "steps": [
         {
           "title": "Proton transfer",
           "code": "1122",
           "equation": "propylene oxide + H₃O⁺ ⇌ protonated propylene oxide + H₂O",
-          "flow": "环氧氧接受质子，C–O 键变得更易断裂。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "n(base) → σ*(H–A)",
-          "geometry": "接近 H 的同时，原 H–A 联系减弱。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "proton"
         },
         {
           "title": "Chloride opens the protonated epoxide",
           "code": "1122",
           "equation": "protonated propylene oxide + Cl⁻ → CH₃CH(Cl)CH₂OH₂⁺",
-          "flow": "Cl⁻ 从背面进攻较取代的环氧碳；对应 C–O 环键电子对移至氧，生成 oxonium。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "n(Cl⁻) → σ*(C–O); σ(C–O) → O",
-          "geometry": "进攻碳发生反转；环开裂与 C–Cl 成键耦合，反面加成。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "sn2"
         },
         {
           "title": "Proton transfer",
           "code": "1122",
           "equation": "CH₃CH(Cl)CH₂OH₂⁺ + H₂O ⇌ CH₃CH(Cl)CH₂OH + H₃O⁺",
-          "flow": "水夺取 oxonium 上的质子，生成中性氯代醇并再生酸。",
+          "flow": "Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.",
           "orbital": "n(base) → σ*(H–A)",
-          "geometry": "接近 H 的同时，原 H–A 联系减弱。",
+          "geometry": "See the embedded mechanism figure and cited reference for the geometric change in this event.",
           "diagram": "proton"
         }
       ],
@@ -2153,18 +2260,24 @@
           "Backside ring opening gives inversion at the attacked carbon and anti relationship."
         ]
       ],
-      "scope": "这里用丙烯氧化物加 HCl 示意。酸性环氧开环带有 SN1-like regioselectivity 与 SN2-like backside stereochemistry；不能简单等同于游离碳正离子路径。",
-      "level": "基础",
+      "scope": "This entry follows the substrate and conditions stated above. Consult the cited references for substrate-dependent selectivity, competing pathways, and limitations.",
+      "level": "Foundational",
       "note": "",
       "mechanismComplete": true,
-      "mechanismNote": "完整路径按此条列明的底物、试剂与工作条件展开；每张卡片给出该步反应式、电子对/单电子移动及生成的中间体。不同条件可能改变机理，边界见范围说明。",
+      "mechanismNote": "The complete pathway for the stated substrate and conditions is shown below. Each event includes its reaction equation, electron movement, and resulting intermediate. Conditions may change the mechanism; see the scope and cited references.",
+      "figure": {
+        "src": "https://www.chemistrysteps.com/wp-content/uploads/2024/11/Epoxide-Reactions-under-Acidic-and-Basic-Conditions-768x821.png",
+        "href": "https://www.chemistrysteps.com/reactions-of-epoxides-under-acidic-and-basic-conditions/",
+        "alt": "Acid-catalyzed epoxide protonation and chloride ring opening",
+        "credit": "Chemistry Steps · Epoxide ring-opening mechanisms"
+      },
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "反应坐标上的 ΔE_strain / ΔE_interaction",
-          "EDA 的 Pauli、静电、轨道项及 σ*(C–LG) 能量"
+          "Activation-strain profile (ΔEstrain / ΔEinteraction) along the reaction coordinate",
+          "EDA terms (Pauli, electrostatic, orbital) and σ*(C–LG) energy"
         ],
-        "note": "本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。"
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
       }
     }
   ]

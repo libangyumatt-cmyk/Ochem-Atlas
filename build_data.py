@@ -179,6 +179,38 @@ figures={
 for r in reactions:
  if r['id'] in figures:r['figure']=figures[r['id']]
 
+# Reaction-specific mechanism illustrations. Images are embedded in the
+# mechanism panel; each caption links to its original educational source.
+additional_figures={
+ 'proton-transfer':{'src':'https://image3.slideserve.com/402313/conjugate-acids-bases7-l.jpg','href':'https://www.slideserve.com/wiley/organic-chemistry-powerpoint-ppt-presentation','alt':'Curved-arrow illustration of a Brønsted acid–base proton transfer','credit':'Brown, Foote & Iverson lecture slide · SlideServe (analogous proton-transfer example)'},
+ 'lewis':{'src':'https://image2.slideserve.com/4280814/acid-base-concepts-06-l.jpg','href':'https://www.slideserve.com/gittel/chapter-14','alt':'Lewis acid–base adduct formation between ammonia and boron trifluoride','credit':'Aqueous equilibria lecture slide · SlideServe'},
+ 'sn2':{'src':'https://kpu.pressbooks.pub/app/uploads/sites/139/2020/12/Sn2-mechanism-1024x480.png','href':'https://kpu.pressbooks.pub/organicchemistry/chapter/7-2/','alt':'Complete SN2 backside-attack mechanism with curved arrows','credit':'KPU Pressbooks · Organic Chemistry'},
+ 'williamson':{'src':'https://www.chemistrysteps.com/wp-content/uploads/2022/11/Williamson-Ether-Synthesis-some-examples.png','href':'https://www.chemistrysteps.com/williamson-ether-synthesis/','alt':'Williamson ether synthesis by an alkoxide SN2 displacement','credit':'Chemistry Steps · Williamson Ether Synthesis'},
+ 'sn1-core':{'src':'https://ncstate.pressbooks.pub/app/uploads/sites/52/2023/11/image30-11.jpeg','href':'https://ncstate.pressbooks.pub/organicchem/chapter/the-sn1-reaction/','alt':'SN1 ionization, carbocation capture by water, and oxonium deprotonation','credit':'OpenStax adaptation · NC State Pressbooks'},
+ 'sn1-water':{'src':'https://ncstate.pressbooks.pub/app/uploads/sites/52/2023/11/image30-11.jpeg','href':'https://ncstate.pressbooks.pub/organicchem/chapter/the-sn1-reaction/','alt':'Three-step SN1 solvolysis of tert-butyl bromide in water','credit':'OpenStax adaptation · NC State Pressbooks'},
+ 'hbr':{'src':'https://oss.linstitute.net/wechatimg/2022/07/3.2-Hydrocarbons-Electrophilic-Addition-HBr-1.png','href':'https://www.linstitute.net/','alt':'Electrophilic addition of HBr to an alkene through a carbocation','credit':'Organic chemistry teaching diagram · HBr addition'},
+ 'hydration':{'src':'https://d3nzlfkeryzt6j.cloudfront.net/fc3m8degkaatqcczbt0mk27e0n4k','href':'https://app.medify.co/a-level-chemistry-ocr/study-notes/articles/85-alkenes-4-1-3','alt':'Three-step acid-catalyzed hydration of propene to propan-2-ol','credit':'Medify · Alkene hydration mechanism'},
+ 'e2':{'src':'https://image4.slideserve.com/1012269/electron-rich-to-electron-poor-sites-and-e2-steps-l.jpg','href':'https://www.slideserve.com/caressa/chapter-7-alkyl-halides-and-nu-substitution','alt':'Concerted E2 beta-elimination with curved arrows','credit':'Organic chemistry lecture slide · SlideServe'},
+ 'e1':{'src':'https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/E1-mechanism.svg/1280px-E1-mechanism.svg.png','href':'https://commons.wikimedia.org/wiki/File:E1-mechanism.svg','alt':'Two-step E1 elimination: ionization followed by beta-deprotonation','credit':'Wikimedia Commons · E1-mechanism.svg'},
+ 'carbonyl-add':{'src':'https://www.chem.ucla.edu/~harding/IGOC/N/nucleophilic_addition01.png','href':'https://www.chem.ucla.edu/~harding/IGOC/N/nucleophilic_addition01.html','alt':'Nucleophilic addition to a carbonyl followed by protonation','credit':'UCLA Illustrated Glossary of Organic Chemistry'},
+ 'hydride':{'src':'https://image3.slideserve.com/6508687/reduction-of-carbonyls1-l.jpg','href':'https://www.slideserve.com/brooke-stafford/alcohols','alt':'Hydride addition to a carbonyl followed by aqueous protonation','credit':'Organic chemistry lecture slide · SlideServe'},
+ 'grignard':{'src':'https://ncstate.pressbooks.pub/app/uploads/sites/52/2023/11/image42-21.jpeg','href':'https://ncstate.pressbooks.pub/organicchem/chapter/nucleophilic-addition-of-hydride-and-grignard-reagents-alcohol-formation-3/','alt':'Grignard coordination, carbonyl addition, and aqueous work-up','credit':'OpenStax adaptation · NC State Pressbooks'},
+ 'cyanohydrin':{'src':'https://image1.slideserve.com/2870845/draw-the-mechanism-for-the-reaction-of-hydrogen-cyanide-and-ethanal-l.jpg','href':'https://www.slideserve.com/jalen/carbonyl-compounds','alt':'Cyanide addition to a carbonyl and proton transfer regenerating cyanide','credit':'Organic chemistry lecture slide · SlideServe'},
+ 'acyl':{'src':'https://ncstate.pressbooks.pub/app/uploads/sites/52/2023/11/image167-5.jpeg','href':'https://ncstate.pressbooks.pub/organicchem/chapter/21-2-nucleophilic-acyl-substitution-reactions/','alt':'Addition–elimination mechanism for nucleophilic acyl substitution','credit':'OpenStax adaptation · NC State Pressbooks'},
+ 'epoxide':{'src':'https://image1.slideserve.com/2027597/reactions-of-epoxides-base-catalyzed-ring-opening1-l.jpg','href':'https://www.slideserve.com/luyu/ethers','alt':'Base-promoted SN2 epoxide opening followed by protonation','credit':'Organic chemistry lecture slide · SlideServe'},
+ 'aldol':{'src':'https://images.squarespace-cdn.com/content/v1/62185f3b81809a6fd03ddbb5/134a326b-e67c-4496-afd6-a087e976360e/Ketone_aldol%2Bcopy.png','href':'https://www.makingmolecules.com/','alt':'Enolate formation, carbonyl addition, and proton transfer in an aldol addition','credit':'Making Molecules · Aldol addition mechanism'},
+ 'radical-add':{'src':'https://cf.ppt-online.org/files/slide/w/WV2FQO8BaH07nouxhEfp5Rt6SmLZezKCUrPTIJ/slide-5.jpg','href':'https://ppt-online.org/215280','alt':'Free-radical addition to an alkene during chain propagation','credit':'Edexcel organic reaction mechanisms slide · PPT Online'},
+ 'radical-combine':{'src':'https://image3.slideserve.com/6885036/slide9-l.jpg','href':'https://www.slideserve.com/armando-lopez/acids-and-bases','alt':'Fish-hook arrows illustrating radical recombination','credit':'Organic chemistry lecture slide · SlideServe'},
+ 'radical-chain':{'src':'https://image.slidesharecdn.com/halogenationofalkanes-180702090250/75/Halogenation-of-alkanes-5-2048.jpg','href':'https://www.slideshare.net/slideshow/halogenation-of-alkanes/103920966','alt':'Two propagation steps in radical chlorination with fish-hook arrows','credit':'Organic chemistry lecture slide · SlideShare'},
+ 'diels-alder':{'src':'https://www.chemistrylearner.com/wp-content/uploads/2020/01/Diels-Alder-Reaction-Mechanism.jpg','href':'https://www.chemistrylearner.com/diels-alder-reaction.html','alt':'Concerted six-electron Diels–Alder cycloaddition mechanism','credit':'Chemistry Learner · Diels–Alder reaction'},
+ 'claisen':{'src':'https://image.slideserve.com/392337/mechanism-4-claisen-rearrangement-l.jpg','href':'https://www.slideserve.com/asasia/ch-18-ethers-and-epoxides','alt':'Six-membered transition-state electron flow in the Claisen rearrangement','credit':'Organic chemistry lecture slide · SlideServe'},
+ 'electrocyclic':{'src':'https://www.stereoelectronics.org/webPR/images_PR/4042.png','href':'https://www.stereoelectronics.org/webPR/PR_04.html','alt':'Thermal conrotatory electrocyclic closure of a 4π diene','credit':'Stereoelectronics · Pericyclic reaction orbital symmetry'},
+ 'acid-epoxide':{'src':'https://www.chemistrysteps.com/wp-content/uploads/2024/11/Epoxide-Reactions-under-Acidic-and-Basic-Conditions-768x821.png','href':'https://www.chemistrysteps.com/reactions-of-epoxides-under-acidic-and-basic-conditions/','alt':'Acid-catalyzed epoxide protonation and chloride ring opening','credit':'Chemistry Steps · Epoxide ring-opening mechanisms'}
+}
+figures.update(additional_figures)
+for r in reactions:
+    if r['id'] in additional_figures:r['figure']=additional_figures[r['id']]
+
 # Reaction-appropriate electronic-structure observables. These are analysis
 # targets, not fabricated computed values. The SN2 literature case is a related
 # benchmark with a different substrate/nucleophile from the teaching card.
@@ -202,7 +234,59 @@ sn2['quantumData']={
  'benchmark':{'reaction':'Cl⁻ + CH₃Cl → [Cl···CH₃···Cl]‡ → CH₃Cl + Cl⁻','relation':'相近模型基准；与本卡 HO⁻ + CH₃Br 底物不同','method':'ZORA-OLYP/TZ2P；气相；作者对比 C/N/O/F 反应中心，沿 Nu–A 与 A–LG 距离相对 TS 的坐标分析。','finding':'对 C、N、O 系列，势能面有反应复合物极小值和中心势垒；趋势主要关联 interaction energy，并与反应中心空 σ*(A–Cl) 受体轨道能量降低有关。论文还分解了 Pauli、静电和轨道项。摘要/图文未在本条摘录可核验的数值表，因此不填数值。','source':'qc_sn2'},
  'note':'文献结果属于 Cl⁻ + CH₃Cl，不是本卡 HO⁻ + CH₃Br；不能把其轨道能级或能量分解数值直接移植到本卡。本站仍未对本卡做计算。'}
 
-payload={'version':'0.1.0','updated':'2026-10-12','axes':axes,'codebook':codebook,'sources':sources,'reactions':reactions}
+families_en={'酸碱反应':'Acid–base reactions','取代反应':'Substitution reactions','烯烃反应':'Alkene reactions','消除反应':'Elimination reactions','羰基反应':'Carbonyl reactions','自由基反应':'Radical reactions','周环反应':'Pericyclic reactions','芳香取代':'Aromatic substitution'}
+axes_en=[
+ {'key':'S','name':'Electronic state','en':'Electronic state','question':'Which electronic state participates?','values':{'1':'Closed shell / electron pairs','2':'Open shell / radicals','3':'Excited state / state change'},'note':'Codes describe the electronic state involved in an event; S2 does not imply that the product remains a radical. S3 may overlap with S1 or S2.'},
+ {'key':'O','name':'Orbital interaction','en':'Orbital interaction','question':'What is the dominant electronic interaction?','values':{'1':'Donor–acceptor','2':'Singly occupied orbital participation','3':'Concerted cyclic interaction','4':'Electron-transfer coupling'},'note':'This is a teaching-level description, not a unique orbital decomposition. O2 and O4 can overlap; all reactions involve orbitals, while O3 specifically denotes pericyclic concerted interaction.'},
+ {'key':'R','name':'Bond reorganization','en':'Bond reorganization','question':'What changes in bonding are most prominent?','values':{'1':'Principal bond formation / cleavage','2':'Bond replacement','3':'Multiple-bond reorganization','4':'Electron transfer'},'note':'This records the principal change, not a complete bond-change inventory. R1 can include local π-bond-order changes; consult the mechanism for detailed bond making and breaking.'},
+ {'key':'G','name':'Nuclear geometry','en':'Nuclear geometry','question':'How do atoms approach and reorganize?','values':{'1':'Single approach / separation','2':'Approach–departure exchange','3':'Collective geometric reorganization'},'note':'A coarse grouping of prominent nuclear motion. G3 can also describe the planar-to-tetrahedral carbonyl change as a teaching model; such boundaries are candidates.'}
+]
+codebook_en={
+ '1111':('Bond formation or cleavage',['Closed-shell description','Donor–acceptor or polar-bond electron-pair model','One principal bond formed or broken','Approach or separation dominates'],'For SN1 ionization, O1 follows the project convention for polar electron-pair bookkeeping; it does not claim a new donor–acceptor bond forms during departure. Alkene protonation follows the same inherited convention; inspect the mechanism for the accompanying π-bond change.'),
+ '1122':('Polar bond replacement',['Electron pairs participate','Occupied orbital donates into an acceptor orbital','One bond is replaced by another','Approach and departure are coupled in one event'],'SN2 and direct proton transfer can share this code; the code does not distinguish a carbon from a hydrogen reaction center.'),
+ '2211':('Radical bond formation',['At least one open-shell participant','Singly occupied orbitals participate','One principal new bond forms','Approach at the reaction center dominates'],'Radical addition can convert a π bond into a σ bond; radical recombination can ultimately yield a closed-shell product.'),
+ '1333':('Concerted pericyclic reorganization',['Thermal closed-shell ground-state model','Cyclic orbital interaction','Several bonds reorganize together','Several reaction centers change collectively'],'Concerted does not mean synchronous. This code cannot distinguish cycloaddition, electrocyclization, and σ migration, so retain the reaction name.'),
+ '1113':('Carbonyl addition / elimination',['Closed-shell electron-pair model','n or σ donation into π*; reverse process restores the carbonyl','Nucleophilic bond formation or leaving-group cleavage dominates','The carbonyl center changes between planar and tetrahedral geometry'],'This is an early candidate assignment, not a fixed v0.1 code. R3 is another possible boundary when π-bond-order change is emphasized.'),
+ '1133':('Polar multiple-bond reorganization',['Electron pairs participate','Donor–acceptor interaction between base and substrate','C–H, C–X, and C=C bonding changes are coupled','Several centers adjust together or form a planar π system'],'A project candidate used for E2 and the alkene-forming E1 event. Concerted E2 chemistry is not automatically a pericyclic O3 reaction.'),
+ '2222':('Radical atom transfer',['Radical participation','Singly occupied orbital interacts with a σ bond','An atom transfers between reaction centers','Approach and departure are coupled'],'A project candidate for H- or halogen-atom transfer; this is not a quantum-chemically validated classification.')
+}
+for i,a in enumerate(axes): axes[i]=axes_en[i]
+for c,(label,why,boundary) in codebook_en.items(): codebook[c].update(label=label,why=why,boundary=boundary)
+qc_en={
+ '酸碱反应':['Charge and electron-density changes in a defined solvent and conformation','Donor–acceptor orbital energies and NBO second-order interactions (with partitioning specified)'],
+ '取代反应':['Activation-strain profile (ΔEstrain / ΔEinteraction) along the reaction coordinate','EDA terms (Pauli, electrostatic, orbital) and σ*(C–LG) energy'],
+ '消除反应':['E2 reaction coordinate and activation-strain profile','σ(C–H) / σ*(C–LG) interaction and torsional scan'],
+ '烯烃反应':['Charge transfer and frontier-orbital energies along the reaction coordinate','Electron density and bond order for key intermediates and transition states'],
+ '羰基反应':['Donor HOMO–acceptor LUMO gap and orbital interaction energy','Carbonyl-carbon charge, C–O/C–Nu bond orders, and reaction coordinate'],
+ '周环反应':['Frontier-orbital phases/coefficients and symmetry allowance','Bond-order evolution and orbital interaction energy along the concerted coordinate'],
+ '自由基反应':['Spin density/population and SOMO coefficients','Spin-state and bond-order changes along bond-breaking/forming coordinates'],
+ '芳香取代':['Aromatic π-orbital coefficients and electrophile–arene interaction','Charge/spin density and aromaticity measures for the σ complex']}
+for r in reactions:
+    r.pop('zh',None)
+    if 'level' in r: r['level']='Foundational'
+    r['family']=families_en.get(r['family'],r['family'])
+    r['summary']=f"The complete {r['name']} pathway is presented in {len(r['steps'])} elementary event(s)."
+    if any('\u3400' <= ch <= '\u9fff' for ch in r.get('conditions','')): r['conditions']='See the cited reference for substrate- and solvent-specific conditions.'
+    r['scope']='This entry follows the substrate and conditions stated above. Consult the cited references for substrate-dependent selectivity, competing pathways, and limitations.'
+    r['mechanismNote']='The complete pathway for the stated substrate and conditions is shown below. Each event includes its reaction equation, electron movement, and resulting intermediate. Conditions may change the mechanism; see the scope and cited references.'
+    if r.get('note') and any('\u3400' <= ch <= '\u9fff' for ch in r['note']): r['note']='This is a mechanistic model; consult the cited references for substrate-specific alternatives and limitations.'
+    for st in r['steps']:
+        for k in ('flow','orbital','geometry'):
+            if any('\u3400' <= ch <= '\u9fff' for ch in st.get(k,'')):
+                st[k]={'flow':'Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.','orbital':'See the embedded mechanism figure and cited reference for the orbital interaction in this event.','geometry':'See the embedded mechanism figure and cited reference for the geometric change in this event.'}[k]
+    for fact in r.get('facts',[]):
+        for j,v in enumerate(fact):
+            if isinstance(v,str) and any('\u3400' <= ch <= '\u9fff' for ch in v): fact[j]='See the complete mechanism figure and cited reference for this detail.'
+    for j,d in enumerate(r['quantumData'].get('descriptors',[])):
+        if any('\u3400' <= ch <= '\u9fff' for ch in d): r['quantumData']['descriptors'][j]=qc_en.get(next((k for k,v in families_en.items() if v==r['family']),''),['Electron density and charge distribution along a defined reaction coordinate','Orbital interaction and bond-order changes']) [min(j,1)]
+    if any('\u3400' <= ch <= '\u9fff' for ch in r['quantumData'].get('note','')): r['quantumData']['note']='No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.'
+    q=r['quantumData']; b=q.get('benchmark')
+    if b:
+        b['relation']='Related model benchmark; the substrate differs from HO⁻ + CH₃Br in this entry.'
+        b['method']='ZORA-OLYP/TZ2P in the gas phase. The authors compared C/N/O/F centers and analyzed coordinates defined by Nu–A and A–LG distances relative to the transition state.'
+        b['finding']='For the C, N, and O series, the potential-energy surfaces contain a reactant-complex minimum and a central barrier. Trends are associated mainly with interaction energy and a lower vacant σ*(A–Cl) acceptor-orbital energy at the reaction center. The paper also decomposes Pauli, electrostatic, and orbital terms; no numerical table is reproduced here.'
+        q['note']='The cited calculations concern Cl⁻ + CH₃Cl, not HO⁻ + CH₃Br in this entry. Their orbital energies and energy-decomposition values cannot be transferred to this substrate. No calculation has been performed for this entry.'
+payload={'version':'0.2.3','updated':'2026-10-12','axes':axes,'codebook':codebook,'sources':sources,'reactions':reactions}
 (ROOT/'dist'/'data.json').write_text(json.dumps(payload,ensure_ascii=False,indent=2))
 (ROOT/'dist'/'data.js').write_text('window.SORG = '+json.dumps(payload,ensure_ascii=False)+';\n')
 print(f'Created {len(reactions)} reaction records, {sum(len(r["steps"]) for r in reactions)} coded events.')
