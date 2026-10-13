@@ -1,0 +1,79 @@
+{
+  "1111": {
+    "status": "inherited",
+    "label": "Bond formation or cleavage",
+    "why": [
+      "Closed-shell description",
+      "Donor–acceptor or polar-bond electron-pair model",
+      "One principal bond formed or broken",
+      "Approach or separation dominates"
+    ],
+    "boundary": "For SN1 ionization, O1 follows the project convention for polar electron-pair bookkeeping; it does not claim a new donor–acceptor bond forms during departure. Alkene protonation follows the same inherited convention; inspect the mechanism for the accompanying π-bond change."
+  },
+  "1122": {
+    "status": "inherited",
+    "label": "Polar bond replacement",
+    "why": [
+      "Electron pairs participate",
+      "Occupied orbital donates into an acceptor orbital",
+      "One bond is replaced by another",
+      "Approach and departure are coupled in one event"
+    ],
+    "boundary": "SN2 and direct proton transfer can share this code; the code does not distinguish a carbon from a hydrogen reaction center."
+  },
+  "2211": {
+    "status": "inherited",
+    "label": "Radical bond formation",
+    "why": [
+      "At least one open-shell participant",
+      "Singly occupied orbitals participate",
+      "One principal new bond forms",
+      "Approach at the reaction center dominates"
+    ],
+    "boundary": "Radical addition can convert a π bond into a σ bond; radical recombination can ultimately yield a closed-shell product."
+  },
+  "1333": {
+    "status": "inherited",
+    "label": "Concerted pericyclic reorganization",
+    "why": [
+      "Thermal closed-shell ground-state model",
+      "Cyclic orbital interaction",
+      "Several bonds reorganize together",
+      "Several reaction centers change collectively"
+    ],
+    "boundary": "Concerted does not mean synchronous. This code cannot distinguish cycloaddition, electrocyclization, and σ migration, so retain the reaction name."
+  },
+  "1113": {
+    "status": "candidate",
+    "label": "Carbonyl addition / elimination",
+    "why": [
+      "Closed-shell electron-pair model",
+      "n or σ donation into π*; reverse process restores the carbonyl",
+      "Nucleophilic bond formation or leaving-group cleavage dominates",
+      "The carbonyl center changes between planar and tetrahedral geometry"
+    ],
+    "boundary": "This is an early candidate assignment, not a fixed v0.1 code. R3 is another possible boundary when π-bond-order change is emphasized."
+  },
+  "1133": {
+    "status": "candidate",
+    "label": "Polar multiple-bond reorganization",
+    "why": [
+      "Electron pairs participate",
+      "Donor–acceptor interaction between base and substrate",
+      "C–H, C–X, and C=C bonding changes are coupled",
+      "Several centers adjust together or form a planar π system"
+    ],
+    "boundary": "A project candidate used for E2 and the alkene-forming E1 event. Concerted E2 chemistry is not automatically a pericyclic O3 reaction."
+  },
+  "2222": {
+    "status": "candidate",
+    "label": "Radical atom transfer",
+    "why": [
+      "Radical participation",
+      "Singly occupied orbital interacts with a σ bond",
+      "An atom transfers between reaction centers",
+      "Approach and departure are coupled"
+    ],
+    "boundary": "A project candidate for H- or halogen-atom transfer; this is not a quantum-chemically validated classification."
+  }
+}

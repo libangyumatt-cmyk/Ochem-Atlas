@@ -23,8 +23,10 @@ jobs:
           node-version: '22'
       - name: Regenerate reaction data
         run: python3 build_data.py
-      - name: Verify content and calculations
-        run: node verify.cjs
+      - name: Install test dependencies
+        run: npm ci --ignore-scripts
+      - name: Verify data and DOM interactions
+        run: npm test
       - name: Package downloadable source
         run: python3 package_source.py
       - uses: actions/configure-pages@v5

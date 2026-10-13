@@ -1,0 +1,6 @@
+{
+  "name": "ochem-atlas-qc",
+  "private": true,
+  "scripts": {"test": "node verify.cjs && node verify-ui.cjs"},
+  "devDependencies": {"jsdom": "30.1.2"}
+}

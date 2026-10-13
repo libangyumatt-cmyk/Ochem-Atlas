@@ -1,0 +1,1159 @@
+[
+  {
+    "url": "https://image3.slideserve.com/402313/conjugate-acids-bases7-l.jpg",
+    "ids": [
+      "proton-transfer:src"
+    ],
+    "error": "HTTP Error 404: Not Found",
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://www.slideserve.com/wiley/organic-chemistry-powerpoint-ppt-presentation",
+    "ids": [
+      "proton-transfer:href"
+    ],
+    "status": 200,
+    "mime": "text/html; charset=UTF-8",
+    "final": "https://www.slideserve.com/wiley/organic-chemistry-powerpoint-ppt-presentation",
+    "bytes": 122121,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://image2.slideserve.com/4280814/acid-base-concepts-06-l.jpg",
+    "ids": [
+      "lewis:src"
+    ],
+    "status": 200,
+    "mime": "image/jpeg",
+    "final": "https://image2.slideserve.com/4280814/acid-base-concepts-06-l.jpg",
+    "bytes": 46989,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://www.slideserve.com/gittel/chapter-14",
+    "ids": [
+      "lewis:href"
+    ],
+    "status": 200,
+    "mime": "text/html; charset=UTF-8",
+    "final": "https://www.slideserve.com/gittel/chapter-14",
+    "bytes": 129478,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://kpu.pressbooks.pub/app/uploads/sites/139/2020/12/Sn2-mechanism-1024x480.png",
+    "ids": [
+      "sn2:src"
+    ],
+    "status": 200,
+    "mime": "image/png",
+    "final": "https://kpu.pressbooks.pub/app/uploads/sites/139/2020/12/Sn2-mechanism-1024x480.png",
+    "bytes": 314998,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://kpu.pressbooks.pub/organicchemistry/chapter/7-2/",
+    "ids": [
+      "sn2:href"
+    ],
+    "status": 200,
+    "mime": "text/html; charset=UTF-8",
+    "final": "https://kpu.pressbooks.pub/organicchemistry/chapter/7-2/",
+    "bytes": 94063,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://www.chemistrysteps.com/wp-content/uploads/2022/11/Williamson-Ether-Synthesis-some-examples.png",
+    "ids": [
+      "williamson:src"
+    ],
+    "status": 200,
+    "mime": "image/png",
+    "final": "https://www.chemistrysteps.com/wp-content/uploads/2022/11/Williamson-Ether-Synthesis-some-examples.png",
+    "bytes": 44241,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://www.chemistrysteps.com/williamson-ether-synthesis/",
+    "ids": [
+      "williamson:href"
+    ],
+    "status": 200,
+    "mime": "text/html; charset=UTF-8",
+    "final": "https://www.chemistrysteps.com/williamson-ether-synthesis/",
+    "bytes": 1196850,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://ncstate.pressbooks.pub/app/uploads/sites/52/2023/11/image30-11.jpeg",
+    "ids": [
+      "sn1-core:src",
+      "sn1-water:src"
+    ],
+    "status": 200,
+    "mime": "image/jpeg",
+    "final": "https://ncstate.pressbooks.pub/app/uploads/sites/52/2023/11/image30-11.jpeg",
+    "bytes": 121007,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://ncstate.pressbooks.pub/organicchem/chapter/the-sn1-reaction/",
+    "ids": [
+      "sn1-core:href",
+      "sn1-water:href"
+    ],
+    "status": 200,
+    "mime": "text/html; charset=UTF-8",
+    "final": "https://ncstate.pressbooks.pub/organicchem/chapter/the-sn1-reaction/",
+    "bytes": 203852,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://oss.linstitute.net/wechatimg/2022/07/3.2-Hydrocarbons-Electrophilic-Addition-HBr-1.png",
+    "ids": [
+      "hbr:src"
+    ],
+    "status": 200,
+    "mime": "image/png",
+    "final": "https://oss.linstitute.net/wechatimg/2022/07/3.2-Hydrocarbons-Electrophilic-Addition-HBr-1.png",
+    "bytes": 88476,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://www.linstitute.net/",
+    "ids": [
+      "hbr:href"
+    ],
+    "status": 200,
+    "mime": "text/html; charset=UTF-8",
+    "final": "https://www.hanlin.com/",
+    "bytes": 97759,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://d3nzlfkeryzt6j.cloudfront.net/fc3m8degkaatqcczbt0mk27e0n4k",
+    "ids": [
+      "hydration:src"
+    ],
+    "status": 200,
+    "mime": "image/png",
+    "final": "https://d3nzlfkeryzt6j.cloudfront.net/fc3m8degkaatqcczbt0mk27e0n4k",
+    "bytes": 26754,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://app.medify.co/a-level-chemistry-ocr/study-notes/articles/85-alkenes-4-1-3",
+    "ids": [
+      "hydration:href"
+    ],
+    "status": 200,
+    "mime": "text/html; charset=utf-8",
+    "final": "https://app.medify.co/a-level-chemistry-ocr/study-notes/articles/85-alkenes-4-1-3",
+    "bytes": 808380,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://image4.slideserve.com/1012269/electron-rich-to-electron-poor-sites-and-e2-steps-l.jpg",
+    "ids": [
+      "e2:src"
+    ],
+    "status": 200,
+    "mime": "image/webp",
+    "final": "https://image4.slideserve.com/1012269/electron-rich-to-electron-poor-sites-and-e2-steps-l.jpg",
+    "bytes": 244447,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://www.slideserve.com/caressa/chapter-7-alkyl-halides-and-nu-substitution",
+    "ids": [
+      "e2:href"
+    ],
+    "status": 200,
+    "mime": "text/html; charset=UTF-8",
+    "final": "https://www.slideserve.com/caressa/chapter-7-alkyl-halides-and-nu-substitution",
+    "bytes": 131698,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/E1-mechanism.svg/1280px-E1-mechanism.svg.png",
+    "ids": [
+      "e1:src"
+    ],
+    "status": 200,
+    "mime": "image/png",
+    "final": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/E1-mechanism.svg/1280px-E1-mechanism.svg.png",
+    "bytes": 21573,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://commons.wikimedia.org/wiki/File:E1-mechanism.svg",
+    "ids": [
+      "e1:href"
+    ],
+    "status": 200,
+    "mime": "text/html; charset=UTF-8",
+    "final": "https://commons.wikimedia.org/wiki/File:E1-mechanism.svg",
+    "bytes": 91018,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://www.chem.ucla.edu/~harding/IGOC/N/nucleophilic_addition01.png",
+    "ids": [
+      "carbonyl-add:src"
+    ],
+    "status": 200,
+    "mime": "image/png",
+    "final": "https://www.chem.ucla.edu/~harding/IGOC/N/nucleophilic_addition01.png",
+    "bytes": 50765,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://www.chem.ucla.edu/~harding/IGOC/N/nucleophilic_addition01.html",
+    "ids": [
+      "carbonyl-add:href"
+    ],
+    "error": "HTTP Error 404: Not Found",
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://image3.slideserve.com/6508687/reduction-of-carbonyls1-l.jpg",
+    "ids": [
+      "hydride:src"
+    ],
+    "status": 200,
+    "mime": "image/jpeg",
+    "final": "https://image3.slideserve.com/6508687/reduction-of-carbonyls1-l.jpg",
+    "bytes": 55852,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://www.slideserve.com/brooke-stafford/alcohols",
+    "ids": [
+      "hydride:href"
+    ],
+    "status": 200,
+    "mime": "text/html; charset=UTF-8",
+    "final": "https://www.slideserve.com/brooke-stafford/alcohols",
+    "bytes": 126635,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://ncstate.pressbooks.pub/app/uploads/sites/52/2023/11/image42-21.jpeg",
+    "ids": [
+      "grignard:src"
+    ],
+    "status": 200,
+    "mime": "image/jpeg",
+    "final": "https://ncstate.pressbooks.pub/app/uploads/sites/52/2023/11/image42-21.jpeg",
+    "bytes": 120742,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://ncstate.pressbooks.pub/organicchem/chapter/nucleophilic-addition-of-hydride-and-grignard-reagents-alcohol-formation-3/",
+    "ids": [
+      "grignard:href"
+    ],
+    "status": 200,
+    "mime": "text/html; charset=UTF-8",
+    "final": "https://ncstate.pressbooks.pub/organicchem/chapter/nucleophilic-addition-of-hydride-and-grignard-reagents-alcohol-formation-3/",
+    "bytes": 197180,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://image1.slideserve.com/2870845/draw-the-mechanism-for-the-reaction-of-hydrogen-cyanide-and-ethanal-l.jpg",
+    "ids": [
+      "cyanohydrin:src"
+    ],
+    "status": 200,
+    "mime": "image/jpeg",
+    "final": "https://image1.slideserve.com/2870845/draw-the-mechanism-for-the-reaction-of-hydrogen-cyanide-and-ethanal-l.jpg",
+    "bytes": 58441,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://www.slideserve.com/jalen/carbonyl-compounds",
+    "ids": [
+      "cyanohydrin:href"
+    ],
+    "status": 200,
+    "mime": "text/html; charset=UTF-8",
+    "final": "https://www.slideserve.com/jalen/carbonyl-compounds",
+    "bytes": 128241,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://ncstate.pressbooks.pub/app/uploads/sites/52/2023/11/image167-5.jpeg",
+    "ids": [
+      "acyl:src"
+    ],
+    "status": 200,
+    "mime": "image/jpeg",
+    "final": "https://ncstate.pressbooks.pub/app/uploads/sites/52/2023/11/image167-5.jpeg",
+    "bytes": 68754,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://ncstate.pressbooks.pub/organicchem/chapter/21-2-nucleophilic-acyl-substitution-reactions/",
+    "ids": [
+      "acyl:href"
+    ],
+    "error": "HTTP Error 404: Not Found",
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://image1.slideserve.com/2027597/reactions-of-epoxides-base-catalyzed-ring-opening1-l.jpg",
+    "ids": [
+      "epoxide:src"
+    ],
+    "status": 200,
+    "mime": "image/jpeg",
+    "final": "https://image1.slideserve.com/2027597/reactions-of-epoxides-base-catalyzed-ring-opening1-l.jpg",
+    "bytes": 110272,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://www.slideserve.com/luyu/ethers",
+    "ids": [
+      "epoxide:href"
+    ],
+    "status": 200,
+    "mime": "text/html; charset=UTF-8",
+    "final": "https://www.slideserve.com/luyu/ethers",
+    "bytes": 122926,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://images.squarespace-cdn.com/content/v1/62185f3b81809a6fd03ddbb5/134a326b-e67c-4496-afd6-a087e976360e/Ketone_aldol%2Bcopy.png",
+    "ids": [
+      "aldol:src"
+    ],
+    "status": 200,
+    "mime": "image/png",
+    "final": "https://images.squarespace-cdn.com/content/v1/62185f3b81809a6fd03ddbb5/134a326b-e67c-4496-afd6-a087e976360e/Ketone_aldol%2Bcopy.png",
+    "bytes": 208853,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://www.makingmolecules.com/",
+    "ids": [
+      "aldol:href"
+    ],
+    "status": 200,
+    "mime": "text/html;charset=utf-8",
+    "final": "https://www.makingmolecules.com/",
+    "bytes": 131736,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://cf.ppt-online.org/files/slide/w/WV2FQO8BaH07nouxhEfp5Rt6SmLZezKCUrPTIJ/slide-5.jpg",
+    "ids": [
+      "radical-add:src"
+    ],
+    "status": 200,
+    "mime": "image/jpeg",
+    "final": "https://cf.ppt-online.org/files/slide/w/WV2FQO8BaH07nouxhEfp5Rt6SmLZezKCUrPTIJ/slide-5.jpg",
+    "bytes": 110709,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://ppt-online.org/215280",
+    "ids": [
+      "radical-add:href"
+    ],
+    "status": 200,
+    "mime": "text/html; charset=UTF-8",
+    "final": "https://ppt-online.org/215280",
+    "bytes": 48389,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://image3.slideserve.com/6885036/slide9-l.jpg",
+    "ids": [
+      "radical-combine:src"
+    ],
+    "status": 200,
+    "mime": "image/jpeg",
+    "final": "https://image3.slideserve.com/6885036/slide9-l.jpg",
+    "bytes": 71213,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://www.slideserve.com/armando-lopez/acids-and-bases",
+    "ids": [
+      "radical-combine:href"
+    ],
+    "status": 200,
+    "mime": "text/html; charset=UTF-8",
+    "final": "https://www.slideserve.com/armando-lopez/acids-and-bases",
+    "bytes": 114647,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://image.slidesharecdn.com/halogenationofalkanes-180702090250/75/Halogenation-of-alkanes-5-2048.jpg",
+    "ids": [
+      "radical-chain:src"
+    ],
+    "status": 200,
+    "mime": "image/webp",
+    "final": "https://image.slidesharecdn.com/halogenationofalkanes-180702090250/75/Halogenation-of-alkanes-5-2048.jpg",
+    "bytes": 36092,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://www.slideshare.net/slideshow/halogenation-of-alkanes/103920966",
+    "ids": [
+      "radical-chain:href"
+    ],
+    "status": 200,
+    "mime": "text/html; charset=utf-8",
+    "final": "https://www.slideshare.net/slideshow/halogenation-of-alkanes/103920966",
+    "bytes": 1222877,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://www.chemistrylearner.com/wp-content/uploads/2020/01/Diels-Alder-Reaction-Mechanism.jpg",
+    "ids": [
+      "diels-alder:src"
+    ],
+    "status": 200,
+    "mime": "image/jpeg",
+    "final": "https://www.chemistrylearner.com/wp-content/uploads/2020/01/Diels-Alder-Reaction-Mechanism.jpg",
+    "bytes": 124470,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://www.chemistrylearner.com/diels-alder-reaction.html",
+    "ids": [
+      "diels-alder:href"
+    ],
+    "status": 200,
+    "mime": "text/html; charset=UTF-8",
+    "final": "https://www.chemistrylearner.com/diels-alder-reaction.html",
+    "bytes": 202327,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://image.slideserve.com/392337/mechanism-4-claisen-rearrangement-l.jpg",
+    "ids": [
+      "claisen:src"
+    ],
+    "status": 200,
+    "mime": "image/jpeg",
+    "final": "https://image.slideserve.com/392337/mechanism-4-claisen-rearrangement-l.jpg",
+    "bytes": 66503,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://www.slideserve.com/asasia/ch-18-ethers-and-epoxides",
+    "ids": [
+      "claisen:href"
+    ],
+    "status": 200,
+    "mime": "text/html; charset=UTF-8",
+    "final": "https://www.slideserve.com/asasia/ch-18-ethers-and-epoxides",
+    "bytes": 124587,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://www.stereoelectronics.org/webPR/images_PR/4042.png",
+    "ids": [
+      "electrocyclic:src"
+    ],
+    "status": 200,
+    "mime": "image/png",
+    "final": "https://www.stereoelectronics.org/webPR/images_PR/4042.png",
+    "bytes": 118175,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://www.stereoelectronics.org/webPR/PR_04.html",
+    "ids": [
+      "electrocyclic:href"
+    ],
+    "status": 200,
+    "mime": "text/html",
+    "final": "https://www.stereoelectronics.org/webPR/PR_04.html",
+    "bytes": 36384,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/E1cb-mechanism.svg/1280px-E1cb-mechanism.svg.png",
+    "ids": [
+      "e1cb-dehydration:src"
+    ],
+    "status": 200,
+    "mime": "image/png",
+    "final": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/E1cb-mechanism.svg/1280px-E1cb-mechanism.svg.png",
+    "bytes": 25300,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://commons.wikimedia.org/wiki/File:E1cb-mechanism.svg",
+    "ids": [
+      "e1cb-dehydration:href"
+    ],
+    "status": 200,
+    "mime": "text/html; charset=UTF-8",
+    "final": "https://commons.wikimedia.org/wiki/File:E1cb-mechanism.svg",
+    "bytes": 97517,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/33/Alkene-bromine-addition-2D-skeletal.png",
+    "ids": [
+      "alkene-bromination:src"
+    ],
+    "status": 200,
+    "mime": "image/png",
+    "final": "https://upload.wikimedia.org/wikipedia/commons/3/33/Alkene-bromine-addition-2D-skeletal.png",
+    "bytes": 66095,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://commons.wikimedia.org/wiki/File:Alkene-bromine-addition-2D-skeletal.png",
+    "ids": [
+      "alkene-bromination:href"
+    ],
+    "status": 200,
+    "mime": "text/html; charset=UTF-8",
+    "final": "https://commons.wikimedia.org/wiki/File:Alkene-bromine-addition-2D-skeletal.png",
+    "bytes": 100785,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/fe/NBS_Bromohydrin_Formation_Scheme.png",
+    "ids": [
+      "halohydrin:src"
+    ],
+    "error": "HTTP Error 429: Too many requests (f061ab2)",
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://commons.wikimedia.org/wiki/File:NBS_Bromohydrin_Formation_Scheme.png",
+    "ids": [
+      "halohydrin:href"
+    ],
+    "status": 200,
+    "mime": "text/html; charset=UTF-8",
+    "final": "https://commons.wikimedia.org/wiki/File:NBS_Bromohydrin_Formation_Scheme.png",
+    "bytes": 84246,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/74/Nitration_of_benzene.svg",
+    "ids": [
+      "nitration-benzene:src"
+    ],
+    "error": "HTTP Error 429: Too many requests (f061ab2)",
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://commons.wikimedia.org/wiki/File:Nitration_of_benzene.svg",
+    "ids": [
+      "nitration-benzene:href"
+    ],
+    "status": 200,
+    "mime": "text/html; charset=UTF-8",
+    "final": "https://commons.wikimedia.org/wiki/File:Nitration_of_benzene.svg",
+    "bytes": 95015,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Fischer_esterification_mechanism.svg/1280px-Fischer_esterification_mechanism.svg.png",
+    "ids": [
+      "fischer-esterification:src"
+    ],
+    "error": "HTTP Error 429: Too many requests (f061ab2)",
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://commons.wikimedia.org/wiki/File:Fischer_esterification_mechanism.svg",
+    "ids": [
+      "fischer-esterification:href"
+    ],
+    "status": 200,
+    "mime": "text/html; charset=UTF-8",
+    "final": "https://commons.wikimedia.org/wiki/File:Fischer_esterification_mechanism.svg",
+    "bytes": 97201,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Mechanism_imine_formation_general.svg",
+    "ids": [
+      "imine-formation:src"
+    ],
+    "status": 200,
+    "mime": "image/svg+xml",
+    "final": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Mechanism_imine_formation_general.svg",
+    "bytes": 14922,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://commons.wikimedia.org/wiki/File:Mechanism_imine_formation_general.svg",
+    "ids": [
+      "imine-formation:href"
+    ],
+    "status": 200,
+    "mime": "text/html; charset=UTF-8",
+    "final": "https://commons.wikimedia.org/wiki/File:Mechanism_imine_formation_general.svg",
+    "bytes": 83939,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/E1cB_aldol_condensation.svg/1280px-E1cB_aldol_condensation.svg.png",
+    "ids": [
+      "aldol-condensation:src"
+    ],
+    "error": "HTTP Error 429: Too many requests (f061ab2)",
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://commons.wikimedia.org/wiki/File:E1cB_aldol_condensation.svg",
+    "ids": [
+      "aldol-condensation:href"
+    ],
+    "status": 200,
+    "mime": "text/html; charset=UTF-8",
+    "final": "https://commons.wikimedia.org/wiki/File:E1cB_aldol_condensation.svg",
+    "bytes": 86186,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://www.chemistrysteps.com/wp-content/uploads/2024/11/Epoxide-Reactions-under-Acidic-and-Basic-Conditions-768x821.png",
+    "ids": [
+      "acid-epoxide:src"
+    ],
+    "status": 200,
+    "mime": "image/png",
+    "final": "https://www.chemistrysteps.com/wp-content/uploads/2024/11/Epoxide-Reactions-under-Acidic-and-Basic-Conditions-768x821.png",
+    "bytes": 110783,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://www.chemistrysteps.com/reactions-of-epoxides-under-acidic-and-basic-conditions/",
+    "ids": [
+      "acid-epoxide:href"
+    ],
+    "status": 200,
+    "mime": "text/html; charset=UTF-8",
+    "final": "https://www.chemistrysteps.com/reactions-of-epoxides-under-acidic-and-basic-conditions/",
+    "bytes": 1194061,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://openstax.org/books/organic-chemistry/pages/2-9-predicting-acid-base-reactions-from-pka-values",
+    "ids": [
+      "source:acid"
+    ],
+    "status": 200,
+    "mime": "text/html",
+    "final": "https://openstax.org/books/organic-chemistry/pages/2-9-predicting-acid-base-reactions-from-pka-values",
+    "bytes": 389358,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://openstax.org/books/organic-chemistry/pages/2-11-acids-and-bases-the-lewis-definition",
+    "ids": [
+      "source:lewis"
+    ],
+    "status": 200,
+    "mime": "text/html",
+    "final": "https://openstax.org/books/organic-chemistry/pages/2-11-acids-and-bases-the-lewis-definition",
+    "bytes": 394962,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://openstax.org/books/organic-chemistry/pages/11-2-the-sn2-reaction",
+    "ids": [
+      "source:sn2"
+    ],
+    "status": 200,
+    "mime": "text/html",
+    "final": "https://openstax.org/books/organic-chemistry/pages/11-2-the-sn2-reaction",
+    "bytes": 389740,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://openstax.org/books/organic-chemistry/pages/11-3-characteristics-of-the-sn2-reaction",
+    "ids": [
+      "source:sn2scope"
+    ],
+    "status": 200,
+    "mime": "text/html",
+    "final": "https://openstax.org/books/organic-chemistry/pages/11-3-characteristics-of-the-sn2-reaction",
+    "bytes": 425733,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://openstax.org/books/organic-chemistry/pages/11-4-the-sn1-reaction",
+    "ids": [
+      "source:sn1"
+    ],
+    "status": 200,
+    "mime": "text/html",
+    "final": "https://openstax.org/books/organic-chemistry/pages/11-4-the-sn1-reaction",
+    "bytes": 396520,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://openstax.org/books/organic-chemistry/pages/11-8-the-e2-reaction-and-the-deuterium-isotope-effect",
+    "ids": [
+      "source:e2"
+    ],
+    "status": 200,
+    "mime": "text/html",
+    "final": "https://openstax.org/books/organic-chemistry/pages/11-8-the-e2-reaction-and-the-deuterium-isotope-effect",
+    "bytes": 391997,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://openstax.org/books/organic-chemistry/pages/11-10-the-e1-and-e1cb-reactions",
+    "ids": [
+      "source:e1"
+    ],
+    "status": 200,
+    "mime": "text/html",
+    "final": "https://openstax.org/books/organic-chemistry/pages/11-10-the-e1-and-e1cb-reactions",
+    "bytes": 382393,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://openstax.org/books/organic-chemistry/pages/7-7-electrophilic-addition-reactions-of-alkenes",
+    "ids": [
+      "source:alkene"
+    ],
+    "status": 200,
+    "mime": "text/html",
+    "final": "https://openstax.org/books/organic-chemistry/pages/7-7-electrophilic-addition-reactions-of-alkenes",
+    "bytes": 387148,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://openstax.org/books/organic-chemistry/pages/8-4-hydration-of-alkenes-addition-of-h2o-by-oxymercuration",
+    "ids": [
+      "source:hydration"
+    ],
+    "status": 200,
+    "mime": "text/html",
+    "final": "https://openstax.org/books/organic-chemistry/pages/8-4-hydration-of-alkenes-addition-of-h2o-by-oxymercuration",
+    "bytes": 393334,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://openstax.org/books/organic-chemistry/pages/18-2-preparing-ethers",
+    "ids": [
+      "source:ether"
+    ],
+    "status": 200,
+    "mime": "text/html",
+    "final": "https://openstax.org/books/organic-chemistry/pages/18-2-preparing-ethers",
+    "bytes": 402153,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://openstax.org/books/organic-chemistry/pages/18-5-reactions-of-epoxides-ring-opening",
+    "ids": [
+      "source:epoxide",
+      "source:epoxideacid"
+    ],
+    "status": 200,
+    "mime": "text/html",
+    "final": "https://openstax.org/books/organic-chemistry/pages/18-5-reactions-of-epoxides-ring-opening",
+    "bytes": 405206,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://openstax.org/books/organic-chemistry/pages/19-4-nucleophilic-addition-reactions-of-aldehydes-and-ketones",
+    "ids": [
+      "source:carbonyl"
+    ],
+    "status": 200,
+    "mime": "text/html",
+    "final": "https://openstax.org/books/organic-chemistry/pages/19-4-nucleophilic-addition-reactions-of-aldehydes-and-ketones",
+    "bytes": 392104,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://openstax.org/books/organic-chemistry/pages/19-7-nucleophilic-addition-of-hydride-and-grignard-reagents-alcohol-formation",
+    "ids": [
+      "source:hydride"
+    ],
+    "status": 200,
+    "mime": "text/html",
+    "final": "https://openstax.org/books/organic-chemistry/pages/19-7-nucleophilic-addition-of-hydride-and-grignard-reagents-alcohol-formation",
+    "bytes": 382467,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://openstax.org/books/organic-chemistry/pages/19-6-nucleophilic-addition-of-hcn-cyanohydrin-formation",
+    "ids": [
+      "source:cyanohydrin"
+    ],
+    "status": 200,
+    "mime": "text/html",
+    "final": "https://openstax.org/books/organic-chemistry/pages/19-6-nucleophilic-addition-of-hcn-cyanohydrin-formation",
+    "bytes": 379461,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://openstax.org/books/organic-chemistry/pages/21-2-nucleophilic-acyl-substitution-reactions",
+    "ids": [
+      "source:acyl"
+    ],
+    "status": 200,
+    "mime": "text/html",
+    "final": "https://openstax.org/books/organic-chemistry/pages/21-2-nucleophilic-acyl-substitution-reactions",
+    "bytes": 410722,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://openstax.org/books/organic-chemistry/pages/23-1-carbonyl-condensations-the-aldol-reaction",
+    "ids": [
+      "source:aldol"
+    ],
+    "status": 200,
+    "mime": "text/html",
+    "final": "https://openstax.org/books/organic-chemistry/pages/23-1-carbonyl-condensations-the-aldol-reaction",
+    "bytes": 388420,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://openstax.org/books/organic-chemistry/pages/6-6-radical-reactions",
+    "ids": [
+      "source:radical"
+    ],
+    "status": 200,
+    "mime": "text/html",
+    "final": "https://openstax.org/books/organic-chemistry/pages/6-6-radical-reactions",
+    "bytes": 385299,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://openstax.org/books/organic-chemistry/pages/14-4-the-diels-alder-cycloaddition-reaction",
+    "ids": [
+      "source:da"
+    ],
+    "status": 200,
+    "mime": "text/html",
+    "final": "https://openstax.org/books/organic-chemistry/pages/14-4-the-diels-alder-cycloaddition-reaction",
+    "bytes": 378144,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://openstax.org/books/organic-chemistry/pages/14-5-characteristics-of-the-diels-alder-reaction",
+    "ids": [
+      "source:dastereo"
+    ],
+    "status": 200,
+    "mime": "text/html",
+    "final": "https://openstax.org/books/organic-chemistry/pages/14-5-characteristics-of-the-diels-alder-reaction",
+    "bytes": 407093,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://openstax.org/books/organic-chemistry/pages/30-8-some-examples-of-sigmatropic-rearrangements",
+    "ids": [
+      "source:claisen"
+    ],
+    "status": 200,
+    "mime": "text/html",
+    "final": "https://openstax.org/books/organic-chemistry/pages/30-8-some-examples-of-sigmatropic-rearrangements",
+    "bytes": 401316,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://openstax.org/books/organic-chemistry/pages/30-3-stereochemistry-of-thermal-electrocyclic-reactions",
+    "ids": [
+      "source:electro"
+    ],
+    "status": 200,
+    "mime": "text/html",
+    "final": "https://openstax.org/books/organic-chemistry/pages/30-3-stereochemistry-of-thermal-electrocyclic-reactions",
+    "bytes": 385381,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://chem.libretexts.org/Bookshelves/Organic_Chemistry/Organic_Chemistry_(Morsch_et_al.)/11%3A_Reactions_of_Alkyl_Halides-_Nucleophilic_Substitutions_and_Eliminations/11.10%3A_The_E1_and_E1cB_Reactions",
+    "ids": [
+      "source:e1cb"
+    ],
+    "status": 200,
+    "mime": "text/html; charset=utf-8",
+    "final": "https://chem.libretexts.org/Bookshelves/Organic_Chemistry/Organic_Chemistry_(Morsch_et_al.)/11%3A_Reactions_of_Alkyl_Halides-_Nucleophilic_Substitutions_and_Eliminations/11.10%3A_The_E1_and_E1cB_Reactions",
+    "bytes": 166739,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://openstax.org/books/organic-chemistry/pages/8-2-addition-of-halogens-to-alkenes",
+    "ids": [
+      "source:bromination"
+    ],
+    "error": "HTTP Error 404: Not Found",
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://openstax.org/books/organic-chemistry/pages/8-3-halohydrins-from-alkenes-addition-of-ho-x",
+    "ids": [
+      "source:halohydrin"
+    ],
+    "status": 200,
+    "mime": "text/html",
+    "final": "https://openstax.org/books/organic-chemistry/pages/8-3-halohydrins-from-alkenes-addition-of-ho-x",
+    "bytes": 384363,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://openstax.org/books/organic-chemistry/pages/16-2-other-aromatic-substitutions",
+    "ids": [
+      "source:nitration"
+    ],
+    "status": 200,
+    "mime": "text/html",
+    "final": "https://openstax.org/books/organic-chemistry/pages/16-2-other-aromatic-substitutions",
+    "bytes": 399538,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://openstax.org/books/organic-chemistry/pages/21-3-reactions-of-carboxylic-acids",
+    "ids": [
+      "source:esterification"
+    ],
+    "status": 200,
+    "mime": "text/html",
+    "final": "https://openstax.org/books/organic-chemistry/pages/21-3-reactions-of-carboxylic-acids",
+    "bytes": 413786,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://chem.libretexts.org/Bookshelves/Organic_Chemistry/Organic_Chemistry_(Morsch_et_al.)/19%3A_Aldehydes_and_Ketones-_Nucleophilic_Addition_Reactions/19.08%3A_Nucleophilic_Addition_of_Amines_-_Imine_and_Enamine_Formation",
+    "ids": [
+      "source:imine"
+    ],
+    "status": 200,
+    "mime": "text/html; charset=utf-8",
+    "final": "https://chem.libretexts.org/Bookshelves/Organic_Chemistry/Organic_Chemistry_(Morsch_et_al.)/19%3A_Aldehydes_and_Ketones-_Nucleophilic_Addition_Reactions/19.08%3A_Nucleophilic_Addition_of_Amines_-_Imine_and_Enamine_Formation",
+    "bytes": 200351,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://chem.libretexts.org/Bookshelves/Organic_Chemistry/Organic_Chemistry_(OpenStax)/23%3A_Carbonyl_Condensation_Reactions/23.03%3A_Dehydration_of_Aldol_Products_-_Synthesis_of_Enones",
+    "ids": [
+      "source:aldolcond"
+    ],
+    "status": 200,
+    "mime": "text/html; charset=utf-8",
+    "final": "https://chem.libretexts.org/Bookshelves/Organic_Chemistry/Organic_Chemistry_(OpenStax)/23%3A_Carbonyl_Condensation_Reactions/23.03%3A_Dehydration_of_Aldol_Products_-_Synthesis_of_Enones",
+    "bytes": 146163,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://goldbook.iupac.org/terms/view/T06470",
+    "ids": [
+      "source:tst"
+    ],
+    "error": "HTTP Error 403: Forbidden",
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5330660/",
+    "ids": [
+      "source:qc_sn2"
+    ],
+    "status": 200,
+    "mime": "text/html; charset=utf-8",
+    "final": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5330660/",
+    "bytes": 21349,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented.",
+    "note": "HTTP 200 was a browser-check page, not the article. Tables were inspected through indexed primary-source retrieval."
+  },
+  {
+    "url": "https://doi.org/10.1016/0009-2614(95)01310-5",
+    "ids": [
+      "source:qc_coupling_method"
+    ],
+    "status": 200,
+    "mime": "text/html",
+    "final": "https://linkinghub.elsevier.com/retrieve/pii/0009261495013105",
+    "bytes": 195,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented.",
+    "note": "HTTP 200 was a short redirect document, not full source content."
+  },
+  {
+    "url": "https://doi.org/10.1002/chem.202200987",
+    "ids": [
+      "source:qc_da_ion"
+    ],
+    "error": "HTTP Error 403: Forbidden",
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://doi.org/10.1039/D4CP00671B",
+    "ids": [
+      "source:qc_competition"
+    ],
+    "error": "HTTP Error 403: Forbidden",
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://doi.org/10.1039/D4RA00066H",
+    "ids": [
+      "source:qc_borderline"
+    ],
+    "error": "HTTP Error 403: Forbidden",
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://doi.org/10.1021/acs.jctc.3c00907",
+    "ids": [
+      "source:qc_attack_angle"
+    ],
+    "error": "HTTP Error 403: Forbidden",
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://doi.org/10.1039/C7CP07557J",
+    "ids": [
+      "source:qc_claisen_elf"
+    ],
+    "error": "HTTP Error 403: Forbidden",
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "url": "https://doi.org/10.1039/D2CP01699K",
+    "ids": [
+      "source:qc_nitration_solvent"
+    ],
+    "error": "HTTP Error 403: Forbidden",
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP response only; content review is separately documented."
+  },
+  {
+    "ids": [
+      "bromination-corrected"
+    ],
+    "url": "https://openstax.org/books/organic-chemistry/pages/8-2-halogenation-of-alkenes-addition-of-x2",
+    "status": 200,
+    "final": "https://openstax.org/books/organic-chemistry/pages/8-2-halogenation-of-alkenes-addition-of-x2",
+    "bytes": 388556,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP only"
+  },
+  {
+    "ids": [
+      "acyl-corrected"
+    ],
+    "url": "https://openstax.org/books/organic-chemistry/pages/21-2-nucleophilic-acyl-substitution-reactions",
+    "status": 200,
+    "final": "https://openstax.org/books/organic-chemistry/pages/21-2-nucleophilic-acyl-substitution-reactions",
+    "bytes": 410722,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP only"
+  },
+  {
+    "ids": [
+      "carbonyl-glossary-candidate"
+    ],
+    "url": "https://www.chem.ucla.edu/~harding/IGOC/N/nucleophilic_addition.html",
+    "status": 200,
+    "final": "https://www.chem.ucla.edu/~harding/IGOC/N/nucleophilic_addition.html",
+    "bytes": 6436,
+    "checkedAt": "2026-10-13",
+    "scope": "HTTP only"
+  }
+]

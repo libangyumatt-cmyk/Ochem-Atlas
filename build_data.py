@@ -1,6 +1,8 @@
 import json
 from english_content import apply_english, finish_english
 from quantum_literature import attach_literature
+from qc_review import apply_review
+import build_figures
 from pathlib import Path
 
 ROOT=Path(__file__).parent
@@ -281,7 +283,8 @@ for r in reactions:
         if any('\u3400' <= ch <= '\u9fff' for ch in d): r['quantumData']['descriptors'][j]=qc_en.get(next((k for k,v in families_en.items() if v==r['family']),''),['Electron density and charge distribution along a defined reaction coordinate','Orbital interaction and bond-order changes']) [min(j,1)]
     if any('\u3400' <= ch <= '\u9fff' for ch in r['quantumData'].get('note','')): r['quantumData']['note']='No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.'
 attach_literature(reactions)
-payload={'version':'0.2.6','updated':'2026-10-13','axes':axes,'codebook':codebook,'sources':sources,'reactions':reactions}
+apply_review(reactions, sources)
+payload={'version':'0.2.7','updated':'2026-10-13','axes':axes,'codebook':codebook,'sources':sources,'reactions':reactions}
 (ROOT/'dist'/'data.json').write_text(json.dumps(payload,ensure_ascii=False,indent=2))
 (ROOT/'dist'/'data.js').write_text('window.SORG = '+json.dumps(payload,ensure_ascii=False)+';\n')
 print(f'Created {len(reactions)} reaction records, {sum(len(r["steps"]) for r in reactions)} coded events.')

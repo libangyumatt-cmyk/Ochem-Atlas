@@ -1,8 +1,8 @@
 # SORG · Organic Reaction Atlas
 
-A responsive, English-language teaching atlas of organic reaction mechanisms. The published site contains 31 reaction entries and 70 coded mechanistic events.
+A responsive, English-language teaching atlas of organic reaction mechanisms. The published site contains 31 reaction entries and 69 listed mechanistic events (including three explicitly grouped stages).
 
-Each reaction panel presents the stated substrate, reagents, sequential equations and intermediates, specific electron-flow prose, orbital and geometry notes, an embedded credited reference image, and source and scope information. Reference images can show analogous substrates; compare their labels with the entry's own equations. Solvent-mediated proton relays may be grouped as net teaching events. The in-page SVGs show local motifs, whereas the step sequence describes the named example.
+Each reaction panel presents the stated substrate, reagents, scoped sequential equations and intermediates, specific electron-flow prose, orbital and geometry notes, a reviewed credited image or explicit pending-illustration notice, and source and scope information. Reference images have separate exact/representative/partial/pending match and coverage fields. Images with unconfirmed reuse permission are withheld while their source and attribution remain recorded. Four original SVGs replace broken or unsuitable references. Solvent-mediated proton relays may be grouped as net teaching events. The in-page SVGs show local motifs, whereas the step sequence describes the named example.
 
 Search, same-event S/O/R/G filters, saved items, and deep links such as `#reaction/sn2` work in the browser. Every reaction has an electronic-structure section that distinguishes proposed observables from literature findings and missing calculations.
 
@@ -33,12 +33,13 @@ python3 -m http.server 8000 --directory dist
 
 The app and structured data load locally. Embedded mechanism images and cited sources use external URLs and need network access. Saved items stay in browser storage.
 
-`build_data.py` defines the original entries and classifications; `english_content.py` contains the specific English editorial text for each event; `quantum_literature.py` holds audited literature tables and their scope notes. Change the relevant files, then regenerate and validate:
+`build_data.py` defines the original entries and classifications; `english_content.py` contains the specific English editorial text for each event; `quantum_literature.py` holds literature tables and their scope notes. `qc_review.py` applies the documented v0.2.6 corrections and review metadata; `build_figures.py` generates four original SVGs. See `AUDIT.md` and `audit/` for all 70 original event dispositions, figure reviews and link requests. Change the relevant files, then regenerate and validate:
 
 ```sh
 python3 build_data.py
+npm ci --ignore-scripts
+npm test
 python3 package_source.py
-node verify.cjs
 node --check dist/app.js
 node --check dist/diagrams.js
 ```
@@ -51,4 +52,10 @@ The GitHub Actions workflow in `.github/workflows/pages.yml` publishes `dist/` t
 
 Each reaction links its chemistry references. They support the mechanism and chemistry, not the SORG assignment. The cited OpenStax textbook is John McMurry, *Organic Chemistry* (2023); other entries refer to Chemistry LibreTexts or credited image publishers. The credited online images remain subject to their own source terms. Educational text in the app states CC BY-NC-SA 4.0; inspect each source page for image rights.
 
-The qualitative energy sketch has no calculated or measured heights. The work-up and solvent-relay descriptions define the scope of their pathway. Complex reaction networks, metal aggregation equilibria, and explicit solvent trajectories are not fully modeled.
+The previous generic energy sketch was removed because a listed stage does not establish a transition-state count or relative energy. The work-up and solvent-relay descriptions define the scope of their pathway. Complex reaction networks, metal aggregation equilibria, and explicit solvent trajectories are not fully modeled.
+
+## v0.2.7 quality-control release
+
+All 31 entry IDs and the seven codebook definitions are preserved. The acid-promoted epoxide entry now has two valid events: the former third event followed an atom/charge-inconsistent oxonium. The inventory therefore changes from 70 to 69 listed events without adding or deleting a reaction. Read [the complete audit](AUDIT.md) for remaining scientific uncertainty and image gaps.
+
+`npm test` runs structural and DOM integration checks using jsdom. It does not test CSS rendering, mobile touch, native dialog behavior, network image loading or real-browser console errors. Those checks remain untested in this session because the managed environment did not expose the supported control-browser skill. No quantum-chemical calculations were performed.

@@ -1,0 +1,1257 @@
+[
+  {
+    "reaction": "proton-transfer",
+    "originalStep": 1,
+    "originalCode": "1122",
+    "originalEquation": "CH₃CO₂H + CN⁻ ⇌ CH₃CO₂⁻ + HCN",
+    "disposition": "reviewed-retained",
+    "currentCode": "1122",
+    "currentEquation": "CH₃CO₂H + CN⁻ ⇌ CH₃CO₂⁻ + HCN",
+    "assignmentStatus": "consistent-with-convention",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "n(base) → σ*(H–A)",
+      "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
+      "The base approaches H as the original donor–H contact weakens."
+    ],
+    "note": "Solvent relay and pKa standard-state/temperature metadata are not a computed microscopic pathway."
+  },
+  {
+    "reaction": "lewis",
+    "originalStep": 1,
+    "originalCode": "1111",
+    "originalEquation": "NH₃ + BF₃ ⇌ H₃N⁺–BF₃⁻",
+    "disposition": "reviewed-retained",
+    "currentCode": "1111",
+    "currentEquation": "NH₃ + BF₃ ⇌ H₃N⁺–BF₃⁻",
+    "assignmentStatus": "consistent-with-convention",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "n(N) → empty p(B)",
+      "Principal bond formation or cleavage; accompanying changes remain in the electron-flow description.",
+      "N approaches B and boron changes its local coordination geometry."
+    ],
+    "note": "G1 is the inherited approach convention despite boron pyramidalization."
+  },
+  {
+    "reaction": "sn2",
+    "originalStep": 1,
+    "originalCode": "1122",
+    "originalEquation": "HO⁻ + CH₃Br → CH₃OH + Br⁻",
+    "disposition": "reviewed-retained",
+    "currentCode": "1122",
+    "currentEquation": "HO⁻ + CH₃Br → CH₃OH + Br⁻",
+    "assignmentStatus": "consistent-with-convention",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "n(O) → σ*(C–Br)",
+      "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
+      "Nu–C–Br approaches a near-linear backside alignment."
+    ],
+    "note": "Literature calculations concern chloride + A–Cl, not hydroxide + methyl bromide."
+  },
+  {
+    "reaction": "williamson",
+    "originalStep": 1,
+    "originalCode": "1122",
+    "originalEquation": "CH₃O⁻ + CH₃CH₂Br → CH₃OCH₂CH₃ + Br⁻",
+    "disposition": "reviewed-retained",
+    "currentCode": "1122",
+    "currentEquation": "CH₃O⁻ + CH₃CH₂Br → CH₃OCH₂CH₃ + Br⁻",
+    "assignmentStatus": "consistent-with-convention",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "n(O) → σ*(C–Br)",
+      "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
+      "The nucleophile approaches opposite the leaving group."
+    ],
+    "note": "Exact substrate illustration and solution/counterion effects remain to be established."
+  },
+  {
+    "reaction": "sn1-core",
+    "originalStep": 1,
+    "originalCode": "1111",
+    "originalEquation": "R₃C–X → R₃C⁺ + X⁻",
+    "disposition": "reviewed-retained",
+    "currentCode": "1111",
+    "currentEquation": "R₃C–X → R₃C⁺ + X⁻",
+    "assignmentStatus": "consistent-with-convention",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "The σ(C–X) electron pair follows X during heterolysis; a vacant p-like orbital develops at carbon.",
+      "Principal bond formation or cleavage; accompanying changes remain in the electron-flow description.",
+      "C and leaving group separate; the carbocation center tends toward planar geometry."
+    ],
+    "note": "Generic core is a limiting model; explicit-solvent iPrCl literature does not establish this two-step pathway."
+  },
+  {
+    "reaction": "sn1-core",
+    "originalStep": 2,
+    "originalCode": "1111",
+    "originalEquation": "R₃C⁺ + Nu⁻ → R₃C–Nu",
+    "disposition": "reviewed-retained",
+    "currentCode": "1111",
+    "currentEquation": "R₃C⁺ + Nu⁻ → R₃C–Nu",
+    "assignmentStatus": "consistent-with-convention",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "n(Nu) → p(C⁺)",
+      "Principal bond formation or cleavage; accompanying changes remain in the electron-flow description.",
+      "The nucleophile approaches one face of the approximately planar cation."
+    ],
+    "note": "Generic core is a limiting model; explicit-solvent iPrCl literature does not establish this two-step pathway."
+  },
+  {
+    "reaction": "sn1-water",
+    "originalStep": 1,
+    "originalCode": "1111",
+    "originalEquation": "(CH₃)₃CBr → (CH₃)₃C⁺ + Br⁻",
+    "disposition": "reviewed-retained",
+    "currentCode": "1111",
+    "currentEquation": "(CH₃)₃CBr → (CH₃)₃C⁺ + Br⁻",
+    "assignmentStatus": "consistent-with-convention",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "The σ(C–X) electron pair follows X during heterolysis; a vacant p-like orbital develops at carbon.",
+      "Principal bond formation or cleavage; accompanying changes remain in the electron-flow description.",
+      "C and leaving group separate; the carbocation center tends toward planar geometry."
+    ],
+    "note": "Ion-pair structure and E1 competition are not resolved by the textbook mechanism."
+  },
+  {
+    "reaction": "sn1-water",
+    "originalStep": 2,
+    "originalCode": "1111",
+    "originalEquation": "(CH₃)₃C⁺ + H₂O → (CH₃)₃COH₂⁺",
+    "disposition": "reviewed-retained",
+    "currentCode": "1111",
+    "currentEquation": "(CH₃)₃C⁺ + H₂O → (CH₃)₃COH₂⁺",
+    "assignmentStatus": "consistent-with-convention",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "n(Nu) → p(C⁺)",
+      "Principal bond formation or cleavage; accompanying changes remain in the electron-flow description.",
+      "The nucleophile approaches one face of the approximately planar cation."
+    ],
+    "note": "Ion-pair structure and E1 competition are not resolved by the textbook mechanism."
+  },
+  {
+    "reaction": "sn1-water",
+    "originalStep": 3,
+    "originalCode": "1122",
+    "originalEquation": "(CH₃)₃COH₂⁺ + H₂O → (CH₃)₃COH + H₃O⁺",
+    "disposition": "reviewed-retained",
+    "currentCode": "1122",
+    "currentEquation": "(CH₃)₃COH₂⁺ + H₂O → (CH₃)₃COH + H₃O⁺",
+    "assignmentStatus": "consistent-with-convention",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "n(base) → σ*(H–A)",
+      "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
+      "The base approaches H as the original donor–H contact weakens."
+    ],
+    "note": "Ion-pair structure and E1 competition are not resolved by the textbook mechanism."
+  },
+  {
+    "reaction": "hbr",
+    "originalStep": 1,
+    "originalCode": "1111",
+    "originalEquation": "CH₃CH=CH₂ + HBr → (CH₃)₂CH⁺ + Br⁻",
+    "disposition": "reviewed-retained",
+    "currentCode": "1111",
+    "currentEquation": "CH₃CH=CH₂ + HBr → (CH₃)₂CH⁺ + Br⁻",
+    "assignmentStatus": "consistent-with-convention",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "π(C=C) → σ*(H–A)",
+      "Principal bond formation or cleavage; accompanying changes remain in the electron-flow description.",
+      "One alkene carbon forms C–H while the other becomes a planarizing carbocation."
+    ],
+    "note": "1111 retains the inherited dominant-bond convention despite accompanying H–Br cleavage and π redistribution."
+  },
+  {
+    "reaction": "hbr",
+    "originalStep": 2,
+    "originalCode": "1111",
+    "originalEquation": "(CH₃)₂CH⁺ + Br⁻ → CH₃CHBrCH₃",
+    "disposition": "reviewed-retained",
+    "currentCode": "1111",
+    "currentEquation": "(CH₃)₂CH⁺ + Br⁻ → CH₃CHBrCH₃",
+    "assignmentStatus": "consistent-with-convention",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "n(Nu) → p(C⁺)",
+      "Principal bond formation or cleavage; accompanying changes remain in the electron-flow description.",
+      "The nucleophile approaches one face of the approximately planar cation."
+    ],
+    "note": "1111 retains the inherited dominant-bond convention despite accompanying H–Br cleavage and π redistribution."
+  },
+  {
+    "reaction": "hydration",
+    "originalStep": 1,
+    "originalCode": "1111",
+    "originalEquation": "CH₃CH=CH₂ + H₃O⁺ → (CH₃)₂CH⁺ + H₂O",
+    "disposition": "reviewed-retained",
+    "currentCode": "1111",
+    "currentEquation": "CH₃CH=CH₂ + H₃O⁺ → (CH₃)₂CH⁺ + H₂O",
+    "assignmentStatus": "consistent-with-convention",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "π(C=C) → σ*(H–A)",
+      "Principal bond formation or cleavage; accompanying changes remain in the electron-flow description.",
+      "One alkene carbon forms C–H while the other becomes a planarizing carbocation."
+    ],
+    "note": "Microscopic solvent participation and a corrected exact external figure remain open."
+  },
+  {
+    "reaction": "hydration",
+    "originalStep": 2,
+    "originalCode": "1111",
+    "originalEquation": "(CH₃)₂CH⁺ + H₂O → (CH₃)₂CHOH₂⁺",
+    "disposition": "reviewed-retained",
+    "currentCode": "1111",
+    "currentEquation": "(CH₃)₂CH⁺ + H₂O → (CH₃)₂CHOH₂⁺",
+    "assignmentStatus": "consistent-with-convention",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "n(Nu) → p(C⁺)",
+      "Principal bond formation or cleavage; accompanying changes remain in the electron-flow description.",
+      "The nucleophile approaches one face of the approximately planar cation."
+    ],
+    "note": "Microscopic solvent participation and a corrected exact external figure remain open."
+  },
+  {
+    "reaction": "hydration",
+    "originalStep": 3,
+    "originalCode": "1122",
+    "originalEquation": "(CH₃)₂CHOH₂⁺ + H₂O → (CH₃)₂CHOH + H₃O⁺",
+    "disposition": "reviewed-retained",
+    "currentCode": "1122",
+    "currentEquation": "(CH₃)₂CHOH₂⁺ + H₂O → (CH₃)₂CHOH + H₃O⁺",
+    "assignmentStatus": "consistent-with-convention",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "n(base) → σ*(H–A)",
+      "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
+      "The base approaches H as the original donor–H contact weakens."
+    ],
+    "note": "Microscopic solvent participation and a corrected exact external figure remain open."
+  },
+  {
+    "reaction": "e2",
+    "originalStep": 1,
+    "originalCode": "1133",
+    "originalEquation": "CH₃CHBrCH₃ + EtO⁻ → CH₂=CHCH₃ + EtOH + Br⁻",
+    "disposition": "reviewed-retained",
+    "currentCode": "1133",
+    "currentEquation": "CH₃CHBrCH₃ + EtO⁻ → CH₂=CHCH₃ + EtOH + Br⁻",
+    "assignmentStatus": "candidate",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "n(base) → σ*(C–H), coupled with σ(C–H) → σ*(C–Br).",
+      "Candidate for coupled polar bond redistribution; the individual bond changes are described above.",
+      "An anti-periplanar H–C–C–Br alignment is generally favored."
+    ],
+    "note": "1133 remains a candidate; anti/syn competition depends on actual conformers."
+  },
+  {
+    "reaction": "e1",
+    "originalStep": 1,
+    "originalCode": "1111",
+    "originalEquation": "(CH₃)₃CCl → (CH₃)₃C⁺ + Cl⁻",
+    "disposition": "reviewed-retained",
+    "currentCode": "1111",
+    "currentEquation": "(CH₃)₃CCl → (CH₃)₃C⁺ + Cl⁻",
+    "assignmentStatus": "consistent-with-convention",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "The σ(C–X) electron pair follows X during heterolysis; a vacant p-like orbital develops at carbon.",
+      "Principal bond formation or cleavage; accompanying changes remain in the electron-flow description.",
+      "C and leaving group separate; the carbocation center tends toward planar geometry."
+    ],
+    "note": "1133 is a candidate for deprotonation/π formation; solvent and ion pairs are unresolved."
+  },
+  {
+    "reaction": "e1",
+    "originalStep": 2,
+    "originalCode": "1133",
+    "originalEquation": "(CH₃)₃C⁺ + H₂O → (CH₃)₂C=CH₂ + H₃O⁺",
+    "disposition": "reviewed-retained",
+    "currentCode": "1133",
+    "currentEquation": "(CH₃)₃C⁺ + H₂O → (CH₃)₂C=CH₂ + H₃O⁺",
+    "assignmentStatus": "candidate",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "Base donation at β-H couples C–H σ electrons with the empty carbocation p orbital.",
+      "Candidate for coupled polar bond redistribution; the individual bond changes are described above.",
+      "The adjacent carbon atoms align to form a planar π system."
+    ],
+    "note": "1133 is a candidate for deprotonation/π formation; solvent and ion pairs are unresolved."
+  },
+  {
+    "reaction": "carbonyl-add",
+    "originalStep": 1,
+    "originalCode": "1113",
+    "originalEquation": "R₂C=O + Nu⁻ → R₂C(O⁻)Nu",
+    "disposition": "reviewed-retained",
+    "currentCode": "1113",
+    "currentEquation": "R₂C=O + Nu⁻ → R₂C(O⁻)Nu",
+    "assignmentStatus": "candidate",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "n(Nu) → π*(C=O)",
+      "Candidate for tetrahedral addition or elimination with π-bond redistribution.",
+      "The carbonyl center changes from approximately trigonal planar to tetrahedral."
+    ],
+    "note": "Generic local event, not a complete neutral-product preparation; 1113 remains candidate."
+  },
+  {
+    "reaction": "hydride",
+    "originalStep": 1,
+    "originalCode": "1111",
+    "originalEquation": "(CH₃)₂C=O + AlH₄⁻ ⇌ (CH₃)₂C=O→AlH₄⁻",
+    "disposition": "reviewed-retained",
+    "currentCode": "1111",
+    "currentEquation": "(CH₃)₂C=O + AlH₄⁻ ⇌ (CH₃)₂C=O→AlH₄⁻",
+    "assignmentStatus": "candidate",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "n(O) → acceptor orbital on Al",
+      "Principal bond formation or cleavage; accompanying changes remain in the electron-flow description.",
+      "O approaches Al, aligning carbonyl acceptance with an Al–H donor bond."
+    ],
+    "note": "Discrete AlH4− precoordination is an unvalidated schematic assumption. Aggregation and hydrolysis require research."
+  },
+  {
+    "reaction": "hydride",
+    "originalStep": 2,
+    "originalCode": "1113",
+    "originalEquation": "(CH₃)₂C=O→AlH₄⁻ → [(CH₃)₂CH–O–AlH₃]⁻",
+    "disposition": "reviewed-retained",
+    "currentCode": "1113",
+    "currentEquation": "(CH₃)₂C=O→AlH₄⁻ → [(CH₃)₂CH–O–AlH₃]⁻",
+    "assignmentStatus": "candidate",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "σ(Al–H) → π*(C=O); n(O) → Al",
+      "Candidate for tetrahedral addition or elimination with π-bond redistribution.",
+      "Planar carbonyl carbon becomes tetrahedral as C–H and O–Al contacts form."
+    ],
+    "note": "Discrete AlH4− precoordination is an unvalidated schematic assumption. Aggregation and hydrolysis require research."
+  },
+  {
+    "reaction": "hydride",
+    "originalStep": 3,
+    "originalCode": "1122",
+    "originalEquation": "[(CH₃)₂CH–O–AlH₃]⁻ + H₂O → (CH₃)₂CHOH + [AlH₃OH]⁻",
+    "disposition": "reviewed-retained",
+    "currentCode": "1122",
+    "currentEquation": "[(CH₃)₂CH–O–AlH₃]⁻ + H₂O → (CH₃)₂CHOH + [AlH₃OH]⁻",
+    "assignmentStatus": "candidate",
+    "eventKind": "grouped-stage",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "n(O-alkoxide) → σ*(O–H); σ(Al–O) cleavage",
+      "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
+      "Protonation and Al–O hydrolysis complete aqueous work-up."
+    ],
+    "note": "Discrete AlH4− precoordination is an unvalidated schematic assumption. Aggregation and hydrolysis require research. The code labels the dominant component process; no unique elementary-event code is established for the whole grouped stage."
+  },
+  {
+    "reaction": "grignard",
+    "originalStep": 1,
+    "originalCode": "1111",
+    "originalEquation": "PhCHO + CH₃MgBr ⇌ PhCH=O→MgBrCH₃",
+    "disposition": "reviewed-retained",
+    "currentCode": "1111",
+    "currentEquation": "PhCHO + CH₃MgBr ⇌ PhCH=O→MgBrCH₃",
+    "assignmentStatus": "consistent-with-convention",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "n(O) → acceptor orbital on Mg",
+      "Principal bond formation or cleavage; accompanying changes remain in the electron-flow description.",
+      "Coordination aligns carbonyl acceptance with the C–Mg bond."
+    ],
+    "note": "Aggregation, Schlenk equilibria and grouped work-up are unresolved; the monomer contact model is provisional."
+  },
+  {
+    "reaction": "grignard",
+    "originalStep": 2,
+    "originalCode": "1113",
+    "originalEquation": "PhCH=O→MgBrCH₃ → PhCH(O–MgBr)CH₃",
+    "disposition": "reviewed-retained",
+    "currentCode": "1113",
+    "currentEquation": "PhCH=O→MgBrCH₃ → PhCH(O–MgBr)CH₃",
+    "assignmentStatus": "candidate",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "σ(C–Mg) → π*(C=O); n(O) → Mg",
+      "Candidate for tetrahedral addition or elimination with π-bond redistribution.",
+      "The aldehyde carbon changes from planar to tetrahedral as C–C bonding and O–Mg coordination develop."
+    ],
+    "note": "Aggregation, Schlenk equilibria and grouped work-up are unresolved; the monomer contact model is provisional."
+  },
+  {
+    "reaction": "grignard",
+    "originalStep": 3,
+    "originalCode": "1122",
+    "originalEquation": "PhCH(O–MgBr)CH₃ + H₃O⁺ → PhCH(OH)CH₃ + MgBr⁺ + H₂O",
+    "disposition": "reviewed-retained",
+    "currentCode": "1122",
+    "currentEquation": "PhCH(O–MgBr)CH₃ + H₃O⁺ → PhCH(OH)CH₃ + MgBr⁺ + H₂O",
+    "assignmentStatus": "candidate",
+    "eventKind": "grouped-stage",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "n(O-alkoxide) → σ*(O–H); σ(Mg–O) cleavage",
+      "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
+      "Acid work-up follows C–C formation; two faces of a planar prochiral carbonyl can yield enantiomers."
+    ],
+    "note": "Aggregation, Schlenk equilibria and grouped work-up are unresolved; the monomer contact model is provisional. The code labels the dominant component process; no unique elementary-event code is established for the whole grouped stage."
+  },
+  {
+    "reaction": "cyanohydrin",
+    "originalStep": 1,
+    "originalCode": "1113",
+    "originalEquation": "PhCHO + CN⁻ → PhCH(O⁻)CN",
+    "disposition": "reviewed-retained",
+    "currentCode": "1113",
+    "currentEquation": "PhCHO + CN⁻ → PhCH(O⁻)CN",
+    "assignmentStatus": "candidate",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "n(C of CN⁻) → π*(C=O)",
+      "Candidate for tetrahedral addition or elimination with π-bond redistribution.",
+      "The carbonyl center changes from approximately trigonal planar to tetrahedral."
+    ],
+    "note": "Acetone attack-angle data are analogous, not benzaldehyde results."
+  },
+  {
+    "reaction": "cyanohydrin",
+    "originalStep": 2,
+    "originalCode": "1122",
+    "originalEquation": "PhCH(O⁻)CN + HCN → PhCH(OH)CN + CN⁻",
+    "disposition": "reviewed-retained",
+    "currentCode": "1122",
+    "currentEquation": "PhCH(O⁻)CN + HCN → PhCH(OH)CN + CN⁻",
+    "assignmentStatus": "consistent-with-convention",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "n(base) → σ*(H–A)",
+      "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
+      "The base approaches H as the original donor–H contact weakens."
+    ],
+    "note": "Acetone attack-angle data are analogous, not benzaldehyde results."
+  },
+  {
+    "reaction": "acyl",
+    "originalStep": 1,
+    "originalCode": "1113",
+    "originalEquation": "CH₃COCl + CH₃O⁻ → CH₃C(O⁻)(OCH₃)Cl",
+    "disposition": "reviewed-retained",
+    "currentCode": "1113",
+    "currentEquation": "CH₃COCl + CH₃O⁻ → CH₃C(O⁻)(OCH₃)Cl",
+    "assignmentStatus": "candidate",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "n(Nu) → π*(C=O)",
+      "Candidate for tetrahedral addition or elimination with π-bond redistribution.",
+      "The carbonyl center changes from approximately trigonal planar to tetrahedral."
+    ],
+    "note": "A discrete tetrahedral intermediate for this highly reactive pair is a teaching assumption; check concerted alternatives."
+  },
+  {
+    "reaction": "acyl",
+    "originalStep": 2,
+    "originalCode": "1113",
+    "originalEquation": "CH₃C(O⁻)(OCH₃)Cl → CH₃CO₂CH₃ + Cl⁻",
+    "disposition": "reviewed-retained",
+    "currentCode": "1113",
+    "currentEquation": "CH₃C(O⁻)(OCH₃)Cl → CH₃CO₂CH₃ + Cl⁻",
+    "assignmentStatus": "candidate",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "n(O) restores π(C=O) while C–Cl cleavage releases chloride.",
+      "Candidate for tetrahedral addition or elimination with π-bond redistribution.",
+      "The tetrahedral center returns to an approximately planar carbonyl."
+    ],
+    "note": "A discrete tetrahedral intermediate for this highly reactive pair is a teaching assumption; check concerted alternatives."
+  },
+  {
+    "reaction": "epoxide",
+    "originalStep": 1,
+    "originalCode": "1122",
+    "originalEquation": "ethylene oxide + CH₃O⁻ → CH₃OCH₂CH₂O⁻",
+    "disposition": "reviewed-retained",
+    "currentCode": "1122",
+    "currentEquation": "ethylene oxide + CH₃O⁻ → CH₃OCH₂CH₂O⁻",
+    "assignmentStatus": "consistent-with-convention",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "n(Nu) → σ*(C–O)",
+      "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
+      "Backside attack opens the epoxide ring."
+    ],
+    "note": "Actual solvent and order of acid work-up must be retained when comparing paths."
+  },
+  {
+    "reaction": "epoxide",
+    "originalStep": 2,
+    "originalCode": "1122",
+    "originalEquation": "CH₃OCH₂CH₂O⁻ + H₃O⁺ → CH₃OCH₂CH₂OH + H₂O",
+    "disposition": "corrected",
+    "currentCode": "1122",
+    "currentEquation": "CH₃OCH₂CH₂O⁻ + H₃O⁺ → CH₃OCH₂CH₂OH + H₂O",
+    "assignmentStatus": "consistent-with-convention",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "n(base) → σ*(H–A)",
+      "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
+      "The base approaches H as the original donor–H contact weakens."
+    ],
+    "note": "Actual solvent and order of acid work-up must be retained when comparing paths."
+  },
+  {
+    "reaction": "aldol",
+    "originalStep": 1,
+    "originalCode": "1122",
+    "originalEquation": "CH₃CHO + HO⁻ ⇌ enolate + H₂O",
+    "disposition": "corrected",
+    "currentCode": "1122",
+    "currentEquation": "CH₃CHO + HO⁻ ⇌ ⁻CH₂CHO + H₂O",
+    "assignmentStatus": "consistent-with-convention",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "n(base) → σ*(H–A)",
+      "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
+      "The base approaches H as the original donor–H contact weakens."
+    ],
+    "note": "1122 for enolate formation is a dominant proton-transfer convention; delocalization is not encoded separately."
+  },
+  {
+    "reaction": "aldol",
+    "originalStep": 2,
+    "originalCode": "1113",
+    "originalEquation": "enolate + CH₃CHO → CH₃CH(O⁻)CH₂CHO",
+    "disposition": "corrected",
+    "currentCode": "1113",
+    "currentEquation": "⁻CH₂CHO + CH₃CHO → CH₃CH(O⁻)CH₂CHO",
+    "assignmentStatus": "candidate",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "occupied enolate orbital → π*(C=O)",
+      "Candidate for tetrahedral addition or elimination with π-bond redistribution.",
+      "The carbonyl center changes from approximately trigonal planar to tetrahedral."
+    ],
+    "note": "1122 for enolate formation is a dominant proton-transfer convention; delocalization is not encoded separately."
+  },
+  {
+    "reaction": "aldol",
+    "originalStep": 3,
+    "originalCode": "1122",
+    "originalEquation": "CH₃CH(O⁻)CH₂CHO + H₂O ⇌ CH₃CH(OH)CH₂CHO + HO⁻",
+    "disposition": "reviewed-retained",
+    "currentCode": "1122",
+    "currentEquation": "CH₃CH(O⁻)CH₂CHO + H₂O ⇌ CH₃CH(OH)CH₂CHO + HO⁻",
+    "assignmentStatus": "consistent-with-convention",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "n(base) → σ*(H–A)",
+      "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
+      "The base approaches H as the original donor–H contact weakens."
+    ],
+    "note": "1122 for enolate formation is a dominant proton-transfer convention; delocalization is not encoded separately."
+  },
+  {
+    "reaction": "radical-add",
+    "originalStep": 1,
+    "originalCode": "2211",
+    "originalEquation": "CH₃• + CH₂=CH₂ → CH₃CH₂CH₂•",
+    "disposition": "reviewed-retained",
+    "currentCode": "2211",
+    "currentEquation": "CH₃• + CH₂=CH₂ → CH₃CH₂CH₂•",
+    "assignmentStatus": "consistent-with-convention",
+    "eventKind": "elementary-model",
+    "why": [
+      "Open-shell reactant(s); product spin may differ.",
+      "SOMO interaction with the alkene π/π* manifold.",
+      "Principal radical bond formation; a π bond may also change.",
+      "The radical approaches one end of the double bond."
+    ],
+    "note": "One propagation event only; spin density and initiation conditions are not computed."
+  },
+  {
+    "reaction": "radical-combine",
+    "originalStep": 1,
+    "originalCode": "2211",
+    "originalEquation": "CH₃• + •CH₃ → CH₃CH₃",
+    "disposition": "reviewed-retained",
+    "currentCode": "2211",
+    "currentEquation": "CH₃• + •CH₃ → CH₃CH₃",
+    "assignmentStatus": "consistent-with-convention",
+    "eventKind": "elementary-model",
+    "why": [
+      "Open-shell reactant(s); product spin may differ.",
+      "SOMO + SOMO → bonding pair",
+      "Principal radical bond formation; a π bond may also change.",
+      "The two radical centers approach each other."
+    ],
+    "note": "Only a spin-compatible radical pair forms the singlet product directly."
+  },
+  {
+    "reaction": "radical-chain",
+    "originalStep": 1,
+    "originalCode": "2222",
+    "originalEquation": "Cl• + CH₄ → HCl + CH₃•",
+    "disposition": "reviewed-retained",
+    "currentCode": "2222",
+    "currentEquation": "Cl• + CH₄ → HCl + CH₃•",
+    "assignmentStatus": "candidate",
+    "eventKind": "elementary-model",
+    "why": [
+      "Open-shell reactant(s); product spin may differ.",
+      "SOMO(Cl) interacts with σ(C–H).",
+      "Candidate for H/halogen atom transfer between radical reaction centers.",
+      "Cl approaches H as the C–H bond breaks."
+    ],
+    "note": "Propagation only; initiation, termination and further chlorination are outside this card."
+  },
+  {
+    "reaction": "radical-chain",
+    "originalStep": 2,
+    "originalCode": "2222",
+    "originalEquation": "CH₃• + Cl₂ → CH₃Cl + Cl•",
+    "disposition": "reviewed-retained",
+    "currentCode": "2222",
+    "currentEquation": "CH₃• + Cl₂ → CH₃Cl + Cl•",
+    "assignmentStatus": "candidate",
+    "eventKind": "elementary-model",
+    "why": [
+      "Open-shell reactant(s); product spin may differ.",
+      "SOMO(C) interacts with σ(Cl–Cl).",
+      "Candidate for H/halogen atom transfer between radical reaction centers.",
+      "Carbon approaches Cl while Cl–Cl breaks."
+    ],
+    "note": "Propagation only; initiation, termination and further chlorination are outside this card."
+  },
+  {
+    "reaction": "diels-alder",
+    "originalStep": 1,
+    "originalCode": "1333",
+    "originalEquation": "CH₂=CH–CH=CH₂ + CH₂=CH₂ → cyclohexene",
+    "disposition": "reviewed-retained",
+    "currentCode": "1333",
+    "currentEquation": "CH₂=CH–CH=CH₂ + CH₂=CH₂ → cyclohexene",
+    "assignmentStatus": "consistent-with-convention",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "Diene and dienophile frontier orbitals in a cyclic six-electron interaction.",
+      "Multiple bonds reorganize in a concerted pericyclic pathway.",
+      "The diene needs an accessible s-cis geometry; both termini approach the dienophile."
+    ],
+    "note": "Numerical model uses acrolein, not ethene; radical-cation data cannot inherit 1333."
+  },
+  {
+    "reaction": "claisen",
+    "originalStep": 1,
+    "originalCode": "1333",
+    "originalEquation": "allyl vinyl ether → pent-4-enal",
+    "disposition": "reviewed-retained",
+    "currentCode": "1333",
+    "currentEquation": "allyl vinyl ether → pent-4-enal",
+    "assignmentStatus": "consistent-with-convention",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "Six-electron cyclic orbital overlap.",
+      "Multiple bonds reorganize in a concerted pericyclic pathway.",
+      "A chair-like transition structure often explains conformational preference."
+    ],
+    "note": "ELF conclusion checked at abstract level; full electronic method/basis still needs inspection."
+  },
+  {
+    "reaction": "electrocyclic",
+    "originalStep": 1,
+    "originalCode": "1333",
+    "originalEquation": "1,3-butadiene ⇌ cyclobutene",
+    "disposition": "reviewed-retained",
+    "currentCode": "1333",
+    "currentEquation": "1,3-butadiene ⇌ cyclobutene",
+    "assignmentStatus": "consistent-with-convention",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "4π frontier-orbital symmetry",
+      "Multiple bonds reorganize in a concerted pericyclic pathway.",
+      "A thermal 4π system closes conrotatorily."
+    ],
+    "note": "Thermal symmetry rule retained; closure feasibility and equilibrium are separate questions."
+  },
+  {
+    "reaction": "e1cb-dehydration",
+    "originalStep": 1,
+    "originalCode": "1122",
+    "originalEquation": "CH₃COCH₂C(OH)(CH₃)₂ + HO⁻ ⇌ CH₃COCH⁻C(OH)(CH₃)₂ + H₂O",
+    "disposition": "corrected",
+    "currentCode": "1122",
+    "currentEquation": "CH₃COCH₂C(OH)(CH₃)₂ + HO⁻ ⇌ CH₃COCH⁻C(OH)(CH₃)₂ + H₂O",
+    "assignmentStatus": "consistent-with-convention",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "n(O) → σ*(C–H); σ(C–H) → π-system",
+      "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
+      "The delocalized conjugate base forms before the leaving group departs."
+    ],
+    "note": "1133 fits bond redistribution but the codebook example refers to base attack; here the leaving-group event starts from enolate."
+  },
+  {
+    "reaction": "e1cb-dehydration",
+    "originalStep": 2,
+    "originalCode": "1133",
+    "originalEquation": "CH₃COCH⁻C(OH)(CH₃)₂ → CH₃COCH=C(CH₃)₂ + HO⁻",
+    "disposition": "corrected",
+    "currentCode": "1133",
+    "currentEquation": "CH₃COCH⁻C(OH)(CH₃)₂ → CH₃COCH=C(CH₃)₂ + HO⁻",
+    "assignmentStatus": "candidate",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "enolate HOMO → σ*(Cβ–O)",
+      "Candidate for coupled polar bond redistribution; the individual bond changes are described above.",
+      "Cα and Cβ form a π bond during the separate leaving-group event."
+    ],
+    "note": "1133 fits bond redistribution but the codebook example refers to base attack; here the leaving-group event starts from enolate."
+  },
+  {
+    "reaction": "alkene-bromination",
+    "originalStep": 1,
+    "originalCode": "1133",
+    "originalEquation": "CH₂=CH₂ + Br₂ → [CH₂–Br⁺–CH₂] + Br⁻",
+    "disposition": "corrected",
+    "currentCode": "1133",
+    "currentEquation": "CH₂=CH₂ + Br₂ → [CH₂–Br⁺–CH₂] + Br⁻",
+    "assignmentStatus": "candidate",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "π(C=C) → σ*(Br–Br), n(Br) → p(C)",
+      "Candidate for coupled polar bond redistribution; the individual bond changes are described above.",
+      "One bromine bridges both carbons in a three-membered ion; no free carbocation is required."
+    ],
+    "note": "1133 is a retained candidate: polar bridging is not a pericyclic O3 process; codebook examples do not explicitly cover it."
+  },
+  {
+    "reaction": "alkene-bromination",
+    "originalStep": 2,
+    "originalCode": "1122",
+    "originalEquation": "[CH₂–Br⁺–CH₂] + Br⁻ → BrCH₂CH₂Br",
+    "disposition": "reviewed-retained",
+    "currentCode": "1122",
+    "currentEquation": "[CH₂–Br⁺–CH₂] + Br⁻ → BrCH₂CH₂Br",
+    "assignmentStatus": "consistent-with-convention",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "n(Br⁻) → σ*(C–Br)",
+      "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
+      "Backside opening places the two bromines anti and removes the bridge."
+    ],
+    "note": "1133 is a retained candidate: polar bridging is not a pericyclic O3 process; codebook examples do not explicitly cover it."
+  },
+  {
+    "reaction": "halohydrin",
+    "originalStep": 1,
+    "originalCode": "1133",
+    "originalEquation": "CH₃CH=CH₂ + Br₂ → [CH₃CH–CH₂–Br]⁺ + Br⁻",
+    "disposition": "corrected",
+    "currentCode": "1133",
+    "currentEquation": "CH₃CH=CH₂ + Br₂ → [CH₃CH–CH₂–Br]⁺ + Br⁻",
+    "assignmentStatus": "candidate",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "π(C=C) → σ*(Br–Br), n(Br) → p(C)",
+      "Candidate for coupled polar bond redistribution; the individual bond changes are described above.",
+      "A bromine bridge connects both alkene carbons."
+    ],
+    "note": "Same 1133 boundary as bromination; Br2/water must not be equated with an NBS scheme."
+  },
+  {
+    "reaction": "halohydrin",
+    "originalStep": 2,
+    "originalCode": "1122",
+    "originalEquation": "[CH₃CH–CH₂–Br]⁺ + H₂O → BrCH₂CH(OH₂⁺)CH₃",
+    "disposition": "reviewed-retained",
+    "currentCode": "1122",
+    "currentEquation": "[CH₃CH–CH₂–Br]⁺ + H₂O → BrCH₂CH(OH₂⁺)CH₃",
+    "assignmentStatus": "consistent-with-convention",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "n(O) → σ*(C–Br)",
+      "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
+      "Backside attack and bridge cleavage give anti C–O and C–Br contacts."
+    ],
+    "note": "Same 1133 boundary as bromination; Br2/water must not be equated with an NBS scheme."
+  },
+  {
+    "reaction": "halohydrin",
+    "originalStep": 3,
+    "originalCode": "1122",
+    "originalEquation": "BrCH₂CH(OH₂⁺)CH₃ + H₂O ⇌ BrCH₂CH(OH)CH₃ + H₃O⁺",
+    "disposition": "reviewed-retained",
+    "currentCode": "1122",
+    "currentEquation": "BrCH₂CH(OH₂⁺)CH₃ + H₂O ⇌ BrCH₂CH(OH)CH₃ + H₃O⁺",
+    "assignmentStatus": "consistent-with-convention",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "n(base) → σ*(H–A)",
+      "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
+      "The base approaches H as the original donor–H contact weakens."
+    ],
+    "note": "Same 1133 boundary as bromination; Br2/water must not be equated with an NBS scheme."
+  },
+  {
+    "reaction": "nitration-benzene",
+    "originalStep": 1,
+    "originalCode": "1122",
+    "originalEquation": "HNO₃ + H₂SO₄ ⇌ H₂NO₃⁺ + HSO₄⁻",
+    "disposition": "corrected",
+    "currentCode": "1122",
+    "currentEquation": "HNO₃ + H₂SO₄ ⇌ H₂NO₃⁺ + HSO₄⁻",
+    "assignmentStatus": "consistent-with-convention",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "n(base) → σ*(H–A)",
+      "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
+      "The base approaches H as the original donor–H contact weakens."
+    ],
+    "note": "1133 at arene attack/rearomatization is broader than the codebook examples; preserve candidate status pending codebook discussion."
+  },
+  {
+    "reaction": "nitration-benzene",
+    "originalStep": 2,
+    "originalCode": "1111",
+    "originalEquation": "H₂NO₃⁺ → NO₂⁺ + H₂O",
+    "disposition": "corrected",
+    "currentCode": "1111",
+    "currentEquation": "H₂NO₃⁺ → NO₂⁺ + H₂O",
+    "assignmentStatus": "consistent-with-convention",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "σ(N–OH₂⁺) cleavage; nitronium π system forms",
+      "Principal bond formation or cleavage; accompanying changes remain in the electron-flow description.",
+      "Dehydration produces the near-linear NO₂⁺ electrophile."
+    ],
+    "note": "1133 at arene attack/rearomatization is broader than the codebook examples; preserve candidate status pending codebook discussion."
+  },
+  {
+    "reaction": "nitration-benzene",
+    "originalStep": 3,
+    "originalCode": "1133",
+    "originalEquation": "C₆H₆ + NO₂⁺ → [C₆H₆NO₂]⁺",
+    "disposition": "corrected",
+    "currentCode": "1133",
+    "currentEquation": "C₆H₆ + NO₂⁺ → [C₆H₆NO₂]⁺",
+    "assignmentStatus": "candidate",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "π(arene) → acceptor orbital of NO₂⁺",
+      "Candidate for coupled polar bond redistribution; the individual bond changes are described above.",
+      "The attacked carbon becomes approximately tetrahedral and the σ complex loses aromaticity."
+    ],
+    "note": "1133 at arene attack/rearomatization is broader than the codebook examples; preserve candidate status pending codebook discussion."
+  },
+  {
+    "reaction": "nitration-benzene",
+    "originalStep": 4,
+    "originalCode": "1133",
+    "originalEquation": "[C₆H₆NO₂]⁺ + HSO₄⁻ → C₆H₅NO₂ + H₂SO₄",
+    "disposition": "corrected",
+    "currentCode": "1133",
+    "currentEquation": "[C₆H₆NO₂]⁺ + HSO₄⁻ → C₆H₅NO₂ + H₂SO₄",
+    "assignmentStatus": "candidate",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "n(HSO₄⁻) → σ*(C–H); σ(C–H) → aromatic π",
+      "Candidate for coupled polar bond redistribution; the individual bond changes are described above.",
+      "The conjugated aromatic ring becomes planar again."
+    ],
+    "note": "1133 at arene attack/rearomatization is broader than the codebook examples; preserve candidate status pending codebook discussion."
+  },
+  {
+    "reaction": "fischer-esterification",
+    "originalStep": 1,
+    "originalCode": "1122",
+    "originalEquation": "CH₃C(=O)OH + H₃O⁺ ⇌ CH₃C(=OH⁺)OH + H₂O",
+    "disposition": "reviewed-retained",
+    "currentCode": "1122",
+    "currentEquation": "CH₃C(=O)OH + H₃O⁺ ⇌ CH₃C(=OH⁺)OH + H₂O",
+    "assignmentStatus": "consistent-with-convention",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "n(base) → σ*(H–A)",
+      "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
+      "The base approaches H as the original donor–H contact weakens."
+    ],
+    "note": "The proton relay is grouped; its displayed 1122 refers to component proton transfers, not a verified single event."
+  },
+  {
+    "reaction": "fischer-esterification",
+    "originalStep": 2,
+    "originalCode": "1113",
+    "originalEquation": "CH₃C(=OH⁺)OH + HOCH₂CH₃ → CH₃C(OH)(OH)(O⁺HCH₂CH₃)",
+    "disposition": "corrected",
+    "currentCode": "1113",
+    "currentEquation": "CH₃C(=OH⁺)OH + HOCH₂CH₃ → CH₃C(OH)(OH)(O⁺HCH₂CH₃)",
+    "assignmentStatus": "candidate",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "n(OEtOH) → π*(C=O)",
+      "Candidate for tetrahedral addition or elimination with π-bond redistribution.",
+      "The carbonyl center changes from approximately trigonal planar to tetrahedral."
+    ],
+    "note": "The proton relay is grouped; its displayed 1122 refers to component proton transfers, not a verified single event."
+  },
+  {
+    "reaction": "fischer-esterification",
+    "originalStep": 3,
+    "originalCode": "1122",
+    "originalEquation": "CH₃C(OH)(OH)(O⁺HCH₂CH₃) ⇌ CH₃C(OH)(OH₂⁺)(OCH₂CH₃)",
+    "disposition": "reviewed-retained",
+    "currentCode": "1122",
+    "currentEquation": "CH₃C(OH)(OH)(O⁺HCH₂CH₃) ⇌ CH₃C(OH)(OH₂⁺)(OCH₂CH₃)",
+    "assignmentStatus": "candidate",
+    "eventKind": "grouped-stage",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "n(base) → σ*(H–A)",
+      "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
+      "The base approaches H as the original donor–H contact weakens."
+    ],
+    "note": "The proton relay is grouped; its displayed 1122 refers to component proton transfers, not a verified single event. The code labels the dominant component process; no unique elementary-event code is established for the whole grouped stage."
+  },
+  {
+    "reaction": "fischer-esterification",
+    "originalStep": 4,
+    "originalCode": "1113",
+    "originalEquation": "CH₃C(OH)(OH₂⁺)(OCH₂CH₃) → CH₃C(=OH⁺)OCH₂CH₃ + H₂O",
+    "disposition": "corrected",
+    "currentCode": "1113",
+    "currentEquation": "CH₃C(OH)(OH₂⁺)(OCH₂CH₃) → CH₃C(=OH⁺)OCH₂CH₃ + H₂O",
+    "assignmentStatus": "candidate",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "An oxygen lone pair forms π(C=O), coupled to σ(C–OH₂⁺) cleavage.",
+      "Candidate for tetrahedral addition or elimination with π-bond redistribution.",
+      "The tetrahedral acyl center reforms a planar carbonyl in protonated ester."
+    ],
+    "note": "The proton relay is grouped; its displayed 1122 refers to component proton transfers, not a verified single event."
+  },
+  {
+    "reaction": "fischer-esterification",
+    "originalStep": 5,
+    "originalCode": "1122",
+    "originalEquation": "CH₃C(=OH⁺)OCH₂CH₃ + H₂O ⇌ CH₃CO₂CH₂CH₃ + H₃O⁺",
+    "disposition": "reviewed-retained",
+    "currentCode": "1122",
+    "currentEquation": "CH₃C(=OH⁺)OCH₂CH₃ + H₂O ⇌ CH₃CO₂CH₂CH₃ + H₃O⁺",
+    "assignmentStatus": "consistent-with-convention",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "n(base) → σ*(H–A)",
+      "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
+      "The base approaches H as the original donor–H contact weakens."
+    ],
+    "note": "The proton relay is grouped; its displayed 1122 refers to component proton transfers, not a verified single event."
+  },
+  {
+    "reaction": "imine-formation",
+    "originalStep": 1,
+    "originalCode": "1122",
+    "originalEquation": "(CH₃)₂C=O + H₃O⁺ ⇌ (CH₃)₂C=OH⁺ + H₂O",
+    "disposition": "reviewed-retained",
+    "currentCode": "1122",
+    "currentEquation": "(CH₃)₂C=O + H₃O⁺ ⇌ (CH₃)₂C=OH⁺ + H₂O",
+    "assignmentStatus": "consistent-with-convention",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "n(base) → σ*(H–A)",
+      "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
+      "The base approaches H as the original donor–H contact weakens."
+    ],
+    "note": "1113 for iminium dehydration extends the carbonyl-elimination analogy to C=N; retained as candidate, not a taxonomy change."
+  },
+  {
+    "reaction": "imine-formation",
+    "originalStep": 2,
+    "originalCode": "1113",
+    "originalEquation": "(CH₃)₂C=OH⁺ + CH₃NH₂ → (CH₃)₂C(OH)(NH₂CH₃)⁺",
+    "disposition": "corrected",
+    "currentCode": "1113",
+    "currentEquation": "(CH₃)₂C=OH⁺ + CH₃NH₂ → (CH₃)₂C(OH)(NH₂CH₃)⁺",
+    "assignmentStatus": "candidate",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "n(N) → π*(C=O)",
+      "Candidate for tetrahedral addition or elimination with π-bond redistribution.",
+      "The carbonyl center changes from approximately trigonal planar to tetrahedral."
+    ],
+    "note": "1113 for iminium dehydration extends the carbonyl-elimination analogy to C=N; retained as candidate, not a taxonomy change."
+  },
+  {
+    "reaction": "imine-formation",
+    "originalStep": 3,
+    "originalCode": "1122",
+    "originalEquation": "(CH₃)₂C(OH)(NH₂CH₃)⁺ + H₂O ⇌ (CH₃)₂C(OH)(NHCH₃) + H₃O⁺",
+    "disposition": "reviewed-retained",
+    "currentCode": "1122",
+    "currentEquation": "(CH₃)₂C(OH)(NH₂CH₃)⁺ + H₂O ⇌ (CH₃)₂C(OH)(NHCH₃) + H₃O⁺",
+    "assignmentStatus": "consistent-with-convention",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "n(base) → σ*(H–A)",
+      "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
+      "The base approaches H as the original donor–H contact weakens."
+    ],
+    "note": "1113 for iminium dehydration extends the carbonyl-elimination analogy to C=N; retained as candidate, not a taxonomy change."
+  },
+  {
+    "reaction": "imine-formation",
+    "originalStep": 4,
+    "originalCode": "1122",
+    "originalEquation": "(CH₃)₂C(OH)(NHCH₃) + H₃O⁺ ⇌ (CH₃)₂C(OH₂⁺)(NHCH₃) + H₂O",
+    "disposition": "reviewed-retained",
+    "currentCode": "1122",
+    "currentEquation": "(CH₃)₂C(OH)(NHCH₃) + H₃O⁺ ⇌ (CH₃)₂C(OH₂⁺)(NHCH₃) + H₂O",
+    "assignmentStatus": "consistent-with-convention",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "n(base) → σ*(H–A)",
+      "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
+      "The base approaches H as the original donor–H contact weakens."
+    ],
+    "note": "1113 for iminium dehydration extends the carbonyl-elimination analogy to C=N; retained as candidate, not a taxonomy change."
+  },
+  {
+    "reaction": "imine-formation",
+    "originalStep": 5,
+    "originalCode": "1113",
+    "originalEquation": "(CH₃)₂C(OH₂⁺)(NHCH₃) → (CH₃)₂C=NH⁺CH₃ + H₂O",
+    "disposition": "corrected",
+    "currentCode": "1113",
+    "currentEquation": "(CH₃)₂C(OH₂⁺)(NHCH₃) → (CH₃)₂C=N⁺(H)CH₃ + H₂O",
+    "assignmentStatus": "candidate",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "An N lone pair forms π(C=N), coupled to σ(C–OH₂⁺) cleavage.",
+      "Candidate for tetrahedral addition or elimination with π-bond redistribution.",
+      "C=N forms while water departs, leaving an iminium center."
+    ],
+    "note": "1113 for iminium dehydration extends the carbonyl-elimination analogy to C=N; retained as candidate, not a taxonomy change."
+  },
+  {
+    "reaction": "imine-formation",
+    "originalStep": 6,
+    "originalCode": "1122",
+    "originalEquation": "(CH₃)₂C=NH⁺CH₃ + H₂O ⇌ (CH₃)₂C=NCH₃ + H₃O⁺",
+    "disposition": "reviewed-retained",
+    "currentCode": "1122",
+    "currentEquation": "(CH₃)₂C=NH⁺CH₃ + H₂O ⇌ (CH₃)₂C=NCH₃ + H₃O⁺",
+    "assignmentStatus": "consistent-with-convention",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "n(base) → σ*(H–A)",
+      "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
+      "The base approaches H as the original donor–H contact weakens."
+    ],
+    "note": "1113 for iminium dehydration extends the carbonyl-elimination analogy to C=N; retained as candidate, not a taxonomy change."
+  },
+  {
+    "reaction": "aldol-condensation",
+    "originalStep": 1,
+    "originalCode": "1122",
+    "originalEquation": "(CH₃)₂CO + HO⁻ ⇌ CH₃COCH₂⁻ + H₂O",
+    "disposition": "reviewed-retained",
+    "currentCode": "1122",
+    "currentEquation": "(CH₃)₂CO + HO⁻ ⇌ CH₃COCH₂⁻ + H₂O",
+    "assignmentStatus": "consistent-with-convention",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "n(base) → σ*(H–A)",
+      "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
+      "The base approaches H as the original donor–H contact weakens."
+    ],
+    "note": "Enolate and E1cB steps retain their convention/candidate boundaries; dehydration depends on conditions."
+  },
+  {
+    "reaction": "aldol-condensation",
+    "originalStep": 2,
+    "originalCode": "1113",
+    "originalEquation": "CH₃COCH₂⁻ + (CH₃)₂CO → CH₃COCH₂C(O⁻)(CH₃)₂",
+    "disposition": "reviewed-retained",
+    "currentCode": "1113",
+    "currentEquation": "CH₃COCH₂⁻ + (CH₃)₂CO → CH₃COCH₂C(O⁻)(CH₃)₂",
+    "assignmentStatus": "candidate",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "occupied enolate orbital → π*(C=O)",
+      "Candidate for tetrahedral addition or elimination with π-bond redistribution.",
+      "The carbonyl center changes from approximately trigonal planar to tetrahedral."
+    ],
+    "note": "Enolate and E1cB steps retain their convention/candidate boundaries; dehydration depends on conditions."
+  },
+  {
+    "reaction": "aldol-condensation",
+    "originalStep": 3,
+    "originalCode": "1122",
+    "originalEquation": "CH₃COCH₂C(O⁻)(CH₃)₂ + H₂O ⇌ CH₃COCH₂C(OH)(CH₃)₂ + HO⁻",
+    "disposition": "reviewed-retained",
+    "currentCode": "1122",
+    "currentEquation": "CH₃COCH₂C(O⁻)(CH₃)₂ + H₂O ⇌ CH₃COCH₂C(OH)(CH₃)₂ + HO⁻",
+    "assignmentStatus": "consistent-with-convention",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "n(base) → σ*(H–A)",
+      "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
+      "The base approaches H as the original donor–H contact weakens."
+    ],
+    "note": "Enolate and E1cB steps retain their convention/candidate boundaries; dehydration depends on conditions."
+  },
+  {
+    "reaction": "aldol-condensation",
+    "originalStep": 4,
+    "originalCode": "1122",
+    "originalEquation": "CH₃COCH₂C(OH)(CH₃)₂ + HO⁻ ⇌ CH₃COCH⁻C(OH)(CH₃)₂ + H₂O",
+    "disposition": "reviewed-retained",
+    "currentCode": "1122",
+    "currentEquation": "CH₃COCH₂C(OH)(CH₃)₂ + HO⁻ ⇌ CH₃COCH⁻C(OH)(CH₃)₂ + H₂O",
+    "assignmentStatus": "consistent-with-convention",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "n(base) → σ*(H–A)",
+      "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
+      "The base approaches H as the original donor–H contact weakens."
+    ],
+    "note": "Enolate and E1cB steps retain their convention/candidate boundaries; dehydration depends on conditions."
+  },
+  {
+    "reaction": "aldol-condensation",
+    "originalStep": 5,
+    "originalCode": "1133",
+    "originalEquation": "CH₃COCH⁻C(OH)(CH₃)₂ → CH₃COCH=C(CH₃)₂ + HO⁻",
+    "disposition": "corrected",
+    "currentCode": "1133",
+    "currentEquation": "CH₃COCH⁻C(OH)(CH₃)₂ → CH₃COCH=C(CH₃)₂ + HO⁻",
+    "assignmentStatus": "candidate",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "enolate HOMO → σ*(Cβ–O)",
+      "Candidate for coupled polar bond redistribution; the individual bond changes are described above.",
+      "A C=C bond conjugated with carbonyl forms; base is regenerated over the cycle."
+    ],
+    "note": "Enolate and E1cB steps retain their convention/candidate boundaries; dehydration depends on conditions."
+  },
+  {
+    "reaction": "acid-epoxide",
+    "originalStep": 1,
+    "originalCode": "1122",
+    "originalEquation": "propylene oxide + H₃O⁺ ⇌ protonated propylene oxide + H₂O",
+    "disposition": "corrected",
+    "currentCode": "1122",
+    "currentEquation": "propylene oxide + HCl ⇌ protonated propylene oxide + Cl⁻",
+    "assignmentStatus": "consistent-with-convention",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "n(base) → σ*(H–A)",
+      "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
+      "The base approaches H as the original donor–H contact weakens."
+    ],
+    "note": "Corrected HCl/ether major pathway attacks primary carbon; do not generalize tertiary-epoxide selectivity to this substrate."
+  },
+  {
+    "reaction": "acid-epoxide",
+    "originalStep": 2,
+    "originalCode": "1122",
+    "originalEquation": "protonated propylene oxide + Cl⁻ → CH₃CH(Cl)CH₂OH₂⁺",
+    "disposition": "corrected",
+    "currentCode": "1122",
+    "currentEquation": "protonated propylene oxide + Cl⁻ → ClCH₂CH(OH)CH₃",
+    "assignmentStatus": "consistent-with-convention",
+    "eventKind": "elementary-model",
+    "why": [
+      "Closed-shell electron-pair model for this event.",
+      "n(Cl⁻) → σ*(Cprimary–O)",
+      "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
+      "Backside opening occurs at the primary carbon, which is not a stereocenter. The original secondary carbon retains its C–O bond."
+    ],
+    "note": "Corrected HCl/ether major pathway attacks primary carbon; do not generalize tertiary-epoxide selectivity to this substrate."
+  },
+  {
+    "reaction": "acid-epoxide",
+    "originalStep": 3,
+    "originalCode": "1122",
+    "originalEquation": "CH₃CH(Cl)CH₂OH₂⁺ + H₂O ⇌ CH₃CH(Cl)CH₂OH + H₃O⁺",
+    "disposition": "removed-invalid-event",
+    "currentCode": null,
+    "currentEquation": null,
+    "assignmentStatus": "invalid",
+    "eventKind": null,
+    "why": [],
+    "note": "Anionic chloride attack already yields neutral alcohol; the former oxonium and deprotonation violate atom/charge bookkeeping."
+  }
+]

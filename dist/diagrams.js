@@ -9,7 +9,9 @@
    const arrow=(d,single=false)=>`<path d="${d}" fill="none" stroke="#aa6a4e" stroke-width="2.1" marker-end="url(#${id}${single?'f':'a'})"/>`;
    const label=(s)=>text(320,207,s,11,'#718079');
    let g='',caption='Local electron-pair mechanism';
-   if(type==='sn2'){
+   if(type==='pending'){
+     g=text(320,95,'Step-specific drawing pending',23)+text(320,140,'Use the equation and electron-flow description above.',16)+label('The previous generic motif did not depict this event correctly.');caption='Pending step-specific molecular illustration';
+   }else if(type==='sn2'){
      g=text(110,120,'Nu:⁻')+text(307,120,'C')+text(458,120,'X')+bond(323,120,441,120)+bond(297,106,261,62)+bond(310,103,321,59)+bond(300,134,271,170)+arrow('M140 111 C197 33 255 45 290 102')+arrow('M383 116 C400 61 445 65 453 99')+label('n(Nu) → σ*(C–X) · backside attack / departure');
    }else if(type==='proton'){
      g=text(105,116,'B:')+text(295,116,'H')+text(434,116,'A')+bond(310,116,417,116)+arrow('M127 105 C174 42 247 47 281 103')+arrow('M365 112 C380 68 419 65 430 96')+label('n(B) → σ*(H–A) · B–H forms; H–A breaks');
