@@ -10,6 +10,11 @@ assert.equal(D.reactions.filter(r=>r.figure).length,D.reactions.length,'every re
 assert.equal(D.reactions.find(r=>r.id==='sn2').quantumData.status,'literature-related-numerical');
 assert.equal(D.reactions.find(r=>r.id==='diels-alder').quantumData.status,'literature-related-numerical');
 assert.equal(D.reactions.filter(r=>r.quantumData.literatureCases.length>0).length,2);
+assert.equal(D.version,'0.2.6');
+assert.ok(D.reactions.every(r=>r.quantumData.proposedProtocol.model&&r.quantumData.proposedProtocol.workflow));
+assert.equal(D.reactions.filter(r=>r.quantumData.literatureInsights.length>0).length,7);
+assert.ok(D.reactions.find(r=>r.id==='claisen').quantumData.literatureInsights[0].finding.includes('not occur simultaneously'));
+for(const r of D.reactions)for(const x of r.quantumData.literatureInsights){assert.ok(D.sources[x.source]?.url.startsWith('https://'));assert.ok(x.model&&x.method&&x.finding&&x.limits);assert.ok(r.sources.includes(x.source));}
 const sn2Case=D.reactions.find(r=>r.id==='sn2').quantumData.literatureCases[0];
 assert.deepEqual(sn2Case.rows[0],['CH₃Cl','−5.13','+31.6','−31.9','TS']);
 assert.equal(sn2Case.rows[3][4],'transition complex');
@@ -44,4 +49,4 @@ assert.ok(html.includes('31 reactions / 70 events'));assert.doesNotMatch(html,/c
 assert.doesNotMatch(fs.readFileSync('dist/app.js','utf8'),/calc-a|orbitalMixing|两轨道耦合与混合模型/);
 const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);assert.equal(ids.length,new Set(ids).size);
 for(const [,asset] of html.matchAll(/(?:src|href)="([^"#:]+\.(?:js|css|svg|json))(?:\?[^"]*)?"/g))assert.ok(fs.existsSync('dist/'+asset),asset);
-console.log('PASS: 31 entries / 70 events; quantum-data coverage metadata, two sourced numerical electronic-structure case studies, complete pathways, figure attribution, diagrams, assets and same-event filters. Run browser QA separately.');
+console.log('PASS: 31 entries / 70 events; two numerical cases, seven mapped literature conclusions, 31 proposed computational protocols, complete pathways, figures, diagrams, assets and same-event filters.');

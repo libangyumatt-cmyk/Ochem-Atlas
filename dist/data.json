@@ -1,5 +1,5 @@
 {
-  "version": "0.2.5",
+  "version": "0.2.6",
   "updated": "2026-10-13",
   "axes": [
     {
@@ -330,6 +330,36 @@
       "url": "https://doi.org/10.1002/chem.202200987",
       "publisher": "Chemistry – A European Journal (2022) · doi:10.1002/chem.202200987",
       "checked": "2026-10-13"
+    },
+    "qc_competition": {
+      "title": "Wu, Bickelhaupt & Xie · Solvent-induced dual nucleophiles and the α-effect in SN2 versus E2 competition",
+      "url": "https://doi.org/10.1039/D4CP00671B",
+      "publisher": "Physical Chemistry Chemical Physics (2024) · doi:10.1039/D4CP00671B",
+      "checked": "2026-10-13"
+    },
+    "qc_borderline": {
+      "title": "Exploring borderline SN1–SN2 mechanisms: explicit solvation of isopropyl chloride",
+      "url": "https://doi.org/10.1039/D4RA00066H",
+      "publisher": "RSC Advances (2024) · doi:10.1039/D4RA00066H",
+      "checked": "2026-10-13"
+    },
+    "qc_attack_angle": {
+      "title": "Unraveling the Bürgi–Dunitz Angle with Precision: A Two-Dimensional Energy Decomposition Analysis",
+      "url": "https://doi.org/10.1021/acs.jctc.3c00907",
+      "publisher": "Journal of Chemical Theory and Computation (2023) · doi:10.1021/acs.jctc.3c00907",
+      "checked": "2026-10-13"
+    },
+    "qc_claisen_elf": {
+      "title": "A bonding evolution analysis for the thermal Claisen rearrangement",
+      "url": "https://doi.org/10.1039/C7CP07557J",
+      "publisher": "Physical Chemistry Chemical Physics (2018) · doi:10.1039/C7CP07557J",
+      "checked": "2026-10-13"
+    },
+    "qc_nitration_solvent": {
+      "title": "Nakatani et al. · Solvation in nitration of benzene and the valence electronic structure of the Wheland intermediate",
+      "url": "https://doi.org/10.1039/D2CP01699K",
+      "publisher": "Physical Chemistry Chemical Physics (2022) · doi:10.1039/D2CP01699K",
+      "checked": "2026-10-13"
     }
   },
   "reactions": [
@@ -386,7 +416,12 @@
           "Donor–acceptor orbital energies and NBO second-order interactions (with partitioning specified)"
         ],
         "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
-        "literatureCases": []
+        "literatureCases": [],
+        "literatureInsights": [],
+        "proposedProtocol": {
+          "model": "Model the same acid, base, counterion, protonation state and solvent; include alternative H-bonded relay structures.",
+          "workflow": "Optimize reactant complex, proton-transfer transition structure and products; verify vibrational modes and trace the reaction path. Compare electron density, H–donor/acceptor bond orders and an explicitly defined donor–acceptor partition."
+        }
       }
     },
     {
@@ -438,7 +473,12 @@
           "Donor–acceptor orbital energies and NBO second-order interactions (with partitioning specified)"
         ],
         "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
-        "literatureCases": []
+        "literatureCases": [],
+        "literatureInsights": [],
+        "proposedProtocol": {
+          "model": "Model the same acid, base, counterion, protonation state and solvent; include alternative H-bonded relay structures.",
+          "workflow": "Optimize reactant complex, proton-transfer transition structure and products; verify vibrational modes and trace the reaction path. Compare electron density, H–donor/acceptor bond orders and an explicitly defined donor–acceptor partition."
+        }
       }
     },
     {
@@ -462,6 +502,7 @@
       "sources": [
         "sn2",
         "sn2scope",
+        "qc_competition",
         "qc_sn2"
       ],
       "facts": [
@@ -540,7 +581,21 @@
             "source": "qc_sn2",
             "location": "Tables 3–4"
           }
-        ]
+        ],
+        "literatureInsights": [
+          {
+            "model": "HOO⁻(H₂O)n + CH₃CH₂Cl, n = 0–4",
+            "method": "CCSD(T)/aug-cc-pVTZ energies on MP2/6-311++G(d,p) geometries; activation-strain and molecular-orbital analyses.",
+            "finding": "For this microsolvated ethyl chloride network, backside SN2 is preferred to anti-E2, and adding water increases the preference. E2 requires greater characteristic substrate distortion; solvation attenuates the fragment interaction.",
+            "limits": "The teaching card is HO⁻ + CH₃Br, so the computed preference and energies do not transfer.",
+            "source": "qc_competition",
+            "location": "Abstract; Fig. 4; activation-strain analysis"
+          }
+        ],
+        "proposedProtocol": {
+          "model": "Fix the named substrate, nucleophile, leaving group, counterion and solvent; enumerate backside, ionization and competing conformers where relevant.",
+          "workflow": "Optimize reactant complexes, intermediates and transition structures; confirm one imaginary mode and connecting IRC. At matched C–leaving-group distances, compare activation strain and EDA with stated fragments; inspect σ* occupancy and charge distribution."
+        }
       }
     },
     {
@@ -592,7 +647,12 @@
           "EDA terms (Pauli, electrostatic, orbital) and σ*(C–LG) energy"
         ],
         "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
-        "literatureCases": []
+        "literatureCases": [],
+        "literatureInsights": [],
+        "proposedProtocol": {
+          "model": "Fix the named substrate, nucleophile, leaving group, counterion and solvent; enumerate backside, ionization and competing conformers where relevant.",
+          "workflow": "Optimize reactant complexes, intermediates and transition structures; confirm one imaginary mode and connecting IRC. At matched C–leaving-group distances, compare activation strain and EDA with stated fragments; inspect σ* occupancy and charge distribution."
+        }
       }
     },
     {
@@ -623,7 +683,8 @@
         }
       ],
       "sources": [
-        "sn1"
+        "sn1",
+        "qc_borderline"
       ],
       "facts": [
         [
@@ -647,13 +708,27 @@
         "credit": "OpenStax adaptation · NC State Pressbooks"
       },
       "quantumData": {
-        "status": "not-yet-computed",
+        "status": "literature-related-qualitative",
         "descriptors": [
           "Activation-strain profile (ΔEstrain / ΔEinteraction) along the reaction coordinate",
           "EDA terms (Pauli, electrostatic, orbital) and σ*(C–LG) energy"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
-        "literatureCases": []
+        "note": "The conclusion below comes from the named published calculation. It is not a new calculation for this teaching entry; read its model and limits.",
+        "literatureCases": [],
+        "literatureInsights": [
+          {
+            "model": "Isopropyl chloride hydrolysis with explicit water clusters and continuum solvent",
+            "method": "M06-2X/aug-cc-pVDZ geometry and frequency calculations; explicit and hybrid explicit–implicit solvation.",
+            "finding": "The computed borderline substitution has a solvent-assisted, loose transition structure with carbocation character; changing the placement of nearby water changes the mechanistic description.",
+            "limits": "The card uses tert-butyl bromide, a different substrate and leaving group. This study does not establish its pathway or a universal SN1/SN2 boundary.",
+            "source": "qc_borderline",
+            "location": "Abstract and solvent-configuration analysis"
+          }
+        ],
+        "proposedProtocol": {
+          "model": "Fix the named substrate, nucleophile, leaving group, counterion and solvent; enumerate backside, ionization and competing conformers where relevant.",
+          "workflow": "Optimize reactant complexes, intermediates and transition structures; confirm one imaginary mode and connecting IRC. At matched C–leaving-group distances, compare activation strain and EDA with stated fragments; inspect σ* occupancy and charge distribution."
+        }
       }
     },
     {
@@ -724,7 +799,12 @@
           "EDA terms (Pauli, electrostatic, orbital) and σ*(C–LG) energy"
         ],
         "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
-        "literatureCases": []
+        "literatureCases": [],
+        "literatureInsights": [],
+        "proposedProtocol": {
+          "model": "Fix the named substrate, nucleophile, leaving group, counterion and solvent; enumerate backside, ionization and competing conformers where relevant.",
+          "workflow": "Optimize reactant complexes, intermediates and transition structures; confirm one imaginary mode and connecting IRC. At matched C–leaving-group distances, compare activation strain and EDA with stated fragments; inspect σ* occupancy and charge distribution."
+        }
       }
     },
     {
@@ -785,7 +865,12 @@
           "Electron density and bond order for key intermediates and transition states"
         ],
         "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
-        "literatureCases": []
+        "literatureCases": [],
+        "literatureInsights": [],
+        "proposedProtocol": {
+          "model": "Include the named electrophile, its formation if relevant, counterion and the solvent/nucleophile that captures the intermediate.",
+          "workflow": "Optimize each proposed ion pair or bridged intermediate and transition structure; verify frequencies and IRC. Follow charge transfer, spin if relevant, and C–C/C–X bond orders along each path."
+        }
       }
     },
     {
@@ -855,7 +940,12 @@
           "Electron density and bond order for key intermediates and transition states"
         ],
         "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
-        "literatureCases": []
+        "literatureCases": [],
+        "literatureInsights": [],
+        "proposedProtocol": {
+          "model": "Include the named electrophile, its formation if relevant, counterion and the solvent/nucleophile that captures the intermediate.",
+          "workflow": "Optimize each proposed ion pair or bridged intermediate and transition structure; verify frequencies and IRC. Follow charge transfer, spin if relevant, and C–C/C–X bond orders along each path."
+        }
       }
     },
     {
@@ -877,7 +967,8 @@
         }
       ],
       "sources": [
-        "e2"
+        "e2",
+        "qc_competition"
       ],
       "facts": [
         [
@@ -901,13 +992,27 @@
         "credit": "Organic chemistry lecture slide · SlideServe"
       },
       "quantumData": {
-        "status": "not-yet-computed",
+        "status": "literature-related-qualitative",
         "descriptors": [
           "E2 reaction coordinate and activation-strain profile",
           "σ(C–H) / σ*(C–LG) interaction and torsional scan"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
-        "literatureCases": []
+        "note": "The conclusion below comes from the named published calculation. It is not a new calculation for this teaching entry; read its model and limits.",
+        "literatureCases": [],
+        "literatureInsights": [
+          {
+            "model": "HOO⁻(H₂O)n + CH₃CH₂Cl, n = 0–4",
+            "method": "CCSD(T)/aug-cc-pVTZ//MP2/6-311++G(d,p); activation-strain and MO analysis.",
+            "finding": "The computed anti-E2 pathway has more characteristic distortion than backside SN2 for this model. Microsolvation weakens nucleophile–substrate interaction and changes the relative pathway preference.",
+            "limits": "This is a model comparison, not a calculated result for the base and leaving group in this E2 teaching card.",
+            "source": "qc_competition",
+            "location": "Abstract; Fig. 4; activation-strain analysis"
+          }
+        ],
+        "proposedProtocol": {
+          "model": "Enumerate anti and syn β-H conformers plus competing substitution with the same reactants and solvent.",
+          "workflow": "Locate each transition structure and its IRC; track C–H, C–LG and C=C distances, torsion, charge and bond orders. Compare activation strain and fragment interactions at matched reaction-coordinate geometries."
+        }
       }
     },
     {
@@ -968,7 +1073,12 @@
           "σ(C–H) / σ*(C–LG) interaction and torsional scan"
         ],
         "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
-        "literatureCases": []
+        "literatureCases": [],
+        "literatureInsights": [],
+        "proposedProtocol": {
+          "model": "Enumerate anti and syn β-H conformers plus competing substitution with the same reactants and solvent.",
+          "workflow": "Locate each transition structure and its IRC; track C–H, C–LG and C=C distances, torsion, charge and bond orders. Compare activation strain and fragment interactions at matched reaction-coordinate geometries."
+        }
       }
     },
     {
@@ -990,7 +1100,8 @@
         }
       ],
       "sources": [
-        "carbonyl"
+        "carbonyl",
+        "qc_attack_angle"
       ],
       "facts": [
         [
@@ -1014,13 +1125,27 @@
         "credit": "UCLA Illustrated Glossary of Organic Chemistry"
       },
       "quantumData": {
-        "status": "not-yet-computed",
+        "status": "literature-related-qualitative",
         "descriptors": [
           "Donor HOMO–acceptor LUMO gap and orbital interaction energy",
           "Carbonyl-carbon charge, C–O/C–Nu bond orders, and reaction coordinate"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
-        "literatureCases": []
+        "note": "The conclusion below comes from the named published calculation. It is not a new calculation for this teaching entry; read its model and limits.",
+        "literatureCases": [],
+        "literatureInsights": [
+          {
+            "model": "CN⁻ attack on acetone",
+            "method": "Two-dimensional distortion–interaction/activation-strain and EDA analysis versus attack distance and angle.",
+            "finding": "The model favors an attack near 111°. Its angular preference reflects a balance of substrate distortion and fragment interactions; steric Pauli repulsion contributes at larger angles. An orbital-overlap picture alone does not determine the trajectory.",
+            "limits": "This card uses a different carbonyl/nucleophile combination. The reported angle is model specific.",
+            "source": "qc_attack_angle",
+            "location": "Abstract; two-dimensional EDA; Fig. 9"
+          }
+        ],
+        "proposedProtocol": {
+          "model": "Represent the exact carbonyl, nucleophile, protonation state, counterion and work-up as separate modeled events.",
+          "workflow": "Scan nucleophile–carbonyl distance and approach angle, optimize intermediate/transition structures and check modes/IRC. Compare distortion and EDA at matched geometries; track π*(C=O), density and C–Nu/C–O bond orders."
+        }
       }
     },
     {
@@ -1094,7 +1219,12 @@
           "Carbonyl-carbon charge, C–O/C–Nu bond orders, and reaction coordinate"
         ],
         "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
-        "literatureCases": []
+        "literatureCases": [],
+        "literatureInsights": [],
+        "proposedProtocol": {
+          "model": "Represent the exact carbonyl, nucleophile, protonation state, counterion and work-up as separate modeled events.",
+          "workflow": "Scan nucleophile–carbonyl distance and approach angle, optimize intermediate/transition structures and check modes/IRC. Compare distortion and EDA at matched geometries; track π*(C=O), density and C–Nu/C–O bond orders."
+        }
       }
     },
     {
@@ -1168,7 +1298,12 @@
           "Carbonyl-carbon charge, C–O/C–Nu bond orders, and reaction coordinate"
         ],
         "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
-        "literatureCases": []
+        "literatureCases": [],
+        "literatureInsights": [],
+        "proposedProtocol": {
+          "model": "Represent the exact carbonyl, nucleophile, protonation state, counterion and work-up as separate modeled events.",
+          "workflow": "Scan nucleophile–carbonyl distance and approach angle, optimize intermediate/transition structures and check modes/IRC. Compare distortion and EDA at matched geometries; track π*(C=O), density and C–Nu/C–O bond orders."
+        }
       }
     },
     {
@@ -1199,7 +1334,8 @@
         }
       ],
       "sources": [
-        "cyanohydrin"
+        "cyanohydrin",
+        "qc_attack_angle"
       ],
       "facts": [
         [
@@ -1223,13 +1359,27 @@
         "credit": "Organic chemistry lecture slide · SlideServe"
       },
       "quantumData": {
-        "status": "not-yet-computed",
+        "status": "literature-related-qualitative",
         "descriptors": [
           "Donor HOMO–acceptor LUMO gap and orbital interaction energy",
           "Carbonyl-carbon charge, C–O/C–Nu bond orders, and reaction coordinate"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
-        "literatureCases": []
+        "note": "The conclusion below comes from the named published calculation. It is not a new calculation for this teaching entry; read its model and limits.",
+        "literatureCases": [],
+        "literatureInsights": [
+          {
+            "model": "CN⁻ attack on acetone",
+            "method": "Two-dimensional distortion–interaction/activation-strain and EDA analysis versus attack distance and angle.",
+            "finding": "In the CN⁻/acetone model the preferred carbonyl approach is near 111°, set by both deformation and interaction terms, including Pauli repulsion at larger angles.",
+            "limits": "This card uses benzaldehyde + HCN and includes proton transfer. The acetone attack angle and surface cannot be assigned to benzaldehyde.",
+            "source": "qc_attack_angle",
+            "location": "Abstract; two-dimensional EDA; Fig. 9"
+          }
+        ],
+        "proposedProtocol": {
+          "model": "Represent the exact carbonyl, nucleophile, protonation state, counterion and work-up as separate modeled events.",
+          "workflow": "Scan nucleophile–carbonyl distance and approach angle, optimize intermediate/transition structures and check modes/IRC. Compare distortion and EDA at matched geometries; track π*(C=O), density and C–Nu/C–O bond orders."
+        }
       }
     },
     {
@@ -1290,7 +1440,12 @@
           "Carbonyl-carbon charge, C–O/C–Nu bond orders, and reaction coordinate"
         ],
         "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
-        "literatureCases": []
+        "literatureCases": [],
+        "literatureInsights": [],
+        "proposedProtocol": {
+          "model": "Represent the exact carbonyl, nucleophile, protonation state, counterion and work-up as separate modeled events.",
+          "workflow": "Scan nucleophile–carbonyl distance and approach angle, optimize intermediate/transition structures and check modes/IRC. Compare distortion and EDA at matched geometries; track π*(C=O), density and C–Nu/C–O bond orders."
+        }
       }
     },
     {
@@ -1351,7 +1506,12 @@
           "EDA terms (Pauli, electrostatic, orbital) and σ*(C–LG) energy"
         ],
         "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
-        "literatureCases": []
+        "literatureCases": [],
+        "literatureInsights": [],
+        "proposedProtocol": {
+          "model": "Fix the named substrate, nucleophile, leaving group, counterion and solvent; enumerate backside, ionization and competing conformers where relevant.",
+          "workflow": "Optimize reactant complexes, intermediates and transition structures; confirm one imaginary mode and connecting IRC. At matched C–leaving-group distances, compare activation strain and EDA with stated fragments; inspect σ* occupancy and charge distribution."
+        }
       }
     },
     {
@@ -1421,7 +1581,12 @@
           "Carbonyl-carbon charge, C–O/C–Nu bond orders, and reaction coordinate"
         ],
         "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
-        "literatureCases": []
+        "literatureCases": [],
+        "literatureInsights": [],
+        "proposedProtocol": {
+          "model": "Represent the exact carbonyl, nucleophile, protonation state, counterion and work-up as separate modeled events.",
+          "workflow": "Scan nucleophile–carbonyl distance and approach angle, optimize intermediate/transition structures and check modes/IRC. Compare distortion and EDA at matched geometries; track π*(C=O), density and C–Nu/C–O bond orders."
+        }
       }
     },
     {
@@ -1473,7 +1638,12 @@
           "Spin-state and bond-order changes along bond-breaking/forming coordinates"
         ],
         "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
-        "literatureCases": []
+        "literatureCases": [],
+        "literatureInsights": [],
+        "proposedProtocol": {
+          "model": "Define the correct spin multiplicity for each radical, substrate and product; search conformers and possible spin-state alternatives.",
+          "workflow": "Use a suitable open-shell method and inspect spin contamination; locate stationary points and reaction path. Follow SOMO, spin density and breaking/forming bond orders; check a higher-level or multireference treatment if diagnostics require it."
+        }
       }
     },
     {
@@ -1525,7 +1695,12 @@
           "Spin-state and bond-order changes along bond-breaking/forming coordinates"
         ],
         "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
-        "literatureCases": []
+        "literatureCases": [],
+        "literatureInsights": [],
+        "proposedProtocol": {
+          "model": "Define the correct spin multiplicity for each radical, substrate and product; search conformers and possible spin-state alternatives.",
+          "workflow": "Use a suitable open-shell method and inspect spin contamination; locate stationary points and reaction path. Follow SOMO, spin density and breaking/forming bond orders; check a higher-level or multireference treatment if diagnostics require it."
+        }
       }
     },
     {
@@ -1586,7 +1761,12 @@
           "Spin-state and bond-order changes along bond-breaking/forming coordinates"
         ],
         "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
-        "literatureCases": []
+        "literatureCases": [],
+        "literatureInsights": [],
+        "proposedProtocol": {
+          "model": "Define the correct spin multiplicity for each radical, substrate and product; search conformers and possible spin-state alternatives.",
+          "workflow": "Use a suitable open-shell method and inspect spin contamination; locate stationary points and reaction path. Follow SOMO, spin density and breaking/forming bond orders; check a higher-level or multireference treatment if diagnostics require it."
+        }
       }
     },
     {
@@ -1674,7 +1854,12 @@
             "source": "qc_da_ion",
             "location": "Table 1 and orbital analysis"
           }
-        ]
+        ],
+        "literatureInsights": [],
+        "proposedProtocol": {
+          "model": "Search relevant diene, dienophile or rearranging-substrate conformations and competing concerted/stepwise paths; define electronic state.",
+          "workflow": "Optimize transition structure(s), confirm a single imaginary mode and trace both IRC directions. Track each forming/breaking bond and ELF or equivalent density topology; inspect orbital phases and test the wavefunction if near-degeneracy appears."
+        }
       }
     },
     {
@@ -1696,7 +1881,8 @@
         }
       ],
       "sources": [
-        "claisen"
+        "claisen",
+        "qc_claisen_elf"
       ],
       "facts": [
         [
@@ -1720,13 +1906,27 @@
         "credit": "Organic chemistry lecture slide · SlideServe"
       },
       "quantumData": {
-        "status": "not-yet-computed",
+        "status": "literature-related-qualitative",
         "descriptors": [
           "Frontier-orbital phases/coefficients and symmetry allowance",
           "Bond-order evolution and orbital interaction energy along the concerted coordinate"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
-        "literatureCases": []
+        "note": "The conclusion below comes from the named published calculation. It is not a new calculation for this teaching entry; read its model and limits.",
+        "literatureCases": [],
+        "literatureInsights": [
+          {
+            "model": "Thermal allyl vinyl ether rearrangement to allylacetaldehyde",
+            "method": "Theoretical reaction-path bonding evolution tracked with the electron localization function (ELF).",
+            "finding": "The C3–O bond-breaking and C1–C5 bond-forming electron-density changes do not occur simultaneously. A concerted pathway therefore need not be synchronous at the level of bonding evolution.",
+            "limits": "The paper studies the same parent rearrangement, but the ELF topology depends on the electronic-structure setup and does not supply a universal timing scale.",
+            "source": "qc_claisen_elf",
+            "location": "Abstract; ELF bonding-evolution analysis"
+          }
+        ],
+        "proposedProtocol": {
+          "model": "Search relevant diene, dienophile or rearranging-substrate conformations and competing concerted/stepwise paths; define electronic state.",
+          "workflow": "Optimize transition structure(s), confirm a single imaginary mode and trace both IRC directions. Track each forming/breaking bond and ELF or equivalent density topology; inspect orbital phases and test the wavefunction if near-degeneracy appears."
+        }
       }
     },
     {
@@ -1778,7 +1978,12 @@
           "Bond-order evolution and orbital interaction energy along the concerted coordinate"
         ],
         "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
-        "literatureCases": []
+        "literatureCases": [],
+        "literatureInsights": [],
+        "proposedProtocol": {
+          "model": "Search relevant diene, dienophile or rearranging-substrate conformations and competing concerted/stepwise paths; define electronic state.",
+          "workflow": "Optimize transition structure(s), confirm a single imaginary mode and trace both IRC directions. Track each forming/breaking bond and ELF or equivalent density topology; inspect orbital phases and test the wavefunction if near-degeneracy appears."
+        }
       }
     },
     {
@@ -1840,7 +2045,12 @@
           "σ(C–H) / σ*(C–LG) interaction and torsional scan"
         ],
         "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
-        "literatureCases": []
+        "literatureCases": [],
+        "literatureInsights": [],
+        "proposedProtocol": {
+          "model": "Enumerate anti and syn β-H conformers plus competing substitution with the same reactants and solvent.",
+          "workflow": "Locate each transition structure and its IRC; track C–H, C–LG and C=C distances, torsion, charge and bond orders. Compare activation strain and fragment interactions at matched reaction-coordinate geometries."
+        }
       }
     },
     {
@@ -1901,7 +2111,12 @@
           "Electron density and bond order for key intermediates and transition states"
         ],
         "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
-        "literatureCases": []
+        "literatureCases": [],
+        "literatureInsights": [],
+        "proposedProtocol": {
+          "model": "Include the named electrophile, its formation if relevant, counterion and the solvent/nucleophile that captures the intermediate.",
+          "workflow": "Optimize each proposed ion pair or bridged intermediate and transition structure; verify frequencies and IRC. Follow charge transfer, spin if relevant, and C–C/C–X bond orders along each path."
+        }
       }
     },
     {
@@ -1971,7 +2186,12 @@
           "Electron density and bond order for key intermediates and transition states"
         ],
         "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
-        "literatureCases": []
+        "literatureCases": [],
+        "literatureInsights": [],
+        "proposedProtocol": {
+          "model": "Include the named electrophile, its formation if relevant, counterion and the solvent/nucleophile that captures the intermediate.",
+          "workflow": "Optimize each proposed ion pair or bridged intermediate and transition structure; verify frequencies and IRC. Follow charge transfer, spin if relevant, and C–C/C–X bond orders along each path."
+        }
       }
     },
     {
@@ -2020,7 +2240,8 @@
         }
       ],
       "sources": [
-        "nitration"
+        "nitration",
+        "qc_nitration_solvent"
       ],
       "facts": [
         [
@@ -2044,13 +2265,27 @@
         "credit": "Yikrazuul · Wikimedia Commons · Public domain"
       },
       "quantumData": {
-        "status": "not-yet-computed",
+        "status": "literature-related-qualitative",
         "descriptors": [
           "Aromatic π-orbital coefficients and electrophile–arene interaction",
           "Charge/spin density and aromaticity measures for the σ complex"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
-        "literatureCases": []
+        "note": "The conclusion below comes from the named published calculation. It is not a new calculation for this teaching entry; read its model and limits.",
+        "literatureCases": [],
+        "literatureInsights": [
+          {
+            "model": "Benzene + nitronium in sulfuric acid or water",
+            "method": "RISM-SCF-cSED: solute electronic structure and liquid solvation determined self-consistently.",
+            "finding": "The sulfuric-acid solvation structure changes substantially during C–N bond formation and affects the free-energy surface. Valence-electronic analysis distinguishes important resonance contributions to the Wheland intermediate in gas and solution.",
+            "limits": "The result concerns the specified solvent models and method; it does not endorse a single charge or resonance weight for every mixed-acid composition.",
+            "source": "qc_nitration_solvent",
+            "location": "Abstract; solvation free-energy and valence-electronic analyses"
+          }
+        ],
+        "proposedProtocol": {
+          "model": "Include electrophile generation, counterion, acid composition and solvent around the aromatic substrate.",
+          "workflow": "Optimize encounter complex, σ-complex, attack and deprotonation structures; verify each proposed connection. Compare solvation-sensitive charge distribution, π density and bond orders through the reaction path."
+        }
       }
     },
     {
@@ -2138,7 +2373,12 @@
           "Carbonyl-carbon charge, C–O/C–Nu bond orders, and reaction coordinate"
         ],
         "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
-        "literatureCases": []
+        "literatureCases": [],
+        "literatureInsights": [],
+        "proposedProtocol": {
+          "model": "Represent the exact carbonyl, nucleophile, protonation state, counterion and work-up as separate modeled events.",
+          "workflow": "Scan nucleophile–carbonyl distance and approach angle, optimize intermediate/transition structures and check modes/IRC. Compare distortion and EDA at matched geometries; track π*(C=O), density and C–Nu/C–O bond orders."
+        }
       }
     },
     {
@@ -2235,7 +2475,12 @@
           "Carbonyl-carbon charge, C–O/C–Nu bond orders, and reaction coordinate"
         ],
         "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
-        "literatureCases": []
+        "literatureCases": [],
+        "literatureInsights": [],
+        "proposedProtocol": {
+          "model": "Represent the exact carbonyl, nucleophile, protonation state, counterion and work-up as separate modeled events.",
+          "workflow": "Scan nucleophile–carbonyl distance and approach angle, optimize intermediate/transition structures and check modes/IRC. Compare distortion and EDA at matched geometries; track π*(C=O), density and C–Nu/C–O bond orders."
+        }
       }
     },
     {
@@ -2324,7 +2569,12 @@
           "Carbonyl-carbon charge, C–O/C–Nu bond orders, and reaction coordinate"
         ],
         "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
-        "literatureCases": []
+        "literatureCases": [],
+        "literatureInsights": [],
+        "proposedProtocol": {
+          "model": "Represent the exact carbonyl, nucleophile, protonation state, counterion and work-up as separate modeled events.",
+          "workflow": "Scan nucleophile–carbonyl distance and approach angle, optimize intermediate/transition structures and check modes/IRC. Compare distortion and EDA at matched geometries; track π*(C=O), density and C–Nu/C–O bond orders."
+        }
       }
     },
     {
@@ -2395,7 +2645,12 @@
           "EDA terms (Pauli, electrostatic, orbital) and σ*(C–LG) energy"
         ],
         "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
-        "literatureCases": []
+        "literatureCases": [],
+        "literatureInsights": [],
+        "proposedProtocol": {
+          "model": "Fix the named substrate, nucleophile, leaving group, counterion and solvent; enumerate backside, ionization and competing conformers where relevant.",
+          "workflow": "Optimize reactant complexes, intermediates and transition structures; confirm one imaginary mode and connecting IRC. At matched C–leaving-group distances, compare activation strain and EDA with stated fragments; inspect σ* occupancy and charge distribution."
+        }
       }
     }
   ]

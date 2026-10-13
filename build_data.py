@@ -51,6 +51,11 @@ sources.update({
 sources['qc_sn2']={'title':'Kubelka & Bickelhaupt · Activation Strain Analysis of SN2 Reactions at C, N, O, and F Centers','url':'https://pmc.ncbi.nlm.nih.gov/articles/PMC5330660/','publisher':'Journal of Physical Chemistry A (2017), 121, 885–891 · doi:10.1021/acs.jpca.6b12240','checked':'2026-10-13'}
 sources['qc_coupling_method']={'title':'Cave & Newton · Generalized Mulliken–Hush electronic coupling','url':'https://doi.org/10.1016/0009-2614(95)01310-5','publisher':'Chemical Physics Letters (1996), 249, 15–19','checked':'2026-10-13'}
 sources['qc_da_ion']={'title':'Vermeeren et al. · How Ionization Catalyzes Diels–Alder Reactions','url':'https://doi.org/10.1002/chem.202200987','publisher':'Chemistry – A European Journal (2022) · doi:10.1002/chem.202200987','checked':'2026-10-13'}
+sources['qc_competition']={'title':'Wu, Bickelhaupt & Xie · Solvent-induced dual nucleophiles and the α-effect in SN2 versus E2 competition','url':'https://doi.org/10.1039/D4CP00671B','publisher':'Physical Chemistry Chemical Physics (2024) · doi:10.1039/D4CP00671B','checked':'2026-10-13'}
+sources['qc_borderline']={'title':'Exploring borderline SN1–SN2 mechanisms: explicit solvation of isopropyl chloride','url':'https://doi.org/10.1039/D4RA00066H','publisher':'RSC Advances (2024) · doi:10.1039/D4RA00066H','checked':'2026-10-13'}
+sources['qc_attack_angle']={'title':'Unraveling the Bürgi–Dunitz Angle with Precision: A Two-Dimensional Energy Decomposition Analysis','url':'https://doi.org/10.1021/acs.jctc.3c00907','publisher':'Journal of Chemical Theory and Computation (2023) · doi:10.1021/acs.jctc.3c00907','checked':'2026-10-13'}
+sources['qc_claisen_elf']={'title':'A bonding evolution analysis for the thermal Claisen rearrangement','url':'https://doi.org/10.1039/C7CP07557J','publisher':'Physical Chemistry Chemical Physics (2018) · doi:10.1039/C7CP07557J','checked':'2026-10-13'}
+sources['qc_nitration_solvent']={'title':'Nakatani et al. · Solvation in nitration of benzene and the valence electronic structure of the Wheland intermediate','url':'https://doi.org/10.1039/D2CP01699K','publisher':'Physical Chemistry Chemical Physics (2022) · doi:10.1039/D2CP01699K','checked':'2026-10-13'}
 
 axes=[
  {'key':'S','name':'电子态','en':'Electronic state','question':'以什么电子态参与？','values':{'1':'闭壳层 / 成对电子','2':'开壳层 / 自由基','3':'激发态 / 态变换'},'note':'这里按反应事件涉及的电子态标记；S2 不表示产物一定仍是自由基。S3 与 S1/S2 可能重叠。'},
@@ -276,7 +281,7 @@ for r in reactions:
         if any('\u3400' <= ch <= '\u9fff' for ch in d): r['quantumData']['descriptors'][j]=qc_en.get(next((k for k,v in families_en.items() if v==r['family']),''),['Electron density and charge distribution along a defined reaction coordinate','Orbital interaction and bond-order changes']) [min(j,1)]
     if any('\u3400' <= ch <= '\u9fff' for ch in r['quantumData'].get('note','')): r['quantumData']['note']='No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.'
 attach_literature(reactions)
-payload={'version':'0.2.5','updated':'2026-10-13','axes':axes,'codebook':codebook,'sources':sources,'reactions':reactions}
+payload={'version':'0.2.6','updated':'2026-10-13','axes':axes,'codebook':codebook,'sources':sources,'reactions':reactions}
 (ROOT/'dist'/'data.json').write_text(json.dumps(payload,ensure_ascii=False,indent=2))
 (ROOT/'dist'/'data.js').write_text('window.SORG = '+json.dumps(payload,ensure_ascii=False)+';\n')
 print(f'Created {len(reactions)} reaction records, {sum(len(r["steps"]) for r in reactions)} coded events.')
