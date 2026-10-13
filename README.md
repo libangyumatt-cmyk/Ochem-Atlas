@@ -62,6 +62,8 @@ All 31 entry IDs and the seven codebook definitions are preserved. The acid-prom
 
 ## v0.2.8 content and comparison release
 
+For the newer event-focused comparison, navigation, clarified candidate-code boundaries and published-value visualizations, see [V029_AUDIT.md](V029_AUDIT.md).
+
 The atlas now embeds original, equation-matched mechanisms for E2, Diels–Alder, generic carbonyl addition, Fischer esterification, and acetone/methylamine imine formation. The five new illustrations have an event-by-event visual and charge audit in [V028_AUDIT.md](V028_AUDIT.md). Seventeen reviewed figures are embedded; 14 remain withheld pending further image and permissions work.
 
 The “Same code, different chemistry” interface compares two events from different reactions with the same SORG code. It shows the common coding convention alongside each equation, electron flow, orbital interaction, geometry, and uncertainty. Codes 1133 and 1113 remain provisional where the audited codebook examples do not cover every use.

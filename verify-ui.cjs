@@ -42,6 +42,16 @@ t.click('[data-compare-open="sn2"]');assert.equal(t.$('#dialog-title').textConte
 t.change('#compare-code','1133');assert.match(t.$('#compare-output').textContent,/remain candidates/);
 t.click('[data-compare-open="e2"]');t.click('[data-tab="data"]');assert.match(t.$('#panel-data').textContent,/HOO⁻/);t.click('#close-dialog');
 t.click('[data-open="carbonyl-add"]');t.click('[data-tab="data"]');assert.match(t.$('#panel-data').textContent,/≈111°/);assert.match(t.$('#panel-data').textContent,/CN⁻ \+ acetone/);t.click('#close-dialog');
+assert.equal(t.$('#panel-data .angle-visual svg').getAttribute('viewBox'),'0 0 190 125');
+t.change('#compare-code','1122');t.change('#compare-first','fischer-esterification:2');
+assert.equal(t.$('.compare-event img').getAttribute('src'),'mechanisms/fischer-esterification-step-3.svg');
+t.click('[data-compare-open="fischer-esterification"]');assert.equal(t.$('.step-button.active').dataset.step,'2');assert.match(t.w.location.hash,/step=3/);
+assert.equal(t.$('.event-focus img').getAttribute('src'),'mechanisms/fischer-esterification-step-3.svg');
+t.click('#step-next');assert.equal(t.$('.step-button.active').dataset.step,'3');assert.match(t.w.location.hash,/step=4/);t.click('#close-dialog');
+t.change('#compare-code','1333');assert.match(t.$('#compare-output').textContent,/Cycloaddition/);assert.equal(t.$('.compare-event img').getAttribute('src'),'mechanisms/diels-alder.svg');
+t.click('[data-compare-open="claisen"]');assert.equal(t.$('.step-button.active').dataset.step,'0');t.click('#close-dialog');
+t.click('[data-open="sn2"]');t.click('[data-tab="data"]');assert.equal(t.$$('#panel-data .published-chart .chart-group').length,2);t.click('#close-dialog');
+t.click('[data-open="diels-alder"]');t.click('[data-tab="data"]');assert.equal(t.$$('#panel-data .published-chart .chart-row').length,4);t.click('#close-dialog');
 // Each family and all valid combinations of S/O/R/G use same-event matching.
 for(const family of new Set(D.reactions.map(r=>r.family))){t.click(`[data-family="${family}"]`);assert.deepEqual(t.ids(),D.reactions.filter(r=>r.family===family).map(r=>r.id));assertions++;}
 t.click('#reset');
@@ -64,7 +74,7 @@ for(const r of D.reactions){
  assert.equal(t.$$('.source-figure img').length,r.figure.display?1:0);
  for(let i=0;i<r.steps.length;i++){t.click(`[data-step="${i}"]`);assert.equal(t.$('.step-equation').textContent,r.steps[i].equation);assert.equal(t.$$('.why-item').length,4);assertions++;}
  for(const tab of ['data','sources','mechanism']){t.click(`[data-tab="${tab}"]`);assert.equal(t.$('#panel-'+tab).hidden,false);assertions++;}
- const img=t.$('.source-figure img');if(img){img.dispatchEvent(new t.w.Event('error'));assert.equal(img.hidden,true);assert.equal(t.$('.image-error').hidden,false);}
+ const img=t.$('.source-figure img');if(img){img.dispatchEvent(new t.w.Event('error'));assert.equal(img.hidden,true);assert.equal(t.$('.source-figure .image-error').hidden,false);}
  t.click('#close-dialog');assert.equal(t.$('#reaction-dialog').open,false);assert.equal(t.d.body.classList.contains('dialog-open'),false);
 }
 // Keyboard tab cycling, search shortcut, and direct route.
@@ -72,4 +82,5 @@ t.click('[data-open="sn2"]');t.$('[data-tab="mechanism"]').dispatchEvent(new t.w
 for(const storage of ['broken JSON','{}','["sn2","sn2","unknown-id"]']){t=app({storage});assert.equal(t.ids().length,31);assert.equal(t.$('#saved-count').textContent,storage.includes('sn2')?'1':'0');assert.deepEqual(t.errors,[]);t.close();}
 t=app({blocked:true});t.click('[data-save="sn2"]');t.click('#show-saved');assert.deepEqual(t.ids(),['sn2']);assert.match(t.$('#toast').textContent,/session/);assert.deepEqual(t.errors,[]);t.close();
 t=app({hash:'#reaction/acid-epoxide'});assert.equal(t.$('#reaction-dialog').open,true);assert.equal(t.$$('.full-step').length,2);assert.deepEqual(t.errors,[]);t.close();
+t=app({hash:'#reaction/imine-formation?step=5'});assert.equal(t.$('.step-button.active').dataset.step,'4');assert.equal(t.$('.event-focus img').getAttribute('src'),'mechanisms/imine-formation-step-5.svg');assert.deepEqual(t.errors,[]);t.close();
 console.log(`PASS: DOM integration (${assertions} parameterized cases plus storage, routes, errors and keyboard checks). Native dialog, network image loading, CSS layout, mobile touch and browser console remain UNTESTED.`);

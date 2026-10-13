@@ -5,6 +5,7 @@ from qc_review import apply_review
 import build_figures
 import v028_figures
 from v028_content import apply_v028
+from v029_content import apply_v029
 from pathlib import Path
 
 ROOT=Path(__file__).parent
@@ -287,7 +288,8 @@ for r in reactions:
 attach_literature(reactions)
 apply_review(reactions, sources)
 apply_v028(reactions)
-payload={'version':'0.2.8','updated':'2026-10-13','axes':axes,'codebook':codebook,'sources':sources,'reactions':reactions}
+apply_v029(reactions,codebook)
+payload={'version':'0.2.9','updated':'2026-10-13','axes':axes,'codebook':codebook,'sources':sources,'reactions':reactions}
 (ROOT/'dist'/'data.json').write_text(json.dumps(payload,ensure_ascii=False,indent=2))
 (ROOT/'dist'/'data.js').write_text('window.SORG = '+json.dumps(payload,ensure_ascii=False)+';\n')
 print(f'Created {len(reactions)} reaction records, {sum(len(r["steps"]) for r in reactions)} coded events.')

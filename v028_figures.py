@@ -110,17 +110,27 @@ def sequence(name,title,overall,rows,footer):
     body=t(32,43,title,26,weight='bold')+t(32,77,overall,21)
     for i,(label,left,right,moves,note) in enumerate(rows):
         y=115+i*rowheight
-        body+=f'<rect x="25" y="{y}" width="1150" height="{rowheight-9}" rx="12" fill="{("#f5f5ee" if i%2==0 else "#faf8f2")}"/>'
-        body+=t(45,y+31,f'{i+1:02d}  {label}',19,weight='bold')
-        body+=t(45,y+76,left,19)+t(605,y+76,'→  '+right,19)
-        body+=t(45,y+107,note,15)
+        chunk=f'<rect x="25" y="{y}" width="1150" height="{rowheight-9}" rx="12" fill="{("#f5f5ee" if i%2==0 else "#faf8f2")}"/>'
+        chunk+=t(45,y+31,f'{i+1:02d}  {label}',19,weight='bold')
+        chunk+=t(45,y+76,left,19)+t(605,y+76,'→  '+right,19)
+        chunk+=t(45,y+107,note,15)
         n=len(moves)
         for j,(origin,target) in enumerate(moves):
             x=51+j*(1090/n)
             width=990/n
-            body+=t(x,y+155,origin,15)
-            body+=curve(f'M{x+18} {y+164} C{x+width*.35:.1f} {y+206} {x+width*.65:.1f} {y+207} {x+width*.78:.1f} {y+173}')
-            body+=t(x+width*.79,y+164,target,15)
+            # Stack origin and target labels inside each arrow lane. This
+            # keeps the four-arrow solvent relay readable without collisions.
+            chunk+=t(x,y+143,origin,13)
+            chunk+=curve(f'M{x+15} {y+153} C{x+44} {y+164} {x+90} {y+165} {x+108} {y+180}')
+            chunk+=t(x+88,y+202,target,13)
+        body+=chunk
+        # An event sheet is composed from the identical reviewed row, without
+        # redrawing atoms or arrows. The grouped Fischer relay remains labeled.
+        event=t(32,43,title+' · stage '+str(i+1),25,weight='bold')
+        event+=t(32,77,'Focused stage from the complete pathway; see overview for continuity.',17)
+        event+=f'<g transform="translate(0,-{i*rowheight})">{chunk}</g>'
+        sheet(f'{name}-step-{i+1}',title+' · '+label,event,360,
+              'Exact selected teaching stage extracted from the complete original mechanism sheet.')
     height=115+len(rows)*rowheight+70
     body+=t(39,height-39,footer,17)
     sheet(name,title,body,height,'Complete teaching pathway, with charges and individual electron-pair moves explicitly traced in each row.')

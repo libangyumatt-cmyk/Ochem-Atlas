@@ -10,7 +10,7 @@ assert.equal(D.reactions.filter(r=>r.figure).length,D.reactions.length,'every re
 assert.equal(D.reactions.find(r=>r.id==='sn2').quantumData.status,'literature-related-numerical');
 assert.equal(D.reactions.find(r=>r.id==='diels-alder').quantumData.status,'literature-related-numerical');
 assert.equal(D.reactions.filter(r=>r.quantumData.literatureCases.length>0).length,2);
-assert.equal(D.version,'0.2.8');
+assert.equal(D.version,'0.2.9');
 assert.ok(D.reactions.every(r=>r.quantumData.proposedProtocol.model&&r.quantumData.proposedProtocol.workflow));
 assert.equal(D.reactions.filter(r=>r.quantumData.literatureInsights.length>0).length,7);
 assert.ok(D.reactions.find(r=>r.id==='claisen').quantumData.literatureInsights[0].finding.includes('not occur simultaneously'));
@@ -65,8 +65,20 @@ assert.ok(D.reactions.filter(r=>match(r,{query:'SN₂'})).some(r=>r.id==='sn2'))
 for(const r of D.reactions)for(const s of r.steps){assert.equal(s.why.length,4);assert.ok(s.assignmentNote&&s.eventKind&&s.assignmentStatus);}
 const review=JSON.parse(fs.readFileSync('audit/events.json','utf8'));
 assert.equal(review.length,70);assert.equal(review.filter(x=>x.disposition==='removed-invalid-event').length,1);
-assert.deepEqual(D.codebook,JSON.parse(fs.readFileSync('audit/codebook-v0.2.6.json','utf8')));
-console.log('PASS: corrected epoxide, nitrate octet, figure provenance, Unicode search, 70-event baseline ledger and unchanged codebook.');
+const baselineBook=JSON.parse(fs.readFileSync('audit/codebook-v0.2.6.json','utf8'));
+assert.deepEqual(Object.keys(D.codebook),Object.keys(baselineBook));
+for(const c of Object.keys(D.codebook)){
+ assert.equal(D.codebook[c].status,baselineBook[c].status);
+ if(!['1113','1133','1333'].includes(c))assert.deepEqual(D.codebook[c],baselineBook[c]);
+}
+assert.match(D.codebook['1113'].boundary,/C=N/);assert.match(D.codebook['1133'].boundary,/O3\/1333/);
+assert.deepEqual(D.codebook['1333'].subtypes,['Cycloaddition','Electrocyclic reaction','Sigmatropic rearrangement']);
+for(const r of D.reactions)for(const [i,s] of r.steps.entries()){
+ const ledger=review.find(x=>x.reaction===r.id&&x.originalStep===i+1&&x.disposition!=='removed-invalid-event');
+ assert.equal(s.code,ledger?.currentCode,r.id+' step '+(i+1)+' code changed');
+ if(['1113','1133'].includes(s.code))assert.equal(s.assignmentStatus,ledger.assignmentStatus);
+}
+console.log('PASS: corrected epoxide, nitrate octet, figure provenance, Unicode search, 70-event baseline ledger and documented 1113/1133 clarification.');
 
 // Check the five exact new figures against their equation and stage inventory.
 const exact={e2:['CH₂=CHCH₃','EtOH','Br⁻','Hβ–Cβ–Cα–Br'],
@@ -85,4 +97,12 @@ assert.match(D.reactions.find(r=>r.id==='imine-formation').steps.at(-1).equation
 assert.ok(D.reactions.every(r=>new Set(r.quantumData.descriptors).size===r.quantumData.descriptors.length));
 assert.ok(D.reactions.find(r=>r.id==='carbonyl-add').quantumData.literatureInsights[0].teachingPoint.includes('111°'));
 assert.ok(html.includes('id="compare-output"'));assert.ok(html.includes('Same code, different chemistry'));
+assert.ok(html.includes('v0.2.9'));assert.ok(html.includes('app.js?v=0.2.9'));
+for(const id of ['fischer-esterification','imine-formation']){
+ const r=D.reactions.find(x=>x.id===id);
+ for(const [i,s] of r.steps.entries()){
+  const path='dist/'+s.eventFigure.src,svg=fs.readFileSync(path,'utf8');
+  assert.match(svg,new RegExp('stage '+(i+1)));assert.ok((svg.match(/marker-end="url\(#pair\)"/g)||[]).length>=2,id+' stage '+i+' arrow inventory');
+ }
+}
 console.log('PASS: v0.2.8 figure labels, arrow inventories, unique descriptors, comparison markup and iminium notation. Visual and scientific figure review are recorded separately.');

@@ -1,5 +1,5 @@
 {
-  "version": "0.2.8",
+  "version": "0.2.9",
   "updated": "2026-10-13",
   "axes": [
     {
@@ -96,29 +96,34 @@
         "Several bonds reorganize together",
         "Several reaction centers change collectively"
       ],
-      "boundary": "Concerted does not mean synchronous. This code cannot distinguish cycloaddition, electrocyclization, and σ migration, so retain the reaction name."
+      "boundary": "Concerted does not mean synchronous. This code cannot distinguish cycloaddition, electrocyclization, and σ migration, so retain the reaction name.",
+      "subtypes": [
+        "Cycloaddition",
+        "Electrocyclic reaction",
+        "Sigmatropic rearrangement"
+      ]
     },
     "1113": {
       "status": "candidate",
-      "label": "Carbonyl addition / elimination",
+      "label": "Polar tetrahedral–planar carbon-center change",
       "why": [
         "Closed-shell electron-pair model",
-        "n or σ donation into π*; reverse process restores the carbonyl",
-        "Nucleophilic bond formation or leaving-group cleavage dominates",
-        "The carbonyl center changes between planar and tetrahedral geometry"
+        "Lone-pair or σ donation to a polarized C=O center, or a heteroatom lone pair forming C=O/C=N on collapse",
+        "One C–nucleophile bond forms or one C–leaving-group bond breaks as the principal event",
+        "The carbon center changes between planar π-bonded and tetrahedral forms"
       ],
-      "boundary": "This is an early candidate assignment, not a fixed v0.1 code. R3 is another possible boundary when π-bond-order change is emphasized."
+      "boundary": "Candidate for polar addition to C=O and collapse of tetrahedral C–O/C–N intermediates. The incoming donor, leaving group, and newly made π bond must be specified; the iminium C=N case is a provisional extension. Use R3 when a concerted multi-center π reorganization, rather than local addition/collapse, dominates."
     },
     "1133": {
       "status": "candidate",
       "label": "Polar multiple-bond reorganization",
       "why": [
-        "Electron pairs participate",
-        "Donor–acceptor interaction between base and substrate",
-        "C–H, C–X, and C=C bonding changes are coupled",
-        "Several centers adjust together or form a planar π system"
+        "Closed-shell electron-pair model",
+        "Polar donor–acceptor interaction, including σ or π donation; not cyclic pericyclic overlap",
+        "Coupled σ/π bond redistribution across multiple centers is the defining bookkeeping feature",
+        "Several atom positions or a conjugated π framework reorganize together"
       ],
-      "boundary": "A project candidate used for E2 and the alkene-forming E1 event. Concerted E2 chemistry is not automatically a pericyclic O3 reaction."
+      "boundary": "Candidate for E2/E1cB alkene formation, bromonium bridging and electrophilic aromatic attack/rearomatization when two or more bond orders change in a coupled polar event. Distinct mechanisms can share this code; proton-only transfer remains 1122, simple local carbonyl addition/collapse remains 1113, and symmetry-governed cyclic overlap remains O3/1333. Staged reactions must retain separate event records."
     },
     "2222": {
       "status": "candidate",
@@ -2578,7 +2583,8 @@
             "Multiple bonds reorganize in a concerted pericyclic pathway.",
             "The diene needs an accessible s-cis geometry; both termini approach the dienophile."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "subtype": "Cycloaddition"
         }
       ],
       "sources": [
@@ -2714,7 +2720,8 @@
             "Multiple bonds reorganize in a concerted pericyclic pathway.",
             "A chair-like transition structure often explains conformational preference."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "subtype": "Sigmatropic rearrangement"
         }
       ],
       "sources": [
@@ -2809,7 +2816,8 @@
             "Multiple bonds reorganize in a concerted pericyclic pathway.",
             "A thermal 4π system closes conrotatorily."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "subtype": "Electrocyclic reaction"
         }
       ],
       "sources": [
@@ -3374,7 +3382,11 @@
             "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
             "Protonated CH₃C(=OH⁺)OH retains a planar acyl carbon and bears +1 on the original carbonyl O."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/fischer-esterification-step-1.svg",
+            "scope": "exact selected teaching stage extracted from the full original SVG; a grouped stage may contain more than one microscopic transfer"
+          }
         },
         {
           "title": "Nucleophilic carbonyl addition",
@@ -3393,7 +3405,11 @@
             "Candidate for tetrahedral addition or elimination with π-bond redistribution.",
             "The acyl carbon becomes tetrahedral; the incoming ethoxy O bears +1 until deprotonated."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/fischer-esterification-step-2.svg",
+            "scope": "exact selected teaching stage extracted from the full original SVG; a grouped stage may contain more than one microscopic transfer"
+          }
         },
         {
           "title": "Proton transfer",
@@ -3412,7 +3428,11 @@
             "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
             "Two solvent-mediated proton transfers connect oxonium and water-leaving-group states; this listed stage is grouped."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/fischer-esterification-step-3.svg",
+            "scope": "exact selected teaching stage extracted from the full original SVG; a grouped stage may contain more than one microscopic transfer"
+          }
         },
         {
           "title": "Collapse of the tetrahedral intermediate",
@@ -3431,7 +3451,11 @@
             "Candidate for tetrahedral addition or elimination with π-bond redistribution.",
             "The tetrahedral acyl center reforms a planar carbonyl in protonated ester."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/fischer-esterification-step-4.svg",
+            "scope": "exact selected teaching stage extracted from the full original SVG; a grouped stage may contain more than one microscopic transfer"
+          }
         },
         {
           "title": "Proton transfer",
@@ -3450,7 +3474,11 @@
             "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
             "The ester acyl carbon remains planar while hydronium is regenerated."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/fischer-esterification-step-5.svg",
+            "scope": "exact selected teaching stage extracted from the full original SVG; a grouped stage may contain more than one microscopic transfer"
+          }
         }
       ],
       "sources": [
@@ -3548,7 +3576,11 @@
             "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
             "The O-protonated carbonyl is still planar, with +1 on oxygen."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/imine-formation-step-1.svg",
+            "scope": "exact selected teaching stage extracted from the full original SVG; a grouped stage may contain more than one microscopic transfer"
+          }
         },
         {
           "title": "Nucleophilic carbonyl addition",
@@ -3567,7 +3599,11 @@
             "Candidate for tetrahedral addition or elimination with π-bond redistribution.",
             "The new tetrahedral carbinolammonium has a neutral OH and four-coordinate N⁺."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/imine-formation-step-2.svg",
+            "scope": "exact selected teaching stage extracted from the full original SVG; a grouped stage may contain more than one microscopic transfer"
+          }
         },
         {
           "title": "Proton transfer",
@@ -3586,7 +3622,11 @@
             "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
             "Neutral carbinolamine retains tetrahedral carbon and has one N–H bond."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/imine-formation-step-3.svg",
+            "scope": "exact selected teaching stage extracted from the full original SVG; a grouped stage may contain more than one microscopic transfer"
+          }
         },
         {
           "title": "Proton transfer",
@@ -3605,7 +3645,11 @@
             "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
             "Tetrahedral C–OH becomes C–OH₂⁺, making neutral water a potential leaving group."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/imine-formation-step-4.svg",
+            "scope": "exact selected teaching stage extracted from the full original SVG; a grouped stage may contain more than one microscopic transfer"
+          }
         },
         {
           "title": "Dehydration to the iminium ion",
@@ -3624,7 +3668,11 @@
             "Candidate for tetrahedral addition or elimination with π-bond redistribution.",
             "C=N forms while water departs, leaving an iminium center."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/imine-formation-step-5.svg",
+            "scope": "exact selected teaching stage extracted from the full original SVG; a grouped stage may contain more than one microscopic transfer"
+          }
         },
         {
           "title": "Proton transfer",
@@ -3643,7 +3691,11 @@
             "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
             "Deprotonation retains planar C=N and removes its positive charge."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/imine-formation-step-6.svg",
+            "scope": "exact selected teaching stage extracted from the full original SVG; a grouped stage may contain more than one microscopic transfer"
+          }
         }
       ],
       "sources": [

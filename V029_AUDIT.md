@@ -1,0 +1,39 @@
+# v0.2.9 mechanistic learning audit
+
+Baseline: v0.2.8 at commit `70e2109157544405050a97fc37a1f3b79adcae9a`. Read [AUDIT.md](AUDIT.md) for the 70-to-69 correction and event ledger, and [V028_AUDIT.md](V028_AUDIT.md) for the five original full mechanisms. The live baseline presented 31 reactions, 69 listed events, and the text-only comparison. The baseline repository `dist/data.json` and page label both read `0.2.8`; the reported mismatch was **not reproduced** in this checkout or live page. HTML asset references carried `?v=0.2.8` cache keys. Version fields, display label and asset query keys are now `0.2.9`.
+
+## Implemented
+
+| Area | Change and evidence boundary |
+|---|---|
+| Visual comparison | Shows each selected event equation, reviewed exact single-event figure where available, or an event-specific SVG extracted from the original Fischer/imine full sheet. Otherwise the local generic SVG is explicitly labeled **partial motif**, with exact equation, arrow-flow prose, orbital and geometry descriptions. A reviewed whole-reaction image is not passed off as an isolated event. Image failure has a visible fallback. No new atom mapping or arrow topology was synthesized to force symmetry. |
+| Selection and reading | Comparison button opens the correct event and shareable one-based `?step=N` hash; long pathways have previous/next controls, a focused figure and an expandable complete overview. Fischer's third *listed grouped stage* still expands two solvent-mediated proton transfers; it is not a verified single microscopic event. |
+| Codebook | 1113 and 1133 wording clarifies which polar bond changes they collect and what they exclude. All seven numeric codes, statuses, 31 reaction IDs and 69 event assignments remain unchanged. 1333 subtypes (cycloaddition, electrocyclic, sigmatropic) are optional explanation strings, not digits. |
+| Quantum visualization | Exact cells from Kubelka/Bickelhaupt SN2 Tables 3–4 and Vermeeren et al. Diels–Alder Table 1 appear as categorical bars, with separate scales for eV versus kcal/mol and for Pauli versus orbital terms. Signed values remain printed and original tables are retained. Carbonyl addition shows a *conceptual* ≈111° marker for the published CN⁻/acetone model, not a computed structure or interpolated energy surface. Each panel retains molecular system, charge/spin, fragment convention, gas-phase method and transfer limit. |
+
+### Candidate-code boundaries
+
+**1113:** A local polar addition to C=O, or tetrahedral-intermediate collapse making C=O, changes carbon from planar to tetrahedral or the reverse. Hydride/Grignard transfers are schematic local addition models. Iminium dehydration reforms C=N rather than C=O and is explicitly a candidate analogy. A coupled multi-center π-system rearrangement may instead favor R3. Its `1113` assignments remain provisional, and a future revision would need to establish a defensible O/R/G partition at each characterized pathway.
+
+**1133:** Coupled polar σ/π bond redistribution includes anti E2, E1/E1cB alkene-forming events, bromonium formation and electrophilic aromatic attack/rearomatization under the inherited candidate convention. These have different arrow patterns; the code does not imply one shared transition-state shape. Pure proton replacement fits 1122, local carbonyl attack/collapse 1113, and symmetry-governed cyclic pericyclic overlap O3/1333. No reclassification has been made.
+
+**1333:** Diels–Alder [4+2] is described as cycloaddition, Claisen [3,3] as sigmatropic, and thermal 4π closure as electrocyclic. These subtypes do not claim synchrony or assign the radical-cation acrolein comparison the same code.
+
+### Published evidence used
+
+- Kubelka and Bickelhaupt, *J. Phys. Chem. A* **121** (2017) 885–891, [doi:10.1021/acs.jpca.6b12240](https://doi.org/10.1021/acs.jpca.6b12240): Cl⁻ + CH₃Cl/NH₂Cl/OHCl/FCl; ZORA-OLYP/TZ2P, gas phase, −1 singlet. σ*(A–Cl) energies and fragment interaction energy are different physical quantities. The F row is a transition complex, not a TS. Neither chart calculates HO⁻ + CH₃Br.
+- Vermeeren et al., *Chem. Eur. J.* **28** (2022) e202200987, [doi:10.1002/chem.202200987](https://doi.org/10.1002/chem.202200987): butadiene + neutral acrolein versus acrolein radical cation at matched C···C 2.203 Å; ZORA-(U)BP86/TZ2P, gas phase, fragments butadiene and dienophile. Neutral singlet and radical-cation doublet follow different mechanisms. EDA orbital and Pauli terms are not diabatic coupling constants or results for ethene.
+- Fernández et al., *J. Chem. Theory Comput.* **19** (2023) 7300–7306, [doi:10.1021/acs.jctc.3c00907](https://doi.org/10.1021/acs.jctc.3c00907): approximate preferred C(CN)–C(carbonyl)–O angle in gas-phase CN⁻ + acetone (−1, singlet); M06-2X/6-311+G(d,p) geometry scan and ZORA-M06-2X/TZ2P EDA. The single published angle does not define a universal approach or an energy curve.
+
+The SN2 interaction chart helps explain an O1 donor–acceptor trend but cannot encode its orbital-energy magnitude in `1122`. The Diels–Alder chart shows how electronic state and Pauli/orbital balance can change the microscopic path, beyond the neutral `1333` tag. The carbonyl angle illustrates why candidate G3 records planar-to-tetrahedral geometry coarsely while omitting nucleophile-specific approach angles. No project quantum calculations were performed and no new numerical data were generated.
+
+## Verification performed
+
+- `python3 build_data.py`, `npm test`, `node --check dist/app.js`, and `git diff --check`: run before publication. Structural assertions compare every current event code/status with the 70-event historical ledger, including the 1113/1133 candidates.
+- DOM integration covers comparison choices, image/partial scope, selected-event modal opening, step routes, next/previous navigation, 11 focused image paths, SN2/DA bars, carbonyl conceptual angle, and the earlier filters, search, saves and panels. These checks are not independent chemical calculations.
+- All eleven focused SVGs were rasterized using Inkscape and inspected as a contact sheet. The cramped labels in Fischer's four-arrow relay were corrected and both that row and imine dehydration inspected at full 1200 px width. Each step sheet reuses its reviewed row from the full source SVG; charges, reactant/product identities and pair-arrow origins/targets were cross-checked against the existing v0.2.8 equation and mechanism audit. This does not establish a unique solvent relay or transition structure.
+- Desktop live browser checks and deployment result are recorded separately after publication. Mobile viewport/touch cannot be claimed unless a mobile browser viewport is actually exercised. Browser extension console errors must be distinguished from site errors.
+
+## Remaining limitations
+
+Fourteen reaction illustrations remain withheld. Other comparison visuals may be partial motifs with generic atoms/substituents and cannot be interpreted as exact mechanisms. The source-specific figures are full images rather than per-atom interactive highlighting; exact forming/breaking bonds and geometry are explained with the event figure and prose. Fischer proton relay and hydride/Grignard work-up are grouped teaching stages, not individually established microscopic elementary events. Carbonyl G3/1113 and broad 1133 assignments need additional reaction-specific analysis. The current charts show discrete published numbers; they do not imply interpolation or computed activation profiles.
