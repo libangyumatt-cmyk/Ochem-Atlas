@@ -13,7 +13,7 @@ const context={window:{}};vm.createContext(context);vm.runInContext(fs.readFileS
 assert.equal(JSON.stringify(context.window.SORG),JSON.stringify(D));
 vm.runInContext(fs.readFileSync('dist/diagrams.js','utf8'),context);
 for(const r of D.reactions){
-  for(const s of r.steps){assert.match(s.code,/^[123][1234][1234][123]$/);assert.ok(D.codebook[s.code]);for(let i=0;i<4;i++)assert.ok(D.axes[i].values[s.code[i]]);const svg=context.window.SorgDiagram(s.diagram);assert.ok(svg.includes('<svg'));assert.ok(svg.includes('<text'),'diagram must not be blank: '+s.diagram);assert.ok(s.flow&&s.orbital&&s.geometry);}
+  for(const s of r.steps){assert.match(s.code,/^[123][1234][1234][123]$/);assert.ok(D.codebook[s.code]);for(let i=0;i<4;i++)assert.ok(D.axes[i].values[s.code[i]]);const svg=context.window.SorgDiagram(s.diagram);assert.ok(svg.includes('<svg'));assert.ok(svg.includes('<text'),'diagram must not be blank: '+s.diagram);assert.ok(s.flow&&s.orbital&&s.geometry);assert.doesNotMatch(s.flow,/illustrated in the embedded mechanism figure|See the embedded mechanism/);}
   for(const id of r.sources)assert.ok(D.sources[id]?.url.startsWith('https://'));
   assert.ok(r.scope&&r.facts.length);assert.ok(r.mechanismComplete&&r.mechanismNote,'complete pathway metadata: '+r.id);
   if(r.figure){assert.ok(r.figure.src.startsWith('https://'));assert.ok(r.figure.href.startsWith('https://'));assert.ok(r.figure.alt&&r.figure.credit);}
@@ -35,4 +35,4 @@ assert.ok(html.includes('31 reactions / 70 events'));assert.doesNotMatch(html,/c
 assert.doesNotMatch(fs.readFileSync('dist/app.js','utf8'),/calc-a|orbitalMixing|两轨道耦合与混合模型/);
 const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);assert.equal(ids.length,new Set(ids).size);
 for(const [,asset] of html.matchAll(/(?:src|href)="([^"#:]+\.(?:js|css|svg|json))(?:\?[^"]*)?"/g))assert.ok(fs.existsSync('dist/'+asset),asset);
-console.log('PASS: 31 entries / 70 events; quantum-data coverage metadata, sourced SN2 literature benchmark, complete pathways, figure attribution, diagrams, assets and same-event filters. Browser QA not run.');
+console.log('PASS: 31 entries / 70 events; quantum-data coverage metadata, sourced SN2 literature benchmark, complete pathways, figure attribution, diagrams, assets and same-event filters. Run browser QA separately.');

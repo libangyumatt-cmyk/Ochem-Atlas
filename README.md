@@ -1,74 +1,52 @@
 # SORG · Organic Reaction Atlas
 
-A buildless, responsive teaching atlas of foundational organic reactions. Chinese navigation and explanations, English reaction names and scientific notation.
+A responsive, English-language teaching atlas of organic reaction mechanisms. The published site contains 31 reaction entries and 70 coded mechanistic events.
 
-## Included
+Each reaction panel presents the stated substrate, reagents, sequential equations and intermediates, specific electron-flow prose, orbital and geometry notes, an embedded credited reference image, and source and scope information. Reference images can show analogous substrates; compare their labels with the entry's own equations. Solvent-mediated proton relays may be grouped as net teaching events. The in-page SVGs show local motifs, whereas the step sequence describes the named example.
 
-- 31 reaction entries, 70 coded mechanistic events, including aromatic substitution, E1cB, halohydrin formation, esterification and imine formation.
-- Search by reaction name, Chinese keyword, orbital description or four-digit code.
-- Independent S/O/R/G filters applied to the **same** event, step-count filters and local favorites.
-- A complete pathway reader that shows every listed step, its full equation, electron flow and intermediate in sequence, plus step-specific SORG rationale and scope notes.
-- Source-linked, attributed online mechanism figures for selected pathways. These figures supplement the written full mechanisms; generic in-page SVGs are explicitly labeled as local-step schematics.
-- Complete mechanism panels with direct online mechanism sources; reaction-specific quantum-chemistry observables and literature evidence are shown separately from values that have not yet been computed.
-- Deep links such as `#reaction/sn2`, keyboard navigation and responsive layouts.
+Search, same-event S/O/R/G filters, saved items, and deep links such as `#reaction/sn2` work in the browser. Every reaction has an electronic-structure section that distinguishes proposed observables from literature findings and missing calculations.
 
-## SORG v0.1
+## Classification and evidence
 
-This is a project-specific, provisional **teaching index**, not an IUPAC taxonomy or a validated quantum-mechanical invariant.
+SORG is a provisional project teaching index, not an IUPAC taxonomy or a validated quantum-mechanical invariant. A code belongs to one mechanistic event. Different events and named reactions can share a code, and the four axes describe related aspects rather than independent physical properties.
 
-| Axis | Meaning | Values |
+| Axis | Values | Boundary |
 |---|---|---|
-| S | Electronic state | 1 closed-shell / paired electrons; 2 open-shell / radical; 3 excited state or state change |
-| O | Principal orbital interaction | 1 donor–acceptor; 2 singly occupied orbitals; 3 cyclic concerted interaction; 4 electron-transfer coupling |
-| R | Principal bond reorganization | 1 formation/cleavage; 2 contact replacement; 3 multiple-bond redistribution; 4 electron transfer |
-| G | Nuclear geometry | 1 approach/separation; 2 coupled approach/departure; 3 collective rearrangement |
+| S: electronic state | 1 paired; 2 open shell; 3 excited/state change | Describes participants in an event, not necessarily its final product. |
+| O: principal orbital interaction | 1 donor–acceptor; 2 singly occupied; 3 cyclic concerted; 4 electron-transfer coupling | Requires a declared orbital basis and subspace convention; it is not an invariant orbital count. |
+| R: prominent bond reorganization | 1 formation/cleavage; 2 replacement; 3 multiple-bond redistribution; 4 electron transfer | A label for prominent change, not a full bond-change inventory or absolute bond-order threshold. |
+| G: nuclear geometry | 1 approach/separation; 2 approach/departure; 3 collective rearrangement | Coarse geometric grouping; some boundaries remain candidates. |
 
-Inherited project assignments: `1111`, `1122`, `2211`, `1333`. The carbonyl code `1113` retains an earlier candidate; `1133` and `2222` are explicitly marked as candidate extensions. “Inherited” means inherited from the project's earlier discussion, **not experimentally validated**. More than one reaction can have the same code.
+Codes `1111`, `1122`, `2211`, and `1333` are inherited from the project's prior teaching convention. `1113`, `1133`, and `2222` are candidates. “Inherited” does not mean experimentally established. A prior two-component toy basis-rotation check changed a participation ratio from about 2 to 1; it demonstrates representation dependence, **not** an ab initio calculation for SN2, Diels–Alder, or any entry. The proposed S/O/R/G assignment needs explicit conventions and further validation.
 
-Use one code for each event. Preserve repeated codes. Aqueous SN1 has ionization, water capture **and deprotonation**, whereas the anionic-capture core model has two events. The Grignard and lithium aluminum hydride entries now show metal coordination, bond transfer, and aqueous work-up explicitly for the stated model species; solution aggregation and secondary salt equilibria remain part of the scope notes.
+The SN2 entry cites a published gas-phase `Cl⁻ + CH₃Cl` activation-strain/orbital-interaction study. Its substrate and nucleophile differ from the card's `HO⁻ + CH₃Br`; numerical results cannot be transferred to that card. The other entries list candidate electronic-structure measurements, not invented calculated values. A useful coupling value must define donor/acceptor fragments, diabatic states, electronic state, geometry, method, and basis. This project does not calculate reaction rates or currently supply new reaction-specific quantum-chemical numerical results.
 
-## Local use
+## Run and edit
 
-Open `dist/index.html` directly in a modern browser. No npm dependencies or runtime network access are required. Optional local server:
+Open `dist/index.html` in a modern browser, or serve it locally:
 
 ```sh
 python3 -m http.server 8000 --directory dist
 ```
 
-Sources are external links, but diagrams, data, filtering and favorites work locally. Favorites are stored only in that browser. They are not synced between devices.
+The app and structured data load locally. Embedded mechanism images and cited sources use external URLs and need network access. Saved items stay in browser storage.
 
-## Update the content
-
-`build_data.py` is the canonical content source. Edit its codebook, source dictionary or reaction records, then run:
+`build_data.py` defines the original entries and classifications; `english_content.py` contains the specific English editorial text for each event. Change both as needed, then regenerate and validate:
 
 ```sh
 python3 build_data.py
+python3 package_source.py
 node verify.cjs
+node --check dist/app.js
+node --check dist/diagrams.js
 ```
 
-This produces `dist/data.json` (downloadable structured data) and `dist/data.js` (the same data embedded for offline use). Do not edit only one generated copy. Reaction detail panels link directly to their online mechanism references.
+The build produces both `dist/data.json` and `dist/data.js`; keep them synchronized. The source archive is `dist/sorg-atlas-source.zip`.
 
-## GitHub Pages
+The GitHub Actions workflow in `.github/workflows/pages.yml` publishes `dist/` to GitHub Pages on pushes to `main` or `master` and manual dispatch. Relative URLs support project Pages hosting.
 
-The included `.github/workflows/pages.yml` publishes `dist/` with GitHub Pages on pushes to `main` or `master`, or manual dispatch. After placing this project in a dedicated GitHub repository, select **Settings → Pages → Build and deployment → Source: GitHub Actions**. Repository policies and account features may affect availability. Relative asset URLs support project Pages URLs.
+## Sources and limits
 
-The `.openai/hosting.json` file belongs to the private Sites deployment and is intentionally excluded from the downloadable GitHub source package. GitHub Pages does not need it.
+Each reaction links its chemistry references. They support the mechanism and chemistry, not the SORG assignment. The cited OpenStax textbook is John McMurry, *Organic Chemistry* (2023); other entries refer to Chemistry LibreTexts or credited image publishers. The credited online images remain subject to their own source terms. Educational text in the app states CC BY-NC-SA 4.0; inspect each source page for image rights.
 
-## Scientific provenance and limits
-
-Mechanisms and pedagogical facts are checked against John McMurry, *Organic Chemistry*, OpenStax (2023), Chemistry LibreTexts, and IUPAC Gold Book. Each entry lists its own sources. These sources do not assign or validate the SORG codes.
-
-- Quantum-data fields distinguish sourced literature results from missing reaction-specific calculations. The SN2 card includes a clearly identified related gas-phase model reaction from Kubelka and Bickelhaupt (ZORA-OLYP/TZ2P), with qualitative activation-strain and orbital-analysis findings; its substrate and nucleophile differ from the card's HO⁻ + CH₃Br example. No values are transferred between them. No new DFT/IRC calculations have been performed.
-- Descriptor lists for the other reactions are proposed electronic-structure observables, not results. Electronic coupling values require defined donor/acceptor fragments and diabatic states; they are not presented as universal across reaction classes.
-- Energy profiles are schematic and have no measured or computed height, depth, or net energy direction.
-- Every reaction record marks its displayed pathway as complete for the named substrate and stated conditions. The selected substrate, reagents and work-up define each pathway; solvent-mediated proton relays are written as net proton-transfer events and identified in scope notes.
-- Selected Commons image figures are hot-linked and credited with their file page and license next to each figure. They are supporting references; the step-by-step text remains the authoritative pathway for this specific example.
-- The original in-page SVGs depict local electron-pushing motifs, not the whole substrate. They are no longer presented as substitutes for the complete step sequence shown above them.
-
-## Validation
-
-`node verify.cjs` checks data integrity, full-path metadata, image attribution fields, codebook and source references, same-event filtering, step counts, orbital-mixing equations and invalid-input handling, local asset references and diagram coverage. JavaScript syntax is checked separately.
-
-## Content attribution
-
-Educational text and chemistry content: CC BY-NC-SA 4.0. Wikimedia Commons figures remain under the license shown on each Commons file page; author, source page and license are displayed under each figure. OpenStax attribution and license information is at https://openstax.org/books/organic-chemistry/pages/1-why-this-chapter and https://creativecommons.org/licenses/by-nc-sa/4.0/ . Source-code use is governed by the project license unless the owner later chooses a separate code license.
+The qualitative energy sketch has no calculated or measured heights. The work-up and solvent-relay descriptions define the scope of their pathway. Complex reaction networks, metal aggregation equilibria, and explicit solvent trajectories are not fully modeled.

@@ -1,4 +1,5 @@
 import json
+from english_content import apply_english, finish_english
 from pathlib import Path
 
 ROOT=Path(__file__).parent
@@ -143,7 +144,7 @@ add('nitration-benzene','Nitration of benzene','苯的硝化','芳香取代','C�
 add('fischer-esterification','Fischer esterification','Fischer 酯化','羰基反应','CH₃CO₂H + CH₃CH₂OH ⇌ CH₃CO₂CH₂CH₃ + H₂O','acid-catalyzed; water removal or alcohol excess can shift the equilibrium.','完整经历羰基质子化、醇加成、质子转移、脱水与去质子化；不是一步“酸和醇结合”。',[
  pt('CH₃C(=O)OH + H₃O⁺ ⇌ CH₃C(=OH⁺)OH + H₂O','羰基氧接受质子，增强羰基碳的亲电性。'),
  carbonyl('CH₃C(=OH⁺)OH + HOCH₂CH₃ → CH₃C(OH)(OH)(O⁺HCH₂CH₃)','n(OEtOH)','乙醇氧孤对电子进攻羰基碳；C=O π 电子转移至原羰基氧，形成四面体 oxonium 中间体。'),
- pt('CH₃C(OH)(OH)(O⁺HCH₂CH₃) + H₂O ⇌ CH₃C(OH)(OH₂⁺)(OCH₂CH₃) + H₃O⁺','溶剂介导质子转移，将一个 OH 转成较好的离去基团 H₂O，并使乙氧基氧中性。'),
+ pt('CH₃C(OH)(OH)(O⁺HCH₂CH₃) ⇌ CH₃C(OH)(OH₂⁺)(OCH₂CH₃)','溶剂介导质子转移，将一个 OH 转成较好的离去基团 H₂O，并使乙氧基氧中性。'),
  step('Collapse of the tetrahedral intermediate','1113','CH₃C(OH)(OH₂⁺)(OCH₂CH₃) → CH₃C(=OH⁺)OCH₂CH₃ + H₂O','另一羟基氧的孤对电子重建 C=O；C–OH₂⁺ 键电子对随水离去。','n(O) → π*(C–O); σ(C–OH₂⁺) cleavage','四面体中心恢复平面羰基结构，生成质子化酯。','collapse'),
  pt('CH₃C(=OH⁺)OCH₂CH₃ + H₂O ⇌ CH₃CO₂CH₂CH₃ + H₃O⁺','水夺取羰基氧上的质子，酸催化剂再生。')],['esterification'],[['Path type','Acid-catalyzed nucleophilic acyl substitution with a tetrahedral intermediate.'],['Equilibrium','The reaction is reversible; water removal or excess alcohol favors ester.']],'这里把溶剂参与的质子接力写成一个教学质子转移事件；微观上可能由多分子水/醇接力。氧交换与平衡同位素标记不在本站 SORG 主线中展开。')
 
@@ -172,7 +173,7 @@ figures={
  'alkene-bromination':{'src':'https://upload.wikimedia.org/wikipedia/commons/3/33/Alkene-bromine-addition-2D-skeletal.png','href':'https://commons.wikimedia.org/wiki/File:Alkene-bromine-addition-2D-skeletal.png','alt':'Bromonium-ion formation and anti opening in alkene bromination','credit':'Benjah-bmm27 · Wikimedia Commons · Public domain'},
  'halohydrin':{'src':'https://upload.wikimedia.org/wikipedia/commons/f/fe/NBS_Bromohydrin_Formation_Scheme.png','href':'https://commons.wikimedia.org/wiki/File:NBS_Bromohydrin_Formation_Scheme.png','alt':'Halohydrin formation scheme','credit':'~K · Wikimedia Commons · Public domain; NBS halohydrin scheme'},
  'nitration-benzene':{'src':'https://upload.wikimedia.org/wikipedia/commons/7/74/Nitration_of_benzene.svg','href':'https://commons.wikimedia.org/wiki/File:Nitration_of_benzene.svg','alt':'Benzene nitration mechanism','credit':'Yikrazuul · Wikimedia Commons · Public domain'},
- 'fischer-esterification':{'src':'https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Fischer_esterification_mechanism.svg/1280px-Fischer_esterification_mechanism.svg.png','href':'https://commons.wikimedia.org/wiki/File:Fischer_esterification_mechanism.svg','alt':'Fischer esterification mechanism','credit':'V8rik · Wikimedia Commons · Public domain'},
+ 'fischer-esterification':{'src':'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Fischer_esterification_mechanism.svg/1280px-Fischer_esterification_mechanism.svg.png','href':'https://commons.wikimedia.org/wiki/File:Fischer_esterification_mechanism.svg','alt':'Fischer esterification mechanism','credit':'V8rik · Wikimedia Commons · Public domain'},
  'imine-formation':{'src':'https://upload.wikimedia.org/wikipedia/commons/c/c8/Mechanism_imine_formation_general.svg','href':'https://commons.wikimedia.org/wiki/File:Mechanism_imine_formation_general.svg','alt':'General imine formation mechanism','credit':'Wikimedia Commons · CC BY-SA 4.0'},
  'aldol-condensation':{'src':'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/E1cB_aldol_condensation.svg/1280px-E1cB_aldol_condensation.svg.png','href':'https://commons.wikimedia.org/wiki/File:E1cB_aldol_condensation.svg','alt':'Aldol addition and E1cB dehydration','credit':'Wikimedia Commons · E1cB aldol-condensation scheme'},
 }
@@ -265,18 +266,16 @@ for r in reactions:
     r.pop('zh',None)
     if 'level' in r: r['level']='Foundational'
     r['family']=families_en.get(r['family'],r['family'])
-    r['summary']=f"The complete {r['name']} pathway is presented in {len(r['steps'])} elementary event(s)."
-    if any('\u3400' <= ch <= '\u9fff' for ch in r.get('conditions','')): r['conditions']='See the cited reference for substrate- and solvent-specific conditions.'
-    r['scope']='This entry follows the substrate and conditions stated above. Consult the cited references for substrate-dependent selectivity, competing pathways, and limitations.'
-    r['mechanismNote']='The complete pathway for the stated substrate and conditions is shown below. Each event includes its reaction equation, electron movement, and resulting intermediate. Conditions may change the mechanism; see the scope and cited references.'
-    if r.get('note') and any('\u3400' <= ch <= '\u9fff' for ch in r['note']): r['note']='This is a mechanistic model; consult the cited references for substrate-specific alternatives and limitations.'
+    apply_english(r)
+    finish_english(r)
+    r['mechanismNote']='Follow the specified substrate and conditions through every listed event. Electron arrows and intermediates are described below; solvent-mediated proton transfer may group several microscopic transfers.'
+    for field in ('conditions','summary','scope','note'):
+        assert not any('\u3400' <= ch <= '\u9fff' for ch in r.get(field,'')), (r['id'],field)
     for st in r['steps']:
-        for k in ('flow','orbital','geometry'):
-            if any('\u3400' <= ch <= '\u9fff' for ch in st.get(k,'')):
-                st[k]={'flow':'Electron-pair and single-electron movement are illustrated in the embedded mechanism figure.','orbital':'See the embedded mechanism figure and cited reference for the orbital interaction in this event.','geometry':'See the embedded mechanism figure and cited reference for the geometric change in this event.'}[k]
-    for fact in r.get('facts',[]):
-        for j,v in enumerate(fact):
-            if isinstance(v,str) and any('\u3400' <= ch <= '\u9fff' for ch in v): fact[j]='See the complete mechanism figure and cited reference for this detail.'
+        for field in ('flow','orbital','geometry'):
+            assert not any('\u3400' <= ch <= '\u9fff' for ch in st[field]), (r['id'],st['title'],field,st[field])
+    for fact in r['facts']:
+        assert not any('\u3400' <= ch <= '\u9fff' for ch in ' '.join(fact)), (r['id'],fact)
     for j,d in enumerate(r['quantumData'].get('descriptors',[])):
         if any('\u3400' <= ch <= '\u9fff' for ch in d): r['quantumData']['descriptors'][j]=qc_en.get(next((k for k,v in families_en.items() if v==r['family']),''),['Electron density and charge distribution along a defined reaction coordinate','Orbital interaction and bond-order changes']) [min(j,1)]
     if any('\u3400' <= ch <= '\u9fff' for ch in r['quantumData'].get('note','')): r['quantumData']['note']='No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.'
@@ -286,7 +285,7 @@ for r in reactions:
         b['method']='ZORA-OLYP/TZ2P in the gas phase. The authors compared C/N/O/F centers and analyzed coordinates defined by Nu–A and A–LG distances relative to the transition state.'
         b['finding']='For the C, N, and O series, the potential-energy surfaces contain a reactant-complex minimum and a central barrier. Trends are associated mainly with interaction energy and a lower vacant σ*(A–Cl) acceptor-orbital energy at the reaction center. The paper also decomposes Pauli, electrostatic, and orbital terms; no numerical table is reproduced here.'
         q['note']='The cited calculations concern Cl⁻ + CH₃Cl, not HO⁻ + CH₃Br in this entry. Their orbital energies and energy-decomposition values cannot be transferred to this substrate. No calculation has been performed for this entry.'
-payload={'version':'0.2.3','updated':'2026-10-12','axes':axes,'codebook':codebook,'sources':sources,'reactions':reactions}
+payload={'version':'0.2.4','updated':'2026-10-13','axes':axes,'codebook':codebook,'sources':sources,'reactions':reactions}
 (ROOT/'dist'/'data.json').write_text(json.dumps(payload,ensure_ascii=False,indent=2))
 (ROOT/'dist'/'data.js').write_text('window.SORG = '+json.dumps(payload,ensure_ascii=False)+';\n')
 print(f'Created {len(reactions)} reaction records, {sum(len(r["steps"]) for r in reactions)} coded events.')
