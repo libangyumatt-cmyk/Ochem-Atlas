@@ -47,6 +47,7 @@ t.change('#compare-code','1122');t.change('#compare-first','fischer-esterificati
 assert.equal(t.$('.compare-event img').getAttribute('src'),'mechanisms/fischer-esterification-step-3.svg');
 t.click('[data-compare-open="fischer-esterification"]');assert.equal(t.$('.step-button.active').dataset.step,'2');assert.match(t.w.location.hash,/step=3/);
 assert.equal(t.$('.event-focus img').getAttribute('src'),'mechanisms/fischer-esterification-step-3.svg');
+assert.equal(t.$('.mechanism-svg'),null);assert.match(t.$('.event-focus figcaption').textContent,/overview follows below/);
 t.click('#step-next');assert.equal(t.$('.step-button.active').dataset.step,'3');assert.match(t.w.location.hash,/step=4/);t.click('#close-dialog');
 t.change('#compare-code','1333');assert.match(t.$('#compare-output').textContent,/Cycloaddition/);assert.equal(t.$('.compare-event img').getAttribute('src'),'mechanisms/diels-alder.svg');
 t.click('[data-compare-open="claisen"]');assert.equal(t.$('.step-button.active').dataset.step,'0');t.click('#close-dialog');
