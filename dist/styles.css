@@ -24,3 +24,24 @@ dialog{border:1px solid #d2dace;border-radius:12px;background:var(--paper);color
 .source-figure figcaption{overflow-wrap:anywhere}.source-figure img{background:#fff;max-width:100%;height:auto}
 .complete-path-heading,.full-step-top{flex-wrap:wrap}.full-step,.quantum-model,.literature-case,.literature-insight{min-width:0}
 @media(max-width:600px){.detail-tabs{gap:14px;flex-wrap:wrap}.dialog-toolbar{gap:10px;padding:12px}.dialog-toolbar>span{overflow-wrap:anywhere;min-width:0}.source-figure{margin-left:0;margin-right:0}.energy-box h4{display:block}}
+
+/* The comparison reuses the atlas palette and lays out event-level differences. */
+.comparison{border-top:1px solid var(--line)}
+.compare-controls{display:grid;grid-template-columns:minmax(0,1fr) repeat(2,minmax(0,1.3fr));gap:13px;margin:24px 0}
+.compare-controls label{font-size:10px;font-weight:600;color:var(--teal)}
+.compare-controls select{display:block;width:100%;min-width:0;margin-top:6px;padding:10px 11px;background:var(--white);color:var(--ink);border:1px solid var(--line);border-radius:5px;font-size:12px}
+.compare-common{border:1px solid #d3ddce;border-radius:7px;background:#ecf0e8;padding:21px 25px;margin-bottom:15px}
+.compare-common>div{display:flex;align-items:center;gap:14px}.compare-common strong{font-size:13px}
+.compare-common p{font-size:11px;line-height:1.8;margin-top:8px}.compare-common .small-note{font-size:10px}
+.compare-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+.compare-event{min-width:0;background:var(--white);border:1px solid var(--line);border-radius:7px;padding:20px 23px}
+.compare-event-head{display:flex;align-items:center;flex-wrap:wrap;gap:10px}.compare-event-head strong{font-size:12px;margin-right:auto}
+.compare-event h3{font:19px Georgia,serif;margin:13px 0 9px}
+.compare-equation{font:16px/1.6 Georgia,serif;color:var(--ink);overflow-wrap:anywhere}
+.compare-event dl{margin:17px 0}.compare-event dt{font-size:9px;color:var(--teal);font-weight:700;letter-spacing:.5px;margin-top:13px;text-transform:uppercase}
+.compare-event dd{font-size:11px;line-height:1.8;margin:3px 0 0;overflow-wrap:anywhere}
+.compare-event button{border-bottom:1px solid var(--line);padding:0 0 3px}
+.figure-viewport{overflow-x:auto;max-width:100%;scrollbar-color:var(--teal) var(--paper)}
+.large-diagram .figure-viewport img{max-height:none;max-width:none;width:100%;min-width:780px;height:auto}
+@media(max-width:780px){.compare-controls{grid-template-columns:1fr 1fr}.compare-controls label:first-child{grid-column:1/-1}.header nav a:nth-child(3){display:inline}.header nav a:nth-child(4){display:none}}
+@media(max-width:600px){.compare-pair{grid-template-columns:1fr}.compare-event{padding:17px}.large-diagram .figure-viewport img{min-width:900px}}

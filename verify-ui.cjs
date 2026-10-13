@@ -21,6 +21,27 @@ function app({storage='[]',blocked=false,hash=''}={}){
  return {w,d,$,$$,click,change,ids,errors,close:()=>w.close()};
 }
 let t=app();assert.equal(t.ids().length,31);
+// All selectable codes have events in at least two distinct reaction entries.
+for(const option of t.$$('#compare-code option')){
+ t.change('#compare-code',option.value);
+ const first=t.$('#compare-first').value,second=t.$('#compare-second').value;
+ assert.notEqual(first.split(':')[0],second.split(':')[0]);
+ assert.equal(t.$$('.compare-event').length,2);
+ assert.equal(t.$$('.compare-event .compare-equation').length,2);
+ const candidate=D.reactions.filter(r=>r.steps.some(s=>s.code===option.value));
+ assert.ok(candidate.length>=2);assertions++;
+}
+t.change('#compare-code','1122');
+t.change('#compare-first','proton-transfer:0');
+assert.notEqual(t.$('#compare-first').value.split(':')[0],t.$('#compare-second').value.split(':')[0]);
+const alternative=[...t.$('#compare-second').options].find(x=>x.value.startsWith('sn2:'));
+assert.ok(alternative);t.change('#compare-second',alternative.value);
+assert.match(t.$('#compare-output').textContent,/Cyanide carbon/);
+assert.match(t.$('#compare-output').textContent,/hydroxide oxygen/);
+t.click('[data-compare-open="sn2"]');assert.equal(t.$('#dialog-title').textContent,'SN2 substitution');t.click('#close-dialog');
+t.change('#compare-code','1133');assert.match(t.$('#compare-output').textContent,/remain candidates/);
+t.click('[data-compare-open="e2"]');t.click('[data-tab="data"]');assert.match(t.$('#panel-data').textContent,/HOO⁻/);t.click('#close-dialog');
+t.click('[data-open="carbonyl-add"]');t.click('[data-tab="data"]');assert.match(t.$('#panel-data').textContent,/≈111°/);assert.match(t.$('#panel-data').textContent,/CN⁻ \+ acetone/);t.click('#close-dialog');
 // Each family and all valid combinations of S/O/R/G use same-event matching.
 for(const family of new Set(D.reactions.map(r=>r.family))){t.click(`[data-family="${family}"]`);assert.deepEqual(t.ids(),D.reactions.filter(r=>r.family===family).map(r=>r.id));assertions++;}
 t.click('#reset');

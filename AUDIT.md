@@ -1,5 +1,7 @@
 # v0.2.6 quality-control audit
 
+Historical baseline for the v0.2.7 release. For current v0.2.8 figure coverage, learning interface and evidence scope, see [V028_AUDIT.md](V028_AUDIT.md). Counts described as “current” below refer to v0.2.7.
+
 Baseline: `bc35b03`. Scope: all 31 existing entries and their original 70 listed events. No new reaction entries or SORG categories are authorized by this pass.
 
 ## Initial audit and implementation priorities

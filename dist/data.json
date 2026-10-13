@@ -1,5 +1,5 @@
 {
-  "version": "0.2.7",
+  "version": "0.2.8",
   "updated": "2026-10-13",
   "axes": [
     {
@@ -376,17 +376,17 @@
           "code": "1122",
           "equation": "CH₃CO₂H + CN⁻ ⇌ CH₃CO₂⁻ + HCN",
           "flow": "The cyanide carbon lone pair abstracts the carboxylic-acid proton; the acid O–H bond pair returns to oxygen, yielding acetate and HCN.",
-          "orbital": "n(base) → σ*(H–A)",
-          "geometry": "The base approaches H as the original donor–H contact weakens.",
+          "orbital": "Cyanide carbon lone pair → σ*(O–H) of acetic acid; the O–H pair localizes on carboxylate oxygen.",
+          "geometry": "The C···H···O transfer coordinate shortens C–H as O–H stretches; solvent can introduce a relay.",
           "diagram": "proton",
           "eventKind": "elementary-model",
           "assignmentStatus": "consistent-with-convention",
           "assignmentNote": "Solvent relay and pKa standard-state/temperature metadata are not a computed microscopic pathway.",
           "why": [
             "Closed-shell electron-pair model for this event.",
-            "n(base) → σ*(H–A)",
+            "Cyanide carbon lone pair → σ*(O–H) of acetic acid; the O–H pair localizes on carboxylate oxygen.",
             "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
-            "The base approaches H as the original donor–H contact weakens."
+            "The C···H···O transfer coordinate shortens C–H as O–H stretches; solvent can introduce a relay."
           ],
           "diagramScope": "partial"
         }
@@ -443,10 +443,10 @@
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "Charge and electron-density changes in a defined solvent and conformation",
-          "Donor–acceptor orbital energies and NBO second-order interactions (with partitioning specified)"
+          "O–H versus H–C bond orders during acetate/cyanide proton transfer",
+          "Solvent-dependent localization of charge on acetate and cyanide"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "note": "No computed result is mapped to Proton transfer. The following observables and protocol are proposals, not results.",
         "literatureCases": [],
         "literatureInsights": [],
         "proposedProtocol": {
@@ -540,10 +540,10 @@
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "Charge and electron-density changes in a defined solvent and conformation",
-          "Donor–acceptor orbital energies and NBO second-order interactions (with partitioning specified)"
+          "N→B donor interaction and B–N bond order in H₃N–BF₃",
+          "Charge redistribution on nitrogen and boron as boron changes coordination"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "note": "No computed result is mapped to Lewis acid–base association. The following observables and protocol are proposals, not results.",
         "literatureCases": [],
         "literatureInsights": [],
         "proposedProtocol": {
@@ -597,12 +597,12 @@
       ],
       "facts": [
         [
-          "Orbital interaction",
-          "n(O) donation into σ*(C–Br)"
+          "This substrate",
+          "Methyl bromide has no stereogenic carbon and no β-carbon; this example cannot show inversion or ordinary E2."
         ],
         [
-          "Stereochemistry",
-          "A chiral reaction center inverts configuration, but the R/S descriptor does not necessarily flip."
+          "Orbital interaction",
+          "Hydroxide O attacks opposite the C–Br bond along the near-linear O···C···Br path. The published Cl⁻/A–Cl series is a different model."
         ]
       ],
       "scope": "Methyl carbon is achiral and has no β-carbon, so ordinary E2 elimination is unavailable for this substrate. Steric substitution/elimination competition applies to other alkyl substrates.",
@@ -627,10 +627,10 @@
       "quantumData": {
         "status": "literature-related-numerical",
         "descriptors": [
-          "Activation-strain profile (ΔEstrain / ΔEinteraction) along the reaction coordinate",
-          "EDA terms (Pauli, electrostatic, orbital) and σ*(C–LG) energy"
+          "Cl⁻/A–Cl benchmark: σ*(A–Cl) energy versus interaction and strain",
+          "For HO⁻/CH₃Br, the unperformed backside attack and C–Br cleavage coordinate"
         ],
-        "note": "The table contains published calculations for the explicitly named model, not new values calculated for this teaching entry. Do not transfer the numbers to another substrate, solvent, or orbital convention.",
+        "note": "For SN2 substitution, distinguish the named published system below from this card's equation. The proposed protocol has not been run by the Atlas.",
         "literatureCases": [
           {
             "title": "SN2 electronic-structure comparison across C, N, O, and F centers",
@@ -678,7 +678,8 @@
             "limits": "Orbital energies depend on the method and orbital convention; the interaction term depends on the chosen fragments and geometry. The F entry is a transition complex rather than the same kind of stationary point as the first three. Values transcribed from Tables 3 and 4; no value for HO⁻ + CH₃Br is implied.",
             "source": "qc_sn2",
             "location": "Tables 3–4",
-            "verification": "Numerical transcription checked against primary-source tables/text, 2026-10-13; calculations not reproduced."
+            "verification": "Numerical transcription checked against primary-source tables/text, 2026-10-13; calculations not reproduced.",
+            "teachingPoint": "For Cl⁻ + A–Cl, a lower σ*(A–Cl) level accompanies a more attractive fragment-interaction term; the HO⁻/CH₃Br teaching pair was not calculated."
           }
         ],
         "literatureInsights": [
@@ -771,10 +772,10 @@
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "Activation-strain profile (ΔEstrain / ΔEinteraction) along the reaction coordinate",
-          "EDA terms (Pauli, electrostatic, orbital) and σ*(C–LG) energy"
+          "Methoxide/alkyl-bromide backside interaction and ether-bond growth",
+          "C–Br bond extension versus nucleophile approach in this substrate"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "note": "No computed result is mapped to Williamson ether synthesis. The following observables and protocol are proposals, not results.",
         "literatureCases": [],
         "literatureInsights": [],
         "proposedProtocol": {
@@ -875,10 +876,10 @@
       "quantumData": {
         "status": "literature-related-qualitative",
         "descriptors": [
-          "Activation-strain profile (ΔEstrain / ΔEinteraction) along the reaction coordinate",
-          "EDA terms (Pauli, electrostatic, orbital) and σ*(C–LG) energy"
+          "C–X ionization and ion-pair stabilization under an explicit solvent model",
+          "Nu capture versus solvent-assisted displacement along the same substrate coordinate"
         ],
-        "note": "The conclusion below comes from the named published calculation. It is not a new calculation for this teaching entry; read its model and limits.",
+        "note": "For SN1: ionization & capture, distinguish the named published system below from this card's equation. The proposed protocol has not been run by the Atlas.",
         "literatureCases": [],
         "literatureInsights": [
           {
@@ -958,17 +959,17 @@
           "code": "1122",
           "equation": "(CH₃)₃COH₂⁺ + H₂O → (CH₃)₃COH + H₃O⁺",
           "flow": "A second water molecule removes a proton from oxonium; its O–H bond pair returns to the alcohol oxygen, yielding tert-butanol and H₃O⁺.",
-          "orbital": "n(base) → σ*(H–A)",
-          "geometry": "The base approaches H as the original donor–H contact weakens.",
+          "orbital": "Water lone pair accepts the oxonium proton while the tert-butyl O–H bonding pair returns to oxygen.",
+          "geometry": "Water approaches an O–H bond of protonated tert-butanol; C–O connectivity stays intact.",
           "diagram": "proton",
           "eventKind": "elementary-model",
           "assignmentStatus": "consistent-with-convention",
           "assignmentNote": "Ion-pair structure and E1 competition are not resolved by the textbook mechanism.",
           "why": [
             "Closed-shell electron-pair model for this event.",
-            "n(base) → σ*(H–A)",
+            "Water lone pair accepts the oxonium proton while the tert-butyl O–H bonding pair returns to oxygen.",
             "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
-            "The base approaches H as the original donor–H contact weakens."
+            "Water approaches an O–H bond of protonated tert-butanol; C–O connectivity stays intact."
           ],
           "diagramScope": "partial"
         }
@@ -1009,10 +1010,10 @@
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "Activation-strain profile (ΔEstrain / ΔEinteraction) along the reaction coordinate",
-          "EDA terms (Pauli, electrostatic, orbital) and σ*(C–LG) energy"
+          "Tert-butyl C–Br ionization and water contact-ion-pair stabilization",
+          "Water capture versus E1 and oxonium deprotonation under the stated conditions"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "note": "No computed result is mapped to SN1 solvolysis. The following observables and protocol are proposals, not results.",
         "literatureCases": [],
         "literatureInsights": [],
         "proposedProtocol": {
@@ -1111,10 +1112,10 @@
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "Charge transfer and frontier-orbital energies along the reaction coordinate",
-          "Electron density and bond order for key intermediates and transition states"
+          "Propene π donation into H–Br and secondary-carbocation charge distribution",
+          "Bromide capture versus ion-pair separation on the propene/HBr path"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "note": "No computed result is mapped to Electrophilic HBr addition. The following observables and protocol are proposals, not results.",
         "literatureCases": [],
         "literatureInsights": [],
         "proposedProtocol": {
@@ -1183,17 +1184,17 @@
           "code": "1122",
           "equation": "(CH₃)₂CHOH₂⁺ + H₂O → (CH₃)₂CHOH + H₃O⁺",
           "flow": "Water removes the oxonium proton; its O–H pair returns to the alcohol oxygen and H₃O⁺ is regenerated.",
-          "orbital": "n(base) → σ*(H–A)",
-          "geometry": "The base approaches H as the original donor–H contact weakens.",
+          "orbital": "Water abstracts H from protonated 2-propanol; the alcohol O–H pair returns to its oxygen.",
+          "geometry": "A hydrogen-bonded water/oxonium encounter loses H without changing the C–O bond.",
           "diagram": "proton",
           "eventKind": "elementary-model",
           "assignmentStatus": "consistent-with-convention",
           "assignmentNote": "Microscopic solvent participation and a corrected exact external figure remain open.",
           "why": [
             "Closed-shell electron-pair model for this event.",
-            "n(base) → σ*(H–A)",
+            "Water abstracts H from protonated 2-propanol; the alcohol O–H pair returns to its oxygen.",
             "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
-            "The base approaches H as the original donor–H contact weakens."
+            "A hydrogen-bonded water/oxonium encounter loses H without changing the C–O bond."
           ],
           "diagramScope": "partial"
         }
@@ -1232,10 +1233,10 @@
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "Charge transfer and frontier-orbital energies along the reaction coordinate",
-          "Electron density and bond order for key intermediates and transition states"
+          "Propene protonation and water attack at secondary carbon",
+          "Solvent stabilization of secondary cation and 2-propanol oxonium"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "note": "No computed result is mapped to Acid-catalyzed hydration. The following observables and protocol are proposals, not results.",
         "literatureCases": [],
         "literatureInsights": [],
         "proposedProtocol": {
@@ -1301,25 +1302,39 @@
       "mechanismComplete": true,
       "mechanismNote": "Pathway at the stated teaching resolution; inspect scope and event notes. This is not a claim that each listed stage is a verified elementary event.",
       "figure": {
-        "src": "https://image4.slideserve.com/1012269/electron-rich-to-electron-poor-sites-and-e2-steps-l.jpg",
-        "href": "https://www.slideserve.com/caressa/chapter-7-alkyl-halides-and-nu-substitution",
-        "alt": "Representative illustration: E2 elimination. Generic base/leaving group. Slide prose incorrectly says two arrows originate at the base; image withheld.",
-        "credit": "Organic chemistry lecture slide · SlideServe",
-        "match": "representative",
+        "src": "mechanisms/e2.svg",
+        "href": "mechanisms/e2.svg",
+        "alt": "Original equation-matched electron-flow pathway: E2 elimination",
+        "credit": "SORG Atlas · original SVG",
+        "match": "exact",
         "coverage": "complete",
-        "reviewNote": "Generic base/leaving group. Slide prose incorrectly says two arrows originate at the base; image withheld.",
+        "reviewNote": "Original condensed-structure pathway checked against every listed equation, charge, intermediate and electron-pair move; Fischer step 3 expands a grouped solvent relay. The diagram does not specify computed transition-state geometry.",
         "reviewed": true,
-        "rightsStatus": "unconfirmed",
-        "license": "Reuse permission not established; external reference retained.",
-        "display": false
+        "rightsStatus": "original",
+        "license": "Original SORG Atlas illustration · CC BY-NC-SA 4.0",
+        "display": true,
+        "priorReference": {
+          "src": "https://image4.slideserve.com/1012269/electron-rich-to-electron-poor-sites-and-e2-steps-l.jpg",
+          "href": "https://www.slideserve.com/caressa/chapter-7-alkyl-halides-and-nu-substitution",
+          "alt": "Representative illustration: E2 elimination. Generic base/leaving group. Slide prose incorrectly says two arrows originate at the base; image withheld.",
+          "credit": "Organic chemistry lecture slide · SlideServe",
+          "match": "representative",
+          "coverage": "complete",
+          "reviewNote": "Generic base/leaving group. Slide prose incorrectly says two arrows originate at the base; image withheld.",
+          "reviewed": true,
+          "rightsStatus": "unconfirmed",
+          "license": "Reuse permission not established; external reference retained.",
+          "display": false
+        },
+        "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
       },
       "quantumData": {
         "status": "literature-related-qualitative",
         "descriptors": [
-          "E2 reaction coordinate and activation-strain profile",
-          "σ(C–H) / σ*(C–LG) interaction and torsional scan"
+          "Anti Hβ–Cβ–Cα–Br torsion and C–H/C–Br cleavage",
+          "Ethoxide interaction, propene π-bond formation and competing substitution"
         ],
-        "note": "The conclusion below comes from the named published calculation. It is not a new calculation for this teaching entry; read its model and limits.",
+        "note": "For E2 elimination, distinguish the named published system below from this card's equation. The proposed protocol has not been run by the Atlas.",
         "literatureCases": [],
         "literatureInsights": [
           {
@@ -1430,10 +1445,10 @@
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "Ionization and deprotonation paths in the stated solvent",
-          "Charge distribution and β-C–H donation into the carbocation p orbital"
+          "tert-Butyl chloride ionization versus delayed β-deprotonation",
+          "Cation stabilization and C=C development in the stated solvent"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "note": "No computed result is mapped to E1 elimination. The following observables and protocol are proposals, not results.",
         "literatureCases": [],
         "literatureInsights": [],
         "proposedProtocol": {
@@ -1464,17 +1479,17 @@
           "code": "1113",
           "equation": "R₂C=O + Nu⁻ → R₂C(O⁻)Nu",
           "flow": "The nucleophile pair attacks carbonyl carbon while the C=O π pair moves to oxygen, giving tetrahedral alkoxide.",
-          "orbital": "n(Nu) → π*(C=O)",
-          "geometry": "The carbonyl center changes from approximately trigonal planar to tetrahedral.",
+          "orbital": "The occupied nucleophile lone pair mixes with π*(C=O); the π electrons move toward oxygen.",
+          "geometry": "An out-of-plane approach to planar R₂C=O forms a tetrahedral alkoxide; its attack face is unspecified.",
           "diagram": "carbonyl",
           "eventKind": "elementary-model",
           "assignmentStatus": "candidate",
           "assignmentNote": "Generic local event, not a complete neutral-product preparation; 1113 remains candidate.",
           "why": [
             "Closed-shell electron-pair model for this event.",
-            "n(Nu) → π*(C=O)",
+            "The occupied nucleophile lone pair mixes with π*(C=O); the π electrons move toward oxygen.",
             "Candidate for tetrahedral addition or elimination with π-bond redistribution.",
-            "The carbonyl center changes from approximately trigonal planar to tetrahedral."
+            "An out-of-plane approach to planar R₂C=O forms a tetrahedral alkoxide; its attack face is unspecified."
           ],
           "diagramScope": "partial"
         }
@@ -1485,12 +1500,12 @@
       ],
       "facts": [
         [
-          "Geometry",
-          "Trigonal planar → tetrahedral."
+          "Charge and scope",
+          "Nu⁻ becomes bonded to carbonyl carbon; the O⁻ alkoxide is the endpoint of this local equation, before any work-up."
         ],
         [
-          "Electronic change",
-          "C–Nu forms while the C=O π pair shifts to oxygen."
+          "Approach face",
+          "Planar R₂C=O can be approached from either face. When the two R groups are identical, this generic product center is not stereogenic."
         ]
       ],
       "scope": "1113 is a candidate code. Many isolated products require protonation after this local event.",
@@ -1499,25 +1514,39 @@
       "mechanismComplete": true,
       "mechanismNote": "Pathway at the stated teaching resolution; inspect scope and event notes. This is not a claim that each listed stage is a verified elementary event. This entry covers only the stated local event, propagation cycle or formal core.",
       "figure": {
-        "src": "https://www.chem.ucla.edu/~harding/IGOC/N/nucleophilic_addition01.png",
-        "href": "https://www.chem.ucla.edu/~harding/IGOC/N/nucleophilic_addition.html",
-        "alt": "Representative illustration: Carbonyl nucleophilic addition. Acetone + hydroxide followed by protonation; card describes generic carbonyl addition only. Original page URL returns 404.",
-        "credit": "UCLA Illustrated Glossary of Organic Chemistry",
-        "match": "representative",
+        "src": "mechanisms/carbonyl-add.svg",
+        "href": "mechanisms/carbonyl-add.svg",
+        "alt": "Original equation-matched electron-flow pathway: Carbonyl nucleophilic addition",
+        "credit": "SORG Atlas · original SVG",
+        "match": "exact",
         "coverage": "complete",
-        "reviewNote": "Acetone + hydroxide followed by protonation; card describes generic carbonyl addition only. Original page URL returns 404.",
+        "reviewNote": "Original condensed-structure pathway checked against every listed equation, charge, intermediate and electron-pair move; Fischer step 3 expands a grouped solvent relay. The diagram does not specify computed transition-state geometry.",
         "reviewed": true,
-        "rightsStatus": "unconfirmed",
-        "license": "Reuse permission not established; external reference retained.",
-        "display": false
+        "rightsStatus": "original",
+        "license": "Original SORG Atlas illustration · CC BY-NC-SA 4.0",
+        "display": true,
+        "priorReference": {
+          "src": "https://www.chem.ucla.edu/~harding/IGOC/N/nucleophilic_addition01.png",
+          "href": "https://www.chem.ucla.edu/~harding/IGOC/N/nucleophilic_addition.html",
+          "alt": "Representative illustration: Carbonyl nucleophilic addition. Acetone + hydroxide followed by protonation; card describes generic carbonyl addition only. Original page URL returns 404.",
+          "credit": "UCLA Illustrated Glossary of Organic Chemistry",
+          "match": "representative",
+          "coverage": "complete",
+          "reviewNote": "Acetone + hydroxide followed by protonation; card describes generic carbonyl addition only. Original page URL returns 404.",
+          "reviewed": true,
+          "rightsStatus": "unconfirmed",
+          "license": "Reuse permission not established; external reference retained.",
+          "display": false
+        },
+        "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
       },
       "quantumData": {
         "status": "literature-related-qualitative",
         "descriptors": [
-          "Donor HOMO–acceptor LUMO gap and orbital interaction energy",
-          "Carbonyl-carbon charge, C–O/C–Nu bond orders, and reaction coordinate"
+          "Nu⁻ approach angle to R₂C=O and n(Nu)→π*(C=O)",
+          "C–Nu growth and O⁻ formation in the unprotonated local event"
         ],
-        "note": "The conclusion below comes from the named published calculation. It is not a new calculation for this teaching entry; read its model and limits.",
+        "note": "For Carbonyl nucleophilic addition, distinguish the named published system below from this card's equation. The proposed protocol has not been run by the Atlas.",
         "literatureCases": [],
         "literatureInsights": [
           {
@@ -1527,7 +1556,9 @@
             "limits": "This card uses a different carbonyl/nucleophile combination. The reported angle is model specific.",
             "source": "qc_attack_angle",
             "location": "Computational Methods; Figures 2 and 9",
-            "verification": "Quoted numerical claims and method checked in primary-source tables/text on 2026-10-13."
+            "verification": "Quoted numerical claims and method checked in primary-source tables/text on 2026-10-13.",
+            "teachingPoint": "The 111° CN⁻/acetone result is an approach-angle optimum, not a universal nucleophile angle or a value computed for R₂C=O + Nu⁻.",
+            "publishedQuantity": "Preferred C(CN)–C(carbonyl)–O angle ≈111° for gas-phase CN⁻ + acetone (−1, singlet); M06-2X/6-311+G(d,p) geometry scan. The teaching substrate is different."
           }
         ],
         "proposedProtocol": {
@@ -1651,10 +1682,10 @@
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "Donor HOMO–acceptor LUMO gap and orbital interaction energy",
-          "Carbonyl-carbon charge, C–O/C–Nu bond orders, and reaction coordinate"
+          "Provisional AlH₄⁻ encounter and possible hydride-to-carbonyl interaction",
+          "O–Al contacts, H-transfer bond orders and aggregate sensitivity"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "note": "No computed result is mapped to Lithium aluminum hydride reduction. The following observables and protocol are proposals, not results.",
         "literatureCases": [],
         "literatureInsights": [],
         "proposedProtocol": {
@@ -1777,10 +1808,10 @@
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "Donor HOMO–acceptor LUMO gap and orbital interaction energy",
-          "Carbonyl-carbon charge, C–O/C–Nu bond orders, and reaction coordinate"
+          "Aldehyde–Mg contact geometry in solvated Grignard aggregates",
+          "C–Mg loss, C–C formation and carbonyl-oxygen charge transfer"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "note": "No computed result is mapped to Grignard addition to an aldehyde. The following observables and protocol are proposals, not results.",
         "literatureCases": [],
         "literatureInsights": [],
         "proposedProtocol": {
@@ -1811,17 +1842,17 @@
           "code": "1113",
           "equation": "PhCHO + CN⁻ → PhCH(O⁻)CN",
           "flow": "The carbon end of CN⁻ attacks carbonyl carbon; the C=O π pair shifts to oxygen, producing the cyano alkoxide.",
-          "orbital": "n(C of CN⁻) → π*(C=O)",
-          "geometry": "The carbonyl center changes from approximately trigonal planar to tetrahedral.",
+          "orbital": "Cyanide carbon donates to benzaldehyde π*(C=O), while π(C=O) polarizes onto oxygen.",
+          "geometry": "CN⁻ approaches one face of planar PhCHO; the benzylic alkoxide is tetrahedral and can be chiral.",
           "diagram": "carbonyl",
           "eventKind": "elementary-model",
           "assignmentStatus": "candidate",
           "assignmentNote": "Acetone attack-angle data are analogous, not benzaldehyde results.",
           "why": [
             "Closed-shell electron-pair model for this event.",
-            "n(C of CN⁻) → π*(C=O)",
+            "Cyanide carbon donates to benzaldehyde π*(C=O), while π(C=O) polarizes onto oxygen.",
             "Candidate for tetrahedral addition or elimination with π-bond redistribution.",
-            "The carbonyl center changes from approximately trigonal planar to tetrahedral."
+            "CN⁻ approaches one face of planar PhCHO; the benzylic alkoxide is tetrahedral and can be chiral."
           ],
           "diagramScope": "partial"
         },
@@ -1830,17 +1861,17 @@
           "code": "1122",
           "equation": "PhCH(O⁻)CN + HCN → PhCH(OH)CN + CN⁻",
           "flow": "Alkoxide oxygen removes H from HCN; the H–C bond pair returns to carbon to regenerate CN⁻ and form cyanohydrin.",
-          "orbital": "n(base) → σ*(H–A)",
-          "geometry": "The base approaches H as the original donor–H contact weakens.",
+          "orbital": "Alkoxide O takes H from H–CN and the H–C electron pair returns to cyanide carbon.",
+          "geometry": "The alkoxide/HCN proton-transfer encounter converts O⁻ to OH without changing its new C–CN bond.",
           "diagram": "proton",
           "eventKind": "elementary-model",
           "assignmentStatus": "consistent-with-convention",
           "assignmentNote": "Acetone attack-angle data are analogous, not benzaldehyde results.",
           "why": [
             "Closed-shell electron-pair model for this event.",
-            "n(base) → σ*(H–A)",
+            "Alkoxide O takes H from H–CN and the H–C electron pair returns to cyanide carbon.",
             "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
-            "The base approaches H as the original donor–H contact weakens."
+            "The alkoxide/HCN proton-transfer encounter converts O⁻ to OH without changing its new C–CN bond."
           ],
           "diagramScope": "partial"
         }
@@ -1880,10 +1911,10 @@
       "quantumData": {
         "status": "literature-related-qualitative",
         "descriptors": [
-          "Donor HOMO–acceptor LUMO gap and orbital interaction energy",
-          "Carbonyl-carbon charge, C–O/C–Nu bond orders, and reaction coordinate"
+          "Benzaldehyde/CN⁻ approach angle and C–CN bond formation",
+          "Alkoxide protonation by HCN after the addition event"
         ],
-        "note": "The conclusion below comes from the named published calculation. It is not a new calculation for this teaching entry; read its model and limits.",
+        "note": "For Cyanohydrin formation, distinguish the named published system below from this card's equation. The proposed protocol has not been run by the Atlas.",
         "literatureCases": [],
         "literatureInsights": [
           {
@@ -1893,7 +1924,8 @@
             "limits": "This card uses benzaldehyde + HCN and includes proton transfer. The acetone attack angle and surface cannot be assigned to benzaldehyde.",
             "source": "qc_attack_angle",
             "location": "Computational Methods; Figures 2 and 9",
-            "verification": "Quoted numerical claims and method checked in primary-source tables/text on 2026-10-13."
+            "verification": "Quoted numerical claims and method checked in primary-source tables/text on 2026-10-13.",
+            "publishedQuantity": "Preferred C(CN)–C(carbonyl)–O angle ≈111° for gas-phase CN⁻ + acetone (−1, singlet); M06-2X/6-311+G(d,p) geometry scan. The teaching substrate is different."
           }
         ],
         "proposedProtocol": {
@@ -1926,17 +1958,17 @@
           "code": "1113",
           "equation": "CH₃COCl + CH₃O⁻ → CH₃C(O⁻)(OCH₃)Cl",
           "flow": "Alkoxide attacks the acyl carbon; the C=O π pair shifts to oxygen, forming a tetrahedral intermediate.",
-          "orbital": "n(Nu) → π*(C=O)",
-          "geometry": "The carbonyl center changes from approximately trigonal planar to tetrahedral.",
+          "orbital": "Methoxide O donates into π*(C=O) of acetyl chloride and the carbonyl π pair shifts to O.",
+          "geometry": "The planar acyl carbon becomes tetrahedral, retaining the chloride until collapse or a concerted alternative.",
           "diagram": "carbonyl",
           "eventKind": "elementary-model",
           "assignmentStatus": "candidate",
           "assignmentNote": "A discrete tetrahedral intermediate for this highly reactive pair is a teaching assumption; check concerted alternatives.",
           "why": [
             "Closed-shell electron-pair model for this event.",
-            "n(Nu) → π*(C=O)",
+            "Methoxide O donates into π*(C=O) of acetyl chloride and the carbonyl π pair shifts to O.",
             "Candidate for tetrahedral addition or elimination with π-bond redistribution.",
-            "The carbonyl center changes from approximately trigonal planar to tetrahedral."
+            "The planar acyl carbon becomes tetrahedral, retaining the chloride until collapse or a concerted alternative."
           ],
           "diagramScope": "partial"
         },
@@ -1995,10 +2027,10 @@
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "Donor HOMO–acceptor LUMO gap and orbital interaction energy",
-          "Carbonyl-carbon charge, C–O/C–Nu bond orders, and reaction coordinate"
+          "Methoxide attack on acetyl chloride and C=O π opening",
+          "Tetrahedral versus concerted C–Cl departure pathways"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "note": "No computed result is mapped to Nucleophilic acyl substitution. The following observables and protocol are proposals, not results.",
         "literatureCases": [],
         "literatureInsights": [],
         "proposedProtocol": {
@@ -2048,17 +2080,17 @@
           "code": "1122",
           "equation": "CH₃OCH₂CH₂O⁻ + H₃O⁺ → CH₃OCH₂CH₂OH + H₂O",
           "flow": "The alkoxide oxygen takes H from hydronium during work-up; the hydronium O–H bond pair returns to water.",
-          "orbital": "n(base) → σ*(H–A)",
-          "geometry": "The base approaches H as the original donor–H contact weakens.",
+          "orbital": "The newly formed terminal alkoxide O attacks H of H₃O⁺; the donor O–H pair returns to water.",
+          "geometry": "This separate aqueous work-up protonates the alkoxide after backside epoxide opening.",
           "diagram": "proton",
           "eventKind": "elementary-model",
           "assignmentStatus": "consistent-with-convention",
           "assignmentNote": "Actual solvent and order of acid work-up must be retained when comparing paths.",
           "why": [
             "Closed-shell electron-pair model for this event.",
-            "n(base) → σ*(H–A)",
+            "The newly formed terminal alkoxide O attacks H of H₃O⁺; the donor O–H pair returns to water.",
             "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
-            "The base approaches H as the original donor–H contact weakens."
+            "This separate aqueous work-up protonates the alkoxide after backside epoxide opening."
           ],
           "diagramScope": "partial"
         }
@@ -2097,10 +2129,10 @@
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "Activation-strain profile (ΔEstrain / ΔEinteraction) along the reaction coordinate",
-          "EDA terms (Pauli, electrostatic, orbital) and σ*(C–LG) energy"
+          "Methoxide backside ring opening at an epoxide carbon",
+          "Ring C–O rupture followed by distinct hydronium work-up"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "note": "No computed result is mapped to Basic epoxide opening. The following observables and protocol are proposals, not results.",
         "literatureCases": [],
         "literatureInsights": [],
         "proposedProtocol": {
@@ -2131,17 +2163,17 @@
           "code": "1122",
           "equation": "CH₃CHO + HO⁻ ⇌ ⁻CH₂CHO + H₂O",
           "flow": "Base removes an α-H; the C–H electrons enter the delocalized enolate system rather than making a separate intermediate for each resonance form.",
-          "orbital": "n(base) → σ*(H–A)",
-          "geometry": "The base approaches H as the original donor–H contact weakens.",
+          "orbital": "Hydroxide abstracts an acetaldehyde α-H; the C–H pair enters the enolate π system and electron density delocalizes onto O.",
+          "geometry": "At the α carbon, deprotonation permits an enolate-like planar π arrangement; carbon and oxygen resonance forms are not extra events.",
           "diagram": "proton",
           "eventKind": "elementary-model",
           "assignmentStatus": "consistent-with-convention",
           "assignmentNote": "1122 for enolate formation is a dominant proton-transfer convention; delocalization is not encoded separately.",
           "why": [
             "Closed-shell electron-pair model for this event.",
-            "n(base) → σ*(H–A)",
+            "Hydroxide abstracts an acetaldehyde α-H; the C–H pair enters the enolate π system and electron density delocalizes onto O.",
             "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
-            "The base approaches H as the original donor–H contact weakens."
+            "At the α carbon, deprotonation permits an enolate-like planar π arrangement; carbon and oxygen resonance forms are not extra events."
           ],
           "diagramScope": "partial"
         },
@@ -2150,17 +2182,17 @@
           "code": "1113",
           "equation": "⁻CH₂CHO + CH₃CHO → CH₃CH(O⁻)CH₂CHO",
           "flow": "The enolate α-carbon forms C–C with a second aldehyde carbonyl carbon; its C=O π pair shifts to oxygen.",
-          "orbital": "occupied enolate orbital → π*(C=O)",
-          "geometry": "The carbonyl center changes from approximately trigonal planar to tetrahedral.",
+          "orbital": "The carbon-centered enolate contributor attacks a second acetaldehyde C=O; its π pair shifts to O.",
+          "geometry": "The acceptor aldehyde carbon changes from planar to tetrahedral; a new Cα–Ccarbonyl bond forms.",
           "diagram": "carbonyl",
           "eventKind": "elementary-model",
           "assignmentStatus": "candidate",
           "assignmentNote": "1122 for enolate formation is a dominant proton-transfer convention; delocalization is not encoded separately.",
           "why": [
             "Closed-shell electron-pair model for this event.",
-            "occupied enolate orbital → π*(C=O)",
+            "The carbon-centered enolate contributor attacks a second acetaldehyde C=O; its π pair shifts to O.",
             "Candidate for tetrahedral addition or elimination with π-bond redistribution.",
-            "The carbonyl center changes from approximately trigonal planar to tetrahedral."
+            "The acceptor aldehyde carbon changes from planar to tetrahedral; a new Cα–Ccarbonyl bond forms."
           ],
           "diagramScope": "partial"
         },
@@ -2169,17 +2201,17 @@
           "code": "1122",
           "equation": "CH₃CH(O⁻)CH₂CHO + H₂O ⇌ CH₃CH(OH)CH₂CHO + HO⁻",
           "flow": "The aldolate oxygen abstracts H from water; the donor O–H pair returns to oxygen, forming β-hydroxy aldehyde and regenerating base.",
-          "orbital": "n(base) → σ*(H–A)",
-          "geometry": "The base approaches H as the original donor–H contact weakens.",
+          "orbital": "The aldolate O⁻ takes H from water; water O–H electrons return to hydroxide.",
+          "geometry": "Protonation changes the new O⁻ to β-OH without breaking the aldol C–C bond.",
           "diagram": "proton",
           "eventKind": "elementary-model",
           "assignmentStatus": "consistent-with-convention",
           "assignmentNote": "1122 for enolate formation is a dominant proton-transfer convention; delocalization is not encoded separately.",
           "why": [
             "Closed-shell electron-pair model for this event.",
-            "n(base) → σ*(H–A)",
+            "The aldolate O⁻ takes H from water; water O–H electrons return to hydroxide.",
             "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
-            "The base approaches H as the original donor–H contact weakens."
+            "Protonation changes the new O⁻ to β-OH without breaking the aldol C–C bond."
           ],
           "diagramScope": "partial"
         }
@@ -2218,10 +2250,10 @@
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "Donor HOMO–acceptor LUMO gap and orbital interaction energy",
-          "Carbonyl-carbon charge, C–O/C–Nu bond orders, and reaction coordinate"
+          "Acetaldehyde enolate delocalization at α-C and O",
+          "C–C growth into a second aldehyde and aldolate protonation"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "note": "No computed result is mapped to Aldol addition. The following observables and protocol are proposals, not results.",
         "literatureCases": [],
         "literatureInsights": [],
         "proposedProtocol": {
@@ -2301,10 +2333,10 @@
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "Spin density/population and SOMO coefficients",
-          "Spin-state and bond-order changes along bond-breaking/forming coordinates"
+          "Alkene π and incoming radical SOMO overlap",
+          "Spin redistribution to the terminal carbon after bond formation"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "note": "No computed result is mapped to Radical alkene addition. The following observables and protocol are proposals, not results.",
         "literatureCases": [],
         "literatureInsights": [],
         "proposedProtocol": {
@@ -2398,10 +2430,10 @@
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "Spin density/population and SOMO coefficients",
-          "Spin-state and bond-order changes along bond-breaking/forming coordinates"
+          "Methyl radical SOMO overlap and spin-pairing condition",
+          "C–C bond-order growth toward closed-shell ethane"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "note": "No computed result is mapped to Radical recombination. The following observables and protocol are proposals, not results.",
         "literatureCases": [],
         "literatureInsights": [],
         "proposedProtocol": {
@@ -2500,10 +2532,10 @@
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "Spin density/population and SOMO coefficients",
-          "Spin-state and bond-order changes along bond-breaking/forming coordinates"
+          "Methane C–H homolysis in Cl• abstraction",
+          "Methyl radical transfer at Cl₂ and regenerated Cl• spin density"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "note": "No computed result is mapped to Radical chlorination: propagation. The following observables and protocol are proposals, not results.",
         "literatureCases": [],
         "literatureInsights": [],
         "proposedProtocol": {
@@ -2556,12 +2588,12 @@
       ],
       "facts": [
         [
-          "Bond bookkeeping",
-          "3 π → 1 π + 2 σ."
+          "Six-electron bookkeeping",
+          "The butadiene terminal π bonds and ethene π bond become two ring σ bonds and one internal C=C in cyclohexene."
         ],
         [
           "Stereochemistry",
-          "A typical thermal event is suprafacial on both components."
+          "Both components engage suprafacially; unsubstituted butadiene and ethene create no stereocenter or endo/exo choice."
         ]
       ],
       "scope": "Unactivated ethylene is a minimal illustration, not an assertion of facile reaction; concerted new bonds need not form synchronously.",
@@ -2570,25 +2602,39 @@
       "mechanismComplete": true,
       "mechanismNote": "Pathway at the stated teaching resolution; inspect scope and event notes. This is not a claim that each listed stage is a verified elementary event.",
       "figure": {
-        "src": "https://www.chemistrylearner.com/wp-content/uploads/2020/01/Diels-Alder-Reaction-Mechanism.jpg",
-        "href": "https://www.chemistrylearner.com/diels-alder-reaction.html",
-        "alt": "Exact illustration: Diels–Alder cycloaddition. Butadiene + ethene to cyclohexene and three cyclic arrows match.",
-        "credit": "Chemistry Learner · Diels–Alder reaction",
+        "src": "mechanisms/diels-alder.svg",
+        "href": "mechanisms/diels-alder.svg",
+        "alt": "Original equation-matched electron-flow pathway: Diels–Alder cycloaddition",
+        "credit": "SORG Atlas · original SVG",
         "match": "exact",
         "coverage": "complete",
-        "reviewNote": "Butadiene + ethene to cyclohexene and three cyclic arrows match.",
+        "reviewNote": "Original condensed-structure pathway checked against every listed equation, charge, intermediate and electron-pair move; Fischer step 3 expands a grouped solvent relay. The diagram does not specify computed transition-state geometry.",
         "reviewed": true,
-        "rightsStatus": "unconfirmed",
-        "license": "Reuse permission not established; external reference retained.",
-        "display": false
+        "rightsStatus": "original",
+        "license": "Original SORG Atlas illustration · CC BY-NC-SA 4.0",
+        "display": true,
+        "priorReference": {
+          "src": "https://www.chemistrylearner.com/wp-content/uploads/2020/01/Diels-Alder-Reaction-Mechanism.jpg",
+          "href": "https://www.chemistrylearner.com/diels-alder-reaction.html",
+          "alt": "Exact illustration: Diels–Alder cycloaddition. Butadiene + ethene to cyclohexene and three cyclic arrows match.",
+          "credit": "Chemistry Learner · Diels–Alder reaction",
+          "match": "exact",
+          "coverage": "complete",
+          "reviewNote": "Butadiene + ethene to cyclohexene and three cyclic arrows match.",
+          "reviewed": true,
+          "rightsStatus": "unconfirmed",
+          "license": "Reuse permission not established; external reference retained.",
+          "display": false
+        },
+        "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
       },
       "quantumData": {
         "status": "literature-related-numerical",
         "descriptors": [
-          "Frontier-orbital phases/coefficients and symmetry allowance",
-          "Bond-order evolution and orbital interaction energy along the concerted coordinate"
+          "Butadiene s-cis/ethene orbital phases for suprafacial [4+2]",
+          "Two forming σ bonds and the internal diene π bond at matched coordinates"
         ],
-        "note": "The table contains published calculations for the explicitly named model, not new values calculated for this teaching entry. Do not transfer the numbers to another substrate, solvent, or orbital convention.",
+        "note": "For Diels–Alder cycloaddition, distinguish the named published system below from this card's equation. The proposed protocol has not been run by the Atlas.",
         "literatureCases": [
           {
             "title": "Orbital interaction and electron donation in a Diels–Alder model",
@@ -2622,7 +2668,8 @@
             "limits": "ΔEorbital is the total EDA orbital-interaction term, S is a dimensionless overlap, and 0.7 electron is a method-specific charge-transfer analysis. None is a diabatic electronic-coupling matrix element H_DA or an intrinsic SORG score. The radical-cation pathway is not assigned the neutral card’s 1333 code.",
             "source": "qc_da_ion",
             "location": "Table 1 and orbital analysis",
-            "verification": "Numerical transcription checked against primary-source tables/text, 2026-10-13; calculations not reproduced."
+            "verification": "Numerical transcription checked against primary-source tables/text, 2026-10-13; calculations not reproduced.",
+            "teachingPoint": "At the fixed 2.203 Å geometry, ionizing acrolein changes both orbital stabilization and Pauli repulsion. Its stepwise doublet path differs from the neutral butadiene/ethene card."
           }
         ],
         "literatureInsights": [],
@@ -2705,10 +2752,10 @@
       "quantumData": {
         "status": "literature-related-qualitative",
         "descriptors": [
-          "Frontier-orbital phases/coefficients and symmetry allowance",
-          "Bond-order evolution and orbital interaction energy along the concerted coordinate"
+          "Allyl vinyl ether six-center orbital phase relationship",
+          "O–allyl cleavage and new C–C bond asynchronicity on an ELF path"
         ],
-        "note": "The conclusion below comes from the named published calculation. It is not a new calculation for this teaching entry; read its model and limits.",
+        "note": "For Claisen rearrangement, distinguish the named published system below from this card's equation. The proposed protocol has not been run by the Atlas.",
         "literatureCases": [],
         "literatureInsights": [
           {
@@ -2799,10 +2846,10 @@
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "Frontier-orbital phases/coefficients and symmetry allowance",
-          "Bond-order evolution and orbital interaction energy along the concerted coordinate"
+          "4π terminal-orbital phases under thermal conrotation",
+          "Terminal C–C σ growth and stereochemical orientation"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "note": "No computed result is mapped to Thermal electrocyclic closure. The following observables and protocol are proposals, not results.",
         "literatureCases": [],
         "literatureInsights": [],
         "proposedProtocol": {
@@ -2903,10 +2950,10 @@
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "Conjugate-base stabilization and leaving-group loss along separate coordinates",
-          "Enolate charge delocalization and C=C/C–O bond-order changes"
+          "Carbonyl α-enolate stabilization before C–OH departure",
+          "Cα=Cβ growth and β-C–O cleavage as distinct stages"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "note": "No computed result is mapped to E1cB dehydration. The following observables and protocol are proposals, not results.",
         "literatureCases": [],
         "literatureInsights": [],
         "proposedProtocol": {
@@ -3006,10 +3053,10 @@
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "Charge transfer and frontier-orbital energies along the reaction coordinate",
-          "Electron density and bond order for key intermediates and transition states"
+          "Propene π donation to Br₂ and bromonium charge distribution",
+          "Backside Br⁻ ring opening and anti relative geometry"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "note": "No computed result is mapped to Bromination of an alkene. The following observables and protocol are proposals, not results.",
         "literatureCases": [],
         "literatureInsights": [],
         "proposedProtocol": {
@@ -3078,17 +3125,17 @@
           "code": "1122",
           "equation": "BrCH₂CH(OH₂⁺)CH₃ + H₂O ⇌ BrCH₂CH(OH)CH₃ + H₃O⁺",
           "flow": "A second water molecule removes the oxonium proton; the O–H bond pair returns to product oxygen to give the neutral halohydrin.",
-          "orbital": "n(base) → σ*(H–A)",
-          "geometry": "The base approaches H as the original donor–H contact weakens.",
+          "orbital": "Water removes H from the attached oxonium O⁺; the substrate O–H electrons return to oxygen.",
+          "geometry": "Deprotonation leaves the anti-installed C–Br and C–OH bonds in place.",
           "diagram": "proton",
           "eventKind": "elementary-model",
           "assignmentStatus": "consistent-with-convention",
           "assignmentNote": "Same 1133 boundary as bromination; Br2/water must not be equated with an NBS scheme.",
           "why": [
             "Closed-shell electron-pair model for this event.",
-            "n(base) → σ*(H–A)",
+            "Water removes H from the attached oxonium O⁺; the substrate O–H electrons return to oxygen.",
             "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
-            "The base approaches H as the original donor–H contact weakens."
+            "Deprotonation leaves the anti-installed C–Br and C–OH bonds in place."
           ],
           "diagramScope": "partial"
         }
@@ -3128,10 +3175,10 @@
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "Charge transfer and frontier-orbital energies along the reaction coordinate",
-          "Electron density and bond order for key intermediates and transition states"
+          "Propene/Br₂ bromonium formation in water",
+          "Water attack at the substituted carbon and subsequent oxonium deprotonation"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "note": "No computed result is mapped to Halohydrin formation. The following observables and protocol are proposals, not results.",
         "literatureCases": [],
         "literatureInsights": [],
         "proposedProtocol": {
@@ -3162,17 +3209,17 @@
           "code": "1122",
           "equation": "HNO₃ + H₂SO₄ ⇌ H₂NO₃⁺ + HSO₄⁻",
           "flow": "The hydroxyl oxygen of nitric acid accepts a proton from sulfuric acid; the sulfuric-acid O–H bond pair returns to its oxygen, giving HSO₄⁻.",
-          "orbital": "n(base) → σ*(H–A)",
-          "geometry": "The base approaches H as the original donor–H contact weakens.",
+          "orbital": "Nitric-acid hydroxyl O donates to H of sulfuric acid; the sulfuric O–H pair gives HSO₄⁻.",
+          "geometry": "An acid encounter protonates the hydroxyl oxygen destined to depart as water.",
           "diagram": "proton",
           "eventKind": "elementary-model",
           "assignmentStatus": "consistent-with-convention",
           "assignmentNote": "1133 at arene attack/rearomatization is broader than the codebook examples; preserve candidate status pending codebook discussion.",
           "why": [
             "Closed-shell electron-pair model for this event.",
-            "n(base) → σ*(H–A)",
+            "Nitric-acid hydroxyl O donates to H of sulfuric acid; the sulfuric O–H pair gives HSO₄⁻.",
             "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
-            "The base approaches H as the original donor–H contact weakens."
+            "An acid encounter protonates the hydroxyl oxygen destined to depart as water."
           ],
           "diagramScope": "partial"
         },
@@ -3270,10 +3317,10 @@
       "quantumData": {
         "status": "literature-related-qualitative",
         "descriptors": [
-          "Aromatic π-orbital coefficients and electrophile–arene interaction",
-          "Charge/spin density and aromaticity measures for the σ complex"
+          "Nitronium generation from mixed acids and N–O charge changes",
+          "Arene–NO₂⁺ interaction and arenium π-delocalization through rearomatization"
         ],
-        "note": "The conclusion below comes from the named published calculation. It is not a new calculation for this teaching entry; read its model and limits.",
+        "note": "For Nitration of benzene, distinguish the named published system below from this card's equation. The proposed protocol has not been run by the Atlas.",
         "literatureCases": [],
         "literatureInsights": [
           {
@@ -3315,17 +3362,17 @@
           "code": "1122",
           "equation": "CH₃C(=O)OH + H₃O⁺ ⇌ CH₃C(=OH⁺)OH + H₂O",
           "flow": "The carbonyl oxygen takes H from acid; the acid X–H bond pair returns to its conjugate base.",
-          "orbital": "n(base) → σ*(H–A)",
-          "geometry": "The base approaches H as the original donor–H contact weakens.",
+          "orbital": "The acetic-acid carbonyl O lone pair accepts H from H₃O⁺; the donor O–H pair returns to water.",
+          "geometry": "Protonated CH₃C(=OH⁺)OH retains a planar acyl carbon and bears +1 on the original carbonyl O.",
           "diagram": "proton",
           "eventKind": "elementary-model",
           "assignmentStatus": "consistent-with-convention",
           "assignmentNote": "The proton relay is grouped; its displayed 1122 refers to component proton transfers, not a verified single event.",
           "why": [
             "Closed-shell electron-pair model for this event.",
-            "n(base) → σ*(H–A)",
+            "The acetic-acid carbonyl O lone pair accepts H from H₃O⁺; the donor O–H pair returns to water.",
             "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
-            "The base approaches H as the original donor–H contact weakens."
+            "Protonated CH₃C(=OH⁺)OH retains a planar acyl carbon and bears +1 on the original carbonyl O."
           ],
           "diagramScope": "partial"
         },
@@ -3334,17 +3381,17 @@
           "code": "1113",
           "equation": "CH₃C(=OH⁺)OH + HOCH₂CH₃ → CH₃C(OH)(OH)(O⁺HCH₂CH₃)",
           "flow": "Ethanol oxygen attacks the activated acyl carbon; the C=O π pair shifts to the original carbonyl oxygen, giving tetrahedral oxonium.",
-          "orbital": "n(OEtOH) → π*(C=O)",
-          "geometry": "The carbonyl center changes from approximately trigonal planar to tetrahedral.",
+          "orbital": "Ethanol O lone pair → π*(C=OH⁺), with C=O π electrons returning to the original oxygen.",
+          "geometry": "The acyl carbon becomes tetrahedral; the incoming ethoxy O bears +1 until deprotonated.",
           "diagram": "pending",
           "eventKind": "elementary-model",
           "assignmentStatus": "candidate",
           "assignmentNote": "The proton relay is grouped; its displayed 1122 refers to component proton transfers, not a verified single event.",
           "why": [
             "Closed-shell electron-pair model for this event.",
-            "n(OEtOH) → π*(C=O)",
+            "Ethanol O lone pair → π*(C=OH⁺), with C=O π electrons returning to the original oxygen.",
             "Candidate for tetrahedral addition or elimination with π-bond redistribution.",
-            "The carbonyl center changes from approximately trigonal planar to tetrahedral."
+            "The acyl carbon becomes tetrahedral; the incoming ethoxy O bears +1 until deprotonated."
           ],
           "diagramScope": "partial"
         },
@@ -3353,17 +3400,17 @@
           "code": "1122",
           "equation": "CH₃C(OH)(OH)(O⁺HCH₂CH₃) ⇌ CH₃C(OH)(OH₂⁺)(OCH₂CH₃)",
           "flow": "Solvent-mediated proton transfers neutralize the ethoxy oxygen and turn one OH group into an H₂O leaving group.",
-          "orbital": "n(base) → σ*(H–A)",
-          "geometry": "The base approaches H as the original donor–H contact weakens.",
+          "orbital": "Water removes the ethoxy oxonium H; a subsequent solvent-acid transfer protonates the original hydroxyl O.",
+          "geometry": "Two solvent-mediated proton transfers connect oxonium and water-leaving-group states; this listed stage is grouped.",
           "diagram": "proton",
           "eventKind": "grouped-stage",
           "assignmentStatus": "candidate",
           "assignmentNote": "The proton relay is grouped; its displayed 1122 refers to component proton transfers, not a verified single event. The code labels the dominant component process; no unique elementary-event code is established for the whole grouped stage.",
           "why": [
             "Closed-shell electron-pair model for this event.",
-            "n(base) → σ*(H–A)",
+            "Water removes the ethoxy oxonium H; a subsequent solvent-acid transfer protonates the original hydroxyl O.",
             "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
-            "The base approaches H as the original donor–H contact weakens."
+            "Two solvent-mediated proton transfers connect oxonium and water-leaving-group states; this listed stage is grouped."
           ],
           "diagramScope": "partial"
         },
@@ -3391,17 +3438,17 @@
           "code": "1122",
           "equation": "CH₃C(=OH⁺)OCH₂CH₃ + H₂O ⇌ CH₃CO₂CH₂CH₃ + H₃O⁺",
           "flow": "Water removes the remaining carbonyl-oxygen proton; its O–H pair returns to ester oxygen and acid is regenerated.",
-          "orbital": "n(base) → σ*(H–A)",
-          "geometry": "The base approaches H as the original donor–H contact weakens.",
+          "orbital": "Water removes H from the protonated ester carbonyl O; the O–H electrons neutralize that oxygen.",
+          "geometry": "The ester acyl carbon remains planar while hydronium is regenerated.",
           "diagram": "proton",
           "eventKind": "elementary-model",
           "assignmentStatus": "consistent-with-convention",
           "assignmentNote": "The proton relay is grouped; its displayed 1122 refers to component proton transfers, not a verified single event.",
           "why": [
             "Closed-shell electron-pair model for this event.",
-            "n(base) → σ*(H–A)",
+            "Water removes H from the protonated ester carbonyl O; the O–H electrons neutralize that oxygen.",
             "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
-            "The base approaches H as the original donor–H contact weakens."
+            "The ester acyl carbon remains planar while hydronium is regenerated."
           ],
           "diagramScope": "partial"
         }
@@ -3411,12 +3458,12 @@
       ],
       "facts": [
         [
-          "Path type",
-          "Acid-catalyzed nucleophilic acyl substitution with a tetrahedral intermediate."
+          "Oxygen identities",
+          "The ethanol O becomes the ester single-bonded O; the original acetic-acid carbonyl O reforms C=O."
         ],
         [
-          "Equilibrium",
-          "The reaction is reversible; water removal or excess alcohol favors ester."
+          "Relay and equilibrium",
+          "Neutralizing the incoming oxonium and activating OH as H₂O requires solvent-mediated proton transfers; removal of water or alcohol excess shifts the reversible reaction."
         ]
       ],
       "scope": "Solvent-mediated proton relays are grouped as one teaching event; microscopic relays can involve multiple alcohol/water molecules.",
@@ -3425,26 +3472,40 @@
       "mechanismComplete": true,
       "mechanismNote": "Pathway at the stated teaching resolution; inspect scope and event notes. This is not a claim that each listed stage is a verified elementary event.",
       "figure": {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Fischer_esterification_mechanism.svg/1280px-Fischer_esterification_mechanism.svg.png",
-        "href": "https://commons.wikimedia.org/wiki/File:Fischer_esterification_mechanism.svg",
-        "alt": "Pending illustration: Fischer esterification. Image fetch rate-limited/access-blocked; substrate match and proton-relay coverage remain unreviewed.",
-        "credit": "V8rik · Wikimedia Commons · Public domain",
-        "match": "pending",
-        "coverage": "unreviewed",
-        "reviewNote": "Image fetch rate-limited/access-blocked; substrate match and proton-relay coverage remain unreviewed.",
-        "reviewed": false,
-        "rightsStatus": "source-license-checked",
-        "license": "Public domain (file-page declaration)",
-        "display": false,
-        "licenseUrl": "https://commons.wikimedia.org/wiki/File:Fischer_esterification_mechanism.svg"
+        "src": "mechanisms/fischer-esterification.svg",
+        "href": "mechanisms/fischer-esterification.svg",
+        "alt": "Original equation-matched electron-flow pathway: Fischer esterification",
+        "credit": "SORG Atlas · original SVG",
+        "match": "exact",
+        "coverage": "complete",
+        "reviewNote": "Original condensed-structure pathway checked against every listed equation, charge, intermediate and electron-pair move; Fischer step 3 expands a grouped solvent relay. The diagram does not specify computed transition-state geometry.",
+        "reviewed": true,
+        "rightsStatus": "original",
+        "license": "Original SORG Atlas illustration · CC BY-NC-SA 4.0",
+        "display": true,
+        "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+        "priorReference": {
+          "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Fischer_esterification_mechanism.svg/1280px-Fischer_esterification_mechanism.svg.png",
+          "href": "https://commons.wikimedia.org/wiki/File:Fischer_esterification_mechanism.svg",
+          "alt": "Pending illustration: Fischer esterification. Image fetch rate-limited/access-blocked; substrate match and proton-relay coverage remain unreviewed.",
+          "credit": "V8rik · Wikimedia Commons · Public domain",
+          "match": "pending",
+          "coverage": "unreviewed",
+          "reviewNote": "Image fetch rate-limited/access-blocked; substrate match and proton-relay coverage remain unreviewed.",
+          "reviewed": false,
+          "rightsStatus": "source-license-checked",
+          "license": "Public domain (file-page declaration)",
+          "display": false,
+          "licenseUrl": "https://commons.wikimedia.org/wiki/File:Fischer_esterification_mechanism.svg"
+        }
       },
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "Donor HOMO–acceptor LUMO gap and orbital interaction energy",
-          "Carbonyl-carbon charge, C–O/C–Nu bond orders, and reaction coordinate"
+          "Acetic-acid carbonyl activation and ethanol O attack",
+          "Tetrahedral proton-relay structures and water departure under acid catalysis"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "note": "No computed result is mapped to Fischer esterification. The following observables and protocol are proposals, not results.",
         "literatureCases": [],
         "literatureInsights": [],
         "proposedProtocol": {
@@ -3475,17 +3536,17 @@
           "code": "1122",
           "equation": "(CH₃)₂C=O + H₃O⁺ ⇌ (CH₃)₂C=OH⁺ + H₂O",
           "flow": "Acid protonates carbonyl oxygen, increasing electrophilicity; too much acid would suppress amine nucleophilicity.",
-          "orbital": "n(base) → σ*(H–A)",
-          "geometry": "The base approaches H as the original donor–H contact weakens.",
+          "orbital": "Acetone carbonyl O donates to H of H₃O⁺; the hydronium O–H pair goes to water.",
+          "geometry": "The O-protonated carbonyl is still planar, with +1 on oxygen.",
           "diagram": "proton",
           "eventKind": "elementary-model",
           "assignmentStatus": "consistent-with-convention",
           "assignmentNote": "1113 for iminium dehydration extends the carbonyl-elimination analogy to C=N; retained as candidate, not a taxonomy change.",
           "why": [
             "Closed-shell electron-pair model for this event.",
-            "n(base) → σ*(H–A)",
+            "Acetone carbonyl O donates to H of H₃O⁺; the hydronium O–H pair goes to water.",
             "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
-            "The base approaches H as the original donor–H contact weakens."
+            "The O-protonated carbonyl is still planar, with +1 on oxygen."
           ],
           "diagramScope": "partial"
         },
@@ -3494,17 +3555,17 @@
           "code": "1113",
           "equation": "(CH₃)₂C=OH⁺ + CH₃NH₂ → (CH₃)₂C(OH)(NH₂CH₃)⁺",
           "flow": "Methylamine nitrogen attacks carbonyl carbon; the C=O π pair goes to oxygen, giving carbinolammonium.",
-          "orbital": "n(N) → π*(C=O)",
-          "geometry": "The carbonyl center changes from approximately trigonal planar to tetrahedral.",
+          "orbital": "Methylamine N lone pair attacks acetone π*(C=OH⁺); the C=O π pair returns to O.",
+          "geometry": "The new tetrahedral carbinolammonium has a neutral OH and four-coordinate N⁺.",
           "diagram": "pending",
           "eventKind": "elementary-model",
           "assignmentStatus": "candidate",
           "assignmentNote": "1113 for iminium dehydration extends the carbonyl-elimination analogy to C=N; retained as candidate, not a taxonomy change.",
           "why": [
             "Closed-shell electron-pair model for this event.",
-            "n(N) → π*(C=O)",
+            "Methylamine N lone pair attacks acetone π*(C=OH⁺); the C=O π pair returns to O.",
             "Candidate for tetrahedral addition or elimination with π-bond redistribution.",
-            "The carbonyl center changes from approximately trigonal planar to tetrahedral."
+            "The new tetrahedral carbinolammonium has a neutral OH and four-coordinate N⁺."
           ],
           "diagramScope": "partial"
         },
@@ -3513,17 +3574,17 @@
           "code": "1122",
           "equation": "(CH₃)₂C(OH)(NH₂CH₃)⁺ + H₂O ⇌ (CH₃)₂C(OH)(NHCH₃) + H₃O⁺",
           "flow": "Water removes a proton from nitrogen to form neutral carbinolamine.",
-          "orbital": "n(base) → σ*(H–A)",
-          "geometry": "The base approaches H as the original donor–H contact weakens.",
+          "orbital": "Water removes one N–H proton from carbinolammonium; the N–H pair neutralizes N.",
+          "geometry": "Neutral carbinolamine retains tetrahedral carbon and has one N–H bond.",
           "diagram": "proton",
           "eventKind": "elementary-model",
           "assignmentStatus": "consistent-with-convention",
           "assignmentNote": "1113 for iminium dehydration extends the carbonyl-elimination analogy to C=N; retained as candidate, not a taxonomy change.",
           "why": [
             "Closed-shell electron-pair model for this event.",
-            "n(base) → σ*(H–A)",
+            "Water removes one N–H proton from carbinolammonium; the N–H pair neutralizes N.",
             "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
-            "The base approaches H as the original donor–H contact weakens."
+            "Neutral carbinolamine retains tetrahedral carbon and has one N–H bond."
           ],
           "diagramScope": "partial"
         },
@@ -3532,17 +3593,17 @@
           "code": "1122",
           "equation": "(CH₃)₂C(OH)(NHCH₃) + H₃O⁺ ⇌ (CH₃)₂C(OH₂⁺)(NHCH₃) + H₂O",
           "flow": "Acid protonates the hydroxyl oxygen so it can leave as water.",
-          "orbital": "n(base) → σ*(H–A)",
-          "geometry": "The base approaches H as the original donor–H contact weakens.",
+          "orbital": "The carbinolamine OH lone pair accepts H from H₃O⁺; donor O–H electrons return to water.",
+          "geometry": "Tetrahedral C–OH becomes C–OH₂⁺, making neutral water a potential leaving group.",
           "diagram": "proton",
           "eventKind": "elementary-model",
           "assignmentStatus": "consistent-with-convention",
           "assignmentNote": "1113 for iminium dehydration extends the carbonyl-elimination analogy to C=N; retained as candidate, not a taxonomy change.",
           "why": [
             "Closed-shell electron-pair model for this event.",
-            "n(base) → σ*(H–A)",
+            "The carbinolamine OH lone pair accepts H from H₃O⁺; donor O–H electrons return to water.",
             "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
-            "The base approaches H as the original donor–H contact weakens."
+            "Tetrahedral C–OH becomes C–OH₂⁺, making neutral water a potential leaving group."
           ],
           "diagramScope": "partial"
         },
@@ -3568,19 +3629,19 @@
         {
           "title": "Proton transfer",
           "code": "1122",
-          "equation": "(CH₃)₂C=NH⁺CH₃ + H₂O ⇌ (CH₃)₂C=NCH₃ + H₃O⁺",
+          "equation": "(CH₃)₂C=N⁺(H)CH₃ + H₂O ⇌ (CH₃)₂C=NCH₃ + H₃O⁺",
           "flow": "Water removes the final N–H proton; the N–H pair returns to nitrogen to form neutral imine and regenerate acid.",
-          "orbital": "n(base) → σ*(H–A)",
-          "geometry": "The base approaches H as the original donor–H contact weakens.",
+          "orbital": "Water abstracts H from iminium N⁺; the N–H pair returns to N.",
+          "geometry": "Deprotonation retains planar C=N and removes its positive charge.",
           "diagram": "proton",
           "eventKind": "elementary-model",
           "assignmentStatus": "consistent-with-convention",
           "assignmentNote": "1113 for iminium dehydration extends the carbonyl-elimination analogy to C=N; retained as candidate, not a taxonomy change.",
           "why": [
             "Closed-shell electron-pair model for this event.",
-            "n(base) → σ*(H–A)",
+            "Water abstracts H from iminium N⁺; the N–H pair returns to N.",
             "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
-            "The base approaches H as the original donor–H contact weakens."
+            "Deprotonation retains planar C=N and removes its positive charge."
           ],
           "diagramScope": "partial"
         }
@@ -3590,12 +3651,12 @@
       ],
       "facts": [
         [
-          "Intermediate",
-          "Carbinolamine (hemiaminal) → iminium ion → imine."
+          "Charge sequence",
+          "Acetone carbonyl O⁺ → N⁺ carbinolammonium → neutral carbinolamine → O⁺ leaving group → N⁺ iminium → neutral imine."
         ],
         [
-          "Condition window",
-          "Mild acid activates the carbonyl while leaving enough free amine nucleophile."
+          "Acidity window",
+          "Mild acid assists addition and water departure; strongly acidic conditions deplete free methylamine by protonation."
         ]
       ],
       "scope": "Reversible; removing water drives imine formation. Proton transfers can involve solvent relays.",
@@ -3604,26 +3665,40 @@
       "mechanismComplete": true,
       "mechanismNote": "Pathway at the stated teaching resolution; inspect scope and event notes. This is not a claim that each listed stage is a verified elementary event.",
       "figure": {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Mechanism_imine_formation_general.svg",
-        "href": "https://commons.wikimedia.org/wiki/File:Mechanism_imine_formation_general.svg",
-        "alt": "Pending illustration: Imine formation from a ketone. Downloaded SVG rendered with unreadable molecular labels in the inspection renderer. Exact substrate and arrow coverage could not be verified.",
-        "credit": "Wikimedia Commons · CC BY-SA 4.0",
-        "match": "pending",
-        "coverage": "unreviewed",
-        "reviewNote": "Downloaded SVG rendered with unreadable molecular labels in the inspection renderer. Exact substrate and arrow coverage could not be verified.",
-        "reviewed": false,
-        "rightsStatus": "source-license-checked",
-        "license": "CC BY-SA 4.0; unmodified source image",
-        "display": false,
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+        "src": "mechanisms/imine-formation.svg",
+        "href": "mechanisms/imine-formation.svg",
+        "alt": "Original equation-matched electron-flow pathway: Imine formation from a ketone",
+        "credit": "SORG Atlas · original SVG",
+        "match": "exact",
+        "coverage": "complete",
+        "reviewNote": "Original condensed-structure pathway checked against every listed equation, charge, intermediate and electron-pair move; Fischer step 3 expands a grouped solvent relay. The diagram does not specify computed transition-state geometry.",
+        "reviewed": true,
+        "rightsStatus": "original",
+        "license": "Original SORG Atlas illustration · CC BY-NC-SA 4.0",
+        "display": true,
+        "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+        "priorReference": {
+          "src": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Mechanism_imine_formation_general.svg",
+          "href": "https://commons.wikimedia.org/wiki/File:Mechanism_imine_formation_general.svg",
+          "alt": "Pending illustration: Imine formation from a ketone. Downloaded SVG rendered with unreadable molecular labels in the inspection renderer. Exact substrate and arrow coverage could not be verified.",
+          "credit": "Wikimedia Commons · CC BY-SA 4.0",
+          "match": "pending",
+          "coverage": "unreviewed",
+          "reviewNote": "Downloaded SVG rendered with unreadable molecular labels in the inspection renderer. Exact substrate and arrow coverage could not be verified.",
+          "reviewed": false,
+          "rightsStatus": "source-license-checked",
+          "license": "CC BY-SA 4.0; unmodified source image",
+          "display": false,
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+        }
       },
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "Donor HOMO–acceptor LUMO gap and orbital interaction energy",
-          "Carbonyl-carbon charge, C–O/C–Nu bond orders, and reaction coordinate"
+          "Acetone protonation and methylamine addition",
+          "Carbinolamine dehydration, iminium formation and N deprotonation"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "note": "No computed result is mapped to Imine formation from a ketone. The following observables and protocol are proposals, not results.",
         "literatureCases": [],
         "literatureInsights": [],
         "proposedProtocol": {
@@ -3654,17 +3729,17 @@
           "code": "1122",
           "equation": "(CH₃)₂CO + HO⁻ ⇌ CH₃COCH₂⁻ + H₂O",
           "flow": "Base removes an acetone α-H, sending the C–H pair into the delocalized enolate system.",
-          "orbital": "n(base) → σ*(H–A)",
-          "geometry": "The base approaches H as the original donor–H contact weakens.",
+          "orbital": "Hydroxide removes an acetone α-H; the C–H electrons enter the enolate π system.",
+          "geometry": "The α carbon becomes part of a delocalized enolate; the CH₂⁻ formula is one resonance contributor.",
           "diagram": "proton",
           "eventKind": "elementary-model",
           "assignmentStatus": "consistent-with-convention",
           "assignmentNote": "Enolate and E1cB steps retain their convention/candidate boundaries; dehydration depends on conditions.",
           "why": [
             "Closed-shell electron-pair model for this event.",
-            "n(base) → σ*(H–A)",
+            "Hydroxide removes an acetone α-H; the C–H electrons enter the enolate π system.",
             "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
-            "The base approaches H as the original donor–H contact weakens."
+            "The α carbon becomes part of a delocalized enolate; the CH₂⁻ formula is one resonance contributor."
           ],
           "diagramScope": "partial"
         },
@@ -3673,17 +3748,17 @@
           "code": "1113",
           "equation": "CH₃COCH₂⁻ + (CH₃)₂CO → CH₃COCH₂C(O⁻)(CH₃)₂",
           "flow": "Enolate α-carbon bonds to a second acetone carbonyl carbon; its C=O π pair moves to oxygen.",
-          "orbital": "occupied enolate orbital → π*(C=O)",
-          "geometry": "The carbonyl center changes from approximately trigonal planar to tetrahedral.",
+          "orbital": "The acetone enolate carbon attacks another acetone C=O; its π pair goes to O.",
+          "geometry": "The acceptor carbonyl carbon becomes tetrahedral at the new C–C bond.",
           "diagram": "carbonyl",
           "eventKind": "elementary-model",
           "assignmentStatus": "candidate",
           "assignmentNote": "Enolate and E1cB steps retain their convention/candidate boundaries; dehydration depends on conditions.",
           "why": [
             "Closed-shell electron-pair model for this event.",
-            "occupied enolate orbital → π*(C=O)",
+            "The acetone enolate carbon attacks another acetone C=O; its π pair goes to O.",
             "Candidate for tetrahedral addition or elimination with π-bond redistribution.",
-            "The carbonyl center changes from approximately trigonal planar to tetrahedral."
+            "The acceptor carbonyl carbon becomes tetrahedral at the new C–C bond."
           ],
           "diagramScope": "partial"
         },
@@ -3692,17 +3767,17 @@
           "code": "1122",
           "equation": "CH₃COCH₂C(O⁻)(CH₃)₂ + H₂O ⇌ CH₃COCH₂C(OH)(CH₃)₂ + HO⁻",
           "flow": "Alkoxide takes H from water, forming diacetone alcohol and regenerating hydroxide.",
-          "orbital": "n(base) → σ*(H–A)",
-          "geometry": "The base approaches H as the original donor–H contact weakens.",
+          "orbital": "The aldolate O takes H from water, returning the donor O–H pair to hydroxide.",
+          "geometry": "The product β-hydroxyl group appears at the formerly planar acceptor carbonyl carbon.",
           "diagram": "proton",
           "eventKind": "elementary-model",
           "assignmentStatus": "consistent-with-convention",
           "assignmentNote": "Enolate and E1cB steps retain their convention/candidate boundaries; dehydration depends on conditions.",
           "why": [
             "Closed-shell electron-pair model for this event.",
-            "n(base) → σ*(H–A)",
+            "The aldolate O takes H from water, returning the donor O–H pair to hydroxide.",
             "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
-            "The base approaches H as the original donor–H contact weakens."
+            "The product β-hydroxyl group appears at the formerly planar acceptor carbonyl carbon."
           ],
           "diagramScope": "partial"
         },
@@ -3711,17 +3786,17 @@
           "code": "1122",
           "equation": "CH₃COCH₂C(OH)(CH₃)₂ + HO⁻ ⇌ CH₃COCH⁻C(OH)(CH₃)₂ + H₂O",
           "flow": "Base removes another α-H to make the enolate precursor of dehydration.",
-          "orbital": "n(base) → σ*(H–A)",
-          "geometry": "The base approaches H as the original donor–H contact weakens.",
+          "orbital": "Hydroxide removes the α-H next to the surviving ketone; its C–H pair enters the conjugated enolate.",
+          "geometry": "α-Deprotonation occurs before β-OH departure in the E1cB teaching path.",
           "diagram": "proton",
           "eventKind": "elementary-model",
           "assignmentStatus": "consistent-with-convention",
           "assignmentNote": "Enolate and E1cB steps retain their convention/candidate boundaries; dehydration depends on conditions.",
           "why": [
             "Closed-shell electron-pair model for this event.",
-            "n(base) → σ*(H–A)",
+            "Hydroxide removes the α-H next to the surviving ketone; its C–H pair enters the conjugated enolate.",
             "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
-            "The base approaches H as the original donor–H contact weakens."
+            "α-Deprotonation occurs before β-OH departure in the E1cB teaching path."
           ],
           "diagramScope": "partial"
         },
@@ -3781,10 +3856,10 @@
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "Donor HOMO–acceptor LUMO gap and orbital interaction energy",
-          "Carbonyl-carbon charge, C–O/C–Nu bond orders, and reaction coordinate"
+          "Acetone enolate donation into a second acetone C=O",
+          "E1cB enolate stabilization and β-hydroxide loss"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "note": "No computed result is mapped to Base-catalyzed aldol condensation. The following observables and protocol are proposals, not results.",
         "literatureCases": [],
         "literatureInsights": [],
         "proposedProtocol": {
@@ -3815,17 +3890,17 @@
           "code": "1122",
           "equation": "propylene oxide + HCl ⇌ protonated propylene oxide + Cl⁻",
           "flow": "Epoxide oxygen donates a lone pair to H of HCl; the H–Cl pair returns to chloride. The epoxide oxygen now has three bonds and formal charge +1.",
-          "orbital": "n(base) → σ*(H–A)",
-          "geometry": "The base approaches H as the original donor–H contact weakens.",
+          "orbital": "Epoxide O lone pair takes H from HCl while the H–Cl bond pair goes to Cl⁻.",
+          "geometry": "O protonation leaves both strained epoxide C–O bonds in place and creates O⁺H before ring opening.",
           "diagram": "proton",
           "eventKind": "elementary-model",
           "assignmentStatus": "consistent-with-convention",
           "assignmentNote": "Corrected HCl/ether major pathway attacks primary carbon; do not generalize tertiary-epoxide selectivity to this substrate.",
           "why": [
             "Closed-shell electron-pair model for this event.",
-            "n(base) → σ*(H–A)",
+            "Epoxide O lone pair takes H from HCl while the H–Cl bond pair goes to Cl⁻.",
             "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
-            "The base approaches H as the original donor–H contact weakens."
+            "O protonation leaves both strained epoxide C–O bonds in place and creates O⁺H before ring opening."
           ],
           "diagramScope": "partial"
         },
@@ -3902,10 +3977,10 @@
       "quantumData": {
         "status": "not-yet-computed",
         "descriptors": [
-          "Activation-strain profile (ΔEstrain / ΔEinteraction) along the reaction coordinate",
-          "EDA terms (Pauli, electrostatic, orbital) and σ*(C–LG) energy"
+          "Propylene-oxide O protonation and primary-site Cl⁻ attack",
+          "Strained C–O cleavage coupled to neutral alcohol formation"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "note": "No computed result is mapped to Acid-promoted epoxide opening. The following observables and protocol are proposals, not results.",
         "literatureCases": [],
         "literatureInsights": [],
         "proposedProtocol": {

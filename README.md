@@ -33,7 +33,7 @@ python3 -m http.server 8000 --directory dist
 
 The app and structured data load locally. Embedded mechanism images and cited sources use external URLs and need network access. Saved items stay in browser storage.
 
-`build_data.py` defines the original entries and classifications; `english_content.py` contains the specific English editorial text for each event; `quantum_literature.py` holds literature tables and their scope notes. `qc_review.py` applies the documented v0.2.6 corrections and review metadata; `build_figures.py` generates four original SVGs. See `AUDIT.md` and `audit/` for all 70 original event dispositions, figure reviews and link requests. Change the relevant files, then regenerate and validate:
+`build_data.py` defines the original entries and classifications; `english_content.py` contains the specific English editorial text for each event; `quantum_literature.py` holds literature tables and their scope notes. `qc_review.py` applies the documented v0.2.6 corrections and review metadata; `v028_content.py` adds reaction-specific scientific copy without changing numeric codes. `build_figures.py` generates the four earlier SVGs, and `v028_figures.py` generates the five new mechanism sheets. See `AUDIT.md` and `audit/` for all 70 original event dispositions, figure reviews and link requests. Change the relevant files, then regenerate and validate:
 
 ```sh
 python3 build_data.py
@@ -59,3 +59,11 @@ The previous generic energy sketch was removed because a listed stage does not e
 All 31 entry IDs and the seven codebook definitions are preserved. The acid-promoted epoxide entry now has two valid events: the former third event followed an atom/charge-inconsistent oxonium. The inventory therefore changes from 70 to 69 listed events without adding or deleting a reaction. Read [the complete audit](AUDIT.md) for remaining scientific uncertainty and image gaps.
 
 `npm test` runs structural and DOM integration checks using jsdom. It does not test CSS rendering, mobile touch, native dialog behavior, network image loading or real-browser console errors. Those checks remain untested in this session because the managed environment did not expose the supported control-browser skill. No quantum-chemical calculations were performed.
+
+## v0.2.8 content and comparison release
+
+The atlas now embeds original, equation-matched mechanisms for E2, Diels–Alder, generic carbonyl addition, Fischer esterification, and acetone/methylamine imine formation. The five new illustrations have an event-by-event visual and charge audit in [V028_AUDIT.md](V028_AUDIT.md). Seventeen reviewed figures are embedded; 14 remain withheld pending further image and permissions work.
+
+The “Same code, different chemistry” interface compares two events from different reactions with the same SORG code. It shows the common coding convention alongside each equation, electron flow, orbital interaction, geometry, and uncertainty. Codes 1133 and 1113 remain provisional where the audited codebook examples do not cover every use.
+
+Published numerical cases on SN2 and Diels–Alder and the CN⁻/acetone angle study are identified by their actual models and methods; no quantum-chemical calculations were performed by this project. The test suite covers comparison selection and the earlier atlas interactions. Real desktop/mobile browser layout, native dialogs, touch, network image loads, and browser console remain untested in this managed environment.

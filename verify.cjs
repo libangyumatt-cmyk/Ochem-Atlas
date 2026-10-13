@@ -10,7 +10,7 @@ assert.equal(D.reactions.filter(r=>r.figure).length,D.reactions.length,'every re
 assert.equal(D.reactions.find(r=>r.id==='sn2').quantumData.status,'literature-related-numerical');
 assert.equal(D.reactions.find(r=>r.id==='diels-alder').quantumData.status,'literature-related-numerical');
 assert.equal(D.reactions.filter(r=>r.quantumData.literatureCases.length>0).length,2);
-assert.equal(D.version,'0.2.7');
+assert.equal(D.version,'0.2.8');
 assert.ok(D.reactions.every(r=>r.quantumData.proposedProtocol.model&&r.quantumData.proposedProtocol.workflow));
 assert.equal(D.reactions.filter(r=>r.quantumData.literatureInsights.length>0).length,7);
 assert.ok(D.reactions.find(r=>r.id==='claisen').quantumData.literatureInsights[0].finding.includes('not occur simultaneously'));
@@ -67,3 +67,22 @@ const review=JSON.parse(fs.readFileSync('audit/events.json','utf8'));
 assert.equal(review.length,70);assert.equal(review.filter(x=>x.disposition==='removed-invalid-event').length,1);
 assert.deepEqual(D.codebook,JSON.parse(fs.readFileSync('audit/codebook-v0.2.6.json','utf8')));
 console.log('PASS: corrected epoxide, nitrate octet, figure provenance, Unicode search, 70-event baseline ledger and unchanged codebook.');
+
+// Check the five exact new figures against their equation and stage inventory.
+const exact={e2:['CH₂=CHCH₃','EtOH','Br⁻','Hβ–Cβ–Cα–Br'],
+ 'diels-alder':['butadiene + ethene','cyclohexene','C1=C2','C5=C6','C3=C4'],
+ 'carbonyl-add':['R₂C=O + Nu⁻','R₂C(O⁻)Nu','Net charge stays −1'],
+ 'fischer-esterification':['CH₃CO₂H + HOCH₂CH₃','CH₃CO₂CH₂CH₃','Solvent-mediated proton relay','Tetrahedral collapse'],
+ 'imine-formation':['(CH₃)₂C=O + CH₃NH₂','(CH₃)₂C=NCH₃','Carbinolammonium','N⁺(H)CH₃']};
+for(const [id,labels] of Object.entries(exact)){
+ const r=D.reactions.find(x=>x.id===id),svg=fs.readFileSync('dist/'+r.figure.src,'utf8');
+ assert.equal(r.figure.match,'exact');assert.equal(r.figure.coverage,'complete');assert.equal(r.figure.rightsStatus,'original');
+ for(const label of labels)assert.ok(svg.includes(label),id+' missing '+label);
+ assert.ok((svg.match(/marker-end="url\(#pair\)"/g)||[]).length>=r.steps.length*2,id+' electron-arrow inventory');
+}
+assert.ok(!fs.readFileSync('dist/mechanisms/e2.svg','utf8').includes('CH₃</text><text x="279"'),'E2 must not acquire an extra carbon');
+assert.match(D.reactions.find(r=>r.id==='imine-formation').steps.at(-1).equation,/C=N⁺\(H\)CH₃/);
+assert.ok(D.reactions.every(r=>new Set(r.quantumData.descriptors).size===r.quantumData.descriptors.length));
+assert.ok(D.reactions.find(r=>r.id==='carbonyl-add').quantumData.literatureInsights[0].teachingPoint.includes('111°'));
+assert.ok(html.includes('id="compare-output"'));assert.ok(html.includes('Same code, different chemistry'));
+console.log('PASS: v0.2.8 figure labels, arrow inventories, unique descriptors, comparison markup and iminium notation. Visual and scientific figure review are recorded separately.');
