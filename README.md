@@ -19,7 +19,7 @@ SORG is a provisional project teaching index, not an IUPAC taxonomy or a validat
 
 Codes `1111`, `1122`, `2211`, and `1333` are inherited from the project's prior teaching convention. `1113`, `1133`, and `2222` are candidates. “Inherited” does not mean experimentally established. A prior two-component toy basis-rotation check changed a participation ratio from about 2 to 1; it demonstrates representation dependence, **not** an ab initio calculation for SN2, Diels–Alder, or any entry. The proposed S/O/R/G assignment needs explicit conventions and further validation.
 
-The SN2 entry cites a published gas-phase `Cl⁻ + CH₃Cl` activation-strain/orbital-interaction study. Its substrate and nucleophile differ from the card's `HO⁻ + CH₃Br`; numerical results cannot be transferred to that card. The other entries list candidate electronic-structure measurements, not invented calculated values. A useful coupling value must define donor/acceptor fragments, diabatic states, electronic state, geometry, method, and basis. This project does not calculate reaction rates or currently supply new reaction-specific quantum-chemical numerical results.
+The SN2 entry transcribes published gas-phase σ* energies and activation-strain interaction energies for a defined model series. The Diels–Alder entry transcribes published fragment EDA, orbital overlap, and electron-transfer analysis for butadiene plus neutral or ionized acrolein. All numbers have a named substrate, method, geometry, table or figure, and source. The SN2 model uses `Cl⁻ + A–Cl`, including `Cl⁻ + CH₃Cl`, whereas the teaching card uses `HO⁻ + CH₃Br`; numerical results cannot be transferred to it. Other entries list candidate electronic-structure measurements, not invented calculated values. The Diels–Alder numerical comparison uses acrolein, whereas the teaching mechanism uses ethene. EDA orbital stabilization, overlap, and transferred charge must not be relabeled as a single invariant coupling matrix element. A useful coupling value must define donor/acceptor fragments, diabatic states, electronic state, geometry, method, and basis. This project does not calculate reaction rates or currently supply new reaction-specific quantum-chemical numerical results.
 
 ## Run and edit
 
@@ -31,7 +31,7 @@ python3 -m http.server 8000 --directory dist
 
 The app and structured data load locally. Embedded mechanism images and cited sources use external URLs and need network access. Saved items stay in browser storage.
 
-`build_data.py` defines the original entries and classifications; `english_content.py` contains the specific English editorial text for each event. Change both as needed, then regenerate and validate:
+`build_data.py` defines the original entries and classifications; `english_content.py` contains the specific English editorial text for each event; `quantum_literature.py` holds audited literature tables and their scope notes. Change the relevant files, then regenerate and validate:
 
 ```sh
 python3 build_data.py

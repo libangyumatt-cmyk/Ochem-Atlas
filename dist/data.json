@@ -1,5 +1,5 @@
 {
-  "version": "0.2.4",
+  "version": "0.2.5",
   "updated": "2026-10-13",
   "axes": [
     {
@@ -315,9 +315,21 @@
     },
     "qc_sn2": {
       "title": "Kubelka & Bickelhaupt · Activation Strain Analysis of SN2 Reactions at C, N, O, and F Centers",
-      "url": "https://doi.org/10.1021/acs.jpca.6b12240",
-      "publisher": "Journal of Physical Chemistry A (2017), 121, 885–891",
-      "checked": "2026-10-12"
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5330660/",
+      "publisher": "Journal of Physical Chemistry A (2017), 121, 885–891 · doi:10.1021/acs.jpca.6b12240",
+      "checked": "2026-10-13"
+    },
+    "qc_coupling_method": {
+      "title": "Cave & Newton · Generalized Mulliken–Hush electronic coupling",
+      "url": "https://doi.org/10.1016/0009-2614(95)01310-5",
+      "publisher": "Chemical Physics Letters (1996), 249, 15–19",
+      "checked": "2026-10-13"
+    },
+    "qc_da_ion": {
+      "title": "Vermeeren et al. · How Ionization Catalyzes Diels–Alder Reactions",
+      "url": "https://doi.org/10.1002/chem.202200987",
+      "publisher": "Chemistry – A European Journal (2022) · doi:10.1002/chem.202200987",
+      "checked": "2026-10-13"
     }
   },
   "reactions": [
@@ -373,7 +385,8 @@
           "Charge and electron-density changes in a defined solvent and conformation",
           "Donor–acceptor orbital energies and NBO second-order interactions (with partitioning specified)"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "literatureCases": []
       }
     },
     {
@@ -424,7 +437,8 @@
           "Charge and electron-density changes in a defined solvent and conformation",
           "Donor–acceptor orbital energies and NBO second-order interactions (with partitioning specified)"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "literatureCases": []
       }
     },
     {
@@ -447,7 +461,8 @@
       ],
       "sources": [
         "sn2",
-        "sn2scope"
+        "sn2scope",
+        "qc_sn2"
       ],
       "facts": [
         [
@@ -471,21 +486,61 @@
         "credit": "KPU Pressbooks · Organic Chemistry"
       },
       "quantumData": {
-        "status": "literature-qualitative",
+        "status": "literature-related-numerical",
         "descriptors": [
           "Activation-strain profile (ΔEstrain / ΔEinteraction) along the reaction coordinate",
-          "EDA terms (Pauli, electrostatic, orbital) and σ*(C–LG) energy",
-          "EDA terms (Pauli, electrostatic, orbital) and σ*(C–LG) energy",
           "EDA terms (Pauli, electrostatic, orbital) and σ*(C–LG) energy"
         ],
-        "benchmark": {
-          "reaction": "Cl⁻ + CH₃Cl → [Cl···CH₃···Cl]‡ → CH₃Cl + Cl⁻",
-          "relation": "Related model benchmark; the substrate differs from HO⁻ + CH₃Br in this entry.",
-          "method": "ZORA-OLYP/TZ2P in the gas phase. The authors compared C/N/O/F centers and analyzed coordinates defined by Nu–A and A–LG distances relative to the transition state.",
-          "finding": "For the C, N, and O series, the potential-energy surfaces contain a reactant-complex minimum and a central barrier. Trends are associated mainly with interaction energy and a lower vacant σ*(A–Cl) acceptor-orbital energy at the reaction center. The paper also decomposes Pauli, electrostatic, and orbital terms; no numerical table is reproduced here.",
-          "source": "qc_sn2"
-        },
-        "note": "The cited calculations concern Cl⁻ + CH₃Cl, not HO⁻ + CH₃Br in this entry. Their orbital energies and energy-decomposition values cannot be transferred to this substrate. No calculation has been performed for this entry."
+        "note": "The table contains published calculations for the explicitly named model, not new values calculated for this teaching entry. Do not transfer the numbers to another substrate, solvent, or orbital convention.",
+        "literatureCases": [
+          {
+            "title": "SN2 electronic-structure comparison across C, N, O, and F centers",
+            "model": "Cl⁻ + A–Cl, with A–Cl = CH₃Cl, NH₂Cl, OHCl, or FCl; gas phase.",
+            "relation": "Related benchmark. This card uses HO⁻ + CH₃Br, so none of these numbers describes its substrate.",
+            "method": "ZORA-OLYP/TZ2P; activation-strain analysis at the symmetric transition state for C, N, O and at the transition complex for F. The vacant σ*(A–Cl) energies refer to the isolated substrates under the authors’ orbital convention.",
+            "columns": [
+              "A–Cl substrate",
+              "σ*(A–Cl) (eV)",
+              "ΔEstrain (kcal/mol)",
+              "ΔEinteraction (kcal/mol)",
+              "Structure"
+            ],
+            "rows": [
+              [
+                "CH₃Cl",
+                "−5.13",
+                "+31.6",
+                "−31.9",
+                "TS"
+              ],
+              [
+                "NH₂Cl",
+                "−6.96",
+                "+25.7",
+                "−34.9",
+                "TS"
+              ],
+              [
+                "OHCl",
+                "−8.95",
+                "+26.1",
+                "−37.9",
+                "TS"
+              ],
+              [
+                "FCl",
+                "−11.08",
+                "+27.7",
+                "−44.5",
+                "transition complex"
+              ]
+            ],
+            "interpretation": "The acceptor σ* orbital is lower in this series while the fragment interaction becomes more stabilizing. These are a specified orbital energy and an interaction-energy decomposition, not a transferable scalar “coupling degree.”",
+            "limits": "Orbital energies depend on the method and orbital convention; the interaction term depends on the chosen fragments and geometry. The F entry is a transition complex rather than the same kind of stationary point as the first three. Values transcribed from Tables 3 and 4; no value for HO⁻ + CH₃Br is implied.",
+            "source": "qc_sn2",
+            "location": "Tables 3–4"
+          }
+        ]
       }
     },
     {
@@ -536,7 +591,8 @@
           "Activation-strain profile (ΔEstrain / ΔEinteraction) along the reaction coordinate",
           "EDA terms (Pauli, electrostatic, orbital) and σ*(C–LG) energy"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "literatureCases": []
       }
     },
     {
@@ -596,7 +652,8 @@
           "Activation-strain profile (ΔEstrain / ΔEinteraction) along the reaction coordinate",
           "EDA terms (Pauli, electrostatic, orbital) and σ*(C–LG) energy"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "literatureCases": []
       }
     },
     {
@@ -666,7 +723,8 @@
           "Activation-strain profile (ΔEstrain / ΔEinteraction) along the reaction coordinate",
           "EDA terms (Pauli, electrostatic, orbital) and σ*(C–LG) energy"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "literatureCases": []
       }
     },
     {
@@ -726,7 +784,8 @@
           "Charge transfer and frontier-orbital energies along the reaction coordinate",
           "Electron density and bond order for key intermediates and transition states"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "literatureCases": []
       }
     },
     {
@@ -795,7 +854,8 @@
           "Charge transfer and frontier-orbital energies along the reaction coordinate",
           "Electron density and bond order for key intermediates and transition states"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "literatureCases": []
       }
     },
     {
@@ -846,7 +906,8 @@
           "E2 reaction coordinate and activation-strain profile",
           "σ(C–H) / σ*(C–LG) interaction and torsional scan"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "literatureCases": []
       }
     },
     {
@@ -906,7 +967,8 @@
           "E2 reaction coordinate and activation-strain profile",
           "σ(C–H) / σ*(C–LG) interaction and torsional scan"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "literatureCases": []
       }
     },
     {
@@ -957,7 +1019,8 @@
           "Donor HOMO–acceptor LUMO gap and orbital interaction energy",
           "Carbonyl-carbon charge, C–O/C–Nu bond orders, and reaction coordinate"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "literatureCases": []
       }
     },
     {
@@ -1030,7 +1093,8 @@
           "Donor HOMO–acceptor LUMO gap and orbital interaction energy",
           "Carbonyl-carbon charge, C–O/C–Nu bond orders, and reaction coordinate"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "literatureCases": []
       }
     },
     {
@@ -1103,7 +1167,8 @@
           "Donor HOMO–acceptor LUMO gap and orbital interaction energy",
           "Carbonyl-carbon charge, C–O/C–Nu bond orders, and reaction coordinate"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "literatureCases": []
       }
     },
     {
@@ -1163,7 +1228,8 @@
           "Donor HOMO–acceptor LUMO gap and orbital interaction energy",
           "Carbonyl-carbon charge, C–O/C–Nu bond orders, and reaction coordinate"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "literatureCases": []
       }
     },
     {
@@ -1223,7 +1289,8 @@
           "Donor HOMO–acceptor LUMO gap and orbital interaction energy",
           "Carbonyl-carbon charge, C–O/C–Nu bond orders, and reaction coordinate"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "literatureCases": []
       }
     },
     {
@@ -1283,7 +1350,8 @@
           "Activation-strain profile (ΔEstrain / ΔEinteraction) along the reaction coordinate",
           "EDA terms (Pauli, electrostatic, orbital) and σ*(C–LG) energy"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "literatureCases": []
       }
     },
     {
@@ -1352,7 +1420,8 @@
           "Donor HOMO–acceptor LUMO gap and orbital interaction energy",
           "Carbonyl-carbon charge, C–O/C–Nu bond orders, and reaction coordinate"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "literatureCases": []
       }
     },
     {
@@ -1403,7 +1472,8 @@
           "Spin density/population and SOMO coefficients",
           "Spin-state and bond-order changes along bond-breaking/forming coordinates"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "literatureCases": []
       }
     },
     {
@@ -1454,7 +1524,8 @@
           "Spin density/population and SOMO coefficients",
           "Spin-state and bond-order changes along bond-breaking/forming coordinates"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "literatureCases": []
       }
     },
     {
@@ -1514,7 +1585,8 @@
           "Spin density/population and SOMO coefficients",
           "Spin-state and bond-order changes along bond-breaking/forming coordinates"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "literatureCases": []
       }
     },
     {
@@ -1537,7 +1609,8 @@
       ],
       "sources": [
         "da",
-        "dastereo"
+        "dastereo",
+        "qc_da_ion"
       ],
       "facts": [
         [
@@ -1561,12 +1634,47 @@
         "credit": "Chemistry Learner · Diels–Alder reaction"
       },
       "quantumData": {
-        "status": "not-yet-computed",
+        "status": "literature-related-numerical",
         "descriptors": [
           "Frontier-orbital phases/coefficients and symmetry allowance",
           "Bond-order evolution and orbital interaction energy along the concerted coordinate"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
+        "note": "The table contains published calculations for the explicitly named model, not new values calculated for this teaching entry. Do not transfer the numbers to another substrate, solvent, or orbital convention.",
+        "literatureCases": [
+          {
+            "title": "Orbital interaction and electron donation in a Diels–Alder model",
+            "model": "1,3-Butadiene + acrolein (neutral O) versus 1,3-butadiene + acrolein radical cation (O•⁺).",
+            "relation": "Related dienophile. The teaching reaction on this card uses ethene, and the radical-cation pathway is a distinct open-shell mechanism.",
+            "method": "ZORA-(U)BP86/TZ2P; fragments are butadiene and acrolein/acrolein radical cation. EDA evaluated at matched transition-state-like geometries with forming C(diene)···Cβ(dienophile) = 2.203 Å.",
+            "columns": [
+              "Dienophile state",
+              "ΔEstrain (kcal/mol)",
+              "ΔEinteraction (kcal/mol)",
+              "ΔEPauli (kcal/mol)",
+              "ΔEorbital (kcal/mol)"
+            ],
+            "rows": [
+              [
+                "Neutral acrolein",
+                "+14.6",
+                "−3.2",
+                "+70.8",
+                "−41.3"
+              ],
+              [
+                "Acrolein radical cation",
+                "+9.5",
+                "−40.6",
+                "+52.0",
+                "−68.8"
+              ]
+            ],
+            "interpretation": "At the matched geometry, ionization changes the EDA orbital term by −27.5 kcal/mol and reduces Pauli repulsion by 18.8 kcal/mol. In the open-shell case, the butadiene π-HOMO and acrolein-cation SOMO have reported overlap S = 0.05 and about 0.7 electron donated into the SOMO under this analysis. The neutral path is concerted asynchronous; the radical-cation path becomes stepwise.",
+            "limits": "ΔEorbital is the total EDA orbital-interaction term, S is a dimensionless overlap, and 0.7 electron is a method-specific charge-transfer analysis. None is a diabatic electronic-coupling matrix element H_DA or an intrinsic SORG score. The radical-cation pathway is not assigned the neutral card’s 1333 code.",
+            "source": "qc_da_ion",
+            "location": "Table 1 and orbital analysis"
+          }
+        ]
       }
     },
     {
@@ -1617,7 +1725,8 @@
           "Frontier-orbital phases/coefficients and symmetry allowance",
           "Bond-order evolution and orbital interaction energy along the concerted coordinate"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "literatureCases": []
       }
     },
     {
@@ -1668,7 +1777,8 @@
           "Frontier-orbital phases/coefficients and symmetry allowance",
           "Bond-order evolution and orbital interaction energy along the concerted coordinate"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "literatureCases": []
       }
     },
     {
@@ -1729,7 +1839,8 @@
           "E2 reaction coordinate and activation-strain profile",
           "σ(C–H) / σ*(C–LG) interaction and torsional scan"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "literatureCases": []
       }
     },
     {
@@ -1789,7 +1900,8 @@
           "Charge transfer and frontier-orbital energies along the reaction coordinate",
           "Electron density and bond order for key intermediates and transition states"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "literatureCases": []
       }
     },
     {
@@ -1858,7 +1970,8 @@
           "Charge transfer and frontier-orbital energies along the reaction coordinate",
           "Electron density and bond order for key intermediates and transition states"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "literatureCases": []
       }
     },
     {
@@ -1936,7 +2049,8 @@
           "Aromatic π-orbital coefficients and electrophile–arene interaction",
           "Charge/spin density and aromaticity measures for the σ complex"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "literatureCases": []
       }
     },
     {
@@ -2023,7 +2137,8 @@
           "Donor HOMO–acceptor LUMO gap and orbital interaction energy",
           "Carbonyl-carbon charge, C–O/C–Nu bond orders, and reaction coordinate"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "literatureCases": []
       }
     },
     {
@@ -2119,7 +2234,8 @@
           "Donor HOMO–acceptor LUMO gap and orbital interaction energy",
           "Carbonyl-carbon charge, C–O/C–Nu bond orders, and reaction coordinate"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "literatureCases": []
       }
     },
     {
@@ -2207,7 +2323,8 @@
           "Donor HOMO–acceptor LUMO gap and orbital interaction energy",
           "Carbonyl-carbon charge, C–O/C–Nu bond orders, and reaction coordinate"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "literatureCases": []
       }
     },
     {
@@ -2277,7 +2394,8 @@
           "Activation-strain profile (ΔEstrain / ΔEinteraction) along the reaction coordinate",
           "EDA terms (Pauli, electrostatic, orbital) and σ*(C–LG) energy"
         ],
-        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results."
+        "note": "No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.",
+        "literatureCases": []
       }
     }
   ]

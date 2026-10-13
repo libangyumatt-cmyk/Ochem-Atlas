@@ -7,7 +7,16 @@ assert.equal(D.reactions.length,31);assert.equal(D.reactions.reduce((n,r)=>n+r.s
 assert.equal(new Set(D.reactions.map(r=>r.id)).size,D.reactions.length);
 assert.equal(D.reactions.filter(r=>r.quantumData).length,D.reactions.length);
 assert.equal(D.reactions.filter(r=>r.figure).length,D.reactions.length,'every reaction must display a sourced mechanism image');
-assert.equal(D.reactions.find(r=>r.id==='sn2').quantumData.status,'literature-qualitative');
+assert.equal(D.reactions.find(r=>r.id==='sn2').quantumData.status,'literature-related-numerical');
+assert.equal(D.reactions.find(r=>r.id==='diels-alder').quantumData.status,'literature-related-numerical');
+assert.equal(D.reactions.filter(r=>r.quantumData.literatureCases.length>0).length,2);
+const sn2Case=D.reactions.find(r=>r.id==='sn2').quantumData.literatureCases[0];
+assert.deepEqual(sn2Case.rows[0],['CH₃Cl','−5.13','+31.6','−31.9','TS']);
+assert.equal(sn2Case.rows[3][4],'transition complex');
+const daCase=D.reactions.find(r=>r.id==='diels-alder').quantumData.literatureCases[0];
+assert.deepEqual(daCase.rows[1],['Acrolein radical cation','+9.5','−40.6','+52.0','−68.8']);
+assert.match(daCase.limits,/None is a diabatic electronic-coupling matrix element/);
+for(const r of D.reactions)for(const c of r.quantumData.literatureCases){assert.equal(c.columns.length,c.rows[0].length);for(const row of c.rows)assert.equal(row.length,c.columns.length);assert.ok(D.sources[c.source]?.url.startsWith('https://'));assert.match(c.relation,/card|entry/i);}
 assert.ok(D.sources.qc_sn2.url.startsWith('https://'));
 const context={window:{}};vm.createContext(context);vm.runInContext(fs.readFileSync('dist/data.js','utf8'),context);
 assert.equal(JSON.stringify(context.window.SORG),JSON.stringify(D));
@@ -35,4 +44,4 @@ assert.ok(html.includes('31 reactions / 70 events'));assert.doesNotMatch(html,/c
 assert.doesNotMatch(fs.readFileSync('dist/app.js','utf8'),/calc-a|orbitalMixing|两轨道耦合与混合模型/);
 const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);assert.equal(ids.length,new Set(ids).size);
 for(const [,asset] of html.matchAll(/(?:src|href)="([^"#:]+\.(?:js|css|svg|json))(?:\?[^"]*)?"/g))assert.ok(fs.existsSync('dist/'+asset),asset);
-console.log('PASS: 31 entries / 70 events; quantum-data coverage metadata, sourced SN2 literature benchmark, complete pathways, figure attribution, diagrams, assets and same-event filters. Run browser QA separately.');
+console.log('PASS: 31 entries / 70 events; quantum-data coverage metadata, two sourced numerical electronic-structure case studies, complete pathways, figure attribution, diagrams, assets and same-event filters. Run browser QA separately.');

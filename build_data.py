@@ -1,5 +1,6 @@
 import json
 from english_content import apply_english, finish_english
+from quantum_literature import attach_literature
 from pathlib import Path
 
 ROOT=Path(__file__).parent
@@ -47,7 +48,9 @@ sources.update({
  'aldolcond':{'title':'Chemistry LibreTexts · Dehydration of aldol products','url':'https://chem.libretexts.org/Bookshelves/Organic_Chemistry/Organic_Chemistry_(OpenStax)/23%3A_Carbonyl_Condensation_Reactions/23.03%3A_Dehydration_of_Aldol_Products_-_Synthesis_of_Enones','publisher':'Chemistry LibreTexts','checked':'2026-10-12'},
  'epoxideacid':{'title':'OpenStax · Acid-catalyzed epoxide ring opening','url':'https://openstax.org/books/organic-chemistry/pages/18-5-reactions-of-epoxides-ring-opening','publisher':'John McMurry / OpenStax','checked':'2026-10-12'},
 })
-sources['qc_sn2']={'title':'Kubelka & Bickelhaupt · Activation Strain Analysis of SN2 Reactions at C, N, O, and F Centers','url':'https://doi.org/10.1021/acs.jpca.6b12240','publisher':'Journal of Physical Chemistry A (2017), 121, 885–891','checked':'2026-10-12'}
+sources['qc_sn2']={'title':'Kubelka & Bickelhaupt · Activation Strain Analysis of SN2 Reactions at C, N, O, and F Centers','url':'https://pmc.ncbi.nlm.nih.gov/articles/PMC5330660/','publisher':'Journal of Physical Chemistry A (2017), 121, 885–891 · doi:10.1021/acs.jpca.6b12240','checked':'2026-10-13'}
+sources['qc_coupling_method']={'title':'Cave & Newton · Generalized Mulliken–Hush electronic coupling','url':'https://doi.org/10.1016/0009-2614(95)01310-5','publisher':'Chemical Physics Letters (1996), 249, 15–19','checked':'2026-10-13'}
+sources['qc_da_ion']={'title':'Vermeeren et al. · How Ionization Catalyzes Diels–Alder Reactions','url':'https://doi.org/10.1002/chem.202200987','publisher':'Chemistry – A European Journal (2022) · doi:10.1002/chem.202200987','checked':'2026-10-13'}
 
 axes=[
  {'key':'S','name':'电子态','en':'Electronic state','question':'以什么电子态参与？','values':{'1':'闭壳层 / 成对电子','2':'开壳层 / 自由基','3':'激发态 / 态变换'},'note':'这里按反应事件涉及的电子态标记；S2 不表示产物一定仍是自由基。S3 与 S1/S2 可能重叠。'},
@@ -228,13 +231,6 @@ qc_targets={
 for r in reactions:
     r['quantumData']={'status':'not-yet-computed','descriptors':qc_targets.get(r['family'],['电子密度/电荷分布','轨道作用与键级沿反应坐标的变化']),
                       'note':'本站尚无此条具体底物与条件的量子化学计算值；此处列出适配的待测量，不是结果。'}
-sn2=next(r for r in reactions if r['id']=='sn2')
-sn2['quantumData']={
- 'status':'literature-qualitative',
- 'descriptors':['气相反应势能面','ΔE_strain 与 ΔE_interaction','Pauli 排斥、静电作用、轨道相互作用','反应中心空 σ*(A–Cl) 受体轨道能量'],
- 'benchmark':{'reaction':'Cl⁻ + CH₃Cl → [Cl···CH₃···Cl]‡ → CH₃Cl + Cl⁻','relation':'相近模型基准；与本卡 HO⁻ + CH₃Br 底物不同','method':'ZORA-OLYP/TZ2P；气相；作者对比 C/N/O/F 反应中心，沿 Nu–A 与 A–LG 距离相对 TS 的坐标分析。','finding':'对 C、N、O 系列，势能面有反应复合物极小值和中心势垒；趋势主要关联 interaction energy，并与反应中心空 σ*(A–Cl) 受体轨道能量降低有关。论文还分解了 Pauli、静电和轨道项。摘要/图文未在本条摘录可核验的数值表，因此不填数值。','source':'qc_sn2'},
- 'note':'文献结果属于 Cl⁻ + CH₃Cl，不是本卡 HO⁻ + CH₃Br；不能把其轨道能级或能量分解数值直接移植到本卡。本站仍未对本卡做计算。'}
-
 families_en={'酸碱反应':'Acid–base reactions','取代反应':'Substitution reactions','烯烃反应':'Alkene reactions','消除反应':'Elimination reactions','羰基反应':'Carbonyl reactions','自由基反应':'Radical reactions','周环反应':'Pericyclic reactions','芳香取代':'Aromatic substitution'}
 axes_en=[
  {'key':'S','name':'Electronic state','en':'Electronic state','question':'Which electronic state participates?','values':{'1':'Closed shell / electron pairs','2':'Open shell / radicals','3':'Excited state / state change'},'note':'Codes describe the electronic state involved in an event; S2 does not imply that the product remains a radical. S3 may overlap with S1 or S2.'},
@@ -279,13 +275,8 @@ for r in reactions:
     for j,d in enumerate(r['quantumData'].get('descriptors',[])):
         if any('\u3400' <= ch <= '\u9fff' for ch in d): r['quantumData']['descriptors'][j]=qc_en.get(next((k for k,v in families_en.items() if v==r['family']),''),['Electron density and charge distribution along a defined reaction coordinate','Orbital interaction and bond-order changes']) [min(j,1)]
     if any('\u3400' <= ch <= '\u9fff' for ch in r['quantumData'].get('note','')): r['quantumData']['note']='No reaction-specific quantum-chemical calculation is available for this substrate and condition set. The descriptors above are proposed observables, not calculated results.'
-    q=r['quantumData']; b=q.get('benchmark')
-    if b:
-        b['relation']='Related model benchmark; the substrate differs from HO⁻ + CH₃Br in this entry.'
-        b['method']='ZORA-OLYP/TZ2P in the gas phase. The authors compared C/N/O/F centers and analyzed coordinates defined by Nu–A and A–LG distances relative to the transition state.'
-        b['finding']='For the C, N, and O series, the potential-energy surfaces contain a reactant-complex minimum and a central barrier. Trends are associated mainly with interaction energy and a lower vacant σ*(A–Cl) acceptor-orbital energy at the reaction center. The paper also decomposes Pauli, electrostatic, and orbital terms; no numerical table is reproduced here.'
-        q['note']='The cited calculations concern Cl⁻ + CH₃Cl, not HO⁻ + CH₃Br in this entry. Their orbital energies and energy-decomposition values cannot be transferred to this substrate. No calculation has been performed for this entry.'
-payload={'version':'0.2.4','updated':'2026-10-13','axes':axes,'codebook':codebook,'sources':sources,'reactions':reactions}
+attach_literature(reactions)
+payload={'version':'0.2.5','updated':'2026-10-13','axes':axes,'codebook':codebook,'sources':sources,'reactions':reactions}
 (ROOT/'dist'/'data.json').write_text(json.dumps(payload,ensure_ascii=False,indent=2))
 (ROOT/'dist'/'data.js').write_text('window.SORG = '+json.dumps(payload,ensure_ascii=False)+';\n')
 print(f'Created {len(reactions)} reaction records, {sum(len(r["steps"]) for r in reactions)} coded events.')
