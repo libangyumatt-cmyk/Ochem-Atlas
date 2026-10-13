@@ -121,7 +121,7 @@ Chemistry corrections use John McMurry’s OpenStax *Organic Chemistry*, especia
 | HTTP/source/image requests | Recorded individually in audit/links.json; some 403/404/429 responses and two 200 challenge/redirect pages. Corrected links received HTTP 200. |
 | Desktop / mobile rendering, touch, native dialog | **UNTESTED**: supported control-browser skill unavailable in the managed environment. CSS reviewed statically; wrapping safeguards are not a visual pass. |
 | Real browser console / external image loads | **UNTESTED**. No errors occurred in the simulated DOM, which is a narrower claim. |
-| Deployment | To be checked against the pushed commit and served release; see session handoff for the result. |
+| Deployment | Release commit `249ab06e725ab822196226b7ca0df3631ade0cdb`: [GitHub Pages run 38350661234](https://github.com/libangyumatt-cmyk/Ochem-Atlas/actions/runs/38350661234) passed its build, tests and deploy steps. All 11 checked live HTML/JS/CSS/data/SVG files returned HTTP 200 and matched the committed bytes. The deployed source archive had identical member contents. These HTTP checks do not substitute for browser QA. |
 
 ### Files changed
 
