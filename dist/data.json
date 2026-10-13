@@ -719,10 +719,10 @@
           {
             "model": "Isopropyl chloride hydrolysis with explicit water clusters and continuum solvent",
             "method": "M06-2X/aug-cc-pVDZ geometry and frequency calculations; explicit and hybrid explicit–implicit solvation.",
-            "finding": "The computed borderline substitution has a solvent-assisted, loose transition structure with carbocation character; changing the placement of nearby water changes the mechanistic description.",
+            "finding": "Across the tested solvation protocols, the computed substitution remains a solvent-assisted, loose SN2-like pathway; the transition structures have substantial SN1-like carbocation character by bond-order analysis.",
             "limits": "The card uses tert-butyl bromide, a different substrate and leaving group. This study does not establish its pathway or a universal SN1/SN2 boundary.",
             "source": "qc_borderline",
-            "location": "Abstract and solvent-configuration analysis"
+            "location": "Abstract and More O’Ferrall–Jencks bond-order analysis"
           }
         ],
         "proposedProtocol": {
