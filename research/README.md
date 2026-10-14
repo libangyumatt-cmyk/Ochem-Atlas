@@ -1,0 +1,16 @@
+# Research & Methods — evidence boundary
+
+`evidence.json` is the canonical structured transcription of a **published** gas-phase Cl⁻ + CH₃Cl identity-SN2 study. `evidence.schema.json` defines its model, source, point and descriptor contracts. `build_research.py` validates the release subset and creates `dist/research-data.json` and `dist/research-data.js`; the browser reads that immutable static payload. Literature facts are not Atlas-generated quantum results.
+
+## Reproduction and analysis
+
+1. Read Kubelka and Bickelhaupt, *J. Phys. Chem. A* **121** (2017) 885–891, DOI [10.1021/acs.jpca.6b12240](https://doi.org/10.1021/acs.jpca.6b12240). Methods §§2.1–2.2 specify ADF, ZORA-OLYP/TZ2P, frequencies and IRC; Table 1 reports the R/RC/TS electronic energies and C–Cl distances; Table 3 reports TS strain and interaction; Table 4 reports isolated σ* and VDD charge plus TS overlap. The linked supplement contains Cartesian coordinates and frequency counts but was **not** accessible for checked transcription here. The Atlas does not redistribute the paper's figure or supplement.
+2. Run `python3 build_research.py` and `npm test` to validate the transcribed subset and UI data. These are *data consistency* checks, not an independent quantum-chemistry reproduction.
+3. If Psi4 is installed separately, run `python3 research/workflows/sn2_psi4.py` from a writable working directory. This **unexecuted** B3LYP/aug-cc-pVDZ seed optimizes only isolated CH₃Cl and saves `sn2_seed_psi4.out` plus `sn2_seed_psi4.json`. Inspect all frequencies. Do not compare its total Hartree energy directly to the published ADF relative energies. No generated input or output is bundled because no QC executable was available in this environment.
+4. A defensible *full independent* SN2 reproduction would use source Cartesian coordinates or optimize the separated, complex and symmetric TS structures at a declared consistent level. Confirm zero imaginary modes for minima, exactly one appropriate imaginary mode for TS, and bidirectional IRC connectivity; archive charge/spin, all geometries, software version, outputs and fragment choices. Calculate activation strain at matched geometries with isolated-fragment references. Only then attach bond-order/density analyses with explicitly named partition schemes. An initial Cl–C–Cl guess is **not** a validated TS.
+
+The viewer presents **three discrete tabulated states**, not a sampled IRC or continuous energy path. A 2D local bond-axis glyph is schematic: only labeled distances are numerical; no unreported hydrogen coordinates, entering-Cl distance at RC, orbitals, or density contours are synthesized. Product-complex energy is not separately transcribed. The source's gas-phase double-well topology is a published qualitative conclusion, not an Atlas trajectory.
+
+## Optional descriptors
+
+Each descriptor defines a physical or categorical quantity, calculation/partition method, units, normalization/reference and where it applies. A missing value stays missing. The current nine entries include unavailable bond-order evolution; neither SORG code equality nor these descriptors imply a numerical similarity score. To compare new studies, first align model system, state, solvation, fragment convention and geometry, then independently validate the chosen comparison protocol.

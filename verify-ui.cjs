@@ -3,7 +3,7 @@
 const assert=require('node:assert/strict'),fs=require('node:fs');
 const {JSDOM,VirtualConsole}=require('jsdom');
 const D=JSON.parse(fs.readFileSync('dist/data.json','utf8'));
-assert.match(fs.readFileSync('dist/index.html','utf8'),/app\.js\?v=0\.3\.0/);
+assert.match(fs.readFileSync('dist/index.html','utf8'),/app\.js\?v=0\.3\.1/);
 let assertions=0;
 function app({storage='[]',blocked=false,hash=''}={}){
  const errors=[],vc=new VirtualConsole();vc.on('jsdomError',e=>errors.push(String(e)));
@@ -14,7 +14,7 @@ function app({storage='[]',blocked=false,hash=''}={}){
  w.HTMLDialogElement.prototype.close=function(){this.open=false;this.dispatchEvent(new w.Event('close'));};
  if(blocked)Object.defineProperty(w,'localStorage',{value:{getItem(){throw Error('blocked')},setItem(){throw Error('blocked')}}});
  else w.localStorage.setItem('sorg-saved-v1',storage);
- for(const f of ['data.js','core.js','diagrams.js','learning.js','app.js'])w.eval(fs.readFileSync('dist/'+f,'utf8'));
+ for(const f of ['data.js','core.js','diagrams.js','learning.js','research-data.js','research.js','app.js'])w.eval(fs.readFileSync('dist/'+f,'utf8'));
  const $=s=>d.querySelector(s), $$=s=>[...d.querySelectorAll(s)];
  const click=s=>{const el=$(s);assert.ok(el,'missing '+s);el.click();};
  const change=(s,value,type='change')=>{const el=$(s);if(el.type==='checkbox')el.checked=value;else el.value=value;el.dispatchEvent(new w.Event(type,{bubbles:true}));};
@@ -22,6 +22,14 @@ function app({storage='[]',blocked=false,hash=''}={}){
  return {w,d,$,$$,click,change,ids,errors,close:()=>w.close()};
 }
 let t=app();assert.equal(t.ids().length,31);
+assert.equal(t.$$('#research-viewer [data-research-point]').length,3);
+assert.match(t.$('#research-viewer').textContent,/1.79 Å/);
+t.click('[data-research-point="1"]');assert.match(t.$('.research-focus').textContent,/−?9.2| -9.2/);assert.match(t.$('.research-focus').textContent,/1.835 Å/);
+t.click('[data-research-point="2"]');assert.match(t.$('.research-focus').textContent,/2.351 Å/);assert.match(t.$('.research-focus').textContent,/31.6/);assert.match(t.$('.research-focus').textContent,/0.215/);
+assert.equal(t.$('[data-research-point="2"]').getAttribute('aria-pressed'),'true');
+assert.match(t.$('.research-focus').textContent,/From stated TS symmetry/);
+assert.match(t.$('.research-section').textContent,/no Atlas quantum calculation/);
+assert.equal(t.$$('#research-descriptors article').length,9);
 assert.equal(t.$$('#reason-case option').length,4);assert.equal(t.$$('#map-focus option').length,69);
 for(const id of ['sn2','e2','carbonyl-add','diels-alder']){
  t.change('#reason-case',id);assert.match(t.$('#reason-output').textContent,/TEACHING MODEL/);

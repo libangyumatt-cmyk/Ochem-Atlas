@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://libangyumatt-cmyk.github.io/Ochem-Atlas/research/evidence.schema.json",
+  "title": "SORG quantum-chemistry evidence record v1",
+  "type": "object",
+  "required": ["schemaVersion", "studies"],
+  "properties": {
+    "schemaVersion": {"const": "1.0"},
+    "studies": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/study"}}
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "source": {
+      "type": "object", "required": ["doi", "title", "authors", "year", "url", "locations", "license"],
+      "properties": {
+        "doi": {"type": "string"}, "title": {"type": "string"}, "authors": {"type": "array", "items": {"type": "string"}},
+        "year": {"type": "integer"}, "url": {"type": "string", "format": "uri"},
+        "locations": {"type": "object", "additionalProperties": {"type": "string"}}, "license": {"type": "string"}
+      }, "additionalProperties": false
+    },
+    "quantity": {
+      "type": "object", "required": ["value", "unit", "sourceLocation", "convention", "status"],
+      "properties": {
+        "value": {"type": "number"}, "unit": {"type": "string"}, "sourceLocation": {"type": "string"},
+        "convention": {"type": "string"}, "status": {"enum": ["published", "independently-reproduced", "atlas-calculated", "derived-from-published"]}
+      }, "additionalProperties": false
+    },
+    "point": {
+      "type": "object", "required": ["id", "label", "kind", "geometry", "energy", "descriptors", "coordinatesFile", "missing"],
+      "properties": {
+        "id": {"type": "string"}, "label": {"type": "string"},
+        "kind": {"enum": ["separated-reactants", "reactant-complex", "transition-state", "product-complex", "separated-products", "constrained-scan"]},
+        "geometry": {"type": "object", "additionalProperties": {"$ref": "#/$defs/quantity"}},
+        "energy": {"$ref": "#/$defs/quantity"}, "descriptors": {"type": "object", "additionalProperties": {"$ref": "#/$defs/quantity"}},
+        "coordinatesFile": {"type": ["string", "null"]},
+        "missing": {"type": "array", "items": {"type": "string"}}
+      }, "additionalProperties": false
+    },
+    "descriptor": {
+      "type": "object", "required": ["id", "category", "definition", "method", "unit", "normalization", "applicability", "status"],
+      "properties": {
+        "id": {"type": "string"},
+        "category": {"enum": ["orbital-interaction", "energy-decomposition", "electron-density", "bond-order", "geometric-distortion", "spin-state", "coordinate-topology"]},
+        "definition": {"type": "string"}, "method": {"type": "string"}, "unit": {"type": "string"},
+        "normalization": {"type": "string"}, "applicability": {"type": "string"},
+        "status": {"enum": ["published", "proposed-not-computed", "unavailable"]}
+      }, "additionalProperties": false
+    },
+    "study": {
+      "type": "object",
+      "required": ["id", "reactionEvent", "model", "electronicStructure", "reactionCoordinate", "publication", "points", "descriptors", "artifacts", "limitations", "interpretation"],
+      "properties": {
+        "id": {"type": "string"}, "reactionEvent": {"type": "string"},
+        "model": {"type": "object", "required": ["equation", "species", "totalCharge", "multiplicity", "conformation", "environment", "atomMapping"],
+          "properties": {"equation": {"type": "string"}, "species": {"type": "array", "items": {"type": "object", "required": ["id", "formula", "charge", "multiplicity", "role"], "properties": {"id": {"type": "string"}, "formula": {"type": "string"}, "charge": {"type": "integer"}, "multiplicity": {"type": "integer"}, "role": {"type": "string"}}, "additionalProperties": false}}, "totalCharge": {"type": "integer"}, "multiplicity": {"type": "integer"}, "conformation": {"type": "string"}, "environment": {"type": "string"}, "atomMapping": {"type": "string"}}, "additionalProperties": false},
+        "electronicStructure": {"type": "object", "required": ["method", "basis", "relativity", "software", "geometryValidation", "fragmentConvention"], "properties": {"method": {"type": "string"}, "basis": {"type": "string"}, "relativity": {"type": "string"}, "software": {"type": "string"}, "geometryValidation": {"type": "string"}, "fragmentConvention": {"type": "string"}}, "additionalProperties": false},
+        "reactionCoordinate": {"type": "object", "required": ["kind", "definition", "sampledValuesAvailable", "displayPolicy"], "properties": {"kind": {"enum": ["published-irc-stationary-subset", "published-constrained-scan", "isolated-geometries", "proposed"]}, "definition": {"type": "string"}, "sampledValuesAvailable": {"type": "boolean"}, "displayPolicy": {"type": "string"}}, "additionalProperties": false},
+        "publication": {"$ref": "#/$defs/source"},
+        "points": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/point"}},
+        "descriptors": {"type": "array", "items": {"$ref": "#/$defs/descriptor"}},
+        "artifacts": {"type": "array", "items": {"type": "object", "required": ["label", "url", "localPath", "availability", "rightsNote"], "properties": {"label": {"type": "string"}, "url": {"type": ["string", "null"]}, "localPath": {"type": ["string", "null"]}, "availability": {"type": "string"}, "rightsNote": {"type": "string"}}, "additionalProperties": false}},
+        "limitations": {"type": "array", "items": {"type": "string"}}, "interpretation": {"type": "object", "required": ["backside", "sorgCaptures", "sorgOmits", "bondOrder", "density"], "additionalProperties": {"type": "string"}}
+      }, "additionalProperties": false
+    }
+  }
+}

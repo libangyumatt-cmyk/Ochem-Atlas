@@ -11,7 +11,24 @@ assert.equal(D.reactions.filter(r=>r.figure).length,D.reactions.length,'every re
 assert.equal(D.reactions.find(r=>r.id==='sn2').quantumData.status,'literature-related-numerical');
 assert.equal(D.reactions.find(r=>r.id==='diels-alder').quantumData.status,'literature-related-numerical');
 assert.equal(D.reactions.filter(r=>r.quantumData.literatureCases.length>0).length,2);
-assert.equal(D.version,'0.3.0');
+assert.equal(D.version,'0.3.1');
+const research=JSON.parse(fs.readFileSync('research/evidence.json','utf8'));
+assert.equal(research.schemaVersion,'1.0');
+assert.deepEqual(research,JSON.parse(fs.readFileSync('dist/research-data.json','utf8')));
+const study=research.studies[0];assert.equal(study.reactionEvent,'sn2:0');
+assert.equal(study.model.totalCharge,-1);assert.equal(study.model.multiplicity,1);
+assert.equal(study.reactionCoordinate.kind,'published-irc-stationary-subset');assert.equal(study.reactionCoordinate.sampledValuesAvailable,false);
+assert.deepEqual(study.points.map(p=>p.id),['R','RC','TS']);
+assert.deepEqual(study.points.map(p=>p.energy.value),[0,-9.2,-0.3]);
+assert.deepEqual(study.points.map(p=>p.geometry['C-Cl_out'].value),[1.790,1.835,2.351]);
+assert.ok(study.points.every(p=>p.coordinatesFile===null));
+assert.equal(study.points[2].geometry['Cl_in-C'].status,'derived-from-published');
+assert.ok(Math.abs(study.points[2].descriptors.strain.value+study.points[2].descriptors.interaction.value-study.points[2].energy.value)<1e-9);
+assert.equal(study.points[0].descriptors['sigma-star-energy'].value,-5.13);
+assert.equal(study.points[2].descriptors['orbital-overlap'].value,0.215);
+assert.ok(study.descriptors.every(d=>d.method&&d.unit&&d.normalization&&d.applicability));
+assert.equal(study.descriptors.find(d=>d.id==='bond-order').status,'unavailable');
+assert.ok(study.artifacts.some(a=>a.localPath==='research/workflows/sn2_psi4.py'&&a.availability.includes('not executed')));
 const validEvents=new Set(D.reactions.flatMap(r=>r.steps.map((_,i)=>r.id+':'+i)));
 assert.equal(validEvents.size,69);
 assert.deepEqual(Object.keys(L.cases),['sn2','e2','carbonyl-add','diels-alder']);
@@ -56,7 +73,9 @@ const synthetic={...D.reactions[0],steps:[{code:'2211'},{code:'1333'}]};
 assert.equal(match(synthetic,{axes:['2','3','','']}),false);
 assert.equal(C.matches(D.reactions[0],{...base,saved:true},D.codebook,[D.reactions[0].id]),true);
 const html=fs.readFileSync('dist/index.html','utf8');
-for(const asset of ['styles.css','data.js','core.js','diagrams.js','learning.js','app.js','data.json','sorg-atlas-source.zip'])assert.ok(html.includes(asset+'?v='+D.version),asset+' cache key differs from data version');
+for(const asset of ['styles.css','data.js','core.js','diagrams.js','learning.js','research-data.js','research.js','app.js','data.json','research-data.json','sorg-atlas-source.zip'])assert.ok(html.includes(asset+'?v='+D.version),asset+' cache key differs from data version');
+assert.match(html,/<section class="research-section section wrap" id="research"/);
+assert.match(html,/not interpolated IRC frames/);
 assert.ok(html.includes('31 reactions / 69 listed events'));assert.doesNotMatch(html,/concentration-rate|relative-barrier/);
 assert.doesNotMatch(fs.readFileSync('dist/app.js','utf8'),/calc-a|orbitalMixing|两轨道耦合与混合模型/);
 const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);assert.equal(ids.length,new Set(ids).size);
@@ -109,7 +128,7 @@ assert.match(D.reactions.find(r=>r.id==='imine-formation').steps.at(-1).equation
 assert.ok(D.reactions.every(r=>new Set(r.quantumData.descriptors).size===r.quantumData.descriptors.length));
 assert.ok(D.reactions.find(r=>r.id==='carbonyl-add').quantumData.literatureInsights[0].teachingPoint.includes('111°'));
 assert.ok(html.includes('id="compare-output"'));assert.ok(html.includes('Same code, different chemistry'));
-assert.ok(html.includes('v0.3.0'));assert.ok(html.includes('app.js?v=0.3.0'));
+assert.ok(html.includes('v0.3.1'));assert.ok(html.includes('app.js?v=0.3.1'));
 for(const id of ['fischer-esterification','imine-formation']){
  const r=D.reactions.find(x=>x.id===id);
  for(const [i,s] of r.steps.entries()){
