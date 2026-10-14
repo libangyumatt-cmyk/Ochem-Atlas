@@ -5,7 +5,7 @@ import zipfile
 root = Path(__file__).resolve().parent
 target = root / 'dist/sorg-atlas-source.zip'
 with zipfile.ZipFile(target, 'w', zipfile.ZIP_DEFLATED) as archive:
-    for name in ['README.md', 'build_data.py', 'english_content.py', 'quantum_literature.py', 'qc_review.py', 'build_figures.py', 'v028_figures.py', 'v028_content.py', 'v029_content.py', 'package_source.py', 'verify.cjs', 'verify-ui.cjs', 'package.json', 'package-lock.json', 'AUDIT.md', 'V028_AUDIT.md', 'V029_AUDIT.md',
+    for name in ['README.md', 'build_data.py', 'english_content.py', 'quantum_literature.py', 'qc_review.py', 'build_figures.py', 'v028_figures.py', 'v028_content.py', 'v029_content.py', 'package_source.py', 'verify.cjs', 'verify-ui.cjs', 'package.json', 'package-lock.json', 'AUDIT.md', 'V028_AUDIT.md', 'V029_AUDIT.md', 'V030_AUDIT.md',
                  '.gitignore', '.github/workflows/pages.yml']:
         archive.write(root / name, 'sorg-atlas/' + name)
     for path in sorted((root / 'dist').rglob('*')):

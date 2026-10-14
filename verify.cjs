@@ -1,6 +1,7 @@
 'use strict';
 const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
 const D=JSON.parse(fs.readFileSync('dist/data.json','utf8')),C=require('./dist/core.js');
+const L=require('./dist/learning.js').SorgLearning;
 const base={family:'',query:'',axes:['','','',''],steps:'all',candidate:false,saved:false};
 const match=(r,f)=>C.matches(r,{...base,...f},D.codebook,[]);
 assert.equal(D.reactions.length,31);assert.equal(D.reactions.reduce((n,r)=>n+r.steps.length,0),69);
@@ -10,7 +11,17 @@ assert.equal(D.reactions.filter(r=>r.figure).length,D.reactions.length,'every re
 assert.equal(D.reactions.find(r=>r.id==='sn2').quantumData.status,'literature-related-numerical');
 assert.equal(D.reactions.find(r=>r.id==='diels-alder').quantumData.status,'literature-related-numerical');
 assert.equal(D.reactions.filter(r=>r.quantumData.literatureCases.length>0).length,2);
-assert.equal(D.version,'0.2.9');
+assert.equal(D.version,'0.3.0');
+const validEvents=new Set(D.reactions.flatMap(r=>r.steps.map((_,i)=>r.id+':'+i)));
+assert.equal(validEvents.size,69);
+assert.deepEqual(Object.keys(L.cases),['sn2','e2','carbonyl-add','diels-alder']);
+for(const [id,c] of Object.entries(L.cases)){
+ assert.ok(validEvents.has(c.event));assert.equal(c.event,id+':0');assert.equal(c.questions.length,5);
+ for(const [prompt,options] of c.questions){assert.ok(prompt&&options.length>=3);assert.equal(options.filter(o=>o[1]==='yes').length,1);for(const [label,correct,feedback] of options){assert.ok(label&&feedback.length>30);assert.ok(['yes','no'].includes(correct));}}
+}
+for(const g of Object.values(L.groups)){assert.ok(g.description&&g.keys.length>=2);assert.equal(new Set(g.keys).size,g.keys.length);for(const key of g.keys)assert.ok(validEvents.has(key),key);}
+for(const [key,items] of Object.entries(L.descriptors)){assert.ok(validEvents.has(key));assert.ok(items.every(x=>x.length>12));}
+for(const [id,study] of Object.entries(L.studies)){assert.ok(L.cases[id]);assert.ok(D.sources[study.source]);assert.ok(study.model&&study.story.length===3);assert.ok(D.reactions.find(r=>r.id===id).sources.includes(study.source));}
 assert.ok(D.reactions.every(r=>r.quantumData.proposedProtocol.model&&r.quantumData.proposedProtocol.workflow));
 assert.equal(D.reactions.filter(r=>r.quantumData.literatureInsights.length>0).length,7);
 assert.ok(D.reactions.find(r=>r.id==='claisen').quantumData.literatureInsights[0].finding.includes('not occur simultaneously'));
@@ -45,6 +56,7 @@ const synthetic={...D.reactions[0],steps:[{code:'2211'},{code:'1333'}]};
 assert.equal(match(synthetic,{axes:['2','3','','']}),false);
 assert.equal(C.matches(D.reactions[0],{...base,saved:true},D.codebook,[D.reactions[0].id]),true);
 const html=fs.readFileSync('dist/index.html','utf8');
+for(const asset of ['styles.css','data.js','core.js','diagrams.js','learning.js','app.js','data.json','sorg-atlas-source.zip'])assert.ok(html.includes(asset+'?v='+D.version),asset+' cache key differs from data version');
 assert.ok(html.includes('31 reactions / 69 listed events'));assert.doesNotMatch(html,/concentration-rate|relative-barrier/);
 assert.doesNotMatch(fs.readFileSync('dist/app.js','utf8'),/calc-a|orbitalMixing|两轨道耦合与混合模型/);
 const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);assert.equal(ids.length,new Set(ids).size);
@@ -97,7 +109,7 @@ assert.match(D.reactions.find(r=>r.id==='imine-formation').steps.at(-1).equation
 assert.ok(D.reactions.every(r=>new Set(r.quantumData.descriptors).size===r.quantumData.descriptors.length));
 assert.ok(D.reactions.find(r=>r.id==='carbonyl-add').quantumData.literatureInsights[0].teachingPoint.includes('111°'));
 assert.ok(html.includes('id="compare-output"'));assert.ok(html.includes('Same code, different chemistry'));
-assert.ok(html.includes('v0.2.9'));assert.ok(html.includes('app.js?v=0.2.9'));
+assert.ok(html.includes('v0.3.0'));assert.ok(html.includes('app.js?v=0.3.0'));
 for(const id of ['fischer-esterification','imine-formation']){
  const r=D.reactions.find(x=>x.id===id);
  for(const [i,s] of r.steps.entries()){

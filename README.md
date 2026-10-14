@@ -33,7 +33,7 @@ python3 -m http.server 8000 --directory dist
 
 The app and structured data load locally. Embedded mechanism images and cited sources use external URLs and need network access. Saved items stay in browser storage.
 
-`build_data.py` defines the original entries and classifications; `english_content.py` contains the specific English editorial text for each event; `quantum_literature.py` holds literature tables and their scope notes. `qc_review.py` applies the documented v0.2.6 corrections and review metadata; `v028_content.py` adds reaction-specific scientific copy without changing numeric codes. `build_figures.py` generates the four earlier SVGs, and `v028_figures.py` generates the five new mechanism sheets. See `AUDIT.md` and `audit/` for all 70 original event dispositions, figure reviews and link requests. Change the relevant files, then regenerate and validate:
+`build_data.py` defines the original entries and classifications; `english_content.py` contains the specific English editorial text for each event; `quantum_literature.py` holds literature tables and their scope notes. `qc_review.py` applies the documented v0.2.6 corrections and review metadata; `v028_content.py` adds reaction-specific scientific copy without changing numeric codes. `build_figures.py` generates the four earlier SVGs, and `v028_figures.py` generates the five new mechanism sheets. The separate `dist/learning.js` holds four guided exercises, explicitly curated event features, optional nonnumeric descriptors, and three evidence narratives; it does not alter reaction records. See `AUDIT.md` and `audit/` for all 70 original event dispositions, figure reviews and link requests. Change the relevant files, then regenerate and validate:
 
 ```sh
 python3 build_data.py
@@ -41,6 +41,7 @@ npm ci --ignore-scripts
 npm test
 python3 package_source.py
 node --check dist/app.js
+node --check dist/learning.js
 node --check dist/diagrams.js
 ```
 
@@ -69,3 +70,9 @@ The atlas now embeds original, equation-matched mechanisms for E2, Diels–Alder
 The “Same code, different chemistry” interface compares two events from different reactions with the same SORG code. It shows the common coding convention alongside each equation, electron flow, orbital interaction, geometry, and uncertainty. Codes 1133 and 1113 remain provisional where the audited codebook examples do not cover every use.
 
 Published numerical cases on SN2 and Diels–Alder and the CN⁻/acetone angle study are identified by their actual models and methods; no quantum-chemical calculations were performed by this project. The test suite covers comparison selection and the earlier atlas interactions. Real desktop/mobile browser layout, native dialogs, touch, network image loads, and browser console remain untested in this managed environment.
+
+## v0.3.0 reasoning release
+
+The guided mode asks five reaction-specific questions each for SN2, E2, carbonyl nucleophilic addition, and neutral Diels–Alder. Incorrect options explain the mechanistic distinction. The event-centered map makes all 69 listed stages selectable; a solid edge means an identical four-digit code, while a dashed edge requires membership in an explicitly described feature group. Its local view pages through large neighborhoods and does not infer similarity from one coincident digit. A node can open its existing step-specific modal route.
+
+The three case-study narratives link the already transcribed SN2, Diels–Alder and CN⁻/acetone evidence to geometry and classification limits. Source tables, model/method statements and transfer warnings remain authoritative. Optional descriptors name selected stereoelectronic or topological features without changing SORG digits. See [V030_AUDIT.md](V030_AUDIT.md) for this release's verification and limitations.

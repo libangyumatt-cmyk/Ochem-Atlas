@@ -3,7 +3,7 @@
 const assert=require('node:assert/strict'),fs=require('node:fs');
 const {JSDOM,VirtualConsole}=require('jsdom');
 const D=JSON.parse(fs.readFileSync('dist/data.json','utf8'));
-assert.match(fs.readFileSync('dist/index.html','utf8'),/app\.js\?v=0\.2\.9&amp;rev=2/);
+assert.match(fs.readFileSync('dist/index.html','utf8'),/app\.js\?v=0\.3\.0/);
 let assertions=0;
 function app({storage='[]',blocked=false,hash=''}={}){
  const errors=[],vc=new VirtualConsole();vc.on('jsdomError',e=>errors.push(String(e)));
@@ -14,7 +14,7 @@ function app({storage='[]',blocked=false,hash=''}={}){
  w.HTMLDialogElement.prototype.close=function(){this.open=false;this.dispatchEvent(new w.Event('close'));};
  if(blocked)Object.defineProperty(w,'localStorage',{value:{getItem(){throw Error('blocked')},setItem(){throw Error('blocked')}}});
  else w.localStorage.setItem('sorg-saved-v1',storage);
- for(const f of ['data.js','core.js','diagrams.js','app.js'])w.eval(fs.readFileSync('dist/'+f,'utf8'));
+ for(const f of ['data.js','core.js','diagrams.js','learning.js','app.js'])w.eval(fs.readFileSync('dist/'+f,'utf8'));
  const $=s=>d.querySelector(s), $$=s=>[...d.querySelectorAll(s)];
  const click=s=>{const el=$(s);assert.ok(el,'missing '+s);el.click();};
  const change=(s,value,type='change')=>{const el=$(s);if(el.type==='checkbox')el.checked=value;else el.value=value;el.dispatchEvent(new w.Event(type,{bubbles:true}));};
@@ -22,6 +22,31 @@ function app({storage='[]',blocked=false,hash=''}={}){
  return {w,d,$,$$,click,change,ids,errors,close:()=>w.close()};
 }
 let t=app();assert.equal(t.ids().length,31);
+assert.equal(t.$$('#reason-case option').length,4);assert.equal(t.$$('#map-focus option').length,69);
+for(const id of ['sn2','e2','carbonyl-add','diels-alder']){
+ t.change('#reason-case',id);assert.match(t.$('#reason-output').textContent,/TEACHING MODEL/);
+ for(let i=0;i<5;i++){
+  assert.equal(t.$$('.reason-progress .done').length,i);
+  const options=t.w.SorgLearning.cases[id].questions[i][1],bad=options.findIndex(o=>o[1]==='no'),good=options.findIndex(o=>o[1]==='yes');
+  t.click(`[data-reason-choice="${bad}"]`);assert.match(t.$('.reason-feedback').textContent,/Not for this equation/);assert.equal(t.$('#reason-next'),null);
+  t.click(`[data-reason-choice="${good}"]`);assert.match(t.$('.reason-feedback').textContent,/Yes—follow/);t.click('#reason-next');
+ }
+ assert.match(t.$('#reason-output').textContent,/Mechanistic chain complete/);t.click('#reason-open');assert.equal(t.$('#dialog-title').textContent,t.w.SORG.reactions.find(r=>r.id===id).name);t.click('#close-dialog');assertions+=5;
+}
+t.change('#map-focus','hbr:0');t.click('#map-next');assert.match(t.$('.map-list').textContent,/Feature only/);
+assert.match(t.$('.map-list').textContent,/Proton transfer/);
+const totalWithFeature=t.$('.map-neighbors h3').textContent;
+t.change('#map-feature-toggle',false);assert.doesNotMatch(t.$('.map-list').textContent,/Feature only/);assert.notEqual(t.$('.map-neighbors h3').textContent,totalWithFeature);
+t.change('#map-feature-toggle',true);t.change('#map-focus','sn2:0');assert.match(t.$('#map-output').textContent,/Williamson ether synthesis/);
+t.click('#map-next');assert.equal(t.$('#map-prev').disabled,false);
+t.change('#map-focus','fischer-esterification:2');t.click('#map-open');assert.equal(t.$('.step-button.active').dataset.step,'2');assert.match(t.w.location.hash,/step=3/);t.click('#close-dialog');
+for(const key of [...t.$$('#map-focus option')].map(o=>o.value)){
+ t.change('#map-focus',key);assert.ok(t.$('.map-summary strong'));assert.ok(t.$('.map-graphic svg'));assertions++;
+}
+t.change('#map-focus','hbr:0');t.click('#map-next');const featureButton=t.$('.map-list button');featureButton.click();assert.equal(t.$('#map-focus').value,featureButton.dataset.mapTarget);
+for(const id of ['sn2','carbonyl-add','diels-alder']){
+ t.click(`[data-open="${id}"]`);t.click('[data-tab="data"]');assert.equal(t.$$('.case-study li').length,3);assert.match(t.$('.case-study').textContent,/Published model|Published-model|PUBLISHED-MODEL/);t.click('#close-dialog');
+}
 // All selectable codes have events in at least two distinct reaction entries.
 for(const option of t.$$('#compare-code option')){
  t.change('#compare-code',option.value);
