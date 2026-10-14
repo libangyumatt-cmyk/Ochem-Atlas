@@ -3,7 +3,7 @@
 const assert=require('node:assert/strict'),fs=require('node:fs');
 const {JSDOM,VirtualConsole}=require('jsdom');
 const D=JSON.parse(fs.readFileSync('dist/data.json','utf8'));
-assert.match(fs.readFileSync('dist/index.html','utf8'),/app\.js\?v=0\.3\.1/);
+assert.match(fs.readFileSync('dist/index.html','utf8'),/app\.js\?v=0\.3\.2/);
 let assertions=0;
 function app({storage='[]',blocked=false,hash=''}={}){
  const errors=[],vc=new VirtualConsole();vc.on('jsdomError',e=>errors.push(String(e)));
@@ -14,7 +14,7 @@ function app({storage='[]',blocked=false,hash=''}={}){
  w.HTMLDialogElement.prototype.close=function(){this.open=false;this.dispatchEvent(new w.Event('close'));};
  if(blocked)Object.defineProperty(w,'localStorage',{value:{getItem(){throw Error('blocked')},setItem(){throw Error('blocked')}}});
  else w.localStorage.setItem('sorg-saved-v1',storage);
- for(const f of ['data.js','core.js','diagrams.js','learning.js','research-data.js','research.js','app.js'])w.eval(fs.readFileSync('dist/'+f,'utf8'));
+ for(const f of ['data.js','core.js','diagrams.js','learning.js','research-data.js','foundations.js','research.js','app.js'])w.eval(fs.readFileSync('dist/'+f,'utf8'));
  const $=s=>d.querySelector(s), $$=s=>[...d.querySelectorAll(s)];
  const click=s=>{const el=$(s);assert.ok(el,'missing '+s);el.click();};
  const change=(s,value,type='change')=>{const el=$(s);if(el.type==='checkbox')el.checked=value;else el.value=value;el.dispatchEvent(new w.Event(type,{bubbles:true}));};
@@ -22,6 +22,18 @@ function app({storage='[]',blocked=false,hash=''}={}){
  return {w,d,$,$$,click,change,ids,errors,close:()=>w.close()};
 }
 let t=app();assert.equal(t.ids().length,31);
+assert.equal(t.$$('.foundation-lesson').length,5);
+assert.equal(t.$$('.foundation-lesson .equation math').length,6);
+assert.equal(t.$$('.foundation-lesson details').length,5);
+assert.equal(t.$$('.axis-quantum').length,4);
+assert.match(t.$('#coupling-readout').textContent,/level separation/);
+t.change('#coupling-gap','0','input');t.change('#coupling-v','0','input');assert.match(t.$('#coupling-readout').textContent,/not uniquely defined/);
+t.change('#coupling-v','1','input');assert.match(t.$('#coupling-readout').textContent,/2.00 eV/);assert.match(t.$('#coupling-readout').textContent,/50.0%/);
+t.click('[data-density="difference"]');assert.equal(t.$('[data-density="difference"]').getAttribute('aria-pressed'),'true');assert.match(t.$('#density-caption').textContent,/integral is zero/);
+t.click('[data-density="phase"]');assert.match(t.$('#density-caption').textContent,/never.*charge/);
+t.change('#pes-x','0','input');assert.match(t.$('#pes-readout').textContent,/first-order saddle/);
+t.change('#pes-barrier','1.5','input');assert.match(t.$('#pes-readout').textContent,/Barrier from either minimum: 1.5 eV/);
+assert.match(t.$('#research-viewer .research-discrete-plot').textContent,/not.*reaction coordinate/);
 assert.equal(t.$$('#research-viewer [data-research-point]').length,3);
 assert.match(t.$('#research-viewer').textContent,/1.79 Å/);
 t.click('[data-research-point="1"]');assert.match(t.$('.research-focus').textContent,/−?9.2| -9.2/);assert.match(t.$('.research-focus').textContent,/1.835 Å/);

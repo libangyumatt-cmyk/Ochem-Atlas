@@ -80,3 +80,7 @@ The three case-study narratives link the already transcribed SN2, Diels–Alder 
 ## v0.3.1 quantum-chemistry foundation
 
 The new [Research & Methods](research/README.md) layer defines a versioned evidence schema, a primary-source transcription for gas-phase Cl⁻ + CH₃Cl, and a discrete three-state viewer. It deliberately does not reconstruct Cartesian coordinates or an IRC from partial tables. The teaching SN2 entry remains HO⁻ + CH₃Br; numerical quantities are labeled by their actual Cl⁻/CH₃Cl model, units, methods, fragment convention and table location. Optional descriptor definitions are separate from 1122. A Psi4 seed workflow is included but was **not executed** and does not validate a transition state. See [V031_AUDIT.md](V031_AUDIT.md) for provenance, checks and missing quantities.
+
+## v0.3.2 learning layer
+
+Quantum Foundations now comes before the SORG codebook: five linked lessons with native MathML and three original analytic visual models. `dist/foundations.js` contains the explicitly illustrative two-state Hamiltonian, normalized one-dimensional density, and double-well PES; `verify-foundations.cjs` checks their analytical identities. The SN2 research viewer adds an unconnected published-energy point chart, not an IRC. See [V032_AUDIT.md](V032_AUDIT.md) for assumptions, provenance, tests and limitations.
