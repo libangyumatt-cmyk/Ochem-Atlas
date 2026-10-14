@@ -1,0 +1,139 @@
+"""Regenerate the seven fixed-geometry RHF/STO-3G orbital surfaces.
+
+Run from the repository root with the pinned requirements in this directory.
+The .cube.gz files are the raw sampled wavefunctions; orbital-data.json is a
+triangle-mesh derivative for the static browser site. No geometry optimization.
+"""
+import gzip
+import json
+import platform
+import shutil
+from pathlib import Path
+
+import numpy as np
+import pyscf
+from pyscf import gto, lib, scf
+from pyscf.tools import cubegen
+from skimage.measure import marching_cubes
+import skimage
+
+ROOT = Path(__file__).resolve().parents[2]
+OUT = ROOT / 'research/orbitals/outputs'
+OUT.mkdir(parents=True, exist_ok=True)
+DIST = ROOT / 'dist'
+DOWNLOADS = DIST / 'orbital-files'
+DOWNLOADS.mkdir(parents=True, exist_ok=True)
+N = 44
+ISO = 0.035  # orbital amplitude in bohr^(-3/2), not electron density
+BOHR_TO_ANG = 0.529177210903
+
+SYSTEMS = {
+    'h2': {
+        'name': 'Hydrogen · H₂', 'atoms': [('H', (0, 0, -0.370)), ('H', (0, 0, 0.370))],
+        'orbitals': [(0, '1σg', 'bonding', 'Even phase across the midpoint; amplitude bridges the nuclei.'),
+                     (1, '1σu*', 'antibonding', 'Midpoint nodal plane; phases oppose across the two nuclei.')],
+        'links': ['#foundation-orbitals'],
+    },
+    'ethylene': {
+        'name': 'Ethylene · C₂H₄', 'atoms': [('C', (-.667, 0, 0)), ('C', (.667, 0, 0)),
+            ('H', (-1.232, -.923, 0)), ('H', (-1.232, .923, 0)),
+            ('H', (1.232, -.923, 0)), ('H', (1.232, .923, 0))],
+        'orbitals': [(7, 'π (HOMO)', 'bonding', 'The molecular plane z = 0 is a node; the same phase spans both carbon p lobes above it.'),
+                     (8, 'π* (LUMO)', 'antibonding', 'A second nodal plane bisects C=C, in addition to the molecular plane.')],
+        'links': ['#foundation-orbitals', '#reaction/diels-alder'],
+    },
+    'formaldehyde': {
+        'name': 'Formaldehyde · CH₂O', 'atoms': [('C', (0, 0, 0)), ('O', (1.210, 0, 0)),
+            ('H', (-.570, -.935, 0)), ('H', (-.570, .935, 0))],
+        'orbitals': [(6, 'π(C=O)', 'bonding', 'The molecular plane is a node. This occupied π orbital has same-phase carbon and oxygen lobes on each side.'),
+                     (7, 'n(O) (HOMO)', 'nonbonding-like', 'An oxygen-rich in-plane lone-pair orbital; its shape depends on the chosen canonical-orbital representation.'),
+                     (8, 'π*(C=O) (LUMO)', 'antibonding', 'The molecular plane and a node between C and O separate the out-of-plane lobes; this is an acceptor orbital in a frontier-orbital account.')],
+        'links': ['#foundation-orbitals', '#reaction/carbonyl-add', '#reaction/cyanohydrin'],
+    },
+}
+
+
+def mesh(field, cube, sign):
+    sampled = field * sign
+    vertices, faces, _, _ = marching_cubes(sampled.astype(np.float32), ISO, allow_degenerate=False)
+    step = np.diag(cube.box) / (N - 1)
+    xyz = (vertices * step + cube.boxorig) * BOHR_TO_ANG
+    # Rounding is solely display-mesh compression; the original cubes retain field samples.
+    return {'vertices': np.round(xyz, 3).ravel().tolist(), 'faces': faces.astype(np.int32).ravel().tolist(),
+            'triangleCount': len(faces)}
+
+
+def main():
+    # The hosted executor lacks /proc/<pid>/statm; PySCF uses it only to choose
+    # an in-core/out-of-core path. These tiny systems fit in memory comfortably.
+    try:
+        lib.current_memory()
+    except FileNotFoundError:
+        lib.current_memory = lambda: (0, 0)
+    dataset = {'schemaVersion': '1.0', 'provenance': {
+        'kind': 'Atlas-computed-fixed-geometry', 'program': f'PySCF {pyscf.__version__}',
+        'meshProgram': f'scikit-image {skimage.__version__}', 'python': platform.python_version(),
+        'method': 'restricted Hartree–Fock', 'basis': 'STO-3G', 'environment': 'gas phase / isolated molecule',
+        'geometry': 'explicit fixed input coordinates in Å; not optimized or measured',
+        'grid': f'{N}×{N}×{N} cube sampling; PySCF default margin 3 bohr',
+        'isovalue': ISO, 'isovalueUnit': 'bohr⁻³ᐟ²', 'phase': 'arbitrary global sign per real canonical MO',
+        'notes': 'Orbitals are canonical RHF model quantities, not unique observables. Mesh vertices rounded to 0.001 Å; raw grids are downloadable.'},
+        'systems': []}
+    for key, spec in SYSTEMS.items():
+        mol = gto.M(atom=spec['atoms'], unit='Angstrom', basis='sto-3g', charge=0, spin=0, verbose=4,
+                       output=str(OUT / f'{key}.log'))
+        mf = scf.RHF(mol)
+        mf.conv_tol = 1e-10
+        mf.max_cycle = 100
+        energy = mf.kernel()
+        if not mf.converged:
+            raise RuntimeError(f'{key}: SCF did not converge')
+        S = mol.intor('int1e_ovlp')
+        orthonormal_error = float(np.max(np.abs(mf.mo_coeff.T @ S @ mf.mo_coeff - np.eye(mol.nao_nr()))))
+        if orthonormal_error > 1e-8:
+            raise AssertionError(f'{key}: MO overlap error {orthonormal_error}')
+        if int(sum(mf.mo_occ)) != mol.nelectron:
+            raise AssertionError(f'{key}: electron count mismatch')
+        cc = cubegen.Cube(mol, N, N, N, margin=3)
+        item = {'id': key, 'name': spec['name'], 'charge': 0, 'multiplicity': 1,
+                'electronCount': mol.nelectron, 'totalEnergyHartree': round(float(energy), 11),
+                'orthonormalError': orthonormal_error,
+                'atoms': [{'element': s, 'xyzAngstrom': list(v), 'label': f'{s}{i+1}'} for i, (s, v) in enumerate(spec['atoms'])],
+                'links': spec['links'], 'orbitals': [], 'outputLog': f'research/orbitals/outputs/{key}.log'}
+        xyz = f"{len(spec['atoms'])}\n{key}: fixed input geometry in Å; neutral singlet RHF/STO-3G\n" + ''.join(
+            f'{symbol:<2} {v[0]: .6f} {v[1]: .6f} {v[2]: .6f}\n' for symbol, v in spec['atoms'])
+        (OUT / f'{key}.xyz').write_text(xyz, encoding='utf-8')
+        (DOWNLOADS / f'{key}.xyz').write_text(xyz, encoding='utf-8')
+        np.savez_compressed(OUT / f'{key}-scf.npz', mo_coeff=mf.mo_coeff, mo_energy=mf.mo_energy,
+                            mo_occ=mf.mo_occ, overlap=S, atom_coords_angstrom=np.array([v for _, v in spec['atoms']]))
+        for index, label, character, description in spec['orbitals']:
+            cube_path = OUT / f'{key}-mo{index+1}.cube'
+            field = cubegen.orbital(mol, str(cube_path), mf.mo_coeff[:, index], nx=N, ny=N, nz=N, margin=3)
+            if not field.max() > ISO:
+                raise AssertionError(f'{key} MO{index+1}: positive isosurface missing')
+            with cube_path.open('rb') as source, gzip.open(str(cube_path) + '.gz', 'wb', compresslevel=9) as target:
+                target.write(source.read())
+            cube_path.unlink()
+            shutil.copy2(str(cube_path) + '.gz', DOWNLOADS / (cube_path.name + '.gz'))
+            # A bonding 1s combination in H₂ may have no negative lobe at all.
+            faces = {'positive': mesh(field, cc, 1),
+                     'negative': mesh(field, cc, -1) if field.min() < -ISO else None}
+            item['orbitals'].append({'index': index+1, 'name': label, 'character': character,
+                'description': description, 'occupation': int(mf.mo_occ[index]),
+                'energyHartree': round(float(mf.mo_energy[index]), 8),
+                'cube': f'research/orbitals/outputs/{key}-mo{index+1}.cube.gz',
+                'mesh': faces, 'gridMin': round(float(field.min()), 6), 'gridMax': round(float(field.max()), 6)})
+        mol.stdout.close()
+        for suffix in ('.log', '-scf.npz'):
+            shutil.copy2(OUT / f'{key}{suffix}', DOWNLOADS / f'{key}{suffix}')
+        dataset['systems'].append(item)
+        print(key, 'E=', energy, 'electrons=', mol.nelectron, 'max CᵀSC−I=', orthonormal_error,
+              'triangles=', sum(m['mesh']['positive']['triangleCount'] + (m['mesh']['negative']['triangleCount'] if m['mesh']['negative'] else 0) for m in item['orbitals']))
+    (DIST / 'orbital-data.json').write_text(json.dumps(dataset, separators=(',', ':'), ensure_ascii=False), encoding='utf-8')
+    (OUT / 'summary.json').write_text(json.dumps({**dataset, 'systems': [{k:v for k,v in m.items() if k != 'orbitals'} | {'orbitals': [{k:v for k,v in o.items() if k != 'mesh'} for o in m['orbitals']]} for m in dataset['systems']]}, indent=2, ensure_ascii=False), encoding='utf-8')
+    shutil.copy2(__file__, DOWNLOADS / 'generate.py')
+    shutil.copy2(Path(__file__).with_name('requirements.txt'), DOWNLOADS / 'requirements.txt')
+
+
+if __name__ == '__main__':
+    main()

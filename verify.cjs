@@ -11,7 +11,7 @@ assert.equal(D.reactions.filter(r=>r.figure).length,D.reactions.length,'every re
 assert.equal(D.reactions.find(r=>r.id==='sn2').quantumData.status,'literature-related-numerical');
 assert.equal(D.reactions.find(r=>r.id==='diels-alder').quantumData.status,'literature-related-numerical');
 assert.equal(D.reactions.filter(r=>r.quantumData.literatureCases.length>0).length,2);
-assert.equal(D.version,'0.3.2');
+assert.equal(D.version,'0.3.3');
 const research=JSON.parse(fs.readFileSync('research/evidence.json','utf8'));
 assert.equal(research.schemaVersion,'1.0');
 assert.deepEqual(research,JSON.parse(fs.readFileSync('dist/research-data.json','utf8')));
@@ -73,8 +73,7 @@ const synthetic={...D.reactions[0],steps:[{code:'2211'},{code:'1333'}]};
 assert.equal(match(synthetic,{axes:['2','3','','']}),false);
 assert.equal(C.matches(D.reactions[0],{...base,saved:true},D.codebook,[D.reactions[0].id]),true);
 const html=fs.readFileSync('dist/index.html','utf8');
-for(const asset of ['styles.css','data.js','core.js','diagrams.js','learning.js','research-data.js','research.js','app.js','data.json','research-data.json','sorg-atlas-source.zip'])assert.ok(html.includes(asset+'?v='+D.version),asset+' cache key differs from data version');
-assert.ok(html.includes('foundations.js?v='+D.version+'.1'),'foundation visualization fix has a distinct cache key');
+for(const asset of ['styles.css','data.js','core.js','diagrams.js','learning.js','research-data.js','foundations.js','scf-demo.js','orbital-lab.js','research.js','app.js','data.json','research-data.json','sorg-atlas-source.zip'])assert.ok(html.includes(asset+'?v='+D.version),asset+' cache key differs from data version');
 assert.ok(html.indexOf('id="foundations"')<html.indexOf('id="principles"'));
 for(const id of ['wave','orbitals','density','pes','sorg'])assert.ok(html.includes('id="foundation-'+id+'"'));
 assert.match(html,/<section class="research-section section wrap" id="research"/);
@@ -131,7 +130,7 @@ assert.match(D.reactions.find(r=>r.id==='imine-formation').steps.at(-1).equation
 assert.ok(D.reactions.every(r=>new Set(r.quantumData.descriptors).size===r.quantumData.descriptors.length));
 assert.ok(D.reactions.find(r=>r.id==='carbonyl-add').quantumData.literatureInsights[0].teachingPoint.includes('111°'));
 assert.ok(html.includes('id="compare-output"'));assert.ok(html.includes('Same code, different chemistry'));
-assert.ok(html.includes('v0.3.2'));assert.ok(html.includes('app.js?v=0.3.2'));
+assert.ok(html.includes('v0.3.3'));assert.ok(html.includes('app.js?v=0.3.3'));
 for(const id of ['fischer-esterification','imine-formation']){
  const r=D.reactions.find(x=>x.id===id);
  for(const [i,s] of r.steps.entries()){

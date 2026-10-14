@@ -3,7 +3,7 @@
 const assert=require('node:assert/strict'),fs=require('node:fs');
 const {JSDOM,VirtualConsole}=require('jsdom');
 const D=JSON.parse(fs.readFileSync('dist/data.json','utf8'));
-assert.match(fs.readFileSync('dist/index.html','utf8'),/app\.js\?v=0\.3\.2/);
+assert.match(fs.readFileSync('dist/index.html','utf8'),/app\.js\?v=0\.3\.3/);
 let assertions=0;
 function app({storage='[]',blocked=false,hash=''}={}){
  const errors=[],vc=new VirtualConsole();vc.on('jsdomError',e=>errors.push(String(e)));
@@ -14,7 +14,7 @@ function app({storage='[]',blocked=false,hash=''}={}){
  w.HTMLDialogElement.prototype.close=function(){this.open=false;this.dispatchEvent(new w.Event('close'));};
  if(blocked)Object.defineProperty(w,'localStorage',{value:{getItem(){throw Error('blocked')},setItem(){throw Error('blocked')}}});
  else w.localStorage.setItem('sorg-saved-v1',storage);
- for(const f of ['data.js','core.js','diagrams.js','learning.js','research-data.js','foundations.js','research.js','app.js'])w.eval(fs.readFileSync('dist/'+f,'utf8'));
+ for(const f of ['data.js','core.js','diagrams.js','learning.js','research-data.js','foundations.js','scf-demo.js','research.js','app.js'])w.eval(fs.readFileSync('dist/'+f,'utf8'));
  const $=s=>d.querySelector(s), $$=s=>[...d.querySelectorAll(s)];
  const click=s=>{const el=$(s);assert.ok(el,'missing '+s);el.click();};
  const change=(s,value,type='change')=>{const el=$(s);if(el.type==='checkbox')el.checked=value;else el.value=value;el.dispatchEvent(new w.Event(type,{bubbles:true}));};
@@ -23,6 +23,8 @@ function app({storage='[]',blocked=false,hash=''}={}){
 }
 let t=app();assert.equal(t.ids().length,31);
 assert.equal(t.$$('.foundation-lesson').length,5);
+assert.match(t.$('#scf-readout').textContent,/scalar model is not a molecular calculation/);
+t.change('#scf-feedback','0.8','input');t.change('#scf-mix','1','input');assert.match(t.$('#scf-feedback-value').textContent,/0.80 eV/);assert.match(t.$('#scf-mix-value').textContent,/1.00/);
 assert.equal(t.$$('.foundation-lesson .equation math').length,6);
 assert.equal(t.$$('.foundation-lesson details').length,5);
 assert.equal(t.$$('.axis-quantum').length,4);

@@ -1,0 +1,6 @@
+4
+formaldehyde: fixed input geometry in Å; neutral singlet RHF/STO-3G
+C   0.000000  0.000000  0.000000
+O   1.210000  0.000000  0.000000
+H  -0.570000 -0.935000  0.000000
+H  -0.570000  0.935000  0.000000

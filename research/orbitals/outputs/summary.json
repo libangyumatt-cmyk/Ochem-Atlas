@@ -1,0 +1,259 @@
+{
+  "schemaVersion": "1.0",
+  "provenance": {
+    "kind": "Atlas-computed-fixed-geometry",
+    "program": "PySCF 2.14.0",
+    "meshProgram": "scikit-image 0.25.2",
+    "python": "3.12.14",
+    "method": "restricted Hartree–Fock",
+    "basis": "STO-3G",
+    "environment": "gas phase / isolated molecule",
+    "geometry": "explicit fixed input coordinates in Å; not optimized or measured",
+    "grid": "44×44×44 cube sampling; PySCF default margin 3 bohr",
+    "isovalue": 0.035,
+    "isovalueUnit": "bohr⁻³ᐟ²",
+    "phase": "arbitrary global sign per real canonical MO",
+    "notes": "Orbitals are canonical RHF model quantities, not unique observables. Mesh vertices rounded to 0.001 Å; raw grids are downloadable."
+  },
+  "systems": [
+    {
+      "id": "h2",
+      "name": "Hydrogen · H₂",
+      "charge": 0,
+      "multiplicity": 1,
+      "electronCount": 2,
+      "totalEnergyHartree": -1.1167593074,
+      "orthonormalError": 2.6823681330876626e-16,
+      "atoms": [
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            0,
+            0,
+            -0.37
+          ],
+          "label": "H1"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            0,
+            0,
+            0.37
+          ],
+          "label": "H2"
+        }
+      ],
+      "links": [
+        "#foundation-orbitals"
+      ],
+      "outputLog": "research/orbitals/outputs/h2.log",
+      "orbitals": [
+        {
+          "index": 1,
+          "name": "1σg",
+          "character": "bonding",
+          "description": "Even phase across the midpoint; amplitude bridges the nuclei.",
+          "occupation": 2,
+          "energyHartree": -0.57855386,
+          "cube": "research/orbitals/outputs/h2-mo1.cube.gz",
+          "gridMin": 0.000563,
+          "gridMax": 0.418865
+        },
+        {
+          "index": 2,
+          "name": "1σu*",
+          "character": "antibonding",
+          "description": "Midpoint nodal plane; phases oppose across the two nuclei.",
+          "occupation": 0,
+          "energyHartree": 0.67114349,
+          "cube": "research/orbitals/outputs/h2-mo2.cube.gz",
+          "gridMin": -0.587622,
+          "gridMax": 0.587622
+        }
+      ]
+    },
+    {
+      "id": "ethylene",
+      "name": "Ethylene · C₂H₄",
+      "charge": 0,
+      "multiplicity": 1,
+      "electronCount": 16,
+      "totalEnergyHartree": -77.07268171166,
+      "orthonormalError": 3.019955007395662e-15,
+      "atoms": [
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            -0.667,
+            0,
+            0
+          ],
+          "label": "C1"
+        },
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            0.667,
+            0,
+            0
+          ],
+          "label": "C2"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -1.232,
+            -0.923,
+            0
+          ],
+          "label": "H3"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -1.232,
+            0.923,
+            0
+          ],
+          "label": "H4"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            1.232,
+            -0.923,
+            0
+          ],
+          "label": "H5"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            1.232,
+            0.923,
+            0
+          ],
+          "label": "H6"
+        }
+      ],
+      "links": [
+        "#foundation-orbitals",
+        "#reaction/diels-alder"
+      ],
+      "outputLog": "research/orbitals/outputs/ethylene.log",
+      "orbitals": [
+        {
+          "index": 8,
+          "name": "π (HOMO)",
+          "character": "bonding",
+          "description": "The molecular plane z = 0 is a node; the same phase spans both carbon p lobes above it.",
+          "occupation": 2,
+          "energyHartree": -0.32522495,
+          "cube": "research/orbitals/outputs/ethylene-mo8.cube.gz",
+          "gridMin": -0.300752,
+          "gridMax": 0.300752
+        },
+        {
+          "index": 9,
+          "name": "π* (LUMO)",
+          "character": "antibonding",
+          "description": "A second nodal plane bisects C=C, in addition to the molecular plane.",
+          "occupation": 0,
+          "energyHartree": 0.31864643,
+          "cube": "research/orbitals/outputs/ethylene-mo9.cube.gz",
+          "gridMin": -0.363138,
+          "gridMax": 0.363138
+        }
+      ]
+    },
+    {
+      "id": "formaldehyde",
+      "name": "Formaldehyde · CH₂O",
+      "charge": 0,
+      "multiplicity": 1,
+      "electronCount": 16,
+      "totalEnergyHartree": -112.35385994749,
+      "orthonormalError": 1.6653345369377348e-15,
+      "atoms": [
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            0,
+            0,
+            0
+          ],
+          "label": "C1"
+        },
+        {
+          "element": "O",
+          "xyzAngstrom": [
+            1.21,
+            0,
+            0
+          ],
+          "label": "O2"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.57,
+            -0.935,
+            0
+          ],
+          "label": "H3"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.57,
+            0.935,
+            0
+          ],
+          "label": "H4"
+        }
+      ],
+      "links": [
+        "#foundation-orbitals",
+        "#reaction/carbonyl-add",
+        "#reaction/cyanohydrin"
+      ],
+      "outputLog": "research/orbitals/outputs/formaldehyde.log",
+      "orbitals": [
+        {
+          "index": 7,
+          "name": "π(C=O)",
+          "character": "bonding",
+          "description": "The molecular plane is a node. This occupied π orbital has same-phase carbon and oxygen lobes on each side.",
+          "occupation": 2,
+          "energyHartree": -0.44623651,
+          "cube": "research/orbitals/outputs/formaldehyde-mo7.cube.gz",
+          "gridMin": -0.473545,
+          "gridMax": 0.473545
+        },
+        {
+          "index": 8,
+          "name": "n(O) (HOMO)",
+          "character": "nonbonding-like",
+          "description": "An oxygen-rich in-plane lone-pair orbital; its shape depends on the chosen canonical-orbital representation.",
+          "occupation": 2,
+          "energyHartree": -0.35462683,
+          "cube": "research/orbitals/outputs/formaldehyde-mo8.cube.gz",
+          "gridMin": -0.586034,
+          "gridMax": 0.586034
+        },
+        {
+          "index": 9,
+          "name": "π*(C=O) (LUMO)",
+          "character": "antibonding",
+          "description": "The molecular plane and a node between C and O separate the out-of-plane lobes; this is an acceptor orbital in a frontier-orbital account.",
+          "occupation": 0,
+          "energyHartree": 0.28499488,
+          "cube": "research/orbitals/outputs/formaldehyde-mo9.cube.gz",
+          "gridMin": -0.511873,
+          "gridMax": 0.511873
+        }
+      ]
+    }
+  ]
+}

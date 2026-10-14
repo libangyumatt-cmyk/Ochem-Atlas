@@ -84,3 +84,7 @@ The new [Research & Methods](research/README.md) layer defines a versioned evide
 ## v0.3.2 learning layer
 
 Quantum Foundations now comes before the SORG codebook: five linked lessons with native MathML and three original analytic visual models. `dist/foundations.js` contains the explicitly illustrative two-state Hamiltonian, normalized one-dimensional density, and double-well PES; `verify-foundations.cjs` checks their analytical identities. The SN2 research viewer adds an unconnected published-energy point chart, not an IRC. See [V032_AUDIT.md](V032_AUDIT.md) for assumptions, provenance, tests and limitations.
+
+## v0.3.3 molecular laboratory
+
+The Orbital Laboratory follows Quantum Foundations and uses seven newly **calculated** fixed-geometry RHF/STO-3G orbitals for H₂, ethylene and formaldehyde. Three.js renders the sampled signed wavefunction isosurfaces; downloadable cube grids, geometry inputs, MO coefficients, SCF logs and the regeneration script accompany them. The browser retains a static projection from the computed mesh if WebGL is unavailable. The separate scalar SCF iteration widget is an explicitly defined mathematical teaching model, not a molecular calculation. See [research/orbitals/README.md](research/orbitals/README.md) and [V033_AUDIT.md](V033_AUDIT.md).
