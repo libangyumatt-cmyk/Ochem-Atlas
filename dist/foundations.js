@@ -45,9 +45,9 @@
   const segment=(filter)=>points.map((x,i)=>`${i?'L':'M'}${xy(x).toFixed(1)},${y(filter(density(x))).toFixed(1)}`).join(' ');
   let paths='';
   if(mode==='phase'||mode==='difference'){
-   const plus=x=>Math.max(0,density(x)[mode]),minus=x=>Math.min(0,density(x)[mode]);
+   const plus=sample=>Math.max(0,sample[mode]),minus=sample=>Math.min(0,sample[mode]);
    paths=`<path d="${segment(plus)}" class="model-teal-path"/><path d="${segment(minus)}" class="model-gold-path"/>`;
-  }else paths=`<path d="${segment(x=>density(x)[mode])}" class="model-teal-path"/>`;
+  }else paths=`<path d="${segment(sample=>sample[mode])}" class="model-teal-path"/>`;
   $('#density-plot').innerHTML=svg(`${line(50,zero,480,zero,'axis-line')}${line(265,25,265,215,'gridline')}${paths}<text x="42" y="232">−3.6</text><text x="253" y="232">x = 0</text><text x="454" y="232">3.6</text><text x="57" y="24">${mode==='phase'?'ψp · signed amplitude':mode==='probability'?'|ψp|² · probability density':mode==='total'?'ρbond · electron density':'Δρ · density difference'}</text>`,densCaption[mode]);
   $('#density-caption').textContent=densCaption[mode];
   document.querySelectorAll('[data-density]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.density===mode)));

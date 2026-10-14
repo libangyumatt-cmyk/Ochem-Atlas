@@ -29,7 +29,13 @@ assert.equal(t.$$('.axis-quantum').length,4);
 assert.match(t.$('#coupling-readout').textContent,/level separation/);
 t.change('#coupling-gap','0','input');t.change('#coupling-v','0','input');assert.match(t.$('#coupling-readout').textContent,/not uniquely defined/);
 t.change('#coupling-v','1','input');assert.match(t.$('#coupling-readout').textContent,/2.00 eV/);assert.match(t.$('#coupling-readout').textContent,/50.0%/);
-t.click('[data-density="difference"]');assert.equal(t.$('[data-density="difference"]').getAttribute('aria-pressed'),'true');assert.match(t.$('#density-caption').textContent,/integral is zero/);
+for(const mode of ['phase','probability','total','difference']){
+ t.click(`[data-density="${mode}"]`);
+ assert.equal(t.$(`[data-density="${mode}"]`).getAttribute('aria-pressed'),'true');
+ const curves=t.$$('#density-plot path');assert.ok(curves.length>0);
+ for(const curve of curves){assert.doesNotMatch(curve.getAttribute('d'),/NaN|Infinity/);assert.match(curve.getAttribute('d'),/^M[\d.]+,[\d.-]+/);}
+}
+assert.match(t.$('#density-caption').textContent,/integral is zero/);
 t.click('[data-density="phase"]');assert.match(t.$('#density-caption').textContent,/never.*charge/);
 t.change('#pes-x','0','input');assert.match(t.$('#pes-readout').textContent,/first-order saddle/);
 t.change('#pes-barrier','1.5','input');assert.match(t.$('#pes-readout').textContent,/Barrier from either minimum: 1.5 eV/);
