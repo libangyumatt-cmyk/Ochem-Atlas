@@ -3,7 +3,7 @@
 const assert=require('node:assert/strict'),fs=require('node:fs');
 const {JSDOM,VirtualConsole}=require('jsdom');
 const D=JSON.parse(fs.readFileSync('dist/data.json','utf8'));
-assert.match(fs.readFileSync('dist/index.html','utf8'),/app\.js\?v=0\.3\.3/);
+assert.match(fs.readFileSync('dist/index.html','utf8'),/app\.js\?v=0\.3\.4/);
 let assertions=0;
 function app({storage='[]',blocked=false,hash=''}={}){
  const errors=[],vc=new VirtualConsole();vc.on('jsdomError',e=>errors.push(String(e)));

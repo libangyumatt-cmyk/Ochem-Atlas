@@ -2,7 +2,7 @@
   "name": "ochem-atlas-qc",
   "private": true,
   "scripts": {
-    "test": "node verify.cjs && node verify-foundations.cjs && node verify-orbitals.cjs && node verify-ui.cjs"
+    "test": "node verify.cjs && node verify-foundations.cjs && node verify-orbitals.cjs && node verify-ui.cjs && node verify-diversity.cjs"
   },
   "devDependencies": {
     "jsdom": "30.1.2",

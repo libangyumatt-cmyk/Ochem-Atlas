@@ -1,0 +1,1176 @@
+{
+  "schemaVersion": "1.0",
+  "provenance": {
+    "program": "PySCF 2.14.0",
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "skimage": "0.25.2",
+    "grid": 44,
+    "orbitalIsovalue": 0.035,
+    "spinDensityIsovalue": 0.003,
+    "phaseConvention": "First geometry: largest AO coefficient positive. Scan: maximum one-to-one cross-AO overlap within occupied/virtual blocks, positive matched overlap. No interpolation."
+  },
+  "systems": [
+    {
+      "id": "allyl",
+      "name": "Allyl radical · C₃H₅",
+      "charge": 0,
+      "multiplicity": 2,
+      "electronCount": 23,
+      "method": "ROHF",
+      "basis": "STO-3G",
+      "program": "PySCF 2.14.0",
+      "totalEnergyHartree": -115.00870679443922,
+      "orthonormalError": 4.365308614238115e-14,
+      "electronCounts": [
+        12.000000000000004,
+        11.000000000000004
+      ],
+      "s2": 0.75,
+      "spinContamination": 0.0,
+      "scfConverged": true,
+      "geometryKind": "fixed manually specified model geometry; not optimized or measured",
+      "pointGroup": "C2v",
+      "atoms": [
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            -1.212,
+            0.0,
+            0.0
+          ],
+          "label": "C1"
+        },
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            0.0,
+            0.7,
+            0.0
+          ],
+          "label": "C2"
+        },
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            1.212,
+            0.0,
+            0.0
+          ],
+          "label": "C3"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -2.15,
+            0.54,
+            0.0
+          ],
+          "label": "H4"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -1.212,
+            -1.08,
+            0.0
+          ],
+          "label": "H5"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            0.0,
+            1.78,
+            0.0
+          ],
+          "label": "H6"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            2.15,
+            0.54,
+            0.0
+          ],
+          "label": "H7"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            1.212,
+            -1.08,
+            0.0
+          ],
+          "label": "H8"
+        }
+      ],
+      "orbitals": [
+        {
+          "index": 12,
+          "name": "SOMO (open-shell ROHF)",
+          "character": "orbital",
+          "description": "A spin-adapted open-shell doublet with a singly occupied molecular orbital. The central carbon is near a SOMO node. ROHF constrains doubly occupied alpha/beta spatial orbitals to coincide; it omits UHF spin polarization.",
+          "kind": "orbital",
+          "fileStem": "v034/allyl-mo12",
+          "isovalue": 0.035,
+          "isovalueUnit": "bohr⁻³ᐟ²",
+          "gridMin": -0.3288510542172933,
+          "gridMax": 0.3288510542172933,
+          "occupation": 1,
+          "energyHartree": -0.010546376906356,
+          "symmetry": "A2",
+          "spinChannel": "singly occupied alpha"
+        },
+        {
+          "index": 0,
+          "name": "Spin density ρα − ρβ",
+          "character": "spin-density",
+          "description": "Signed ROHF spin density from alpha minus beta occupied densities. It equals the SOMO density in this one-unpaired-electron model; beta-excess polarization is absent by construction. Teal is alpha excess; amber would be beta excess. This is a density, not orbital phase; it cannot be phase reversed.",
+          "kind": "spin-density",
+          "fileStem": "v034/allyl-spin",
+          "isovalue": 0.003,
+          "isovalueUnit": "e bohr⁻³",
+          "gridMin": 1.0994711601838065e-17,
+          "gridMax": 0.10814301585982519
+        }
+      ],
+      "tracking": []
+    },
+    {
+      "id": "benzene",
+      "name": "Benzene · C₆H₆",
+      "charge": 0,
+      "multiplicity": 1,
+      "electronCount": 42,
+      "method": "RHF",
+      "basis": "STO-3G",
+      "program": "PySCF 2.14.0",
+      "totalEnergyHartree": -227.89056887857643,
+      "orthonormalError": 8.176287722932848e-14,
+      "electronCounts": [
+        42.00000000000006
+      ],
+      "s2": 0.0,
+      "spinContamination": 0,
+      "scfConverged": true,
+      "geometryKind": "fixed manually specified model geometry; not optimized or measured",
+      "pointGroup": "D6h",
+      "atoms": [
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            1.397,
+            0.0,
+            0.0
+          ],
+          "label": "C1"
+        },
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            0.6985000000000001,
+            1.2098374890868608,
+            0.0
+          ],
+          "label": "C2"
+        },
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            -0.6984999999999997,
+            1.2098374890868608,
+            0.0
+          ],
+          "label": "C3"
+        },
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            -1.397,
+            1.7108315784088525e-16,
+            0.0
+          ],
+          "label": "C4"
+        },
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            -0.6985000000000007,
+            -1.2098374890868604,
+            0.0
+          ],
+          "label": "C5"
+        },
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            0.6985000000000001,
+            -1.2098374890868608,
+            0.0
+          ],
+          "label": "C6"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            2.477,
+            0.0,
+            0.0
+          ],
+          "label": "H7"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            1.2385000000000002,
+            2.1451449251740544,
+            0.0
+          ],
+          "label": "H8"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -1.2384999999999995,
+            2.1451449251740544,
+            0.0
+          ],
+          "label": "H9"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -2.477,
+            3.0334501214879937e-16,
+            0.0
+          ],
+          "label": "H10"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -1.238500000000001,
+            -2.1451449251740535,
+            0.0
+          ],
+          "label": "H11"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            1.2385000000000002,
+            -2.1451449251740544,
+            0.0
+          ],
+          "label": "H12"
+        }
+      ],
+      "orbitals": [
+        {
+          "index": 17,
+          "name": "π1",
+          "character": "orbital",
+          "description": "Canonical RHF π orbital, MO 17, B1u symmetry in the computational subgroup. The six-carbon π system is delocalized. Degenerate pairs allow arbitrary orthogonal combinations; an individual partner is not a unique observable. Orbitals alone do not measure aromatic stabilization or establish a reaction pathway.",
+          "kind": "orbital",
+          "fileStem": "v034/benzene-mo17",
+          "isovalue": 0.035,
+          "isovalueUnit": "bohr⁻³ᐟ²",
+          "gridMin": -0.16293485052560125,
+          "gridMax": 0.16293485052560128,
+          "occupation": 2,
+          "energyHartree": -0.4549714507430489,
+          "symmetry": "B1u",
+          "spinChannel": "restricted"
+        },
+        {
+          "index": 20,
+          "name": "π2",
+          "character": "orbital",
+          "description": "Canonical RHF π orbital, MO 20, B2g symmetry in the computational subgroup. The six-carbon π system is delocalized. Degenerate pairs allow arbitrary orthogonal combinations; an individual partner is not a unique observable. Orbitals alone do not measure aromatic stabilization or establish a reaction pathway.",
+          "kind": "orbital",
+          "fileStem": "v034/benzene-mo20",
+          "isovalue": 0.035,
+          "isovalueUnit": "bohr⁻³ᐟ²",
+          "gridMin": -0.24939541938429688,
+          "gridMax": 0.2493954193842969,
+          "occupation": 2,
+          "energyHartree": -0.2792582975134097,
+          "symmetry": "B2g",
+          "spinChannel": "restricted"
+        },
+        {
+          "index": 21,
+          "name": "π3",
+          "character": "orbital",
+          "description": "Canonical RHF π orbital, MO 21, B3g symmetry in the computational subgroup. The six-carbon π system is delocalized. Degenerate pairs allow arbitrary orthogonal combinations; an individual partner is not a unique observable. Orbitals alone do not measure aromatic stabilization or establish a reaction pathway.",
+          "kind": "orbital",
+          "fileStem": "v034/benzene-mo21",
+          "isovalue": 0.035,
+          "isovalueUnit": "bohr⁻³ᐟ²",
+          "gridMin": -0.21653917872374648,
+          "gridMax": 0.2165391787237465,
+          "occupation": 2,
+          "energyHartree": -0.2792582975134201,
+          "symmetry": "B3g",
+          "spinChannel": "restricted"
+        },
+        {
+          "index": 22,
+          "name": "π4",
+          "character": "orbital",
+          "description": "Canonical RHF π orbital, MO 22, Au symmetry in the computational subgroup. The six-carbon π system is delocalized. Degenerate pairs allow arbitrary orthogonal combinations; an individual partner is not a unique observable. Orbitals alone do not measure aromatic stabilization or establish a reaction pathway.",
+          "kind": "orbital",
+          "fileStem": "v034/benzene-mo22",
+          "isovalue": 0.035,
+          "isovalueUnit": "bohr⁻³ᐟ²",
+          "gridMin": -0.2520331541598243,
+          "gridMax": 0.25203315415982425,
+          "occupation": 0,
+          "energyHartree": 0.26792524195791356,
+          "symmetry": "Au",
+          "spinChannel": "restricted"
+        },
+        {
+          "index": 23,
+          "name": "π5",
+          "character": "orbital",
+          "description": "Canonical RHF π orbital, MO 23, B1u symmetry in the computational subgroup. The six-carbon π system is delocalized. Degenerate pairs allow arbitrary orthogonal combinations; an individual partner is not a unique observable. Orbitals alone do not measure aromatic stabilization or establish a reaction pathway.",
+          "kind": "orbital",
+          "fileStem": "v034/benzene-mo23",
+          "isovalue": 0.035,
+          "isovalueUnit": "bohr⁻³ᐟ²",
+          "gridMin": -0.2920902411892524,
+          "gridMax": 0.2920902411892524,
+          "occupation": 0,
+          "energyHartree": 0.2679252419579325,
+          "symmetry": "B1u",
+          "spinChannel": "restricted"
+        },
+        {
+          "index": 24,
+          "name": "π6",
+          "character": "orbital",
+          "description": "Canonical RHF π orbital, MO 24, B2g symmetry in the computational subgroup. The six-carbon π system is delocalized. Degenerate pairs allow arbitrary orthogonal combinations; an individual partner is not a unique observable. Orbitals alone do not measure aromatic stabilization or establish a reaction pathway.",
+          "kind": "orbital",
+          "fileStem": "v034/benzene-mo24",
+          "isovalue": 0.035,
+          "isovalueUnit": "bohr⁻³ᐟ²",
+          "gridMin": -0.2257075343264121,
+          "gridMax": 0.22570753432641213,
+          "occupation": 0,
+          "energyHartree": 0.5018783280025041,
+          "symmetry": "B2g",
+          "spinChannel": "restricted"
+        }
+      ],
+      "tracking": []
+    },
+    {
+      "id": "butadiene",
+      "name": "1,3-Butadiene · C₄H₆ (s-trans)",
+      "charge": 0,
+      "multiplicity": 1,
+      "electronCount": 30,
+      "method": "RHF",
+      "basis": "STO-3G",
+      "program": "PySCF 2.14.0",
+      "totalEnergyHartree": -153.00111256175654,
+      "orthonormalError": 7.459796922474798e-15,
+      "electronCounts": [
+        29.99999999999998
+      ],
+      "s2": 0.0,
+      "spinContamination": 0,
+      "scfConverged": true,
+      "geometryKind": "fixed manually specified model geometry; not optimized or measured",
+      "pointGroup": "C2h",
+      "atoms": [
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            -1.855,
+            0.58,
+            0.0
+          ],
+          "label": "C1"
+        },
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            -0.735,
+            -0.15,
+            0.0
+          ],
+          "label": "C2"
+        },
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            0.735,
+            0.15,
+            0.0
+          ],
+          "label": "C3"
+        },
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            1.855,
+            -0.58,
+            0.0
+          ],
+          "label": "C4"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -2.82,
+            0.095,
+            0.0
+          ],
+          "label": "H5"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -1.8,
+            1.66,
+            0.0
+          ],
+          "label": "H6"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.81,
+            -1.23,
+            0.0
+          ],
+          "label": "H7"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            0.81,
+            1.23,
+            0.0
+          ],
+          "label": "H8"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            2.82,
+            -0.095,
+            0.0
+          ],
+          "label": "H9"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            1.8,
+            -1.66,
+            0.0
+          ],
+          "label": "H10"
+        }
+      ],
+      "orbitals": [
+        {
+          "index": 14,
+          "name": "π1",
+          "character": "orbital",
+          "description": "Canonical RHF π orbital, MO 14, Au symmetry in the computational subgroup. The four π orbitals have progressively increasing nodal structure (π1: 0 longitudinal nodes in the ideal conjugated-chain interpretation, plus the molecular plane). This s-trans geometry must reorganize to s-cis for Diels–Alder; no transition state is computed.",
+          "kind": "orbital",
+          "fileStem": "v034/butadiene-mo14",
+          "isovalue": 0.035,
+          "isovalueUnit": "bohr⁻³ᐟ²",
+          "gridMin": -0.23107901987317608,
+          "gridMax": 0.2310790198731761,
+          "occupation": 2,
+          "energyHartree": -0.3887811417777323,
+          "symmetry": "Au",
+          "spinChannel": "restricted"
+        },
+        {
+          "index": 15,
+          "name": "π2",
+          "character": "orbital",
+          "description": "Canonical RHF π orbital, MO 15, Bg symmetry in the computational subgroup. The four π orbitals have progressively increasing nodal structure (π2: 1 longitudinal nodes in the ideal conjugated-chain interpretation, plus the molecular plane). This s-trans geometry must reorganize to s-cis for Diels–Alder; no transition state is computed.",
+          "kind": "orbital",
+          "fileStem": "v034/butadiene-mo15",
+          "isovalue": 0.035,
+          "isovalueUnit": "bohr⁻³ᐟ²",
+          "gridMin": -0.2404039927742226,
+          "gridMax": 0.24040399277422264,
+          "occupation": 2,
+          "energyHartree": -0.27410134131195457,
+          "symmetry": "Bg",
+          "spinChannel": "restricted"
+        },
+        {
+          "index": 16,
+          "name": "π3",
+          "character": "orbital",
+          "description": "Canonical RHF π orbital, MO 16, Au symmetry in the computational subgroup. The four π orbitals have progressively increasing nodal structure (π3: 2 longitudinal nodes in the ideal conjugated-chain interpretation, plus the molecular plane). This s-trans geometry must reorganize to s-cis for Diels–Alder; no transition state is computed.",
+          "kind": "orbital",
+          "fileStem": "v034/butadiene-mo16",
+          "isovalue": 0.035,
+          "isovalueUnit": "bohr⁻³ᐟ²",
+          "gridMin": -0.27361832403568837,
+          "gridMax": 0.2736183240356883,
+          "occupation": 0,
+          "energyHartree": 0.2404481482504654,
+          "symmetry": "Au",
+          "spinChannel": "restricted"
+        },
+        {
+          "index": 17,
+          "name": "π4",
+          "character": "orbital",
+          "description": "Canonical RHF π orbital, MO 17, Bg symmetry in the computational subgroup. The four π orbitals have progressively increasing nodal structure (π4: 3 longitudinal nodes in the ideal conjugated-chain interpretation, plus the molecular plane). This s-trans geometry must reorganize to s-cis for Diels–Alder; no transition state is computed.",
+          "kind": "orbital",
+          "fileStem": "v034/butadiene-mo17",
+          "isovalue": 0.035,
+          "isovalueUnit": "bohr⁻³ᐟ²",
+          "gridMin": -0.30849526864695903,
+          "gridMax": 0.30849526864695903,
+          "occupation": 0,
+          "energyHartree": 0.4165354758159084,
+          "symmetry": "Bg",
+          "spinChannel": "restricted"
+        }
+      ],
+      "tracking": []
+    }
+  ],
+  "scan": [
+    {
+      "id": "torsion-00",
+      "name": "Ethylene · 0° torsion",
+      "charge": 0,
+      "multiplicity": 1,
+      "electronCount": 16,
+      "method": "RHF",
+      "basis": "STO-3G",
+      "program": "PySCF 2.14.0",
+      "totalEnergyHartree": -77.07268171165686,
+      "orthonormalError": 1.779283811080845e-15,
+      "electronCounts": [
+        15.99999999999999
+      ],
+      "s2": 0.0,
+      "spinContamination": 0,
+      "scfConverged": true,
+      "geometryKind": "constrained rigid torsion scan; no relaxation, optimization or IRC",
+      "pointGroup": "D2h",
+      "atoms": [
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            -0.667,
+            0.0,
+            0.0
+          ],
+          "label": "C1"
+        },
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            0.667,
+            0.0,
+            0.0
+          ],
+          "label": "C2"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -1.232,
+            -0.923,
+            0.0
+          ],
+          "label": "H3"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -1.232,
+            0.923,
+            0.0
+          ],
+          "label": "H4"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            1.232,
+            -0.923,
+            -0.0
+          ],
+          "label": "H5"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            1.232,
+            0.923,
+            0.0
+          ],
+          "label": "H6"
+        }
+      ],
+      "orbitals": [
+        {
+          "index": 8,
+          "name": "Tracked π-derived occupied",
+          "character": "orbital",
+          "description": "Canonical RHF π orbital, MO 8, B3u symmetry in the computational subgroup. An independently solved Fock problem at this geometry; identity follows maximum cross-geometry AO-metric overlap, with sign alignment, rather than MO index. Only the constrained RHF branch is shown.",
+          "kind": "orbital",
+          "fileStem": "v034/torsion-00-mo8",
+          "isovalue": 0.035,
+          "isovalueUnit": "bohr⁻³ᐟ²",
+          "gridMin": -0.30075169309228683,
+          "gridMax": 0.3007516930922869,
+          "occupation": 2,
+          "energyHartree": -0.3252249800484716,
+          "symmetry": "B3u",
+          "spinChannel": "restricted"
+        },
+        {
+          "index": 9,
+          "name": "Tracked π*-derived virtual",
+          "character": "orbital",
+          "description": "Canonical RHF π orbital, MO 9, B2g symmetry in the computational subgroup. An independently solved Fock problem at this geometry; identity follows maximum cross-geometry AO-metric overlap, with sign alignment, rather than MO index. Only the constrained RHF branch is shown.",
+          "kind": "orbital",
+          "fileStem": "v034/torsion-00-mo9",
+          "isovalue": 0.035,
+          "isovalueUnit": "bohr⁻³ᐟ²",
+          "gridMin": -0.3631381332238478,
+          "gridMax": 0.36313813322384786,
+          "occupation": 0,
+          "energyHartree": 0.318646428212447,
+          "symmetry": "B2g",
+          "spinChannel": "restricted"
+        }
+      ],
+      "tracking": [],
+      "torsionDegrees": 0,
+      "localPAOOverlap": 0.23981087603782636
+    },
+    {
+      "id": "torsion-15",
+      "name": "Ethylene · 15° torsion",
+      "charge": 0,
+      "multiplicity": 1,
+      "electronCount": 16,
+      "method": "RHF",
+      "basis": "STO-3G",
+      "program": "PySCF 2.14.0",
+      "totalEnergyHartree": -77.06643155823431,
+      "orthonormalError": 2.55351295663786e-15,
+      "electronCounts": [
+        16.000000000000004
+      ],
+      "s2": 0.0,
+      "spinContamination": 0,
+      "scfConverged": true,
+      "geometryKind": "constrained rigid torsion scan; no relaxation, optimization or IRC",
+      "pointGroup": "D2",
+      "atoms": [
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            -0.667,
+            0.0,
+            0.0
+          ],
+          "label": "C1"
+        },
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            0.667,
+            0.0,
+            0.0
+          ],
+          "label": "C2"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -1.232,
+            -0.923,
+            0.0
+          ],
+          "label": "H3"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -1.232,
+            0.923,
+            0.0
+          ],
+          "label": "H4"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            1.232,
+            -0.89154953766481,
+            -0.23888997862962666
+          ],
+          "label": "H5"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            1.232,
+            0.89154953766481,
+            0.23888997862962666
+          ],
+          "label": "H6"
+        }
+      ],
+      "orbitals": [
+        {
+          "index": 8,
+          "name": "Tracked π-derived occupied",
+          "character": "orbital",
+          "description": "Canonical RHF π orbital, MO 8, B1 symmetry in the computational subgroup. An independently solved Fock problem at this geometry; identity follows maximum cross-geometry AO-metric overlap, with sign alignment, rather than MO index. Only the constrained RHF branch is shown.",
+          "kind": "orbital",
+          "fileStem": "v034/torsion-15-mo8",
+          "isovalue": 0.035,
+          "isovalueUnit": "bohr⁻³ᐟ²",
+          "gridMin": -0.30336923883391187,
+          "gridMax": 0.30336923883391187,
+          "occupation": 2,
+          "energyHartree": -0.31848043727178976,
+          "symmetry": "B1",
+          "spinChannel": "restricted"
+        },
+        {
+          "index": 9,
+          "name": "Tracked π*-derived virtual",
+          "character": "orbital",
+          "description": "Canonical RHF π orbital, MO 9, B3 symmetry in the computational subgroup. An independently solved Fock problem at this geometry; identity follows maximum cross-geometry AO-metric overlap, with sign alignment, rather than MO index. Only the constrained RHF branch is shown.",
+          "kind": "orbital",
+          "fileStem": "v034/torsion-15-mo9",
+          "isovalue": 0.035,
+          "isovalueUnit": "bohr⁻³ᐟ²",
+          "gridMin": -0.36680472176757895,
+          "gridMax": 0.36680472176757895,
+          "occupation": 0,
+          "energyHartree": 0.31162850142293674,
+          "symmetry": "B3",
+          "spinChannel": "restricted"
+        }
+      ],
+      "tracking": [
+        {
+          "previousIndex": 8,
+          "currentIndex": 8,
+          "signedOverlapBeforeAlignment": 0.9589325784893012,
+          "alignedOverlap": 0.9589325784893012,
+          "nextBestOverlap": 0.2506152635121613
+        },
+        {
+          "previousIndex": 9,
+          "currentIndex": 9,
+          "signedOverlapBeforeAlignment": 0.9779865926496364,
+          "alignedOverlap": 0.9779865926496364,
+          "nextBestOverlap": 0.14657049776501246
+        }
+      ],
+      "torsionDegrees": 15,
+      "localPAOOverlap": 0.23163951858994275
+    },
+    {
+      "id": "torsion-30",
+      "name": "Ethylene · 30° torsion",
+      "charge": 0,
+      "multiplicity": 1,
+      "electronCount": 16,
+      "method": "RHF",
+      "basis": "STO-3G",
+      "program": "PySCF 2.14.0",
+      "totalEnergyHartree": -77.0477326413725,
+      "orthonormalError": 1.7773888272922066e-15,
+      "electronCounts": [
+        16.0
+      ],
+      "s2": 0.0,
+      "spinContamination": 0,
+      "scfConverged": true,
+      "geometryKind": "constrained rigid torsion scan; no relaxation, optimization or IRC",
+      "pointGroup": "D2",
+      "atoms": [
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            -0.667,
+            0.0,
+            0.0
+          ],
+          "label": "C1"
+        },
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            0.667,
+            0.0,
+            0.0
+          ],
+          "label": "C2"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -1.232,
+            -0.923,
+            0.0
+          ],
+          "label": "H3"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -1.232,
+            0.923,
+            0.0
+          ],
+          "label": "H4"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            1.232,
+            -0.7993414476930369,
+            -0.46149999999999997
+          ],
+          "label": "H5"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            1.232,
+            0.7993414476930369,
+            0.46149999999999997
+          ],
+          "label": "H6"
+        }
+      ],
+      "orbitals": [
+        {
+          "index": 8,
+          "name": "Tracked π-derived occupied",
+          "character": "orbital",
+          "description": "Canonical RHF π orbital, MO 8, B1 symmetry in the computational subgroup. An independently solved Fock problem at this geometry; identity follows maximum cross-geometry AO-metric overlap, with sign alignment, rather than MO index. Only the constrained RHF branch is shown.",
+          "kind": "orbital",
+          "fileStem": "v034/torsion-30-mo8",
+          "isovalue": 0.035,
+          "isovalueUnit": "bohr⁻³ᐟ²",
+          "gridMin": -0.3039299356994653,
+          "gridMax": 0.30392993569946536,
+          "occupation": 2,
+          "energyHartree": -0.30049923170346726,
+          "symmetry": "B1",
+          "spinChannel": "restricted"
+        },
+        {
+          "index": 9,
+          "name": "Tracked π*-derived virtual",
+          "character": "orbital",
+          "description": "Canonical RHF π orbital, MO 9, B3 symmetry in the computational subgroup. An independently solved Fock problem at this geometry; identity follows maximum cross-geometry AO-metric overlap, with sign alignment, rather than MO index. Only the constrained RHF branch is shown.",
+          "kind": "orbital",
+          "fileStem": "v034/torsion-30-mo9",
+          "isovalue": 0.035,
+          "isovalueUnit": "bohr⁻³ᐟ²",
+          "gridMin": -0.3583752318769917,
+          "gridMax": 0.35837523187699166,
+          "occupation": 0,
+          "energyHartree": 0.2925412014944343,
+          "symmetry": "B3",
+          "spinChannel": "restricted"
+        }
+      ],
+      "tracking": [
+        {
+          "previousIndex": 8,
+          "currentIndex": 8,
+          "signedOverlapBeforeAlignment": 0.9691817671748347,
+          "alignedOverlap": 0.9691817671748347,
+          "nextBestOverlap": 0.2061267439882432
+        },
+        {
+          "previousIndex": 9,
+          "currentIndex": 9,
+          "signedOverlapBeforeAlignment": 0.9806227530727134,
+          "alignedOverlap": 0.9806227530727134,
+          "nextBestOverlap": 0.125414125350161
+        }
+      ],
+      "torsionDegrees": 30,
+      "localPAOOverlap": 0.20768231075255855
+    },
+    {
+      "id": "torsion-45",
+      "name": "Ethylene · 45° torsion",
+      "charge": 0,
+      "multiplicity": 1,
+      "electronCount": 16,
+      "method": "RHF",
+      "basis": "STO-3G",
+      "program": "PySCF 2.14.0",
+      "totalEnergyHartree": -77.01675654144763,
+      "orthonormalError": 2.0120316526252855e-15,
+      "electronCounts": [
+        15.999999999999995
+      ],
+      "s2": 0.0,
+      "spinContamination": 0,
+      "scfConverged": true,
+      "geometryKind": "constrained rigid torsion scan; no relaxation, optimization or IRC",
+      "pointGroup": "D2",
+      "atoms": [
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            -0.667,
+            0.0,
+            0.0
+          ],
+          "label": "C1"
+        },
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            0.667,
+            0.0,
+            0.0
+          ],
+          "label": "C2"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -1.232,
+            -0.923,
+            0.0
+          ],
+          "label": "H3"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -1.232,
+            0.923,
+            0.0
+          ],
+          "label": "H4"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            1.232,
+            -0.6526595590351835,
+            -0.6526595590351834
+          ],
+          "label": "H5"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            1.232,
+            0.6526595590351835,
+            0.6526595590351834
+          ],
+          "label": "H6"
+        }
+      ],
+      "orbitals": [
+        {
+          "index": 8,
+          "name": "Tracked π-derived occupied",
+          "character": "orbital",
+          "description": "Canonical RHF π orbital, MO 8, B1 symmetry in the computational subgroup. An independently solved Fock problem at this geometry; identity follows maximum cross-geometry AO-metric overlap, with sign alignment, rather than MO index. Only the constrained RHF branch is shown.",
+          "kind": "orbital",
+          "fileStem": "v034/torsion-45-mo8",
+          "isovalue": 0.035,
+          "isovalueUnit": "bohr⁻³ᐟ²",
+          "gridMin": -0.29910532324047573,
+          "gridMax": 0.29910532324047573,
+          "occupation": 2,
+          "energyHartree": -0.27518778963668755,
+          "symmetry": "B1",
+          "spinChannel": "restricted"
+        },
+        {
+          "index": 9,
+          "name": "Tracked π*-derived virtual",
+          "character": "orbital",
+          "description": "Canonical RHF π orbital, MO 9, B3 symmetry in the computational subgroup. An independently solved Fock problem at this geometry; identity follows maximum cross-geometry AO-metric overlap, with sign alignment, rather than MO index. Only the constrained RHF branch is shown.",
+          "kind": "orbital",
+          "fileStem": "v034/torsion-45-mo9",
+          "isovalue": 0.035,
+          "isovalueUnit": "bohr⁻³ᐟ²",
+          "gridMin": -0.3387283346747809,
+          "gridMax": 0.33872833467478086,
+          "occupation": 0,
+          "energyHartree": 0.2654233093232703,
+          "symmetry": "B3",
+          "spinChannel": "restricted"
+        }
+      ],
+      "tracking": [
+        {
+          "previousIndex": 8,
+          "currentIndex": 8,
+          "signedOverlapBeforeAlignment": 0.9773653396875117,
+          "alignedOverlap": 0.9773653396875117,
+          "nextBestOverlap": 0.15883728914764358
+        },
+        {
+          "previousIndex": 9,
+          "currentIndex": 9,
+          "signedOverlapBeforeAlignment": 0.983042856743707,
+          "alignedOverlap": 0.983042856743707,
+          "nextBestOverlap": 0.09908934283149305
+        }
+      ],
+      "torsionDegrees": 45,
+      "localPAOOverlap": 0.16957189664863356
+    },
+    {
+      "id": "torsion-60",
+      "name": "Ethylene · 60° torsion",
+      "charge": 0,
+      "multiplicity": 1,
+      "electronCount": 16,
+      "method": "RHF",
+      "basis": "STO-3G",
+      "program": "PySCF 2.14.0",
+      "totalEnergyHartree": -76.97384211540611,
+      "orthonormalError": 1.8739098272932784e-15,
+      "electronCounts": [
+        15.999999999999995
+      ],
+      "s2": 0.0,
+      "spinContamination": 0,
+      "scfConverged": true,
+      "geometryKind": "constrained rigid torsion scan; no relaxation, optimization or IRC",
+      "pointGroup": "D2",
+      "atoms": [
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            -0.667,
+            0.0,
+            0.0
+          ],
+          "label": "C1"
+        },
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            0.667,
+            0.0,
+            0.0
+          ],
+          "label": "C2"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -1.232,
+            -0.923,
+            0.0
+          ],
+          "label": "H3"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -1.232,
+            0.923,
+            0.0
+          ],
+          "label": "H4"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            1.232,
+            -0.46150000000000013,
+            -0.7993414476930368
+          ],
+          "label": "H5"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            1.232,
+            0.46150000000000013,
+            0.7993414476930368
+          ],
+          "label": "H6"
+        }
+      ],
+      "orbitals": [
+        {
+          "index": 8,
+          "name": "Tracked π-derived occupied",
+          "character": "orbital",
+          "description": "Canonical RHF π orbital, MO 8, B1 symmetry in the computational subgroup. An independently solved Fock problem at this geometry; identity follows maximum cross-geometry AO-metric overlap, with sign alignment, rather than MO index. Only the constrained RHF branch is shown.",
+          "kind": "orbital",
+          "fileStem": "v034/torsion-60-mo8",
+          "isovalue": 0.035,
+          "isovalueUnit": "bohr⁻³ᐟ²",
+          "gridMin": -0.304622401249735,
+          "gridMax": 0.304622401249735,
+          "occupation": 2,
+          "energyHartree": -0.24528909139072266,
+          "symmetry": "B1",
+          "spinChannel": "restricted"
+        },
+        {
+          "index": 9,
+          "name": "Tracked π*-derived virtual",
+          "character": "orbital",
+          "description": "Canonical RHF π orbital, MO 9, B2 symmetry in the computational subgroup. An independently solved Fock problem at this geometry; identity follows maximum cross-geometry AO-metric overlap, with sign alignment, rather than MO index. Only the constrained RHF branch is shown.",
+          "kind": "orbital",
+          "fileStem": "v034/torsion-60-mo9",
+          "isovalue": 0.035,
+          "isovalueUnit": "bohr⁻³ᐟ²",
+          "gridMin": -0.3346527928925197,
+          "gridMax": 0.3346527928925197,
+          "occupation": 0,
+          "energyHartree": 0.23384270927163608,
+          "symmetry": "B2",
+          "spinChannel": "restricted"
+        }
+      ],
+      "tracking": [
+        {
+          "previousIndex": 8,
+          "currentIndex": 8,
+          "signedOverlapBeforeAlignment": 0.9814309741464539,
+          "alignedOverlap": 0.9814309741464539,
+          "nextBestOverlap": 0.12633076950712274
+        },
+        {
+          "previousIndex": 9,
+          "currentIndex": 9,
+          "signedOverlapBeforeAlignment": 0.9842337520412705,
+          "alignedOverlap": 0.9842337520412705,
+          "nextBestOverlap": 0.0960644383754465
+        }
+      ],
+      "torsionDegrees": 60,
+      "localPAOOverlap": 0.11990543801891321
+    }
+  ]
+}

@@ -88,3 +88,7 @@ Quantum Foundations now comes before the SORG codebook: five linked lessons with
 ## v0.3.3 molecular laboratory
 
 The Orbital Laboratory follows Quantum Foundations and uses seven newly **calculated** fixed-geometry RHF/STO-3G orbitals for H₂, ethylene and formaldehyde. Three.js renders the sampled signed wavefunction isosurfaces; downloadable cube grids, geometry inputs, MO coefficients, SCF logs and the regeneration script accompany them. The browser retains a static projection from the computed mesh if WebGL is unavailable. The separate scalar SCF iteration widget is an explicitly defined mathematical teaching model, not a molecular calculation. See [research/orbitals/README.md](research/orbitals/README.md) and [V033_AUDIT.md](V033_AUDIT.md).
+
+## v0.3.4 orbital diversity and evolution
+
+The laboratory adds open-shell allyl SOMO/spin density, all six benzene π orbitals, all four s-trans-butadiene π orbitals, and five independently calculated ethylene torsion frames. Inputs, outputs and coefficients are downloadable. See [V034_AUDIT.md](V034_AUDIT.md) for exact methods, identity/phase tracking, validation and the outstanding native WebGL/mobile tests. No reactions or SORG categories were added.

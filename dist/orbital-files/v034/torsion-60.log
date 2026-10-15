@@ -1,0 +1,211 @@
+#INFO: **** input file is /workspace/scratch/69db76a371c7/Ochem-Atlas/research/orbitals/generate_v034.py ****
+"""Reproduce v0.3.4 independently; never overwrites v0.3.3 datasets.
+Fixed model geometries, RHF/STO-3G or spin-adapted open-shell ROHF/STO-3G.
+Run OMP_NUM_THREADS=1 python research/orbitals/generate_v034.py.
+"""
+import gzip, json, shutil, platform
+from pathlib import Path
+import numpy as np
+import pyscf, skimage
+from pyscf import gto, scf, lib, symm
+from pyscf.tools import cubegen
+from skimage.measure import marching_cubes
+from scipy.optimize import linear_sum_assignment
+ROOT=Path(__file__).resolve().parents[2]
+OUT=ROOT/'dist/orbital-files/v034'; OUT.mkdir(exist_ok=True)
+N=44; ISO=.035; BOHR=.529177210903
+lib.num_threads(1)
+try: lib.current_memory()
+except FileNotFoundError: lib.current_memory=lambda:(0,0)
+def mesh(field,cc,level):
+ result={}
+ for name,sign in [('positive',1),('negative',-1)]:
+  if (field*sign).max()<=level: result[name]=None; continue
+  v,f,_,_=marching_cubes((field*sign).astype('float32'),level,allow_degenerate=False)
+  xyz=(v*(np.diag(cc.box)/(N-1))+cc.boxorig)*BOHR
+  result[name]={'vertices':np.round(xyz,3).ravel().tolist(),'faces':f.ravel().tolist(),'triangleCount':len(f)}
+ return result
+
+def calc(key,name,atoms,spin=0,previous=None,angle=None):
+ basis='sto-3g'
+ mol=gto.M(atom=atoms,basis=basis,unit='Angstrom',charge=0,spin=spin,symmetry=True,verbose=4,output=str(OUT/f'{key}.log'))
+ mf=scf.ROHF(mol) if spin else scf.RHF(mol)
+ mf.conv_tol=1e-11; mf.conv_tol_grad=1e-7; mf.max_cycle=200
+ energy=mf.kernel(); assert mf.converged,key
+ S=mol.intor('int1e_ovlp'); C=np.array(mf.mo_coeff); occ=np.array(mf.mo_occ)
+ err=max(np.max(abs(c.T@S@c-np.eye(mol.nao))) for c in [C])
+ dm=mf.make_rdm1(); counts=[float(np.einsum('ij,ji',d,S)) for d in (dm if spin else [dm])]
+ assert err<1e-8 and abs(sum(counts)-mol.nelectron)<1e-8
+ s2,mult=mf.spin_square() if spin else (0.,1.)
+ assert not spin or abs(s2-.75)<.15,(key,s2)
+ coeff=C
+ syms=symm.label_orb_symm(mol,mol.irrep_name,mol.symm_orb,coeff)
+ pz=[i for i,s in enumerate(mol.ao_labels()) if '2pz' in s]
+ weights=np.einsum('ui,uv,vi->i',coeff[pz],S[np.ix_(pz,pz)],coeff[pz])
+ pi=list(np.where(weights>.95)[0])
+ tracking=[]
+ if previous:
+  pm,pc,tracked=previous
+  cross=gto.intor_cross('int1e_ovlp',pm,mol)
+  overlap=pc.T@cross@coeff
+  assignment={}
+  for indices in [np.where(occ>0)[0],np.where(occ==0)[0]]:
+   r,c=linear_sum_assignment(-abs(overlap[np.ix_(indices,indices)]))
+   assignment.update({int(indices[i]):int(indices[j]) for i,j in zip(r,c)})
+  pi=[assignment[i] for i in tracked]
+  for old,new in zip(tracked,pi):
+   raw=float(overlap[old,new]); coeff[:,new]*=1 if raw>=0 else -1
+   row=abs(overlap[old]); other=np.delete(row,new)
+   tracking.append({'previousIndex':int(old+1),'currentIndex':int(new+1),'signedOverlapBeforeAlignment':raw,'alignedOverlap':abs(raw),'nextBestOverlap':float(max(other))})
+   assert abs(raw)>.70 and abs(raw)>max(other), (key,tracking)
+ else:
+  for j in range(coeff.shape[1]):
+   k=np.argmax(abs(coeff[:,j])); coeff[:,j]*=1 if coeff[k,j]>=0 else -1
+ if spin:
+  pi=[int(np.where(occ==1)[0][0])]
+ method='ROHF' if spin else 'RHF'
+ item={'id':key,'name':name,'charge':0,'multiplicity':spin+1,'electronCount':mol.nelectron,'method':method,'basis':basis.upper(),'program':f'PySCF {pyscf.__version__}',
+  'totalEnergyHartree':float(energy),'orthonormalError':float(err),'electronCounts':counts,'s2':float(s2),'spinContamination':float(s2-.75) if spin else 0,'scfConverged':bool(mf.converged),
+  'geometryKind':'constrained rigid torsion scan; no relaxation, optimization or IRC' if angle is not None else 'fixed manually specified model geometry; not optimized or measured',
+  'pointGroup':mol.topgroup,'atoms':[{'element':s,'xyzAngstrom':list(map(float,v)),'label':f'{s}{i+1}'} for i,(s,v) in enumerate(atoms)],'orbitals':[],'tracking':tracking}
+ if angle is not None:
+  item['torsionDegrees']=angle
+  # Actual normalized overlap of left pz and the rotated right perpendicular 2p AO.
+  labels=mol.ao_labels(); iz=labels.index('0 C 2pz   '); rz=labels.index('1 C 2pz   '); ry=labels.index('1 C 2py   ')
+  a=np.zeros(mol.nao);b=a.copy();a[iz]=1;b[rz]=np.cos(np.radians(angle));b[ry]=-np.sin(np.radians(angle))
+  item['localPAOOverlap']=float(a@S@b/np.sqrt((a@S@a)*(b@S@b)))
+ (OUT/f'{key}.xyz').write_text(f'{len(atoms)}\n{item["geometryKind"]}; {method}/{basis.upper()} charge 0 multiplicity {spin+1}\n'+''.join(f'{s} {v[0]:.10f} {v[1]:.10f} {v[2]:.10f}\n' for s,v in atoms))
+ np.savez_compressed(OUT/f'{key}-scf.npz',mo_coeff=C,mo_energy=mf.mo_energy,mo_occ=occ,overlap=S,atom_coords_angstrom=mol.atom_coords()*BOHR)
+ cc=cubegen.Cube(mol,N,N,N,margin=3); ao=mol.eval_gto('GTOval_sph',cc.get_coords())
+ def field_entry(index,title,description,field,level=ISO,kind='orbital'):
+  token='spin' if kind=='spin-density' else f'mo{index+1}'
+  path=OUT/f'{key}-{token}.cube';cc.write(field,str(path),f'{method}/{basis.upper()} {title}; {kind}')
+  with gzip.open(str(path)+'.gz','wb',compresslevel=9) as f:f.write(path.read_bytes())
+  path.unlink()
+  o={'index':int(index+1),'name':title,'character':kind,'description':description,'kind':kind,'fileStem':f'v034/{key}-{token}',
+   'isovalue':level,'isovalueUnit':'e bohr⁻³' if kind=='spin-density' else 'bohr⁻³ᐟ²','mesh':mesh(field,cc,level),'gridMin':float(field.min()),'gridMax':float(field.max())}
+  if kind=='orbital':o.update(occupation=int(occ[index]),energyHartree=float(mf.mo_energy[index]),symmetry=str(syms[index]),spinChannel='singly occupied alpha' if spin else 'restricted')
+  item['orbitals'].append(o)
+ for j,i in enumerate(pi):
+  if spin:
+   title='SOMO (open-shell ROHF)';desc='A spin-adapted open-shell doublet with a singly occupied molecular orbital. The central carbon is near a SOMO node. ROHF constrains doubly occupied alpha/beta spatial orbitals to coincide; it omits UHF spin polarization.'
+  else:
+   title=f'π{j+1}' if angle is None else ['Tracked π-derived occupied','Tracked π*-derived virtual'][j]
+   desc=f'Canonical {method} π orbital, MO {i+1}, {syms[i]} symmetry in the computational subgroup. '
+   if key=='benzene':desc+='The six-carbon π system is delocalized. Degenerate pairs allow arbitrary orthogonal combinations; an individual partner is not a unique observable. Orbitals alone do not measure aromatic stabilization or establish a reaction pathway.'
+   elif key=='butadiene':desc+=f'The four π orbitals have progressively increasing nodal structure (π{j+1}: {j} longitudinal nodes in the ideal conjugated-chain interpretation, plus the molecular plane). This s-trans geometry must reorganize to s-cis for Diels–Alder; no transition state is computed.'
+   else:desc+='An independently solved Fock problem at this geometry; identity follows maximum cross-geometry AO-metric overlap, with sign alignment, rather than MO index. Only the constrained RHF branch is shown.'
+  field=(ao@coeff[:,i]).reshape(cc.get_ngrids() and (N,N,N))
+  field_entry(i,title,desc,field)
+ if spin:
+  field=np.einsum('pi,ij,pj->p',ao,dm[0]-dm[1],ao).reshape(N,N,N)
+  field_entry(-1,'Spin density ρα − ρβ','Signed ROHF spin density from alpha minus beta occupied densities. It equals the SOMO density in this one-unpaired-electron model; beta-excess polarization is absent by construction. Teal is alpha excess; amber would be beta excess. This is a density, not orbital phase; it cannot be phase reversed.',field,.003,'spin-density')
+ mol.stdout.close()
+ print(key,'E',energy,'pi',pi,'S2',s2,'orth',err,flush=True)
+ return item,(mol,coeff.copy(),pi)
+
+def main():
+ systems=[]
+ allyl=[('C',(-1.212,.0,0)),('C',(0,.7,0)),('C',(1.212,0,0)),('H',(-2.15,.54,0)),('H',(-1.212,-1.08,0)),('H',(0,1.78,0)),('H',(2.15,.54,0)),('H',(1.212,-1.08,0))]
+ systems.append(calc('allyl','Allyl radical · C₃H₅',allyl,spin=1)[0])
+ benz=[]
+ for element,r in [('C',1.397),('H',2.477)]:
+  benz += [(element,(r*np.cos(t),r*np.sin(t),0)) for t in np.arange(6)*np.pi/3]
+ systems.append(calc('benzene','Benzene · C₆H₆',benz)[0])
+ but=[('C',(-1.855,.58,0)),('C',(-.735,-.15,0)),('C',(.735,.15,0)),('C',(1.855,-.58,0)),('H',(-2.82,.095,0)),('H',(-1.80,1.66,0)),('H',(-.81,-1.23,0)),('H',(.81,1.23,0)),('H',(2.82,-.095,0)),('H',(1.80,-1.66,0))]
+ systems.append(calc('butadiene','1,3-Butadiene · C₄H₆ (s-trans)',but)[0])
+ scan=[];prev=None
+ for angle in [0,15,30,45,60]:
+  theta=np.radians(angle)
+  atoms=[('C',(-.667,0,0)),('C',(.667,0,0)),('H',(-1.232,-.923,0)),('H',(-1.232,.923,0)),('H',(1.232,-.923*np.cos(theta),-.923*np.sin(theta))),('H',(1.232,.923*np.cos(theta),.923*np.sin(theta)))]
+  item,prev=calc(f'torsion-{angle:02d}',f'Ethylene · {angle}° torsion',atoms,previous=prev,angle=angle)
+  scan.append(item)
+ data={'schemaVersion':'1.0','provenance':{'program':f'PySCF {pyscf.__version__}','python':platform.python_version(),'numpy':np.__version__,'skimage':skimage.__version__,'grid':N,'orbitalIsovalue':ISO,'spinDensityIsovalue':.003,'phaseConvention':'First geometry: largest AO coefficient positive. Scan: maximum one-to-one cross-AO overlap within occupied/virtual blocks, positive matched overlap. No interpolation.'},'systems':systems,'scan':scan}
+ (ROOT/'dist/orbital-diversity.json').write_text(json.dumps(data,separators=(',',':'),ensure_ascii=False))
+ summary={**data,'systems':[{**s,'orbitals':[{k:v for k,v in o.items() if k!='mesh'} for o in s['orbitals']]} for s in systems], 'scan':[{**s,'orbitals':[{k:v for k,v in o.items() if k!='mesh'} for o in s['orbitals']]} for s in scan]}
+ (OUT/'summary.json').write_text(json.dumps(summary,indent=2,ensure_ascii=False))
+ shutil.copy2(__file__,OUT/'generate_v034.py')
+if __name__=='__main__':main()
+#INFO: ******************** input file end ********************
+
+
+System: uname_result(system='Linux', node='851ce4d6bb3a', release='6.18.44', version='#1 SMP Sat Sep 26 20:02:31 UTC 2026', machine='x86_64')  Threads 1
+Python 3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]
+numpy 2.3.5  scipy 1.17.0  h5py 3.16.0
+Date: Thu Oct 15 20:03:00 2026
+PySCF version 2.14.0
+PySCF path  /root/.local/lib/python3.12/site-packages/pyscf
+
+[CONFIG] conf_file None
+[INPUT] verbose = 4
+[INPUT] num. atoms = 6
+[INPUT] num. electrons = 16
+[INPUT] charge = 0
+[INPUT] spin (= nelec alpha-beta = 2S) = 0
+[INPUT] symmetry True subgroup None
+[INPUT] Mole.unit = Angstrom
+[INPUT] Symbol           X                Y                Z      unit          X                Y                Z       unit  Magmom
+[INPUT]  1 C     -0.667000000000   0.000000000000   0.000000000000 AA   -1.260447325085   0.000000000000   0.000000000000 Bohr   0.0
+[INPUT]  2 C      0.667000000000   0.000000000000   0.000000000000 AA    1.260447325085   0.000000000000   0.000000000000 Bohr   0.0
+[INPUT]  3 H     -1.232000000000  -0.923000000000   0.000000000000 AA   -2.328142585464  -1.744217212974   0.000000000000 Bohr   0.0
+[INPUT]  4 H     -1.232000000000   0.923000000000   0.000000000000 AA   -2.328142585464   1.744217212974   0.000000000000 Bohr   0.0
+[INPUT]  5 H      1.232000000000  -0.461500000000  -0.799341447693 AA    2.328142585464  -0.872108606487  -1.510536416153 Bohr   0.0
+[INPUT]  6 H      1.232000000000   0.461500000000   0.799341447693 AA    2.328142585464   0.872108606487   1.510536416153 Bohr   0.0
+
+nuclear repulsion = 33.3671358888409
+point group symmetry = D2
+symmetry origin: [0. 0. 0.]
+symmetry axis x: [1. 0. 0.]
+symmetry axis y: [0.        0.8660254 0.5      ]
+symmetry axis z: [ 0.        -0.5        0.8660254]
+num. orbitals of irrep A = 4
+num. orbitals of irrep B1 = 3
+num. orbitals of irrep B2 = 3
+num. orbitals of irrep B3 = 4
+number of shells = 10
+number of NR pGTOs = 42
+number of NR cGTOs = 14
+basis = sto-3g
+ecp = {}
+CPU time:        11.57
+
+
+******** <class 'pyscf.scf.hf_symm.SymAdaptedRHF'> ********
+method = SymAdaptedRHF
+initial guess = minao
+damping factor = 0
+level_shift factor = 0
+DIIS = <class 'pyscf.scf.diis.CDIIS'>
+diis_start_cycle = 1
+diis_space = 8
+diis_damp = 0
+SCF conv_tol = 1e-11
+SCF conv_tol_grad = 1e-07
+SCF max_cycles = 200
+direct_scf = True
+direct_scf_tol = 1e-13
+chkfile to save SCF result = /tmp/tmpn29ngbl4
+max_memory 4000 MB (current use 0 MB)
+Freeze 0 electrons in irreps []
+    16 free electrons in irreps A B1 B2 B3
+Initial guess from minao.
+init E= -77.2039020715343
+HOMO (B1) = -0.0866100941337356  LUMO (B2) = 0.0858349991224228  gap/eV = 4.69247
+cycle= 1 E= -76.9639482492196  delta_E= 0.24  |g|= 0.154  |ddm|=  2.9
+HOMO (B1) = -0.238268145362759  LUMO (B2) = 0.240339291126808  gap/eV = 13.02357
+cycle= 2 E= -76.9732499142123  delta_E= -0.0093  |g|= 0.0362  |ddm|= 0.263
+HOMO (B1) = -0.248770140941075  LUMO (B2) = 0.230370313678356  gap/eV = 13.03808
+cycle= 3 E= -76.9738375457815  delta_E= -0.000588  |g|= 0.00286  |ddm|= 0.0743
+HOMO (B1) = -0.245300399906785  LUMO (B2) = 0.233868051337953  gap/eV = 13.03884
+cycle= 4 E= -76.9738418164897  delta_E= -4.27e-06  |g|= 0.00056  |ddm|= 0.00552
+HOMO (B1) = -0.24529048396364  LUMO (B2) = 0.233841526792177  gap/eV = 13.03785
+cycle= 5 E= -76.9738421066401  delta_E= -2.9e-07  |g|= 9.39e-05  |ddm|= 0.00121
+HOMO (B1) = -0.245289638150634  LUMO (B2) = 0.233842223220291  gap/eV = 13.03784
+cycle= 6 E= -76.9738421153882  delta_E= -8.75e-09  |g|= 5.35e-06  |ddm|= 0.000231
+HOMO (B1) = -0.245289090347126  LUMO (B2) = 0.23384268966241  gap/eV = 13.03784
+cycle= 7 E= -76.973842115406  delta_E= -1.78e-11  |g|= 4.68e-07  |ddm|= 1.14e-05
+HOMO (B1) = -0.24528909477761  LUMO (B2) = 0.233842710462922  gap/eV = 13.03784
+cycle= 8 E= -76.9738421154062  delta_E= -1.42e-13  |g|= 3.86e-08  |ddm|= 9.92e-07
+HOMO (B1) = -0.245289091390723  LUMO (B2) = 0.233842709271636  gap/eV = 13.03784
+Extra cycle  E= -76.9738421154061  delta_E= 5.68e-14  |g|= 1.14e-08  |ddm|= 7.35e-08
+converged SCF energy = -76.9738421154061
