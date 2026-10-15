@@ -289,7 +289,9 @@ attach_literature(reactions)
 apply_review(reactions, sources)
 apply_v028(reactions)
 apply_v029(reactions,codebook)
-payload={'version':'0.3.4','updated':'2026-10-15','axes':axes,'codebook':codebook,'sources':sources,'reactions':reactions}
+from v035_mechanisms import apply_v035
+apply_v035(reactions)
+payload={'version':'0.3.5','updated':'2026-10-15','axes':axes,'codebook':codebook,'sources':sources,'reactions':reactions}
 (ROOT/'dist'/'data.json').write_text(json.dumps(payload,ensure_ascii=False,indent=2))
 (ROOT/'dist'/'data.js').write_text('window.SORG = '+json.dumps(payload,ensure_ascii=False)+';\n')
 print(f'Created {len(reactions)} reaction records, {sum(len(r["steps"]) for r in reactions)} coded events.')

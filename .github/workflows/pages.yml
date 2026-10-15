@@ -21,6 +21,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install deterministic 2D chemical depiction dependency
+        run: python -m pip install rdkit==2026.9.1
       - name: Regenerate reaction data
         run: python3 build_data.py
       - name: Validate and build research evidence

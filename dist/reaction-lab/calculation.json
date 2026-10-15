@@ -1,0 +1,420 @@
+{
+  "method": "RHF",
+  "basis": "6-31+G(d)",
+  "program": "PySCF 2.14.0",
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "charge": -1,
+  "multiplicity": 1,
+  "electronCount": 44,
+  "environment": "isolated gas phase",
+  "pathKind": "Five-point constrained distance scan; not an IRC. Fixed C and both Cl nuclei; C3v-constrained H relaxation.",
+  "centerClDistanceAngstrom": 2.393375365394205,
+  "centerCHDistanceAngstrom": 1.0614851660292917,
+  "centerVerifiedTransitionState": true,
+  "centerMaxGradientEhPerBohr": 2.896480193470552e-07,
+  "centerImaginaryModeCountAbove20Cm": 1,
+  "centerFrequencies": [
+    {
+      "realCm": 0.0,
+      "imaginaryCm": 425.7284968600758
+    },
+    {
+      "realCm": 198.69444797988712,
+      "imaginaryCm": 0.0
+    },
+    {
+      "realCm": 198.69451197687653,
+      "imaginaryCm": 0.0
+    },
+    {
+      "realCm": 205.76952283206603,
+      "imaginaryCm": 0.0
+    },
+    {
+      "realCm": 1002.3711703038844,
+      "imaginaryCm": 0.0
+    },
+    {
+      "realCm": 1002.3713958200053,
+      "imaginaryCm": 0.0
+    },
+    {
+      "realCm": 1240.206816248695,
+      "imaginaryCm": 0.0
+    },
+    {
+      "realCm": 1549.105606378951,
+      "imaginaryCm": 0.0
+    },
+    {
+      "realCm": 1549.1056206600588,
+      "imaginaryCm": 0.0
+    },
+    {
+      "realCm": 3419.9849366228323,
+      "imaginaryCm": 0.0
+    },
+    {
+      "realCm": 3633.049344650466,
+      "imaginaryCm": 0.0
+    },
+    {
+      "realCm": 3633.049346450464,
+      "imaginaryCm": 0.0
+    }
+  ],
+  "frames": [
+    {
+      "id": "frame-0",
+      "qAngstrom": -0.6,
+      "energyHartree": -958.641840901959,
+      "rinAngstrom": 2.993375365394205,
+      "routAngstrom": 1.7933753653942048,
+      "atoms": [
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "label": "C"
+        },
+        {
+          "element": "Cl",
+          "xyzAngstrom": [
+            -2.993375365394205,
+            0.0,
+            0.0
+          ],
+          "label": "Cl in"
+        },
+        {
+          "element": "Cl",
+          "xyzAngstrom": [
+            1.7933753653942048,
+            0.0,
+            0.0
+          ],
+          "label": "Cl out"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.3344297852499808,
+            1.0186401421204365,
+            0.0
+          ],
+          "label": "H1"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.3344297852499808,
+            -0.509320071060218,
+            0.882168240390889
+          ],
+          "label": "H2"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.3344297852499808,
+            -0.5093200710602187,
+            -0.8821682403908887
+          ],
+          "label": "H3"
+        }
+      ],
+      "geometryKind": "constrained scan frame; not a stationary point",
+      "scfConverged": true,
+      "orthonormalError": 1.5520917884259688e-13,
+      "electronCountAOMetric": 44.000000000000085,
+      "scfOrbitalGradientNorm": 2.2540607777113362e-08,
+      "mayerCClIn": 0.04994867226857256,
+      "mayerCClOut": 0.8808043957395701
+    },
+    {
+      "id": "frame-1",
+      "qAngstrom": -0.3,
+      "energyHartree": -958.6304080052352,
+      "rinAngstrom": 2.6933753653942047,
+      "routAngstrom": 2.093375365394205,
+      "atoms": [
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "label": "C"
+        },
+        {
+          "element": "Cl",
+          "xyzAngstrom": [
+            -2.6933753653942047,
+            0.0,
+            0.0
+          ],
+          "label": "Cl in"
+        },
+        {
+          "element": "Cl",
+          "xyzAngstrom": [
+            2.093375365394205,
+            0.0,
+            0.0
+          ],
+          "label": "Cl out"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.18912160835145783,
+            1.0477921487394162,
+            0.0
+          ],
+          "label": "H1"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.18912160835145783,
+            -0.5238960743697079,
+            0.9074146186942176
+          ],
+          "label": "H2"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.18912160835145783,
+            -0.5238960743697085,
+            -0.9074146186942172
+          ],
+          "label": "H3"
+        }
+      ],
+      "geometryKind": "constrained scan frame; not a stationary point",
+      "scfConverged": true,
+      "orthonormalError": 5.939767264999718e-14,
+      "electronCountAOMetric": 44.00000000000004,
+      "scfOrbitalGradientNorm": 8.370347282440112e-09,
+      "mayerCClIn": 0.15171067219792334,
+      "mayerCClOut": 0.7078333798650405
+    },
+    {
+      "id": "frame-2",
+      "qAngstrom": 0,
+      "energyHartree": -958.6205293648853,
+      "rinAngstrom": 2.393375365394205,
+      "routAngstrom": 2.393375365394205,
+      "atoms": [
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "label": "C"
+        },
+        {
+          "element": "Cl",
+          "xyzAngstrom": [
+            -2.393375365394205,
+            0.0,
+            0.0
+          ],
+          "label": "Cl in"
+        },
+        {
+          "element": "Cl",
+          "xyzAngstrom": [
+            2.393375365394205,
+            0.0,
+            0.0
+          ],
+          "label": "Cl out"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            0.0,
+            1.0614851660292917,
+            0.0
+          ],
+          "label": "H1"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            0.0,
+            -0.5307425830146456,
+            0.9192731195217093
+          ],
+          "label": "H2"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            0.0,
+            -0.5307425830146463,
+            -0.9192731195217089
+          ],
+          "label": "H3"
+        }
+      ],
+      "geometryKind": "Hessian-verified first-order saddle",
+      "scfConverged": true,
+      "orthonormalError": 3.6481928589182644e-13,
+      "electronCountAOMetric": 43.999999999999986,
+      "scfOrbitalGradientNorm": 1.5375659910860495e-08,
+      "mayerCClIn": 0.40120951754668716,
+      "mayerCClOut": 0.40120951753735934
+    },
+    {
+      "id": "frame-3",
+      "qAngstrom": 0.3,
+      "energyHartree": -958.6304080052361,
+      "rinAngstrom": 2.093375365394205,
+      "routAngstrom": 2.6933753653942047,
+      "atoms": [
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "label": "C"
+        },
+        {
+          "element": "Cl",
+          "xyzAngstrom": [
+            -2.093375365394205,
+            0.0,
+            0.0
+          ],
+          "label": "Cl in"
+        },
+        {
+          "element": "Cl",
+          "xyzAngstrom": [
+            2.6933753653942047,
+            0.0,
+            0.0
+          ],
+          "label": "Cl out"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            0.18912136330318977,
+            1.0477918614374857,
+            0.0
+          ],
+          "label": "H1"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            0.18912136330318977,
+            -0.5238959307187426,
+            0.9074143698834473
+          ],
+          "label": "H2"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            0.18912136330318977,
+            -0.5238959307187433,
+            -0.9074143698834468
+          ],
+          "label": "H3"
+        }
+      ],
+      "geometryKind": "constrained scan frame; not a stationary point",
+      "scfConverged": true,
+      "orthonormalError": 1.5643042416968456e-13,
+      "electronCountAOMetric": 44.000000000000036,
+      "scfOrbitalGradientNorm": 8.370380799003273e-09,
+      "mayerCClIn": 0.7078334232819974,
+      "mayerCClOut": 0.1517107317766193
+    },
+    {
+      "id": "frame-4",
+      "qAngstrom": 0.6,
+      "energyHartree": -958.6418409019556,
+      "rinAngstrom": 1.7933753653942048,
+      "routAngstrom": 2.993375365394205,
+      "atoms": [
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "label": "C"
+        },
+        {
+          "element": "Cl",
+          "xyzAngstrom": [
+            -1.7933753653942048,
+            0.0,
+            0.0
+          ],
+          "label": "Cl in"
+        },
+        {
+          "element": "Cl",
+          "xyzAngstrom": [
+            2.993375365394205,
+            0.0,
+            0.0
+          ],
+          "label": "Cl out"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            0.33442978524994516,
+            1.0186401421204512,
+            0.0
+          ],
+          "label": "H1"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            0.33442978524994516,
+            -0.5093200710602254,
+            0.8821682403909018
+          ],
+          "label": "H2"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            0.33442978524994516,
+            -0.509320071060226,
+            -0.8821682403909015
+          ],
+          "label": "H3"
+        }
+      ],
+      "geometryKind": "constrained scan frame; not a stationary point",
+      "scfConverged": true,
+      "orthonormalError": 4.434230760352875e-13,
+      "electronCountAOMetric": 44.00000000000003,
+      "scfOrbitalGradientNorm": 2.254058778808097e-08,
+      "mayerCClIn": 0.8808043957419786,
+      "mayerCClOut": 0.049948672270322785
+    }
+  ]
+}

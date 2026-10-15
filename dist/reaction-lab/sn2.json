@@ -1,0 +1,804 @@
+{
+  "method": "RHF",
+  "basis": "6-31+G(d)",
+  "program": "PySCF 2.14.0",
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "charge": -1,
+  "multiplicity": 1,
+  "electronCount": 44,
+  "environment": "isolated gas phase",
+  "pathKind": "Five-point constrained distance scan; not an IRC. Fixed C and both Cl nuclei; C3v-constrained H relaxation.",
+  "centerClDistanceAngstrom": 2.393375365394205,
+  "centerCHDistanceAngstrom": 1.0614851660292917,
+  "centerVerifiedTransitionState": true,
+  "centerMaxGradientEhPerBohr": 2.896480193470552e-07,
+  "centerImaginaryModeCountAbove20Cm": 1,
+  "centerFrequencies": [
+    {
+      "realCm": 0.0,
+      "imaginaryCm": 425.7284968600758
+    },
+    {
+      "realCm": 198.69444797988712,
+      "imaginaryCm": 0.0
+    },
+    {
+      "realCm": 198.69451197687653,
+      "imaginaryCm": 0.0
+    },
+    {
+      "realCm": 205.76952283206603,
+      "imaginaryCm": 0.0
+    },
+    {
+      "realCm": 1002.3711703038844,
+      "imaginaryCm": 0.0
+    },
+    {
+      "realCm": 1002.3713958200053,
+      "imaginaryCm": 0.0
+    },
+    {
+      "realCm": 1240.206816248695,
+      "imaginaryCm": 0.0
+    },
+    {
+      "realCm": 1549.105606378951,
+      "imaginaryCm": 0.0
+    },
+    {
+      "realCm": 1549.1056206600588,
+      "imaginaryCm": 0.0
+    },
+    {
+      "realCm": 3419.9849366228323,
+      "imaginaryCm": 0.0
+    },
+    {
+      "realCm": 3633.049344650466,
+      "imaginaryCm": 0.0
+    },
+    {
+      "realCm": 3633.049346450464,
+      "imaginaryCm": 0.0
+    }
+  ],
+  "frames": [
+    {
+      "id": "frame-0",
+      "qAngstrom": -0.6,
+      "energyHartree": -958.641840901959,
+      "rinAngstrom": 2.993375365394205,
+      "routAngstrom": 1.7933753653942048,
+      "atoms": [
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "label": "C"
+        },
+        {
+          "element": "Cl",
+          "xyzAngstrom": [
+            -2.993375365394205,
+            0.0,
+            0.0
+          ],
+          "label": "Cl in"
+        },
+        {
+          "element": "Cl",
+          "xyzAngstrom": [
+            1.7933753653942048,
+            0.0,
+            0.0
+          ],
+          "label": "Cl out"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.3344297852499808,
+            1.0186401421204365,
+            0.0
+          ],
+          "label": "H1"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.3344297852499808,
+            -0.509320071060218,
+            0.882168240390889
+          ],
+          "label": "H2"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.3344297852499808,
+            -0.5093200710602187,
+            -0.8821682403908887
+          ],
+          "label": "H3"
+        }
+      ],
+      "geometryKind": "constrained scan frame; not a stationary point",
+      "scfConverged": true,
+      "orthonormalError": 1.5520917884259688e-13,
+      "electronCountAOMetric": 44.000000000000085,
+      "scfOrbitalGradientNorm": 2.2540607777113362e-08,
+      "mayerCClIn": 0.04994867226857256,
+      "mayerCClOut": 0.8808043957395701,
+      "trackingProtocol": 2,
+      "sourceWavefunctionSha256": "90c2e7818867e4bbe7751f52b5b28d53fd5c6fade8c6d0c7d06b27b44ea3c797",
+      "quadratureElectronCount": 44.00000018817596,
+      "uniformGridElectronEstimate": 44.92895136329859,
+      "normalizationNote": "AO-metric count and independent level-5 Becke quadrature are normalization checks. Uniform display grid under-resolves nuclear cores; its integral is reported, never rescaled.",
+      "fragments": [
+        {
+          "id": "incoming",
+          "atomIndices": [
+            1
+          ],
+          "charge": -1,
+          "multiplicity": 1,
+          "scfConverged": true,
+          "electronCount": 18,
+          "quadratureElectronCount": 18.0000000000009,
+          "energyHartree": -459.53827944931095
+        },
+        {
+          "id": "substrate",
+          "atomIndices": [
+            0,
+            2,
+            3,
+            4,
+            5
+          ],
+          "charge": 0,
+          "multiplicity": 1,
+          "scfConverged": true,
+          "electronCount": 26,
+          "quadratureElectronCount": 25.999999967697885,
+          "energyHartree": -499.09226414745916
+        }
+      ],
+      "tracking": [],
+      "orbitals": [
+        {
+          "index": 20,
+          "energyHartree": -0.17138270802861863,
+          "occupation": 2
+        },
+        {
+          "index": 33,
+          "energyHartree": 0.38323959533916696,
+          "occupation": 0
+        }
+      ],
+      "fieldFile": "reaction-lab/frame-0-fields.npz",
+      "meshFile": "reaction-lab/frame-0-meshes.json"
+    },
+    {
+      "id": "frame-1",
+      "qAngstrom": -0.3,
+      "energyHartree": -958.6304080052352,
+      "rinAngstrom": 2.6933753653942047,
+      "routAngstrom": 2.093375365394205,
+      "atoms": [
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "label": "C"
+        },
+        {
+          "element": "Cl",
+          "xyzAngstrom": [
+            -2.6933753653942047,
+            0.0,
+            0.0
+          ],
+          "label": "Cl in"
+        },
+        {
+          "element": "Cl",
+          "xyzAngstrom": [
+            2.093375365394205,
+            0.0,
+            0.0
+          ],
+          "label": "Cl out"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.18912160835145783,
+            1.0477921487394162,
+            0.0
+          ],
+          "label": "H1"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.18912160835145783,
+            -0.5238960743697079,
+            0.9074146186942176
+          ],
+          "label": "H2"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.18912160835145783,
+            -0.5238960743697085,
+            -0.9074146186942172
+          ],
+          "label": "H3"
+        }
+      ],
+      "geometryKind": "constrained scan frame; not a stationary point",
+      "scfConverged": true,
+      "orthonormalError": 5.939767264999718e-14,
+      "electronCountAOMetric": 44.00000000000004,
+      "scfOrbitalGradientNorm": 8.370347282440112e-09,
+      "mayerCClIn": 0.15171067219792334,
+      "mayerCClOut": 0.7078333798650405,
+      "trackingProtocol": 2,
+      "sourceWavefunctionSha256": "66c371effa22fef9a1972a1851dad7dfe1bd38942665becd1a4e8239aeb18302",
+      "quadratureElectronCount": 44.000000047529085,
+      "uniformGridElectronEstimate": 54.68723621621439,
+      "normalizationNote": "AO-metric count and independent level-5 Becke quadrature are normalization checks. Uniform display grid under-resolves nuclear cores; its integral is reported, never rescaled.",
+      "fragments": [
+        {
+          "id": "incoming",
+          "atomIndices": [
+            1
+          ],
+          "charge": -1,
+          "multiplicity": 1,
+          "scfConverged": true,
+          "electronCount": 18,
+          "quadratureElectronCount": 18.0000000000009,
+          "energyHartree": -459.53827944931095
+        },
+        {
+          "id": "substrate",
+          "atomIndices": [
+            0,
+            2,
+            3,
+            4,
+            5
+          ],
+          "charge": 0,
+          "multiplicity": 1,
+          "scfConverged": true,
+          "electronCount": 26,
+          "quadratureElectronCount": 25.99999999737446,
+          "energyHartree": -499.0693367367909
+        }
+      ],
+      "tracking": [
+        {
+          "previousIndex": 20,
+          "index": 22,
+          "signedOverlapBeforeAlignment": 0.791493169098304,
+          "alignedOverlap": 0.791493169098304,
+          "nextCandidate": 0.21385065501797118,
+          "ambiguous": false
+        },
+        {
+          "previousIndex": 33,
+          "index": 30,
+          "signedOverlapBeforeAlignment": 0.8648069193375971,
+          "alignedOverlap": 0.8648069193375971,
+          "nextCandidate": 0.1913282025854545,
+          "ambiguous": false
+        }
+      ],
+      "orbitals": [
+        {
+          "index": 22,
+          "energyHartree": -0.18868313397288583,
+          "occupation": 2
+        },
+        {
+          "index": 30,
+          "energyHartree": 0.31241077261477246,
+          "occupation": 0
+        }
+      ],
+      "fieldFile": "reaction-lab/frame-1-fields.npz",
+      "meshFile": "reaction-lab/frame-1-meshes.json"
+    },
+    {
+      "id": "frame-2",
+      "qAngstrom": 0,
+      "energyHartree": -958.6205293648853,
+      "rinAngstrom": 2.393375365394205,
+      "routAngstrom": 2.393375365394205,
+      "atoms": [
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "label": "C"
+        },
+        {
+          "element": "Cl",
+          "xyzAngstrom": [
+            -2.393375365394205,
+            0.0,
+            0.0
+          ],
+          "label": "Cl in"
+        },
+        {
+          "element": "Cl",
+          "xyzAngstrom": [
+            2.393375365394205,
+            0.0,
+            0.0
+          ],
+          "label": "Cl out"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            0.0,
+            1.0614851660292917,
+            0.0
+          ],
+          "label": "H1"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            0.0,
+            -0.5307425830146456,
+            0.9192731195217093
+          ],
+          "label": "H2"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            0.0,
+            -0.5307425830146463,
+            -0.9192731195217089
+          ],
+          "label": "H3"
+        }
+      ],
+      "geometryKind": "Hessian-verified first-order saddle",
+      "scfConverged": true,
+      "orthonormalError": 3.6481928589182644e-13,
+      "electronCountAOMetric": 43.999999999999986,
+      "scfOrbitalGradientNorm": 1.5375659910860495e-08,
+      "mayerCClIn": 0.40120951754668716,
+      "mayerCClOut": 0.40120951753735934,
+      "trackingProtocol": 2,
+      "sourceWavefunctionSha256": "921504546d912816850a3bac949a3016c8dc40d0aef0926b7e811cf081524991",
+      "quadratureElectronCount": 43.99999996271608,
+      "uniformGridElectronEstimate": 86.76556888881021,
+      "normalizationNote": "AO-metric count and independent level-5 Becke quadrature are normalization checks. Uniform display grid under-resolves nuclear cores; its integral is reported, never rescaled.",
+      "fragments": [
+        {
+          "id": "incoming",
+          "atomIndices": [
+            1
+          ],
+          "charge": -1,
+          "multiplicity": 1,
+          "scfConverged": true,
+          "electronCount": 18,
+          "quadratureElectronCount": 18.0000000000009,
+          "energyHartree": -459.53827944931095
+        },
+        {
+          "id": "substrate",
+          "atomIndices": [
+            0,
+            2,
+            3,
+            4,
+            5
+          ],
+          "charge": 0,
+          "multiplicity": 1,
+          "scfConverged": true,
+          "electronCount": 26,
+          "quadratureElectronCount": 25.999999979201963,
+          "energyHartree": -499.02913772803635
+        }
+      ],
+      "tracking": [
+        {
+          "previousIndex": 22,
+          "index": 22,
+          "signedOverlapBeforeAlignment": 0.7101427272627031,
+          "alignedOverlap": 0.7101427272627031,
+          "nextCandidate": 0.30498431250630204,
+          "ambiguous": false
+        },
+        {
+          "previousIndex": 30,
+          "index": 28,
+          "signedOverlapBeforeAlignment": -0.8626246856701899,
+          "alignedOverlap": 0.8626246856701899,
+          "nextCandidate": 0.25820706202474325,
+          "ambiguous": false
+        }
+      ],
+      "orbitals": [
+        {
+          "index": 22,
+          "energyHartree": -0.2067826890175155,
+          "occupation": 2
+        },
+        {
+          "index": 28,
+          "energyHartree": 0.28994340647369965,
+          "occupation": 0
+        }
+      ],
+      "fieldFile": "reaction-lab/frame-2-fields.npz",
+      "meshFile": "reaction-lab/frame-2-meshes.json"
+    },
+    {
+      "id": "frame-3",
+      "qAngstrom": 0.3,
+      "energyHartree": -958.6304080052361,
+      "rinAngstrom": 2.093375365394205,
+      "routAngstrom": 2.6933753653942047,
+      "atoms": [
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "label": "C"
+        },
+        {
+          "element": "Cl",
+          "xyzAngstrom": [
+            -2.093375365394205,
+            0.0,
+            0.0
+          ],
+          "label": "Cl in"
+        },
+        {
+          "element": "Cl",
+          "xyzAngstrom": [
+            2.6933753653942047,
+            0.0,
+            0.0
+          ],
+          "label": "Cl out"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            0.18912136330318977,
+            1.0477918614374857,
+            0.0
+          ],
+          "label": "H1"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            0.18912136330318977,
+            -0.5238959307187426,
+            0.9074143698834473
+          ],
+          "label": "H2"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            0.18912136330318977,
+            -0.5238959307187433,
+            -0.9074143698834468
+          ],
+          "label": "H3"
+        }
+      ],
+      "geometryKind": "constrained scan frame; not a stationary point",
+      "scfConverged": true,
+      "orthonormalError": 1.5643042416968456e-13,
+      "electronCountAOMetric": 44.000000000000036,
+      "scfOrbitalGradientNorm": 8.370380799003273e-09,
+      "mayerCClIn": 0.7078334232819974,
+      "mayerCClOut": 0.1517107317766193,
+      "trackingProtocol": 2,
+      "sourceWavefunctionSha256": "a43033ecff97f5635311260ede3d2944ae0b8bcbc8a9fe66c85adfbc6acc8cc1",
+      "quadratureElectronCount": 44.00000004752916,
+      "uniformGridElectronEstimate": 54.68723622218404,
+      "normalizationNote": "AO-metric count and independent level-5 Becke quadrature are normalization checks. Uniform display grid under-resolves nuclear cores; its integral is reported, never rescaled.",
+      "fragments": [
+        {
+          "id": "incoming",
+          "atomIndices": [
+            1
+          ],
+          "charge": -1,
+          "multiplicity": 1,
+          "scfConverged": true,
+          "electronCount": 18,
+          "quadratureElectronCount": 18.000000000000895,
+          "energyHartree": -459.53827944931095
+        },
+        {
+          "id": "substrate",
+          "atomIndices": [
+            0,
+            2,
+            3,
+            4,
+            5
+          ],
+          "charge": 0,
+          "multiplicity": 1,
+          "scfConverged": true,
+          "electronCount": 26,
+          "quadratureElectronCount": 26.00000005590824,
+          "energyHartree": -498.982809450381
+        }
+      ],
+      "tracking": [
+        {
+          "previousIndex": 22,
+          "index": 22,
+          "signedOverlapBeforeAlignment": -0.710142734856325,
+          "alignedOverlap": 0.710142734856325,
+          "nextCandidate": 0.2726227662263405,
+          "ambiguous": false
+        },
+        {
+          "previousIndex": 28,
+          "index": 30,
+          "signedOverlapBeforeAlignment": -0.8626247172952942,
+          "alignedOverlap": 0.8626247172952942,
+          "nextCandidate": 0.2544284498365606,
+          "ambiguous": false
+        }
+      ],
+      "orbitals": [
+        {
+          "index": 22,
+          "energyHartree": -0.18868314563835575,
+          "occupation": 2
+        },
+        {
+          "index": 30,
+          "energyHartree": 0.312410774192184,
+          "occupation": 0
+        }
+      ],
+      "fieldFile": "reaction-lab/frame-3-fields.npz",
+      "meshFile": "reaction-lab/frame-3-meshes.json"
+    },
+    {
+      "id": "frame-4",
+      "qAngstrom": 0.6,
+      "energyHartree": -958.6418409019556,
+      "rinAngstrom": 1.7933753653942048,
+      "routAngstrom": 2.993375365394205,
+      "atoms": [
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "label": "C"
+        },
+        {
+          "element": "Cl",
+          "xyzAngstrom": [
+            -1.7933753653942048,
+            0.0,
+            0.0
+          ],
+          "label": "Cl in"
+        },
+        {
+          "element": "Cl",
+          "xyzAngstrom": [
+            2.993375365394205,
+            0.0,
+            0.0
+          ],
+          "label": "Cl out"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            0.33442978524994516,
+            1.0186401421204512,
+            0.0
+          ],
+          "label": "H1"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            0.33442978524994516,
+            -0.5093200710602254,
+            0.8821682403909018
+          ],
+          "label": "H2"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            0.33442978524994516,
+            -0.509320071060226,
+            -0.8821682403909015
+          ],
+          "label": "H3"
+        }
+      ],
+      "geometryKind": "constrained scan frame; not a stationary point",
+      "scfConverged": true,
+      "orthonormalError": 4.434230760352875e-13,
+      "electronCountAOMetric": 44.00000000000003,
+      "scfOrbitalGradientNorm": 2.254058778808097e-08,
+      "mayerCClIn": 0.8808043957419786,
+      "mayerCClOut": 0.049948672270322785,
+      "trackingProtocol": 2,
+      "sourceWavefunctionSha256": "c16211800c7ffd5b7d01302d90d7f2b6e46078333f7d2e2905df532a888924d5",
+      "quadratureElectronCount": 44.000000188175946,
+      "uniformGridElectronEstimate": 44.928951363298566,
+      "normalizationNote": "AO-metric count and independent level-5 Becke quadrature are normalization checks. Uniform display grid under-resolves nuclear cores; its integral is reported, never rescaled.",
+      "fragments": [
+        {
+          "id": "incoming",
+          "atomIndices": [
+            1
+          ],
+          "charge": -1,
+          "multiplicity": 1,
+          "scfConverged": true,
+          "electronCount": 18,
+          "quadratureElectronCount": 18.000000000000895,
+          "energyHartree": -459.53827944931095
+        },
+        {
+          "id": "substrate",
+          "atomIndices": [
+            0,
+            2,
+            3,
+            4,
+            5
+          ],
+          "charge": 0,
+          "multiplicity": 1,
+          "scfConverged": true,
+          "electronCount": 26,
+          "quadratureElectronCount": 26.00000030013672,
+          "energyHartree": -498.9346856350874
+        }
+      ],
+      "tracking": [
+        {
+          "previousIndex": 22,
+          "index": 20,
+          "signedOverlapBeforeAlignment": -0.7914931617057305,
+          "alignedOverlap": 0.7914931617057305,
+          "nextCandidate": 0.23654495234121337,
+          "ambiguous": false
+        },
+        {
+          "previousIndex": 30,
+          "index": 33,
+          "signedOverlapBeforeAlignment": -0.8648069006055265,
+          "alignedOverlap": 0.8648069006055265,
+          "nextCandidate": 0.2947322446976645,
+          "ambiguous": false
+        }
+      ],
+      "orbitals": [
+        {
+          "index": 20,
+          "energyHartree": -0.17138270802862332,
+          "occupation": 2
+        },
+        {
+          "index": 33,
+          "energyHartree": 0.3832395953387282,
+          "occupation": 0
+        }
+      ],
+      "fieldFile": "reaction-lab/frame-4-fields.npz",
+      "meshFile": "reaction-lab/frame-4-meshes.json"
+    }
+  ],
+  "schemaVersion": "1.0",
+  "event": "sn2:0",
+  "modelId": "chloride-identity-sn2",
+  "grid": {
+    "shape": [
+      81,
+      49,
+      49
+    ],
+    "originBohr": [
+      -10.0,
+      -6.0,
+      -6.0
+    ],
+    "spacingBohr": 0.25,
+    "order": "C order, z fastest",
+    "alignment": "C fixed at origin; incoming Cl on negative x, outgoing Cl on positive x; H1 in +y half-plane. No fit, rotation or relabeling.",
+    "densityUnits": "electron bohr^-3",
+    "orbitalUnits": "bohr^-3/2",
+    "meshCoordinates": "angstrom",
+    "fieldPrecision": "float32 in NPZ; full float64 coefficients retained"
+  },
+  "references": {
+    "difference": "rho(frame) minus rho(frame 0), at identical Cartesian grid coordinates. Includes nuclear displacement; not a unique electron-transfer density.",
+    "deformation": "rho(complex) minus rho(Cl_in\u2212) minus rho(CH3Cl_out), separately SCF-solved at each frame geometry in each fragment own 6-31+G(d) basis (no ghost functions). Fixed fragment membership across the scan; not counterpoise-corrected EDA.",
+    "probability": "Absolute square of selected occupied canonical spatial orbital; integrates to 1, not occupation-weighted electron density.",
+    "signs": "Teal positive / amber negative electron-number difference. Colors do not mean positive/negative electrical charge."
+  },
+  "levels": {
+    "total": [
+      0.02,
+      0.05,
+      0.1
+    ],
+    "difference": [
+      0.001,
+      0.003,
+      0.008
+    ],
+    "deformation": [
+      0.001,
+      0.003,
+      0.008
+    ],
+    "occupied": [
+      0.025,
+      0.04,
+      0.06
+    ],
+    "virtual": [
+      0.025,
+      0.04,
+      0.06
+    ]
+  },
+  "initialSelection": {
+    "occupiedIndex": 20,
+    "incomingFragmentOrbitalIndex": 9,
+    "incomingProjection": 0.8133751217450551,
+    "virtualIndex": 33,
+    "substrateVirtualIndex": 21,
+    "substrateTrialProjection": 0.5360508000129016,
+    "virtualSelection": "Fragment virtual with maximal normalized (C 2px + Cl_out 3px) AO-trial projection, then projected onto full-complex virtual MOs. Not assumed to be the LUMO.",
+    "substrateProjection": 0.727380872806918,
+    "identity": "Projected selection of full-complex canonical MOs. These are NOT fragment-localized donor/acceptor surfaces."
+  }
+}

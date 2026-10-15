@@ -1,0 +1,188 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 525" role="img" aria-label="Base-catalyzed aldol condensation event 1"><title>Base-catalyzed aldol condensation event 1</title><desc>(CH₃)₂CO + HO⁻ ⇌ CH₃COCH₂⁻ + H₂O Alpha-H removal gives the C-anion enolate contributor; the enolate is delocalized.</desc><rect width="1200" height="525" fill="#fffefa"/><defs><marker id="pair" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#aa6a4e" stroke-width="1.5"/></marker><marker id="fish" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 1 L9 5" fill="none" stroke="#aa6a4e" stroke-width="1.5"/></marker></defs><g font-family="DejaVu Sans,sans-serif" fill="#203c43"><text x="30" y="35" font-size="22">Base-catalyzed aldol condensation · event 1</text><text x="30" y="68" font-size="17">(CH₃)₂CO + HO⁻ ⇌ CH₃COCH₂⁻ + H₂O</text><g transform="translate(25,100)">
+<!-- END OF HEADER -->
+<path class='bond-0 atom-0 atom-1' d='M 154.3,251.9 L 233.0,206.4' style='fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-1 atom-1 atom-2' d='M 239.8,210.4 L 239.8,168.0' style='fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-1 atom-1 atom-2' d='M 239.8,168.0 L 239.8,125.5' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-1 atom-1 atom-2' d='M 226.2,210.4 L 226.2,168.0' style='fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-1 atom-1 atom-2' d='M 226.2,168.0 L 226.2,125.5' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-2 atom-1 atom-3' d='M 233.0,206.4 L 311.7,251.9' style='fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-3 atom-3 atom-4' d='M 311.7,251.9 L 382.2,211.2' style='fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path d='M 229.1,208.7 L 233.0,206.4 L 236.9,208.7' style='fill:none;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 307.8,249.6 L 311.7,251.9 L 315.3,249.9' style='fill:none;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path class='atom-2' d='M 226.8 115.6
+Q 226.8 112.3, 228.4 110.5
+Q 230.0 108.7, 233.0 108.7
+Q 236.0 108.7, 237.6 110.5
+Q 239.2 112.3, 239.2 115.6
+Q 239.2 118.8, 237.6 120.7
+Q 235.9 122.5, 233.0 122.5
+Q 230.0 122.5, 228.4 120.7
+Q 226.8 118.8, 226.8 115.6
+M 233.0 121.0
+Q 235.1 121.0, 236.2 119.6
+Q 237.3 118.3, 237.3 115.6
+Q 237.3 112.9, 236.2 111.6
+Q 235.1 110.2, 233.0 110.2
+Q 230.9 110.2, 229.8 111.6
+Q 228.7 112.9, 228.7 115.6
+Q 228.7 118.3, 229.8 119.6
+Q 230.9 121.0, 233.0 121.0
+' fill='#FF0000'/>
+<path class='atom-4' d='M 385.2 199.7
+L 387.0 199.7
+L 387.0 205.4
+L 393.9 205.4
+L 393.9 199.7
+L 395.7 199.7
+L 395.7 213.2
+L 393.9 213.2
+L 393.9 206.9
+L 387.0 206.9
+L 387.0 213.2
+L 385.2 213.2
+L 385.2 199.7
+' fill='#000000'/>
+<path class='atom-5' d='M 245.2 48.3
+L 247.0 48.3
+L 247.0 54.0
+L 253.9 54.0
+L 253.9 48.3
+L 255.7 48.3
+L 255.7 61.7
+L 253.9 61.7
+L 253.9 55.5
+L 247.0 55.5
+L 247.0 61.7
+L 245.2 61.7
+L 245.2 48.3
+' fill='#FF0000'/>
+<path class='atom-5' d='M 258.3 54.9
+Q 258.3 51.7, 259.9 49.9
+Q 261.5 48.1, 264.5 48.1
+Q 267.5 48.1, 269.1 49.9
+Q 270.7 51.7, 270.7 54.9
+Q 270.7 58.2, 269.1 60.1
+Q 267.4 61.9, 264.5 61.9
+Q 261.5 61.9, 259.9 60.1
+Q 258.3 58.2, 258.3 54.9
+M 264.5 60.4
+Q 266.5 60.4, 267.6 59.0
+Q 268.8 57.6, 268.8 54.9
+Q 268.8 52.3, 267.6 51.0
+Q 266.5 49.6, 264.5 49.6
+Q 262.4 49.6, 261.3 51.0
+Q 260.2 52.3, 260.2 54.9
+Q 260.2 57.7, 261.3 59.0
+Q 262.4 60.4, 264.5 60.4
+' fill='#FF0000'/>
+<path class='atom-5' d='M 272.6 50.3
+L 277.2 50.3
+L 277.2 51.3
+L 272.6 51.3
+L 272.6 50.3
+' fill='#FF0000'/>
+</g><g transform="translate(625,100)">
+<!-- END OF HEADER -->
+<path class='bond-0 atom-0 atom-1' d='M 195.3,242.5 L 269.3,199.8' style='fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-1 atom-1 atom-2' d='M 275.7,203.5 L 275.7,163.8' style='fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-1 atom-1 atom-2' d='M 275.7,163.8 L 275.7,124.1' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-1 atom-1 atom-2' d='M 262.9,203.5 L 262.9,163.8' style='fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-1 atom-1 atom-2' d='M 262.9,163.8 L 262.9,124.1' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-2 atom-1 atom-3' d='M 269.3,199.8 L 335.3,237.9' style='fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path d='M 265.6,201.9 L 269.3,199.8 L 272.6,201.7' style='fill:none;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path class='atom-2' d='M 263.1 114.3
+Q 263.1 111.1, 264.7 109.3
+Q 266.3 107.5, 269.3 107.5
+Q 272.3 107.5, 273.9 109.3
+Q 275.5 111.1, 275.5 114.3
+Q 275.5 117.6, 273.9 119.5
+Q 272.2 121.3, 269.3 121.3
+Q 266.3 121.3, 264.7 119.5
+Q 263.1 117.6, 263.1 114.3
+M 269.3 119.8
+Q 271.3 119.8, 272.4 118.4
+Q 273.6 117.0, 273.6 114.3
+Q 273.6 111.7, 272.4 110.4
+Q 271.3 109.0, 269.3 109.0
+Q 267.2 109.0, 266.1 110.3
+Q 265.0 111.7, 265.0 114.3
+Q 265.0 117.1, 266.1 118.4
+Q 267.2 119.8, 269.3 119.8
+' fill='#FF0000'/>
+<path class='atom-3' d='M 338.1 242.6
+Q 338.1 239.2, 339.7 237.5
+Q 341.3 235.7, 344.3 235.7
+Q 347.0 235.7, 348.5 237.7
+L 347.3 238.7
+Q 346.2 237.3, 344.3 237.3
+Q 342.2 237.3, 341.1 238.6
+Q 340.1 240.0, 340.1 242.6
+Q 340.1 245.2, 341.2 246.6
+Q 342.3 248.0, 344.5 248.0
+Q 345.9 248.0, 347.7 247.1
+L 348.2 248.5
+Q 347.5 249.0, 346.4 249.2
+Q 345.4 249.5, 344.2 249.5
+Q 341.3 249.5, 339.7 247.7
+Q 338.1 245.9, 338.1 242.6
+' fill='#000000'/>
+<path class='atom-3' d='M 350.1 237.9
+L 354.7 237.9
+L 354.7 238.9
+L 350.1 238.9
+L 350.1 237.9
+' fill='#000000'/>
+<path class='atom-4' d='M 242.1 50.7
+L 243.9 50.7
+L 243.9 56.4
+L 250.8 56.4
+L 250.8 50.7
+L 252.6 50.7
+L 252.6 64.1
+L 250.8 64.1
+L 250.8 57.9
+L 243.9 57.9
+L 243.9 64.1
+L 242.1 64.1
+L 242.1 50.7
+' fill='#FF0000'/>
+<path class='atom-4' d='M 255.3 63.6
+Q 255.7 62.8, 256.4 62.3
+Q 257.2 61.9, 258.3 61.9
+Q 259.6 61.9, 260.4 62.6
+Q 261.1 63.3, 261.1 64.6
+Q 261.1 65.9, 260.2 67.2
+Q 259.2 68.4, 257.2 69.8
+L 261.3 69.8
+L 261.3 70.8
+L 255.3 70.8
+L 255.3 70.0
+Q 257.0 68.8, 258.0 67.9
+Q 258.9 67.1, 259.4 66.3
+Q 259.9 65.5, 259.9 64.7
+Q 259.9 63.8, 259.5 63.3
+Q 259.0 62.9, 258.3 62.9
+Q 257.6 62.9, 257.1 63.2
+Q 256.6 63.4, 256.3 64.1
+L 255.3 63.6
+' fill='#FF0000'/>
+<path class='atom-4' d='M 263.1 57.3
+Q 263.1 54.1, 264.7 52.3
+Q 266.3 50.5, 269.3 50.5
+Q 272.3 50.5, 273.9 52.3
+Q 275.5 54.1, 275.5 57.3
+Q 275.5 60.6, 273.9 62.5
+Q 272.2 64.3, 269.3 64.3
+Q 266.3 64.3, 264.7 62.5
+Q 263.1 60.6, 263.1 57.3
+M 269.3 62.8
+Q 271.3 62.8, 272.4 61.4
+Q 273.6 60.0, 273.6 57.3
+Q 273.6 54.7, 272.4 53.4
+Q 271.3 52.0, 269.3 52.0
+Q 267.2 52.0, 266.1 53.4
+Q 265.0 54.7, 265.0 57.3
+Q 265.0 60.1, 266.1 61.4
+Q 267.2 62.8, 269.3 62.8
+' fill='#FF0000'/>
+</g><path data-electrons="2" d="M297.17,164.14 Q298.02,274.65 406.52,295.67" fill="none" stroke="#aa6a4e" stroke-width="2.6" marker-end="url(#pair)"/><path data-electrons="2" d="M376.10,329.16 Q377.25,362.62 348.86,344.89" fill="none" stroke="#aa6a4e" stroke-width="2.6" marker-end="url(#pair)"/><text x="580" y="260" font-size="36">→</text><text x="30" y="438" font-size="15">Alpha-H removal gives the C-anion enolate contributor; the enolate is delocalized.</text><text x="30" y="467" font-size="15"></text><text x="30" y="502" font-size="14">Original structural mechanism · 2-electron curved arrows · 2D depiction, not a calculated trajectory.</text></g></svg>

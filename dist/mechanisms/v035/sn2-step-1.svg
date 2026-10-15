@@ -1,0 +1,167 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 525" role="img" aria-label="SN2 substitution event 1"><title>SN2 substitution event 1</title><desc>HO⁻ + CH₃Br → CH₃OH + Br⁻ O lone pair → methyl C; C–Br bond pair → Br. Methyl carbon is achiral.</desc><rect width="1200" height="525" fill="#fffefa"/><defs><marker id="pair" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#aa6a4e" stroke-width="1.5"/></marker><marker id="fish" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 1 L9 5" fill="none" stroke="#aa6a4e" stroke-width="1.5"/></marker></defs><g font-family="DejaVu Sans,sans-serif" fill="#203c43"><text x="30" y="35" font-size="22">SN2 substitution · event 1</text><text x="30" y="68" font-size="17">HO⁻ + CH₃Br → CH₃OH + Br⁻</text><g transform="translate(25,100)">
+<!-- END OF HEADER -->
+<path class='bond-0 atom-1 atom-2' d='M 158.8,223.6 L 263.2,223.6' style='fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-0 atom-1 atom-2' d='M 263.2,223.6 L 367.6,223.6' style='fill:none;fill-rule:evenodd;stroke:#7F4C19;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='atom-0' d='M 249.8 69.8
+L 251.6 69.8
+L 251.6 75.5
+L 258.5 75.5
+L 258.5 69.8
+L 260.3 69.8
+L 260.3 83.3
+L 258.5 83.3
+L 258.5 77.1
+L 251.6 77.1
+L 251.6 83.3
+L 249.8 83.3
+L 249.8 69.8
+' fill='#FF0000'/>
+<path class='atom-0' d='M 262.9 76.5
+Q 262.9 73.3, 264.5 71.5
+Q 266.1 69.7, 269.1 69.7
+Q 272.1 69.7, 273.7 71.5
+Q 275.3 73.3, 275.3 76.5
+Q 275.3 79.8, 273.7 81.6
+Q 272.1 83.5, 269.1 83.5
+Q 266.1 83.5, 264.5 81.6
+Q 262.9 79.8, 262.9 76.5
+M 269.1 82.0
+Q 271.2 82.0, 272.3 80.6
+Q 273.4 79.2, 273.4 76.5
+Q 273.4 73.9, 272.3 72.5
+Q 271.2 71.2, 269.1 71.2
+Q 267.1 71.2, 265.9 72.5
+Q 264.8 73.8, 264.8 76.5
+Q 264.8 79.2, 265.9 80.6
+Q 267.1 82.0, 269.1 82.0
+' fill='#FF0000'/>
+<path class='atom-0' d='M 277.2 71.9
+L 281.8 71.9
+L 281.8 72.9
+L 277.2 72.9
+L 277.2 71.9
+' fill='#FF0000'/>
+<path class='atom-2' d='M 381.4 223.3
+Q 382.7 223.6, 383.4 224.4
+Q 384.0 225.2, 384.0 226.4
+Q 384.0 228.2, 382.8 229.3
+Q 381.7 230.3, 379.4 230.3
+L 374.9 230.3
+L 374.9 216.9
+L 378.9 216.9
+Q 381.2 216.9, 382.3 217.8
+Q 383.5 218.7, 383.5 220.5
+Q 383.5 222.5, 381.4 223.3
+M 376.7 218.4
+L 376.7 222.6
+L 378.9 222.6
+Q 380.2 222.6, 380.9 222.1
+Q 381.6 221.5, 381.6 220.5
+Q 381.6 218.4, 378.9 218.4
+L 376.7 218.4
+M 379.4 228.8
+Q 380.7 228.8, 381.4 228.2
+Q 382.1 227.6, 382.1 226.4
+Q 382.1 225.3, 381.4 224.7
+Q 380.6 224.1, 379.1 224.1
+L 376.7 224.1
+L 376.7 228.8
+L 379.4 228.8
+' fill='#7F4C19'/>
+<path class='atom-2' d='M 387.1 220.6
+L 387.3 221.9
+Q 388.3 220.4, 390.0 220.4
+Q 390.5 220.4, 391.2 220.6
+L 391.0 222.2
+Q 390.1 222.0, 389.7 222.0
+Q 388.9 222.0, 388.4 222.3
+Q 387.8 222.6, 387.4 223.4
+L 387.4 230.3
+L 385.6 230.3
+L 385.6 220.6
+L 387.1 220.6
+' fill='#7F4C19'/>
+</g><g transform="translate(625,100)">
+<!-- END OF HEADER -->
+<path class='bond-0 atom-0 atom-1' d='M 155.8,223.1 L 258.9,223.1' style='fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-0 atom-0 atom-1' d='M 258.9,223.1 L 362.0,223.1' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='atom-1' d='M 369.3 223.1
+Q 369.3 219.9, 370.9 218.1
+Q 372.5 216.3, 375.5 216.3
+Q 378.4 216.3, 380.0 218.1
+Q 381.6 219.9, 381.6 223.1
+Q 381.6 226.4, 380.0 228.3
+Q 378.4 230.1, 375.5 230.1
+Q 372.5 230.1, 370.9 228.3
+Q 369.3 226.4, 369.3 223.1
+M 375.5 228.6
+Q 377.5 228.6, 378.6 227.2
+Q 379.7 225.8, 379.7 223.1
+Q 379.7 220.5, 378.6 219.2
+Q 377.5 217.8, 375.5 217.8
+Q 373.4 217.8, 372.3 219.1
+Q 371.2 220.5, 371.2 223.1
+Q 371.2 225.8, 372.3 227.2
+Q 373.4 228.6, 375.5 228.6
+' fill='#FF0000'/>
+<path class='atom-1' d='M 383.7 216.4
+L 385.5 216.4
+L 385.5 222.2
+L 392.4 222.2
+L 392.4 216.4
+L 394.2 216.4
+L 394.2 229.9
+L 392.4 229.9
+L 392.4 223.7
+L 385.5 223.7
+L 385.5 229.9
+L 383.7 229.9
+L 383.7 216.4
+' fill='#FF0000'/>
+<path class='atom-2' d='M 258.6 76.3
+Q 259.9 76.6, 260.5 77.4
+Q 261.2 78.2, 261.2 79.4
+Q 261.2 81.2, 260.0 82.3
+Q 258.8 83.4, 256.6 83.4
+L 252.1 83.4
+L 252.1 69.9
+L 256.0 69.9
+Q 258.3 69.9, 259.5 70.8
+Q 260.7 71.8, 260.7 73.5
+Q 260.7 75.5, 258.6 76.3
+M 253.9 71.4
+L 253.9 75.6
+L 256.0 75.6
+Q 257.4 75.6, 258.0 75.1
+Q 258.8 74.6, 258.8 73.5
+Q 258.8 71.4, 256.0 71.4
+L 253.9 71.4
+M 256.6 81.8
+Q 257.9 81.8, 258.6 81.2
+Q 259.3 80.6, 259.3 79.4
+Q 259.3 78.3, 258.5 77.7
+Q 257.8 77.2, 256.3 77.2
+L 253.9 77.2
+L 253.9 81.8
+L 256.6 81.8
+' fill='#7F4C19'/>
+<path class='atom-2' d='M 264.2 73.6
+L 264.5 74.9
+Q 265.5 73.4, 267.2 73.4
+Q 267.7 73.4, 268.4 73.6
+L 268.1 75.2
+Q 267.3 75.0, 266.8 75.0
+Q 266.0 75.0, 265.5 75.3
+Q 265.0 75.6, 264.6 76.4
+L 264.6 83.4
+L 262.8 83.4
+L 262.8 73.6
+L 264.2 73.6
+' fill='#7F4C19'/>
+<path class='atom-2' d='M 269.4 73.9
+L 274.0 73.9
+L 274.0 74.9
+L 269.4 74.9
+L 269.4 73.9
+' fill='#7F4C19'/>
+</g><path data-electrons="2" d="M286.91,186.07 Q183.53,207.24 192.15,312.41" fill="none" stroke="#aa6a4e" stroke-width="2.6" marker-end="url(#pair)"/><path data-electrons="2" d="M294.11,323.61 Q342.29,253.61 390.46,323.61" fill="none" stroke="#aa6a4e" stroke-width="2.6" marker-end="url(#pair)"/><text x="580" y="260" font-size="36">→</text><text x="30" y="438" font-size="15">O lone pair → methyl C; C–Br bond pair → Br. Methyl carbon is achiral.</text><text x="30" y="467" font-size="15"></text><text x="30" y="502" font-size="14">Original structural mechanism · 2-electron curved arrows · 2D depiction, not a calculated trajectory.</text></g></svg>

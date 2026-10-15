@@ -1,5 +1,5 @@
 {
-  "version": "0.3.4",
+  "version": "0.3.5",
   "updated": "2026-10-15",
   "axes": [
     {
@@ -591,7 +591,29 @@
             "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
             "Nu–C–Br approaches a near-linear backside alignment."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/v035/sn2-step-1.svg",
+            "scope": "Original substrate-matched structural event with atom/bond-anchored two-electron arrows; schematic 2D geometry.",
+            "arrowCount": 2,
+            "reactantSmiles": "[OH-:1].[CH3:2][Br:3]",
+            "productSmiles": "[CH3:2][OH:1].[Br-:3]",
+            "electronMoves": [
+              [
+                1,
+                2
+              ],
+              [
+                [
+                  2,
+                  3
+                ],
+                3
+              ]
+            ],
+            "reviewLegend": "O lone pair → methyl C; C–Br bond pair → Br. Methyl carbon is achiral.",
+            "formula": "CH4BrO-"
+          }
         }
       ],
       "sources": [
@@ -616,18 +638,32 @@
       "mechanismComplete": true,
       "mechanismNote": "Pathway at the stated teaching resolution; inspect scope and event notes. This is not a claim that each listed stage is a verified elementary event.",
       "figure": {
-        "src": "https://kpu.pressbooks.pub/app/uploads/sites/139/2020/12/Sn2-mechanism-1024x480.png",
-        "href": "https://kpu.pressbooks.pub/organicchemistry/chapter/7-2/",
-        "alt": "Exact illustration: SN2 substitution. Hydroxide + methyl bromide; reaction, electron arrows and transition structure match. Methyl carbon is achiral.",
-        "credit": "Xin Liu · Organic Chemistry I · KPU Pressbooks",
+        "src": "mechanisms/v035/sn2.svg",
+        "href": "mechanisms/v035/sn2.svg",
+        "alt": "Original exact structural mechanism: SN2 substitution",
+        "credit": "SORG Atlas · original SVG; RDKit 2D depiction",
         "match": "exact",
         "coverage": "complete",
-        "reviewNote": "Hydroxide + methyl bromide; reaction, electron arrows and transition structure match. Methyl carbon is achiral.",
+        "reviewNote": "Authored electron arrows originate at mapped atoms or bonds. Formula/charge balance checked; structural intermediates and arrows visually reviewed. Stereochemistry is unspecified unless explicitly drawn; existing pathway-model limitations apply.",
         "reviewed": true,
-        "rightsStatus": "source-license-checked",
-        "license": "CC BY-NC-SA 4.0; unmodified source image",
+        "rightsStatus": "original",
+        "license": "Original SORG Atlas illustration · CC BY-NC-SA 4.0",
         "display": true,
-        "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+        "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+        "priorReference": {
+          "src": "https://kpu.pressbooks.pub/app/uploads/sites/139/2020/12/Sn2-mechanism-1024x480.png",
+          "href": "https://kpu.pressbooks.pub/organicchemistry/chapter/7-2/",
+          "alt": "Exact illustration: SN2 substitution. Hydroxide + methyl bromide; reaction, electron arrows and transition structure match. Methyl carbon is achiral.",
+          "credit": "Xin Liu · Organic Chemistry I · KPU Pressbooks",
+          "match": "exact",
+          "coverage": "complete",
+          "reviewNote": "Hydroxide + methyl bromide; reaction, electron arrows and transition structure match. Methyl carbon is achiral.",
+          "reviewed": true,
+          "rightsStatus": "source-license-checked",
+          "license": "CC BY-NC-SA 4.0; unmodified source image",
+          "display": true,
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+        }
       },
       "quantumData": {
         "status": "literature-related-numerical",
@@ -740,7 +776,29 @@
             "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
             "The nucleophile approaches opposite the leaving group."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/v035/williamson-step-1.svg",
+            "scope": "Original substrate-matched structural event with atom/bond-anchored two-electron arrows; schematic 2D geometry.",
+            "arrowCount": 2,
+            "reactantSmiles": "[CH3:4][O-:1].[CH2:2]([CH3:5])[Br:3]",
+            "productSmiles": "[CH3:4][O:1][CH2:2][CH3:5].[Br-:3]",
+            "electronMoves": [
+              [
+                1,
+                2
+              ],
+              [
+                [
+                  2,
+                  3
+                ],
+                3
+              ]
+            ],
+            "reviewLegend": "Methoxide O → ethyl C bearing Br; C–Br → Br. No stereocenter is present.",
+            "formula": "C3H8BrO-"
+          }
         }
       ],
       "sources": [
@@ -762,17 +820,31 @@
       "mechanismComplete": true,
       "mechanismNote": "Pathway at the stated teaching resolution; inspect scope and event notes. This is not a claim that each listed stage is a verified elementary event.",
       "figure": {
-        "src": "https://www.chemistrysteps.com/wp-content/uploads/2022/11/Williamson-Ether-Synthesis-some-examples.png",
-        "href": "https://www.chemistrysteps.com/williamson-ether-synthesis/",
-        "alt": "Representative illustration: Williamson ether synthesis. Examples use ethoxide/ethyl bromide or methoxide/ethyl iodide, rather than methoxide/ethyl bromide.",
-        "credit": "Chemistry Steps · Williamson Ether Synthesis",
-        "match": "representative",
+        "src": "mechanisms/v035/williamson.svg",
+        "href": "mechanisms/v035/williamson.svg",
+        "alt": "Original exact structural mechanism: Williamson ether synthesis",
+        "credit": "SORG Atlas · original SVG; RDKit 2D depiction",
+        "match": "exact",
         "coverage": "complete",
-        "reviewNote": "Examples use ethoxide/ethyl bromide or methoxide/ethyl iodide, rather than methoxide/ethyl bromide.",
+        "reviewNote": "Authored electron arrows originate at mapped atoms or bonds. Formula/charge balance checked; structural intermediates and arrows visually reviewed. Stereochemistry is unspecified unless explicitly drawn; existing pathway-model limitations apply.",
         "reviewed": true,
-        "rightsStatus": "unconfirmed",
-        "license": "Reuse permission not established; external reference retained.",
-        "display": false
+        "rightsStatus": "original",
+        "license": "Original SORG Atlas illustration · CC BY-NC-SA 4.0",
+        "display": true,
+        "priorReference": {
+          "src": "https://www.chemistrysteps.com/wp-content/uploads/2022/11/Williamson-Ether-Synthesis-some-examples.png",
+          "href": "https://www.chemistrysteps.com/williamson-ether-synthesis/",
+          "alt": "Representative illustration: Williamson ether synthesis. Examples use ethoxide/ethyl bromide or methoxide/ethyl iodide, rather than methoxide/ethyl bromide.",
+          "credit": "Chemistry Steps · Williamson Ether Synthesis",
+          "match": "representative",
+          "coverage": "complete",
+          "reviewNote": "Examples use ethoxide/ethyl bromide or methoxide/ethyl iodide, rather than methoxide/ethyl bromide.",
+          "reviewed": true,
+          "rightsStatus": "unconfirmed",
+          "license": "Reuse permission not established; external reference retained.",
+          "display": false
+        },
+        "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
       },
       "quantumData": {
         "status": "not-yet-computed",
@@ -823,7 +895,25 @@
             "Principal bond formation or cleavage; accompanying changes remain in the electron-flow description.",
             "C and leaving group separate; the carbocation center tends toward planar geometry."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/v035/sn1-core-step-1.svg",
+            "scope": "Original substrate-matched structural event with atom/bond-anchored two-electron arrows; schematic 2D geometry.",
+            "arrowCount": 1,
+            "reactantSmiles": "[*:1][C:2]([*:3])([*:4])[*:5]",
+            "productSmiles": "[*:1][C+:2]([*:3])[*:4].[*-:5]",
+            "electronMoves": [
+              [
+                [
+                  2,
+                  5
+                ],
+                5
+              ]
+            ],
+            "reviewLegend": "C–X pair → X. R groups and X are generic placeholders, not specified atoms.",
+            "formula": "C*4"
+          }
         },
         {
           "title": "Carbocation capture",
@@ -842,7 +932,22 @@
             "Principal bond formation or cleavage; accompanying changes remain in the electron-flow description.",
             "The nucleophile approaches one face of the approximately planar cation."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/v035/sn1-core-step-2.svg",
+            "scope": "Original substrate-matched structural event with atom/bond-anchored two-electron arrows; schematic 2D geometry.",
+            "arrowCount": 1,
+            "reactantSmiles": "[*:1][C+:2]([*:3])[*:4].[*-:6]",
+            "productSmiles": "[*:1][C:2]([*:3])([*:4])[*:6]",
+            "electronMoves": [
+              [
+                6,
+                2
+              ]
+            ],
+            "reviewLegend": "Nu lone pair → planar cation C. Generic R/Nu labels do not establish stereoselectivity.",
+            "formula": "C*4"
+          }
         }
       ],
       "sources": [
@@ -865,18 +970,32 @@
       "mechanismComplete": true,
       "mechanismNote": "Pathway at the stated teaching resolution; inspect scope and event notes. This is not a claim that each listed stage is a verified elementary event. This entry covers only the stated local event, propagation cycle or formal core.",
       "figure": {
-        "src": "https://ncstate.pressbooks.pub/app/uploads/sites/52/2023/11/image30-11.jpeg",
-        "href": "https://ncstate.pressbooks.pub/organicchem/chapter/the-sn1-reaction/",
-        "alt": "Representative illustration: SN1: ionization & capture. Image is tert-butyl bromide solvolysis with water and a third deprotonation; card is a two-event generic anionic-nucleophile core.",
-        "credit": "John McMurry / OpenStax · David Tully adaptation · NC State Pressbooks",
-        "match": "representative",
+        "src": "mechanisms/v035/sn1-core.svg",
+        "href": "mechanisms/v035/sn1-core.svg",
+        "alt": "Original exact structural mechanism: SN1: ionization & capture",
+        "credit": "SORG Atlas · original SVG; RDKit 2D depiction",
+        "match": "exact",
         "coverage": "complete",
-        "reviewNote": "Image is tert-butyl bromide solvolysis with water and a third deprotonation; card is a two-event generic anionic-nucleophile core.",
+        "reviewNote": "Authored electron arrows originate at mapped atoms or bonds. Formula/charge balance checked; structural intermediates and arrows visually reviewed. Stereochemistry is unspecified unless explicitly drawn; existing pathway-model limitations apply.",
         "reviewed": true,
-        "rightsStatus": "source-license-checked",
-        "license": "CC BY-NC-SA 4.0; unmodified source image",
+        "rightsStatus": "original",
+        "license": "Original SORG Atlas illustration · CC BY-NC-SA 4.0",
         "display": true,
-        "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+        "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+        "priorReference": {
+          "src": "https://ncstate.pressbooks.pub/app/uploads/sites/52/2023/11/image30-11.jpeg",
+          "href": "https://ncstate.pressbooks.pub/organicchem/chapter/the-sn1-reaction/",
+          "alt": "Representative illustration: SN1: ionization & capture. Image is tert-butyl bromide solvolysis with water and a third deprotonation; card is a two-event generic anionic-nucleophile core.",
+          "credit": "John McMurry / OpenStax · David Tully adaptation · NC State Pressbooks",
+          "match": "representative",
+          "coverage": "complete",
+          "reviewNote": "Image is tert-butyl bromide solvolysis with water and a third deprotonation; card is a two-event generic anionic-nucleophile core.",
+          "reviewed": true,
+          "rightsStatus": "source-license-checked",
+          "license": "CC BY-NC-SA 4.0; unmodified source image",
+          "display": true,
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+        }
       },
       "quantumData": {
         "status": "literature-related-qualitative",
@@ -938,7 +1057,25 @@
             "Principal bond formation or cleavage; accompanying changes remain in the electron-flow description.",
             "C and leaving group separate; the carbocation center tends toward planar geometry."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/v035/sn1-water-step-1.svg",
+            "scope": "Original substrate-matched structural event with atom/bond-anchored two-electron arrows; schematic 2D geometry.",
+            "arrowCount": 1,
+            "reactantSmiles": "[CH3:1][C:2]([CH3:3])([CH3:4])[Br:5]",
+            "productSmiles": "[CH3:1][C+:2]([CH3:3])[CH3:4].[Br-:5]",
+            "electronMoves": [
+              [
+                [
+                  2,
+                  5
+                ],
+                5
+              ]
+            ],
+            "reviewLegend": "C–Br pair → Br; tertiary carbocation is the stated limiting teaching model.",
+            "formula": "C4H9Br"
+          }
         },
         {
           "title": "Carbocation capture",
@@ -957,7 +1094,22 @@
             "Principal bond formation or cleavage; accompanying changes remain in the electron-flow description.",
             "The nucleophile approaches one face of the approximately planar cation."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/v035/sn1-water-step-2.svg",
+            "scope": "Original substrate-matched structural event with atom/bond-anchored two-electron arrows; schematic 2D geometry.",
+            "arrowCount": 1,
+            "reactantSmiles": "[CH3:1][C+:2]([CH3:3])[CH3:4].[OH2:6]",
+            "productSmiles": "[CH3:1][C:2]([CH3:3])([CH3:4])[OH2+:6]",
+            "electronMoves": [
+              [
+                6,
+                2
+              ]
+            ],
+            "reviewLegend": "Water O lone pair → tertiary C; oxygen becomes oxonium (+1).",
+            "formula": "C4H11O+"
+          }
         },
         {
           "title": "Proton transfer",
@@ -976,7 +1128,29 @@
             "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
             "Water approaches an O–H bond of protonated tert-butanol; C–O connectivity stays intact."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/v035/sn1-water-step-3.svg",
+            "scope": "Original substrate-matched structural event with atom/bond-anchored two-electron arrows; schematic 2D geometry.",
+            "arrowCount": 2,
+            "reactantSmiles": "[CH3:1][C:2]([CH3:3])([CH3:4])[OH+:6][H:7].[OH2:8]",
+            "productSmiles": "[CH3:1][C:2]([CH3:3])([CH3:4])[OH:6].[OH3+:8]",
+            "electronMoves": [
+              [
+                8,
+                7
+              ],
+              [
+                [
+                  6,
+                  7
+                ],
+                6
+              ]
+            ],
+            "reviewLegend": "Second water O → oxonium H; alcohol O–H pair → alcohol O.",
+            "formula": "C4H13O2+"
+          }
         }
       ],
       "sources": [
@@ -999,18 +1173,32 @@
       "mechanismComplete": true,
       "mechanismNote": "Pathway at the stated teaching resolution; inspect scope and event notes. This is not a claim that each listed stage is a verified elementary event.",
       "figure": {
-        "src": "https://ncstate.pressbooks.pub/app/uploads/sites/52/2023/11/image30-11.jpeg",
-        "href": "https://ncstate.pressbooks.pub/organicchem/chapter/the-sn1-reaction/",
-        "alt": "Exact illustration: SN1 solvolysis. Tert-butyl bromide, water capture, oxonium and deprotonation match the three displayed events.",
-        "credit": "John McMurry / OpenStax · David Tully adaptation · NC State Pressbooks",
+        "src": "mechanisms/v035/sn1-water.svg",
+        "href": "mechanisms/v035/sn1-water.svg",
+        "alt": "Original exact structural mechanism: SN1 solvolysis",
+        "credit": "SORG Atlas · original SVG; RDKit 2D depiction",
         "match": "exact",
         "coverage": "complete",
-        "reviewNote": "Tert-butyl bromide, water capture, oxonium and deprotonation match the three displayed events.",
+        "reviewNote": "Authored electron arrows originate at mapped atoms or bonds. Formula/charge balance checked; structural intermediates and arrows visually reviewed. Stereochemistry is unspecified unless explicitly drawn; existing pathway-model limitations apply.",
         "reviewed": true,
-        "rightsStatus": "source-license-checked",
-        "license": "CC BY-NC-SA 4.0; unmodified source image",
+        "rightsStatus": "original",
+        "license": "Original SORG Atlas illustration · CC BY-NC-SA 4.0",
         "display": true,
-        "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+        "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+        "priorReference": {
+          "src": "https://ncstate.pressbooks.pub/app/uploads/sites/52/2023/11/image30-11.jpeg",
+          "href": "https://ncstate.pressbooks.pub/organicchem/chapter/the-sn1-reaction/",
+          "alt": "Exact illustration: SN1 solvolysis. Tert-butyl bromide, water capture, oxonium and deprotonation match the three displayed events.",
+          "credit": "John McMurry / OpenStax · David Tully adaptation · NC State Pressbooks",
+          "match": "exact",
+          "coverage": "complete",
+          "reviewNote": "Tert-butyl bromide, water capture, oxonium and deprotonation match the three displayed events.",
+          "reviewed": true,
+          "rightsStatus": "source-license-checked",
+          "license": "CC BY-NC-SA 4.0; unmodified source image",
+          "display": true,
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+        }
       },
       "quantumData": {
         "status": "not-yet-computed",
@@ -1061,7 +1249,32 @@
             "Principal bond formation or cleavage; accompanying changes remain in the electron-flow description.",
             "One alkene carbon forms C–H while the other becomes a planarizing carbocation."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/v035/hbr-step-1.svg",
+            "scope": "Original substrate-matched structural event with atom/bond-anchored two-electron arrows; schematic 2D geometry.",
+            "arrowCount": 2,
+            "reactantSmiles": "[CH3:1][CH:2]=[CH2:3].[H:4][Br:5]",
+            "productSmiles": "[CH3:1][CH+:2][CH3:3].[Br-:5]",
+            "electronMoves": [
+              [
+                [
+                  2,
+                  3
+                ],
+                4
+              ],
+              [
+                [
+                  4,
+                  5
+                ],
+                5
+              ]
+            ],
+            "reviewLegend": "Alkene π pair → H (bonding at terminal C); H–Br pair → Br. Secondary cation only.",
+            "formula": "C3H7Br"
+          }
         },
         {
           "title": "Carbocation capture",
@@ -1080,7 +1293,22 @@
             "Principal bond formation or cleavage; accompanying changes remain in the electron-flow description.",
             "The nucleophile approaches one face of the approximately planar cation."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/v035/hbr-step-2.svg",
+            "scope": "Original substrate-matched structural event with atom/bond-anchored two-electron arrows; schematic 2D geometry.",
+            "arrowCount": 1,
+            "reactantSmiles": "[CH3:1][CH+:2][CH3:3].[Br-:5]",
+            "productSmiles": "[CH3:1][CH:2]([Br:5])[CH3:3]",
+            "electronMoves": [
+              [
+                5,
+                2
+              ]
+            ],
+            "reviewLegend": "Bromide lone pair → secondary cation; product is 2-bromopropane.",
+            "formula": "C3H7Br"
+          }
         }
       ],
       "sources": [
@@ -1102,17 +1330,31 @@
       "mechanismComplete": true,
       "mechanismNote": "Pathway at the stated teaching resolution; inspect scope and event notes. This is not a claim that each listed stage is a verified elementary event.",
       "figure": {
-        "src": "https://oss.linstitute.net/wechatimg/2022/07/3.2-Hydrocarbons-Electrophilic-Addition-HBr-1.png",
-        "href": "https://www.linstitute.net/",
-        "alt": "Exact illustration: Electrophilic HBr addition. The upper propene-to-2-bromopropane branch matches. The lower primary-carbocation branch is not a validated minor pathway for this card.",
-        "credit": "Organic chemistry teaching diagram · HBr addition",
+        "src": "mechanisms/v035/hbr.svg",
+        "href": "mechanisms/v035/hbr.svg",
+        "alt": "Original exact structural mechanism: Electrophilic HBr addition",
+        "credit": "SORG Atlas · original SVG; RDKit 2D depiction",
         "match": "exact",
         "coverage": "complete",
-        "reviewNote": "The upper propene-to-2-bromopropane branch matches. The lower primary-carbocation branch is not a validated minor pathway for this card.",
+        "reviewNote": "Authored electron arrows originate at mapped atoms or bonds. Formula/charge balance checked; structural intermediates and arrows visually reviewed. Stereochemistry is unspecified unless explicitly drawn; existing pathway-model limitations apply.",
         "reviewed": true,
-        "rightsStatus": "unconfirmed",
-        "license": "Reuse permission not established; external reference retained.",
-        "display": false
+        "rightsStatus": "original",
+        "license": "Original SORG Atlas illustration · CC BY-NC-SA 4.0",
+        "display": true,
+        "priorReference": {
+          "src": "https://oss.linstitute.net/wechatimg/2022/07/3.2-Hydrocarbons-Electrophilic-Addition-HBr-1.png",
+          "href": "https://www.linstitute.net/",
+          "alt": "Exact illustration: Electrophilic HBr addition. The upper propene-to-2-bromopropane branch matches. The lower primary-carbocation branch is not a validated minor pathway for this card.",
+          "credit": "Organic chemistry teaching diagram · HBr addition",
+          "match": "exact",
+          "coverage": "complete",
+          "reviewNote": "The upper propene-to-2-bromopropane branch matches. The lower primary-carbocation branch is not a validated minor pathway for this card.",
+          "reviewed": true,
+          "rightsStatus": "unconfirmed",
+          "license": "Reuse permission not established; external reference retained.",
+          "display": false
+        },
+        "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
       },
       "quantumData": {
         "status": "not-yet-computed",
@@ -1163,7 +1405,32 @@
             "Principal bond formation or cleavage; accompanying changes remain in the electron-flow description.",
             "One alkene carbon forms C–H while the other becomes a planarizing carbocation."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/v035/hydration-step-1.svg",
+            "scope": "Original substrate-matched structural event with atom/bond-anchored two-electron arrows; schematic 2D geometry.",
+            "arrowCount": 2,
+            "reactantSmiles": "[CH3:1][CH:2]=[CH2:3].[OH2+:5][H:4]",
+            "productSmiles": "[CH3:1][CH+:2][CH3:3].[OH2:5]",
+            "electronMoves": [
+              [
+                [
+                  2,
+                  3
+                ],
+                4
+              ],
+              [
+                [
+                  4,
+                  5
+                ],
+                5
+              ]
+            ],
+            "reviewLegend": "Alkene π pair → hydronium H; acid O–H pair → O. Terminal carbon becomes CH3.",
+            "formula": "C3H9O+"
+          }
         },
         {
           "title": "Carbocation capture",
@@ -1182,7 +1449,22 @@
             "Principal bond formation or cleavage; accompanying changes remain in the electron-flow description.",
             "The nucleophile approaches one face of the approximately planar cation."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/v035/hydration-step-2.svg",
+            "scope": "Original substrate-matched structural event with atom/bond-anchored two-electron arrows; schematic 2D geometry.",
+            "arrowCount": 1,
+            "reactantSmiles": "[CH3:1][CH+:2][CH3:3].[OH2:6]",
+            "productSmiles": "[CH3:1][CH:2]([OH2+:6])[CH3:3]",
+            "electronMoves": [
+              [
+                6,
+                2
+              ]
+            ],
+            "reviewLegend": "Water O → secondary cation; protonated 2-propanol forms.",
+            "formula": "C3H9O+"
+          }
         },
         {
           "title": "Proton transfer",
@@ -1201,7 +1483,29 @@
             "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
             "A hydrogen-bonded water/oxonium encounter loses H without changing the C–O bond."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/v035/hydration-step-3.svg",
+            "scope": "Original substrate-matched structural event with atom/bond-anchored two-electron arrows; schematic 2D geometry.",
+            "arrowCount": 2,
+            "reactantSmiles": "[CH3:1][CH:2]([OH+:6][H:7])[CH3:3].[OH2:8]",
+            "productSmiles": "[CH3:1][CH:2]([OH:6])[CH3:3].[OH3+:8]",
+            "electronMoves": [
+              [
+                8,
+                7
+              ],
+              [
+                [
+                  6,
+                  7
+                ],
+                6
+              ]
+            ],
+            "reviewLegend": "Water → oxonium H; oxonium O–H pair → O; hydronium is regenerated.",
+            "formula": "C3H11O2+"
+          }
         }
       ],
       "sources": [
@@ -1223,17 +1527,31 @@
       "mechanismComplete": true,
       "mechanismNote": "Pathway at the stated teaching resolution; inspect scope and event notes. This is not a claim that each listed stage is a verified elementary event.",
       "figure": {
-        "src": "https://d3nzlfkeryzt6j.cloudfront.net/fc3m8degkaatqcczbt0mk27e0n4k",
-        "href": "https://app.medify.co/a-level-chemistry-ocr/study-notes/articles/85-alkenes-4-1-3",
-        "alt": "Partial illustration: Acid-catalyzed hydration. Propene hydration is intended, but the terminal carbon remains labeled CH2 after protonation instead of CH3; image withheld.",
-        "credit": "Medify · Alkene hydration mechanism",
-        "match": "partial",
-        "coverage": "partial",
-        "reviewNote": "Propene hydration is intended, but the terminal carbon remains labeled CH2 after protonation instead of CH3; image withheld.",
+        "src": "mechanisms/v035/hydration.svg",
+        "href": "mechanisms/v035/hydration.svg",
+        "alt": "Original exact structural mechanism: Acid-catalyzed hydration",
+        "credit": "SORG Atlas · original SVG; RDKit 2D depiction",
+        "match": "exact",
+        "coverage": "complete",
+        "reviewNote": "Authored electron arrows originate at mapped atoms or bonds. Formula/charge balance checked; structural intermediates and arrows visually reviewed. Stereochemistry is unspecified unless explicitly drawn; existing pathway-model limitations apply.",
         "reviewed": true,
-        "rightsStatus": "unconfirmed",
-        "license": "Reuse permission not established; external reference retained.",
-        "display": false
+        "rightsStatus": "original",
+        "license": "Original SORG Atlas illustration · CC BY-NC-SA 4.0",
+        "display": true,
+        "priorReference": {
+          "src": "https://d3nzlfkeryzt6j.cloudfront.net/fc3m8degkaatqcczbt0mk27e0n4k",
+          "href": "https://app.medify.co/a-level-chemistry-ocr/study-notes/articles/85-alkenes-4-1-3",
+          "alt": "Partial illustration: Acid-catalyzed hydration. Propene hydration is intended, but the terminal carbon remains labeled CH2 after protonation instead of CH3; image withheld.",
+          "credit": "Medify · Alkene hydration mechanism",
+          "match": "partial",
+          "coverage": "partial",
+          "reviewNote": "Propene hydration is intended, but the terminal carbon remains labeled CH2 after protonation instead of CH3; image withheld.",
+          "reviewed": true,
+          "rightsStatus": "unconfirmed",
+          "license": "Reuse permission not established; external reference retained.",
+          "display": false
+        },
+        "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
       },
       "quantumData": {
         "status": "not-yet-computed",
@@ -1393,7 +1711,25 @@
             "Principal bond formation or cleavage; accompanying changes remain in the electron-flow description.",
             "C and leaving group separate; the carbocation center tends toward planar geometry."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/v035/e1-step-1.svg",
+            "scope": "Original substrate-matched structural event with atom/bond-anchored two-electron arrows; schematic 2D geometry.",
+            "arrowCount": 1,
+            "reactantSmiles": "[CH3:1][C:2]([CH3:3])([CH3:4])[Cl:5]",
+            "productSmiles": "[CH3:1][C+:2]([CH3:3])[CH3:4].[Cl-:5]",
+            "electronMoves": [
+              [
+                [
+                  2,
+                  5
+                ],
+                5
+              ]
+            ],
+            "reviewLegend": "C–Cl pair → Cl; ionization precedes proton removal.",
+            "formula": "C4H9Cl"
+          }
         },
         {
           "title": "Alkene formation",
@@ -1412,7 +1748,32 @@
             "Candidate for coupled polar bond redistribution; the individual bond changes are described above.",
             "The adjacent carbon atoms align to form a planar π system."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/v035/e1-step-2.svg",
+            "scope": "Original substrate-matched structural event with atom/bond-anchored two-electron arrows; schematic 2D geometry.",
+            "arrowCount": 2,
+            "reactantSmiles": "[CH2:1]([H:7])[C+:2]([CH3:3])[CH3:4].[OH2:8]",
+            "productSmiles": "[CH2:1]=[C:2]([CH3:3])[CH3:4].[OH3+:8]",
+            "electronMoves": [
+              [
+                8,
+                7
+              ],
+              [
+                [
+                  1,
+                  7
+                ],
+                [
+                  1,
+                  2
+                ]
+              ]
+            ],
+            "reviewLegend": "Water → beta H; beta C–H pair → C=C. 2-Methylpropene has no E/Z isomerism.",
+            "formula": "C4H11O+"
+          }
         }
       ],
       "sources": [
@@ -1434,18 +1795,32 @@
       "mechanismComplete": true,
       "mechanismNote": "Pathway at the stated teaching resolution; inspect scope and event notes. This is not a claim that each listed stage is a verified elementary event.",
       "figure": {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/E1-mechanism.svg/1280px-E1-mechanism.svg.png",
-        "href": "https://commons.wikimedia.org/wiki/File:E1-mechanism.svg",
-        "alt": "Representative illustration: E1 elimination. Generic alkyl skeleton and X; solvent base and its protonated product are omitted.",
-        "credit": "Wikimedia Commons · E1-mechanism.svg",
-        "match": "representative",
-        "coverage": "partial",
-        "reviewNote": "Generic alkyl skeleton and X; solvent base and its protonated product are omitted.",
+        "src": "mechanisms/v035/e1.svg",
+        "href": "mechanisms/v035/e1.svg",
+        "alt": "Original exact structural mechanism: E1 elimination",
+        "credit": "SORG Atlas · original SVG; RDKit 2D depiction",
+        "match": "exact",
+        "coverage": "complete",
+        "reviewNote": "Authored electron arrows originate at mapped atoms or bonds. Formula/charge balance checked; structural intermediates and arrows visually reviewed. Stereochemistry is unspecified unless explicitly drawn; existing pathway-model limitations apply.",
         "reviewed": true,
-        "rightsStatus": "source-license-checked",
-        "license": "Public domain (file-page declaration)",
+        "rightsStatus": "original",
+        "license": "Original SORG Atlas illustration · CC BY-NC-SA 4.0",
         "display": true,
-        "licenseUrl": "https://commons.wikimedia.org/wiki/File:E1-mechanism.svg"
+        "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+        "priorReference": {
+          "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/E1-mechanism.svg/1280px-E1-mechanism.svg.png",
+          "href": "https://commons.wikimedia.org/wiki/File:E1-mechanism.svg",
+          "alt": "Representative illustration: E1 elimination. Generic alkyl skeleton and X; solvent base and its protonated product are omitted.",
+          "credit": "Wikimedia Commons · E1-mechanism.svg",
+          "match": "representative",
+          "coverage": "partial",
+          "reviewNote": "Generic alkyl skeleton and X; solvent base and its protonated product are omitted.",
+          "reviewed": true,
+          "rightsStatus": "source-license-checked",
+          "license": "Public domain (file-page declaration)",
+          "display": true,
+          "licenseUrl": "https://commons.wikimedia.org/wiki/File:E1-mechanism.svg"
+        }
       },
       "quantumData": {
         "status": "not-yet-computed",
@@ -1859,7 +2234,29 @@
             "Candidate for tetrahedral addition or elimination with π-bond redistribution.",
             "CN⁻ approaches one face of planar PhCHO; the benzylic alkoxide is tetrahedral and can be chiral."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/v035/cyanohydrin-step-1.svg",
+            "scope": "Original substrate-matched structural event with atom/bond-anchored two-electron arrows; schematic 2D geometry.",
+            "arrowCount": 2,
+            "reactantSmiles": "[c:8]1([CH:2]=[O:3])ccccc1.[C-:1]#[N:4]",
+            "productSmiles": "[c:8]1([CH:2]([O-:3])[C:1]#[N:4])ccccc1",
+            "electronMoves": [
+              [
+                1,
+                2
+              ],
+              [
+                [
+                  2,
+                  3
+                ],
+                3
+              ]
+            ],
+            "reviewLegend": "Cyanide carbon → benzaldehyde C; C=O π pair → O. Both carbonyl faces are possible.",
+            "formula": "C8H6NO-"
+          }
         },
         {
           "title": "Proton transfer",
@@ -1878,7 +2275,29 @@
             "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
             "The alkoxide/HCN proton-transfer encounter converts O⁻ to OH without changing its new C–CN bond."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/v035/cyanohydrin-step-2.svg",
+            "scope": "Original substrate-matched structural event with atom/bond-anchored two-electron arrows; schematic 2D geometry.",
+            "arrowCount": 2,
+            "reactantSmiles": "[c:8]1([CH:2]([O-:3])[C:1]#[N:4])ccccc1.[H:5][C:6]#[N:7]",
+            "productSmiles": "[c:8]1([CH:2]([OH:3])[C:1]#[N:4])ccccc1.[C-:6]#[N:7]",
+            "electronMoves": [
+              [
+                3,
+                5
+              ],
+              [
+                [
+                  5,
+                  6
+                ],
+                6
+              ]
+            ],
+            "reviewLegend": "Alkoxide O → H of HCN; H–C pair → cyanide C. No enantiomer is selected.",
+            "formula": "C9H7N2O-"
+          }
         }
       ],
       "sources": [
@@ -1901,17 +2320,31 @@
       "mechanismComplete": true,
       "mechanismNote": "Pathway at the stated teaching resolution; inspect scope and event notes. This is not a claim that each listed stage is a verified elementary event.",
       "figure": {
-        "src": "https://image1.slideserve.com/2870845/draw-the-mechanism-for-the-reaction-of-hydrogen-cyanide-and-ethanal-l.jpg",
-        "href": "https://www.slideserve.com/jalen/carbonyl-compounds",
-        "alt": "Representative illustration: Cyanohydrin formation. Ethanal rather than benzaldehyde; the cyanide-addition/protonation sequence is analogous.",
-        "credit": "Organic chemistry lecture slide · SlideServe",
-        "match": "representative",
+        "src": "mechanisms/v035/cyanohydrin.svg",
+        "href": "mechanisms/v035/cyanohydrin.svg",
+        "alt": "Original exact structural mechanism: Cyanohydrin formation",
+        "credit": "SORG Atlas · original SVG; RDKit 2D depiction",
+        "match": "exact",
         "coverage": "complete",
-        "reviewNote": "Ethanal rather than benzaldehyde; the cyanide-addition/protonation sequence is analogous.",
+        "reviewNote": "Authored electron arrows originate at mapped atoms or bonds. Formula/charge balance checked; structural intermediates and arrows visually reviewed. Stereochemistry is unspecified unless explicitly drawn; existing pathway-model limitations apply.",
         "reviewed": true,
-        "rightsStatus": "unconfirmed",
-        "license": "Reuse permission not established; external reference retained.",
-        "display": false
+        "rightsStatus": "original",
+        "license": "Original SORG Atlas illustration · CC BY-NC-SA 4.0",
+        "display": true,
+        "priorReference": {
+          "src": "https://image1.slideserve.com/2870845/draw-the-mechanism-for-the-reaction-of-hydrogen-cyanide-and-ethanal-l.jpg",
+          "href": "https://www.slideserve.com/jalen/carbonyl-compounds",
+          "alt": "Representative illustration: Cyanohydrin formation. Ethanal rather than benzaldehyde; the cyanide-addition/protonation sequence is analogous.",
+          "credit": "Organic chemistry lecture slide · SlideServe",
+          "match": "representative",
+          "coverage": "complete",
+          "reviewNote": "Ethanal rather than benzaldehyde; the cyanide-addition/protonation sequence is analogous.",
+          "reviewed": true,
+          "rightsStatus": "unconfirmed",
+          "license": "Reuse permission not established; external reference retained.",
+          "display": false
+        },
+        "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
       },
       "quantumData": {
         "status": "literature-related-qualitative",
@@ -1975,7 +2408,29 @@
             "Candidate for tetrahedral addition or elimination with π-bond redistribution.",
             "The planar acyl carbon becomes tetrahedral, retaining the chloride until collapse or a concerted alternative."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/v035/acyl-step-1.svg",
+            "scope": "Original substrate-matched structural event with atom/bond-anchored two-electron arrows; schematic 2D geometry.",
+            "arrowCount": 2,
+            "reactantSmiles": "[CH3:4][C:2](=[O:3])[Cl:5].[CH3:6][O-:1]",
+            "productSmiles": "[CH3:4][C:2]([O-:3])([Cl:5])[O:1][CH3:6]",
+            "electronMoves": [
+              [
+                1,
+                2
+              ],
+              [
+                [
+                  2,
+                  3
+                ],
+                3
+              ]
+            ],
+            "reviewLegend": "Methoxide O → acyl C; C=O π pair → O. Discrete intermediate is a teaching assumption.",
+            "formula": "C3H6ClO2-"
+          }
         },
         {
           "title": "Tetrahedral intermediate collapse",
@@ -1994,7 +2449,32 @@
             "Candidate for tetrahedral addition or elimination with π-bond redistribution.",
             "The tetrahedral center returns to an approximately planar carbonyl."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/v035/acyl-step-2.svg",
+            "scope": "Original substrate-matched structural event with atom/bond-anchored two-electron arrows; schematic 2D geometry.",
+            "arrowCount": 2,
+            "reactantSmiles": "[CH3:4][C:2]([O-:3])([Cl:5])[O:1][CH3:6]",
+            "productSmiles": "[CH3:4][C:2](=[O:3])[O:1][CH3:6].[Cl-:5]",
+            "electronMoves": [
+              [
+                3,
+                [
+                  2,
+                  3
+                ]
+              ],
+              [
+                [
+                  2,
+                  5
+                ],
+                5
+              ]
+            ],
+            "reviewLegend": "O lone pair → C=O; C–Cl pair → Cl. Carbonyl reforms as chloride leaves.",
+            "formula": "C3H6ClO2-"
+          }
         }
       ],
       "sources": [
@@ -2016,18 +2496,32 @@
       "mechanismComplete": true,
       "mechanismNote": "Pathway at the stated teaching resolution; inspect scope and event notes. This is not a claim that each listed stage is a verified elementary event.",
       "figure": {
-        "src": "https://ncstate.pressbooks.pub/app/uploads/sites/52/2023/11/image167-5.jpeg",
-        "href": "https://openstax.org/books/organic-chemistry/pages/21-2-nucleophilic-acyl-substitution-reactions",
-        "alt": "Representative illustration: Nucleophilic acyl substitution. Generic RCOCl and R′O−; R=CH3 and R′=CH3 recover the card. Original page URL returns 404.",
-        "credit": "John McMurry / OpenStax · David Tully adaptation · NC State Pressbooks",
-        "match": "representative",
+        "src": "mechanisms/v035/acyl.svg",
+        "href": "mechanisms/v035/acyl.svg",
+        "alt": "Original exact structural mechanism: Nucleophilic acyl substitution",
+        "credit": "SORG Atlas · original SVG; RDKit 2D depiction",
+        "match": "exact",
         "coverage": "complete",
-        "reviewNote": "Generic RCOCl and R′O−; R=CH3 and R′=CH3 recover the card. Original page URL returns 404.",
+        "reviewNote": "Authored electron arrows originate at mapped atoms or bonds. Formula/charge balance checked; structural intermediates and arrows visually reviewed. Stereochemistry is unspecified unless explicitly drawn; existing pathway-model limitations apply.",
         "reviewed": true,
-        "rightsStatus": "source-license-checked",
-        "license": "CC BY-NC-SA 4.0; unmodified source image",
+        "rightsStatus": "original",
+        "license": "Original SORG Atlas illustration · CC BY-NC-SA 4.0",
         "display": true,
-        "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+        "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+        "priorReference": {
+          "src": "https://ncstate.pressbooks.pub/app/uploads/sites/52/2023/11/image167-5.jpeg",
+          "href": "https://openstax.org/books/organic-chemistry/pages/21-2-nucleophilic-acyl-substitution-reactions",
+          "alt": "Representative illustration: Nucleophilic acyl substitution. Generic RCOCl and R′O−; R=CH3 and R′=CH3 recover the card. Original page URL returns 404.",
+          "credit": "John McMurry / OpenStax · David Tully adaptation · NC State Pressbooks",
+          "match": "representative",
+          "coverage": "complete",
+          "reviewNote": "Generic RCOCl and R′O−; R=CH3 and R′=CH3 recover the card. Original page URL returns 404.",
+          "reviewed": true,
+          "rightsStatus": "source-license-checked",
+          "license": "CC BY-NC-SA 4.0; unmodified source image",
+          "display": true,
+          "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+        }
       },
       "quantumData": {
         "status": "not-yet-computed",
@@ -2078,7 +2572,29 @@
             "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
             "Backside attack opens the epoxide ring."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/v035/epoxide-step-1.svg",
+            "scope": "Original substrate-matched structural event with atom/bond-anchored two-electron arrows; schematic 2D geometry.",
+            "arrowCount": 2,
+            "reactantSmiles": "[CH2:2]1[CH2:3][O:4]1.[CH3:5][O-:1]",
+            "productSmiles": "[CH3:5][O:1][CH2:2][CH2:3][O-:4]",
+            "electronMoves": [
+              [
+                1,
+                2
+              ],
+              [
+                [
+                  2,
+                  4
+                ],
+                4
+              ]
+            ],
+            "reviewLegend": "Methoxide O → epoxide C from backside; attacked C–O pair → ring O. Symmetric achiral substrate.",
+            "formula": "C3H7O2-"
+          }
         },
         {
           "title": "Proton transfer",
@@ -2097,7 +2613,29 @@
             "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
             "This separate aqueous work-up protonates the alkoxide after backside epoxide opening."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/v035/epoxide-step-2.svg",
+            "scope": "Original substrate-matched structural event with atom/bond-anchored two-electron arrows; schematic 2D geometry.",
+            "arrowCount": 2,
+            "reactantSmiles": "[CH3:5][O:1][CH2:2][CH2:3][O-:4].[OH2+:6][H:7]",
+            "productSmiles": "[CH3:5][O:1][CH2:2][CH2:3][OH:4].[OH2:6]",
+            "electronMoves": [
+              [
+                4,
+                7
+              ],
+              [
+                [
+                  6,
+                  7
+                ],
+                6
+              ]
+            ],
+            "reviewLegend": "Acid work-up: alkoxide → hydronium H; acid O–H pair → O. Acid is added after opening.",
+            "formula": "C3H10O3"
+          }
         }
       ],
       "sources": [
@@ -2119,17 +2657,31 @@
       "mechanismComplete": true,
       "mechanismNote": "Pathway at the stated teaching resolution; inspect scope and event notes. This is not a claim that each listed stage is a verified elementary event.",
       "figure": {
-        "src": "https://image1.slideserve.com/2027597/reactions-of-epoxides-base-catalyzed-ring-opening1-l.jpg",
-        "href": "https://www.slideserve.com/luyu/ethers",
-        "alt": "Representative illustration: Basic epoxide opening. Substituted epoxide + ethoxide/ethanol, not ethylene oxide + methoxide/acid work-up.",
-        "credit": "Organic chemistry lecture slide · SlideServe",
-        "match": "representative",
+        "src": "mechanisms/v035/epoxide.svg",
+        "href": "mechanisms/v035/epoxide.svg",
+        "alt": "Original exact structural mechanism: Basic epoxide opening",
+        "credit": "SORG Atlas · original SVG; RDKit 2D depiction",
+        "match": "exact",
         "coverage": "complete",
-        "reviewNote": "Substituted epoxide + ethoxide/ethanol, not ethylene oxide + methoxide/acid work-up.",
+        "reviewNote": "Authored electron arrows originate at mapped atoms or bonds. Formula/charge balance checked; structural intermediates and arrows visually reviewed. Stereochemistry is unspecified unless explicitly drawn; existing pathway-model limitations apply.",
         "reviewed": true,
-        "rightsStatus": "unconfirmed",
-        "license": "Reuse permission not established; external reference retained.",
-        "display": false
+        "rightsStatus": "original",
+        "license": "Original SORG Atlas illustration · CC BY-NC-SA 4.0",
+        "display": true,
+        "priorReference": {
+          "src": "https://image1.slideserve.com/2027597/reactions-of-epoxides-base-catalyzed-ring-opening1-l.jpg",
+          "href": "https://www.slideserve.com/luyu/ethers",
+          "alt": "Representative illustration: Basic epoxide opening. Substituted epoxide + ethoxide/ethanol, not ethylene oxide + methoxide/acid work-up.",
+          "credit": "Organic chemistry lecture slide · SlideServe",
+          "match": "representative",
+          "coverage": "complete",
+          "reviewNote": "Substituted epoxide + ethoxide/ethanol, not ethylene oxide + methoxide/acid work-up.",
+          "reviewed": true,
+          "rightsStatus": "unconfirmed",
+          "license": "Reuse permission not established; external reference retained.",
+          "display": false
+        },
+        "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
       },
       "quantumData": {
         "status": "not-yet-computed",
@@ -2180,7 +2732,29 @@
             "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
             "At the α carbon, deprotonation permits an enolate-like planar π arrangement; carbon and oxygen resonance forms are not extra events."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/v035/aldol-step-1.svg",
+            "scope": "Original substrate-matched structural event with atom/bond-anchored two-electron arrows; schematic 2D geometry.",
+            "arrowCount": 2,
+            "reactantSmiles": "[CH2:1]([H:7])[CH:2]=[O:3].[OH-:8]",
+            "productSmiles": "[CH2-:1][CH:2]=[O:3].[OH2:8]",
+            "electronMoves": [
+              [
+                8,
+                7
+              ],
+              [
+                [
+                  1,
+                  7
+                ],
+                1
+              ]
+            ],
+            "reviewLegend": "Base → alpha H; C–H pair → alpha C in the C-anion enolate contributor; resonance is not a new event.",
+            "formula": "C2H5O2-"
+          }
         },
         {
           "title": "Nucleophilic carbonyl addition",
@@ -2199,7 +2773,29 @@
             "Candidate for tetrahedral addition or elimination with π-bond redistribution.",
             "The acceptor aldehyde carbon changes from planar to tetrahedral; a new Cα–Ccarbonyl bond forms."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/v035/aldol-step-2.svg",
+            "scope": "Original substrate-matched structural event with atom/bond-anchored two-electron arrows; schematic 2D geometry.",
+            "arrowCount": 2,
+            "reactantSmiles": "[CH2-:1][CH:2]=[O:3].[CH3:4][CH:5]=[O:6]",
+            "productSmiles": "[CH3:4][CH:5]([O-:6])[CH2:1][CH:2]=[O:3]",
+            "electronMoves": [
+              [
+                1,
+                5
+              ],
+              [
+                [
+                  5,
+                  6
+                ],
+                6
+              ]
+            ],
+            "reviewLegend": "Enolate alpha C → second aldehyde C; acceptor C=O π pair → O. Enolate carbonyl remains.",
+            "formula": "C4H7O2-"
+          }
         },
         {
           "title": "Proton transfer",
@@ -2218,7 +2814,29 @@
             "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
             "Protonation changes the new O⁻ to β-OH without breaking the aldol C–C bond."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/v035/aldol-step-3.svg",
+            "scope": "Original substrate-matched structural event with atom/bond-anchored two-electron arrows; schematic 2D geometry.",
+            "arrowCount": 2,
+            "reactantSmiles": "[CH3:4][CH:5]([O-:6])[CH2:1][CH:2]=[O:3].[OH:8][H:7]",
+            "productSmiles": "[CH3:4][CH:5]([OH:6])[CH2:1][CH:2]=[O:3].[OH-:8]",
+            "electronMoves": [
+              [
+                6,
+                7
+              ],
+              [
+                [
+                  7,
+                  8
+                ],
+                8
+              ]
+            ],
+            "reviewLegend": "Alkoxide O → water H; water O–H pair → O. Hydroxide is regenerated; no stereoisomer selected.",
+            "formula": "C4H9O3-"
+          }
         }
       ],
       "sources": [
@@ -2240,17 +2858,31 @@
       "mechanismComplete": true,
       "mechanismNote": "Pathway at the stated teaching resolution; inspect scope and event notes. This is not a claim that each listed stage is a verified elementary event.",
       "figure": {
-        "src": "https://images.squarespace-cdn.com/content/v1/62185f3b81809a6fd03ddbb5/134a326b-e67c-4496-afd6-a087e976360e/Ketone_aldol%2Bcopy.png",
-        "href": "https://www.makingmolecules.com/",
-        "alt": "Representative illustration: Aldol addition. Generic ketone aldol addition; the card uses acetaldehyde.",
-        "credit": "Making Molecules · Aldol addition mechanism",
-        "match": "representative",
+        "src": "mechanisms/v035/aldol.svg",
+        "href": "mechanisms/v035/aldol.svg",
+        "alt": "Original exact structural mechanism: Aldol addition",
+        "credit": "SORG Atlas · original SVG; RDKit 2D depiction",
+        "match": "exact",
         "coverage": "complete",
-        "reviewNote": "Generic ketone aldol addition; the card uses acetaldehyde.",
+        "reviewNote": "Authored electron arrows originate at mapped atoms or bonds. Formula/charge balance checked; structural intermediates and arrows visually reviewed. Stereochemistry is unspecified unless explicitly drawn; existing pathway-model limitations apply.",
         "reviewed": true,
-        "rightsStatus": "unconfirmed",
-        "license": "Reuse permission not established; external reference retained.",
-        "display": false
+        "rightsStatus": "original",
+        "license": "Original SORG Atlas illustration · CC BY-NC-SA 4.0",
+        "display": true,
+        "priorReference": {
+          "src": "https://images.squarespace-cdn.com/content/v1/62185f3b81809a6fd03ddbb5/134a326b-e67c-4496-afd6-a087e976360e/Ketone_aldol%2Bcopy.png",
+          "href": "https://www.makingmolecules.com/",
+          "alt": "Representative illustration: Aldol addition. Generic ketone aldol addition; the card uses acetaldehyde.",
+          "credit": "Making Molecules · Aldol addition mechanism",
+          "match": "representative",
+          "coverage": "complete",
+          "reviewNote": "Generic ketone aldol addition; the card uses acetaldehyde.",
+          "reviewed": true,
+          "rightsStatus": "unconfirmed",
+          "license": "Reuse permission not established; external reference retained.",
+          "display": false
+        },
+        "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
       },
       "quantumData": {
         "status": "not-yet-computed",
@@ -2301,7 +2933,45 @@
             "Principal radical bond formation; a π bond may also change.",
             "The radical approaches one end of the double bond."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/v035/radical-add-step-1.svg",
+            "scope": "Original substrate-matched structural event with atom/bond-anchored one-electron fishhooks; schematic 2D geometry.",
+            "arrowCount": 3,
+            "reactantSmiles": "[CH3:1].[CH2:2]=[CH2:3]",
+            "productSmiles": "[CH3:1][CH2:2][CH2:3]",
+            "electronMoves": [
+              [
+                1,
+                [
+                  1,
+                  2
+                ],
+                1
+              ],
+              [
+                [
+                  2,
+                  3
+                ],
+                [
+                  1,
+                  2
+                ],
+                1
+              ],
+              [
+                [
+                  2,
+                  3
+                ],
+                3,
+                1
+              ]
+            ],
+            "reviewLegend": "Three fishhooks: methyl radical and one pi electron → new C–C bond; other pi electron → terminal carbon radical.",
+            "formula": "C3H7"
+          }
         }
       ],
       "sources": [
@@ -2323,17 +2993,31 @@
       "mechanismComplete": true,
       "mechanismNote": "Pathway at the stated teaching resolution; inspect scope and event notes. This is not a claim that each listed stage is a verified elementary event. This entry covers only the stated local event, propagation cycle or formal core.",
       "figure": {
-        "src": "https://cf.ppt-online.org/files/slide/w/WV2FQO8BaH07nouxhEfp5Rt6SmLZezKCUrPTIJ/slide-5.jpg",
-        "href": "https://ppt-online.org/215280",
-        "alt": "Representative illustration: Radical alkene addition. Generic initiating R radical and ethene chain growth, not specifically methyl radical. Initiation/termination also appear.",
-        "credit": "Edexcel organic reaction mechanisms slide · PPT Online",
-        "match": "representative",
+        "src": "mechanisms/v035/radical-add.svg",
+        "href": "mechanisms/v035/radical-add.svg",
+        "alt": "Original exact structural mechanism: Radical alkene addition",
+        "credit": "SORG Atlas · original SVG; RDKit 2D depiction",
+        "match": "exact",
         "coverage": "complete",
-        "reviewNote": "Generic initiating R radical and ethene chain growth, not specifically methyl radical. Initiation/termination also appear.",
+        "reviewNote": "Authored electron arrows originate at mapped atoms or bonds. Formula/charge balance checked; structural intermediates and arrows visually reviewed. Stereochemistry is unspecified unless explicitly drawn; existing pathway-model limitations apply.",
         "reviewed": true,
-        "rightsStatus": "unconfirmed",
-        "license": "Reuse permission not established; external reference retained.",
-        "display": false
+        "rightsStatus": "original",
+        "license": "Original SORG Atlas illustration · CC BY-NC-SA 4.0",
+        "display": true,
+        "priorReference": {
+          "src": "https://cf.ppt-online.org/files/slide/w/WV2FQO8BaH07nouxhEfp5Rt6SmLZezKCUrPTIJ/slide-5.jpg",
+          "href": "https://ppt-online.org/215280",
+          "alt": "Representative illustration: Radical alkene addition. Generic initiating R radical and ethene chain growth, not specifically methyl radical. Initiation/termination also appear.",
+          "credit": "Edexcel organic reaction mechanisms slide · PPT Online",
+          "match": "representative",
+          "coverage": "complete",
+          "reviewNote": "Generic initiating R radical and ethene chain growth, not specifically methyl radical. Initiation/termination also appear.",
+          "reviewed": true,
+          "rightsStatus": "unconfirmed",
+          "license": "Reuse permission not established; external reference retained.",
+          "display": false
+        },
+        "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
       },
       "quantumData": {
         "status": "not-yet-computed",
@@ -2481,7 +3165,45 @@
             "Candidate for H/halogen atom transfer between radical reaction centers.",
             "Cl approaches H as the C–H bond breaks."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/v035/radical-chain-step-1.svg",
+            "scope": "Original substrate-matched structural event with atom/bond-anchored one-electron fishhooks; schematic 2D geometry.",
+            "arrowCount": 3,
+            "reactantSmiles": "[Cl:1].[CH3:2][H:3]",
+            "productSmiles": "[Cl:1][H:3].[CH3:2]",
+            "electronMoves": [
+              [
+                1,
+                [
+                  1,
+                  3
+                ],
+                1
+              ],
+              [
+                [
+                  2,
+                  3
+                ],
+                [
+                  1,
+                  3
+                ],
+                1
+              ],
+              [
+                [
+                  2,
+                  3
+                ],
+                2,
+                1
+              ]
+            ],
+            "reviewLegend": "Cl radical and one C–H electron → H–Cl; other C–H electron → methyl radical. Propagation, not initiation.",
+            "formula": "CH4Cl"
+          }
         },
         {
           "title": "Chlorine atom transfer",
@@ -2500,7 +3222,45 @@
             "Candidate for H/halogen atom transfer between radical reaction centers.",
             "Carbon approaches Cl while Cl–Cl breaks."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/v035/radical-chain-step-2.svg",
+            "scope": "Original substrate-matched structural event with atom/bond-anchored one-electron fishhooks; schematic 2D geometry.",
+            "arrowCount": 3,
+            "reactantSmiles": "[CH3:1].[Cl:2][Cl:3]",
+            "productSmiles": "[CH3:1][Cl:2].[Cl:3]",
+            "electronMoves": [
+              [
+                1,
+                [
+                  1,
+                  2
+                ],
+                1
+              ],
+              [
+                [
+                  2,
+                  3
+                ],
+                [
+                  1,
+                  2
+                ],
+                1
+              ],
+              [
+                [
+                  2,
+                  3
+                ],
+                3,
+                1
+              ]
+            ],
+            "reviewLegend": "Methyl radical and one Cl–Cl electron → C–Cl; other Cl–Cl electron → departing chlorine radical.",
+            "formula": "CH3Cl2"
+          }
         }
       ],
       "sources": [
@@ -2522,17 +3282,31 @@
       "mechanismComplete": true,
       "mechanismNote": "Pathway at the stated teaching resolution; inspect scope and event notes. This is not a claim that each listed stage is a verified elementary event. This entry covers only the stated local event, propagation cycle or formal core.",
       "figure": {
-        "src": "https://image.slidesharecdn.com/halogenationofalkanes-180702090250/75/Halogenation-of-alkanes-5-2048.jpg",
-        "href": "https://www.slideshare.net/slideshow/halogenation-of-alkanes/103920966",
-        "alt": "Representative illustration: Radical chlorination: propagation. Generic CR3 radical/alkane, not explicitly methane. Only propagation is compared.",
-        "credit": "Organic chemistry lecture slide · SlideShare",
-        "match": "representative",
+        "src": "mechanisms/v035/radical-chain.svg",
+        "href": "mechanisms/v035/radical-chain.svg",
+        "alt": "Original exact structural mechanism: Radical chlorination: propagation",
+        "credit": "SORG Atlas · original SVG; RDKit 2D depiction",
+        "match": "exact",
         "coverage": "complete",
-        "reviewNote": "Generic CR3 radical/alkane, not explicitly methane. Only propagation is compared.",
+        "reviewNote": "Authored electron arrows originate at mapped atoms or bonds. Formula/charge balance checked; structural intermediates and arrows visually reviewed. Stereochemistry is unspecified unless explicitly drawn; existing pathway-model limitations apply.",
         "reviewed": true,
-        "rightsStatus": "unconfirmed",
-        "license": "Reuse permission not established; external reference retained.",
-        "display": false
+        "rightsStatus": "original",
+        "license": "Original SORG Atlas illustration · CC BY-NC-SA 4.0",
+        "display": true,
+        "priorReference": {
+          "src": "https://image.slidesharecdn.com/halogenationofalkanes-180702090250/75/Halogenation-of-alkanes-5-2048.jpg",
+          "href": "https://www.slideshare.net/slideshow/halogenation-of-alkanes/103920966",
+          "alt": "Representative illustration: Radical chlorination: propagation. Generic CR3 radical/alkane, not explicitly methane. Only propagation is compared.",
+          "credit": "Organic chemistry lecture slide · SlideShare",
+          "match": "representative",
+          "coverage": "complete",
+          "reviewNote": "Generic CR3 radical/alkane, not explicitly methane. Only propagation is compared.",
+          "reviewed": true,
+          "rightsStatus": "unconfirmed",
+          "license": "Reuse permission not established; external reference retained.",
+          "display": false
+        },
+        "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
       },
       "quantumData": {
         "status": "not-yet-computed",
@@ -2721,7 +3495,48 @@
             "A chair-like transition structure often explains conformational preference."
           ],
           "diagramScope": "partial",
-          "subtype": "Sigmatropic rearrangement"
+          "subtype": "Sigmatropic rearrangement",
+          "eventFigure": {
+            "src": "mechanisms/v035/claisen-step-1.svg",
+            "scope": "Original substrate-matched structural event with atom/bond-anchored two-electron arrows; schematic 2D geometry.",
+            "arrowCount": 3,
+            "reactantSmiles": "[CH2:1]=[CH:2][O:3][CH2:4][CH:5]=[CH2:6]",
+            "productSmiles": "[CH:2](=[O:3])[CH2:1][CH2:6][CH:5]=[CH2:4]",
+            "electronMoves": [
+              [
+                [
+                  1,
+                  2
+                ],
+                [
+                  2,
+                  3
+                ]
+              ],
+              [
+                [
+                  3,
+                  4
+                ],
+                [
+                  4,
+                  5
+                ]
+              ],
+              [
+                [
+                  5,
+                  6
+                ],
+                [
+                  6,
+                  1
+                ]
+              ]
+            ],
+            "reviewLegend": "Concerted [3,3]: vinyl pi → C=O; O–allyl sigma → allyl C=C; allyl pi → new C–C. 2D connectivity is not a TS conformer.",
+            "formula": "C5H8O"
+          }
         }
       ],
       "sources": [
@@ -2744,17 +3559,31 @@
       "mechanismComplete": true,
       "mechanismNote": "Pathway at the stated teaching resolution; inspect scope and event notes. This is not a claim that each listed stage is a verified elementary event.",
       "figure": {
-        "src": "https://image.slideserve.com/392337/mechanism-4-claisen-rearrangement-l.jpg",
-        "href": "https://www.slideserve.com/asasia/ch-18-ethers-and-epoxides",
-        "alt": "Representative illustration: Claisen rearrangement. Aromatic Claisen: allyl phenyl ether rearranges and rearomatizes; card is allyl vinyl ether to pent-4-enal.",
-        "credit": "Organic chemistry lecture slide · SlideServe",
-        "match": "representative",
+        "src": "mechanisms/v035/claisen.svg",
+        "href": "mechanisms/v035/claisen.svg",
+        "alt": "Original exact structural mechanism: Claisen rearrangement",
+        "credit": "SORG Atlas · original SVG; RDKit 2D depiction",
+        "match": "exact",
         "coverage": "complete",
-        "reviewNote": "Aromatic Claisen: allyl phenyl ether rearranges and rearomatizes; card is allyl vinyl ether to pent-4-enal.",
+        "reviewNote": "Authored electron arrows originate at mapped atoms or bonds. Formula/charge balance checked; structural intermediates and arrows visually reviewed. Stereochemistry is unspecified unless explicitly drawn; existing pathway-model limitations apply.",
         "reviewed": true,
-        "rightsStatus": "unconfirmed",
-        "license": "Reuse permission not established; external reference retained.",
-        "display": false
+        "rightsStatus": "original",
+        "license": "Original SORG Atlas illustration · CC BY-NC-SA 4.0",
+        "display": true,
+        "priorReference": {
+          "src": "https://image.slideserve.com/392337/mechanism-4-claisen-rearrangement-l.jpg",
+          "href": "https://www.slideserve.com/asasia/ch-18-ethers-and-epoxides",
+          "alt": "Representative illustration: Claisen rearrangement. Aromatic Claisen: allyl phenyl ether rearranges and rearomatizes; card is allyl vinyl ether to pent-4-enal.",
+          "credit": "Organic chemistry lecture slide · SlideServe",
+          "match": "representative",
+          "coverage": "complete",
+          "reviewNote": "Aromatic Claisen: allyl phenyl ether rearranges and rearomatizes; card is allyl vinyl ether to pent-4-enal.",
+          "reviewed": true,
+          "rightsStatus": "unconfirmed",
+          "license": "Reuse permission not established; external reference retained.",
+          "display": false
+        },
+        "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
       },
       "quantumData": {
         "status": "literature-related-qualitative",
@@ -2817,7 +3646,38 @@
             "A thermal 4π system closes conrotatorily."
           ],
           "diagramScope": "partial",
-          "subtype": "Electrocyclic reaction"
+          "subtype": "Electrocyclic reaction",
+          "eventFigure": {
+            "src": "mechanisms/v035/electrocyclic-step-1.svg",
+            "scope": "Original substrate-matched structural event with atom/bond-anchored two-electron arrows; schematic 2D geometry.",
+            "arrowCount": 2,
+            "reactantSmiles": "[CH2:1]=[CH:2][CH:3]=[CH2:4]",
+            "productSmiles": "[CH2:1]1[CH:2]=[CH:3][CH2:4]1",
+            "electronMoves": [
+              [
+                [
+                  1,
+                  2
+                ],
+                [
+                  1,
+                  4
+                ]
+              ],
+              [
+                [
+                  3,
+                  4
+                ],
+                [
+                  2,
+                  3
+                ]
+              ]
+            ],
+            "reviewLegend": "Thermal 4-pi conrotatory closure: terminal carbons rotate in the same sense. No substituted stereocenter or E/Z product is implied.",
+            "formula": "C4H6"
+          }
         }
       ],
       "sources": [
@@ -2839,17 +3699,31 @@
       "mechanismComplete": true,
       "mechanismNote": "Pathway at the stated teaching resolution; inspect scope and event notes. This is not a claim that each listed stage is a verified elementary event.",
       "figure": {
-        "src": "https://www.stereoelectronics.org/webPR/images_PR/4042.png",
-        "href": "https://www.stereoelectronics.org/webPR/PR_04.html",
-        "alt": "Representative illustration: Thermal electrocyclic closure. Substituted (E,E)-diene frontier-orbital/conrotation diagram; card is unsubstituted butadiene. Electron-pair flow is not fully depicted.",
-        "credit": "Stereoelectronics · Pericyclic reaction orbital symmetry",
-        "match": "representative",
-        "coverage": "partial",
-        "reviewNote": "Substituted (E,E)-diene frontier-orbital/conrotation diagram; card is unsubstituted butadiene. Electron-pair flow is not fully depicted.",
+        "src": "mechanisms/v035/electrocyclic.svg",
+        "href": "mechanisms/v035/electrocyclic.svg",
+        "alt": "Original exact structural mechanism: Thermal electrocyclic closure",
+        "credit": "SORG Atlas · original SVG; RDKit 2D depiction",
+        "match": "exact",
+        "coverage": "complete",
+        "reviewNote": "Authored electron arrows originate at mapped atoms or bonds. Formula/charge balance checked; structural intermediates and arrows visually reviewed. Stereochemistry is unspecified unless explicitly drawn; existing pathway-model limitations apply.",
         "reviewed": true,
-        "rightsStatus": "unconfirmed",
-        "license": "Reuse permission not established; external reference retained.",
-        "display": false
+        "rightsStatus": "original",
+        "license": "Original SORG Atlas illustration · CC BY-NC-SA 4.0",
+        "display": true,
+        "priorReference": {
+          "src": "https://www.stereoelectronics.org/webPR/images_PR/4042.png",
+          "href": "https://www.stereoelectronics.org/webPR/PR_04.html",
+          "alt": "Representative illustration: Thermal electrocyclic closure. Substituted (E,E)-diene frontier-orbital/conrotation diagram; card is unsubstituted butadiene. Electron-pair flow is not fully depicted.",
+          "credit": "Stereoelectronics · Pericyclic reaction orbital symmetry",
+          "match": "representative",
+          "coverage": "partial",
+          "reviewNote": "Substituted (E,E)-diene frontier-orbital/conrotation diagram; card is unsubstituted butadiene. Electron-pair flow is not fully depicted.",
+          "reviewed": true,
+          "rightsStatus": "unconfirmed",
+          "license": "Reuse permission not established; external reference retained.",
+          "display": false
+        },
+        "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
       },
       "quantumData": {
         "status": "not-yet-computed",
@@ -2900,7 +3774,29 @@
             "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
             "The delocalized conjugate base forms before the leaving group departs."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/v035/e1cb-dehydration-step-1.svg",
+            "scope": "Original substrate-matched structural event with atom/bond-anchored two-electron arrows; schematic 2D geometry.",
+            "arrowCount": 2,
+            "reactantSmiles": "[CH3:9][C:2](=[O:3])[CH:1]([H:7])[C:5]([CH3:4])([CH3:10])[OH:6].[OH-:8]",
+            "productSmiles": "[CH3:9][C:2](=[O:3])[CH-:1][C:5]([CH3:4])([CH3:10])[OH:6].[OH2:8]",
+            "electronMoves": [
+              [
+                8,
+                7
+              ],
+              [
+                [
+                  1,
+                  7
+                ],
+                1
+              ]
+            ],
+            "reviewLegend": "Second alpha deprotonation forms the E1cB precursor; no carbonyl bond is broken.",
+            "formula": "C6H13O3-"
+          }
         },
         {
           "title": "E1cB elimination of hydroxide",
@@ -2919,7 +3815,32 @@
             "Candidate for coupled polar bond redistribution; the individual bond changes are described above.",
             "Cα and Cβ form a π bond during the separate leaving-group event."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/v035/e1cb-dehydration-step-2.svg",
+            "scope": "Original substrate-matched structural event with atom/bond-anchored two-electron arrows; schematic 2D geometry.",
+            "arrowCount": 2,
+            "reactantSmiles": "[CH3:9][C:2](=[O:3])[CH-:1][C:5]([CH3:4])([CH3:10])[OH:6]",
+            "productSmiles": "[CH3:9][C:2](=[O:3])[CH:1]=[C:5]([CH3:4])[CH3:10].[OH-:6]",
+            "electronMoves": [
+              [
+                1,
+                [
+                  1,
+                  5
+                ]
+              ],
+              [
+                [
+                  5,
+                  6
+                ],
+                6
+              ]
+            ],
+            "reviewLegend": "Enolate C pair → alpha/beta C=C; beta C–O pair → O. Mesityl oxide has no E/Z at this alkene.",
+            "formula": "C6H11O2-"
+          }
         }
       ],
       "sources": [
@@ -2942,18 +3863,32 @@
       "mechanismComplete": true,
       "mechanismNote": "Pathway at the stated teaching resolution; inspect scope and event notes. This is not a claim that each listed stage is a verified elementary event.",
       "figure": {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/E1cb-mechanism.svg/1280px-E1cb-mechanism.svg.png",
-        "href": "https://commons.wikimedia.org/wiki/File:E1cb-mechanism.svg",
-        "alt": "Representative illustration: E1cB dehydration. Generic carbanion/X elimination; no carbonyl stabilization or specific diacetone-alcohol/OH group.",
-        "credit": "Matthias M. · Wikimedia Commons · Public domain",
-        "match": "representative",
-        "coverage": "partial",
-        "reviewNote": "Generic carbanion/X elimination; no carbonyl stabilization or specific diacetone-alcohol/OH group.",
+        "src": "mechanisms/v035/e1cb-dehydration.svg",
+        "href": "mechanisms/v035/e1cb-dehydration.svg",
+        "alt": "Original exact structural mechanism: E1cB dehydration",
+        "credit": "SORG Atlas · original SVG; RDKit 2D depiction",
+        "match": "exact",
+        "coverage": "complete",
+        "reviewNote": "Authored electron arrows originate at mapped atoms or bonds. Formula/charge balance checked; structural intermediates and arrows visually reviewed. Stereochemistry is unspecified unless explicitly drawn; existing pathway-model limitations apply.",
         "reviewed": true,
-        "rightsStatus": "source-license-checked",
-        "license": "Public domain (file-page declaration)",
+        "rightsStatus": "original",
+        "license": "Original SORG Atlas illustration · CC BY-NC-SA 4.0",
         "display": true,
-        "licenseUrl": "https://commons.wikimedia.org/wiki/File:E1cb-mechanism.svg"
+        "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+        "priorReference": {
+          "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/E1cb-mechanism.svg/1280px-E1cb-mechanism.svg.png",
+          "href": "https://commons.wikimedia.org/wiki/File:E1cb-mechanism.svg",
+          "alt": "Representative illustration: E1cB dehydration. Generic carbanion/X elimination; no carbonyl stabilization or specific diacetone-alcohol/OH group.",
+          "credit": "Matthias M. · Wikimedia Commons · Public domain",
+          "match": "representative",
+          "coverage": "partial",
+          "reviewNote": "Generic carbanion/X elimination; no carbonyl stabilization or specific diacetone-alcohol/OH group.",
+          "reviewed": true,
+          "rightsStatus": "source-license-checked",
+          "license": "Public domain (file-page declaration)",
+          "display": true,
+          "licenseUrl": "https://commons.wikimedia.org/wiki/File:E1cb-mechanism.svg"
+        }
       },
       "quantumData": {
         "status": "not-yet-computed",
@@ -3004,7 +3939,36 @@
             "Candidate for coupled polar bond redistribution; the individual bond changes are described above.",
             "One bromine bridges both carbons in a three-membered ion; no free carbocation is required."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/v035/alkene-bromination-step-1.svg",
+            "scope": "Original substrate-matched structural event with atom/bond-anchored two-electron arrows; schematic 2D geometry.",
+            "arrowCount": 3,
+            "reactantSmiles": "[CH2:2]=[CH2:3].[Br:4][Br:5]",
+            "productSmiles": "[Br+:4]1[CH2:2][CH2:3]1.[Br-:5]",
+            "electronMoves": [
+              [
+                [
+                  2,
+                  3
+                ],
+                4
+              ],
+              [
+                [
+                  4,
+                  5
+                ],
+                5
+              ],
+              [
+                4,
+                2
+              ]
+            ],
+            "reviewLegend": "Pi pair → Br; Br–Br pair → departing Br; attached Br lone pair → second C. Cyclic bromonium, not free Br+.",
+            "formula": "C2H4Br2"
+          }
         },
         {
           "title": "Backside bromide ring opening",
@@ -3023,7 +3987,29 @@
             "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
             "Backside opening places the two bromines anti and removes the bridge."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/v035/alkene-bromination-step-2.svg",
+            "scope": "Original substrate-matched structural event with atom/bond-anchored two-electron arrows; schematic 2D geometry.",
+            "arrowCount": 2,
+            "reactantSmiles": "[Br+:4]1[CH2:2][CH2:3]1.[Br-:5]",
+            "productSmiles": "[Br:5][CH2:2][CH2:3][Br:4]",
+            "electronMoves": [
+              [
+                5,
+                2
+              ],
+              [
+                [
+                  2,
+                  4
+                ],
+                4
+              ]
+            ],
+            "reviewLegend": "Bromide → C from behind its bridge bond; attacked C–Br pair → bridging Br. Ethene product is achiral.",
+            "formula": "C2H4Br2"
+          }
         }
       ],
       "sources": [
@@ -3045,18 +4031,32 @@
       "mechanismComplete": true,
       "mechanismNote": "Pathway at the stated teaching resolution; inspect scope and event notes. This is not a claim that each listed stage is a verified elementary event.",
       "figure": {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/3/33/Alkene-bromine-addition-2D-skeletal.png",
-        "href": "https://commons.wikimedia.org/wiki/File:Alkene-bromine-addition-2D-skeletal.png",
-        "alt": "Representative illustration: Bromination of an alkene. Substituted alkene bromonium/anti opening, not ethene. Bridge formation is condensed in the drawing.",
-        "credit": "Benjah-bmm27 · Wikimedia Commons · Public domain",
-        "match": "representative",
+        "src": "mechanisms/v035/alkene-bromination.svg",
+        "href": "mechanisms/v035/alkene-bromination.svg",
+        "alt": "Original exact structural mechanism: Bromination of an alkene",
+        "credit": "SORG Atlas · original SVG; RDKit 2D depiction",
+        "match": "exact",
         "coverage": "complete",
-        "reviewNote": "Substituted alkene bromonium/anti opening, not ethene. Bridge formation is condensed in the drawing.",
+        "reviewNote": "Authored electron arrows originate at mapped atoms or bonds. Formula/charge balance checked; structural intermediates and arrows visually reviewed. Stereochemistry is unspecified unless explicitly drawn; existing pathway-model limitations apply.",
         "reviewed": true,
-        "rightsStatus": "source-license-checked",
-        "license": "Public domain (file-page declaration)",
+        "rightsStatus": "original",
+        "license": "Original SORG Atlas illustration · CC BY-NC-SA 4.0",
         "display": true,
-        "licenseUrl": "https://commons.wikimedia.org/wiki/File:Alkene-bromine-addition-2D-skeletal.png"
+        "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+        "priorReference": {
+          "src": "https://upload.wikimedia.org/wikipedia/commons/3/33/Alkene-bromine-addition-2D-skeletal.png",
+          "href": "https://commons.wikimedia.org/wiki/File:Alkene-bromine-addition-2D-skeletal.png",
+          "alt": "Representative illustration: Bromination of an alkene. Substituted alkene bromonium/anti opening, not ethene. Bridge formation is condensed in the drawing.",
+          "credit": "Benjah-bmm27 · Wikimedia Commons · Public domain",
+          "match": "representative",
+          "coverage": "complete",
+          "reviewNote": "Substituted alkene bromonium/anti opening, not ethene. Bridge formation is condensed in the drawing.",
+          "reviewed": true,
+          "rightsStatus": "source-license-checked",
+          "license": "Public domain (file-page declaration)",
+          "display": true,
+          "licenseUrl": "https://commons.wikimedia.org/wiki/File:Alkene-bromine-addition-2D-skeletal.png"
+        }
       },
       "quantumData": {
         "status": "not-yet-computed",
@@ -3107,7 +4107,36 @@
             "Candidate for coupled polar bond redistribution; the individual bond changes are described above.",
             "A bromine bridge connects both alkene carbons."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/v035/halohydrin-step-1.svg",
+            "scope": "Original substrate-matched structural event with atom/bond-anchored two-electron arrows; schematic 2D geometry.",
+            "arrowCount": 3,
+            "reactantSmiles": "[CH3:1][CH:2]=[CH2:3].[Br:4][Br:5]",
+            "productSmiles": "[Br+:4]1[CH:2]([CH3:1])[CH2:3]1.[Br-:5]",
+            "electronMoves": [
+              [
+                [
+                  2,
+                  3
+                ],
+                4
+              ],
+              [
+                [
+                  4,
+                  5
+                ],
+                5
+              ],
+              [
+                4,
+                2
+              ]
+            ],
+            "reviewLegend": "Pi pair → Br; Br–Br pair → departing Br; attached Br lone pair closes bromonium bridge.",
+            "formula": "C3H6Br2"
+          }
         },
         {
           "title": "Water opens the bromonium ion",
@@ -3126,7 +4155,29 @@
             "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
             "Backside attack and bridge cleavage give anti C–O and C–Br contacts."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/v035/halohydrin-step-2.svg",
+            "scope": "Original substrate-matched structural event with atom/bond-anchored two-electron arrows; schematic 2D geometry.",
+            "arrowCount": 2,
+            "reactantSmiles": "[Br+:4]1[CH:2]([CH3:1])[CH2:3]1.[OH2:6]",
+            "productSmiles": "[CH3:1][CH:2]([OH2+:6])[CH2:3][Br:4]",
+            "electronMoves": [
+              [
+                6,
+                2
+              ],
+              [
+                [
+                  2,
+                  4
+                ],
+                4
+              ]
+            ],
+            "reviewLegend": "Water → more substituted bromonium C from backside; bridge C–Br pair → Br. Racemic product; no enantiomer selected.",
+            "formula": "C3H8BrO+"
+          }
         },
         {
           "title": "Proton transfer",
@@ -3145,7 +4196,29 @@
             "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
             "Deprotonation leaves the anti-installed C–Br and C–OH bonds in place."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/v035/halohydrin-step-3.svg",
+            "scope": "Original substrate-matched structural event with atom/bond-anchored two-electron arrows; schematic 2D geometry.",
+            "arrowCount": 2,
+            "reactantSmiles": "[CH3:1][CH:2]([OH+:6][H:7])[CH2:3][Br:4].[OH2:8]",
+            "productSmiles": "[CH3:1][CH:2]([OH:6])[CH2:3][Br:4].[OH3+:8]",
+            "electronMoves": [
+              [
+                8,
+                7
+              ],
+              [
+                [
+                  6,
+                  7
+                ],
+                6
+              ]
+            ],
+            "reviewLegend": "Second water → oxonium H; oxonium O–H pair → O. Bromide spectator is omitted on both sides in events 2/3.",
+            "formula": "C3H10BrO2+"
+          }
         }
       ],
       "sources": [
@@ -3167,18 +4240,32 @@
       "mechanismComplete": true,
       "mechanismNote": "Pathway at the stated teaching resolution; inspect scope and event notes. This is not a claim that each listed stage is a verified elementary event.",
       "figure": {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/f/fe/NBS_Bromohydrin_Formation_Scheme.png",
-        "href": "https://commons.wikimedia.org/wiki/File:NBS_Bromohydrin_Formation_Scheme.png",
-        "alt": "Pending illustration: Halohydrin formation. Image fetch rate-limited/access-blocked. File page describes an NBS scheme, whereas the card uses Br2/water; exactness not established.",
-        "credit": "~K · Wikimedia Commons · Public domain; NBS halohydrin scheme",
-        "match": "pending",
-        "coverage": "unreviewed",
-        "reviewNote": "Image fetch rate-limited/access-blocked. File page describes an NBS scheme, whereas the card uses Br2/water; exactness not established.",
-        "reviewed": false,
-        "rightsStatus": "source-license-checked",
-        "license": "Public domain (file-page declaration)",
-        "display": false,
-        "licenseUrl": "https://commons.wikimedia.org/wiki/File:NBS_Bromohydrin_Formation_Scheme.png"
+        "src": "mechanisms/v035/halohydrin.svg",
+        "href": "mechanisms/v035/halohydrin.svg",
+        "alt": "Original exact structural mechanism: Halohydrin formation",
+        "credit": "SORG Atlas · original SVG; RDKit 2D depiction",
+        "match": "exact",
+        "coverage": "complete",
+        "reviewNote": "Authored electron arrows originate at mapped atoms or bonds. Formula/charge balance checked; structural intermediates and arrows visually reviewed. Stereochemistry is unspecified unless explicitly drawn; existing pathway-model limitations apply.",
+        "reviewed": true,
+        "rightsStatus": "original",
+        "license": "Original SORG Atlas illustration · CC BY-NC-SA 4.0",
+        "display": true,
+        "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+        "priorReference": {
+          "src": "https://upload.wikimedia.org/wikipedia/commons/f/fe/NBS_Bromohydrin_Formation_Scheme.png",
+          "href": "https://commons.wikimedia.org/wiki/File:NBS_Bromohydrin_Formation_Scheme.png",
+          "alt": "Pending illustration: Halohydrin formation. Image fetch rate-limited/access-blocked. File page describes an NBS scheme, whereas the card uses Br2/water; exactness not established.",
+          "credit": "~K · Wikimedia Commons · Public domain; NBS halohydrin scheme",
+          "match": "pending",
+          "coverage": "unreviewed",
+          "reviewNote": "Image fetch rate-limited/access-blocked. File page describes an NBS scheme, whereas the card uses Br2/water; exactness not established.",
+          "reviewed": false,
+          "rightsStatus": "source-license-checked",
+          "license": "Public domain (file-page declaration)",
+          "display": false,
+          "licenseUrl": "https://commons.wikimedia.org/wiki/File:NBS_Bromohydrin_Formation_Scheme.png"
+        }
       },
       "quantumData": {
         "status": "not-yet-computed",
@@ -3229,7 +4316,29 @@
             "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
             "An acid encounter protonates the hydroxyl oxygen destined to depart as water."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/v035/nitration-benzene-step-1.svg",
+            "scope": "Original substrate-matched structural event with atom/bond-anchored two-electron arrows; schematic 2D geometry.",
+            "arrowCount": 2,
+            "reactantSmiles": "[OH:1][N+:2](=[O:3])[O-:4].[OH:5][S:6](=[O:8])(=[O:9])[O:10][H:11]",
+            "productSmiles": "[OH2+:1][N+:2](=[O:3])[O-:4].[OH:5][S:6](=[O:8])(=[O:9])[O-:10]",
+            "electronMoves": [
+              [
+                1,
+                11
+              ],
+              [
+                [
+                  10,
+                  11
+                ],
+                10
+              ]
+            ],
+            "reviewLegend": "Nitric acid hydroxyl O → sulfuric acid H; acid O–H pair → acid O. Formal N+/O− charges preserve octets.",
+            "formula": "H3NO7S"
+          }
         },
         {
           "title": "Nitronium-ion formation",
@@ -3248,7 +4357,32 @@
             "Principal bond formation or cleavage; accompanying changes remain in the electron-flow description.",
             "Dehydration produces the near-linear NO₂⁺ electrophile."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/v035/nitration-benzene-step-2.svg",
+            "scope": "Original substrate-matched structural event with atom/bond-anchored two-electron arrows; schematic 2D geometry.",
+            "arrowCount": 2,
+            "reactantSmiles": "[OH2+:1][N+:2](=[O:3])[O-:4]",
+            "productSmiles": "[O:3]=[N+:2]=[O:4].[OH2:1]",
+            "electronMoves": [
+              [
+                [
+                  1,
+                  2
+                ],
+                1
+              ],
+              [
+                4,
+                [
+                  2,
+                  4
+                ]
+              ]
+            ],
+            "reviewLegend": "N–OH2 bond pair → leaving water O; remaining O− lone pair → N=O. Linear nitronium results.",
+            "formula": "H2NO3+"
+          }
         },
         {
           "title": "Aromatic attack and σ-complex formation",
@@ -3267,7 +4401,32 @@
             "Candidate for coupled polar bond redistribution; the individual bond changes are described above.",
             "The attacked carbon becomes approximately tetrahedral and the σ complex loses aromaticity."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/v035/nitration-benzene-step-3.svg",
+            "scope": "Original substrate-matched structural event with atom/bond-anchored two-electron arrows; schematic 2D geometry.",
+            "arrowCount": 2,
+            "reactantSmiles": "[CH:1]1=[CH:2][CH:3]=[CH:4][CH:5]=[CH:6]1.[O:8]=[N+:7]=[O:9]",
+            "productSmiles": "[CH:1]1([N+:7](=[O:8])[O-:9])[CH+:2][CH:3]=[CH:4][CH:5]=[CH:6]1",
+            "electronMoves": [
+              [
+                [
+                  1,
+                  2
+                ],
+                7
+              ],
+              [
+                [
+                  7,
+                  9
+                ],
+                9
+              ]
+            ],
+            "reviewLegend": "Benzene pi pair → nitronium N; N=O pi pair → O (N octet). One arenium contributor, not a localized unique ion.",
+            "formula": "C6H6NO2+"
+          }
         },
         {
           "title": "Deprotonation restores aromaticity",
@@ -3286,7 +4445,32 @@
             "Candidate for coupled polar bond redistribution; the individual bond changes are described above.",
             "The conjugated aromatic ring becomes planar again."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/v035/nitration-benzene-step-4.svg",
+            "scope": "Original substrate-matched structural event with atom/bond-anchored two-electron arrows; schematic 2D geometry.",
+            "arrowCount": 2,
+            "reactantSmiles": "[C:1]1([H:12])([N+:7](=[O:8])[O-:9])[CH+:2][CH:3]=[CH:4][CH:5]=[CH:6]1.[O-:10][S:11](=O)(=O)O",
+            "productSmiles": "[C:1]1([N+:7](=[O:8])[O-:9])=[CH:2][CH:3]=[CH:4][CH:5]=[CH:6]1.[OH:10][S:11](=O)(=O)O",
+            "electronMoves": [
+              [
+                10,
+                12
+              ],
+              [
+                [
+                  1,
+                  12
+                ],
+                [
+                  1,
+                  2
+                ]
+              ]
+            ],
+            "reviewLegend": "Bisulfate O → substituted ring H; C–H pair → adjacent C=C. Aromaticity and sulfuric acid are restored.",
+            "formula": "C6H7NO6S"
+          }
         }
       ],
       "sources": [
@@ -3309,18 +4493,32 @@
       "mechanismComplete": true,
       "mechanismNote": "Pathway at the stated teaching resolution; inspect scope and event notes. This is not a claim that each listed stage is a verified elementary event.",
       "figure": {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/7/74/Nitration_of_benzene.svg",
-        "href": "https://commons.wikimedia.org/wiki/File:Nitration_of_benzene.svg",
-        "alt": "Pending illustration: Nitration of benzene. Image fetch rate-limited/access-blocked; file-page metadata is not visual verification.",
-        "credit": "Yikrazuul · Wikimedia Commons · Public domain",
-        "match": "pending",
-        "coverage": "unreviewed",
-        "reviewNote": "Image fetch rate-limited/access-blocked; file-page metadata is not visual verification.",
-        "reviewed": false,
-        "rightsStatus": "source-license-checked",
-        "license": "Public domain (file-page declaration)",
-        "display": false,
-        "licenseUrl": "https://commons.wikimedia.org/wiki/File:Nitration_of_benzene.svg"
+        "src": "mechanisms/v035/nitration-benzene.svg",
+        "href": "mechanisms/v035/nitration-benzene.svg",
+        "alt": "Original exact structural mechanism: Nitration of benzene",
+        "credit": "SORG Atlas · original SVG; RDKit 2D depiction",
+        "match": "exact",
+        "coverage": "complete",
+        "reviewNote": "Authored electron arrows originate at mapped atoms or bonds. Formula/charge balance checked; structural intermediates and arrows visually reviewed. Stereochemistry is unspecified unless explicitly drawn; existing pathway-model limitations apply.",
+        "reviewed": true,
+        "rightsStatus": "original",
+        "license": "Original SORG Atlas illustration · CC BY-NC-SA 4.0",
+        "display": true,
+        "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+        "priorReference": {
+          "src": "https://upload.wikimedia.org/wikipedia/commons/7/74/Nitration_of_benzene.svg",
+          "href": "https://commons.wikimedia.org/wiki/File:Nitration_of_benzene.svg",
+          "alt": "Pending illustration: Nitration of benzene. Image fetch rate-limited/access-blocked; file-page metadata is not visual verification.",
+          "credit": "Yikrazuul · Wikimedia Commons · Public domain",
+          "match": "pending",
+          "coverage": "unreviewed",
+          "reviewNote": "Image fetch rate-limited/access-blocked; file-page metadata is not visual verification.",
+          "reviewed": false,
+          "rightsStatus": "source-license-checked",
+          "license": "Public domain (file-page declaration)",
+          "display": false,
+          "licenseUrl": "https://commons.wikimedia.org/wiki/File:Nitration_of_benzene.svg"
+        }
       },
       "quantumData": {
         "status": "literature-related-qualitative",
@@ -3793,7 +4991,29 @@
             "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
             "The α carbon becomes part of a delocalized enolate; the CH₂⁻ formula is one resonance contributor."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/v035/aldol-condensation-step-1.svg",
+            "scope": "Original substrate-matched structural event with atom/bond-anchored two-electron arrows; schematic 2D geometry.",
+            "arrowCount": 2,
+            "reactantSmiles": "[CH3:9][C:2](=[O:3])[CH2:1][H:7].[OH-:8]",
+            "productSmiles": "[CH3:9][C:2](=[O:3])[CH2-:1].[OH2:8]",
+            "electronMoves": [
+              [
+                8,
+                7
+              ],
+              [
+                [
+                  1,
+                  7
+                ],
+                1
+              ]
+            ],
+            "reviewLegend": "Alpha-H removal gives the C-anion enolate contributor; the enolate is delocalized.",
+            "formula": "C3H7O2-"
+          }
         },
         {
           "title": "Nucleophilic carbonyl addition",
@@ -3812,7 +5032,29 @@
             "Candidate for tetrahedral addition or elimination with π-bond redistribution.",
             "The acceptor carbonyl carbon becomes tetrahedral at the new C–C bond."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/v035/aldol-condensation-step-2.svg",
+            "scope": "Original substrate-matched structural event with atom/bond-anchored two-electron arrows; schematic 2D geometry.",
+            "arrowCount": 2,
+            "reactantSmiles": "[CH3:9][C:2](=[O:3])[CH2-:1].[CH3:4][C:5]([CH3:10])=[O:6]",
+            "productSmiles": "[CH3:9][C:2](=[O:3])[CH2:1][C:5]([CH3:4])([CH3:10])[O-:6]",
+            "electronMoves": [
+              [
+                1,
+                5
+              ],
+              [
+                [
+                  5,
+                  6
+                ],
+                6
+              ]
+            ],
+            "reviewLegend": "Enolate C → acetone C; acceptor C=O π pair → O.",
+            "formula": "C6H11O2-"
+          }
         },
         {
           "title": "Proton transfer",
@@ -3831,7 +5073,29 @@
             "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
             "The product β-hydroxyl group appears at the formerly planar acceptor carbonyl carbon."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/v035/aldol-condensation-step-3.svg",
+            "scope": "Original substrate-matched structural event with atom/bond-anchored two-electron arrows; schematic 2D geometry.",
+            "arrowCount": 2,
+            "reactantSmiles": "[CH3:9][C:2](=[O:3])[CH2:1][C:5]([CH3:4])([CH3:10])[O-:6].[OH:8][H:7]",
+            "productSmiles": "[CH3:9][C:2](=[O:3])[CH2:1][C:5]([CH3:4])([CH3:10])[OH:6].[OH-:8]",
+            "electronMoves": [
+              [
+                6,
+                7
+              ],
+              [
+                [
+                  7,
+                  8
+                ],
+                8
+              ]
+            ],
+            "reviewLegend": "Alkoxide protonation by water produces diacetone alcohol and regenerates base.",
+            "formula": "C6H13O3-"
+          }
         },
         {
           "title": "Proton transfer",
@@ -3850,7 +5114,29 @@
             "Replacement of a bond to H or C; read the flow for delocalization or accompanying metal–O cleavage.",
             "α-Deprotonation occurs before β-OH departure in the E1cB teaching path."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/v035/aldol-condensation-step-4.svg",
+            "scope": "Original substrate-matched structural event with atom/bond-anchored two-electron arrows; schematic 2D geometry.",
+            "arrowCount": 2,
+            "reactantSmiles": "[CH3:9][C:2](=[O:3])[CH:1]([H:7])[C:5]([CH3:4])([CH3:10])[OH:6].[OH-:8]",
+            "productSmiles": "[CH3:9][C:2](=[O:3])[CH-:1][C:5]([CH3:4])([CH3:10])[OH:6].[OH2:8]",
+            "electronMoves": [
+              [
+                8,
+                7
+              ],
+              [
+                [
+                  1,
+                  7
+                ],
+                1
+              ]
+            ],
+            "reviewLegend": "Second alpha deprotonation forms the E1cB precursor; no carbonyl bond is broken.",
+            "formula": "C6H13O3-"
+          }
         },
         {
           "title": "E1cB loss of hydroxide",
@@ -3869,7 +5155,32 @@
             "Candidate for coupled polar bond redistribution; the individual bond changes are described above.",
             "A C=C bond conjugated with carbonyl forms; base is regenerated over the cycle."
           ],
-          "diagramScope": "partial"
+          "diagramScope": "partial",
+          "eventFigure": {
+            "src": "mechanisms/v035/aldol-condensation-step-5.svg",
+            "scope": "Original substrate-matched structural event with atom/bond-anchored two-electron arrows; schematic 2D geometry.",
+            "arrowCount": 2,
+            "reactantSmiles": "[CH3:9][C:2](=[O:3])[CH-:1][C:5]([CH3:4])([CH3:10])[OH:6]",
+            "productSmiles": "[CH3:9][C:2](=[O:3])[CH:1]=[C:5]([CH3:4])[CH3:10].[OH-:6]",
+            "electronMoves": [
+              [
+                1,
+                [
+                  1,
+                  5
+                ]
+              ],
+              [
+                [
+                  5,
+                  6
+                ],
+                6
+              ]
+            ],
+            "reviewLegend": "Enolate C pair → alpha/beta C=C; beta C–O pair → O. Mesityl oxide has no E/Z at this alkene.",
+            "formula": "C6H11O2-"
+          }
         }
       ],
       "sources": [
@@ -3892,18 +5203,32 @@
       "mechanismComplete": true,
       "mechanismNote": "Pathway at the stated teaching resolution; inspect scope and event notes. This is not a claim that each listed stage is a verified elementary event.",
       "figure": {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/E1cB_aldol_condensation.svg/1280px-E1cB_aldol_condensation.svg.png",
-        "href": "https://commons.wikimedia.org/wiki/File:E1cB_aldol_condensation.svg",
-        "alt": "Pending illustration: Base-catalyzed aldol condensation. Image fetch rate-limited/access-blocked. The filename alone does not establish full five-stage coverage.",
-        "credit": "Wikimedia Commons · E1cB aldol-condensation scheme",
-        "match": "pending",
-        "coverage": "unreviewed",
-        "reviewNote": "Image fetch rate-limited/access-blocked. The filename alone does not establish full five-stage coverage.",
-        "reviewed": false,
-        "rightsStatus": "source-license-checked",
-        "license": "CC BY-SA 4.0; unmodified source image",
-        "display": false,
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+        "src": "mechanisms/v035/aldol-condensation.svg",
+        "href": "mechanisms/v035/aldol-condensation.svg",
+        "alt": "Original exact structural mechanism: Base-catalyzed aldol condensation",
+        "credit": "SORG Atlas · original SVG; RDKit 2D depiction",
+        "match": "exact",
+        "coverage": "complete",
+        "reviewNote": "Authored electron arrows originate at mapped atoms or bonds. Formula/charge balance checked; structural intermediates and arrows visually reviewed. Stereochemistry is unspecified unless explicitly drawn; existing pathway-model limitations apply.",
+        "reviewed": true,
+        "rightsStatus": "original",
+        "license": "Original SORG Atlas illustration · CC BY-NC-SA 4.0",
+        "display": true,
+        "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+        "priorReference": {
+          "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/E1cB_aldol_condensation.svg/1280px-E1cB_aldol_condensation.svg.png",
+          "href": "https://commons.wikimedia.org/wiki/File:E1cB_aldol_condensation.svg",
+          "alt": "Pending illustration: Base-catalyzed aldol condensation. Image fetch rate-limited/access-blocked. The filename alone does not establish full five-stage coverage.",
+          "credit": "Wikimedia Commons · E1cB aldol-condensation scheme",
+          "match": "pending",
+          "coverage": "unreviewed",
+          "reviewNote": "Image fetch rate-limited/access-blocked. The filename alone does not establish full five-stage coverage.",
+          "reviewed": false,
+          "rightsStatus": "source-license-checked",
+          "license": "CC BY-SA 4.0; unmodified source image",
+          "display": false,
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+        }
       },
       "quantumData": {
         "status": "not-yet-computed",

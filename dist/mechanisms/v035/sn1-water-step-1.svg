@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 525" role="img" aria-label="SN1 solvolysis event 1"><title>SN1 solvolysis event 1</title><desc>(CH₃)₃CBr → (CH₃)₃C⁺ + Br⁻ C–Br pair → Br; tertiary carbocation is the stated limiting teaching model.</desc><rect width="1200" height="525" fill="#fffefa"/><defs><marker id="pair" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#aa6a4e" stroke-width="1.5"/></marker><marker id="fish" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 1 L9 5" fill="none" stroke="#aa6a4e" stroke-width="1.5"/></marker></defs><g font-family="DejaVu Sans,sans-serif" fill="#203c43"><text x="30" y="35" font-size="22">SN1 solvolysis · event 1</text><text x="30" y="68" font-size="17">(CH₃)₃CBr → (CH₃)₃C⁺ + Br⁻</text><g transform="translate(25,100)">
+<!-- END OF HEADER -->
+<path class='bond-0 atom-0 atom-1' d='M 177.9,209.4 L 275.0,153.4' style='fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-1 atom-1 atom-2' d='M 275.0,153.4 L 372.1,97.3' style='fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-2 atom-1 atom-3' d='M 275.0,153.4 L 331.0,250.4' style='fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-3 atom-1 atom-4' d='M 275.0,153.4 L 250.0,110.0' style='fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-3 atom-1 atom-4' d='M 250.0,110.0 L 225.0,66.7' style='fill:none;fill-rule:evenodd;stroke:#7F4C19;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='atom-4' d='M 211.9 56.0
+Q 213.2 56.3, 213.9 57.1
+Q 214.5 57.9, 214.5 59.1
+Q 214.5 60.9, 213.3 62.0
+Q 212.2 63.0, 209.9 63.0
+L 205.4 63.0
+L 205.4 49.6
+L 209.4 49.6
+Q 211.7 49.6, 212.8 50.5
+Q 214.0 51.4, 214.0 53.1
+Q 214.0 55.2, 211.9 56.0
+M 207.2 51.1
+L 207.2 55.3
+L 209.4 55.3
+Q 210.7 55.3, 211.4 54.8
+Q 212.1 54.2, 212.1 53.1
+Q 212.1 51.1, 209.4 51.1
+L 207.2 51.1
+M 209.9 61.5
+Q 211.2 61.5, 211.9 60.9
+Q 212.6 60.3, 212.6 59.1
+Q 212.6 58.0, 211.9 57.4
+Q 211.1 56.8, 209.6 56.8
+L 207.2 56.8
+L 207.2 61.5
+L 209.9 61.5
+' fill='#7F4C19'/>
+<path class='atom-4' d='M 217.6 53.3
+L 217.8 54.6
+Q 218.8 53.1, 220.5 53.1
+Q 221.0 53.1, 221.8 53.3
+L 221.5 54.9
+Q 220.7 54.7, 220.2 54.7
+Q 219.4 54.7, 218.9 55.0
+Q 218.4 55.3, 217.9 56.1
+L 217.9 63.0
+L 216.2 63.0
+L 216.2 53.3
+L 217.6 53.3
+' fill='#7F4C19'/>
+</g><g transform="translate(625,100)">
+<!-- END OF HEADER -->
+<path class='bond-0 atom-0 atom-1' d='M 196.2,251.9 L 266.8,211.2' style='fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-1 atom-1 atom-2' d='M 283.2,211.2 L 353.8,251.9' style='fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-2 atom-1 atom-3' d='M 275.0,196.6 L 275.0,115.5' style='fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='atom-1' d='M 269.8 206.5
+Q 269.8 203.1, 271.4 201.4
+Q 272.9 199.6, 275.9 199.6
+Q 278.7 199.6, 280.2 201.6
+L 278.9 202.6
+Q 277.9 201.2, 275.9 201.2
+Q 273.9 201.2, 272.8 202.6
+Q 271.8 203.9, 271.8 206.5
+Q 271.8 209.2, 272.9 210.5
+Q 274.0 211.9, 276.1 211.9
+Q 277.6 211.9, 279.4 211.0
+L 279.9 212.4
+Q 279.2 212.9, 278.1 213.1
+Q 277.1 213.4, 275.9 213.4
+Q 272.9 213.4, 271.4 211.6
+Q 269.8 209.8, 269.8 206.5
+' fill='#000000'/>
+<path class='atom-1' d='M 281.9 202.0
+L 284.3 202.0
+L 284.3 199.6
+L 285.3 199.6
+L 285.3 202.0
+L 287.8 202.0
+L 287.8 202.9
+L 285.3 202.9
+L 285.3 205.5
+L 284.3 205.5
+L 284.3 202.9
+L 281.9 202.9
+L 281.9 202.0
+' fill='#000000'/>
+<path class='atom-4' d='M 268.0 54.5
+Q 269.3 54.8, 269.9 55.6
+Q 270.6 56.4, 270.6 57.6
+Q 270.6 59.4, 269.4 60.5
+Q 268.2 61.5, 266.0 61.5
+L 261.5 61.5
+L 261.5 48.1
+L 265.4 48.1
+Q 267.7 48.1, 268.9 49.0
+Q 270.0 49.9, 270.0 51.7
+Q 270.0 53.7, 268.0 54.5
+M 263.3 49.6
+L 263.3 53.8
+L 265.4 53.8
+Q 266.8 53.8, 267.4 53.3
+Q 268.1 52.7, 268.1 51.7
+Q 268.1 49.6, 265.4 49.6
+L 263.3 49.6
+M 266.0 60.0
+Q 267.3 60.0, 268.0 59.4
+Q 268.7 58.8, 268.7 57.6
+Q 268.7 56.5, 267.9 55.9
+Q 267.2 55.3, 265.7 55.3
+L 263.3 55.3
+L 263.3 60.0
+L 266.0 60.0
+' fill='#7F4C19'/>
+<path class='atom-4' d='M 273.6 51.8
+L 273.9 53.1
+Q 274.9 51.6, 276.5 51.6
+Q 277.1 51.6, 277.8 51.8
+L 277.5 53.4
+Q 276.7 53.2, 276.2 53.2
+Q 275.4 53.2, 274.9 53.5
+Q 274.4 53.8, 274.0 54.6
+L 274.0 61.5
+L 272.2 61.5
+L 272.2 51.8
+L 273.6 51.8
+' fill='#7F4C19'/>
+<path class='atom-4' d='M 278.8 52.1
+L 283.4 52.1
+L 283.4 53.1
+L 278.8 53.1
+L 278.8 52.1
+' fill='#7F4C19'/>
+</g><path data-electrons="2" d="M271.98,204.83 Q293.02,168.41 250.96,168.42" fill="none" stroke="#aa6a4e" stroke-width="2.6" marker-end="url(#pair)"/><text x="580" y="260" font-size="36">→</text><text x="30" y="438" font-size="15">C–Br pair → Br; tertiary carbocation is the stated limiting teaching model.</text><text x="30" y="467" font-size="15"></text><text x="30" y="502" font-size="14">Original structural mechanism · 2-electron curved arrows · 2D depiction, not a calculated trajectory.</text></g></svg>

@@ -1,0 +1,1616 @@
+{
+  "version": "0.3.5",
+  "reactions": [
+    {
+      "id": "proton-transfer",
+      "name": "Proton transfer",
+      "beforeStatus": "complete",
+      "beforeFigure": {
+        "src": "mechanisms/proton-transfer.svg",
+        "href": "mechanisms/proton-transfer.svg",
+        "alt": "Exact mechanism illustration: Proton transfer",
+        "credit": "SORG Atlas · original SVG",
+        "match": "exact",
+        "coverage": "complete",
+        "reviewNote": "Original drawing of the stated model: reactants, formal charges, electron-flow arrows and product. No calculated geometry is implied.",
+        "reviewed": true,
+        "rightsStatus": "original",
+        "license": "Original SORG Atlas illustration · CC BY-NC-SA 4.0",
+        "display": true,
+        "priorReference": {
+          "src": "https://image3.slideserve.com/402313/conjugate-acids-bases7-l.jpg",
+          "href": "https://www.slideserve.com/wiley/organic-chemistry-powerpoint-ppt-presentation",
+          "alt": "Pending illustration: Proton transfer. Dead image URL (HTTP 404).",
+          "credit": "Brown, Foote & Iverson lecture slide · SlideServe (analogous proton-transfer example)",
+          "match": "pending",
+          "coverage": "unreviewed",
+          "reviewNote": "Dead image URL (HTTP 404).",
+          "reviewed": false,
+          "rightsStatus": "unconfirmed",
+          "license": "Reuse permission not established; external reference retained.",
+          "display": false
+        },
+        "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      "events": [
+        {
+          "index": 1,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "CH₃CO₂H + CN⁻ ⇌ CH₃CO₂⁻ + HCN",
+          "beforeStatus": "complete",
+          "afterStatus": "complete",
+          "focusedImage": null,
+          "coverageBasis": "Inherited v0.3.4 image/scope record; no new external-image verification",
+          "limitations": "Solvent relay and pKa standard-state/temperature metadata are not a computed microscopic pathway."
+        }
+      ],
+      "afterStatus": "complete",
+      "afterFigure": "mechanisms/proton-transfer.svg",
+      "afterDisplayed": true
+    },
+    {
+      "id": "lewis",
+      "name": "Lewis acid–base association",
+      "beforeStatus": "complete",
+      "beforeFigure": {
+        "src": "mechanisms/lewis.svg",
+        "href": "mechanisms/lewis.svg",
+        "alt": "Exact mechanism illustration: Lewis acid–base association",
+        "credit": "SORG Atlas · original SVG",
+        "match": "exact",
+        "coverage": "complete",
+        "reviewNote": "Original drawing of the stated model: reactants, formal charges, electron-flow arrows and product. No calculated geometry is implied.",
+        "reviewed": true,
+        "rightsStatus": "original",
+        "license": "Original SORG Atlas illustration · CC BY-NC-SA 4.0",
+        "display": true,
+        "priorReference": {
+          "src": "https://image2.slideserve.com/4280814/acid-base-concepts-06-l.jpg",
+          "href": "https://www.slideserve.com/gittel/chapter-14",
+          "alt": "Exact illustration: Lewis acid–base association. NH3 and BF3, donor arrow and formal charges match.",
+          "credit": "Aqueous equilibria lecture slide · SlideServe",
+          "match": "exact",
+          "coverage": "complete",
+          "reviewNote": "NH3 and BF3, donor arrow and formal charges match.",
+          "reviewed": true,
+          "rightsStatus": "unconfirmed",
+          "license": "Reuse permission not established; external reference retained.",
+          "display": false
+        },
+        "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      "events": [
+        {
+          "index": 1,
+          "code": "1111",
+          "title": "Donor–acceptor bond formation",
+          "equation": "NH₃ + BF₃ ⇌ H₃N⁺–BF₃⁻",
+          "beforeStatus": "complete",
+          "afterStatus": "complete",
+          "focusedImage": null,
+          "coverageBasis": "Inherited v0.3.4 image/scope record; no new external-image verification",
+          "limitations": "G1 is the inherited approach convention despite boron pyramidalization."
+        }
+      ],
+      "afterStatus": "complete",
+      "afterFigure": "mechanisms/lewis.svg",
+      "afterDisplayed": true
+    },
+    {
+      "id": "sn2",
+      "name": "SN2 substitution",
+      "beforeStatus": "complete",
+      "beforeFigure": {
+        "src": "https://kpu.pressbooks.pub/app/uploads/sites/139/2020/12/Sn2-mechanism-1024x480.png",
+        "href": "https://kpu.pressbooks.pub/organicchemistry/chapter/7-2/",
+        "alt": "Exact illustration: SN2 substitution. Hydroxide + methyl bromide; reaction, electron arrows and transition structure match. Methyl carbon is achiral.",
+        "credit": "Xin Liu · Organic Chemistry I · KPU Pressbooks",
+        "match": "exact",
+        "coverage": "complete",
+        "reviewNote": "Hydroxide + methyl bromide; reaction, electron arrows and transition structure match. Methyl carbon is achiral.",
+        "reviewed": true,
+        "rightsStatus": "source-license-checked",
+        "license": "CC BY-NC-SA 4.0; unmodified source image",
+        "display": true,
+        "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      "events": [
+        {
+          "index": 1,
+          "code": "1122",
+          "title": "Backside displacement",
+          "equation": "HO⁻ + CH₃Br → CH₃OH + Br⁻",
+          "beforeStatus": "complete",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/v035/sn2-step-1.svg",
+          "coverageBasis": "Authored focused structural SVG",
+          "limitations": "Literature calculations concern chloride + A–Cl, not hydroxide + methyl bromide."
+        }
+      ],
+      "afterStatus": "complete",
+      "afterFigure": "mechanisms/v035/sn2.svg",
+      "afterDisplayed": true
+    },
+    {
+      "id": "williamson",
+      "name": "Williamson ether synthesis",
+      "beforeStatus": "representative",
+      "beforeFigure": {
+        "src": "https://www.chemistrysteps.com/wp-content/uploads/2022/11/Williamson-Ether-Synthesis-some-examples.png",
+        "href": "https://www.chemistrysteps.com/williamson-ether-synthesis/",
+        "alt": "Representative illustration: Williamson ether synthesis. Examples use ethoxide/ethyl bromide or methoxide/ethyl iodide, rather than methoxide/ethyl bromide.",
+        "credit": "Chemistry Steps · Williamson Ether Synthesis",
+        "match": "representative",
+        "coverage": "complete",
+        "reviewNote": "Examples use ethoxide/ethyl bromide or methoxide/ethyl iodide, rather than methoxide/ethyl bromide.",
+        "reviewed": true,
+        "rightsStatus": "unconfirmed",
+        "license": "Reuse permission not established; external reference retained.",
+        "display": false
+      },
+      "events": [
+        {
+          "index": 1,
+          "code": "1122",
+          "title": "Alkoxide displacement",
+          "equation": "CH₃O⁻ + CH₃CH₂Br → CH₃OCH₂CH₃ + Br⁻",
+          "beforeStatus": "representative",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/v035/williamson-step-1.svg",
+          "coverageBasis": "Authored focused structural SVG",
+          "limitations": "Exact substrate illustration and solution/counterion effects remain to be established."
+        }
+      ],
+      "afterStatus": "complete",
+      "afterFigure": "mechanisms/v035/williamson.svg",
+      "afterDisplayed": true
+    },
+    {
+      "id": "sn1-core",
+      "name": "SN1: ionization & capture",
+      "beforeStatus": "representative",
+      "beforeFigure": {
+        "src": "https://ncstate.pressbooks.pub/app/uploads/sites/52/2023/11/image30-11.jpeg",
+        "href": "https://ncstate.pressbooks.pub/organicchem/chapter/the-sn1-reaction/",
+        "alt": "Representative illustration: SN1: ionization & capture. Image is tert-butyl bromide solvolysis with water and a third deprotonation; card is a two-event generic anionic-nucleophile core.",
+        "credit": "John McMurry / OpenStax · David Tully adaptation · NC State Pressbooks",
+        "match": "representative",
+        "coverage": "complete",
+        "reviewNote": "Image is tert-butyl bromide solvolysis with water and a third deprotonation; card is a two-event generic anionic-nucleophile core.",
+        "reviewed": true,
+        "rightsStatus": "source-license-checked",
+        "license": "CC BY-NC-SA 4.0; unmodified source image",
+        "display": true,
+        "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      "events": [
+        {
+          "index": 1,
+          "code": "1111",
+          "title": "Heterolytic ionization",
+          "equation": "R₃C–X → R₃C⁺ + X⁻",
+          "beforeStatus": "representative",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/v035/sn1-core-step-1.svg",
+          "coverageBasis": "Authored focused structural SVG",
+          "limitations": "Generic core is a limiting model; explicit-solvent iPrCl literature does not establish this two-step pathway."
+        },
+        {
+          "index": 2,
+          "code": "1111",
+          "title": "Carbocation capture",
+          "equation": "R₃C⁺ + Nu⁻ → R₃C–Nu",
+          "beforeStatus": "representative",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/v035/sn1-core-step-2.svg",
+          "coverageBasis": "Authored focused structural SVG",
+          "limitations": "Generic core is a limiting model; explicit-solvent iPrCl literature does not establish this two-step pathway."
+        }
+      ],
+      "afterStatus": "complete",
+      "afterFigure": "mechanisms/v035/sn1-core.svg",
+      "afterDisplayed": true
+    },
+    {
+      "id": "sn1-water",
+      "name": "SN1 solvolysis",
+      "beforeStatus": "complete",
+      "beforeFigure": {
+        "src": "https://ncstate.pressbooks.pub/app/uploads/sites/52/2023/11/image30-11.jpeg",
+        "href": "https://ncstate.pressbooks.pub/organicchem/chapter/the-sn1-reaction/",
+        "alt": "Exact illustration: SN1 solvolysis. Tert-butyl bromide, water capture, oxonium and deprotonation match the three displayed events.",
+        "credit": "John McMurry / OpenStax · David Tully adaptation · NC State Pressbooks",
+        "match": "exact",
+        "coverage": "complete",
+        "reviewNote": "Tert-butyl bromide, water capture, oxonium and deprotonation match the three displayed events.",
+        "reviewed": true,
+        "rightsStatus": "source-license-checked",
+        "license": "CC BY-NC-SA 4.0; unmodified source image",
+        "display": true,
+        "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      "events": [
+        {
+          "index": 1,
+          "code": "1111",
+          "title": "Heterolytic ionization",
+          "equation": "(CH₃)₃CBr → (CH₃)₃C⁺ + Br⁻",
+          "beforeStatus": "complete",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/v035/sn1-water-step-1.svg",
+          "coverageBasis": "Authored focused structural SVG",
+          "limitations": "Ion-pair structure and E1 competition are not resolved by the textbook mechanism."
+        },
+        {
+          "index": 2,
+          "code": "1111",
+          "title": "Carbocation capture",
+          "equation": "(CH₃)₃C⁺ + H₂O → (CH₃)₃COH₂⁺",
+          "beforeStatus": "complete",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/v035/sn1-water-step-2.svg",
+          "coverageBasis": "Authored focused structural SVG",
+          "limitations": "Ion-pair structure and E1 competition are not resolved by the textbook mechanism."
+        },
+        {
+          "index": 3,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "(CH₃)₃COH₂⁺ + H₂O → (CH₃)₃COH + H₃O⁺",
+          "beforeStatus": "complete",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/v035/sn1-water-step-3.svg",
+          "coverageBasis": "Authored focused structural SVG",
+          "limitations": "Ion-pair structure and E1 competition are not resolved by the textbook mechanism."
+        }
+      ],
+      "afterStatus": "complete",
+      "afterFigure": "mechanisms/v035/sn1-water.svg",
+      "afterDisplayed": true
+    },
+    {
+      "id": "hbr",
+      "name": "Electrophilic HBr addition",
+      "beforeStatus": "missing",
+      "beforeFigure": {
+        "src": "https://oss.linstitute.net/wechatimg/2022/07/3.2-Hydrocarbons-Electrophilic-Addition-HBr-1.png",
+        "href": "https://www.linstitute.net/",
+        "alt": "Exact illustration: Electrophilic HBr addition. The upper propene-to-2-bromopropane branch matches. The lower primary-carbocation branch is not a validated minor pathway for this card.",
+        "credit": "Organic chemistry teaching diagram · HBr addition",
+        "match": "exact",
+        "coverage": "complete",
+        "reviewNote": "The upper propene-to-2-bromopropane branch matches. The lower primary-carbocation branch is not a validated minor pathway for this card.",
+        "reviewed": true,
+        "rightsStatus": "unconfirmed",
+        "license": "Reuse permission not established; external reference retained.",
+        "display": false
+      },
+      "events": [
+        {
+          "index": 1,
+          "code": "1111",
+          "title": "Alkene protonation",
+          "equation": "CH₃CH=CH₂ + HBr → (CH₃)₂CH⁺ + Br⁻",
+          "beforeStatus": "missing",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/v035/hbr-step-1.svg",
+          "coverageBasis": "Authored focused structural SVG",
+          "limitations": "1111 retains the inherited dominant-bond convention despite accompanying H–Br cleavage and π redistribution."
+        },
+        {
+          "index": 2,
+          "code": "1111",
+          "title": "Carbocation capture",
+          "equation": "(CH₃)₂CH⁺ + Br⁻ → CH₃CHBrCH₃",
+          "beforeStatus": "missing",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/v035/hbr-step-2.svg",
+          "coverageBasis": "Authored focused structural SVG",
+          "limitations": "1111 retains the inherited dominant-bond convention despite accompanying H–Br cleavage and π redistribution."
+        }
+      ],
+      "afterStatus": "complete",
+      "afterFigure": "mechanisms/v035/hbr.svg",
+      "afterDisplayed": true
+    },
+    {
+      "id": "hydration",
+      "name": "Acid-catalyzed hydration",
+      "beforeStatus": "scientifically inconsistent",
+      "beforeFigure": {
+        "src": "https://d3nzlfkeryzt6j.cloudfront.net/fc3m8degkaatqcczbt0mk27e0n4k",
+        "href": "https://app.medify.co/a-level-chemistry-ocr/study-notes/articles/85-alkenes-4-1-3",
+        "alt": "Partial illustration: Acid-catalyzed hydration. Propene hydration is intended, but the terminal carbon remains labeled CH2 after protonation instead of CH3; image withheld.",
+        "credit": "Medify · Alkene hydration mechanism",
+        "match": "partial",
+        "coverage": "partial",
+        "reviewNote": "Propene hydration is intended, but the terminal carbon remains labeled CH2 after protonation instead of CH3; image withheld.",
+        "reviewed": true,
+        "rightsStatus": "unconfirmed",
+        "license": "Reuse permission not established; external reference retained.",
+        "display": false
+      },
+      "events": [
+        {
+          "index": 1,
+          "code": "1111",
+          "title": "Alkene protonation",
+          "equation": "CH₃CH=CH₂ + H₃O⁺ → (CH₃)₂CH⁺ + H₂O",
+          "beforeStatus": "scientifically inconsistent",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/v035/hydration-step-1.svg",
+          "coverageBasis": "Authored focused structural SVG",
+          "limitations": "Microscopic solvent participation and a corrected exact external figure remain open."
+        },
+        {
+          "index": 2,
+          "code": "1111",
+          "title": "Carbocation capture",
+          "equation": "(CH₃)₂CH⁺ + H₂O → (CH₃)₂CHOH₂⁺",
+          "beforeStatus": "scientifically inconsistent",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/v035/hydration-step-2.svg",
+          "coverageBasis": "Authored focused structural SVG",
+          "limitations": "Microscopic solvent participation and a corrected exact external figure remain open."
+        },
+        {
+          "index": 3,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "(CH₃)₂CHOH₂⁺ + H₂O → (CH₃)₂CHOH + H₃O⁺",
+          "beforeStatus": "scientifically inconsistent",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/v035/hydration-step-3.svg",
+          "coverageBasis": "Authored focused structural SVG",
+          "limitations": "Microscopic solvent participation and a corrected exact external figure remain open."
+        }
+      ],
+      "afterStatus": "complete",
+      "afterFigure": "mechanisms/v035/hydration.svg",
+      "afterDisplayed": true
+    },
+    {
+      "id": "e2",
+      "name": "E2 elimination",
+      "beforeStatus": "complete",
+      "beforeFigure": {
+        "src": "mechanisms/e2.svg",
+        "href": "mechanisms/e2.svg",
+        "alt": "Original equation-matched electron-flow pathway: E2 elimination",
+        "credit": "SORG Atlas · original SVG",
+        "match": "exact",
+        "coverage": "complete",
+        "reviewNote": "Original condensed-structure pathway checked against every listed equation, charge, intermediate and electron-pair move; Fischer step 3 expands a grouped solvent relay. The diagram does not specify computed transition-state geometry.",
+        "reviewed": true,
+        "rightsStatus": "original",
+        "license": "Original SORG Atlas illustration · CC BY-NC-SA 4.0",
+        "display": true,
+        "priorReference": {
+          "src": "https://image4.slideserve.com/1012269/electron-rich-to-electron-poor-sites-and-e2-steps-l.jpg",
+          "href": "https://www.slideserve.com/caressa/chapter-7-alkyl-halides-and-nu-substitution",
+          "alt": "Representative illustration: E2 elimination. Generic base/leaving group. Slide prose incorrectly says two arrows originate at the base; image withheld.",
+          "credit": "Organic chemistry lecture slide · SlideServe",
+          "match": "representative",
+          "coverage": "complete",
+          "reviewNote": "Generic base/leaving group. Slide prose incorrectly says two arrows originate at the base; image withheld.",
+          "reviewed": true,
+          "rightsStatus": "unconfirmed",
+          "license": "Reuse permission not established; external reference retained.",
+          "display": false
+        },
+        "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      "events": [
+        {
+          "index": 1,
+          "code": "1133",
+          "title": "Concerted β-elimination",
+          "equation": "CH₃CHBrCH₃ + EtO⁻ → CH₂=CHCH₃ + EtOH + Br⁻",
+          "beforeStatus": "complete",
+          "afterStatus": "complete",
+          "focusedImage": null,
+          "coverageBasis": "Inherited v0.3.4 image/scope record; no new external-image verification",
+          "limitations": "1133 remains a candidate; anti/syn competition depends on actual conformers."
+        }
+      ],
+      "afterStatus": "complete",
+      "afterFigure": "mechanisms/e2.svg",
+      "afterDisplayed": true
+    },
+    {
+      "id": "e1",
+      "name": "E1 elimination",
+      "beforeStatus": "partial",
+      "beforeFigure": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/E1-mechanism.svg/1280px-E1-mechanism.svg.png",
+        "href": "https://commons.wikimedia.org/wiki/File:E1-mechanism.svg",
+        "alt": "Representative illustration: E1 elimination. Generic alkyl skeleton and X; solvent base and its protonated product are omitted.",
+        "credit": "Wikimedia Commons · E1-mechanism.svg",
+        "match": "representative",
+        "coverage": "partial",
+        "reviewNote": "Generic alkyl skeleton and X; solvent base and its protonated product are omitted.",
+        "reviewed": true,
+        "rightsStatus": "source-license-checked",
+        "license": "Public domain (file-page declaration)",
+        "display": true,
+        "licenseUrl": "https://commons.wikimedia.org/wiki/File:E1-mechanism.svg"
+      },
+      "events": [
+        {
+          "index": 1,
+          "code": "1111",
+          "title": "Heterolytic ionization",
+          "equation": "(CH₃)₃CCl → (CH₃)₃C⁺ + Cl⁻",
+          "beforeStatus": "partial",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/v035/e1-step-1.svg",
+          "coverageBasis": "Authored focused structural SVG",
+          "limitations": "1133 is a candidate for deprotonation/π formation; solvent and ion pairs are unresolved."
+        },
+        {
+          "index": 2,
+          "code": "1133",
+          "title": "Alkene formation",
+          "equation": "(CH₃)₃C⁺ + H₂O → (CH₃)₂C=CH₂ + H₃O⁺",
+          "beforeStatus": "partial",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/v035/e1-step-2.svg",
+          "coverageBasis": "Authored focused structural SVG",
+          "limitations": "1133 is a candidate for deprotonation/π formation; solvent and ion pairs are unresolved."
+        }
+      ],
+      "afterStatus": "complete",
+      "afterFigure": "mechanisms/v035/e1.svg",
+      "afterDisplayed": true
+    },
+    {
+      "id": "carbonyl-add",
+      "name": "Carbonyl nucleophilic addition",
+      "beforeStatus": "complete",
+      "beforeFigure": {
+        "src": "mechanisms/carbonyl-add.svg",
+        "href": "mechanisms/carbonyl-add.svg",
+        "alt": "Original equation-matched electron-flow pathway: Carbonyl nucleophilic addition",
+        "credit": "SORG Atlas · original SVG",
+        "match": "exact",
+        "coverage": "complete",
+        "reviewNote": "Original condensed-structure pathway checked against every listed equation, charge, intermediate and electron-pair move; Fischer step 3 expands a grouped solvent relay. The diagram does not specify computed transition-state geometry.",
+        "reviewed": true,
+        "rightsStatus": "original",
+        "license": "Original SORG Atlas illustration · CC BY-NC-SA 4.0",
+        "display": true,
+        "priorReference": {
+          "src": "https://www.chem.ucla.edu/~harding/IGOC/N/nucleophilic_addition01.png",
+          "href": "https://www.chem.ucla.edu/~harding/IGOC/N/nucleophilic_addition.html",
+          "alt": "Representative illustration: Carbonyl nucleophilic addition. Acetone + hydroxide followed by protonation; card describes generic carbonyl addition only. Original page URL returns 404.",
+          "credit": "UCLA Illustrated Glossary of Organic Chemistry",
+          "match": "representative",
+          "coverage": "complete",
+          "reviewNote": "Acetone + hydroxide followed by protonation; card describes generic carbonyl addition only. Original page URL returns 404.",
+          "reviewed": true,
+          "rightsStatus": "unconfirmed",
+          "license": "Reuse permission not established; external reference retained.",
+          "display": false
+        },
+        "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      "events": [
+        {
+          "index": 1,
+          "code": "1113",
+          "title": "Nucleophilic carbonyl addition",
+          "equation": "R₂C=O + Nu⁻ → R₂C(O⁻)Nu",
+          "beforeStatus": "complete",
+          "afterStatus": "complete",
+          "focusedImage": null,
+          "coverageBasis": "Inherited v0.3.4 image/scope record; no new external-image verification",
+          "limitations": "Generic local event, not a complete neutral-product preparation; 1113 remains candidate."
+        }
+      ],
+      "afterStatus": "complete",
+      "afterFigure": "mechanisms/carbonyl-add.svg",
+      "afterDisplayed": true
+    },
+    {
+      "id": "hydride",
+      "name": "Lithium aluminum hydride reduction",
+      "beforeStatus": "partial",
+      "beforeFigure": {
+        "src": "https://image3.slideserve.com/6508687/reduction-of-carbonyls1-l.jpg",
+        "href": "https://www.slideserve.com/brooke-stafford/alcohols",
+        "alt": "Partial illustration: Lithium aluminum hydride reduction. Acetone hydride-addition motif omits aluminum coordination/speciation and uses free H− shorthand; not the complete three-stage reagent model.",
+        "credit": "Organic chemistry lecture slide · SlideServe",
+        "match": "partial",
+        "coverage": "partial",
+        "reviewNote": "Acetone hydride-addition motif omits aluminum coordination/speciation and uses free H− shorthand; not the complete three-stage reagent model.",
+        "reviewed": true,
+        "rightsStatus": "unconfirmed",
+        "license": "Reuse permission not established; external reference retained.",
+        "display": false
+      },
+      "events": [
+        {
+          "index": 1,
+          "code": "1111",
+          "title": "Proposed carbonyl–aluminum encounter complex",
+          "equation": "(CH₃)₂C=O + AlH₄⁻ ⇌ (CH₃)₂C=O→AlH₄⁻",
+          "beforeStatus": "partial",
+          "afterStatus": "partial",
+          "focusedImage": null,
+          "coverageBasis": "Inherited v0.3.4 image/scope record; no new external-image verification",
+          "limitations": "Discrete AlH4− precoordination is an unvalidated schematic assumption. Aggregation and hydrolysis require research."
+        },
+        {
+          "index": 2,
+          "code": "1113",
+          "title": "Intracomplex hydride transfer",
+          "equation": "(CH₃)₂C=O→AlH₄⁻ → [(CH₃)₂CH–O–AlH₃]⁻",
+          "beforeStatus": "partial",
+          "afterStatus": "partial",
+          "focusedImage": null,
+          "coverageBasis": "Inherited v0.3.4 image/scope record; no new external-image verification",
+          "limitations": "Discrete AlH4− precoordination is an unvalidated schematic assumption. Aggregation and hydrolysis require research."
+        },
+        {
+          "index": 3,
+          "code": "1122",
+          "title": "Aqueous work-up releases the alcohol",
+          "equation": "[(CH₃)₂CH–O–AlH₃]⁻ + H₂O → (CH₃)₂CHOH + [AlH₃OH]⁻",
+          "beforeStatus": "partial",
+          "afterStatus": "partial",
+          "focusedImage": null,
+          "coverageBasis": "Inherited v0.3.4 image/scope record; no new external-image verification",
+          "limitations": "Discrete AlH4− precoordination is an unvalidated schematic assumption. Aggregation and hydrolysis require research. The code labels the dominant component process; no unique elementary-event code is established for the whole grouped stage."
+        }
+      ],
+      "afterStatus": "partial",
+      "afterFigure": "https://image3.slideserve.com/6508687/reduction-of-carbonyls1-l.jpg",
+      "afterDisplayed": false
+    },
+    {
+      "id": "grignard",
+      "name": "Grignard addition to an aldehyde",
+      "beforeStatus": "representative",
+      "beforeFigure": {
+        "src": "https://ncstate.pressbooks.pub/app/uploads/sites/52/2023/11/image42-21.jpeg",
+        "href": "https://ncstate.pressbooks.pub/organicchem/chapter/nucleophilic-addition-of-hydride-and-grignard-reagents-alcohol-formation-3/",
+        "alt": "Representative illustration: Grignard addition to an aldehyde. Generic ketone/RMgX and water hydrolysis; card uses benzaldehyde/CH3MgBr followed by hydronium work-up.",
+        "credit": "John McMurry / OpenStax · David Tully adaptation · NC State Pressbooks",
+        "match": "representative",
+        "coverage": "complete",
+        "reviewNote": "Generic ketone/RMgX and water hydrolysis; card uses benzaldehyde/CH3MgBr followed by hydronium work-up.",
+        "reviewed": true,
+        "rightsStatus": "source-license-checked",
+        "license": "CC BY-NC-SA 4.0; unmodified source image",
+        "display": true,
+        "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      "events": [
+        {
+          "index": 1,
+          "code": "1111",
+          "title": "Carbonyl coordination to magnesium",
+          "equation": "PhCHO + CH₃MgBr ⇌ PhCH=O→MgBrCH₃",
+          "beforeStatus": "representative",
+          "afterStatus": "representative",
+          "focusedImage": null,
+          "coverageBasis": "Inherited v0.3.4 image/scope record; no new external-image verification",
+          "limitations": "Aggregation, Schlenk equilibria and grouped work-up are unresolved; the monomer contact model is provisional."
+        },
+        {
+          "index": 2,
+          "code": "1113",
+          "title": "Intracomplex carbon transfer",
+          "equation": "PhCH=O→MgBrCH₃ → PhCH(O–MgBr)CH₃",
+          "beforeStatus": "representative",
+          "afterStatus": "representative",
+          "focusedImage": null,
+          "coverageBasis": "Inherited v0.3.4 image/scope record; no new external-image verification",
+          "limitations": "Aggregation, Schlenk equilibria and grouped work-up are unresolved; the monomer contact model is provisional."
+        },
+        {
+          "index": 3,
+          "code": "1122",
+          "title": "Acidic work-up protonates the magnesium alkoxide",
+          "equation": "PhCH(O–MgBr)CH₃ + H₃O⁺ → PhCH(OH)CH₃ + MgBr⁺ + H₂O",
+          "beforeStatus": "representative",
+          "afterStatus": "representative",
+          "focusedImage": null,
+          "coverageBasis": "Inherited v0.3.4 image/scope record; no new external-image verification",
+          "limitations": "Aggregation, Schlenk equilibria and grouped work-up are unresolved; the monomer contact model is provisional. The code labels the dominant component process; no unique elementary-event code is established for the whole grouped stage."
+        }
+      ],
+      "afterStatus": "representative",
+      "afterFigure": "https://ncstate.pressbooks.pub/app/uploads/sites/52/2023/11/image42-21.jpeg",
+      "afterDisplayed": true
+    },
+    {
+      "id": "cyanohydrin",
+      "name": "Cyanohydrin formation",
+      "beforeStatus": "representative",
+      "beforeFigure": {
+        "src": "https://image1.slideserve.com/2870845/draw-the-mechanism-for-the-reaction-of-hydrogen-cyanide-and-ethanal-l.jpg",
+        "href": "https://www.slideserve.com/jalen/carbonyl-compounds",
+        "alt": "Representative illustration: Cyanohydrin formation. Ethanal rather than benzaldehyde; the cyanide-addition/protonation sequence is analogous.",
+        "credit": "Organic chemistry lecture slide · SlideServe",
+        "match": "representative",
+        "coverage": "complete",
+        "reviewNote": "Ethanal rather than benzaldehyde; the cyanide-addition/protonation sequence is analogous.",
+        "reviewed": true,
+        "rightsStatus": "unconfirmed",
+        "license": "Reuse permission not established; external reference retained.",
+        "display": false
+      },
+      "events": [
+        {
+          "index": 1,
+          "code": "1113",
+          "title": "Nucleophilic carbonyl addition",
+          "equation": "PhCHO + CN⁻ → PhCH(O⁻)CN",
+          "beforeStatus": "representative",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/v035/cyanohydrin-step-1.svg",
+          "coverageBasis": "Authored focused structural SVG",
+          "limitations": "Acetone attack-angle data are analogous, not benzaldehyde results."
+        },
+        {
+          "index": 2,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "PhCH(O⁻)CN + HCN → PhCH(OH)CN + CN⁻",
+          "beforeStatus": "representative",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/v035/cyanohydrin-step-2.svg",
+          "coverageBasis": "Authored focused structural SVG",
+          "limitations": "Acetone attack-angle data are analogous, not benzaldehyde results."
+        }
+      ],
+      "afterStatus": "complete",
+      "afterFigure": "mechanisms/v035/cyanohydrin.svg",
+      "afterDisplayed": true
+    },
+    {
+      "id": "acyl",
+      "name": "Nucleophilic acyl substitution",
+      "beforeStatus": "representative",
+      "beforeFigure": {
+        "src": "https://ncstate.pressbooks.pub/app/uploads/sites/52/2023/11/image167-5.jpeg",
+        "href": "https://openstax.org/books/organic-chemistry/pages/21-2-nucleophilic-acyl-substitution-reactions",
+        "alt": "Representative illustration: Nucleophilic acyl substitution. Generic RCOCl and R′O−; R=CH3 and R′=CH3 recover the card. Original page URL returns 404.",
+        "credit": "John McMurry / OpenStax · David Tully adaptation · NC State Pressbooks",
+        "match": "representative",
+        "coverage": "complete",
+        "reviewNote": "Generic RCOCl and R′O−; R=CH3 and R′=CH3 recover the card. Original page URL returns 404.",
+        "reviewed": true,
+        "rightsStatus": "source-license-checked",
+        "license": "CC BY-NC-SA 4.0; unmodified source image",
+        "display": true,
+        "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      "events": [
+        {
+          "index": 1,
+          "code": "1113",
+          "title": "Nucleophilic carbonyl addition",
+          "equation": "CH₃COCl + CH₃O⁻ → CH₃C(O⁻)(OCH₃)Cl",
+          "beforeStatus": "representative",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/v035/acyl-step-1.svg",
+          "coverageBasis": "Authored focused structural SVG",
+          "limitations": "A discrete tetrahedral intermediate for this highly reactive pair is a teaching assumption; check concerted alternatives."
+        },
+        {
+          "index": 2,
+          "code": "1113",
+          "title": "Tetrahedral intermediate collapse",
+          "equation": "CH₃C(O⁻)(OCH₃)Cl → CH₃CO₂CH₃ + Cl⁻",
+          "beforeStatus": "representative",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/v035/acyl-step-2.svg",
+          "coverageBasis": "Authored focused structural SVG",
+          "limitations": "A discrete tetrahedral intermediate for this highly reactive pair is a teaching assumption; check concerted alternatives."
+        }
+      ],
+      "afterStatus": "complete",
+      "afterFigure": "mechanisms/v035/acyl.svg",
+      "afterDisplayed": true
+    },
+    {
+      "id": "epoxide",
+      "name": "Basic epoxide opening",
+      "beforeStatus": "representative",
+      "beforeFigure": {
+        "src": "https://image1.slideserve.com/2027597/reactions-of-epoxides-base-catalyzed-ring-opening1-l.jpg",
+        "href": "https://www.slideserve.com/luyu/ethers",
+        "alt": "Representative illustration: Basic epoxide opening. Substituted epoxide + ethoxide/ethanol, not ethylene oxide + methoxide/acid work-up.",
+        "credit": "Organic chemistry lecture slide · SlideServe",
+        "match": "representative",
+        "coverage": "complete",
+        "reviewNote": "Substituted epoxide + ethoxide/ethanol, not ethylene oxide + methoxide/acid work-up.",
+        "reviewed": true,
+        "rightsStatus": "unconfirmed",
+        "license": "Reuse permission not established; external reference retained.",
+        "display": false
+      },
+      "events": [
+        {
+          "index": 1,
+          "code": "1122",
+          "title": "Ring-opening displacement",
+          "equation": "ethylene oxide + CH₃O⁻ → CH₃OCH₂CH₂O⁻",
+          "beforeStatus": "representative",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/v035/epoxide-step-1.svg",
+          "coverageBasis": "Authored focused structural SVG",
+          "limitations": "Actual solvent and order of acid work-up must be retained when comparing paths."
+        },
+        {
+          "index": 2,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "CH₃OCH₂CH₂O⁻ + H₃O⁺ → CH₃OCH₂CH₂OH + H₂O",
+          "beforeStatus": "representative",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/v035/epoxide-step-2.svg",
+          "coverageBasis": "Authored focused structural SVG",
+          "limitations": "Actual solvent and order of acid work-up must be retained when comparing paths."
+        }
+      ],
+      "afterStatus": "complete",
+      "afterFigure": "mechanisms/v035/epoxide.svg",
+      "afterDisplayed": true
+    },
+    {
+      "id": "aldol",
+      "name": "Aldol addition",
+      "beforeStatus": "representative",
+      "beforeFigure": {
+        "src": "https://images.squarespace-cdn.com/content/v1/62185f3b81809a6fd03ddbb5/134a326b-e67c-4496-afd6-a087e976360e/Ketone_aldol%2Bcopy.png",
+        "href": "https://www.makingmolecules.com/",
+        "alt": "Representative illustration: Aldol addition. Generic ketone aldol addition; the card uses acetaldehyde.",
+        "credit": "Making Molecules · Aldol addition mechanism",
+        "match": "representative",
+        "coverage": "complete",
+        "reviewNote": "Generic ketone aldol addition; the card uses acetaldehyde.",
+        "reviewed": true,
+        "rightsStatus": "unconfirmed",
+        "license": "Reuse permission not established; external reference retained.",
+        "display": false
+      },
+      "events": [
+        {
+          "index": 1,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "CH₃CHO + HO⁻ ⇌ ⁻CH₂CHO + H₂O",
+          "beforeStatus": "representative",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/v035/aldol-step-1.svg",
+          "coverageBasis": "Authored focused structural SVG",
+          "limitations": "1122 for enolate formation is a dominant proton-transfer convention; delocalization is not encoded separately."
+        },
+        {
+          "index": 2,
+          "code": "1113",
+          "title": "Nucleophilic carbonyl addition",
+          "equation": "⁻CH₂CHO + CH₃CHO → CH₃CH(O⁻)CH₂CHO",
+          "beforeStatus": "representative",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/v035/aldol-step-2.svg",
+          "coverageBasis": "Authored focused structural SVG",
+          "limitations": "1122 for enolate formation is a dominant proton-transfer convention; delocalization is not encoded separately."
+        },
+        {
+          "index": 3,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "CH₃CH(O⁻)CH₂CHO + H₂O ⇌ CH₃CH(OH)CH₂CHO + HO⁻",
+          "beforeStatus": "representative",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/v035/aldol-step-3.svg",
+          "coverageBasis": "Authored focused structural SVG",
+          "limitations": "1122 for enolate formation is a dominant proton-transfer convention; delocalization is not encoded separately."
+        }
+      ],
+      "afterStatus": "complete",
+      "afterFigure": "mechanisms/v035/aldol.svg",
+      "afterDisplayed": true
+    },
+    {
+      "id": "radical-add",
+      "name": "Radical alkene addition",
+      "beforeStatus": "representative",
+      "beforeFigure": {
+        "src": "https://cf.ppt-online.org/files/slide/w/WV2FQO8BaH07nouxhEfp5Rt6SmLZezKCUrPTIJ/slide-5.jpg",
+        "href": "https://ppt-online.org/215280",
+        "alt": "Representative illustration: Radical alkene addition. Generic initiating R radical and ethene chain growth, not specifically methyl radical. Initiation/termination also appear.",
+        "credit": "Edexcel organic reaction mechanisms slide · PPT Online",
+        "match": "representative",
+        "coverage": "complete",
+        "reviewNote": "Generic initiating R radical and ethene chain growth, not specifically methyl radical. Initiation/termination also appear.",
+        "reviewed": true,
+        "rightsStatus": "unconfirmed",
+        "license": "Reuse permission not established; external reference retained.",
+        "display": false
+      },
+      "events": [
+        {
+          "index": 1,
+          "code": "2211",
+          "title": "Radical addition",
+          "equation": "CH₃• + CH₂=CH₂ → CH₃CH₂CH₂•",
+          "beforeStatus": "representative",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/v035/radical-add-step-1.svg",
+          "coverageBasis": "Authored focused structural SVG",
+          "limitations": "One propagation event only; spin density and initiation conditions are not computed."
+        }
+      ],
+      "afterStatus": "complete",
+      "afterFigure": "mechanisms/v035/radical-add.svg",
+      "afterDisplayed": true
+    },
+    {
+      "id": "radical-combine",
+      "name": "Radical recombination",
+      "beforeStatus": "complete",
+      "beforeFigure": {
+        "src": "mechanisms/radical-combine.svg",
+        "href": "mechanisms/radical-combine.svg",
+        "alt": "Exact mechanism illustration: Radical recombination",
+        "credit": "SORG Atlas · original SVG",
+        "match": "exact",
+        "coverage": "complete",
+        "reviewNote": "Original drawing of the stated model: reactants, formal charges, electron-flow arrows and product. No calculated geometry is implied.",
+        "reviewed": true,
+        "rightsStatus": "original",
+        "license": "Original SORG Atlas illustration · CC BY-NC-SA 4.0",
+        "display": true,
+        "priorReference": {
+          "src": "https://image3.slideserve.com/6885036/slide9-l.jpg",
+          "href": "https://www.slideserve.com/armando-lopez/acids-and-bases",
+          "alt": "Pending illustration: Radical recombination. Image depicts Br-atom transfer from Br2 to a carbon radical, not combination of two methyl radicals.",
+          "credit": "Organic chemistry lecture slide · SlideServe",
+          "match": "pending",
+          "coverage": "mismatch",
+          "reviewNote": "Image depicts Br-atom transfer from Br2 to a carbon radical, not combination of two methyl radicals.",
+          "reviewed": true,
+          "rightsStatus": "unconfirmed",
+          "license": "Reuse permission not established; external reference retained.",
+          "display": false
+        },
+        "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      "events": [
+        {
+          "index": 1,
+          "code": "2211",
+          "title": "Radical coupling",
+          "equation": "CH₃• + •CH₃ → CH₃CH₃",
+          "beforeStatus": "complete",
+          "afterStatus": "complete",
+          "focusedImage": null,
+          "coverageBasis": "Inherited v0.3.4 image/scope record; no new external-image verification",
+          "limitations": "Only a spin-compatible radical pair forms the singlet product directly."
+        }
+      ],
+      "afterStatus": "complete",
+      "afterFigure": "mechanisms/radical-combine.svg",
+      "afterDisplayed": true
+    },
+    {
+      "id": "radical-chain",
+      "name": "Radical chlorination: propagation",
+      "beforeStatus": "representative",
+      "beforeFigure": {
+        "src": "https://image.slidesharecdn.com/halogenationofalkanes-180702090250/75/Halogenation-of-alkanes-5-2048.jpg",
+        "href": "https://www.slideshare.net/slideshow/halogenation-of-alkanes/103920966",
+        "alt": "Representative illustration: Radical chlorination: propagation. Generic CR3 radical/alkane, not explicitly methane. Only propagation is compared.",
+        "credit": "Organic chemistry lecture slide · SlideShare",
+        "match": "representative",
+        "coverage": "complete",
+        "reviewNote": "Generic CR3 radical/alkane, not explicitly methane. Only propagation is compared.",
+        "reviewed": true,
+        "rightsStatus": "unconfirmed",
+        "license": "Reuse permission not established; external reference retained.",
+        "display": false
+      },
+      "events": [
+        {
+          "index": 1,
+          "code": "2222",
+          "title": "Hydrogen atom abstraction",
+          "equation": "Cl• + CH₄ → HCl + CH₃•",
+          "beforeStatus": "representative",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/v035/radical-chain-step-1.svg",
+          "coverageBasis": "Authored focused structural SVG",
+          "limitations": "Propagation only; initiation, termination and further chlorination are outside this card."
+        },
+        {
+          "index": 2,
+          "code": "2222",
+          "title": "Chlorine atom transfer",
+          "equation": "CH₃• + Cl₂ → CH₃Cl + Cl•",
+          "beforeStatus": "representative",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/v035/radical-chain-step-2.svg",
+          "coverageBasis": "Authored focused structural SVG",
+          "limitations": "Propagation only; initiation, termination and further chlorination are outside this card."
+        }
+      ],
+      "afterStatus": "complete",
+      "afterFigure": "mechanisms/v035/radical-chain.svg",
+      "afterDisplayed": true
+    },
+    {
+      "id": "diels-alder",
+      "name": "Diels–Alder cycloaddition",
+      "beforeStatus": "complete",
+      "beforeFigure": {
+        "src": "mechanisms/diels-alder.svg",
+        "href": "mechanisms/diels-alder.svg",
+        "alt": "Original equation-matched electron-flow pathway: Diels–Alder cycloaddition",
+        "credit": "SORG Atlas · original SVG",
+        "match": "exact",
+        "coverage": "complete",
+        "reviewNote": "Original condensed-structure pathway checked against every listed equation, charge, intermediate and electron-pair move; Fischer step 3 expands a grouped solvent relay. The diagram does not specify computed transition-state geometry.",
+        "reviewed": true,
+        "rightsStatus": "original",
+        "license": "Original SORG Atlas illustration · CC BY-NC-SA 4.0",
+        "display": true,
+        "priorReference": {
+          "src": "https://www.chemistrylearner.com/wp-content/uploads/2020/01/Diels-Alder-Reaction-Mechanism.jpg",
+          "href": "https://www.chemistrylearner.com/diels-alder-reaction.html",
+          "alt": "Exact illustration: Diels–Alder cycloaddition. Butadiene + ethene to cyclohexene and three cyclic arrows match.",
+          "credit": "Chemistry Learner · Diels–Alder reaction",
+          "match": "exact",
+          "coverage": "complete",
+          "reviewNote": "Butadiene + ethene to cyclohexene and three cyclic arrows match.",
+          "reviewed": true,
+          "rightsStatus": "unconfirmed",
+          "license": "Reuse permission not established; external reference retained.",
+          "display": false
+        },
+        "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      "events": [
+        {
+          "index": 1,
+          "code": "1333",
+          "title": "[4+2] cycloaddition",
+          "equation": "CH₂=CH–CH=CH₂ + CH₂=CH₂ → cyclohexene",
+          "beforeStatus": "complete",
+          "afterStatus": "complete",
+          "focusedImage": null,
+          "coverageBasis": "Inherited v0.3.4 image/scope record; no new external-image verification",
+          "limitations": "Numerical model uses acrolein, not ethene; radical-cation data cannot inherit 1333."
+        }
+      ],
+      "afterStatus": "complete",
+      "afterFigure": "mechanisms/diels-alder.svg",
+      "afterDisplayed": true
+    },
+    {
+      "id": "claisen",
+      "name": "Claisen rearrangement",
+      "beforeStatus": "representative",
+      "beforeFigure": {
+        "src": "https://image.slideserve.com/392337/mechanism-4-claisen-rearrangement-l.jpg",
+        "href": "https://www.slideserve.com/asasia/ch-18-ethers-and-epoxides",
+        "alt": "Representative illustration: Claisen rearrangement. Aromatic Claisen: allyl phenyl ether rearranges and rearomatizes; card is allyl vinyl ether to pent-4-enal.",
+        "credit": "Organic chemistry lecture slide · SlideServe",
+        "match": "representative",
+        "coverage": "complete",
+        "reviewNote": "Aromatic Claisen: allyl phenyl ether rearranges and rearomatizes; card is allyl vinyl ether to pent-4-enal.",
+        "reviewed": true,
+        "rightsStatus": "unconfirmed",
+        "license": "Reuse permission not established; external reference retained.",
+        "display": false
+      },
+      "events": [
+        {
+          "index": 1,
+          "code": "1333",
+          "title": "[3,3]-Sigmatropic rearrangement",
+          "equation": "allyl vinyl ether → pent-4-enal",
+          "beforeStatus": "representative",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/v035/claisen-step-1.svg",
+          "coverageBasis": "Authored focused structural SVG",
+          "limitations": "ELF conclusion checked at abstract level; full electronic method/basis still needs inspection."
+        }
+      ],
+      "afterStatus": "complete",
+      "afterFigure": "mechanisms/v035/claisen.svg",
+      "afterDisplayed": true
+    },
+    {
+      "id": "electrocyclic",
+      "name": "Thermal electrocyclic closure",
+      "beforeStatus": "representative",
+      "beforeFigure": {
+        "src": "https://www.stereoelectronics.org/webPR/images_PR/4042.png",
+        "href": "https://www.stereoelectronics.org/webPR/PR_04.html",
+        "alt": "Representative illustration: Thermal electrocyclic closure. Substituted (E,E)-diene frontier-orbital/conrotation diagram; card is unsubstituted butadiene. Electron-pair flow is not fully depicted.",
+        "credit": "Stereoelectronics · Pericyclic reaction orbital symmetry",
+        "match": "representative",
+        "coverage": "partial",
+        "reviewNote": "Substituted (E,E)-diene frontier-orbital/conrotation diagram; card is unsubstituted butadiene. Electron-pair flow is not fully depicted.",
+        "reviewed": true,
+        "rightsStatus": "unconfirmed",
+        "license": "Reuse permission not established; external reference retained.",
+        "display": false
+      },
+      "events": [
+        {
+          "index": 1,
+          "code": "1333",
+          "title": "4π electrocyclic closure",
+          "equation": "1,3-butadiene ⇌ cyclobutene",
+          "beforeStatus": "representative",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/v035/electrocyclic-step-1.svg",
+          "coverageBasis": "Authored focused structural SVG",
+          "limitations": "Thermal symmetry rule retained; closure feasibility and equilibrium are separate questions."
+        }
+      ],
+      "afterStatus": "complete",
+      "afterFigure": "mechanisms/v035/electrocyclic.svg",
+      "afterDisplayed": true
+    },
+    {
+      "id": "e1cb-dehydration",
+      "name": "E1cB dehydration",
+      "beforeStatus": "partial",
+      "beforeFigure": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/E1cb-mechanism.svg/1280px-E1cb-mechanism.svg.png",
+        "href": "https://commons.wikimedia.org/wiki/File:E1cb-mechanism.svg",
+        "alt": "Representative illustration: E1cB dehydration. Generic carbanion/X elimination; no carbonyl stabilization or specific diacetone-alcohol/OH group.",
+        "credit": "Matthias M. · Wikimedia Commons · Public domain",
+        "match": "representative",
+        "coverage": "partial",
+        "reviewNote": "Generic carbanion/X elimination; no carbonyl stabilization or specific diacetone-alcohol/OH group.",
+        "reviewed": true,
+        "rightsStatus": "source-license-checked",
+        "license": "Public domain (file-page declaration)",
+        "display": true,
+        "licenseUrl": "https://commons.wikimedia.org/wiki/File:E1cb-mechanism.svg"
+      },
+      "events": [
+        {
+          "index": 1,
+          "code": "1122",
+          "title": "α-Deprotonation to the enolate",
+          "equation": "CH₃COCH₂C(OH)(CH₃)₂ + HO⁻ ⇌ CH₃COCH⁻C(OH)(CH₃)₂ + H₂O",
+          "beforeStatus": "partial",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/v035/e1cb-dehydration-step-1.svg",
+          "coverageBasis": "Authored focused structural SVG",
+          "limitations": "1133 fits bond redistribution but the codebook example refers to base attack; here the leaving-group event starts from enolate."
+        },
+        {
+          "index": 2,
+          "code": "1133",
+          "title": "E1cB elimination of hydroxide",
+          "equation": "CH₃COCH⁻C(OH)(CH₃)₂ → CH₃COCH=C(CH₃)₂ + HO⁻",
+          "beforeStatus": "partial",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/v035/e1cb-dehydration-step-2.svg",
+          "coverageBasis": "Authored focused structural SVG",
+          "limitations": "1133 fits bond redistribution but the codebook example refers to base attack; here the leaving-group event starts from enolate."
+        }
+      ],
+      "afterStatus": "complete",
+      "afterFigure": "mechanisms/v035/e1cb-dehydration.svg",
+      "afterDisplayed": true
+    },
+    {
+      "id": "alkene-bromination",
+      "name": "Bromination of an alkene",
+      "beforeStatus": "representative",
+      "beforeFigure": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/3/33/Alkene-bromine-addition-2D-skeletal.png",
+        "href": "https://commons.wikimedia.org/wiki/File:Alkene-bromine-addition-2D-skeletal.png",
+        "alt": "Representative illustration: Bromination of an alkene. Substituted alkene bromonium/anti opening, not ethene. Bridge formation is condensed in the drawing.",
+        "credit": "Benjah-bmm27 · Wikimedia Commons · Public domain",
+        "match": "representative",
+        "coverage": "complete",
+        "reviewNote": "Substituted alkene bromonium/anti opening, not ethene. Bridge formation is condensed in the drawing.",
+        "reviewed": true,
+        "rightsStatus": "source-license-checked",
+        "license": "Public domain (file-page declaration)",
+        "display": true,
+        "licenseUrl": "https://commons.wikimedia.org/wiki/File:Alkene-bromine-addition-2D-skeletal.png"
+      },
+      "events": [
+        {
+          "index": 1,
+          "code": "1133",
+          "title": "Bromonium-ion formation",
+          "equation": "CH₂=CH₂ + Br₂ → [CH₂–Br⁺–CH₂] + Br⁻",
+          "beforeStatus": "representative",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/v035/alkene-bromination-step-1.svg",
+          "coverageBasis": "Authored focused structural SVG",
+          "limitations": "1133 is a retained candidate: polar bridging is not a pericyclic O3 process; codebook examples do not explicitly cover it."
+        },
+        {
+          "index": 2,
+          "code": "1122",
+          "title": "Backside bromide ring opening",
+          "equation": "[CH₂–Br⁺–CH₂] + Br⁻ → BrCH₂CH₂Br",
+          "beforeStatus": "representative",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/v035/alkene-bromination-step-2.svg",
+          "coverageBasis": "Authored focused structural SVG",
+          "limitations": "1133 is a retained candidate: polar bridging is not a pericyclic O3 process; codebook examples do not explicitly cover it."
+        }
+      ],
+      "afterStatus": "complete",
+      "afterFigure": "mechanisms/v035/alkene-bromination.svg",
+      "afterDisplayed": true
+    },
+    {
+      "id": "halohydrin",
+      "name": "Halohydrin formation",
+      "beforeStatus": "missing",
+      "beforeFigure": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/f/fe/NBS_Bromohydrin_Formation_Scheme.png",
+        "href": "https://commons.wikimedia.org/wiki/File:NBS_Bromohydrin_Formation_Scheme.png",
+        "alt": "Pending illustration: Halohydrin formation. Image fetch rate-limited/access-blocked. File page describes an NBS scheme, whereas the card uses Br2/water; exactness not established.",
+        "credit": "~K · Wikimedia Commons · Public domain; NBS halohydrin scheme",
+        "match": "pending",
+        "coverage": "unreviewed",
+        "reviewNote": "Image fetch rate-limited/access-blocked. File page describes an NBS scheme, whereas the card uses Br2/water; exactness not established.",
+        "reviewed": false,
+        "rightsStatus": "source-license-checked",
+        "license": "Public domain (file-page declaration)",
+        "display": false,
+        "licenseUrl": "https://commons.wikimedia.org/wiki/File:NBS_Bromohydrin_Formation_Scheme.png"
+      },
+      "events": [
+        {
+          "index": 1,
+          "code": "1133",
+          "title": "Bromonium-ion formation",
+          "equation": "CH₃CH=CH₂ + Br₂ → [CH₃CH–CH₂–Br]⁺ + Br⁻",
+          "beforeStatus": "missing",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/v035/halohydrin-step-1.svg",
+          "coverageBasis": "Authored focused structural SVG",
+          "limitations": "Same 1133 boundary as bromination; Br2/water must not be equated with an NBS scheme."
+        },
+        {
+          "index": 2,
+          "code": "1122",
+          "title": "Water opens the bromonium ion",
+          "equation": "[CH₃CH–CH₂–Br]⁺ + H₂O → BrCH₂CH(OH₂⁺)CH₃",
+          "beforeStatus": "missing",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/v035/halohydrin-step-2.svg",
+          "coverageBasis": "Authored focused structural SVG",
+          "limitations": "Same 1133 boundary as bromination; Br2/water must not be equated with an NBS scheme."
+        },
+        {
+          "index": 3,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "BrCH₂CH(OH₂⁺)CH₃ + H₂O ⇌ BrCH₂CH(OH)CH₃ + H₃O⁺",
+          "beforeStatus": "missing",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/v035/halohydrin-step-3.svg",
+          "coverageBasis": "Authored focused structural SVG",
+          "limitations": "Same 1133 boundary as bromination; Br2/water must not be equated with an NBS scheme."
+        }
+      ],
+      "afterStatus": "complete",
+      "afterFigure": "mechanisms/v035/halohydrin.svg",
+      "afterDisplayed": true
+    },
+    {
+      "id": "nitration-benzene",
+      "name": "Nitration of benzene",
+      "beforeStatus": "missing",
+      "beforeFigure": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/7/74/Nitration_of_benzene.svg",
+        "href": "https://commons.wikimedia.org/wiki/File:Nitration_of_benzene.svg",
+        "alt": "Pending illustration: Nitration of benzene. Image fetch rate-limited/access-blocked; file-page metadata is not visual verification.",
+        "credit": "Yikrazuul · Wikimedia Commons · Public domain",
+        "match": "pending",
+        "coverage": "unreviewed",
+        "reviewNote": "Image fetch rate-limited/access-blocked; file-page metadata is not visual verification.",
+        "reviewed": false,
+        "rightsStatus": "source-license-checked",
+        "license": "Public domain (file-page declaration)",
+        "display": false,
+        "licenseUrl": "https://commons.wikimedia.org/wiki/File:Nitration_of_benzene.svg"
+      },
+      "events": [
+        {
+          "index": 1,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "HNO₃ + H₂SO₄ ⇌ H₂NO₃⁺ + HSO₄⁻",
+          "beforeStatus": "missing",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/v035/nitration-benzene-step-1.svg",
+          "coverageBasis": "Authored focused structural SVG",
+          "limitations": "1133 at arene attack/rearomatization is broader than the codebook examples; preserve candidate status pending codebook discussion."
+        },
+        {
+          "index": 2,
+          "code": "1111",
+          "title": "Nitronium-ion formation",
+          "equation": "H₂NO₃⁺ → NO₂⁺ + H₂O",
+          "beforeStatus": "missing",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/v035/nitration-benzene-step-2.svg",
+          "coverageBasis": "Authored focused structural SVG",
+          "limitations": "1133 at arene attack/rearomatization is broader than the codebook examples; preserve candidate status pending codebook discussion."
+        },
+        {
+          "index": 3,
+          "code": "1133",
+          "title": "Aromatic attack and σ-complex formation",
+          "equation": "C₆H₆ + NO₂⁺ → [C₆H₆NO₂]⁺",
+          "beforeStatus": "missing",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/v035/nitration-benzene-step-3.svg",
+          "coverageBasis": "Authored focused structural SVG",
+          "limitations": "1133 at arene attack/rearomatization is broader than the codebook examples; preserve candidate status pending codebook discussion."
+        },
+        {
+          "index": 4,
+          "code": "1133",
+          "title": "Deprotonation restores aromaticity",
+          "equation": "[C₆H₆NO₂]⁺ + HSO₄⁻ → C₆H₅NO₂ + H₂SO₄",
+          "beforeStatus": "missing",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/v035/nitration-benzene-step-4.svg",
+          "coverageBasis": "Authored focused structural SVG",
+          "limitations": "1133 at arene attack/rearomatization is broader than the codebook examples; preserve candidate status pending codebook discussion."
+        }
+      ],
+      "afterStatus": "complete",
+      "afterFigure": "mechanisms/v035/nitration-benzene.svg",
+      "afterDisplayed": true
+    },
+    {
+      "id": "fischer-esterification",
+      "name": "Fischer esterification",
+      "beforeStatus": "complete",
+      "beforeFigure": {
+        "src": "mechanisms/fischer-esterification.svg",
+        "href": "mechanisms/fischer-esterification.svg",
+        "alt": "Original equation-matched electron-flow pathway: Fischer esterification",
+        "credit": "SORG Atlas · original SVG",
+        "match": "exact",
+        "coverage": "complete",
+        "reviewNote": "Original condensed-structure pathway checked against every listed equation, charge, intermediate and electron-pair move; Fischer step 3 expands a grouped solvent relay. The diagram does not specify computed transition-state geometry.",
+        "reviewed": true,
+        "rightsStatus": "original",
+        "license": "Original SORG Atlas illustration · CC BY-NC-SA 4.0",
+        "display": true,
+        "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+        "priorReference": {
+          "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Fischer_esterification_mechanism.svg/1280px-Fischer_esterification_mechanism.svg.png",
+          "href": "https://commons.wikimedia.org/wiki/File:Fischer_esterification_mechanism.svg",
+          "alt": "Pending illustration: Fischer esterification. Image fetch rate-limited/access-blocked; substrate match and proton-relay coverage remain unreviewed.",
+          "credit": "V8rik · Wikimedia Commons · Public domain",
+          "match": "pending",
+          "coverage": "unreviewed",
+          "reviewNote": "Image fetch rate-limited/access-blocked; substrate match and proton-relay coverage remain unreviewed.",
+          "reviewed": false,
+          "rightsStatus": "source-license-checked",
+          "license": "Public domain (file-page declaration)",
+          "display": false,
+          "licenseUrl": "https://commons.wikimedia.org/wiki/File:Fischer_esterification_mechanism.svg"
+        }
+      },
+      "events": [
+        {
+          "index": 1,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "CH₃C(=O)OH + H₃O⁺ ⇌ CH₃C(=OH⁺)OH + H₂O",
+          "beforeStatus": "complete",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/fischer-esterification-step-1.svg",
+          "coverageBasis": "Inherited v0.3.4 image/scope record; no new external-image verification",
+          "limitations": "The proton relay is grouped; its displayed 1122 refers to component proton transfers, not a verified single event."
+        },
+        {
+          "index": 2,
+          "code": "1113",
+          "title": "Nucleophilic carbonyl addition",
+          "equation": "CH₃C(=OH⁺)OH + HOCH₂CH₃ → CH₃C(OH)(OH)(O⁺HCH₂CH₃)",
+          "beforeStatus": "complete",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/fischer-esterification-step-2.svg",
+          "coverageBasis": "Inherited v0.3.4 image/scope record; no new external-image verification",
+          "limitations": "The proton relay is grouped; its displayed 1122 refers to component proton transfers, not a verified single event."
+        },
+        {
+          "index": 3,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "CH₃C(OH)(OH)(O⁺HCH₂CH₃) ⇌ CH₃C(OH)(OH₂⁺)(OCH₂CH₃)",
+          "beforeStatus": "complete",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/fischer-esterification-step-3.svg",
+          "coverageBasis": "Inherited v0.3.4 image/scope record; no new external-image verification",
+          "limitations": "The proton relay is grouped; its displayed 1122 refers to component proton transfers, not a verified single event. The code labels the dominant component process; no unique elementary-event code is established for the whole grouped stage."
+        },
+        {
+          "index": 4,
+          "code": "1113",
+          "title": "Collapse of the tetrahedral intermediate",
+          "equation": "CH₃C(OH)(OH₂⁺)(OCH₂CH₃) → CH₃C(=OH⁺)OCH₂CH₃ + H₂O",
+          "beforeStatus": "complete",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/fischer-esterification-step-4.svg",
+          "coverageBasis": "Inherited v0.3.4 image/scope record; no new external-image verification",
+          "limitations": "The proton relay is grouped; its displayed 1122 refers to component proton transfers, not a verified single event."
+        },
+        {
+          "index": 5,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "CH₃C(=OH⁺)OCH₂CH₃ + H₂O ⇌ CH₃CO₂CH₂CH₃ + H₃O⁺",
+          "beforeStatus": "complete",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/fischer-esterification-step-5.svg",
+          "coverageBasis": "Inherited v0.3.4 image/scope record; no new external-image verification",
+          "limitations": "The proton relay is grouped; its displayed 1122 refers to component proton transfers, not a verified single event."
+        }
+      ],
+      "afterStatus": "complete",
+      "afterFigure": "mechanisms/fischer-esterification.svg",
+      "afterDisplayed": true
+    },
+    {
+      "id": "imine-formation",
+      "name": "Imine formation from a ketone",
+      "beforeStatus": "complete",
+      "beforeFigure": {
+        "src": "mechanisms/imine-formation.svg",
+        "href": "mechanisms/imine-formation.svg",
+        "alt": "Original equation-matched electron-flow pathway: Imine formation from a ketone",
+        "credit": "SORG Atlas · original SVG",
+        "match": "exact",
+        "coverage": "complete",
+        "reviewNote": "Original condensed-structure pathway checked against every listed equation, charge, intermediate and electron-pair move; Fischer step 3 expands a grouped solvent relay. The diagram does not specify computed transition-state geometry.",
+        "reviewed": true,
+        "rightsStatus": "original",
+        "license": "Original SORG Atlas illustration · CC BY-NC-SA 4.0",
+        "display": true,
+        "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+        "priorReference": {
+          "src": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Mechanism_imine_formation_general.svg",
+          "href": "https://commons.wikimedia.org/wiki/File:Mechanism_imine_formation_general.svg",
+          "alt": "Pending illustration: Imine formation from a ketone. Downloaded SVG rendered with unreadable molecular labels in the inspection renderer. Exact substrate and arrow coverage could not be verified.",
+          "credit": "Wikimedia Commons · CC BY-SA 4.0",
+          "match": "pending",
+          "coverage": "unreviewed",
+          "reviewNote": "Downloaded SVG rendered with unreadable molecular labels in the inspection renderer. Exact substrate and arrow coverage could not be verified.",
+          "reviewed": false,
+          "rightsStatus": "source-license-checked",
+          "license": "CC BY-SA 4.0; unmodified source image",
+          "display": false,
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+        }
+      },
+      "events": [
+        {
+          "index": 1,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "(CH₃)₂C=O + H₃O⁺ ⇌ (CH₃)₂C=OH⁺ + H₂O",
+          "beforeStatus": "complete",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/imine-formation-step-1.svg",
+          "coverageBasis": "Inherited v0.3.4 image/scope record; no new external-image verification",
+          "limitations": "1113 for iminium dehydration extends the carbonyl-elimination analogy to C=N; retained as candidate, not a taxonomy change."
+        },
+        {
+          "index": 2,
+          "code": "1113",
+          "title": "Nucleophilic carbonyl addition",
+          "equation": "(CH₃)₂C=OH⁺ + CH₃NH₂ → (CH₃)₂C(OH)(NH₂CH₃)⁺",
+          "beforeStatus": "complete",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/imine-formation-step-2.svg",
+          "coverageBasis": "Inherited v0.3.4 image/scope record; no new external-image verification",
+          "limitations": "1113 for iminium dehydration extends the carbonyl-elimination analogy to C=N; retained as candidate, not a taxonomy change."
+        },
+        {
+          "index": 3,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "(CH₃)₂C(OH)(NH₂CH₃)⁺ + H₂O ⇌ (CH₃)₂C(OH)(NHCH₃) + H₃O⁺",
+          "beforeStatus": "complete",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/imine-formation-step-3.svg",
+          "coverageBasis": "Inherited v0.3.4 image/scope record; no new external-image verification",
+          "limitations": "1113 for iminium dehydration extends the carbonyl-elimination analogy to C=N; retained as candidate, not a taxonomy change."
+        },
+        {
+          "index": 4,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "(CH₃)₂C(OH)(NHCH₃) + H₃O⁺ ⇌ (CH₃)₂C(OH₂⁺)(NHCH₃) + H₂O",
+          "beforeStatus": "complete",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/imine-formation-step-4.svg",
+          "coverageBasis": "Inherited v0.3.4 image/scope record; no new external-image verification",
+          "limitations": "1113 for iminium dehydration extends the carbonyl-elimination analogy to C=N; retained as candidate, not a taxonomy change."
+        },
+        {
+          "index": 5,
+          "code": "1113",
+          "title": "Dehydration to the iminium ion",
+          "equation": "(CH₃)₂C(OH₂⁺)(NHCH₃) → (CH₃)₂C=N⁺(H)CH₃ + H₂O",
+          "beforeStatus": "complete",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/imine-formation-step-5.svg",
+          "coverageBasis": "Inherited v0.3.4 image/scope record; no new external-image verification",
+          "limitations": "1113 for iminium dehydration extends the carbonyl-elimination analogy to C=N; retained as candidate, not a taxonomy change."
+        },
+        {
+          "index": 6,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "(CH₃)₂C=N⁺(H)CH₃ + H₂O ⇌ (CH₃)₂C=NCH₃ + H₃O⁺",
+          "beforeStatus": "complete",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/imine-formation-step-6.svg",
+          "coverageBasis": "Inherited v0.3.4 image/scope record; no new external-image verification",
+          "limitations": "1113 for iminium dehydration extends the carbonyl-elimination analogy to C=N; retained as candidate, not a taxonomy change."
+        }
+      ],
+      "afterStatus": "complete",
+      "afterFigure": "mechanisms/imine-formation.svg",
+      "afterDisplayed": true
+    },
+    {
+      "id": "aldol-condensation",
+      "name": "Base-catalyzed aldol condensation",
+      "beforeStatus": "missing",
+      "beforeFigure": {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/E1cB_aldol_condensation.svg/1280px-E1cB_aldol_condensation.svg.png",
+        "href": "https://commons.wikimedia.org/wiki/File:E1cB_aldol_condensation.svg",
+        "alt": "Pending illustration: Base-catalyzed aldol condensation. Image fetch rate-limited/access-blocked. The filename alone does not establish full five-stage coverage.",
+        "credit": "Wikimedia Commons · E1cB aldol-condensation scheme",
+        "match": "pending",
+        "coverage": "unreviewed",
+        "reviewNote": "Image fetch rate-limited/access-blocked. The filename alone does not establish full five-stage coverage.",
+        "reviewed": false,
+        "rightsStatus": "source-license-checked",
+        "license": "CC BY-SA 4.0; unmodified source image",
+        "display": false,
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "events": [
+        {
+          "index": 1,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "(CH₃)₂CO + HO⁻ ⇌ CH₃COCH₂⁻ + H₂O",
+          "beforeStatus": "missing",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/v035/aldol-condensation-step-1.svg",
+          "coverageBasis": "Authored focused structural SVG",
+          "limitations": "Enolate and E1cB steps retain their convention/candidate boundaries; dehydration depends on conditions."
+        },
+        {
+          "index": 2,
+          "code": "1113",
+          "title": "Nucleophilic carbonyl addition",
+          "equation": "CH₃COCH₂⁻ + (CH₃)₂CO → CH₃COCH₂C(O⁻)(CH₃)₂",
+          "beforeStatus": "missing",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/v035/aldol-condensation-step-2.svg",
+          "coverageBasis": "Authored focused structural SVG",
+          "limitations": "Enolate and E1cB steps retain their convention/candidate boundaries; dehydration depends on conditions."
+        },
+        {
+          "index": 3,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "CH₃COCH₂C(O⁻)(CH₃)₂ + H₂O ⇌ CH₃COCH₂C(OH)(CH₃)₂ + HO⁻",
+          "beforeStatus": "missing",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/v035/aldol-condensation-step-3.svg",
+          "coverageBasis": "Authored focused structural SVG",
+          "limitations": "Enolate and E1cB steps retain their convention/candidate boundaries; dehydration depends on conditions."
+        },
+        {
+          "index": 4,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "CH₃COCH₂C(OH)(CH₃)₂ + HO⁻ ⇌ CH₃COCH⁻C(OH)(CH₃)₂ + H₂O",
+          "beforeStatus": "missing",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/v035/aldol-condensation-step-4.svg",
+          "coverageBasis": "Authored focused structural SVG",
+          "limitations": "Enolate and E1cB steps retain their convention/candidate boundaries; dehydration depends on conditions."
+        },
+        {
+          "index": 5,
+          "code": "1133",
+          "title": "E1cB loss of hydroxide",
+          "equation": "CH₃COCH⁻C(OH)(CH₃)₂ → CH₃COCH=C(CH₃)₂ + HO⁻",
+          "beforeStatus": "missing",
+          "afterStatus": "complete",
+          "focusedImage": "mechanisms/v035/aldol-condensation-step-5.svg",
+          "coverageBasis": "Authored focused structural SVG",
+          "limitations": "Enolate and E1cB steps retain their convention/candidate boundaries; dehydration depends on conditions."
+        }
+      ],
+      "afterStatus": "complete",
+      "afterFigure": "mechanisms/v035/aldol-condensation.svg",
+      "afterDisplayed": true
+    },
+    {
+      "id": "acid-epoxide",
+      "name": "Acid-promoted epoxide opening",
+      "beforeStatus": "complete",
+      "beforeFigure": {
+        "src": "mechanisms/acid-epoxide.svg",
+        "href": "mechanisms/acid-epoxide.svg",
+        "alt": "Exact mechanism illustration: Acid-promoted epoxide opening",
+        "credit": "SORG Atlas · original SVG",
+        "match": "exact",
+        "coverage": "complete",
+        "reviewNote": "Original drawing of the stated model: reactants, formal charges, electron-flow arrows and product. No calculated geometry is implied.",
+        "reviewed": true,
+        "rightsStatus": "original",
+        "license": "Original SORG Atlas illustration · CC BY-NC-SA 4.0",
+        "display": true,
+        "priorReference": {
+          "src": "https://www.chemistrysteps.com/wp-content/uploads/2024/11/Epoxide-Reactions-under-Acidic-and-Basic-Conditions-768x821.png",
+          "href": "https://www.chemistrysteps.com/reactions-of-epoxides-under-acidic-and-basic-conditions/",
+          "alt": "Representative illustration: Acid-promoted epoxide opening. Tertiary-substituted epoxide/HCl gives attack at its tertiary site; this cannot establish regioselectivity of propylene oxide.",
+          "credit": "Chemistry Steps · Epoxide ring-opening mechanisms",
+          "match": "representative",
+          "coverage": "complete",
+          "reviewNote": "Tertiary-substituted epoxide/HCl gives attack at its tertiary site; this cannot establish regioselectivity of propylene oxide.",
+          "reviewed": true,
+          "rightsStatus": "unconfirmed",
+          "license": "Reuse permission not established; external reference retained.",
+          "display": false
+        },
+        "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      "events": [
+        {
+          "index": 1,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "propylene oxide + HCl ⇌ protonated propylene oxide + Cl⁻",
+          "beforeStatus": "complete",
+          "afterStatus": "complete",
+          "focusedImage": null,
+          "coverageBasis": "Inherited v0.3.4 image/scope record; no new external-image verification",
+          "limitations": "Corrected HCl/ether major pathway attacks primary carbon; do not generalize tertiary-epoxide selectivity to this substrate."
+        },
+        {
+          "index": 2,
+          "code": "1122",
+          "title": "Chloride opens the protonated epoxide",
+          "equation": "protonated propylene oxide + Cl⁻ → ClCH₂CH(OH)CH₃",
+          "beforeStatus": "complete",
+          "afterStatus": "complete",
+          "focusedImage": null,
+          "coverageBasis": "Inherited v0.3.4 image/scope record; no new external-image verification",
+          "limitations": "Corrected HCl/ether major pathway attacks primary carbon; do not generalize tertiary-epoxide selectivity to this substrate."
+        }
+      ],
+      "afterStatus": "complete",
+      "afterFigure": "mechanisms/acid-epoxide.svg",
+      "afterDisplayed": true
+    }
+  ]
+}

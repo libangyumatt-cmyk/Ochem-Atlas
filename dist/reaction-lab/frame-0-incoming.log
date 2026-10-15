@@ -1,0 +1,201 @@
+#INFO: **** input file is /workspace/scratch/69db76a371c7/Ochem-Atlas/research/reaction-lab/fields_sn2.py ****
+"""Evaluate actual SCF densities/orbitals and defined references on a common grid.
+Requires compute_sn2.py outputs. No interpolation of electronic fields.
+"""
+from pathlib import Path
+import json, gzip, shutil, hashlib
+import numpy as np
+from scipy.optimize import linear_sum_assignment
+from pyscf import gto, scf, dft, lib
+from skimage.measure import marching_cubes
+from compute_sn2 import ROOT, OUT, BASIS, BOHR, solve
+lib.num_threads(1)
+N=(81,49,49);ORIGIN=np.array([-10.,-6.,-6.]);STEP=.25
+LEVELS={'total':[.02,.05,.1],'difference':[.001,.003,.008],'deformation':[.001,.003,.008],
+        'occupied':[.025,.04,.06],'virtual':[.025,.04,.06]}
+
+def surfaces(field,level):
+    result={}
+    for name,sign in [('positive',1),('negative',-1)]:
+        if (field*sign).max()<=level:result[name]=None;continue
+        v,f,_,_=marching_cubes((field*sign).astype(np.float32),level,allow_degenerate=False)
+        result[name]={'vertices':np.round((v*STEP+ORIGIN)*BOHR,3).ravel().tolist(),'faces':f.ravel().tolist(),'triangleCount':len(f)}
+    return result
+
+def quadrature(mol,dm):
+    grid=dft.gen_grid.Grids(mol);grid.level=5;grid.build()
+    count=0.
+    for i in range(0,len(grid.coords),12000):
+        ao=mol.eval_gto('GTOval_sph',grid.coords[i:i+12000]);rho=np.einsum('pi,ij,pj->p',ao,dm,ao)
+        count+=rho@grid.weights[i:i+12000]
+    return float(count)
+
+def main():
+    meta=json.loads((OUT/'calculation.json').read_text())
+    grid=np.stack(np.meshgrid(*[ORIGIN[k]+STEP*np.arange(N[k]) for k in range(3)],indexing='ij'),axis=-1).reshape(-1,3)
+    result={**meta,'schemaVersion':'1.0','event':'sn2:0','modelId':'chloride-identity-sn2',
+        'grid':{'shape':N,'originBohr':ORIGIN.tolist(),'spacingBohr':STEP,'order':'C order, z fastest',
+                'alignment':'C fixed at origin; incoming Cl on negative x, outgoing Cl on positive x; H1 in +y half-plane. No fit, rotation or relabeling.',
+                'densityUnits':'electron bohr^-3','orbitalUnits':'bohr^-3/2','meshCoordinates':'angstrom','fieldPrecision':'float32 in NPZ; full float64 coefficients retained'},
+        'references':{'difference':'rho(frame) minus rho(frame 0), at identical Cartesian grid coordinates. Includes nuclear displacement; not a unique electron-transfer density.',
+        'deformation':'rho(complex) minus rho(Cl_in−) minus rho(CH3Cl_out), separately SCF-solved at each frame geometry in each fragment own 6-31+G(d) basis (no ghost functions). Fixed fragment membership across the scan; not counterpoise-corrected EDA.',
+        'probability':'Absolute square of selected occupied canonical spatial orbital; integrates to 1, not occupation-weighted electron density.',
+        'signs':'Teal positive / amber negative electron-number difference. Colors do not mean positive/negative electrical charge.'},
+        'levels':LEVELS,'frames':[]}
+    previous=None;reference=None
+    cached={f['id']:f for f in json.loads((OUT/'sn2.json').read_text())['frames']} if (OUT/'sn2.json').exists() else {}
+    for f in meta['frames']:
+        k=int(f['id'].split('-')[-1]);wf=np.load(OUT/f'{f["id"]}-scf.npz')
+        coords=[(a['element'],a['xyzAngstrom']) for a in f['atoms']]
+        mol=gto.M(atom=coords,basis=BASIS,charge=-1,spin=0,verbose=0)
+        C=wf['mo_coeff'].copy();occ=wf['mo_occ'];S=wf['overlap'];dm=wf['density_matrix']
+        source_hash=hashlib.sha256((OUT/f'{f["id"]}-scf.npz').read_bytes()).hexdigest()
+        if f['id'] in cached and cached[f['id']].get('sourceWavefunctionSha256')==source_hash and (OUT/f'{f["id"]}-fields.npz').exists():
+            saved=cached[f['id']];tracked=np.load(OUT/f'{f["id"]}-tracked.npz')
+            previous=mol,tracked['mo_coeff'],tracked['indices'].tolist()
+            if reference is None:reference=np.load(OUT/f'{f["id"]}-fields.npz')['total'].astype(float).ravel()
+            result['frames'].append(saved)
+            if k==0:result['initialSelection']=json.loads((OUT/'sn2.json').read_text())['initialSelection']
+            print(f['id'],'reusing validated fields for identical coefficients/geometry',flush=True)
+            continue
+        # Same-geometry fragment references, fixed membership (Cl incoming / rest).
+        fragment_fields=[];fragment_meta=[];fragments=[]
+        for name,inds,charge in [('incoming',[1],-1),('substrate',[0,2,3,4,5],0)]:
+            fm,ff=solve([coords[i] for i in inds],OUT/f'{f["id"]}-{name}.log',charge=charge)
+            fd=ff.make_rdm1();F=np.zeros(len(grid))
+            for i in range(0,len(grid),10000):
+                a=fm.eval_gto('GTOval_sph',grid[i:i+10000]);F[i:i+len(a)]=np.einsum('pi,ij,pj->p',a,fd,a)
+            count=quadrature(fm,fd)
+            assert abs(count-fm.nelectron)<5e-4,(name,count)
+            fragment_fields.append(F);fragments.append((fm,ff))
+            np.savez_compressed(OUT/f'{f["id"]}-{name}-scf.npz',mo_coeff=ff.mo_coeff,mo_occ=ff.mo_occ,mo_energy=ff.mo_energy,
+                                overlap=fm.intor('int1e_ovlp'),density_matrix=fd,coordinates=fm.atom_coords()*BOHR)
+            fragment_meta.append({'id':name,'atomIndices':inds,'charge':charge,'multiplicity':1,'scfConverged':bool(ff.converged),
+                                  'electronCount':fm.nelectron,'quadratureElectronCount':count,'energyHartree':float(ff.e_tot)})
+            fm.stdout.close()
+        tracking=[]
+        if previous is None:
+            # Initial occupied canonical orbital chosen by overlap with the incoming
+            # chloride occupied 3px-like orbital, not by canonical index alone.
+            fm,ff=fragments[0]
+            px=[i for i,s in enumerate(fm.ao_labels()) if '3px' in s]
+            assert len(px)==1
+            donor=int(max(np.where(ff.mo_occ>0)[0],key=lambda j:abs(ff.mo_coeff[px[0],j])))
+            overlap=ff.mo_coeff[:,donor]@gto.intor_cross('int1e_ovlp',fm,mol)@C
+            occupied=int(max(np.where(occ>0)[0],key=lambda j:abs(overlap[j])))
+            fm,ff=fragments[1];lumo=int(np.where(ff.mo_occ==0)[0][0])
+            overlapv=ff.mo_coeff[:,lumo]@gto.intor_cross('int1e_ovlp',fm,mol)@C
+            virtual=int(max(np.where(occ==0)[0],key=lambda j:abs(overlapv[j])))
+            indices=[occupied,virtual]
+            for j in indices:
+                pos=np.argmax(abs(C[:,j]));C[:,j]*=1 if C[pos,j]>=0 else -1
+            result['initialSelection']={'occupiedIndex':occupied+1,'incomingFragmentOrbitalIndex':donor+1,
+                'incomingProjection':float(abs(overlap[occupied])),'virtualIndex':virtual+1,'substrateLUMOIndex':lumo+1,
+                'substrateProjection':float(abs(overlapv[virtual])),
+                'identity':'Projected selection of full-complex canonical MOs. These are NOT fragment-localized donor/acceptor surfaces.'}
+        else:
+            pm,pc,pi=previous;cross=pc.T@gto.intor_cross('int1e_ovlp',pm,mol)@C;assignment={}
+            for block in [np.where(occ>0)[0],np.where(occ==0)[0]]:
+                rows,cols=linear_sum_assignment(-abs(cross[np.ix_(block,block)]))
+                assignment.update({int(block[a]):int(block[b]) for a,b in zip(rows,cols)})
+            indices=[assignment[j] for j in pi]
+            for old,new in zip(pi,indices):
+                raw=float(cross[old,new]);C[:,new]*=1 if raw>=0 else -1
+                best=float(np.max(np.delete(abs(cross[old]),new)))
+                tracking.append({'previousIndex':old+1,'index':new+1,'signedOverlapBeforeAlignment':raw,
+                                 'alignedOverlap':abs(raw),'nextCandidate':best,'ambiguous':abs(raw)<.7 or abs(raw)<=best})
+        previous=mol,C.copy(),indices
+        rho=np.zeros(len(grid));mo=[np.zeros(len(grid)),np.zeros(len(grid))]
+        for i in range(0,len(grid),10000):
+            ao=mol.eval_gto('GTOval_sph',grid[i:i+10000]);rho[i:i+len(ao)]=np.einsum('pi,ij,pj->p',ao,dm,ao)
+            for j,index in enumerate(indices):mo[j][i:i+len(ao)]=ao@C[:,index]
+        count=quadrature(mol,dm);assert abs(count-44)<5e-4,(f['id'],count)
+        assert rho.min()>-1e-10
+        if reference is None:reference=rho.copy()
+        fields={'total':rho.reshape(N),'difference':(rho-reference).reshape(N),
+                'deformation':(rho-fragment_fields[0]-fragment_fields[1]).reshape(N),
+                'occupied':mo[0].reshape(N),'virtual':mo[1].reshape(N)}
+        np.savez_compressed(OUT/f'{f["id"]}-fields.npz',**{key:v.astype('float32') for key,v in fields.items()},origin_bohr=ORIGIN,spacing_bohr=STEP)
+        np.savez_compressed(OUT/f'{f["id"]}-tracked.npz',mo_coeff=C,indices=indices)
+        local={**f,'sourceWavefunctionSha256':source_hash,'quadratureElectronCount':count,'uniformGridElectronEstimate':float(rho.sum()*STEP**3),
+               'normalizationNote':'AO-metric count and independent level-5 Becke quadrature are normalization checks. Uniform display grid under-resolves nuclear cores; its integral is reported, never rescaled.',
+               'fragments':fragment_meta,'tracking':tracking,'orbitals':[{'index':j+1,'energyHartree':float(wf['mo_energy'][j]),'occupation':int(occ[j])} for j in indices],
+               'fieldFile':f'reaction-lab/{f["id"]}-fields.npz','meshFile':f'reaction-lab/{f["id"]}-meshes.json'}
+        meshes={key:[surfaces(field,level) for level in LEVELS[key]] for key,field in fields.items()}
+        (OUT/f'{f["id"]}-meshes.json').write_text(json.dumps(meshes,separators=(',',':')))
+        result['frames'].append(local)
+        (OUT/'sn2.json').write_text(json.dumps(result,indent=2))
+        print(f['id'],'density',count,'uniform',local['uniformGridElectronEstimate'],'MOs',indices,'tracking',tracking,flush=True)
+    (OUT/'sn2.json').write_text(json.dumps(result,indent=2))
+    for name in ['compute_sn2.py','fields_sn2.py']:
+        shutil.copy2(Path(__file__).parent/name,OUT/name)
+
+if __name__=='__main__':main()
+#INFO: ******************** input file end ********************
+
+
+System: uname_result(system='Linux', node='3700da01de83', release='6.18.44', version='#1 SMP Sat Sep 26 20:02:31 UTC 2026', machine='x86_64')  Threads 1
+Python 3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]
+numpy 2.3.5  scipy 1.17.0  h5py 3.16.0
+Date: Thu Oct 15 17:12:59 2026
+PySCF version 2.14.0
+PySCF path  /root/.local/lib/python3.12/site-packages/pyscf
+
+[CONFIG] conf_file None
+[INPUT] verbose = 4
+[INPUT] num. atoms = 1
+[INPUT] num. electrons = 18
+[INPUT] charge = -1
+[INPUT] spin (= nelec alpha-beta = 2S) = 0
+[INPUT] symmetry False subgroup None
+[INPUT] Mole.unit = Angstrom
+[INPUT] Symbol           X                Y                Z      unit          X                Y                Z       unit  Magmom
+[INPUT]  1 Cl    -2.993375365394   0.000000000000   0.000000000000 AA   -5.656659628615   0.000000000000   0.000000000000 Bohr   0.0
+
+nuclear repulsion = 0
+number of shells = 10
+number of NR pGTOs = 55
+number of NR cGTOs = 22
+basis = 6-31+g(d)
+ecp = {}
+CPU time:         0.59
+
+
+******** <class 'pyscf.scf.hf.RHF'> ********
+method = RHF
+initial guess = minao
+damping factor = 0
+level_shift factor = 0
+DIIS = <class 'pyscf.scf.diis.CDIIS'>
+diis_start_cycle = 1
+diis_space = 8
+diis_damp = 0
+SCF conv_tol = 1e-11
+SCF conv_tol_grad = 1e-07
+SCF max_cycles = 150
+direct_scf = True
+direct_scf_tol = 1e-13
+chkfile to save SCF result = /tmp/tmpr0w54e6x
+max_memory 4000 MB (current use 0 MB)
+Initial guess from minao.
+init E= -459.229518352655
+  HOMO = -0.433930579779869  LUMO = 0.0984707187385045  gap/eV = 14.48738
+cycle= 1 E= -459.49603021605  delta_E= -0.267  |g|= 0.321  |ddm|= 0.436
+  HOMO = -0.0625128727197053  LUMO = 0.316605622935828  gap/eV = 10.31634
+cycle= 2 E= -459.532779034605  delta_E= -0.0367  |g|= 0.141  |ddm|= 0.655
+  HOMO = -0.1430144957383  LUMO = 0.304793969852066  gap/eV = 12.18549
+cycle= 3 E= -459.538233093666  delta_E= -0.00545  |g|= 0.00837  |ddm|= 0.185
+  HOMO = -0.148983634254026  LUMO = 0.303489939713949  gap/eV = 12.31243
+cycle= 4 E= -459.538277172437  delta_E= -4.41e-05  |g|= 0.00203  |ddm|= 0.029
+  HOMO = -0.150171835541119  LUMO = 0.302968303168239  gap/eV = 12.33057
+cycle= 5 E= -459.538279440481  delta_E= -2.27e-06  |g|= 0.000102  |ddm|= 0.00757
+  HOMO = -0.150253177175982  LUMO = 0.302950079111147  gap/eV = 12.33229
+cycle= 6 E= -459.538279449136  delta_E= -8.65e-09  |g|= 1.49e-05  |ddm|= 0.000501
+  HOMO = -0.150245296223804  LUMO = 0.302949802378325  gap/eV = 12.33207
+cycle= 7 E= -459.538279449311  delta_E= -1.75e-10  |g|= 4.14e-07  |ddm|= 5.58e-05
+  HOMO = -0.150245297516309  LUMO = 0.302949860807791  gap/eV = 12.33207
+cycle= 8 E= -459.538279449311  delta_E= -3.41e-13  |g|= 4.78e-08  |ddm|= 1.34e-06
+  HOMO = -0.150245283756954  LUMO = 0.302949859803531  gap/eV = 12.33207
+Extra cycle  E= -459.538279449311  delta_E= 1.14e-13  |g|= 2.34e-08  |ddm|= 1.87e-07
+converged SCF energy = -459.538279449311
+tot grids = 43048

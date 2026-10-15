@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 525"><g transform="translate(0,0)"><title>Claisen rearrangement event 1</title><desc>allyl vinyl ether → pent-4-enal Concerted [3,3]: vinyl pi → C=O; O–allyl sigma → allyl C=C; allyl pi → new C–C. 2D connectivity is not a TS conformer.</desc><rect width="1200" height="525" fill="#fffefa"/><defs><marker id="pair" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#aa6a4e" stroke-width="1.5"/></marker><marker id="fish" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 1 L9 5" fill="none" stroke="#aa6a4e" stroke-width="1.5"/></marker></defs><g font-family="DejaVu Sans,sans-serif" fill="#203c43"><text x="30" y="35" font-size="22">Claisen rearrangement · event 1</text><text x="30" y="68" font-size="17">allyl vinyl ether → pent-4-enal</text><g transform="translate(25,100)">
+<!-- END OF HEADER -->
+<path class='bond-0 atom-0 atom-1' d='M 82.5,162.4 L 161.3,122.1' style='fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-0 atom-0 atom-1' d='M 88.5,174.2 L 160.5,137.4' style='fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-1 atom-1 atom-2' d='M 161.3,122.1 L 193.9,143.2' style='fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-1 atom-1 atom-2' d='M 193.9,143.2 L 226.5,164.3' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-2 atom-2 atom-3' d='M 244.7,165.5 L 279.5,147.7' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-2 atom-2 atom-3' d='M 279.5,147.7 L 314.4,129.8' style='fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-3 atom-3 atom-4' d='M 314.4,129.8 L 388.7,177.9' style='fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-4 atom-4 atom-5' d='M 388.7,177.9 L 467.5,137.6' style='fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-4 atom-4 atom-5' d='M 389.5,162.6 L 461.5,125.8' style='fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path d='M 157.4,124.1 L 161.3,122.1 L 162.9,123.1' style='fill:none;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 312.7,130.7 L 314.4,129.8 L 318.1,132.3' style='fill:none;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 385.0,175.5 L 388.7,177.9 L 392.6,175.9' style='fill:none;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path class='atom-2' d='M 229.4 170.2
+Q 229.4 167.0, 231.0 165.2
+Q 232.6 163.4, 235.6 163.4
+Q 238.6 163.4, 240.2 165.2
+Q 241.8 167.0, 241.8 170.2
+Q 241.8 173.5, 240.2 175.3
+Q 238.5 177.2, 235.6 177.2
+Q 232.6 177.2, 231.0 175.3
+Q 229.4 173.5, 229.4 170.2
+M 235.6 175.6
+Q 237.7 175.6, 238.8 174.3
+Q 239.9 172.9, 239.9 170.2
+Q 239.9 167.6, 238.8 166.2
+Q 237.7 164.9, 235.6 164.9
+Q 233.5 164.9, 232.4 166.2
+Q 231.3 167.5, 231.3 170.2
+Q 231.3 172.9, 232.4 174.3
+Q 233.5 175.6, 235.6 175.6
+' fill='#FF0000'/>
+</g><g transform="translate(625,100)">
+<!-- END OF HEADER -->
+<path class='bond-0 atom-0 atom-1' d='M 384.6,177.3 L 418.7,159.9' style='fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-0 atom-0 atom-1' d='M 418.7,159.9 L 452.7,142.5' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-0 atom-0 atom-1' d='M 385.4,162.4 L 412.8,148.4' style='fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-0 atom-0 atom-1' d='M 412.8,148.4 L 446.8,130.9' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-1 atom-0 atom-2' d='M 384.6,177.3 L 311.9,130.3' style='fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-2 atom-2 atom-3' d='M 311.9,130.3 L 234.8,169.7' style='fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-3 atom-3 atom-4' d='M 234.8,169.7 L 162.1,122.7' style='fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-4 atom-4 atom-5' d='M 162.1,122.7 L 85.0,162.1' style='fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-4 atom-4 atom-5' d='M 161.4,137.6 L 91.0,173.7' style='fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path d='M 386.3,176.5 L 384.6,177.3 L 381.0,175.0' style='fill:none;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 315.6,132.6 L 311.9,130.3 L 308.1,132.3' style='fill:none;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 238.7,167.7 L 234.8,169.7 L 231.2,167.4' style='fill:none;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path d='M 165.8,125.0 L 162.1,122.7 L 158.3,124.6' style='fill:none;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;' />
+<path class='atom-1' d='M 452.6 132.1
+Q 452.6 128.9, 454.2 127.1
+Q 455.8 125.3, 458.8 125.3
+Q 461.8 125.3, 463.4 127.1
+Q 465.0 128.9, 465.0 132.1
+Q 465.0 135.4, 463.3 137.3
+Q 461.7 139.1, 458.8 139.1
+Q 455.8 139.1, 454.2 137.3
+Q 452.6 135.4, 452.6 132.1
+M 458.8 137.6
+Q 460.8 137.6, 461.9 136.2
+Q 463.1 134.8, 463.1 132.1
+Q 463.1 129.5, 461.9 128.2
+Q 460.8 126.8, 458.8 126.8
+Q 456.7 126.8, 455.6 128.2
+Q 454.5 129.5, 454.5 132.1
+Q 454.5 134.9, 455.6 136.2
+Q 456.7 137.6, 458.8 137.6
+' fill='#FF0000'/>
+</g><path data-electrons="2" d="M146.90,242.22 Q182.65,293.92 223.45,246.11" fill="none" stroke="#aa6a4e" stroke-width="2.6" marker-end="url(#pair)"/><path data-electrons="2" d="M300.00,250.00 Q340.80,202.19 376.55,253.89" fill="none" stroke="#aa6a4e" stroke-width="2.6" marker-end="url(#pair)"/><path data-electrons="2" d="M453.10,257.78 Q380.10,183.98 300.00,250.00" fill="none" stroke="#aa6a4e" stroke-width="2.6" marker-end="url(#pair)"/><text x="580" y="260" font-size="36">→</text><text x="30" y="438" font-size="15">Concerted [3,3]: vinyl pi → C=O; O–allyl sigma → allyl C=C; allyl pi → new C–C. 2D connectivity is not a TS conformer.</text><text x="30" y="467" font-size="15"></text><text x="30" y="502" font-size="14">Original structural mechanism · 2-electron curved arrows · 2D depiction, not a calculated trajectory.</text></g></g></svg>

@@ -1,0 +1,7 @@
+# Reaction Orbital Laboratory
+
+The exact protocol, five-frame table, references, normalization errors, phase correspondence and scientific limits are documented in [V035_AUDIT.md](../../V035_AUDIT.md). These are Atlas RHF/6-31+G(d) chloride identity SN2 computations, separate from the hydroxide/methyl bromide teaching card and published ZORA-OLYP study.
+
+Run `compute_sn2.py`, `fields_sn2.py`, then `validate_sn2.py` using the pinned `requirements.txt`, with `OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1`. `compute_sn2.py --reuse-center` reuses a stored center/Hessian, while separately recomputing constrained frames. Raw inputs, SCF coefficients/density matrices, fragment references, signed volumetric NPZ arrays, tracking and meshes reside in `dist/reaction-lab/`. All real-space grid coordinates are in bohr; rendered mesh coordinates are in Å. Array flattening is C order (z fastest).
+
+The five distance-constrained/H-relaxed frames are not an IRC. The symmetric center has one verified imaginary vibrational mode at this level. The atom-centered density quadrature integrates to 44 electrons; the coarse uniform display grid under-resolves nuclear cores and must not be used to integrate electron transfer. No density is rescaled or invented. Same-grid geometry subtraction includes nuclear motion; same-geometry fragment deformation uses fixed Cl(in)−/CH3Cl(out) membership and each fragment's own basis, without ghosts.

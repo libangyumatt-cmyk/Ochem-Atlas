@@ -92,3 +92,7 @@ The Orbital Laboratory follows Quantum Foundations and uses seven newly **calcul
 ## v0.3.4 orbital diversity and evolution
 
 The laboratory adds open-shell allyl SOMO/spin density, all six benzene π orbitals, all four s-trans-butadiene π orbitals, and five independently calculated ethylene torsion frames. Inputs, outputs and coefficients are downloadable. See [V034_AUDIT.md](V034_AUDIT.md) for exact methods, identity/phase tracking, validation and the outstanding native WebGL/mobile tests. No reactions or SORG categories were added.
+
+## v0.3.5 Reaction Orbital Laboratory
+
+One selected event now connects conventional mechanisms to a separate calculated chloride SN2 case: five RHF/6-31+G(d) constrained geometries, a Hessian-verified central first-order saddle, canonical MO tracking, total density, same-grid density differences and same-geometry fragment deformation density. It is not an IRC. See [V035_AUDIT.md](V035_AUDIT.md) and the [31-reaction/69-event illustration inventory](audit/V035_MECHANISM_INVENTORY.md). Forty-four original catalog event SVGs improve complete teaching coverage to 29 entries; LAH remains partial and Grignard representative. New structural illustration regeneration requires `rdkit==2026.9.1`; existing numerical data and taxonomy are retained.

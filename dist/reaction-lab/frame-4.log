@@ -1,0 +1,196 @@
+#INFO: **** input file is /workspace/scratch/69db76a371c7/Ochem-Atlas/research/reaction-lab/compute_sn2.py ****
+"""RHF/6-31+G(d) chloride identity SN2. Five independently computed geometries.
+No IRC: fixed Cl distances, C3v-constrained relaxation of the three hydrogens.
+The symmetric center is separately optimized and Hessian-tested.
+OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 python research/reaction-lab/compute_sn2.py
+"""
+from pathlib import Path
+import json, platform
+import numpy as np
+import scipy, pyscf
+from scipy.optimize import minimize
+from pyscf import gto, scf, lib
+from pyscf.hessian import thermo
+
+ROOT=Path(__file__).resolve().parents[2]
+OUT=ROOT/'dist/reaction-lab';OUT.mkdir(exist_ok=True)
+lib.num_threads(1)
+try:lib.current_memory()
+except FileNotFoundError:lib.current_memory=lambda:(0,0)
+BOHR=.529177210903
+BASIS='6-31+g(d)'
+
+def atoms(rin,rout,rho,h):
+    return [('C',(0,0,0)),('Cl',(-rin,0,0)),('Cl',(rout,0,0))]+[
+        ('H',(h,rho*np.cos(a),rho*np.sin(a))) for a in np.arange(3)*2*np.pi/3]
+
+def solve(coords,log=None,charge=-1):
+    mol=gto.M(atom=coords,unit='Angstrom',basis=BASIS,charge=charge,spin=0,
+              verbose=4 if log else 0,output=str(log) if log else None)
+    mf=scf.RHF(mol);mf.conv_tol=1e-11;mf.conv_tol_grad=1e-7;mf.max_cycle=150
+    mf.kernel()
+    if not mf.converged:
+        mf=mf.newton();mf.kernel()
+    assert mf.converged
+    return mol,mf
+
+def optimize_center():
+    def fun(x):
+        mol,mf=solve(atoms(x[0],x[0],x[1],0))
+        grad=mf.nuc_grad_method().kernel()/BOHR
+        gr=-grad[1,0]+grad[2,0]
+        gh=sum(grad[3+j,1]*np.cos(a)+grad[3+j,2]*np.sin(a)
+               for j,a in enumerate(np.arange(3)*2*np.pi/3))
+        return mf.e_tot,np.array([gr,gh])
+    result=minimize(fun,[2.3,1.06],jac=True,method='BFGS',options={'gtol':2e-7,'maxiter':60})
+    print('Symmetric optimization',result.x,result.fun,result.jac,result.message,flush=True)
+    assert np.max(abs(result.jac))<2e-5
+    return result.x
+
+def main():
+    import sys
+    if '--reuse-center' in sys.argv:
+        meta=json.loads((OUT/'calculation.json').read_text())
+        rt=meta['centerClDistanceAngstrom'];rhot=meta['centerCHDistanceAngstrom']
+        verified=meta['centerVerifiedTransitionState'];meta['frames']=[]
+    else:
+        rt,rhot=optimize_center()
+        mol,mf=solve(atoms(rt,rt,rhot,0),OUT/'symmetric-hessian.log')
+        gradient=mf.nuc_grad_method().kernel()
+        hessian=mf.Hessian().kernel()
+        vibration=thermo.harmonic_analysis(mol,hessian)
+        freq=vibration['freq_wavenumber']
+        frequency=[{'realCm':float(v.real),'imaginaryCm':float(v.imag)} for v in freq]
+        imag=sum(v.imag>20 for v in freq)
+        stationary=float(np.max(abs(gradient)))<2e-5
+        verified=stationary and imag==1
+        np.savez_compressed(OUT/'symmetric-hessian.npz',gradient=gradient,hessian=hessian,
+                            frequencies=freq,normal_modes=vibration['norm_mode'])
+        meta={'method':'RHF','basis':'6-31+G(d)','program':'PySCF '+pyscf.__version__,
+              'python':platform.python_version(),'numpy':np.__version__,'scipy':scipy.__version__,
+              'charge':-1,'multiplicity':1,'electronCount':44,'environment':'isolated gas phase',
+              'pathKind':'Five-point constrained distance scan; not an IRC. Fixed C and both Cl nuclei; C3v-constrained H relaxation.',
+              'centerClDistanceAngstrom':float(rt),'centerCHDistanceAngstrom':float(rhot),
+              'centerVerifiedTransitionState':bool(verified),'centerMaxGradientEhPerBohr':float(np.max(abs(gradient))),
+              'centerImaginaryModeCountAbove20Cm':int(imag),'centerFrequencies':frequency,'frames':[]}
+        print('Center Hessian',verified,frequency,flush=True)
+    for k,q in enumerate([-.6,-.3,0,.3,.6]):
+        rin,rout=rt-q,rt+q
+        if q:
+            def fun(x):
+                mol,mf=solve(atoms(rin,rout,x[0],x[1]))
+                g=mf.nuc_grad_method().kernel()/BOHR
+                gr=sum(g[3+j,1]*np.cos(a)+g[3+j,2]*np.sin(a)
+                       for j,a in enumerate(np.arange(3)*2*np.pi/3))
+                return mf.e_tot,np.array([gr,sum(g[3:,0])])
+            result=minimize(fun,[rhot,-q*.35],jac=True,method='BFGS',options={'gtol':3e-7,'maxiter':60})
+            assert np.max(abs(result.jac))<2e-5,(k,result)
+            rho,h=result.x
+        else:rho,h=rhot,0
+        coords=atoms(rin,rout,rho,h)
+        mol,mf=solve(coords,OUT/f'frame-{k}.log')
+        S=mol.intor('int1e_ovlp');C=np.array(mf.mo_coeff);occ=mf.mo_occ;dm=mf.make_rdm1()
+        assert np.max(abs(C.T@S@C-np.eye(mol.nao)))<1e-9
+        assert abs(np.einsum('ij,ji',dm,S)-44)<1e-9
+        # Mayer bond index for a closed-shell AO density matrix P: sum (PS)uv(PS)vu.
+        PS=dm@S;slices=mol.aoslice_by_atom()
+        def mayer(a,b):
+            i,j=slices[a,2:];l,m=slices[b,2:]
+            return float(np.sum(PS[i:j,l:m]*PS[l:m,i:j].T))
+        f={'id':f'frame-{k}','qAngstrom':q,'energyHartree':float(mf.e_tot),
+           'rinAngstrom':float(rin),'routAngstrom':float(rout),
+           'atoms':[{'element':s,'xyzAngstrom':list(map(float,v)),'label':('C','Cl in','Cl out','H1','H2','H3')[i]} for i,(s,v) in enumerate(coords)],
+           'geometryKind':'Hessian-verified first-order saddle' if q==0 and verified else 'constrained scan frame; not a stationary point',
+           'scfConverged':bool(mf.converged),'orthonormalError':float(np.max(abs(C.T@S@C-np.eye(mol.nao)))),
+           'electronCountAOMetric':float(np.einsum('ij,ji',dm,S)),
+           'scfOrbitalGradientNorm':float(np.linalg.norm(mf.get_grad(C,occ,mf.get_fock()))),
+           'mayerCClIn':mayer(0,1),'mayerCClOut':mayer(0,2)}
+        np.savez_compressed(OUT/f'frame-{k}-scf.npz',mo_coeff=C,mo_energy=mf.mo_energy,mo_occ=occ,
+                            overlap=S,density_matrix=dm,coordinates=mol.atom_coords()*BOHR)
+        (OUT/f'frame-{k}.xyz').write_text('6\n'+f['geometryKind']+'\n'+''.join(f'{s} {v[0]:.12f} {v[1]:.12f} {v[2]:.12f}\n' for s,v in coords))
+        mol.stdout.close();meta['frames'].append(f)
+        print(k,q,mf.e_tot,rin,rout,'Mayer',f['mayerCClIn'],f['mayerCClOut'],flush=True)
+        (OUT/'calculation.json').write_text(json.dumps(meta,indent=2))
+    (OUT/'calculation.json').write_text(json.dumps(meta,indent=2))
+
+if __name__=='__main__':main()
+#INFO: ******************** input file end ********************
+
+
+System: uname_result(system='Linux', node='3700da01de83', release='6.18.44', version='#1 SMP Sat Sep 26 20:02:31 UTC 2026', machine='x86_64')  Threads 1
+Python 3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]
+numpy 2.3.5  scipy 1.17.0  h5py 3.16.0
+Date: Thu Oct 15 17:12:58 2026
+PySCF version 2.14.0
+PySCF path  /root/.local/lib/python3.12/site-packages/pyscf
+
+[CONFIG] conf_file None
+[INPUT] verbose = 4
+[INPUT] num. atoms = 6
+[INPUT] num. electrons = 44
+[INPUT] charge = -1
+[INPUT] spin (= nelec alpha-beta = 2S) = 0
+[INPUT] symmetry False subgroup None
+[INPUT] Mole.unit = Angstrom
+[INPUT] Symbol           X                Y                Z      unit          X                Y                Z       unit  Magmom
+[INPUT]  1 C      0.000000000000   0.000000000000   0.000000000000 AA    0.000000000000   0.000000000000   0.000000000000 Bohr   0.0
+[INPUT]  2 Cl    -1.793375365394   0.000000000000   0.000000000000 AA   -3.388988279137   0.000000000000   0.000000000000 Bohr   0.0
+[INPUT]  3 Cl     2.993375365394   0.000000000000   0.000000000000 AA    5.656659628615   0.000000000000   0.000000000000 Bohr   0.0
+[INPUT]  4 H      0.334429785250   1.018640142120   0.000000000000 AA    0.631980702020   1.924950888096   0.000000000000 Bohr   0.0
+[INPUT]  5 H      0.334429785250  -0.509320071060   0.882168240391 AA    0.631980702020  -0.962475444048   1.667056370128 Bohr   0.0
+[INPUT]  6 H      0.334429785250  -0.509320071060  -0.882168240391 AA    0.631980702020  -0.962475444048  -1.667056370128 Bohr   0.0
+
+nuclear repulsion = 110.78082549584
+number of shells = 34
+number of NR pGTOs = 153
+number of NR cGTOs = 68
+basis = 6-31+g(d)
+ecp = {}
+CPU time:       315.83
+
+
+******** <class 'pyscf.scf.hf.RHF'> ********
+method = RHF
+initial guess = minao
+damping factor = 0
+level_shift factor = 0
+DIIS = <class 'pyscf.scf.diis.CDIIS'>
+diis_start_cycle = 1
+diis_space = 8
+diis_damp = 0
+SCF conv_tol = 1e-11
+SCF conv_tol_grad = 1e-07
+SCF max_cycles = 150
+direct_scf = True
+direct_scf_tol = 1e-13
+chkfile to save SCF result = /tmp/tmpk_ppokj4
+max_memory 4000 MB (current use 2 MB)
+Initial guess from minao.
+init E= -958.399606417072
+  HOMO = -0.375388059384602  LUMO = 0.0606332216274872  gap/eV = 11.86474
+cycle= 1 E= -958.574670952717  delta_E= -0.175  |g|= 0.435  |ddm|= 1.76
+  HOMO = -0.0901128431952573  LUMO = 0.182711513320018  gap/eV = 7.42393
+cycle= 2 E= -958.631535022984  delta_E= -0.0569  |g|= 0.195  |ddm|= 0.852
+  HOMO = -0.164163031106591  LUMO = 0.181045256052151  gap/eV = 9.39360
+cycle= 3 E= -958.641530873299  delta_E= -0.01  |g|= 0.0237  |ddm|= 0.247
+  HOMO = -0.172600954400812  LUMO = 0.181597841683242  gap/eV = 9.63824
+cycle= 4 E= -958.641820273319  delta_E= -0.000289  |g|= 0.00698  |ddm|= 0.0782
+  HOMO = -0.170507923097056  LUMO = 0.181530631431621  gap/eV = 9.57946
+cycle= 5 E= -958.641839273413  delta_E= -1.9e-05  |g|= 0.0015  |ddm|= 0.0156
+  HOMO = -0.170722936254379  LUMO = 0.181516799133503  gap/eV = 9.58493
+cycle= 6 E= -958.641840831068  delta_E= -1.56e-06  |g|= 0.000299  |ddm|= 0.00788
+  HOMO = -0.170677149463309  LUMO = 0.181496957684425  gap/eV = 9.58315
+cycle= 7 E= -958.641840897845  delta_E= -6.68e-08  |g|= 6.93e-05  |ddm|= 0.00159
+  HOMO = -0.170681342152139  LUMO = 0.181497874573076  gap/eV = 9.58328
+cycle= 8 E= -958.641840901531  delta_E= -3.69e-09  |g|= 2.02e-05  |ddm|= 0.000223
+  HOMO = -0.17067828489929  LUMO = 0.181496719965453  gap/eV = 9.58317
+cycle= 9 E= -958.641840901938  delta_E= -4.07e-10  |g|= 4.59e-06  |ddm|= 0.000125
+  HOMO = -0.170677580163988  LUMO = 0.181496415293985  gap/eV = 9.58314
+cycle= 10 E= -958.641840901953  delta_E= -1.5e-11  |g|= 1.03e-06  |ddm|= 3.5e-05
+  HOMO = -0.170677436709126  LUMO = 0.181496365289953  gap/eV = 9.58314
+cycle= 11 E= -958.641840901955  delta_E= -2.5e-12  |g|= 1.67e-07  |ddm|= 6.44e-06
+  HOMO = -0.170677456679595  LUMO = 0.18149634407426  gap/eV = 9.58314
+cycle= 12 E= -958.641840901957  delta_E= -1.59e-12  |g|= 4.87e-08  |ddm|= 8.51e-07
+  HOMO = -0.170677436821431  LUMO = 0.181496342555215  gap/eV = 9.58314
+Extra cycle  E= -958.641840901956  delta_E= 1.36e-12  |g|= 2.25e-08  |ddm|= 2.99e-07
+converged SCF energy = -958.641840901956
