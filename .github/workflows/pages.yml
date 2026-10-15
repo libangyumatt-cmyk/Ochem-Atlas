@@ -27,6 +27,8 @@ jobs:
         run: python3 build_research.py
       - name: Install test dependencies
         run: npm ci --ignore-scripts
+      - name: Bundle Three.js core module required by the orbital viewer
+        run: cp node_modules/three/build/three.core.js dist/vendor/three.core.js
       - name: Verify data and DOM interactions
         run: npm test
       - name: Package downloadable source
