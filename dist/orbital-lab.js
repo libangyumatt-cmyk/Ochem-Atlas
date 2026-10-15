@@ -51,8 +51,8 @@
  try{
   const probe=document.createElement('canvas');
   if(!probe.getContext('webgl2')&&!probe.getContext('webgl'))throw Error('WebGL unavailable');
-  const THREE=await import('./vendor/three.module.js');
-  const {OrbitControls}=await import('./vendor/addons/controls/OrbitControls.js');
+  const THREE=await import('three');
+  const {OrbitControls}=await import('three/addons/controls/OrbitControls.js');
   const renderer=new THREE.WebGLRenderer({antialias:true,alpha:true});
   renderer.setPixelRatio(Math.min(devicePixelRatio||1,2));
   const scene=new THREE.Scene();
