@@ -50,7 +50,8 @@
  selectMolecule();
  try{
   const probe=document.createElement('canvas');
-  if(!probe.getContext('webgl2')&&!probe.getContext('webgl'))throw Error('WebGL unavailable');
+  const gl=probe.getContext('webgl2')||probe.getContext('webgl');
+  if(!gl)throw Error('WebGL context unavailable in this browser');
   const THREE=await import('three');
   const {OrbitControls}=await import('three/addons/controls/OrbitControls.js');
   const renderer=new THREE.WebGLRenderer({antialias:true,alpha:true});
@@ -60,7 +61,8 @@
   scene.add(new THREE.HemisphereLight(0xffffff,0xb9c9c0,2.4));
   const key=new THREE.DirectionalLight(0xffffff,2.2);key.position.set(3,4,6);scene.add(key);
   const controls=new OrbitControls(camera,renderer.domElement);
-  controls.enablePan=false;controls.minDistance=1.2;controls.maxDistance=18;
+  controls.enablePan=false;controls.enableRotate=true;controls.enableZoom=true;controls.minDistance=1.2;controls.maxDistance=18;
+  renderer.domElement.style.touchAction='none';
   controls.touches.ONE=THREE.TOUCH.ROTATE;controls.touches.TWO=THREE.TOUCH.DOLLY_PAN;
   const group=new THREE.Group();scene.add(group);
   let atoms=[];
@@ -116,12 +118,13 @@
   canvas.append(renderer.domElement);canvas.hidden=false;fallback.hidden=true;
   view={update,reset};
   controls.addEventListener('change',render);
-  new ResizeObserver(resize).observe(canvas);
+  if(typeof ResizeObserver==='function')new ResizeObserver(resize).observe(canvas);
+  else window.addEventListener('resize',resize);
   resize();update(system,orbital,phaseReversed);
-  status.textContent='Computed 3D isosurface · rotate, zoom or select another orbital.';
+  status.textContent='INTERACTIVE 3D · drag or swipe directly on the molecular surface to rotate; wheel or pinch to zoom.';
  }catch(error){
   canvas.hidden=true;fallback.hidden=false;
   view=null;phaseReversed=false;$('#lab-phase').disabled=true;refresh();
-  status.textContent=`Static projection of the same computed mesh · 3D unavailable (${error.message}).`;
+  status.textContent=`STATIC IMAGE — rotation unavailable. 3D initialization failed: ${error.message}. Try Chrome Settings → Site settings → JavaScript / hardware acceleration, or another device.`;
  }
 })();
