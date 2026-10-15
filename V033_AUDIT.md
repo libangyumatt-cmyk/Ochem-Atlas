@@ -26,7 +26,7 @@ The sample grid is 44³ with a three-bohr margin; the browser mesh uses marching
 
 - `npm test`: PASS. Existing reaction/data/foundation/UI suites pass, including 31 entries and 69 events. The new orbital suite parses all seven compressed Gaussian cube grids, checks mesh topology/index bounds, electron count, 1,109 z-parity grid values, global-phase invariance and 24 damped scalar recurrence steps. The UI suite includes new controls and navigation.
 - Generated PNGs for all seven selected orbitals were inspected visually as a montage. H₂ 1σg shows one sign; 1σu* separates at the midpoint. The planar π orbitals show opposite signs above/below the molecular plane, and π* adds the relevant antibonding separation; the formaldehyde n(O) projection is in plane. These are visual/symmetry reviews of these model calculations, not independent high-level validation.
-- `git diff --check`: PASS. Source package creation and deployed browser checks are recorded below after publication.
+- `git diff --check`, JavaScript syntax checks and `python3 package_source.py`: PASS. The source ZIP includes the numerical grids, original output and reproducible scripts.
 
 ## Limitations and further research
 
@@ -34,4 +34,6 @@ RHF/STO-3G is deliberately small and does not establish quantitative organic sel
 
 ## Publication and browser verification
 
-Pending publication and live browser checks. Do not treat the structural Node tests as browser, mobile, WebGL, or independent scientific verification.
+The source tree of the published GitHub commit `f427b4cdcc3312743c9d7e077afbb426e0ef73ed` matches the locally tested tree. GitHub Pages subsequently served the v0.3.3 page, versioned reaction-data link, laboratory section, computed PNG and downloadable orbital links at `https://libangyumatt-cmyk.github.io/Ochem-Atlas/?v=0.3.3#lab`. (This audit update may be followed by a later documentation-only commit.) In the live Chrome cloud browser, choosing formaldehyde MO9 changed the displayed π* identity, method, occupation, orbital energy, image URL and explanation; the PNG loaded at its natural width. The SCF controls changed feedback to 2.00 eV and damping to 1.00; its displayed 24th-step residual was 7.73×10⁻¹ and correctly labeled unconverged. Search for “Diels” returned one entry; saving SN2 changed the saved count to one, opening/closing its mechanism modal worked, the saved-only filter returned one entry, reset restored 31, and the pericyclic family filter returned three.
+
+**Environment limit:** This cloud browser returned `WebGL unavailable`; it showed the calculated static fallback and disabled the phase toggle. Actual 3D camera rotation, pinch/wheel zoom and phase-color reversal in a WebGL browser, as well as real mobile viewport/touch testing, remain **untested**. We inspected all seven generated static surface projections, but a browser screenshot of the fallback is not a 3D interaction test. Browser console output contained extension-origin metadata errors, with no site-origin exception observed during these checks. This does not establish absence of every possible page error or independent validation of the molecular method.
