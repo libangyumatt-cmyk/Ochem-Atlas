@@ -3,7 +3,7 @@ const fs=require('node:fs'),assert=require('node:assert/strict'),crypto=require(
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const preserved=read('audit/V036_PRESERVED_DATA.json');
 for(const [p,hash] of Object.entries(preserved.sha256))assert.equal(crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex'),hash,'retained scientific data changed: '+p);
-const index=read('dist/reaction-lab/index.json');assert.equal(index.schemaVersion,'2.0');assert.equal(index.systems.length,2);
+const index=read('dist/reaction-lab/index.json');assert.equal(index.schemaVersion,'2.0');assert.equal(index.systems.length,3);
 const c=read('dist/reaction-lab/carbonyl-system.json');assert.equal(c.frames.length,7);assert.equal(c.event,'carbonyl-add:0');
 assert.match(c.warnings.join(' '),/not bound/);const detachment=read('dist/reaction-lab/carbonyl/detachment-check.json');assert.ok(detachment.detachmentEnergyHartree<0);assert.equal(detachment.multiplicity,2);assert.equal(detachment.electronCount,1);assert.equal(c.basis,'6-31++G(d,p)');assert.equal(c.electronCount,18);assert.equal(c.multiplicity,1);assert.equal(c.charge,-1);
 assert.match(c.pathKind,/Not an IRC/);assert.equal(c.orbitalDefinitions.length,3);assert.equal(c.series.length,2);

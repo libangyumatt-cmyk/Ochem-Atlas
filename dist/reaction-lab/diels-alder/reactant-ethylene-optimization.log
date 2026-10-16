@@ -1,0 +1,502 @@
+#INFO: **** input file is /workspace/scratch/69db76a371c7/Ochem-Atlas/research/diels-alder/endpoints.py ****
+"""Independent unconstrained reactant and cyclohexene optimizations."""
+from compute import *
+from rdkit import Chem
+from rdkit.Chem import AllChem
+
+def optimize_rd(rd,name):
+ rd=Chem.AddHs(rd);AllChem.EmbedMolecule(rd,randomSeed=37);AllChem.MMFFOptimizeMolecule(rd);xyz=rd.GetConformer();a=[(at.GetSymbol(),tuple(xyz.GetAtomPosition(i))) for i,at in enumerate(rd.GetAtoms())]
+ m,f=solve(a,OUT/(name+'-optimization.log'));opt=optimize(f,maxsteps=80,convergence_grms=1e-5,convergence_gmax=2e-5,verbose=0);return save(name,opt,'Unconstrained independently optimized endpoint; full Hessian checked')
+def main():
+ for name,smiles in [('reactant-ethylene','C=C'),('reactant-butadiene','C=CC=C')]:
+  if (OUT/(name+'.json')).exists():continue
+  _,_,r=optimize_rd(Chem.MolFromSmiles(smiles),name);assert r['maxNuclearGradientEhPerBohr']<3e-5 and min(r['frequenciesCm'])>20
+ # Mapping agrees with TS carbons and RDKit AddHs hydrogen ordering.
+ rw=Chem.RWMol()
+ for _ in range(6):rw.AddAtom(Chem.Atom('C'))
+ for i,j,order in [(0,1,1),(1,2,2),(2,3,1),(3,5,1),(5,4,1),(4,0,1)]:rw.AddBond(i,j,Chem.BondType.DOUBLE if order==2 else Chem.BondType.SINGLE)
+ rd=rw.GetMol();Chem.SanitizeMol(rd)
+ optimize_rd(rd,'product-raw')
+if __name__=='__main__':main()
+#INFO: ******************** input file end ********************
+
+
+System: uname_result(system='Linux', node='8d77c3686701', release='6.18.44', version='#1 SMP Sat Sep 26 20:02:31 UTC 2026', machine='x86_64')  Threads 4
+Python 3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]
+numpy 2.3.5  scipy 1.17.0  h5py 3.16.0
+Date: Fri Oct 16 15:57:04 2026
+PySCF version 2.14.0
+PySCF path  /root/.local/lib/python3.12/site-packages/pyscf
+
+[CONFIG] conf_file None
+[INPUT] verbose = 4
+[INPUT] num. atoms = 6
+[INPUT] num. electrons = 16
+[INPUT] charge = 0
+[INPUT] spin (= nelec alpha-beta = 2S) = 0
+[INPUT] symmetry False subgroup None
+[INPUT] Mole.unit = Angstrom
+[INPUT] Symbol           X                Y                Z      unit          X                Y                Z       unit  Magmom
+[INPUT]  1 C      0.613699147025  -0.185163111106  -0.187536392201 AA    1.159723310757  -0.349907568363  -0.354392419649 Bohr   0.0
+[INPUT]  2 C     -0.613699432668   0.185162980954   0.187535549571 AA   -1.159723850544   0.349907322411   0.354390827310 Bohr   0.0
+[INPUT]  3 H      0.924558869036  -1.224036061003  -0.138526560471 AA    1.747163048515  -2.313092921888  -0.261777260268 Bohr   0.0
+[INPUT]  4 H      1.331750692199   0.543270897226  -0.550962570244 AA    2.516644074456   1.026633207204  -1.041168362647 Bohr   0.0
+[INPUT]  5 H     -0.924558996459   1.224035996264   0.138526169608 AA   -1.747163289310   2.313092799549   0.261776521644 Bohr   0.0
+[INPUT]  6 H     -1.331750279134  -0.543270702335   0.550963803736 AA   -2.516643293876  -1.026632838913   1.041170693609 Bohr   0.0
+
+nuclear repulsion = 33.3199706282061
+number of shells = 20
+number of NR pGTOs = 70
+number of NR cGTOs = 36
+basis = 6-31g(d)
+ecp = {}
+CPU time:         0.58
+
+
+******** <class 'pyscf.dft.rks.RKS'> ********
+method = RKS
+initial guess = minao
+damping factor = 0
+level_shift factor = 0
+DIIS = <class 'pyscf.scf.diis.CDIIS'>
+diis_start_cycle = 1
+diis_space = 8
+diis_damp = 0
+SCF conv_tol = 1e-10
+SCF conv_tol_grad = 1e-06
+SCF max_cycles = 120
+direct_scf = True
+direct_scf_tol = 1e-13
+chkfile to save SCF result = /tmp/tmpzfnywgry
+max_memory 4000 MB (current use 0 MB)
+XC library pyscf.dft.libxc version 7.0.0
+    S. Lehtola, C. Steigemann, M. J.T. Oliveira, and M. A.L. Marques.,  SoftwareX 7, 1–5 (2018)
+XC functionals = b3lyp
+    P. J. Stephens, F. J. Devlin, C. F. Chabalowski, and M. J. Frisch.,  J. Phys. Chem. 98, 11623 (1994)
+radial grids: 
+    Treutler-Ahlrichs [JCP 102, 346 (1995); DOI:10.1063/1.469408] (M4) radial grids
+    
+becke partition: Becke, JCP 88, 2547 (1988); DOI:10.1063/1.454033
+pruning grids: <function nwchem_prune at 0x7ffabbdd8e00>
+grids dens level: 3
+symmetrized grids: False
+atomic radii adjust function: <function treutler_atomic_radii_adjust at 0x7ffabbdd9300>
+small_rho_cutoff = 0
+Initial guess from minao.
+tot grids = 67472
+init E= -78.5583169717448
+  HOMO = -0.321693593331784  LUMO = -0.074528747783158  gap/eV = 6.72570
+cycle= 1 E= -78.5604485862886  delta_E= -0.00213  |g|= 0.298  |ddm|=    2
+  HOMO = -0.200356549420569  LUMO = 0.0722989124918727  gap/eV = 7.41933
+cycle= 2 E= -78.5597339052587  delta_E= 0.000715  |g|= 0.305  |ddm|= 0.583
+  HOMO = -0.26570559090899  LUMO = 0.0178092940478605  gap/eV = 7.71483
+cycle= 3 E= -78.585672637035  delta_E= -0.0259  |g|= 0.00245  |ddm|= 0.294
+  HOMO = -0.265577648349858  LUMO = 0.0181830119224222  gap/eV = 7.72152
+cycle= 4 E= -78.5856747855775  delta_E= -2.15e-06  |g|= 0.000564  |ddm|= 0.00375
+  HOMO = -0.265625748882778  LUMO = 0.0180844006648666  gap/eV = 7.72015
+cycle= 5 E= -78.5856748619025  delta_E= -7.63e-08  |g|= 3.23e-05  |ddm|= 0.000544
+  HOMO = -0.265624413696155  LUMO = 0.0180867799789111  gap/eV = 7.72017
+cycle= 6 E= -78.585674862198  delta_E= -2.95e-10  |g|= 1.86e-06  |ddm|= 3.67e-05
+  HOMO = -0.265623535518785  LUMO = 0.018087585564015  gap/eV = 7.72017
+cycle= 7 E= -78.5856748621992  delta_E= -1.15e-12  |g|= 6.7e-08  |ddm|= 2.15e-06
+  HOMO = -0.265623562789816  LUMO = 0.0180875611303666  gap/eV = 7.72017
+Extra cycle  E= -78.5856748621992  delta_E= -2.84e-14  |g|= 6.55e-08  |ddm|= 1.37e-07
+converged SCF energy = -78.5856748621992
+Create scanner for <class 'pyscf.grad.rks.Gradients'>
+Create scanner for <class 'pyscf.dft.rks.RKS'>
+
+Geometry optimization cycle 1
+Cartesian coordinates (Angstrom)
+ Atom        New coordinates             dX        dY        dZ
+   C   0.613699  -0.185163  -0.187536    0.000000  0.000000  0.000000
+   C  -0.613699   0.185163   0.187536    0.000000  0.000000  0.000000
+   H   0.924559  -1.224036  -0.138527    0.000000  0.000000  0.000000
+   H   1.331751   0.543271  -0.550963    0.000000  0.000000  0.000000
+   H  -0.924559   1.224036   0.138526    0.000000 -0.000000  0.000000
+   H  -1.331750  -0.543271   0.550964    0.000000  0.000000 -0.000000
+
+WARN: Mole.unit (Angstrom) is changed to Bohr
+
+New geometry
+   1 C      0.613699147025  -0.185163111106  -0.187536392201 AA    1.159723310757  -0.349907568363  -0.354392419649 Bohr
+   2 C     -0.613699432668   0.185162980954   0.187535549571 AA   -1.159723850544   0.349907322411   0.354390827310 Bohr
+   3 H      0.924558869036  -1.224036061003  -0.138526560471 AA    1.747163048515  -2.313092921888  -0.261777260268 Bohr
+   4 H      1.331750692199   0.543270897226  -0.550962570244 AA    2.516644074456   1.026633207204  -1.041168362647 Bohr
+   5 H     -0.924558996459   1.224035996264   0.138526169608 AA   -1.747163289310   2.313092799549   0.261776521644 Bohr
+   6 H     -1.331750279134  -0.543270702335   0.550963803736 AA   -2.516643293876  -1.026632838913   1.041170693609 Bohr
+
+
+******** <class 'pyscf.scf.hf.RKS_Scanner'> ********
+method = RKS_Scanner
+initial guess = minao
+damping factor = 0
+level_shift factor = 0
+DIIS = <class 'pyscf.scf.diis.CDIIS'>
+diis_start_cycle = 1
+diis_space = 8
+diis_damp = 0
+SCF conv_tol = 1e-10
+SCF conv_tol_grad = 1e-06
+SCF max_cycles = 120
+direct_scf = True
+direct_scf_tol = 1e-13
+chkfile to save SCF result = /tmp/tmpzfnywgry
+max_memory 4000 MB (current use 0 MB)
+XC library pyscf.dft.libxc version 7.0.0
+    S. Lehtola, C. Steigemann, M. J.T. Oliveira, and M. A.L. Marques.,  SoftwareX 7, 1–5 (2018)
+XC functionals = b3lyp
+    P. J. Stephens, F. J. Devlin, C. F. Chabalowski, and M. J. Frisch.,  J. Phys. Chem. 98, 11623 (1994)
+radial grids: 
+    Treutler-Ahlrichs [JCP 102, 346 (1995); DOI:10.1063/1.469408] (M4) radial grids
+    
+becke partition: Becke, JCP 88, 2547 (1988); DOI:10.1063/1.454033
+pruning grids: <function nwchem_prune at 0x7ffabbdd8e00>
+grids dens level: 3
+symmetrized grids: False
+atomic radii adjust function: <function treutler_atomic_radii_adjust at 0x7ffabbdd9300>
+small_rho_cutoff = 0
+tot grids = 67472
+init E= -78.5856748621992
+  HOMO = -0.265623539084102  LUMO = 0.0180875803581801  gap/eV = 7.72017
+cycle= 1 E= -78.5856748621992  delta_E= -5.68e-14  |g|= 9.05e-08  |ddm|= 1.3e-07
+  HOMO = -0.265623562614798  LUMO = 0.0180875605288655  gap/eV = 7.72017
+Extra cycle  E= -78.5856748621992  delta_E= 5.68e-14  |g|= 1.49e-07  |ddm|= 1.9e-07
+converged SCF energy = -78.5856748621992
+
+
+******** <class 'pyscf.grad.rhf.Gradients_Scanner'> for <class 'pyscf.scf.hf.RKS_Scanner'> ********
+unit = Eh/Bohr
+max_memory 4000 MB (current use 0 MB)
+grid_response = False
+--------------- RKS_Scanner gradients ---------------
+         x                y                z
+0 C     0.0077095381    -0.0023256271    -0.0023585658
+1 C    -0.0077095950     0.0023256176     0.0023584238
+2 H    -0.0023024735     0.0004698000     0.0007373426
+3 H    -0.0022066166     0.0008901494     0.0006383127
+4 H     0.0023024810    -0.0004698118    -0.0007373375
+5 H     0.0022066660    -0.0008901281    -0.0006381759
+----------------------------------------------
+cycle 1: E = -78.5856748622  dE = -78.5857  norm(grad) = 0.0128486
+
+Geometry optimization cycle 2
+Cartesian coordinates (Angstrom)
+ Atom        New coordinates             dX        dY        dZ
+   C   0.610987  -0.190121  -0.185785   -0.002712 -0.004958  0.001752
+   C  -0.610987   0.190121   0.185785    0.002713  0.004958 -0.001751
+   H   0.941688  -1.224874  -0.144365    0.017129 -0.000838 -0.005839
+   H   1.336352   0.532615  -0.550875    0.004602 -0.010656  0.000088
+   H  -0.941688   1.224874   0.144366   -0.017129  0.000838  0.005840
+   H  -1.336352  -0.532615   0.550874   -0.004602  0.010655 -0.000090
+New geometry
+   1 C      0.610986846440  -0.190121287751  -0.185784566495 AA    1.154597805483  -0.359277164299  -0.351081948846 Bohr
+   2 C     -0.610986723002   0.190121331679   0.185784853312 AA   -1.154597572220   0.359277247311   0.351082490852 Bohr
+   3 H      0.941688245421  -1.224873884692  -0.144365455085 AA    1.779532878567  -2.314676179200  -0.272811171958 Bohr
+   4 H      1.336352217590   0.532615285770  -0.550874697589 AA    2.525339697199   1.006497019863  -1.041002307396 Bohr
+   5 H     -0.941688196916   1.224873920551   0.144365681425 AA   -1.779532786908   2.314676246963   0.272811599680 Bohr
+   6 H     -1.336352392059  -0.532615369057   0.550874190312 AA   -2.525340026899  -1.006497177251   1.041001348781 Bohr
+
+
+******** <class 'pyscf.scf.hf.RKS_Scanner'> ********
+method = RKS_Scanner
+initial guess = minao
+damping factor = 0
+level_shift factor = 0
+DIIS = <class 'pyscf.scf.diis.CDIIS'>
+diis_start_cycle = 1
+diis_space = 8
+diis_damp = 0
+SCF conv_tol = 1e-10
+SCF conv_tol_grad = 1e-06
+SCF max_cycles = 120
+direct_scf = True
+direct_scf_tol = 1e-13
+chkfile to save SCF result = /tmp/tmpzfnywgry
+max_memory 4000 MB (current use 0 MB)
+XC library pyscf.dft.libxc version 7.0.0
+    S. Lehtola, C. Steigemann, M. J.T. Oliveira, and M. A.L. Marques.,  SoftwareX 7, 1–5 (2018)
+XC functionals = b3lyp
+    P. J. Stephens, F. J. Devlin, C. F. Chabalowski, and M. J. Frisch.,  J. Phys. Chem. 98, 11623 (1994)
+radial grids: 
+    Treutler-Ahlrichs [JCP 102, 346 (1995); DOI:10.1063/1.469408] (M4) radial grids
+    
+becke partition: Becke, JCP 88, 2547 (1988); DOI:10.1063/1.454033
+pruning grids: <function nwchem_prune at 0x7ffabbdd8e00>
+grids dens level: 3
+symmetrized grids: False
+atomic radii adjust function: <function treutler_atomic_radii_adjust at 0x7ffabbdd9300>
+small_rho_cutoff = 0
+tot grids = 67472
+init E= -78.5860520223676
+  HOMO = -0.265262084621632  LUMO = 0.0192127790231353  gap/eV = 7.74096
+cycle= 1 E= -78.5857561255952  delta_E= 0.000296  |g|= 0.00552  |ddm|= 0.0189
+  HOMO = -0.26740601589982  LUMO = 0.0175381115130331  gap/eV = 7.75372
+cycle= 2 E= -78.5857567898854  delta_E= -6.64e-07  |g|= 0.00526  |ddm|= 0.00962
+  HOMO = -0.266255367088027  LUMO = 0.0184825164069582  gap/eV = 7.74811
+cycle= 3 E= -78.5857642832216  delta_E= -7.49e-06  |g|= 0.000283  |ddm|= 0.00499
+  HOMO = -0.266311550058562  LUMO = 0.0184189762707372  gap/eV = 7.74791
+cycle= 4 E= -78.5857643060688  delta_E= -2.28e-08  |g|= 1.44e-05  |ddm|= 0.000287
+  HOMO = -0.266311075053499  LUMO = 0.0184207164672738  gap/eV = 7.74795
+cycle= 5 E= -78.5857643061348  delta_E= -6.6e-11  |g|= 1.76e-06  |ddm|= 2.28e-05
+  HOMO = -0.266310955287505  LUMO = 0.0184207243852836  gap/eV = 7.74794
+cycle= 6 E= -78.5857643061355  delta_E= -7.67e-13  |g|= 7.73e-07  |ddm|= 2.56e-06
+  HOMO = -0.266310924129995  LUMO = 0.0184207650699291  gap/eV = 7.74794
+Extra cycle  E= -78.5857643061349  delta_E= 5.97e-13  |g|= 1.41e-06  |ddm|= 1.68e-06
+converged SCF energy = -78.5857643061349
+
+
+******** <class 'pyscf.grad.rhf.Gradients_Scanner'> for <class 'pyscf.scf.hf.RKS_Scanner'> ********
+unit = Eh/Bohr
+max_memory 4000 MB (current use 0 MB)
+grid_response = False
+--------------- RKS_Scanner gradients ---------------
+         x                y                z
+0 C     0.0007396620    -0.0041304807     0.0003706665
+1 C    -0.0007394616     0.0041304321    -0.0003706704
+2 H     0.0009846240     0.0002212400    -0.0003804231
+3 H    -0.0010453949     0.0003081564     0.0003182252
+4 H    -0.0009846983    -0.0002211294     0.0003804370
+5 H     0.0010452687    -0.0003082185    -0.0003182352
+----------------------------------------------
+cycle 2: E = -78.5857643061  dE = -8.94439e-05  norm(grad) = 0.00635566
+
+Geometry optimization cycle 3
+Cartesian coordinates (Angstrom)
+ Atom        New coordinates             dX        dY        dZ
+   C   0.611455  -0.183109  -0.186987    0.000468  0.007012 -0.001202
+   C  -0.611455   0.183109   0.186987   -0.000468 -0.007012  0.001202
+   H   0.936506  -1.220201  -0.143214   -0.005182  0.004673  0.001152
+   H   1.343769   0.533854  -0.553592    0.007417  0.001239 -0.002717
+   H  -0.936506   1.220201   0.143214    0.005182 -0.004673 -0.001152
+   H  -1.343769  -0.533854   0.553591   -0.007417 -0.001239  0.002717
+New geometry
+   1 C      0.611455225926  -0.183109346634  -0.186986640856 AA    1.155482914434  -0.346026515985  -0.353353540171 Bohr
+   2 C     -0.611455190547   0.183109390115   0.186987211869 AA   -1.155482847578   0.346026598153   0.353354619228 Bohr
+   3 H      0.936506054501  -1.220200681738  -0.143213769421 AA    1.769739957003  -2.305845105491  -0.270634801471 Bohr
+   4 H      1.343768989534   0.533853962821  -0.553591826087 AA    2.539355364903   1.008837780245  -1.046136936103 Bohr
+   5 H     -0.936505740960   1.220200677868   0.143213917256 AA   -1.769739364498   2.305845098179   0.270635080841 Bohr
+   6 H     -1.343769341357  -0.533854006449   0.553591114047 AA   -2.539356029753  -1.008837862691   1.046135590541 Bohr
+
+
+******** <class 'pyscf.scf.hf.RKS_Scanner'> ********
+method = RKS_Scanner
+initial guess = minao
+damping factor = 0
+level_shift factor = 0
+DIIS = <class 'pyscf.scf.diis.CDIIS'>
+diis_start_cycle = 1
+diis_space = 8
+diis_damp = 0
+SCF conv_tol = 1e-10
+SCF conv_tol_grad = 1e-06
+SCF max_cycles = 120
+direct_scf = True
+direct_scf_tol = 1e-13
+chkfile to save SCF result = /tmp/tmpzfnywgry
+max_memory 4000 MB (current use 0 MB)
+XC library pyscf.dft.libxc version 7.0.0
+    S. Lehtola, C. Steigemann, M. J.T. Oliveira, and M. A.L. Marques.,  SoftwareX 7, 1–5 (2018)
+XC functionals = b3lyp
+    P. J. Stephens, F. J. Devlin, C. F. Chabalowski, and M. J. Frisch.,  J. Phys. Chem. 98, 11623 (1994)
+radial grids: 
+    Treutler-Ahlrichs [JCP 102, 346 (1995); DOI:10.1063/1.469408] (M4) radial grids
+    
+becke partition: Becke, JCP 88, 2547 (1988); DOI:10.1063/1.454033
+pruning grids: <function nwchem_prune at 0x7ffabbdd8e00>
+grids dens level: 3
+symmetrized grids: False
+atomic radii adjust function: <function treutler_atomic_radii_adjust at 0x7ffabbdd9300>
+small_rho_cutoff = 0
+tot grids = 67472
+init E= -78.586124700957
+  HOMO = -0.266176729938701  LUMO = 0.0194089495772776  gap/eV = 7.77118
+cycle= 1 E= -78.5858170763104  delta_E= 0.000308  |g|= 0.00257  |ddm|= 0.0146
+  HOMO = -0.267180572077236  LUMO = 0.0185770885900207  gap/eV = 7.77586
+cycle= 2 E= -78.5858177777943  delta_E= -7.01e-07  |g|= 0.00214  |ddm|= 0.00517
+  HOMO = -0.266681930683468  LUMO = 0.0189833300891156  gap/eV = 7.77335
+cycle= 3 E= -78.5858190113361  delta_E= -1.23e-06  |g|= 0.000267  |ddm|= 0.00217
+  HOMO = -0.266735217384872  LUMO = 0.0189316279390757  gap/eV = 7.77339
+cycle= 4 E= -78.5858190321132  delta_E= -2.08e-08  |g|= 1.31e-05  |ddm|= 0.000274
+  HOMO = -0.266732762644936  LUMO = 0.018934395231414  gap/eV = 7.77340
+cycle= 5 E= -78.5858190321579  delta_E= -4.47e-11  |g|= 4.94e-06  |ddm|= 2.01e-05
+  HOMO = -0.266732774345909  LUMO = 0.0189343261296213  gap/eV = 7.77340
+cycle= 6 E= -78.5858190321615  delta_E= -3.64e-12  |g|= 3.27e-06  |ddm|= 6.27e-06
+  HOMO = -0.266732790596731  LUMO = 0.0189342845069209  gap/eV = 7.77340
+cycle= 7 E= -78.5858190321643  delta_E= -2.76e-12  |g|= 9.51e-08  |ddm|= 2.58e-06
+  HOMO = -0.266732789492878  LUMO = 0.0189342953976386  gap/eV = 7.77340
+Extra cycle  E= -78.5858190321643  delta_E= 2.84e-14  |g|= 7.86e-08  |ddm|= 1.39e-07
+converged SCF energy = -78.5858190321643
+
+
+******** <class 'pyscf.grad.rhf.Gradients_Scanner'> for <class 'pyscf.scf.hf.RKS_Scanner'> ********
+unit = Eh/Bohr
+max_memory 4000 MB (current use 0 MB)
+grid_response = False
+--------------- RKS_Scanner gradients ---------------
+         x                y                z
+0 C    -0.0015714726     0.0010496321     0.0003905215
+1 C     0.0015714045    -0.0010495976    -0.0003903983
+2 H    -0.0000657951    -0.0000535053     0.0000307116
+3 H     0.0007518890     0.0001330691    -0.0002866490
+4 H     0.0000658414     0.0000534478    -0.0000307258
+5 H    -0.0007518673    -0.0001330461     0.0002865400
+----------------------------------------------
+cycle 3: E = -78.5858190322  dE = -5.4726e-05  norm(grad) = 0.00296542
+
+Geometry optimization cycle 4
+Cartesian coordinates (Angstrom)
+ Atom        New coordinates             dX        dY        dZ
+   C   0.611709  -0.184541  -0.186833    0.000254 -0.001432  0.000154
+   C  -0.611710   0.184541   0.186833   -0.000254  0.001432 -0.000155
+   H   0.936775  -1.221387  -0.143094    0.000269 -0.001186  0.000120
+   H   1.341356   0.534033  -0.552716   -0.002413  0.000179  0.000876
+   H  -0.936775   1.221387   0.143094   -0.000269  0.001186 -0.000120
+   H  -1.341356  -0.534033   0.552716    0.002414 -0.000179 -0.000875
+New geometry
+   1 C      0.611709451355  -0.184540893711  -0.186832751417 AA    1.155963330868  -0.348731747897  -0.353062731277 Bohr
+   2 C     -0.611709504109   0.184540933719   0.186832614773 AA   -1.155963430560   0.348731823500   0.353062473058 Bohr
+   3 H      0.936774892302  -1.221386766876  -0.143094212878 AA    1.770247986820  -2.308086481563  -0.270408872350 Bohr
+   4 H      1.341356015635   0.534032903657  -0.552715572724 AA    2.534795505088   1.009175929418  -1.044481057230 Bohr
+   5 H     -0.936775070223   1.221386730439   0.143094135684 AA   -1.770248323041   2.308086412707   0.270408726474 Bohr
+   6 H     -1.341355785695  -0.534032909636   0.552715789465 AA   -2.534795070563  -1.009175940716   1.044481466812 Bohr
+
+
+******** <class 'pyscf.scf.hf.RKS_Scanner'> ********
+method = RKS_Scanner
+initial guess = minao
+damping factor = 0
+level_shift factor = 0
+DIIS = <class 'pyscf.scf.diis.CDIIS'>
+diis_start_cycle = 1
+diis_space = 8
+diis_damp = 0
+SCF conv_tol = 1e-10
+SCF conv_tol_grad = 1e-06
+SCF max_cycles = 120
+direct_scf = True
+direct_scf_tol = 1e-13
+chkfile to save SCF result = /tmp/tmpzfnywgry
+max_memory 4000 MB (current use 0 MB)
+XC library pyscf.dft.libxc version 7.0.0
+    S. Lehtola, C. Steigemann, M. J.T. Oliveira, and M. A.L. Marques.,  SoftwareX 7, 1–5 (2018)
+XC functionals = b3lyp
+    P. J. Stephens, F. J. Devlin, C. F. Chabalowski, and M. J. Frisch.,  J. Phys. Chem. 98, 11623 (1994)
+radial grids: 
+    Treutler-Ahlrichs [JCP 102, 346 (1995); DOI:10.1063/1.469408] (M4) radial grids
+    
+becke partition: Becke, JCP 88, 2547 (1988); DOI:10.1063/1.454033
+pruning grids: <function nwchem_prune at 0x7ffabbdd8e00>
+grids dens level: 3
+symmetrized grids: False
+atomic radii adjust function: <function treutler_atomic_radii_adjust at 0x7ffabbdd9300>
+small_rho_cutoff = 0
+tot grids = 67472
+init E= -78.5858571347723
+  HOMO = -0.266716743396218  LUMO = 0.0185493762438189  gap/eV = 7.76249
+cycle= 1 E= -78.5858258149229  delta_E= 3.13e-05  |g|= 0.00115  |ddm|= 0.0037
+  HOMO = -0.266284382870906  LUMO = 0.0188869078603209  gap/eV = 7.75991
+cycle= 2 E= -78.5858258414904  delta_E= -2.66e-08  |g|= 0.0011  |ddm|= 0.00213
+  HOMO = -0.266524601646035  LUMO = 0.0186920467920797  gap/eV = 7.76114
+cycle= 3 E= -78.5858261676589  delta_E= -3.26e-07  |g|= 6.01e-05  |ddm|= 0.00104
+  HOMO = -0.266513549415594  LUMO = 0.0187057112063447  gap/eV = 7.76121
+cycle= 4 E= -78.5858261686561  delta_E= -9.97e-10  |g|= 3.28e-06  |ddm|= 5.99e-05
+  HOMO = -0.266513925148862  LUMO = 0.0187051879226456  gap/eV = 7.76121
+cycle= 5 E= -78.5858261686596  delta_E= -3.5e-12  |g|= 4.56e-07  |ddm|= 4.5e-06
+  HOMO = -0.26651396541488  LUMO = 0.0187051619759493  gap/eV = 7.76121
+Extra cycle  E= -78.5858261686593  delta_E= 3.13e-13  |g|= 7.18e-07  |ddm|= 9.36e-07
+converged SCF energy = -78.5858261686593
+
+
+******** <class 'pyscf.grad.rhf.Gradients_Scanner'> for <class 'pyscf.scf.hf.RKS_Scanner'> ********
+unit = Eh/Bohr
+max_memory 4000 MB (current use 0 MB)
+grid_response = False
+--------------- RKS_Scanner gradients ---------------
+         x                y                z
+0 C     0.0000978569    -0.0000053274    -0.0000344681
+1 C    -0.0000978076     0.0000053115     0.0000344268
+2 H    -0.0000144616     0.0000033605     0.0000038646
+3 H    -0.0000133995    -0.0000049473     0.0000032416
+4 H     0.0000144277    -0.0000033365    -0.0000038614
+5 H     0.0000133839     0.0000049393    -0.0000032035
+----------------------------------------------
+cycle 4: E = -78.5858261687  dE = -7.13649e-06  norm(grad) = 0.0001499
+
+Geometry optimization cycle 5
+Cartesian coordinates (Angstrom)
+ Atom        New coordinates             dX        dY        dZ
+   C   0.611676  -0.184565  -0.186783   -0.000033 -0.000024  0.000050
+   C  -0.611677   0.184565   0.186783    0.000033  0.000024 -0.000049
+   H   0.936830  -1.221396  -0.143064    0.000055 -0.000009  0.000030
+   H   1.341399   0.533982  -0.552644    0.000043 -0.000051  0.000072
+   H  -0.936830   1.221396   0.143064   -0.000054  0.000009 -0.000030
+   H  -1.341399  -0.533982   0.552643   -0.000043  0.000051 -0.000072
+New geometry
+   1 C      0.611676487945  -0.184564649268  -0.186783163248 AA    1.155901039052  -0.348776639393  -0.352969023218 Bohr
+   2 C     -0.611676618287   0.184564615606   0.186783254210 AA   -1.155901285363   0.348776575781   0.352969195113 Bohr
+   3 H      0.936829846600  -1.221396138068  -0.143064389759 AA    1.770351835392  -2.308104190549  -0.270352514822 Bohr
+   4 H      1.341398518690   0.533981694248  -0.552643546046 AA    2.534875824221   1.009079157660  -1.044344946535 Bohr
+   5 H     -0.936829568702   1.221396136173   0.143064366262 AA   -1.770351310242   2.308104186968   0.270352470420 Bohr
+   6 H     -1.341398667309  -0.533981661918   0.552643482625 AA   -2.534876105070  -1.009079096565   1.044344826687 Bohr
+
+
+******** <class 'pyscf.scf.hf.RKS_Scanner'> ********
+method = RKS_Scanner
+initial guess = minao
+damping factor = 0
+level_shift factor = 0
+DIIS = <class 'pyscf.scf.diis.CDIIS'>
+diis_start_cycle = 1
+diis_space = 8
+diis_damp = 0
+SCF conv_tol = 1e-10
+SCF conv_tol_grad = 1e-06
+SCF max_cycles = 120
+direct_scf = True
+direct_scf_tol = 1e-13
+chkfile to save SCF result = /tmp/tmpzfnywgry
+max_memory 4000 MB (current use 0 MB)
+XC library pyscf.dft.libxc version 7.0.0
+    S. Lehtola, C. Steigemann, M. J.T. Oliveira, and M. A.L. Marques.,  SoftwareX 7, 1–5 (2018)
+XC functionals = b3lyp
+    P. J. Stephens, F. J. Devlin, C. F. Chabalowski, and M. J. Frisch.,  J. Phys. Chem. 98, 11623 (1994)
+radial grids: 
+    Treutler-Ahlrichs [JCP 102, 346 (1995); DOI:10.1063/1.469408] (M4) radial grids
+    
+becke partition: Becke, JCP 88, 2547 (1988); DOI:10.1063/1.454033
+pruning grids: <function nwchem_prune at 0x7ffabbdd8e00>
+grids dens level: 3
+symmetrized grids: False
+atomic radii adjust function: <function treutler_atomic_radii_adjust at 0x7ffabbdd9300>
+small_rho_cutoff = 0
+tot grids = 67472
+init E= -78.5858475015749
+  HOMO = -0.266505471055787  LUMO = 0.0187394228446807  gap/eV = 7.76191
+cycle= 1 E= -78.5858261766717  delta_E= 2.13e-05  |g|= 7.06e-05  |ddm|= 0.000179
+  HOMO = -0.266542183484467  LUMO = 0.0187083072175929  gap/eV = 7.76206
+cycle= 2 E= -78.5858261767342  delta_E= -6.25e-11  |g|= 6.96e-05  |ddm|= 0.00014
+  HOMO = -0.266527028196492  LUMO = 0.0187207292791611  gap/eV = 7.76199
+cycle= 3 E= -78.58582617805  delta_E= -1.32e-09  |g|= 3.06e-06  |ddm|= 6.51e-05
+  HOMO = -0.26652739433038  LUMO = 0.018720200797461  gap/eV = 7.76198
+cycle= 4 E= -78.585826178052  delta_E= -2.03e-12  |g|= 1.35e-06  |ddm|= 3.56e-06
+  HOMO = -0.266527371747382  LUMO = 0.0187202245250084  gap/eV = 7.76198
+cycle= 5 E= -78.5858261780522  delta_E= -2.27e-13  |g|= 7.89e-07  |ddm|= 1.62e-06
+  HOMO = -0.26652731110351  LUMO = 0.0187202869395895  gap/eV = 7.76198
+Extra cycle  E= -78.585826178052  delta_E= 2.27e-13  |g|= 1.46e-06  |ddm|= 1.73e-06
+converged SCF energy = -78.585826178052
+
+
+******** <class 'pyscf.grad.rhf.Gradients_Scanner'> for <class 'pyscf.scf.hf.RKS_Scanner'> ********
+unit = Eh/Bohr
+max_memory 4000 MB (current use 0 MB)
+grid_response = False
+--------------- RKS_Scanner gradients ---------------
+         x                y                z
+0 C    -0.0000082186     0.0000001417     0.0000020643
+1 C     0.0000082989    -0.0000001709    -0.0000020812
+2 H     0.0000009422     0.0000001217    -0.0000010649
+3 H    -0.0000015291     0.0000001256    -0.0000017390
+4 H    -0.0000009595    -0.0000000642     0.0000010664
+5 H     0.0000014661    -0.0000001539     0.0000017544
+----------------------------------------------
+cycle 5: E = -78.5858261781  dE = -9.39274e-09  norm(grad) = 1.26406e-05

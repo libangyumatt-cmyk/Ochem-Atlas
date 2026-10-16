@@ -1,0 +1,108 @@
+{
+  "result": "pass",
+  "checks": [
+    "46-electron charge/spin and AO normalization",
+    "Independent level-5 Becke density and orbital quadratures",
+    "Stored-grid reconstruction at deterministic lattice subset",
+    "Difference reference and fixed grid consistency",
+    "Full Hessian frequency recomputation and full gradient",
+    "Two forming-bond symmetry within 0.002 \u00c5 / 0.002 Mayer except relaxed product",
+    "Explicit fragment phase products at both forming regions"
+  ],
+  "frames": [
+    {
+      "id": "approach",
+      "passed": true,
+      "aoFieldReconstructionMaximumError": 1.152589335084997e-07,
+      "differenceMaximumFloat32Error": 0.0,
+      "orbitalProbabilityIntegrals": [
+        0.9999999683887433,
+        1.0000000671712677
+      ],
+      "projectedGradientEhPerBohr": 0.00011117513741786293,
+      "relaxationTargetMet": true,
+      "mappedReflectionRmsdAngstrom": 0.0004646340080596262,
+      "formingDistanceAsymmetryAngstrom": 4.389583807551389e-09,
+      "formingMayerAsymmetry": 7.6038051379165306e-06,
+      "internalStable": true,
+      "externalStable": true,
+      "quadratureElectronCount": 46.00000263380423
+    },
+    {
+      "id": "pre-ts",
+      "passed": true,
+      "aoFieldReconstructionMaximumError": 1.042578725574117e-07,
+      "differenceMaximumFloat32Error": 1.9073486328125e-06,
+      "orbitalProbabilityIntegrals": [
+        1.000000115333907,
+        1.0000000755903629
+      ],
+      "projectedGradientEhPerBohr": 0.00015074299113910757,
+      "relaxationTargetMet": true,
+      "mappedReflectionRmsdAngstrom": 0.0009091418404338591,
+      "formingDistanceAsymmetryAngstrom": 2.0982326986995758e-10,
+      "formingMayerAsymmetry": 4.7791516453093985e-05,
+      "internalStable": true,
+      "externalStable": true,
+      "quadratureElectronCount": 45.99999843075671
+    },
+    {
+      "id": "ts",
+      "passed": true,
+      "aoFieldReconstructionMaximumError": 8.392501182896694e-08,
+      "differenceMaximumFloat32Error": 7.62939453125e-06,
+      "orbitalProbabilityIntegrals": [
+        0.9999999517335295,
+        0.9999998242147812
+      ],
+      "projectedGradientEhPerBohr": 7.70089894562179e-06,
+      "relaxationTargetMet": null,
+      "mappedReflectionRmsdAngstrom": 1.501882553831439e-05,
+      "formingDistanceAsymmetryAngstrom": 4.620732899418556e-06,
+      "formingMayerAsymmetry": 5.755799006856854e-07,
+      "internalStable": true,
+      "externalStable": true,
+      "quadratureElectronCount": 46.00000011880587
+    },
+    {
+      "id": "post-ts",
+      "passed": true,
+      "aoFieldReconstructionMaximumError": 7.578529270801937e-08,
+      "differenceMaximumFloat32Error": 3.814697265625e-06,
+      "orbitalProbabilityIntegrals": [
+        1.0000000561183202,
+        1.0000001154597613
+      ],
+      "projectedGradientEhPerBohr": 0.0007897993776562195,
+      "relaxationTargetMet": false,
+      "mappedReflectionRmsdAngstrom": 0.003324824203804518,
+      "formingDistanceAsymmetryAngstrom": 3.4350979838393414e-09,
+      "formingMayerAsymmetry": 1.7392382521297378e-05,
+      "internalStable": true,
+      "externalStable": true,
+      "quadratureElectronCount": 45.99999762604194
+    },
+    {
+      "id": "product",
+      "passed": true,
+      "aoFieldReconstructionMaximumError": 2.6738101732703967e-08,
+      "differenceMaximumFloat32Error": 1.9073486328125e-06,
+      "orbitalProbabilityIntegrals": [
+        1.000000050476589,
+        1.0000002217245156
+      ],
+      "projectedGradientEhPerBohr": 1.9520534603957145e-05,
+      "relaxationTargetMet": null,
+      "mappedReflectionRmsdAngstrom": 0.00040004993212479925,
+      "formingDistanceAsymmetryAngstrom": 3.5111133737997235e-05,
+      "formingMayerAsymmetry": 1.2210863439943154e-05,
+      "internalStable": true,
+      "externalStable": true,
+      "quadratureElectronCount": 46.00000134227301
+    }
+  ],
+  "optimizedReactantSumHartree": -234.57470350397142,
+  "tsMinusOptimizedReactantsKcalMol": 22.175905936990667,
+  "productMinusOptimizedReactantsKcalMol": -43.465820709399495,
+  "energyCaveat": "Electronic differences only, no ZPE/free energy. No IRC connectivity established."
+}

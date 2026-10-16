@@ -1,0 +1,147 @@
+#INFO: **** input file is /workspace/scratch/69db76a371c7/Ochem-Atlas/research/diels-alder/endpoints.py ****
+"""Independent unconstrained reactant and cyclohexene optimizations."""
+from compute import *
+from rdkit import Chem
+from rdkit.Chem import AllChem
+
+def optimize_rd(rd,name):
+ rd=Chem.AddHs(rd);AllChem.EmbedMolecule(rd,randomSeed=37);AllChem.MMFFOptimizeMolecule(rd);xyz=rd.GetConformer();a=[(at.GetSymbol(),tuple(xyz.GetAtomPosition(i))) for i,at in enumerate(rd.GetAtoms())]
+ m,f=solve(a,OUT/(name+'-optimization.log'));opt=optimize(f,maxsteps=80,convergence_grms=1e-5,convergence_gmax=2e-5,verbose=0);return save(name,opt,'Unconstrained independently optimized endpoint; full Hessian checked')
+def main():
+ for name,smiles in [('reactant-ethylene','C=C'),('reactant-butadiene','C=CC=C')]:
+  if (OUT/(name+'.json')).exists():continue
+  _,_,r=optimize_rd(Chem.MolFromSmiles(smiles),name);assert r['maxNuclearGradientEhPerBohr']<3e-5 and min(r['frequenciesCm'])>20
+ # Mapping agrees with TS carbons and RDKit AddHs hydrogen ordering.
+ rw=Chem.RWMol()
+ for _ in range(6):rw.AddAtom(Chem.Atom('C'))
+ for i,j,order in [(0,1,1),(1,2,2),(2,3,1),(3,5,1),(5,4,1),(4,0,1)]:rw.AddBond(i,j,Chem.BondType.DOUBLE if order==2 else Chem.BondType.SINGLE)
+ rd=rw.GetMol();Chem.SanitizeMol(rd)
+ optimize_rd(rd,'product-raw')
+if __name__=='__main__':main()
+#INFO: ******************** input file end ********************
+
+
+System: uname_result(system='Linux', node='8d77c3686701', release='6.18.44', version='#1 SMP Sat Sep 26 20:02:31 UTC 2026', machine='x86_64')  Threads 4
+Python 3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]
+numpy 2.3.5  scipy 1.17.0  h5py 3.16.0
+Date: Fri Oct 16 16:02:04 2026
+PySCF version 2.14.0
+PySCF path  /root/.local/lib/python3.12/site-packages/pyscf
+
+[CONFIG] conf_file None
+[INPUT] verbose = 4
+[INPUT] num. atoms = 16
+[INPUT] num. electrons = 46
+[INPUT] charge = 0
+[INPUT] spin (= nelec alpha-beta = 2S) = 0
+[INPUT] symmetry False subgroup None
+[INPUT] Mole.unit = Angstrom
+[INPUT] Symbol           X                Y                Z      unit          X                Y                Z       unit  Magmom
+[INPUT]  1 C     -1.465532908744   0.303413085846   0.192035218659 AA   -2.769455824064   0.573367634858   0.362893969537 Bohr   0.0
+[INPUT]  2 C     -0.478066989830   1.437423713225   0.331376690662 AA   -0.903415679974   2.716337142951   0.626211189416 Bohr   0.0
+[INPUT]  3 C      0.844091513165   1.286314327203   0.199006820346 AA    1.595101783951   2.430781788518   0.376068387374 Bohr   0.0
+[INPUT]  4 C      1.503868377791  -0.029483109960  -0.138471451288 AA    2.841899361418  -0.055715003124  -0.261673119005 Bohr   0.0
+[INPUT]  5 C     -0.774829883919  -1.069934756717   0.226932662549 AA   -1.464216273735  -2.021883661348   0.428840580936 Bohr   0.0
+[INPUT]  6 C      0.490325681443  -1.070119322224  -0.642527298406 AA    0.926581249769  -2.022232439608  -1.214200621543 Bohr   0.0
+[INPUT]  7 H     -2.218900067760   0.367964460318   0.989668957588 AA   -4.193113425846   0.695352053574   1.870203283825 Bohr   0.0
+[INPUT]  8 H     -2.026289495786   0.419470930510  -0.749532556736 AA   -3.829132196119   0.792685175880  -1.416411253676 Bohr   0.0
+[INPUT]  9 H     -0.885515783129   2.423099460962   0.554627057443 AA   -1.673382309094   4.578994353799   1.048093239840 Bohr   0.0
+[INPUT] 10 H      1.498533640085   2.146885529995   0.335149970191 AA    2.831818168208   4.057025672483   0.633341654318 Bohr   0.0
+[INPUT] 11 H      2.029037629873  -0.414598766689   0.750538860247 AA    3.834325416896  -0.783478120624   1.418312891710 Bohr   0.0
+[INPUT] 12 H      2.287045836779   0.131382308445  -0.892602160554 AA    4.321890265839   0.248276580574  -1.686773621642 Bohr   0.0
+[INPUT] 13 H     -0.497609416743  -1.307856870881   1.263498909638 AA   -0.940345514648  -2.471491296096   2.387666897902 Bohr   0.0
+[INPUT] 14 H     -1.470431695865  -1.852013753424  -0.101471273910 AA   -2.778713190065  -3.499798772899  -0.191752917200 Bohr   0.0
+[INPUT] 15 H      0.948055421794  -2.066883864078  -0.659897639785 AA    1.791565098100  -3.905844434390  -1.247025809440 Bohr   0.0
+[INPUT] 16 H      0.213248397208  -0.831047336314  -1.678860957589 AA    0.402981067226  -1.570451862184  -3.172587411069 Bohr   0.0
+
+nuclear repulsion = 236.12743748588
+number of shells = 56
+number of NR pGTOs = 202
+number of NR cGTOs = 104
+basis = 6-31g(d)
+ecp = {}
+CPU time:       827.06
+
+
+******** <class 'pyscf.dft.rks.RKS'> ********
+method = RKS
+initial guess = minao
+damping factor = 0
+level_shift factor = 0
+DIIS = <class 'pyscf.scf.diis.CDIIS'>
+diis_start_cycle = 1
+diis_space = 8
+diis_damp = 0
+SCF conv_tol = 1e-10
+SCF conv_tol_grad = 1e-06
+SCF max_cycles = 120
+direct_scf = True
+direct_scf_tol = 1e-13
+chkfile to save SCF result = /tmp/tmp4l5yxr0p
+max_memory 4000 MB (current use 0 MB)
+XC library pyscf.dft.libxc version 7.0.0
+    S. Lehtola, C. Steigemann, M. J.T. Oliveira, and M. A.L. Marques.,  SoftwareX 7, 1–5 (2018)
+XC functionals = b3lyp
+    P. J. Stephens, F. J. Devlin, C. F. Chabalowski, and M. J. Frisch.,  J. Phys. Chem. 98, 11623 (1994)
+radial grids: 
+    Treutler-Ahlrichs [JCP 102, 346 (1995); DOI:10.1063/1.469408] (M4) radial grids
+    
+becke partition: Becke, JCP 88, 2547 (1988); DOI:10.1063/1.454033
+pruning grids: <function nwchem_prune at 0x7f1743c1ce00>
+grids dens level: 3
+symmetrized grids: False
+atomic radii adjust function: <function treutler_atomic_radii_adjust at 0x7f1743c1d300>
+small_rho_cutoff = 0
+Initial guess from minao.
+tot grids = 182792
+init E= -235.135026883521
+  HOMO = -0.291278441927466  LUMO = -0.0627878963375492  gap/eV = 6.21754
+cycle= 1 E= -234.585668645684  delta_E= 0.549  |g|= 0.448  |ddm|= 3.49
+  HOMO = -0.161168637545881  LUMO = 0.0970050704378091  gap/eV = 7.02526
+cycle= 2 E= -234.563120402776  delta_E= 0.0225  |g|= 0.546  |ddm|= 1.15
+  HOMO = -0.23188371310926  LUMO = 0.034977158458672  gap/eV = 7.26165
+cycle= 3 E= -234.643655207111  delta_E= -0.0805  |g|= 0.0373  |ddm|= 0.663
+  HOMO = -0.234426306213858  LUMO = 0.0330795323635313  gap/eV = 7.27920
+cycle= 4 E= -234.643956542344  delta_E= -0.000301  |g|= 0.00992  |ddm|= 0.0537
+  HOMO = -0.232785256596453  LUMO = 0.0347257830559284  gap/eV = 7.27935
+cycle= 5 E= -234.643975676262  delta_E= -1.91e-05  |g|= 0.00502  |ddm|= 0.015
+  HOMO = -0.233421708417997  LUMO = 0.034118625621216  gap/eV = 7.28014
+cycle= 6 E= -234.643982399721  delta_E= -6.72e-06  |g|= 0.000173  |ddm|= 0.0058
+  HOMO = -0.233407948814707  LUMO = 0.0341249687699445  gap/eV = 7.27994
+cycle= 7 E= -234.64398240725  delta_E= -7.53e-09  |g|= 3.41e-05  |ddm|= 0.000248
+  HOMO = -0.233407079896777  LUMO = 0.0341263289809173  gap/eV = 7.27995
+cycle= 8 E= -234.64398240741  delta_E= -1.6e-10  |g|= 2.41e-05  |ddm|= 4.87e-05
+  HOMO = -0.233406933736687  LUMO = 0.0341266300171248  gap/eV = 7.27996
+cycle= 9 E= -234.64398240755  delta_E= -1.4e-10  |g|= 2.58e-06  |ddm|= 2.04e-05
+  HOMO = -0.233406871480383  LUMO = 0.0341266872050583  gap/eV = 7.27996
+cycle= 10 E= -234.643982407551  delta_E= -5.68e-13  |g|= 2.22e-06  |ddm|= 4.32e-06
+  HOMO = -0.233406813416184  LUMO = 0.0341267415359874  gap/eV = 7.27996
+cycle= 11 E= -234.643982407551  delta_E= -3.41e-13  |g|= 2.28e-07  |ddm|= 2.14e-06
+  HOMO = -0.233406862766782  LUMO = 0.0341267006200727  gap/eV = 7.27996
+Extra cycle  E= -234.643982407551  delta_E= 2.84e-13  |g|= 2.84e-07  |ddm|= 5.89e-07
+converged SCF energy = -234.643982407551
+
+
+******** <class 'pyscf.grad.rks.Gradients'> for <class 'pyscf.dft.rks.RKS'> ********
+unit = Eh/Bohr
+max_memory 4000 MB (current use 0 MB)
+grid_response = False
+--------------- RKS gradients ---------------
+         x                y                z
+0 C     0.0000025711     0.0000002599     0.0000041070
+1 C    -0.0000008385    -0.0000013607     0.0000067107
+2 C     0.0000018053     0.0000016914     0.0000029051
+3 C    -0.0000034032     0.0000029663    -0.0000044078
+4 C    -0.0000038325     0.0000009372    -0.0000009033
+5 C     0.0000038695     0.0000047100    -0.0000069551
+6 H    -0.0000011104     0.0000013098    -0.0000000810
+7 H    -0.0000002971     0.0000017544     0.0000002814
+8 H     0.0000004017     0.0000009711     0.0000017098
+9 H    -0.0000001475     0.0000017490     0.0000000727
+10 H    -0.0000000899     0.0000013475     0.0000005059
+11 H     0.0000010870     0.0000012174     0.0000008681
+12 H     0.0000011811     0.0000007908    -0.0000003437
+13 H     0.0000003175     0.0000018808    -0.0000005528
+14 H    -0.0000002879     0.0000018846    -0.0000004489
+15 H    -0.0000014816     0.0000022116     0.0000004001
+----------------------------------------------

@@ -80,6 +80,18 @@ async function domTests(){
  change('#rr-display','both');change('#rr-series','addition');change('#rr-geometry','product');
  assert.match($('#rr-descriptors').textContent,/Hessian-verified methoxide minimum/);
  assert.match($('#rr-descriptors').textContent,/9 positive modes/);
+
+ await w.SorgReactionLab.selectSystem('butadiene-ethylene');
+ assert.equal(w.SorgReactionLab.state.event,'diels-alder:0');assert.equal($('#rr-system').options.length,3);
+ assert.match($('#rr-bond-plots').textContent,/C1···C5 forming/);assert.match($('#rr-evidence').textContent,/S1/);
+ change('#rr-geometry','ts');assert.match($('#rr-descriptors').textContent,/1 imaginary modes/);
+ assert.equal($('#rr-symmetry').hidden,false);assert.match($('#rr-symmetry-values').textContent,/Same sign at both regions: true/);
+ change('#rr-field','deformation');assert.match($('#rr-legend').textContent,/neutral singlet butadiene/);
+ change('#rr-field','amplitude');change('#rr-orbital','virtual');assert.match($('#rr-orbital-note').textContent,/canonical/);
+ change('#rr-display','conventional');assert.equal(w.SorgReactionLab.state.frameId,'ts');change('#rr-display','both');
+ await w.SorgReactionLab.selectSystem('chloride-identity-sn2');assert.equal($('#rr-symmetry').hidden,true);
+ await w.SorgReactionLab.selectSystem('butadiene-ethylene');assert.equal(w.SorgReactionLab.state.frameId,'ts');
+ assert.equal(w.SorgReactionLab.state.orbitalId,'virtual');
  await w.SorgReactionLab.selectEvent('e2:0');assert.equal($('#rr-unavailable').hidden,false);
  assert.equal($('#rr-calculated').hidden,true);
 

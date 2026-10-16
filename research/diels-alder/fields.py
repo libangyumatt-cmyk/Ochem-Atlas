@@ -1,0 +1,117 @@
+"""Canonical tracking, real AO fields and frozen-fragment symmetry references.
+Run after compute.py and study.py; no interpolated fields or rescaled densities.
+"""
+from pathlib import Path
+import json,shutil,hashlib,time
+import numpy as np
+from scipy.optimize import linear_sum_assignment
+from pyscf import gto,dft,lib
+from skimage.measure import marching_cubes
+from compute import ROOT,OUT,BASIS,BOHR,solve
+lib.num_threads(4)
+N=(81,71,71);ORIGIN=np.array([-10.,-9.,-7.]);STEP=.28
+LEVELS={'total':[.02,.05,.1],'difference':[.002,.005,.01],'deformation':[.002,.005,.01],'occupied':[.025,.045,.065],'virtual':[.025,.045,.065]}
+PAIR=[(0,4,'C1···C5 forming'),(3,5,'C4···C6 forming'),(0,1,'C1–C2 original π'),(2,3,'C3–C4 original π'),(4,5,'C5–C6 original π'),(1,2,'C2–C3 emerging π')]
+FRAGS=[('butadiene',[0,1,2,3,6,7,8,9,10,11]),('ethylene',[4,5,12,13,14,15])]
+def quadrature(m,dm):
+ gr=dft.gen_grid.Grids(m);gr.level=5;gr.build();q=0.
+ for i in range(0,len(gr.coords),10000):
+  a=m.eval_gto('GTOval_sph',gr.coords[i:i+10000]);q+=np.einsum('pi,ij,pj->p',a,dm,a)@gr.weights[i:i+10000]
+ return float(q)
+def mesh(v,lev):
+ out={}
+ for name,sign in [('positive',1),('negative',-1)]:
+  if np.max(v*sign)<=lev:out[name]=None;continue
+  vv,ff,_,_=marching_cubes(np.asarray(v*sign,dtype='float32'),lev,allow_degenerate=False)
+  out[name]=dict(vertices=np.round((vv*STEP+ORIGIN)*BOHR,3).ravel().tolist(),faces=ff.ravel().tolist(),triangleCount=len(ff))
+ return out
+def evaluate(m,dm,grid,c=None):
+ rho=np.zeros(len(grid));phi=np.zeros((len(grid),0 if c is None else c.shape[1]))
+ for i in range(0,len(grid),8000):
+  a=m.eval_gto('GTOval_sph',grid[i:i+8000]);rho[i:i+len(a)]=np.einsum('pi,ij,pj->p',a,dm,a)
+  if c is not None:phi[i:i+len(a)]=a@c
+ return rho,phi
+
+def main():
+ grid=np.stack(np.meshgrid(*[ORIGIN[k]+STEP*np.arange(N[k]) for k in range(3)],indexing='ij'),axis=-1).reshape(-1,3)
+ fs=[];states={};reference=None
+ for id in ['approach','pre-ts','ts','post-ts','product']:
+  if not (OUT/(id+'.json')).exists():print('Waiting for independently computed '+id,flush=True)
+  while not (OUT/(id+'.json')).exists():time.sleep(3)
+  f=json.loads((OUT/(id+'.json')).read_text());a=[(x['element'],x['xyzAngstrom']) for x in f['atoms']];m,mf=solve(a,OUT/(id+'-analysis.log'));w=np.load(OUT/(id+'-scf.npz'));c=w['mo_coeff'].copy();occ=w['mo_occ'];dm=w['density_matrix'];s=w['overlap']
+  # Independently re-solving the exact stored geometry validates SCF provenance.
+  assert abs(mf.e_tot-f['energyHartree'])<1e-8
+  _,_,si,se=mf.stability(internal=True,external=True,return_status=True)
+  f.update(internalStable=bool(si),externalStable=bool(se),homoLumoGapHartree=float(w['mo_energy'][23]-w['mo_energy'][22]))
+  frag_rho=[];frag_states=[];f['fragments']=[]
+  for name,inds in FRAGS:
+   fm,ff=solve([a[i] for i in inds],OUT/(id+'-'+name+'.log'));fd=ff.make_rdm1();rr,_=evaluate(fm,fd,grid);frag_rho.append(rr);frag_states.append((fm,ff))
+   _,_,fi,fe=ff.stability(internal=True,external=True,return_status=True);q=quadrature(fm,fd)
+   np.savez_compressed(OUT/(id+'-'+name+'-scf.npz'),mo_coeff=ff.mo_coeff,mo_occ=ff.mo_occ,mo_energy=ff.mo_energy,density_matrix=fd,coordinates=fm.atom_coords()*BOHR,overlap=fm.intor('int1e_ovlp'))
+   f['fragments'].append(dict(id=name,atomIndices=inds,charge=0,multiplicity=1,electronCount=fm.nelectron,energyHartree=float(ff.e_tot),scfConverged=bool(ff.converged),internalStable=bool(fi),externalStable=bool(fe),quadratureElectronCount=q))
+  tracking=[]
+  if not states:
+   # Frontier fragment choices, not a claim of unique donor/acceptor localization.
+   refs=[(frag_states[0][0],frag_states[0][1],int(np.where(frag_states[0][1].mo_occ>0)[0][-1])),(frag_states[1][0],frag_states[1][1],int(np.where(frag_states[1][1].mo_occ==0)[0][0]))]
+   picks=[];initial=[]
+   for role,(fm,ff,j),block in zip(['occupied','virtual'],refs,[np.where(occ>0)[0],np.where(occ==0)[0]]):
+    ov=ff.mo_coeff[:,j]@gto.intor_cross('int1e_ovlp',fm,m)@c;k=int(max(block,key=lambda k:abs(ov[k])));picks.append(k);initial.append(dict(role=role,fragmentIndex=j+1,complexIndex=k+1,absoluteProjection=float(abs(ov[k]))))
+   for j in picks:c[:,j]*=1 if c[np.argmax(abs(c[:,j])),j]>=0 else -1
+  else:
+   parent=fs[-1]['id'];pm,pc,old=states[parent];ov=pc.T@gto.intor_cross('int1e_ovlp',pm,m)@c;assign={}
+   for block in [np.where(occ>0)[0],np.where(occ==0)[0]]:
+    rows,cols=linear_sum_assignment(-abs(ov[np.ix_(block,block)]));assign.update({int(block[i]):int(block[j]) for i,j in zip(rows,cols)})
+   picks=[assign[j] for j in old]
+   for role,j,k in zip(['occupied','virtual'],old,picks):
+    raw=float(ov[j,k]);c[:,k]*=1 if raw>=0 else -1;block=np.where(occ>0 if occ[k]>0 else occ==0)[0];alt=float(max(abs(ov[j,t]) for t in block if t!=k));tracking.append(dict(role=role,parentFrame=parent,previousIndex=j+1,index=k+1,signedOverlapBeforeAlignment=raw,alignedOverlap=abs(raw),nextCandidate=alt,ambiguous=bool(abs(raw)<.7 or abs(raw)<=alt)))
+  states[id]=(m,c.copy(),picks)
+  rho,amp=evaluate(m,dm,grid,c[:,picks]);q=quadrature(m,dm);assert abs(q-46)<.001
+  if reference is None:reference=rho.copy()
+  fields=dict(total=rho.reshape(N),difference=(rho-reference).reshape(N),deformation=(rho-sum(frag_rho)).reshape(N),occupied=amp[:,0].reshape(N),virtual=amp[:,1].reshape(N))
+  np.savez_compressed(OUT/(id+'-fields.npz'),**{k:v.astype('float32') for k,v in fields.items()},origin_bohr=ORIGIN,spacing_bohr=STEP)
+  np.savez_compressed(OUT/(id+'-tracked.npz'),mo_coeff=c,indices=picks)
+  boundary={k:float(max(abs(v[0]).max(),abs(v[-1]).max(),abs(v[:,0]).max(),abs(v[:,-1]).max(),abs(v[:,:,0]).max(),abs(v[:,:,-1]).max())) for k,v in fields.items()}
+  assert all(boundary[k]<min(LEVELS[k]) for k in fields),boundary
+  meshes={k:[mesh(v,l) for l in LEVELS[k]] for k,v in fields.items()};(OUT/(id+'-meshes.json')).write_text(json.dumps(meshes,separators=(',',':')))
+  xyz=np.array([v for _,v in a]);g=w['gradient'].ravel();jac=np.zeros((2,len(g)))
+  for row,(i,j) in enumerate([(0,4),(3,5)]):
+   u=(xyz[i]-xyz[j])/np.linalg.norm(xyz[i]-xyz[j]);jac[row,3*i:3*i+3]=u;jac[row,3*j:3*j+3]=-u
+  free=g-jac.T@np.linalg.solve(jac@jac.T,jac@g);f['maxProjectedFreeGradientEhPerBohr']=float(max(abs(free)))
+  ps=dm@s;ev,uu=np.linalg.eigh(s);sqrt=(uu*np.sqrt(ev))@uu.T;low=sqrt@dm@sqrt;sl=m.aoslice_by_atom()
+  def bidx(p,i,j):
+   lo,hi=sl[i,2:];ll,hh=sl[j,2:];return float(np.sum(p[lo:hi,ll:hh]*p[ll:hh,lo:hi].T))
+  f['bonds']=[dict(atoms=[i,j],label=label,distanceAngstrom=float(np.linalg.norm(xyz[i]-xyz[j])),mayer=bidx(ps,i,j),lowdinWiberg=bidx(low,i,j)) for i,j,label in PAIR]
+  f['connections']=[dict(atoms=[i,j],style='guide' if k<2 else 'bond') for k,(i,j,_) in enumerate(PAIR)]+[dict(atoms=[parent,h],style='bond') for parent,h in [(0,6),(0,7),(1,8),(2,9),(3,10),(3,11),(4,12),(4,13),(5,14),(5,15)]]
+  perm=[3,2,1,0,5,4,11,10,9,8,7,6,15,14,13,12];xx=xyz-xyz.mean(0);yy=xyz[perm]-xyz.mean(0);u,_,vh=np.linalg.svd(xx.T@yy);symerr=float(np.sqrt(np.mean(np.sum((xx@u@vh-yy)**2,axis=1))))
+  f['geometrySymmetryRmsdAngstrom']=symerr
+  f['geometryDescriptors']=[dict(label='Forming-bond distance asymmetry',value=abs(f['bonds'][0]['distanceAngstrom']-f['bonds'][1]['distanceAngstrom']),unit='Å'),dict(label='Forming-bond Mayer asymmetry',value=abs(f['bonds'][0]['mayer']-f['bonds'][1]['mayer']),unit='dimensionless'),dict(label='Kohn–Sham frontier gap (not excitation energy)',value=f['homoLumoGapHartree']*27.211386245988,unit='eV')]
+  f['geometryDescriptors'].append(dict(label='Max distance-constraint projected nuclear gradient',value=f['maxProjectedFreeGradientEhPerBohr'],unit='Eh/bohr'))
+  f['geometryDescriptors'].append(dict(label='Mapped fragment-exchange reflection RMSD',value=symerr,unit='Å'))
+  if id=='ts':
+   h=np.load(OUT/'ts-hessian.npz');mode=h['normal_modes'][np.argmin(h['frequencies'])].copy();mode/=np.linalg.norm(mode)
+   deriv=lambda i,j:float(np.dot(xyz[i]-xyz[j],mode[i]-mode[j])/np.linalg.norm(xyz[i]-xyz[j]))
+   if deriv(0,4)>0:mode*=-1
+   slopes=[dict(atoms=[i,j],label=label,drds=deriv(i,j)) for i,j,label in PAIR]
+   f['unstableMode']=dict(definition='r(s)=r(TS)+s*v; v is the imaginary Cartesian normal-mode vector scaled to sum_atom |v|²=1; s in angstrom, dr/ds dimensionless. Sign chosen to shorten C1–C5. Local harmonic direction only, NOT IRC.',bonds=slopes,vector=mode.tolist())
+   f['geometryDescriptors'] += [dict(label='Imaginary-mode dr(C1–C5)/ds',value=slopes[0]['drds'],unit='dimensionless'),dict(label='Imaginary-mode dr(C4–C6)/ds',value=slopes[1]['drds'],unit='dimensionless')]
+
+  f.update(label=id+' · '+f"{f['bonds'][0]['distanceAngstrom']:.3f} Å",coordinateLabel=id,quadratureElectronCount=q,uniformGridElectronEstimate=float(rho.sum()*STEP**3),maximumAbsoluteBoundaryField=boundary,tracking=tracking,orbitals=[dict(id=role,index=j+1,occupation=int(occ[j]),energyHartree=float(w['mo_energy'][j]),nearDegenerate=bool(min(abs(w['mo_energy'][j]-np.delete(w['mo_energy'],j)))<.005)) for role,j in zip(['occupied','virtual'],picks)],meshFile=f'reaction-lab/diels-alder/{id}-meshes.json',fieldFile=f'reaction-lab/diels-alder/{id}-fields.npz')
+  if id=='ts':
+   # Separate, frozen neutral fragments at TS geometry. Both real canonical fields
+   # are displayed together in the same laboratory orientation, not complex MOs.
+   (dmol,df),(emol,ef)=frag_states;di=int(np.where(df.mo_occ>0)[0][-1]);ei=int(np.where(ef.mo_occ==0)[0][0]);dc=df.mo_coeff[:,di].copy();ec=ef.mo_coeff[:,ei].copy()
+   _,dp=evaluate(dmol,df.make_rdm1(),grid,dc[:,None]);_,ep=evaluate(emol,ef.make_rdm1(),grid,ec[:,None]);dp=dp[:,0];ep=ep[:,0]
+   mids=np.array([(xyz[0]+xyz[4])/2,(xyz[3]+xyz[5])/2])/BOHR
+   dv=dmol.eval_gto('GTOval_sph',mids)@dc;ev=emol.eval_gto('GTOval_sph',mids)@ec
+   if dv[0]*ev[0]<0:ec*=-1;ep*=-1;ev*=-1
+   # Spatially separate fields retain their actual values; combined display is a
+   # superposition drawing, NOT a normalized full-system orbital or total density.
+   sm={name:[mesh(v.reshape(N),l) for l in [.025,.045,.065]] for name,v in [('diene',dp),('dienophile',ep)]}
+   (OUT/'symmetry-meshes.json').write_text(json.dumps(sm,separators=(',',':')));np.savez_compressed(OUT/'symmetry-fields.npz',diene=dp.reshape(N).astype('float32'),dienophile=ep.reshape(N).astype('float32'),diene_coeff=dc,dienophile_coeff=ec,origin_bohr=ORIGIN,spacing_bohr=STEP)
+   symmetry=dict(frameId='ts',meshFile='reaction-lab/diels-alder/symmetry-meshes.json',fieldFile='reaction-lab/diels-alder/symmetry-fields.npz',dieneIndex=di+1,dienophileIndex=ei+1,midpointCoordinatesAngstrom=(mids*BOHR).tolist(),dieneMidpointAmplitudes=dv.tolist(),dienophileMidpointAmplitudes=ev.tolist(),samePhaseProducts=(dv*ev).tolist(),interfragmentOverlap=float(dc@gto.intor_cross('int1e_ovlp',dmol,emol)@ec))
+  fs.append(f);print('FIELDS',id,q,f['geometryDescriptors'][:2],flush=True)
+ meta=dict(method='B3LYP (VWN-RPA)',basis='6-31G(d)',charge=0,multiplicity=1,electronCount=46,environment='Isolated gas-phase ground-state restricted Kohn–Sham model; no solvent/counterions',pathKind='Three relaxed equal-forming-distance constrained geometries around a full-Hessian verified saddle and an independently optimized cyclohexene minimum. Not an IRC; constrained points do not establish a minimum-energy path.',frames=fs,levels=LEVELS,initialSelection=initial,symmetry=symmetry,grid=dict(shape=N,originBohr=ORIGIN.tolist(),spacingBohr=STEP,order='C order, z fastest',alignment='Fixed atom mapping C1–C6 then H7–H16; each optimized frame rigidly aligned to the TS carbon skeleton before final SCF. No density alignment or grid interpolation.',densityUnits='electron bohr^-3',orbitalUnits='bohr^-3/2',meshCoordinates='angstrom',fieldPrecision='float32 grids; float64 coefficients'),references=dict(difference='rho(current) minus rho(approach), evaluated on identical lab-frame Cartesian points after documented geometry alignment. Includes nuclear displacement, not unique electron transfer.',deformation='rho(complex) minus frozen neutral singlet butadiene and ethylene densities at that exact geometry, each B3LYP/6-31G(d) in its own basis with no ghosts. Not a counterpoise or unique charge-transfer partition.',probability='Square of selected normalized complex canonical spatial orbital, no occupation factor.',signs='Teal positive / amber negative amplitude or electron-number difference, not electrical charges.'))
+ meta['warnings']=[f"Restricted complex determinant instability reported at {f['id']}; converged SCF is not a verified stable determinant." for f in fs if not f['internalStable'] or not f['externalStable']]
+ (OUT/'diels-alder.json').write_text(json.dumps(meta,indent=2))
+ for name in ['compute.py','locate.py','scan.py','finalize_product.py','endpoints.py','study.py','fields.py','validate.py','README.md']:shutil.copy2(Path(__file__).parent/name,OUT/name)
+if __name__=='__main__':main()

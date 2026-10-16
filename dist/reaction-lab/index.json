@@ -12,6 +12,12 @@
       "event": "carbonyl-add:0",
       "title": "Carbonyl addition \u00b7 H\u207b + H\u2082CO",
       "dataFile": "reaction-lab/carbonyl-system.json"
+    },
+    {
+      "id": "butadiene-ethylene",
+      "event": "diels-alder:0",
+      "title": "Diels\u2013Alder \u00b7 butadiene + ethylene",
+      "dataFile": "reaction-lab/diels-alder-system.json"
     }
   ],
   "capabilities": {
@@ -20,5 +26,5 @@
     "geometryDescriptorArrays": true,
     "spinResolvedFieldDefinitions": true
   },
-  "futureDatasets": "Diels\u2013Alder, E2 and radical reaction systems are NOT implemented. Schema supports fields marked spin-density/alpha/beta only if computed data are supplied."
+  "futureDatasets": "E2 and radical reaction datasets are NOT implemented. Spin fields require actual computed data."
 }

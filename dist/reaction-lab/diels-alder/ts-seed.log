@@ -1,0 +1,149 @@
+#INFO: **** input file is /workspace/scratch/69db76a371c7/Ochem-Atlas/research/diels-alder/locate.py ****
+"""Improve TS guess by relaxing both forming distances at 2.25 Å first.
+That constrained seed is not called a transition state. A subsequent unconstrained
+full-gradient search and independent full Hessian decide TS status.
+"""
+from compute import *
+from study import single
+
+def main():
+ (OUT/'inputs.json').write_text(json.dumps(dict(method='B3LYP (PySCF default VWN-RPA)',basis=BASIS,charge=0,multiplicity=1,electronCount=46,environment='isolated gas phase',gridLevel=3,seed=[(e,v.tolist()) for e,v in seed()],seedConstraintAngstrom=2.25,scanConstraintsAngstrom=[3.,2.5,1.9],optimizerGradientRmsTarget=8e-5,optimizerGradientMaximumTarget=2e-4,finalCartesianGradientTolerance=2e-4,gradientUnits='Eh/bohr',scfEnergyToleranceEh=1e-10,scfOrbitalGradientTolerance=1e-6,software='PySCF '+__import__('pyscf').__version__,path='constrained seed -> unconstrained saddle; constrained study, no IRC'),indent=2))
+ con=OUT/'ts-seed-constraints.txt';con.write_text('$set\ndistance 1 5 2.25\ndistance 4 6 2.25\n$end\n')
+ if (OUT/'ts-seed.xyz').exists():
+  lines=(OUT/'ts-seed.xyz').read_text().splitlines()[2:];ms=gto.M(atom=[(x.split()[0],list(map(float,x.split()[1:4]))) for x in lines],basis=BASIS,verbose=0)
+ else:
+  m,f=solve(seed(),OUT/'ts-seed-optimization.log');ms=optimize(f,constraints=str(con),maxsteps=40,convergence_energy=1e-5,convergence_grms=5e-4,convergence_gmax=1e-3,convergence_drms=.01,convergence_dmax=.02,verbose=0)
+ single('ts-seed',ms)
+ m,f=solve([(ms.atom_symbol(i),v*BOHR) for i,v in enumerate(ms.atom_coords())],OUT/'ts-refinement.log')
+ opt=optimize(f,transition=True,hessian=True,trust=.03,tmax=.1,maxsteps=50,convergence_grms=8e-5,convergence_gmax=2e-4,verbose=0)
+ _,_,r=save('ts',opt,'Full-dimensional transition-state candidate; status from full gradient and Hessian')
+ assert r['maxNuclearGradientEhPerBohr']<2e-4 and sum(v<-20 for v in r['frequenciesCm'])==1
+ r.update(geometryKind='Full-gradient and Hessian verified first-order saddle; IRC not performed',stationaryPointVerified=True);(OUT/'ts.json').write_text(json.dumps(r,indent=2))
+if __name__=='__main__':main()
+#INFO: ******************** input file end ********************
+
+
+System: uname_result(system='Linux', node='8d77c3686701', release='6.18.44', version='#1 SMP Sat Sep 26 20:02:31 UTC 2026', machine='x86_64')  Threads 4
+Python 3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]
+numpy 2.3.5  scipy 1.17.0  h5py 3.16.0
+Date: Fri Oct 16 16:04:35 2026
+PySCF version 2.14.0
+PySCF path  /root/.local/lib/python3.12/site-packages/pyscf
+
+[CONFIG] conf_file None
+[INPUT] verbose = 4
+[INPUT] num. atoms = 16
+[INPUT] num. electrons = 46
+[INPUT] charge = 0
+[INPUT] spin (= nelec alpha-beta = 2S) = 0
+[INPUT] symmetry False subgroup None
+[INPUT] Mole.unit = Angstrom
+[INPUT] Symbol           X                Y                Z      unit          X                Y                Z       unit  Magmom
+[INPUT]  1 C     -1.433925388254   0.415054781187   0.028168709999 AA   -2.709726266861   0.784339863134   0.053231147181 Bohr   0.0
+[INPUT]  2 C     -0.701159804877  -0.692339617078  -0.377007703088 AA   -1.325000000772  -1.308332261463  -0.712441305687 Bohr   0.0
+[INPUT]  3 C      0.701609842077  -0.691136120178  -0.377818690388 AA    1.325850447826  -1.306057981931  -0.713973849575 Bohr   0.0
+[INPUT]  4 C      1.434056376254   0.416929301487   0.026391027999 AA    2.709973798306   0.787882193116   0.049871815064 Bohr   0.0
+[INPUT]  5 C     -0.696651401078   0.747342889976   2.127797802932 AA   -1.316480352331   1.412273383196   4.020955095992 Bohr   0.0
+[INPUT]  6 C      0.696066296778   0.747713410576   2.126178013532 AA    1.315374665450   1.412973565653   4.017894137647 Bohr   0.0
+[INPUT]  7 H     -1.067958869866   1.416002904455  -0.172968256394 AA   -2.018149776346   2.675857681008  -0.326862632829 Bohr   0.0
+[INPUT]  8 H     -2.514526542619   0.343343487989   0.126279915796 AA   -4.751766498500   0.648825158952   0.238634455887 Bohr   0.0
+[INPUT]  9 H     -1.213081947861  -1.647808463047  -0.482090373685 AA   -2.292392648111  -3.113906700899  -0.911018773553 Bohr   0.0
+[INPUT] 10 H      1.214443986361  -1.646021890447  -0.483607126884 AA    2.294966527847  -3.110530567984  -0.913885021699 Bohr   0.0
+[INPUT] 11 H      2.514804464419   0.349036029989   0.125317705396 AA    4.752291694586   0.659582504284   0.236816141757 Bohr   0.0
+[INPUT] 12 H      1.066613169166   1.417651121754  -0.172933790294 AA    2.015606770578   2.678972360298  -0.326797501339 Bohr   0.0
+[INPUT] 13 H     -1.235083501060   1.687949880446   2.202662168229 AA   -2.333969557973   3.189762986035   4.162428242894 Bohr   0.0
+[INPUT] 14 H     -1.234350465660  -0.119037704296   2.497240907820 AA   -2.332584321827  -0.224948659617   4.719101382840 Bohr   0.0
+[INPUT] 15 H      1.236012620760  -0.117697335396   2.494672574520 AA    2.335725339743  -0.222415729490   4.714247936306 Bohr   0.0
+[INPUT] 16 H      1.233525110960   1.689049170146   2.199850853829 AA    2.331024627489   3.191840342499   4.157115628628 Bohr   0.0
+
+nuclear repulsion = 224.214284972196
+number of shells = 56
+number of NR pGTOs = 202
+number of NR cGTOs = 104
+basis = 6-31g(d)
+ecp = {}
+CPU time:         0.55
+
+
+******** <class 'pyscf.dft.rks.RKS'> ********
+method = RKS
+initial guess = minao
+damping factor = 0
+level_shift factor = 0
+DIIS = <class 'pyscf.scf.diis.CDIIS'>
+diis_start_cycle = 1
+diis_space = 8
+diis_damp = 0
+SCF conv_tol = 1e-10
+SCF conv_tol_grad = 1e-06
+SCF max_cycles = 120
+direct_scf = True
+direct_scf_tol = 1e-13
+chkfile to save SCF result = /tmp/tmp_av5qraq
+max_memory 4000 MB (current use 2 MB)
+XC library pyscf.dft.libxc version 7.0.0
+    S. Lehtola, C. Steigemann, M. J.T. Oliveira, and M. A.L. Marques.,  SoftwareX 7, 1–5 (2018)
+XC functionals = b3lyp
+    P. J. Stephens, F. J. Devlin, C. F. Chabalowski, and M. J. Frisch.,  J. Phys. Chem. 98, 11623 (1994)
+radial grids: 
+    Treutler-Ahlrichs [JCP 102, 346 (1995); DOI:10.1063/1.469408] (M4) radial grids
+    
+becke partition: Becke, JCP 88, 2547 (1988); DOI:10.1063/1.454033
+pruning grids: <function nwchem_prune at 0x7fd808a70cc0>
+grids dens level: 3
+symmetrized grids: False
+atomic radii adjust function: <function treutler_atomic_radii_adjust at 0x7fd808a711c0>
+small_rho_cutoff = 0
+Initial guess from minao.
+tot grids = 182792
+init E= -234.838628247495
+  HOMO = -0.281828149280672  LUMO = -0.10491872699532  gap/eV = 4.81395
+cycle= 1 E= -234.483614285094  delta_E= 0.355  |g|= 0.437  |ddm|= 3.47
+  HOMO = -0.144196688120388  LUMO = 0.0568189475467853  gap/eV = 5.46991
+cycle= 2 E= -234.474943994886  delta_E= 0.00867  |g|= 0.483  |ddm|= 1.06
+  HOMO = -0.219171482474501  LUMO = -0.00684916439455696  gap/eV = 5.77758
+cycle= 3 E= -234.539350682312  delta_E= -0.0644  |g|= 0.0244  |ddm|= 0.589
+  HOMO = -0.217474100394794  LUMO = -0.007450179867039  gap/eV = 5.71504
+cycle= 4 E= -234.539415845443  delta_E= -6.52e-05  |g|= 0.0178  |ddm|= 0.0387
+  HOMO = -0.218112306490216  LUMO = -0.00663962247644312  gap/eV = 5.75446
+cycle= 5 E= -234.539485756423  delta_E= -6.99e-05  |g|= 0.00665  |ddm|= 0.0208
+  HOMO = -0.218141110903142  LUMO = -0.00686773353843906  gap/eV = 5.74904
+cycle= 6 E= -234.539497359489  delta_E= -1.16e-05  |g|= 0.00132  |ddm|= 0.0083
+  HOMO = -0.218088332881317  LUMO = -0.00690115953554793  gap/eV = 5.74670
+cycle= 7 E= -234.53949791761  delta_E= -5.58e-07  |g|= 0.000245  |ddm|= 0.0016
+  HOMO = -0.21808955572272  LUMO = -0.00688475612675399  gap/eV = 5.74718
+cycle= 8 E= -234.539497935152  delta_E= -1.75e-08  |g|= 2.19e-05  |ddm|= 0.000258
+  HOMO = -0.218088893912833  LUMO = -0.00688509088803846  gap/eV = 5.74715
+cycle= 9 E= -234.539497935301  delta_E= -1.49e-10  |g|= 7.36e-06  |ddm|= 4.19e-05
+  HOMO = -0.218088754191517  LUMO = -0.00688500037529316  gap/eV = 5.74715
+cycle= 10 E= -234.53949793531  delta_E= -9.32e-12  |g|= 5.32e-06  |ddm|= 1.27e-05
+  HOMO = -0.218088657921547  LUMO = -0.00688490155463262  gap/eV = 5.74715
+cycle= 11 E= -234.539497935319  delta_E= -8.58e-12  |g|= 6.29e-07  |ddm|= 6.01e-06
+  HOMO = -0.218088687000253  LUMO = -0.00688492132301199  gap/eV = 5.74715
+Extra cycle  E= -234.539497935321  delta_E= -1.82e-12  |g|= 8.99e-07  |ddm|= 1.71e-06
+converged SCF energy = -234.539497935321
+
+
+******** <class 'pyscf.grad.rks.Gradients'> for <class 'pyscf.dft.rks.RKS'> ********
+unit = Eh/Bohr
+max_memory 4000 MB (current use 2 MB)
+grid_response = False
+--------------- RKS gradients ---------------
+         x                y                z
+0 C    -0.0012842057    -0.0005135805    -0.0028568969
+1 C     0.0002948048    -0.0001334194    -0.0002003570
+2 C    -0.0005851276     0.0000604763    -0.0001619193
+3 C     0.0016109792    -0.0007458114    -0.0029958826
+4 C     0.0008301668     0.0007862282     0.0030968384
+5 C    -0.0010177677     0.0004760744     0.0028768894
+6 H     0.0002235484     0.0000159585    -0.0000274640
+7 H    -0.0000363559    -0.0000095256     0.0000112157
+8 H    -0.0000391804    -0.0000117015     0.0000794536
+9 H    -0.0000189125     0.0000060184     0.0000792592
+10 H     0.0000491304     0.0002944598     0.0001041336
+11 H    -0.0001135668     0.0000086243     0.0000715414
+12 H    -0.0000264238    -0.0000407417     0.0000341629
+13 H    -0.0000551217    -0.0001064991    -0.0000348453
+14 H     0.0001519051    -0.0000921087    -0.0000458708
+15 H     0.0000168389    -0.0000052559    -0.0000052340
+----------------------------------------------

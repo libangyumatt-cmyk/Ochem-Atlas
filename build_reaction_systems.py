@@ -48,5 +48,7 @@ def main():
     draw.render_record('carbonyl-hydride',0,('[H-:1].[CH2:2]=[O:3]','[CH2:2]([H:1])[O-:3]',[(1,2),((2,3),3)],'Hydride electron pair → C; carbonyl pi pair → O. Methoxide, charge −1; no protonation/work-up.'),'Hydride addition to formaldehyde','H− + H2C=O → H3C–O−')
     import shutil
     for name in ['analyze.py','validate.py','detachment.py']:shutil.copy2(ROOT/'research/carbonyl'/name,OUT/'carbonyl'/name)
-    print('Built schema 2 adapters for two independently computed reaction systems; original SN2 files untouched.')
+    from build_diels_alder import extend
+    extend()
+    print('Built schema 2 adapters for three independently computed reaction systems; original SN2 files untouched.')
 if __name__=='__main__':main()

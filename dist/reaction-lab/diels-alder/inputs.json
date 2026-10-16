@@ -1,0 +1,153 @@
+{
+  "method": "B3LYP (PySCF default VWN-RPA)",
+  "basis": "6-31g(d)",
+  "charge": 0,
+  "multiplicity": 1,
+  "electronCount": 46,
+  "environment": "isolated gas phase",
+  "gridLevel": 3,
+  "seed": [
+    [
+      "C",
+      [
+        -1.4,
+        0.6,
+        0.0
+      ]
+    ],
+    [
+      "C",
+      [
+        -0.73,
+        -0.55,
+        0.0
+      ]
+    ],
+    [
+      "C",
+      [
+        0.73,
+        -0.55,
+        0.0
+      ]
+    ],
+    [
+      "C",
+      [
+        1.4,
+        0.6,
+        0.0
+      ]
+    ],
+    [
+      "C",
+      [
+        -0.67,
+        0.6,
+        2.1
+      ]
+    ],
+    [
+      "C",
+      [
+        0.67,
+        0.6,
+        2.1
+      ]
+    ],
+    [
+      "H",
+      [
+        -0.8612015136752195,
+        1.5417649341179174,
+        0.0
+      ]
+    ],
+    [
+      "H",
+      [
+        -2.4849916005018846,
+        0.5957307096189036,
+        0.0
+      ]
+    ],
+    [
+      "H",
+      [
+        -1.270650289520796,
+        -1.4907030692206118,
+        0.0
+      ]
+    ],
+    [
+      "H",
+      [
+        1.270650289520796,
+        -1.4907030692206118,
+        0.0
+      ]
+    ],
+    [
+      "H",
+      [
+        2.4849916005018846,
+        0.5957307096189036,
+        0.0
+      ]
+    ],
+    [
+      "H",
+      [
+        0.8612015136752195,
+        1.5417649341179174,
+        0.0
+      ]
+    ],
+    [
+      "H",
+      [
+        -1.2125,
+        1.5396375631061159,
+        2.1
+      ]
+    ],
+    [
+      "H",
+      [
+        -1.2125,
+        -0.3396375631061158,
+        2.1
+      ]
+    ],
+    [
+      "H",
+      [
+        1.2125,
+        -0.3396375631061158,
+        2.1
+      ]
+    ],
+    [
+      "H",
+      [
+        1.2125,
+        1.5396375631061159,
+        2.1
+      ]
+    ]
+  ],
+  "seedConstraintAngstrom": 2.25,
+  "scanConstraintsAngstrom": [
+    3.0,
+    2.5,
+    1.9
+  ],
+  "optimizerGradientRmsTarget": 8e-05,
+  "optimizerGradientMaximumTarget": 0.0002,
+  "finalCartesianGradientTolerance": 0.0002,
+  "gradientUnits": "Eh/bohr",
+  "scfEnergyToleranceEh": 1e-10,
+  "scfOrbitalGradientTolerance": 1e-06,
+  "software": "PySCF 2.14.0",
+  "path": "constrained seed -> unconstrained saddle; constrained study, no IRC"
+}

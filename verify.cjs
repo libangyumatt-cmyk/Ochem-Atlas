@@ -11,7 +11,7 @@ assert.equal(D.reactions.filter(r=>r.figure).length,D.reactions.length,'every re
 assert.equal(D.reactions.find(r=>r.id==='sn2').quantumData.status,'literature-related-numerical');
 assert.equal(D.reactions.find(r=>r.id==='diels-alder').quantumData.status,'literature-related-numerical');
 assert.equal(D.reactions.filter(r=>r.quantumData.literatureCases.length>0).length,2);
-assert.equal(D.version,'0.3.6');
+assert.equal(D.version,'0.3.7');
 const research=JSON.parse(fs.readFileSync('research/evidence.json','utf8'));
 assert.equal(research.schemaVersion,'1.0');
 assert.deepEqual(research,JSON.parse(fs.readFileSync('dist/research-data.json','utf8')));
@@ -130,7 +130,7 @@ assert.match(D.reactions.find(r=>r.id==='imine-formation').steps.at(-1).equation
 assert.ok(D.reactions.every(r=>new Set(r.quantumData.descriptors).size===r.quantumData.descriptors.length));
 assert.ok(D.reactions.find(r=>r.id==='carbonyl-add').quantumData.literatureInsights[0].teachingPoint.includes('111°'));
 assert.ok(html.includes('id="compare-output"'));assert.ok(html.includes('Same code, different chemistry'));
-assert.ok(html.includes('v0.3.6'));assert.ok(html.includes('app.js?v=0.3.6'));
+assert.ok(html.includes('v0.3.7'));assert.ok(html.includes('app.js?v=0.3.7'));
 for(const id of ['fischer-esterification','imine-formation']){
  const r=D.reactions.find(x=>x.id===id);
  for(const [i,s] of r.steps.entries()){
