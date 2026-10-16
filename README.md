@@ -96,3 +96,17 @@ The laboratory adds open-shell allyl SOMO/spin density, all six benzene π orbit
 ## v0.3.5 Reaction Orbital Laboratory
 
 One selected event now connects conventional mechanisms to a separate calculated chloride SN2 case: five RHF/6-31+G(d) constrained geometries, a Hessian-verified central first-order saddle, canonical MO tracking, total density, same-grid density differences and same-geometry fragment deformation density. It is not an IRC. See [V035_AUDIT.md](V035_AUDIT.md) and the [31-reaction/69-event illustration inventory](audit/V035_MECHANISM_INVENTORY.md). Forty-four original catalog event SVGs improve complete teaching coverage to 29 entries; LAH remains partial and Grignard representative. New structural illustration regeneration requires `rdkit==2026.9.1`; existing numerical data and taxonomy are retained.
+
+## v0.3.6 — Carbonyl reaction electronic structure
+
+The Reaction Orbital Laboratory now selects independently calculated SN2 and
+H− + formaldehyde systems using schema-2 records. Seven new carbonyl geometries
+include a Hessian-verified methoxide minimum and a matched-distance three-angle
+comparison. Actual orbitals, total/difference/deformation densities, two bond-index
+conventions and pyramidalization stay synchronized. Original 31 reactions / 69
+events, candidate carbonyl 1113 and all original quantum datasets are preserved.
+
+Important: bare hydride is not bound against detachment at this HF level. The
+public UI labels this finite-basis restricted addition branch explicitly; it is
+not an IRC or verified physical gas-phase ground-state path. See [V036_AUDIT.md](V036_AUDIT.md),
+[reproduction instructions](research/carbonyl/README.md), and [schema](research/carbonyl/SCHEMA.md).

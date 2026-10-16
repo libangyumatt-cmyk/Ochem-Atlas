@@ -1,0 +1,169 @@
+{
+  "program": "independent AO reconstruction using PySCF",
+  "frames": [
+    {
+      "id": "addition-0",
+      "energyHartree": -114.37219828558561,
+      "independentQuadratureElectronCount": 17.999999520374836,
+      "maximumNuclearGradient": 0.009307878985914897,
+      "complexStability": [
+        true,
+        true
+      ],
+      "fragmentStability": [
+        {
+          "id": "hydride",
+          "internalStable": true,
+          "externalStable": true
+        },
+        {
+          "id": "formaldehyde",
+          "internalStable": true,
+          "externalStable": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "addition-1",
+      "energyHartree": -114.37131928082945,
+      "independentQuadratureElectronCount": 17.9999999357805,
+      "maximumNuclearGradient": 0.008828502805224708,
+      "complexStability": [
+        true,
+        true
+      ],
+      "fragmentStability": [
+        {
+          "id": "hydride",
+          "internalStable": true,
+          "externalStable": true
+        },
+        {
+          "id": "formaldehyde",
+          "internalStable": true,
+          "externalStable": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "addition-2",
+      "energyHartree": -114.3705372630845,
+      "independentQuadratureElectronCount": 17.999999814834734,
+      "maximumNuclearGradient": 0.01685449089745071,
+      "complexStability": [
+        true,
+        true
+      ],
+      "fragmentStability": [
+        {
+          "id": "hydride",
+          "internalStable": true,
+          "externalStable": true
+        },
+        {
+          "id": "formaldehyde",
+          "internalStable": true,
+          "externalStable": false
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "addition-3",
+      "energyHartree": -114.38756778994092,
+      "independentQuadratureElectronCount": 17.99999988960568,
+      "maximumNuclearGradient": 0.05339016700228816,
+      "complexStability": [
+        true,
+        true
+      ],
+      "fragmentStability": [
+        {
+          "id": "hydride",
+          "internalStable": true,
+          "externalStable": true
+        },
+        {
+          "id": "formaldehyde",
+          "internalStable": true,
+          "externalStable": false
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "product",
+      "energyHartree": -114.41572569713685,
+      "independentQuadratureElectronCount": 17.999999972760317,
+      "maximumNuclearGradient": 3.435055957622037e-07,
+      "complexStability": [
+        true,
+        true
+      ],
+      "fragmentStability": [
+        {
+          "id": "hydride",
+          "internalStable": true,
+          "externalStable": true
+        },
+        {
+          "id": "formaldehyde",
+          "internalStable": true,
+          "externalStable": false
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "angle-90",
+      "energyHartree": -114.35089789838823,
+      "independentQuadratureElectronCount": 17.999999843253264,
+      "maximumNuclearGradient": 0.04071922411432366,
+      "complexStability": [
+        true,
+        true
+      ],
+      "fragmentStability": [
+        {
+          "id": "hydride",
+          "internalStable": true,
+          "externalStable": true
+        },
+        {
+          "id": "formaldehyde",
+          "internalStable": true,
+          "externalStable": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "angle-130",
+      "energyHartree": -114.3680568507122,
+      "independentQuadratureElectronCount": 17.999999612024098,
+      "maximumNuclearGradient": 0.021008469010146746,
+      "complexStability": [
+        true,
+        true
+      ],
+      "fragmentStability": [
+        {
+          "id": "hydride",
+          "internalStable": true,
+          "externalStable": true
+        },
+        {
+          "id": "formaldehyde",
+          "internalStable": true,
+          "externalStable": false
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "sampledGridPoints": 700,
+  "checks": "energy, nuclear/SCF gradients, AO metric, quadrature, actual field samples, fragments, Hungarian/sign mapping, two bond indices, distances/angles, recomputed product Hessian",
+  "result": "pass"
+}

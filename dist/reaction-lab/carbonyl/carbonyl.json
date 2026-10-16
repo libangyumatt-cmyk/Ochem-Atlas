@@ -1,0 +1,1774 @@
+{
+  "method": "RHF",
+  "basis": "6-31++G(d,p)",
+  "program": "PySCF 2.14.0",
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "charge": -1,
+  "multiplicity": 1,
+  "electronCount": 18,
+  "environment": "isolated gas phase; bare hydride, no counterion or solvent",
+  "scfProtocol": {
+    "energyToleranceEh": 1e-11,
+    "orbitalGradientTolerance": 1e-07,
+    "maxCycles": 150,
+    "newtonFallback": true,
+    "stability": "internal and external RHF stability checked for every complex frame"
+  },
+  "pathKind": "Four fixed C\u2013H(nu) distance / 110\u00b0 angle Cs-relaxed frames plus a separately optimized minimum; two matched-distance angle comparisons. Not an IRC. No transition state claimed.",
+  "atomMapping": "C, O, H1, H2, Hnu fixed identities. C at origin, O on +x, Hnu in xz with z>0; H1/H2 reflected across xz. No post-hoc fit.",
+  "competingPathways": "Bare gas-phase hydride is an idealized donor, not LiAlH4 or NaBH4. H abstraction (H2 + HCO\u2212), detachment/other electronic states and solvent/counterion chemistry were not compared; the constrained addition branch does not establish global selectivity or kinetics.",
+  "frames": [
+    {
+      "id": "addition-0",
+      "group": "addition",
+      "geometryKind": "constrained Cs-relaxed frame; not a stationary point",
+      "atoms": [
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "label": "C",
+          "atomId": "C"
+        },
+        {
+          "element": "O",
+          "xyzAngstrom": [
+            1.1931244433425225,
+            0.0,
+            0.0
+          ],
+          "label": "O",
+          "atomId": "O"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.5779886143149698,
+            0.9223610829774072,
+            -0.0003001093190177389
+          ],
+          "label": "H1",
+          "atomId": "H1"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.5779886143149698,
+            -0.9223610829774072,
+            -0.0003001093190177389
+          ],
+          "label": "H2",
+          "atomId": "H2"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -1.0260604299770062,
+            0.0,
+            2.8190778623577253
+          ],
+          "label": "H nu",
+          "atomId": "Hnu"
+        }
+      ],
+      "energyHartree": -114.37219828558561,
+      "scfConverged": true,
+      "internalStable": true,
+      "externalStable": true,
+      "orthonormalError": 3.1530333899354446e-14,
+      "electronCountAOMetric": 18.00000000000004,
+      "scfOrbitalGradientNorm": 1.4683749117582125e-08,
+      "maxNuclearGradientEhPerBohr": 0.009307878985914897,
+      "maxFreeParameterGradientEhPerAngstromOrRadian": 1.1346875301074081e-07,
+      "distanceAngstrom": 3.0,
+      "angleDegree": 110.0,
+      "bonds": [
+        {
+          "atoms": [
+            0,
+            1
+          ],
+          "label": "C\u2013O",
+          "distanceAngstrom": 1.1931244433425225,
+          "mayer": 1.810719029421486,
+          "lowdinWiberg": 2.3715236034953273
+        },
+        {
+          "atoms": [
+            0,
+            4
+          ],
+          "label": "C\u2013H(nu)",
+          "distanceAngstrom": 3.0,
+          "mayer": 0.14290452279743396,
+          "lowdinWiberg": 0.30108568668170743
+        }
+      ],
+      "geometryDescriptors": [
+        {
+          "label": "O\u2013C\u2013H(nu) approach angle",
+          "value": 110.0,
+          "unit": "\u00b0"
+        },
+        {
+          "label": "C displacement from O/H1/H2 plane",
+          "value": 0.00020217103448386,
+          "unit": "\u00c5"
+        },
+        {
+          "label": "360\u00b0 minus O\u2013C\u2013H1 / H1\u2013C\u2013H2 / H2\u2013C\u2013O sum",
+          "value": 9.679686627350748e-06,
+          "unit": "\u00b0"
+        }
+      ],
+      "connections": [
+        {
+          "atoms": [
+            0,
+            1
+          ],
+          "style": "bond"
+        },
+        {
+          "atoms": [
+            0,
+            2
+          ],
+          "style": "bond"
+        },
+        {
+          "atoms": [
+            0,
+            3
+          ],
+          "style": "bond"
+        },
+        {
+          "atoms": [
+            0,
+            4
+          ],
+          "style": "guide"
+        }
+      ],
+      "maximumAbsoluteBoundaryField": {
+        "total": 4.6508918035824764e-05,
+        "difference": 0.0,
+        "deformation": 5.4636231314023515e-06,
+        "donor": 0.0048093479049599545,
+        "pi": 0.000979779750656742,
+        "pistar": 0.016096482948881146
+      },
+      "quadratureElectronCount": 17.999999520374836,
+      "uniformGridElectronEstimate": 18.81353635548149,
+      "fragments": [
+        {
+          "id": "hydride",
+          "atomIndices": [
+            4
+          ],
+          "charge": -1,
+          "multiplicity": 1,
+          "electronCount": 2,
+          "scfConverged": true,
+          "internalStable": true,
+          "externalStable": true,
+          "quadratureElectronCount": 1.9999993663443445,
+          "energyHartree": -0.48707258898141603
+        },
+        {
+          "id": "formaldehyde",
+          "atomIndices": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "charge": 0,
+          "multiplicity": 1,
+          "electronCount": 16,
+          "scfConverged": true,
+          "internalStable": true,
+          "externalStable": true,
+          "quadratureElectronCount": 15.99999999570666,
+          "energyHartree": -113.87426499895716
+        }
+      ],
+      "tracking": [],
+      "sourceWavefunctionSha256": "d94ceec8c4c592a58cf9b4cac3848d13cf9bf42ac87e34f57d7be0b9efc828db",
+      "orbitals": [
+        {
+          "id": "donor",
+          "index": 9,
+          "occupation": 2,
+          "energyHartree": -0.055657028503372175,
+          "nearestSameOccupationGapEh": 0.22738257434936227,
+          "nearDegenerate": false
+        },
+        {
+          "id": "pi",
+          "index": 7,
+          "occupation": 2,
+          "energyHartree": -0.38785159851630535,
+          "nearestSameOccupationGapEh": 0.10481199566357091,
+          "nearDegenerate": false
+        },
+        {
+          "id": "pistar",
+          "index": 16,
+          "occupation": 0,
+          "energyHartree": 0.3306710866152782,
+          "nearestSameOccupationGapEh": 0.02641369122213061,
+          "nearDegenerate": false
+        }
+      ],
+      "meshFile": "reaction-lab/carbonyl/addition-0-meshes.json",
+      "fieldFile": "reaction-lab/carbonyl/addition-0-fields.npz"
+    },
+    {
+      "id": "addition-1",
+      "group": "addition",
+      "geometryKind": "constrained Cs-relaxed frame; not a stationary point",
+      "atoms": [
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "label": "C",
+          "atomId": "C"
+        },
+        {
+          "element": "O",
+          "xyzAngstrom": [
+            1.2008678576163427,
+            0.0,
+            0.0
+          ],
+          "label": "O",
+          "atomId": "O"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.5786429310300534,
+            0.9189877226816321,
+            -0.044916450018953315
+          ],
+          "label": "H1",
+          "atomId": "H1"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.5786429310300534,
+            -0.9189877226816321,
+            -0.044916450018953315
+          ],
+          "label": "H2",
+          "atomId": "H2"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.8208483439816049,
+            0.0,
+            2.25526228988618
+          ],
+          "label": "H nu",
+          "atomId": "Hnu"
+        }
+      ],
+      "energyHartree": -114.37131928082945,
+      "scfConverged": true,
+      "internalStable": true,
+      "externalStable": true,
+      "orthonormalError": 7.527312106958561e-14,
+      "electronCountAOMetric": 18.000000000000014,
+      "scfOrbitalGradientNorm": 1.8145014451900524e-08,
+      "maxNuclearGradientEhPerBohr": 0.008828502805224708,
+      "maxFreeParameterGradientEhPerAngstromOrRadian": 7.324488137011377e-08,
+      "distanceAngstrom": 2.4,
+      "angleDegree": 110.0,
+      "bonds": [
+        {
+          "atoms": [
+            0,
+            1
+          ],
+          "label": "C\u2013O",
+          "distanceAngstrom": 1.2008678576163427,
+          "mayer": 1.7108395390047408,
+          "lowdinWiberg": 2.285100507902478
+        },
+        {
+          "atoms": [
+            0,
+            4
+          ],
+          "label": "C\u2013H(nu)",
+          "distanceAngstrom": 2.4,
+          "mayer": 0.30119532794447884,
+          "lowdinWiberg": 0.4441381523479332
+        }
+      ],
+      "geometryDescriptors": [
+        {
+          "label": "O\u2013C\u2013H(nu) approach angle",
+          "value": 110.0,
+          "unit": "\u00b0"
+        },
+        {
+          "label": "C displacement from O/H1/H2 plane",
+          "value": 0.030301331915128876,
+          "unit": "\u00c5"
+        },
+        {
+          "label": "360\u00b0 minus O\u2013C\u2013H1 / H1\u2013C\u2013H2 / H2\u2013C\u2013O sum",
+          "value": 0.2169207627329115,
+          "unit": "\u00b0"
+        }
+      ],
+      "connections": [
+        {
+          "atoms": [
+            0,
+            1
+          ],
+          "style": "bond"
+        },
+        {
+          "atoms": [
+            0,
+            2
+          ],
+          "style": "bond"
+        },
+        {
+          "atoms": [
+            0,
+            3
+          ],
+          "style": "bond"
+        },
+        {
+          "atoms": [
+            0,
+            4
+          ],
+          "style": "guide"
+        }
+      ],
+      "maximumAbsoluteBoundaryField": {
+        "total": 4.02757202977505e-05,
+        "difference": 2.0096151457413745e-05,
+        "deformation": 9.927879186756046e-06,
+        "donor": 0.004460037353589862,
+        "pi": 0.001107584788665266,
+        "pistar": 0.01589914137750214
+      },
+      "quadratureElectronCount": 17.9999999357805,
+      "uniformGridElectronEstimate": 18.65584147583402,
+      "fragments": [
+        {
+          "id": "hydride",
+          "atomIndices": [
+            4
+          ],
+          "charge": -1,
+          "multiplicity": 1,
+          "electronCount": 2,
+          "scfConverged": true,
+          "internalStable": true,
+          "externalStable": true,
+          "quadratureElectronCount": 1.9999993663443447,
+          "energyHartree": -0.48707258898141603
+        },
+        {
+          "id": "formaldehyde",
+          "atomIndices": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "charge": 0,
+          "multiplicity": 1,
+          "electronCount": 16,
+          "scfConverged": true,
+          "internalStable": true,
+          "externalStable": true,
+          "quadratureElectronCount": 15.999999991079113,
+          "energyHartree": -113.87357240962406
+        }
+      ],
+      "tracking": [
+        {
+          "role": "donor",
+          "parentFrame": "addition-0",
+          "previousIndex": 9,
+          "index": 9,
+          "signedOverlapBeforeAlignment": 0.9045497580008192,
+          "alignedOverlap": 0.9045497580008192,
+          "nextCandidate": 0.026945296814895044,
+          "ambiguous": false
+        },
+        {
+          "role": "pi",
+          "parentFrame": "addition-0",
+          "previousIndex": 7,
+          "index": 7,
+          "signedOverlapBeforeAlignment": 0.9987624589607172,
+          "alignedOverlap": 0.9987624589607172,
+          "nextCandidate": 0.03503639335953158,
+          "ambiguous": false
+        },
+        {
+          "role": "pistar",
+          "parentFrame": "addition-0",
+          "previousIndex": 16,
+          "index": 16,
+          "signedOverlapBeforeAlignment": -0.9300732055719952,
+          "alignedOverlap": 0.9300732055719952,
+          "nextCandidate": 0.2965191396767718,
+          "ambiguous": false
+        }
+      ],
+      "sourceWavefunctionSha256": "0d2504516ec7d58f3376f5b31dde313803b3a2249f9930d87f36aa6b1587bb59",
+      "orbitals": [
+        {
+          "id": "donor",
+          "index": 9,
+          "occupation": 2,
+          "energyHartree": -0.05892601848390111,
+          "nearestSameOccupationGapEh": 0.19181218233821973,
+          "nearDegenerate": false
+        },
+        {
+          "id": "pi",
+          "index": 7,
+          "occupation": 2,
+          "energyHartree": -0.3572652847292215,
+          "nearestSameOccupationGapEh": 0.10652708390710064,
+          "nearDegenerate": false
+        },
+        {
+          "id": "pistar",
+          "index": 16,
+          "occupation": 0,
+          "energyHartree": 0.352809472114612,
+          "nearestSameOccupationGapEh": 0.03475478000214505,
+          "nearDegenerate": false
+        }
+      ],
+      "meshFile": "reaction-lab/carbonyl/addition-1-meshes.json",
+      "fieldFile": "reaction-lab/carbonyl/addition-1-fields.npz"
+    },
+    {
+      "id": "addition-2",
+      "group": "addition",
+      "geometryKind": "constrained Cs-relaxed frame; not a stationary point",
+      "atoms": [
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "label": "C",
+          "atomId": "C"
+        },
+        {
+          "element": "O",
+          "xyzAngstrom": [
+            1.2262935840166382,
+            0.0,
+            0.0
+          ],
+          "label": "O",
+          "atomId": "O"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.5681136712314381,
+            0.9115358641393897,
+            -0.18462480499870002
+          ],
+          "label": "H1",
+          "atomId": "H1"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.5681136712314381,
+            -0.9115358641393897,
+            -0.18462480499870002
+          ],
+          "label": "H2",
+          "atomId": "H2"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.6498382723187706,
+            0.0,
+            1.7854159794932258
+          ],
+          "label": "H nu",
+          "atomId": "Hnu"
+        }
+      ],
+      "energyHartree": -114.3705372630845,
+      "scfConverged": true,
+      "internalStable": true,
+      "externalStable": true,
+      "orthonormalError": 5.906386491005833e-14,
+      "electronCountAOMetric": 18.000000000000007,
+      "scfOrbitalGradientNorm": 2.6433721316217795e-08,
+      "maxNuclearGradientEhPerBohr": 0.01685449089745071,
+      "maxFreeParameterGradientEhPerAngstromOrRadian": 1.872568904047019e-08,
+      "distanceAngstrom": 1.9,
+      "angleDegree": 110.0,
+      "bonds": [
+        {
+          "atoms": [
+            0,
+            1
+          ],
+          "label": "C\u2013O",
+          "distanceAngstrom": 1.2262935840166382,
+          "mayer": 1.465043774363477,
+          "lowdinWiberg": 2.0757989839381015
+        },
+        {
+          "atoms": [
+            0,
+            4
+          ],
+          "label": "C\u2013H(nu)",
+          "distanceAngstrom": 1.9,
+          "mayer": 0.6065256860010637,
+          "lowdinWiberg": 0.6229998861562592
+        }
+      ],
+      "geometryDescriptors": [
+        {
+          "label": "O\u2013C\u2013H(nu) approach angle",
+          "value": 110.0,
+          "unit": "\u00b0"
+        },
+        {
+          "label": "C displacement from O/H1/H2 plane",
+          "value": 0.12550956316011497,
+          "unit": "\u00c5"
+        },
+        {
+          "label": "360\u00b0 minus O\u2013C\u2013H1 / H1\u2013C\u2013H2 / H2\u2013C\u2013O sum",
+          "value": 3.6394249603505955,
+          "unit": "\u00b0"
+        }
+      ],
+      "connections": [
+        {
+          "atoms": [
+            0,
+            1
+          ],
+          "style": "bond"
+        },
+        {
+          "atoms": [
+            0,
+            2
+          ],
+          "style": "bond"
+        },
+        {
+          "atoms": [
+            0,
+            3
+          ],
+          "style": "bond"
+        },
+        {
+          "atoms": [
+            0,
+            4
+          ],
+          "style": "guide"
+        }
+      ],
+      "maximumAbsoluteBoundaryField": {
+        "total": 2.3939802109105277e-05,
+        "difference": 3.247128252708401e-05,
+        "deformation": 2.8326486403302645e-05,
+        "donor": 0.0033982820270291965,
+        "pi": 0.0011979279882530932,
+        "pistar": 0.013339031437610406
+      },
+      "quadratureElectronCount": 17.999999814834734,
+      "uniformGridElectronEstimate": 18.567532436181768,
+      "fragments": [
+        {
+          "id": "hydride",
+          "atomIndices": [
+            4
+          ],
+          "charge": -1,
+          "multiplicity": 1,
+          "electronCount": 2,
+          "scfConverged": true,
+          "internalStable": true,
+          "externalStable": true,
+          "quadratureElectronCount": 1.9999993663443447,
+          "energyHartree": -0.48707258898141603
+        },
+        {
+          "id": "formaldehyde",
+          "atomIndices": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "charge": 0,
+          "multiplicity": 1,
+          "electronCount": 16,
+          "scfConverged": true,
+          "internalStable": true,
+          "externalStable": false,
+          "quadratureElectronCount": 15.999999996304245,
+          "energyHartree": -113.86565205123732
+        }
+      ],
+      "tracking": [
+        {
+          "role": "donor",
+          "parentFrame": "addition-1",
+          "previousIndex": 9,
+          "index": 9,
+          "signedOverlapBeforeAlignment": 0.9061598751633881,
+          "alignedOverlap": 0.9061598751633881,
+          "nextCandidate": 0.08671604332701843,
+          "ambiguous": false
+        },
+        {
+          "role": "pi",
+          "parentFrame": "addition-1",
+          "previousIndex": 7,
+          "index": 7,
+          "signedOverlapBeforeAlignment": 0.9900136294920919,
+          "alignedOverlap": 0.9900136294920919,
+          "nextCandidate": 0.10600760037960716,
+          "ambiguous": false
+        },
+        {
+          "role": "pistar",
+          "parentFrame": "addition-1",
+          "previousIndex": 16,
+          "index": 16,
+          "signedOverlapBeforeAlignment": -0.8598949031253293,
+          "alignedOverlap": 0.8598949031253293,
+          "nextCandidate": 0.4082313141941304,
+          "ambiguous": false
+        }
+      ],
+      "sourceWavefunctionSha256": "89fc592a74c7e9443b1e7caa1b0ec9f5703dcc82c13badce6f026bc604c62de6",
+      "orbitals": [
+        {
+          "id": "donor",
+          "index": 9,
+          "occupation": 2,
+          "energyHartree": -0.07020147307476154,
+          "nearestSameOccupationGapEh": 0.12991566945042354,
+          "nearDegenerate": false
+        },
+        {
+          "id": "pi",
+          "index": 7,
+          "occupation": 2,
+          "energyHartree": -0.31658467706583515,
+          "nearestSameOccupationGapEh": 0.0885963606480793,
+          "nearDegenerate": false
+        },
+        {
+          "id": "pistar",
+          "index": 16,
+          "occupation": 0,
+          "energyHartree": 0.3657666967275084,
+          "nearestSameOccupationGapEh": 0.031407459538356886,
+          "nearDegenerate": false
+        }
+      ],
+      "meshFile": "reaction-lab/carbonyl/addition-2-meshes.json",
+      "fieldFile": "reaction-lab/carbonyl/addition-2-fields.npz"
+    },
+    {
+      "id": "addition-3",
+      "group": "addition",
+      "geometryKind": "constrained Cs-relaxed frame; not a stationary point",
+      "atoms": [
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "label": "C",
+          "atomId": "C"
+        },
+        {
+          "element": "O",
+          "xyzAngstrom": [
+            1.2800889669636546,
+            0.0,
+            0.0
+          ],
+          "label": "O",
+          "atomId": "O"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.5311321833772898,
+            0.8955987162996826,
+            -0.36943349090855143
+          ],
+          "label": "H1",
+          "atomId": "H1"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.5311321833772898,
+            -0.8955987162996826,
+            -0.36943349090855143
+          ],
+          "label": "H2",
+          "atomId": "H2"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.5130302149885031,
+            0.0,
+            1.4095389311788626
+          ],
+          "label": "H nu",
+          "atomId": "Hnu"
+        }
+      ],
+      "energyHartree": -114.38756778994092,
+      "scfConverged": true,
+      "internalStable": true,
+      "externalStable": true,
+      "orthonormalError": 7.638334409421077e-14,
+      "electronCountAOMetric": 17.999999999999986,
+      "scfOrbitalGradientNorm": 2.226150007676849e-08,
+      "maxNuclearGradientEhPerBohr": 0.05339016700228816,
+      "maxFreeParameterGradientEhPerAngstromOrRadian": 1.2743410884391868e-08,
+      "distanceAngstrom": 1.5,
+      "angleDegree": 110.0,
+      "bonds": [
+        {
+          "atoms": [
+            0,
+            1
+          ],
+          "label": "C\u2013O",
+          "distanceAngstrom": 1.2800889669636546,
+          "mayer": 1.1722778476703872,
+          "lowdinWiberg": 1.776942286345064
+        },
+        {
+          "atoms": [
+            0,
+            4
+          ],
+          "label": "C\u2013H(nu)",
+          "distanceAngstrom": 1.5,
+          "mayer": 0.9096502428043423,
+          "lowdinWiberg": 0.8120096944381477
+        }
+      ],
+      "geometryDescriptors": [
+        {
+          "label": "O\u2013C\u2013H(nu) approach angle",
+          "value": 110.0,
+          "unit": "\u00b0"
+        },
+        {
+          "label": "C displacement from O/H1/H2 plane",
+          "value": 0.25583132962898353,
+          "unit": "\u00c5"
+        },
+        {
+          "label": "360\u00b0 minus O\u2013C\u2013H1 / H1\u2013C\u2013H2 / H2\u2013C\u2013O sum",
+          "value": 14.222348673499312,
+          "unit": "\u00b0"
+        }
+      ],
+      "connections": [
+        {
+          "atoms": [
+            0,
+            1
+          ],
+          "style": "bond"
+        },
+        {
+          "atoms": [
+            0,
+            2
+          ],
+          "style": "bond"
+        },
+        {
+          "atoms": [
+            0,
+            3
+          ],
+          "style": "bond"
+        },
+        {
+          "atoms": [
+            0,
+            4
+          ],
+          "style": "guide"
+        }
+      ],
+      "maximumAbsoluteBoundaryField": {
+        "total": 8.15352970430106e-06,
+        "difference": 4.110565070785111e-05,
+        "deformation": 4.36125638454546e-05,
+        "donor": 0.0017078678243899964,
+        "pi": 0.0009682136056736532,
+        "pistar": 0.013161142584748991
+      },
+      "quadratureElectronCount": 17.99999988960568,
+      "uniformGridElectronEstimate": 19.53629157648292,
+      "fragments": [
+        {
+          "id": "hydride",
+          "atomIndices": [
+            4
+          ],
+          "charge": -1,
+          "multiplicity": 1,
+          "electronCount": 2,
+          "scfConverged": true,
+          "internalStable": true,
+          "externalStable": true,
+          "quadratureElectronCount": 1.9999993663443445,
+          "energyHartree": -0.48707258898141603
+        },
+        {
+          "id": "formaldehyde",
+          "atomIndices": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "charge": 0,
+          "multiplicity": 1,
+          "electronCount": 16,
+          "scfConverged": true,
+          "internalStable": true,
+          "externalStable": false,
+          "quadratureElectronCount": 15.999999997795157,
+          "energyHartree": -113.83766280000901
+        }
+      ],
+      "tracking": [
+        {
+          "role": "donor",
+          "parentFrame": "addition-2",
+          "previousIndex": 9,
+          "index": 9,
+          "signedOverlapBeforeAlignment": -0.8857358243692834,
+          "alignedOverlap": 0.8857358243692834,
+          "nextCandidate": 0.20472800580269984,
+          "ambiguous": false
+        },
+        {
+          "role": "pi",
+          "parentFrame": "addition-2",
+          "previousIndex": 7,
+          "index": 7,
+          "signedOverlapBeforeAlignment": 0.9253778376071524,
+          "alignedOverlap": 0.9253778376071524,
+          "nextCandidate": 0.2544713346203857,
+          "ambiguous": false
+        },
+        {
+          "role": "pistar",
+          "parentFrame": "addition-2",
+          "previousIndex": 16,
+          "index": 16,
+          "signedOverlapBeforeAlignment": -0.9311535391320087,
+          "alignedOverlap": 0.9311535391320087,
+          "nextCandidate": 0.18260339459203406,
+          "ambiguous": false
+        }
+      ],
+      "sourceWavefunctionSha256": "4bf36f7d75895d7321e5525327599bca74cba64b4fe7f3f7127721a9760ca49e",
+      "orbitals": [
+        {
+          "id": "donor",
+          "index": 9,
+          "occupation": 2,
+          "energyHartree": -0.09112987451162535,
+          "nearestSameOccupationGapEh": 0.04620157642385703,
+          "nearDegenerate": false
+        },
+        {
+          "id": "pi",
+          "index": 7,
+          "occupation": 2,
+          "energyHartree": -0.2945830114361865,
+          "nearestSameOccupationGapEh": 0.035126871737987564,
+          "nearDegenerate": false
+        },
+        {
+          "id": "pistar",
+          "index": 16,
+          "occupation": 0,
+          "energyHartree": 0.36821960458124536,
+          "nearestSameOccupationGapEh": 0.0287055995459653,
+          "nearDegenerate": false
+        }
+      ],
+      "meshFile": "reaction-lab/carbonyl/addition-3-meshes.json",
+      "fieldFile": "reaction-lab/carbonyl/addition-3-fields.npz"
+    },
+    {
+      "id": "product",
+      "group": "addition",
+      "geometryKind": "Hessian-verified methoxide minimum",
+      "atoms": [
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "label": "C",
+          "atomId": "C"
+        },
+        {
+          "element": "O",
+          "xyzAngstrom": [
+            1.3293591853122932,
+            0.0,
+            0.0
+          ],
+          "label": "O",
+          "atomId": "O"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.4771621058444914,
+            0.8801742975574433,
+            -0.5081693889017823
+          ],
+          "label": "H1",
+          "atomId": "H1"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.4771621058444914,
+            -0.8801742975574433,
+            -0.5081693889017823
+          ],
+          "label": "H2",
+          "atomId": "H2"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.47716250182818654,
+            0.0,
+            1.0163372369288153
+          ],
+          "label": "H nu",
+          "atomId": "Hnu"
+        }
+      ],
+      "energyHartree": -114.41572569713685,
+      "scfConverged": true,
+      "internalStable": true,
+      "externalStable": true,
+      "orthonormalError": 9.814371537686384e-14,
+      "electronCountAOMetric": 17.999999999999993,
+      "scfOrbitalGradientNorm": 3.080240164137832e-08,
+      "maxNuclearGradientEhPerBohr": 3.435055957622037e-07,
+      "maxFreeParameterGradientEhPerAngstromOrRadian": 3.0438187268541153e-07,
+      "distanceAngstrom": 1.1227757711667246,
+      "angleDegree": 115.14969371088753,
+      "bonds": [
+        {
+          "atoms": [
+            0,
+            1
+          ],
+          "label": "C\u2013O",
+          "distanceAngstrom": 1.3293591853122932,
+          "mayer": 1.0561091438557855,
+          "lowdinWiberg": 1.587290422303427
+        },
+        {
+          "atoms": [
+            0,
+            4
+          ],
+          "label": "C\u2013H(nu)",
+          "distanceAngstrom": 1.1227757711667246,
+          "mayer": 0.9696042236062589,
+          "lowdinWiberg": 0.9264149528521292
+        }
+      ],
+      "geometryDescriptors": [
+        {
+          "label": "O\u2013C\u2013H(nu) approach angle",
+          "value": 115.14969371088753,
+          "unit": "\u00b0"
+        },
+        {
+          "label": "C displacement from O/H1/H2 plane",
+          "value": 0.35997409833237265,
+          "unit": "\u00c5"
+        },
+        {
+          "label": "360\u00b0 minus O\u2013C\u2013H1 / H1\u2013C\u2013H2 / H2\u2013C\u2013O sum",
+          "value": 26.457644778729332,
+          "unit": "\u00b0"
+        }
+      ],
+      "connections": [
+        {
+          "atoms": [
+            0,
+            1
+          ],
+          "style": "bond"
+        },
+        {
+          "atoms": [
+            0,
+            2
+          ],
+          "style": "bond"
+        },
+        {
+          "atoms": [
+            0,
+            3
+          ],
+          "style": "bond"
+        },
+        {
+          "atoms": [
+            0,
+            4
+          ],
+          "style": "guide"
+        }
+      ],
+      "frequenciesCm": [
+        1243.3260458666591,
+        1270.263081234157,
+        1270.2632507350856,
+        1575.0447731224797,
+        1575.045269825426,
+        1601.2274577965345,
+        2692.8758231299394,
+        2692.8795382015546,
+        2809.9899903610058
+      ],
+      "stationaryPointVerified": true,
+      "maximumAbsoluteBoundaryField": {
+        "total": 1.4369304727840987e-05,
+        "difference": 4.546622453095172e-05,
+        "deformation": 4.5739468478873814e-05,
+        "donor": 0.0012503941153796713,
+        "pi": 0.0009325215353957287,
+        "pistar": 0.014255206110499928
+      },
+      "quadratureElectronCount": 17.999999972760317,
+      "uniformGridElectronEstimate": 18.54624062288078,
+      "fragments": [
+        {
+          "id": "hydride",
+          "atomIndices": [
+            4
+          ],
+          "charge": -1,
+          "multiplicity": 1,
+          "electronCount": 2,
+          "scfConverged": true,
+          "internalStable": true,
+          "externalStable": true,
+          "quadratureElectronCount": 1.9999993663443445,
+          "energyHartree": -0.48707258898141603
+        },
+        {
+          "id": "formaldehyde",
+          "atomIndices": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "charge": 0,
+          "multiplicity": 1,
+          "electronCount": 16,
+          "scfConverged": true,
+          "internalStable": true,
+          "externalStable": false,
+          "quadratureElectronCount": 15.999999994701508,
+          "energyHartree": -113.80282824507192
+        }
+      ],
+      "tracking": [
+        {
+          "role": "donor",
+          "parentFrame": "addition-3",
+          "previousIndex": 9,
+          "index": 8,
+          "signedOverlapBeforeAlignment": -0.9120862474424997,
+          "alignedOverlap": 0.9120862474424997,
+          "nextCandidate": 0.19536767300435817,
+          "ambiguous": false
+        },
+        {
+          "role": "pi",
+          "parentFrame": "addition-3",
+          "previousIndex": 7,
+          "index": 5,
+          "signedOverlapBeforeAlignment": 0.8616640117353536,
+          "alignedOverlap": 0.8616640117353536,
+          "nextCandidate": 0.3714345533917275,
+          "ambiguous": false
+        },
+        {
+          "role": "pistar",
+          "parentFrame": "addition-3",
+          "previousIndex": 16,
+          "index": 16,
+          "signedOverlapBeforeAlignment": -0.9500107203395929,
+          "alignedOverlap": 0.9500107203395929,
+          "nextCandidate": 0.22279104654321882,
+          "ambiguous": false
+        }
+      ],
+      "sourceWavefunctionSha256": "43eff394046a7a7078342dfb393cab7d89f152676050de4079c7f0f7317b7b70",
+      "orbitals": [
+        {
+          "id": "donor",
+          "index": 8,
+          "occupation": 2,
+          "energyHartree": -0.10056244235395868,
+          "nearestSameOccupationGapEh": 5.851922814381627e-08,
+          "nearDegenerate": true
+        },
+        {
+          "id": "pi",
+          "index": 5,
+          "occupation": 2,
+          "energyHartree": -0.34207381045883684,
+          "nearestSameOccupationGapEh": 1.753480486921255e-07,
+          "nearDegenerate": true
+        },
+        {
+          "id": "pistar",
+          "index": 16,
+          "occupation": 0,
+          "energyHartree": 0.3660978097524623,
+          "nearestSameOccupationGapEh": 0.0325620104838667,
+          "nearDegenerate": false
+        }
+      ],
+      "meshFile": "reaction-lab/carbonyl/product-meshes.json",
+      "fieldFile": "reaction-lab/carbonyl/product-fields.npz"
+    },
+    {
+      "id": "angle-90",
+      "group": "angles",
+      "geometryKind": "constrained Cs-relaxed frame; not a stationary point",
+      "atoms": [
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "label": "C",
+          "atomId": "C"
+        },
+        {
+          "element": "O",
+          "xyzAngstrom": [
+            1.2229764010479791,
+            0.0,
+            0.0
+          ],
+          "label": "O",
+          "atomId": "O"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.5827898670346411,
+            0.9142457139698682,
+            -0.12845259058198397
+          ],
+          "label": "H1",
+          "atomId": "H1"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.5827898670346411,
+            -0.9142457139698682,
+            -0.12845259058198397
+          ],
+          "label": "H2",
+          "atomId": "H2"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            1.1634144591899854e-16,
+            0.0,
+            1.9
+          ],
+          "label": "H nu",
+          "atomId": "Hnu"
+        }
+      ],
+      "energyHartree": -114.35089789838823,
+      "scfConverged": true,
+      "internalStable": true,
+      "externalStable": true,
+      "orthonormalError": 6.350475700855895e-14,
+      "electronCountAOMetric": 17.999999999999968,
+      "scfOrbitalGradientNorm": 1.9353695376447747e-08,
+      "maxNuclearGradientEhPerBohr": 0.04071922411432366,
+      "maxFreeParameterGradientEhPerAngstromOrRadian": 5.603151758015702e-08,
+      "distanceAngstrom": 1.9,
+      "angleDegree": 90.0,
+      "bonds": [
+        {
+          "atoms": [
+            0,
+            1
+          ],
+          "label": "C\u2013O",
+          "distanceAngstrom": 1.2229764010479791,
+          "mayer": 1.493948053769417,
+          "lowdinWiberg": 2.1194589442235934
+        },
+        {
+          "atoms": [
+            0,
+            4
+          ],
+          "label": "C\u2013H(nu)",
+          "distanceAngstrom": 1.9,
+          "mayer": 0.7983027038041313,
+          "lowdinWiberg": 0.6094785900219545
+        }
+      ],
+      "geometryDescriptors": [
+        {
+          "label": "O\u2013C\u2013H(nu) approach angle",
+          "value": 90.0,
+          "unit": "\u00b0"
+        },
+        {
+          "label": "C displacement from O/H1/H2 plane",
+          "value": 0.08677675046238824,
+          "unit": "\u00c5"
+        },
+        {
+          "label": "360\u00b0 minus O\u2013C\u2013H1 / H1\u2013C\u2013H2 / H2\u2013C\u2013O sum",
+          "value": 1.7446827201757742,
+          "unit": "\u00b0"
+        }
+      ],
+      "connections": [
+        {
+          "atoms": [
+            0,
+            1
+          ],
+          "style": "bond"
+        },
+        {
+          "atoms": [
+            0,
+            2
+          ],
+          "style": "bond"
+        },
+        {
+          "atoms": [
+            0,
+            3
+          ],
+          "style": "bond"
+        },
+        {
+          "atoms": [
+            0,
+            4
+          ],
+          "style": "guide"
+        }
+      ],
+      "maximumAbsoluteBoundaryField": {
+        "total": 3.349351846116239e-05,
+        "difference": 3.8942868349027084e-05,
+        "deformation": 1.904603113746513e-05,
+        "donor": 0.004054024377610879,
+        "pi": 0.0011164852920211553,
+        "pistar": 0.013382272177153978
+      },
+      "quadratureElectronCount": 17.999999843253264,
+      "uniformGridElectronEstimate": 18.5426336912326,
+      "fragments": [
+        {
+          "id": "hydride",
+          "atomIndices": [
+            4
+          ],
+          "charge": -1,
+          "multiplicity": 1,
+          "electronCount": 2,
+          "scfConverged": true,
+          "internalStable": true,
+          "externalStable": true,
+          "quadratureElectronCount": 1.9999993663443445,
+          "energyHartree": -0.48707258898141603
+        },
+        {
+          "id": "formaldehyde",
+          "atomIndices": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "charge": 0,
+          "multiplicity": 1,
+          "electronCount": 16,
+          "scfConverged": true,
+          "internalStable": true,
+          "externalStable": true,
+          "quadratureElectronCount": 15.999999991413649,
+          "energyHartree": -113.86898241025594
+        }
+      ],
+      "tracking": [
+        {
+          "role": "donor",
+          "parentFrame": "addition-2",
+          "previousIndex": 9,
+          "index": 9,
+          "signedOverlapBeforeAlignment": 0.8939933038560709,
+          "alignedOverlap": 0.8939933038560709,
+          "nextCandidate": 0.016049930442978505,
+          "ambiguous": false
+        },
+        {
+          "role": "pi",
+          "parentFrame": "addition-2",
+          "previousIndex": 7,
+          "index": 7,
+          "signedOverlapBeforeAlignment": 0.994820321872075,
+          "alignedOverlap": 0.994820321872075,
+          "nextCandidate": 0.027215804867658216,
+          "ambiguous": false
+        },
+        {
+          "role": "pistar",
+          "parentFrame": "addition-2",
+          "previousIndex": 16,
+          "index": 16,
+          "signedOverlapBeforeAlignment": -0.9572612447668948,
+          "alignedOverlap": 0.9572612447668948,
+          "nextCandidate": 0.11269275818783989,
+          "ambiguous": false
+        }
+      ],
+      "sourceWavefunctionSha256": "bed6418bb4c8424a9275192b3ae98066f9ffe8a5114426d281b79b62d35ddcb0",
+      "orbitals": [
+        {
+          "id": "donor",
+          "index": 9,
+          "occupation": 2,
+          "energyHartree": -0.052152832959632356,
+          "nearestSameOccupationGapEh": 0.15114434627947393,
+          "nearDegenerate": false
+        },
+        {
+          "id": "pi",
+          "index": 7,
+          "occupation": 2,
+          "energyHartree": -0.32262129870641676,
+          "nearestSameOccupationGapEh": 0.08630062225513147,
+          "nearDegenerate": false
+        },
+        {
+          "id": "pistar",
+          "index": 16,
+          "occupation": 0,
+          "energyHartree": 0.37301317182923066,
+          "nearestSameOccupationGapEh": 0.027362884962874645,
+          "nearDegenerate": false
+        }
+      ],
+      "meshFile": "reaction-lab/carbonyl/angle-90-meshes.json",
+      "fieldFile": "reaction-lab/carbonyl/angle-90-fields.npz"
+    },
+    {
+      "id": "angle-130",
+      "group": "angles",
+      "geometryKind": "constrained Cs-relaxed frame; not a stationary point",
+      "atoms": [
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "label": "C",
+          "atomId": "C"
+        },
+        {
+          "element": "O",
+          "xyzAngstrom": [
+            1.2274726467990673,
+            0.0,
+            0.0
+          ],
+          "label": "O",
+          "atomId": "O"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.5469048649010044,
+            0.910782529918834,
+            -0.22267518493292693
+          ],
+          "label": "H1",
+          "atomId": "H1"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.5469048649010044,
+            -0.910782529918834,
+            -0.22267518493292693
+          ],
+          "label": "H2",
+          "atomId": "H2"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -1.2212964584044248,
+            0.0,
+            1.4554844419260582
+          ],
+          "label": "H nu",
+          "atomId": "Hnu"
+        }
+      ],
+      "energyHartree": -114.3680568507122,
+      "scfConverged": true,
+      "internalStable": true,
+      "externalStable": true,
+      "orthonormalError": 3.730349362740526e-14,
+      "electronCountAOMetric": 18.00000000000002,
+      "scfOrbitalGradientNorm": 3.6062194641282945e-08,
+      "maxNuclearGradientEhPerBohr": 0.021008469010146746,
+      "maxFreeParameterGradientEhPerAngstromOrRadian": 1.4171795295785949e-08,
+      "distanceAngstrom": 1.9,
+      "angleDegree": 130.0,
+      "bonds": [
+        {
+          "atoms": [
+            0,
+            1
+          ],
+          "label": "C\u2013O",
+          "distanceAngstrom": 1.2274726467990673,
+          "mayer": 1.4666709174177837,
+          "lowdinWiberg": 2.0839809727437535
+        },
+        {
+          "atoms": [
+            0,
+            4
+          ],
+          "label": "C\u2013H(nu)",
+          "distanceAngstrom": 1.9,
+          "mayer": 0.40425450972977556,
+          "lowdinWiberg": 0.6173659134010199
+        }
+      ],
+      "geometryDescriptors": [
+        {
+          "label": "O\u2013C\u2013H(nu) approach angle",
+          "value": 130.0,
+          "unit": "\u00b0"
+        },
+        {
+          "label": "C displacement from O/H1/H2 plane",
+          "value": 0.15284260431323257,
+          "unit": "\u00c5"
+        },
+        {
+          "label": "360\u00b0 minus O\u2013C\u2013H1 / H1\u2013C\u2013H2 / H2\u2013C\u2013O sum",
+          "value": 5.404272724888699,
+          "unit": "\u00b0"
+        }
+      ],
+      "connections": [
+        {
+          "atoms": [
+            0,
+            1
+          ],
+          "style": "bond"
+        },
+        {
+          "atoms": [
+            0,
+            2
+          ],
+          "style": "bond"
+        },
+        {
+          "atoms": [
+            0,
+            3
+          ],
+          "style": "bond"
+        },
+        {
+          "atoms": [
+            0,
+            4
+          ],
+          "style": "guide"
+        }
+      ],
+      "maximumAbsoluteBoundaryField": {
+        "total": 4.129096238823156e-05,
+        "difference": 3.0850968749687786e-05,
+        "deformation": 3.014966311093478e-05,
+        "donor": 0.00453485537728549,
+        "pi": 0.001221448141283265,
+        "pistar": 0.013012389617008527
+      },
+      "quadratureElectronCount": 17.999999612024098,
+      "uniformGridElectronEstimate": 18.577936410170498,
+      "fragments": [
+        {
+          "id": "hydride",
+          "atomIndices": [
+            4
+          ],
+          "charge": -1,
+          "multiplicity": 1,
+          "electronCount": 2,
+          "scfConverged": true,
+          "internalStable": true,
+          "externalStable": true,
+          "quadratureElectronCount": 1.9999993663443445,
+          "energyHartree": -0.48707258898141603
+        },
+        {
+          "id": "formaldehyde",
+          "atomIndices": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "charge": 0,
+          "multiplicity": 1,
+          "electronCount": 16,
+          "scfConverged": true,
+          "internalStable": true,
+          "externalStable": false,
+          "quadratureElectronCount": 15.999999992785035,
+          "energyHartree": -113.8628473344362
+        }
+      ],
+      "tracking": [
+        {
+          "role": "donor",
+          "parentFrame": "addition-2",
+          "previousIndex": 9,
+          "index": 9,
+          "signedOverlapBeforeAlignment": 0.8891262045824863,
+          "alignedOverlap": 0.8891262045824863,
+          "nextCandidate": 0.041943416809616045,
+          "ambiguous": false
+        },
+        {
+          "role": "pi",
+          "parentFrame": "addition-2",
+          "previousIndex": 7,
+          "index": 7,
+          "signedOverlapBeforeAlignment": 0.995607375499329,
+          "alignedOverlap": 0.995607375499329,
+          "nextCandidate": 0.01699091056101504,
+          "ambiguous": false
+        },
+        {
+          "role": "pistar",
+          "parentFrame": "addition-2",
+          "previousIndex": 16,
+          "index": 16,
+          "signedOverlapBeforeAlignment": -0.9581348137308926,
+          "alignedOverlap": 0.9581348137308926,
+          "nextCandidate": 0.09305093508609882,
+          "ambiguous": false
+        }
+      ],
+      "sourceWavefunctionSha256": "b7b44ee6ad0b29cdc653f0f0644d524cb7fab4443635a0cfdb876303abae1e14",
+      "orbitals": [
+        {
+          "id": "donor",
+          "index": 9,
+          "occupation": 2,
+          "energyHartree": -0.07381718376285562,
+          "nearestSameOccupationGapEh": 0.13286293870193333,
+          "nearDegenerate": false
+        },
+        {
+          "id": "pi",
+          "index": 7,
+          "occupation": 2,
+          "energyHartree": -0.3197928658561109,
+          "nearestSameOccupationGapEh": 0.09221103840931644,
+          "nearDegenerate": false
+        },
+        {
+          "id": "pistar",
+          "index": 16,
+          "occupation": 0,
+          "energyHartree": 0.3601111030002051,
+          "nearestSameOccupationGapEh": 0.02710297346478141,
+          "nearDegenerate": false
+        }
+      ],
+      "meshFile": "reaction-lab/carbonyl/angle-130-meshes.json",
+      "fieldFile": "reaction-lab/carbonyl/angle-130-fields.npz"
+    }
+  ],
+  "grid": {
+    "shape": [
+      91,
+      71,
+      101
+    ],
+    "originBohr": [
+      -9.0,
+      -7.0,
+      -7.0
+    ],
+    "spacingBohr": 0.2,
+    "order": "C order, z fastest",
+    "alignment": "C, O, H1, H2, Hnu fixed identities. C at origin, O on +x, Hnu in xz with z>0; H1/H2 reflected across xz. No post-hoc fit.",
+    "densityUnits": "electron bohr^-3",
+    "orbitalUnits": "bohr^-3/2",
+    "meshCoordinates": "angstrom",
+    "fieldPrecision": "float32, full float64 SCF coefficients retained"
+  },
+  "levels": {
+    "total": [
+      0.02,
+      0.05,
+      0.1
+    ],
+    "difference": [
+      0.001,
+      0.003,
+      0.008
+    ],
+    "deformation": [
+      0.001,
+      0.003,
+      0.008
+    ],
+    "donor": [
+      0.025,
+      0.04,
+      0.06
+    ],
+    "pi": [
+      0.025,
+      0.04,
+      0.06
+    ],
+    "pistar": [
+      0.025,
+      0.04,
+      0.06
+    ]
+  },
+  "references": {
+    "difference": "rho(current) minus rho(addition-0), on identical Cartesian points. Includes nuclear displacement; not a unique charge-transfer measure.",
+    "deformation": "rho(complex) minus same-geometry Hnu\u2212 and neutral H2CO, each in its own RHF/6-31++G(d,p) basis, no ghosts. Fixed atom membership; not counterpoise-corrected EDA.",
+    "probability": "Absolute square of one selected canonical spatial orbital, normalized to 1, without occupation factor.",
+    "signs": "Teal positive / amber negative electron-number difference or orbital amplitude; never positive/negative electrical charge."
+  },
+  "initialSelection": {
+    "donorComplexIndex": 9,
+    "hydride1sProjection": 0.9825569540704565,
+    "carbonylSelections": [
+      {
+        "role": "pi",
+        "fragmentIndex": 7,
+        "trialProjection": 0.9038596800442746,
+        "complexIndex": 7,
+        "complexProjection": 0.9989704167251791
+      },
+      {
+        "role": "pistar",
+        "fragmentIndex": 13,
+        "trialProjection": 0.6755923991866515,
+        "complexIndex": 16,
+        "complexProjection": 0.8223385647133749
+      }
+    ],
+    "protocol": "Project hydride occupied 1s and neutral formaldehyde occupied pi / virtual pi* canonical MOs onto full-complex occupied / virtual spaces. Fragment pi references maximize normalized C2pz + O2pz (occupied) or C2pz - O2pz (virtual) AO-trial overlap. These full-complex canonical orbitals are not localized donor/acceptor orbitals."
+  },
+  "bondOrderConventions": {
+    "mayer": "sum over AO blocks A/B of (PS)uv(PS)vu, spin-summed RHF P.",
+    "lowdinWiberg": "sum over AO blocks A/B of |(S^(1/2) P S^(1/2))uv|^2, symmetric positive overlap square root. Not NBO Wiberg; basis and partition dependent."
+  }
+}

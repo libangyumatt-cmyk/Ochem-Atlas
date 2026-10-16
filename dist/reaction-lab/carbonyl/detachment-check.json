@@ -1,0 +1,11 @@
+{
+  "method": "ROHF",
+  "basis": "6-31++G(d,p)",
+  "charge": 0,
+  "multiplicity": 2,
+  "electronCount": 1,
+  "neutralHydrogenEnergyHartree": -0.4988011061996812,
+  "hydrideRHFenergyHartree": -0.48707258898141603,
+  "detachmentEnergyHartree": -0.011728517218265178,
+  "meaning": "E(H doublet) + E(free electron at rest=0) minus E(H\u2212 RHF). Negative means this RHF finite-basis hydride reference is not energetically bound against detachment. This is a diagnostic of model inadequacy, not a computed complex detachment pathway or prediction of experimental hydride stability."
+}

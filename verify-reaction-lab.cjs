@@ -52,16 +52,38 @@ async function domTests(){
  const change=(id,v,type='change')=>{$(id).value=String(v);$(id).dispatchEvent(new w.Event(type));};
  assert.equal($('#rr-event').options.length,69);assert.equal(w.SorgReactionLab.state.event,'sn2:0');
  change('#rr-frame',2,'input');assert.match($('#rr-descriptors').textContent,/Hessian-verified/);
- change('#rr-field','occupied');assert.equal($('#rr-phase').disabled,false);$('#rr-phase').click();assert.equal($('#rr-phase').getAttribute('aria-pressed'),'true');
+ change('#rr-field','amplitude');change('#rr-orbital','occupied');assert.equal($('#rr-phase').disabled,false);$('#rr-phase').click();assert.equal($('#rr-phase').getAttribute('aria-pressed'),'true');
  change('#rr-field','difference');assert.equal($('#rr-phase').disabled,true);assert.match($('#rr-legend').textContent,/nuclear motion/);
  change('#rr-field','probability');assert.match($('#rr-legend').textContent,/not total electron density/);change('#rr-isovalue',2,'input');assert.match($('#rr-isovalue-value').textContent,/0.00360/);
  change('#rr-display','quantum');assert.equal($('#rr-conventional-wrap').hidden,true);assert.equal(w.SorgReactionLab.state.event,'sn2:0');
  change('#rr-event','fischer-esterification:2');assert.equal($('#rr-unavailable').hidden,false);assert.equal($('#rr-calculated').hidden,true);
  change('#rr-display','both');assert.equal(w.SorgReactionLab.state.event,'fischer-esterification:2');assert.ok($('#rr-conventional img').src.includes('fischer-esterification-step-3'));
- $('[data-open="sn2"]').click();assert.equal(w.SorgReactionLab.state.event,'sn2:0');$('#event-quantum-open').click();assert.equal($('#reaction-dialog').open,false);assert.equal(w.location.hash,'#reaction-lab');
- change('#rr-event','sn2:0');change('#rr-field','deformation');assert.match($('#rr-legend').textContent,/same-geometry/);
+ $('[data-open="sn2"]').click();await new Promise(setImmediate);assert.equal(w.SorgReactionLab.state.event,'sn2:0');$('#event-quantum-open').click();assert.equal($('#reaction-dialog').open,false);assert.equal(w.location.hash,'#reaction-lab');
+ await w.SorgReactionLab.selectEvent('sn2:0');change('#rr-field','deformation');assert.match($('#rr-legend').textContent,/same-geometry/);
  assert.doesNotMatch($('#rr-energy').innerHTML,/NaN|Infinity/);
+ // Race: a system whose asynchronous load finishes later must not replace the latest selection.
+ const pending=w.SorgReactionLab.selectSystem('hydride-formaldehyde');
+ await w.SorgReactionLab.selectSystem('chloride-identity-sn2');await pending;
+ assert.equal(w.SorgReactionLab.state.system,'chloride-identity-sn2');
+ await w.SorgReactionLab.selectSystem('hydride-formaldehyde');
+ assert.equal(w.SorgReactionLab.state.event,'carbonyl-add:0');assert.equal($('#rr-orbital').options.length,3);assert.equal($('#rr-model-warning').hidden,false);assert.match($('#rr-model-warning').textContent,/not bound/);
+ change('#rr-field','amplitude');change('#rr-orbital','pistar');
+ assert.match($('#rr-orbital-note').textContent,/π\*/);assert.match($('#rr-descriptors').textContent,/18 electrons/);
+ change('#rr-series','angles');assert.equal($('#rr-geometry').options.length,3);
+ change('#rr-geometry','angle-130');assert.match($('#rr-frame-value').textContent,/130/);
+ change('#rr-isovalue',2,'input');change('#rr-display','conventional');
+ assert.equal(w.SorgReactionLab.state.event,'carbonyl-add:0');
+ await w.SorgReactionLab.selectSystem('chloride-identity-sn2');
+ await w.SorgReactionLab.selectSystem('hydride-formaldehyde');
+ assert.equal(w.SorgReactionLab.state.frameId,'angle-130');assert.equal(w.SorgReactionLab.state.orbitalId,'pistar');
+ assert.equal(w.SorgReactionLab.state.level,2);assert.equal(w.SorgReactionLab.state.mode,'conventional');
+ change('#rr-display','both');change('#rr-series','addition');change('#rr-geometry','product');
+ assert.match($('#rr-descriptors').textContent,/Hessian-verified methoxide minimum/);
+ assert.match($('#rr-descriptors').textContent,/9 positive modes/);
+ await w.SorgReactionLab.selectEvent('e2:0');assert.equal($('#rr-unavailable').hidden,false);
+ assert.equal($('#rr-calculated').hidden,true);
+
  assert.ok(errors.every(e=>/dynamic import/i.test(e)),errors.join('\n'));
  dom.window.close();
 }
-domTests().then(()=>console.log('PASS: 31/69 illustration inventory, authored-arrow structure, five SN2 frames, density metadata, Hessian records, meshes and synchronized event/quantity/representation DOM integration. Native WebGL/touch are separate checks.')).catch(e=>{console.error(e);process.exitCode=1;});
+domTests().then(()=>console.log('PASS: 31/69 illustration inventory, authored-arrow structure, five retained SN2 frames, multi-system loading races/state retention, carbonyl frame/orbital/angle controls, density metadata, Hessian records, meshes and synchronized event/quantity/representation DOM integration. Native WebGL/touch are separate checks.')).catch(e=>{console.error(e);process.exitCode=1;});

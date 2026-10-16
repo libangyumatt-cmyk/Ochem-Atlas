@@ -1,0 +1,5 @@
+pyscf==2.14.0
+numpy==2.3.5
+scipy==1.17.0
+h5py==3.16.0
+scikit-image==0.25.2

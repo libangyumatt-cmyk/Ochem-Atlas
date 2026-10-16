@@ -1,6 +1,6 @@
 /* Reusable renderer for precomputed signed surfaces. No electronic calculation. */
 export async function createSurfaceViewer(host,{geometryOnly=false}={}){
- const colors={C:0x344b53,H:0xd9dedb,Cl:0x6e9673};
+ const colors={C:0x344b53,H:0xd9dedb,Cl:0x6e9673,O:0xbd6c62,N:0x5c7ea8,S:0xc6ae54};
  let state=null,scene,camera,renderer,controls,group,THREE,resizeObserver,webgl=false;
  const stage=document.createElement('div');stage.className='reaction-stage';host.replaceChildren(stage);
  const labels=document.createElement('div');labels.className='reaction-atom-labels';
@@ -22,10 +22,10 @@ export async function createSurfaceViewer(host,{geometryOnly=false}={}){
   for(const {p,color} of tris){ctx.beginPath();ctx.moveTo(p[0][0],p[0][1]);ctx.lineTo(p[1][0],p[1][1]);ctx.lineTo(p[2][0],p[2][1]);ctx.closePath();ctx.fillStyle=color;ctx.fill();}
   ctx.globalAlpha=1;
   const pts=atoms.map(a=>project(a.xyzAngstrom));
-  for(let j=1;j<atoms.length;j++){ctx.beginPath();ctx.setLineDash(j<3?[5,5]:[]);ctx.strokeStyle='#7b8a86';ctx.moveTo(pts[0][0],pts[0][1]);ctx.lineTo(pts[j][0],pts[j][1]);ctx.stroke();}
+  for(const edge of state.connections||[]){const [a,b]=edge.atoms;ctx.beginPath();ctx.setLineDash(edge.style==='guide'?[5,5]:[]);ctx.strokeStyle='#7b8a86';ctx.moveTo(pts[a][0],pts[a][1]);ctx.lineTo(pts[b][0],pts[b][1]);ctx.stroke();}
   ctx.setLineDash([]);
-  for(let i=0;i<atoms.length;i++){const p=pts[i],a=atoms[i];ctx.beginPath();ctx.arc(p[0],p[1],a.element==='H'?5:8,0,2*Math.PI);ctx.fillStyle='#'+colors[a.element].toString(16).padStart(6,'0');ctx.fill();ctx.fillStyle='#203c43';ctx.font='15px sans-serif';ctx.fillText(a.label,p[0]+9,p[1]-8);}
-  status.textContent='FIXED CALCULATED PROJECTION · WebGL unavailable. Threshold and phase controls update the same computed meshes. Dashed C···Cl lines are distance guides, not assigned bonds.';
+  for(let i=0;i<atoms.length;i++){const p=pts[i],a=atoms[i];ctx.beginPath();ctx.arc(p[0],p[1],a.element==='H'?5:8,0,2*Math.PI);ctx.fillStyle='#'+(colors[a.element]??0x8c8894).toString(16).padStart(6,'0');ctx.fill();ctx.fillStyle='#203c43';ctx.font='15px sans-serif';ctx.fillText(a.label,p[0]+9,p[1]-8);}
+  status.textContent='FIXED CALCULATED PROJECTION · WebGL unavailable. Threshold and phase controls update the same computed meshes. Dashed lines are measured separation guides; drawn connections do not encode computed bond order.';
  }
  function draw(){
   if(!webgl){fallback();return;}
@@ -43,7 +43,7 @@ export async function createSurfaceViewer(host,{geometryOnly=false}={}){
    group.add(new THREE.Mesh(geo,new THREE.MeshPhongMaterial({color,transparent:true,opacity:.58,depthWrite:false,side:THREE.DoubleSide})));
   }
   for(const a of next.atoms){const p=new THREE.Vector3(...a.xyzAngstrom);const ball=new THREE.Mesh(new THREE.SphereGeometry(a.element==='H'?.08:.14,14,10),new THREE.MeshPhongMaterial({color:colors[a.element]}));ball.position.copy(p);group.add(ball);const span=document.createElement('span');span.textContent=a.label;span.dataset.position=JSON.stringify(a.xyzAngstrom);labels.append(span);}
-  for(let j=1;j<next.atoms.length;j++){const pts=[new THREE.Vector3(...next.atoms[0].xyzAngstrom),new THREE.Vector3(...next.atoms[j].xyzAngstrom)];const geo=new THREE.BufferGeometry().setFromPoints(pts);const line=new THREE.Line(geo,j<3?new THREE.LineDashedMaterial({color:0x7b8a86,dashSize:.08,gapSize:.07}):new THREE.LineBasicMaterial({color:0x7b8a86}));line.computeLineDistances();group.add(line);}
+  for(const edge of next.connections||[]){const [a,b]=edge.atoms;const pts=[new THREE.Vector3(...next.atoms[a].xyzAngstrom),new THREE.Vector3(...next.atoms[b].xyzAngstrom)];const geo=new THREE.BufferGeometry().setFromPoints(pts);const line=new THREE.Line(geo,edge.style==='guide'?new THREE.LineDashedMaterial({color:0x7b8a86,dashSize:.08,gapSize:.07}):new THREE.LineBasicMaterial({color:0x7b8a86}));line.computeLineDistances();group.add(line);}
   draw();
  }
  try{
@@ -55,7 +55,7 @@ export async function createSurfaceViewer(host,{geometryOnly=false}={}){
   controls=new OrbitControls(camera,renderer.domElement);controls.enablePan=false;controls.minDistance=3;controls.maxDistance=25;controls.touches.ONE=THREE.TOUCH.ROTATE;controls.touches.TWO=THREE.TOUCH.DOLLY_PAN;
   controls.addEventListener('change',draw);webgl=true;
   const resize=()=>{const w=stage.clientWidth,h=stage.clientHeight;if(!w||!h)return;camera.aspect=w/h;camera.updateProjectionMatrix();renderer.setSize(w,h,false);draw();};
-  resizeObserver=new ResizeObserver(resize);resizeObserver.observe(stage);resize();reset();status.textContent='INTERACTIVE 3D · drag/swipe to rotate, wheel/pinch to zoom. Dashed C···Cl lines indicate measured separations, not bond orders.';
+  resizeObserver=new ResizeObserver(resize);resizeObserver.observe(stage);resize();reset();status.textContent='INTERACTIVE 3D · drag/swipe to rotate, wheel/pinch to zoom. Dashed lines show measured separations; bond orders are reported numerically.';
  }catch(e){webgl=false;fallback();}
  return {update,reset,get interactive(){return webgl;},dispose(){resizeObserver?.disconnect();controls?.dispose();renderer?.dispose();host.replaceChildren();}};
 }

@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "2.0",
+  "systems": [
+    {
+      "id": "chloride-identity-sn2",
+      "event": "sn2:0",
+      "title": "SN2 \u00b7 Cl\u207b + CH\u2083Cl",
+      "dataFile": "reaction-lab/sn2-system.json"
+    },
+    {
+      "id": "hydride-formaldehyde",
+      "event": "carbonyl-add:0",
+      "title": "Carbonyl addition \u00b7 H\u207b + H\u2082CO",
+      "dataFile": "reaction-lab/carbonyl-system.json"
+    }
+  ],
+  "capabilities": {
+    "multipleBondDescriptors": true,
+    "multipleOrbitals": true,
+    "geometryDescriptorArrays": true,
+    "spinResolvedFieldDefinitions": true
+  },
+  "futureDatasets": "Diels\u2013Alder, E2 and radical reaction systems are NOT implemented. Schema supports fields marked spin-density/alpha/beta only if computed data are supplied."
+}

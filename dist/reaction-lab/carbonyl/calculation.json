@@ -1,0 +1,981 @@
+{
+  "method": "RHF",
+  "basis": "6-31++G(d,p)",
+  "program": "PySCF 2.14.0",
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "charge": -1,
+  "multiplicity": 1,
+  "electronCount": 18,
+  "environment": "isolated gas phase; bare hydride, no counterion or solvent",
+  "scfProtocol": {
+    "energyToleranceEh": 1e-11,
+    "orbitalGradientTolerance": 1e-07,
+    "maxCycles": 150,
+    "newtonFallback": true,
+    "stability": "internal and external RHF stability checked for every complex frame"
+  },
+  "pathKind": "Four fixed C\u2013H(nu) distance / 110\u00b0 angle Cs-relaxed frames plus a separately optimized minimum; two matched-distance angle comparisons. Not an IRC. No transition state claimed.",
+  "atomMapping": "C, O, H1, H2, Hnu fixed identities. C at origin, O on +x, Hnu in xz with z>0; H1/H2 reflected across xz. No post-hoc fit.",
+  "competingPathways": "Bare gas-phase hydride is an idealized donor, not LiAlH4 or NaBH4. H abstraction (H2 + HCO\u2212), detachment/other electronic states and solvent/counterion chemistry were not compared; the constrained addition branch does not establish global selectivity or kinetics.",
+  "frames": [
+    {
+      "id": "addition-0",
+      "group": "addition",
+      "geometryKind": "constrained Cs-relaxed frame; not a stationary point",
+      "atoms": [
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "label": "C",
+          "atomId": "C"
+        },
+        {
+          "element": "O",
+          "xyzAngstrom": [
+            1.1931244433425225,
+            0.0,
+            0.0
+          ],
+          "label": "O",
+          "atomId": "O"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.5779886143149698,
+            0.9223610829774072,
+            -0.0003001093190177389
+          ],
+          "label": "H1",
+          "atomId": "H1"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.5779886143149698,
+            -0.9223610829774072,
+            -0.0003001093190177389
+          ],
+          "label": "H2",
+          "atomId": "H2"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -1.0260604299770062,
+            0.0,
+            2.8190778623577253
+          ],
+          "label": "H nu",
+          "atomId": "Hnu"
+        }
+      ],
+      "energyHartree": -114.37219828558561,
+      "scfConverged": true,
+      "internalStable": true,
+      "externalStable": true,
+      "orthonormalError": 3.1530333899354446e-14,
+      "electronCountAOMetric": 18.00000000000004,
+      "scfOrbitalGradientNorm": 1.4683749117582125e-08,
+      "maxNuclearGradientEhPerBohr": 0.009307878985914897,
+      "maxFreeParameterGradientEhPerAngstromOrRadian": 1.1346875301074081e-07,
+      "distanceAngstrom": 3.0,
+      "angleDegree": 110.0,
+      "bonds": [
+        {
+          "atoms": [
+            0,
+            1
+          ],
+          "label": "C\u2013O",
+          "distanceAngstrom": 1.1931244433425225,
+          "mayer": 1.810719029421486
+        },
+        {
+          "atoms": [
+            0,
+            4
+          ],
+          "label": "C\u2013H(nu)",
+          "distanceAngstrom": 3.0,
+          "mayer": 0.14290452279743396
+        }
+      ],
+      "geometryDescriptors": [
+        {
+          "label": "O\u2013C\u2013H(nu) approach angle",
+          "value": 110.0,
+          "unit": "\u00b0"
+        },
+        {
+          "label": "C displacement from O/H1/H2 plane",
+          "value": 0.00020217103448386,
+          "unit": "\u00c5"
+        },
+        {
+          "label": "360\u00b0 minus O\u2013C\u2013H1 / H1\u2013C\u2013H2 / H2\u2013C\u2013O sum",
+          "value": 9.679686627350748e-06,
+          "unit": "\u00b0"
+        }
+      ],
+      "connections": [
+        {
+          "atoms": [
+            0,
+            1
+          ],
+          "style": "bond"
+        },
+        {
+          "atoms": [
+            0,
+            2
+          ],
+          "style": "bond"
+        },
+        {
+          "atoms": [
+            0,
+            3
+          ],
+          "style": "bond"
+        },
+        {
+          "atoms": [
+            0,
+            4
+          ],
+          "style": "guide"
+        }
+      ]
+    },
+    {
+      "id": "addition-1",
+      "group": "addition",
+      "geometryKind": "constrained Cs-relaxed frame; not a stationary point",
+      "atoms": [
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "label": "C",
+          "atomId": "C"
+        },
+        {
+          "element": "O",
+          "xyzAngstrom": [
+            1.2008678576163427,
+            0.0,
+            0.0
+          ],
+          "label": "O",
+          "atomId": "O"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.5786429310300534,
+            0.9189877226816321,
+            -0.044916450018953315
+          ],
+          "label": "H1",
+          "atomId": "H1"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.5786429310300534,
+            -0.9189877226816321,
+            -0.044916450018953315
+          ],
+          "label": "H2",
+          "atomId": "H2"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.8208483439816049,
+            0.0,
+            2.25526228988618
+          ],
+          "label": "H nu",
+          "atomId": "Hnu"
+        }
+      ],
+      "energyHartree": -114.37131928082945,
+      "scfConverged": true,
+      "internalStable": true,
+      "externalStable": true,
+      "orthonormalError": 7.527312106958561e-14,
+      "electronCountAOMetric": 18.000000000000014,
+      "scfOrbitalGradientNorm": 1.8145014451900524e-08,
+      "maxNuclearGradientEhPerBohr": 0.008828502805224708,
+      "maxFreeParameterGradientEhPerAngstromOrRadian": 7.324488137011377e-08,
+      "distanceAngstrom": 2.4,
+      "angleDegree": 110.0,
+      "bonds": [
+        {
+          "atoms": [
+            0,
+            1
+          ],
+          "label": "C\u2013O",
+          "distanceAngstrom": 1.2008678576163427,
+          "mayer": 1.7108395390047408
+        },
+        {
+          "atoms": [
+            0,
+            4
+          ],
+          "label": "C\u2013H(nu)",
+          "distanceAngstrom": 2.4,
+          "mayer": 0.30119532794447884
+        }
+      ],
+      "geometryDescriptors": [
+        {
+          "label": "O\u2013C\u2013H(nu) approach angle",
+          "value": 110.0,
+          "unit": "\u00b0"
+        },
+        {
+          "label": "C displacement from O/H1/H2 plane",
+          "value": 0.030301331915128876,
+          "unit": "\u00c5"
+        },
+        {
+          "label": "360\u00b0 minus O\u2013C\u2013H1 / H1\u2013C\u2013H2 / H2\u2013C\u2013O sum",
+          "value": 0.2169207627329115,
+          "unit": "\u00b0"
+        }
+      ],
+      "connections": [
+        {
+          "atoms": [
+            0,
+            1
+          ],
+          "style": "bond"
+        },
+        {
+          "atoms": [
+            0,
+            2
+          ],
+          "style": "bond"
+        },
+        {
+          "atoms": [
+            0,
+            3
+          ],
+          "style": "bond"
+        },
+        {
+          "atoms": [
+            0,
+            4
+          ],
+          "style": "guide"
+        }
+      ]
+    },
+    {
+      "id": "addition-2",
+      "group": "addition",
+      "geometryKind": "constrained Cs-relaxed frame; not a stationary point",
+      "atoms": [
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "label": "C",
+          "atomId": "C"
+        },
+        {
+          "element": "O",
+          "xyzAngstrom": [
+            1.2262935840166382,
+            0.0,
+            0.0
+          ],
+          "label": "O",
+          "atomId": "O"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.5681136712314381,
+            0.9115358641393897,
+            -0.18462480499870002
+          ],
+          "label": "H1",
+          "atomId": "H1"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.5681136712314381,
+            -0.9115358641393897,
+            -0.18462480499870002
+          ],
+          "label": "H2",
+          "atomId": "H2"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.6498382723187706,
+            0.0,
+            1.7854159794932258
+          ],
+          "label": "H nu",
+          "atomId": "Hnu"
+        }
+      ],
+      "energyHartree": -114.3705372630845,
+      "scfConverged": true,
+      "internalStable": true,
+      "externalStable": true,
+      "orthonormalError": 5.906386491005833e-14,
+      "electronCountAOMetric": 18.000000000000007,
+      "scfOrbitalGradientNorm": 2.6433721316217795e-08,
+      "maxNuclearGradientEhPerBohr": 0.01685449089745071,
+      "maxFreeParameterGradientEhPerAngstromOrRadian": 1.872568904047019e-08,
+      "distanceAngstrom": 1.9,
+      "angleDegree": 110.0,
+      "bonds": [
+        {
+          "atoms": [
+            0,
+            1
+          ],
+          "label": "C\u2013O",
+          "distanceAngstrom": 1.2262935840166382,
+          "mayer": 1.465043774363477
+        },
+        {
+          "atoms": [
+            0,
+            4
+          ],
+          "label": "C\u2013H(nu)",
+          "distanceAngstrom": 1.9,
+          "mayer": 0.6065256860010637
+        }
+      ],
+      "geometryDescriptors": [
+        {
+          "label": "O\u2013C\u2013H(nu) approach angle",
+          "value": 110.0,
+          "unit": "\u00b0"
+        },
+        {
+          "label": "C displacement from O/H1/H2 plane",
+          "value": 0.12550956316011497,
+          "unit": "\u00c5"
+        },
+        {
+          "label": "360\u00b0 minus O\u2013C\u2013H1 / H1\u2013C\u2013H2 / H2\u2013C\u2013O sum",
+          "value": 3.6394249603505955,
+          "unit": "\u00b0"
+        }
+      ],
+      "connections": [
+        {
+          "atoms": [
+            0,
+            1
+          ],
+          "style": "bond"
+        },
+        {
+          "atoms": [
+            0,
+            2
+          ],
+          "style": "bond"
+        },
+        {
+          "atoms": [
+            0,
+            3
+          ],
+          "style": "bond"
+        },
+        {
+          "atoms": [
+            0,
+            4
+          ],
+          "style": "guide"
+        }
+      ]
+    },
+    {
+      "id": "addition-3",
+      "group": "addition",
+      "geometryKind": "constrained Cs-relaxed frame; not a stationary point",
+      "atoms": [
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "label": "C",
+          "atomId": "C"
+        },
+        {
+          "element": "O",
+          "xyzAngstrom": [
+            1.2800889669636546,
+            0.0,
+            0.0
+          ],
+          "label": "O",
+          "atomId": "O"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.5311321833772898,
+            0.8955987162996826,
+            -0.36943349090855143
+          ],
+          "label": "H1",
+          "atomId": "H1"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.5311321833772898,
+            -0.8955987162996826,
+            -0.36943349090855143
+          ],
+          "label": "H2",
+          "atomId": "H2"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.5130302149885031,
+            0.0,
+            1.4095389311788626
+          ],
+          "label": "H nu",
+          "atomId": "Hnu"
+        }
+      ],
+      "energyHartree": -114.38756778994092,
+      "scfConverged": true,
+      "internalStable": true,
+      "externalStable": true,
+      "orthonormalError": 7.638334409421077e-14,
+      "electronCountAOMetric": 17.999999999999986,
+      "scfOrbitalGradientNorm": 2.226150007676849e-08,
+      "maxNuclearGradientEhPerBohr": 0.05339016700228816,
+      "maxFreeParameterGradientEhPerAngstromOrRadian": 1.2743410884391868e-08,
+      "distanceAngstrom": 1.5,
+      "angleDegree": 110.0,
+      "bonds": [
+        {
+          "atoms": [
+            0,
+            1
+          ],
+          "label": "C\u2013O",
+          "distanceAngstrom": 1.2800889669636546,
+          "mayer": 1.1722778476703872
+        },
+        {
+          "atoms": [
+            0,
+            4
+          ],
+          "label": "C\u2013H(nu)",
+          "distanceAngstrom": 1.5,
+          "mayer": 0.9096502428043423
+        }
+      ],
+      "geometryDescriptors": [
+        {
+          "label": "O\u2013C\u2013H(nu) approach angle",
+          "value": 110.0,
+          "unit": "\u00b0"
+        },
+        {
+          "label": "C displacement from O/H1/H2 plane",
+          "value": 0.25583132962898353,
+          "unit": "\u00c5"
+        },
+        {
+          "label": "360\u00b0 minus O\u2013C\u2013H1 / H1\u2013C\u2013H2 / H2\u2013C\u2013O sum",
+          "value": 14.222348673499312,
+          "unit": "\u00b0"
+        }
+      ],
+      "connections": [
+        {
+          "atoms": [
+            0,
+            1
+          ],
+          "style": "bond"
+        },
+        {
+          "atoms": [
+            0,
+            2
+          ],
+          "style": "bond"
+        },
+        {
+          "atoms": [
+            0,
+            3
+          ],
+          "style": "bond"
+        },
+        {
+          "atoms": [
+            0,
+            4
+          ],
+          "style": "guide"
+        }
+      ]
+    },
+    {
+      "id": "product",
+      "group": "addition",
+      "geometryKind": "Hessian-verified methoxide minimum",
+      "atoms": [
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "label": "C",
+          "atomId": "C"
+        },
+        {
+          "element": "O",
+          "xyzAngstrom": [
+            1.3293591853122932,
+            0.0,
+            0.0
+          ],
+          "label": "O",
+          "atomId": "O"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.4771621058444914,
+            0.8801742975574433,
+            -0.5081693889017823
+          ],
+          "label": "H1",
+          "atomId": "H1"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.4771621058444914,
+            -0.8801742975574433,
+            -0.5081693889017823
+          ],
+          "label": "H2",
+          "atomId": "H2"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.47716250182818654,
+            0.0,
+            1.0163372369288153
+          ],
+          "label": "H nu",
+          "atomId": "Hnu"
+        }
+      ],
+      "energyHartree": -114.41572569713685,
+      "scfConverged": true,
+      "internalStable": true,
+      "externalStable": true,
+      "orthonormalError": 9.814371537686384e-14,
+      "electronCountAOMetric": 17.999999999999993,
+      "scfOrbitalGradientNorm": 3.080240164137832e-08,
+      "maxNuclearGradientEhPerBohr": 3.435055957622037e-07,
+      "maxFreeParameterGradientEhPerAngstromOrRadian": 3.0438187268541153e-07,
+      "distanceAngstrom": 1.1227757711667246,
+      "angleDegree": 115.14969371088753,
+      "bonds": [
+        {
+          "atoms": [
+            0,
+            1
+          ],
+          "label": "C\u2013O",
+          "distanceAngstrom": 1.3293591853122932,
+          "mayer": 1.0561091438557855
+        },
+        {
+          "atoms": [
+            0,
+            4
+          ],
+          "label": "C\u2013H(nu)",
+          "distanceAngstrom": 1.1227757711667246,
+          "mayer": 0.9696042236062589
+        }
+      ],
+      "geometryDescriptors": [
+        {
+          "label": "O\u2013C\u2013H(nu) approach angle",
+          "value": 115.14969371088753,
+          "unit": "\u00b0"
+        },
+        {
+          "label": "C displacement from O/H1/H2 plane",
+          "value": 0.35997409833237265,
+          "unit": "\u00c5"
+        },
+        {
+          "label": "360\u00b0 minus O\u2013C\u2013H1 / H1\u2013C\u2013H2 / H2\u2013C\u2013O sum",
+          "value": 26.457644778729332,
+          "unit": "\u00b0"
+        }
+      ],
+      "connections": [
+        {
+          "atoms": [
+            0,
+            1
+          ],
+          "style": "bond"
+        },
+        {
+          "atoms": [
+            0,
+            2
+          ],
+          "style": "bond"
+        },
+        {
+          "atoms": [
+            0,
+            3
+          ],
+          "style": "bond"
+        },
+        {
+          "atoms": [
+            0,
+            4
+          ],
+          "style": "guide"
+        }
+      ],
+      "frequenciesCm": [
+        1243.3260458666591,
+        1270.263081234157,
+        1270.2632507350856,
+        1575.0447731224797,
+        1575.045269825426,
+        1601.2274577965345,
+        2692.8758231299394,
+        2692.8795382015546,
+        2809.9899903610058
+      ],
+      "stationaryPointVerified": true
+    },
+    {
+      "id": "angle-90",
+      "group": "angles",
+      "geometryKind": "constrained Cs-relaxed frame; not a stationary point",
+      "atoms": [
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "label": "C",
+          "atomId": "C"
+        },
+        {
+          "element": "O",
+          "xyzAngstrom": [
+            1.2229764010479791,
+            0.0,
+            0.0
+          ],
+          "label": "O",
+          "atomId": "O"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.5827898670346411,
+            0.9142457139698682,
+            -0.12845259058198397
+          ],
+          "label": "H1",
+          "atomId": "H1"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.5827898670346411,
+            -0.9142457139698682,
+            -0.12845259058198397
+          ],
+          "label": "H2",
+          "atomId": "H2"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            1.1634144591899854e-16,
+            0.0,
+            1.9
+          ],
+          "label": "H nu",
+          "atomId": "Hnu"
+        }
+      ],
+      "energyHartree": -114.35089789838823,
+      "scfConverged": true,
+      "internalStable": true,
+      "externalStable": true,
+      "orthonormalError": 6.350475700855895e-14,
+      "electronCountAOMetric": 17.999999999999968,
+      "scfOrbitalGradientNorm": 1.9353695376447747e-08,
+      "maxNuclearGradientEhPerBohr": 0.04071922411432366,
+      "maxFreeParameterGradientEhPerAngstromOrRadian": 5.603151758015702e-08,
+      "distanceAngstrom": 1.9,
+      "angleDegree": 90.0,
+      "bonds": [
+        {
+          "atoms": [
+            0,
+            1
+          ],
+          "label": "C\u2013O",
+          "distanceAngstrom": 1.2229764010479791,
+          "mayer": 1.493948053769417
+        },
+        {
+          "atoms": [
+            0,
+            4
+          ],
+          "label": "C\u2013H(nu)",
+          "distanceAngstrom": 1.9,
+          "mayer": 0.7983027038041313
+        }
+      ],
+      "geometryDescriptors": [
+        {
+          "label": "O\u2013C\u2013H(nu) approach angle",
+          "value": 90.0,
+          "unit": "\u00b0"
+        },
+        {
+          "label": "C displacement from O/H1/H2 plane",
+          "value": 0.08677675046238824,
+          "unit": "\u00c5"
+        },
+        {
+          "label": "360\u00b0 minus O\u2013C\u2013H1 / H1\u2013C\u2013H2 / H2\u2013C\u2013O sum",
+          "value": 1.7446827201757742,
+          "unit": "\u00b0"
+        }
+      ],
+      "connections": [
+        {
+          "atoms": [
+            0,
+            1
+          ],
+          "style": "bond"
+        },
+        {
+          "atoms": [
+            0,
+            2
+          ],
+          "style": "bond"
+        },
+        {
+          "atoms": [
+            0,
+            3
+          ],
+          "style": "bond"
+        },
+        {
+          "atoms": [
+            0,
+            4
+          ],
+          "style": "guide"
+        }
+      ]
+    },
+    {
+      "id": "angle-130",
+      "group": "angles",
+      "geometryKind": "constrained Cs-relaxed frame; not a stationary point",
+      "atoms": [
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "label": "C",
+          "atomId": "C"
+        },
+        {
+          "element": "O",
+          "xyzAngstrom": [
+            1.2274726467990673,
+            0.0,
+            0.0
+          ],
+          "label": "O",
+          "atomId": "O"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.5469048649010044,
+            0.910782529918834,
+            -0.22267518493292693
+          ],
+          "label": "H1",
+          "atomId": "H1"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.5469048649010044,
+            -0.910782529918834,
+            -0.22267518493292693
+          ],
+          "label": "H2",
+          "atomId": "H2"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -1.2212964584044248,
+            0.0,
+            1.4554844419260582
+          ],
+          "label": "H nu",
+          "atomId": "Hnu"
+        }
+      ],
+      "energyHartree": -114.3680568507122,
+      "scfConverged": true,
+      "internalStable": true,
+      "externalStable": true,
+      "orthonormalError": 3.730349362740526e-14,
+      "electronCountAOMetric": 18.00000000000002,
+      "scfOrbitalGradientNorm": 3.6062194641282945e-08,
+      "maxNuclearGradientEhPerBohr": 0.021008469010146746,
+      "maxFreeParameterGradientEhPerAngstromOrRadian": 1.4171795295785949e-08,
+      "distanceAngstrom": 1.9,
+      "angleDegree": 130.0,
+      "bonds": [
+        {
+          "atoms": [
+            0,
+            1
+          ],
+          "label": "C\u2013O",
+          "distanceAngstrom": 1.2274726467990673,
+          "mayer": 1.4666709174177837
+        },
+        {
+          "atoms": [
+            0,
+            4
+          ],
+          "label": "C\u2013H(nu)",
+          "distanceAngstrom": 1.9,
+          "mayer": 0.40425450972977556
+        }
+      ],
+      "geometryDescriptors": [
+        {
+          "label": "O\u2013C\u2013H(nu) approach angle",
+          "value": 130.0,
+          "unit": "\u00b0"
+        },
+        {
+          "label": "C displacement from O/H1/H2 plane",
+          "value": 0.15284260431323257,
+          "unit": "\u00c5"
+        },
+        {
+          "label": "360\u00b0 minus O\u2013C\u2013H1 / H1\u2013C\u2013H2 / H2\u2013C\u2013O sum",
+          "value": 5.404272724888699,
+          "unit": "\u00b0"
+        }
+      ],
+      "connections": [
+        {
+          "atoms": [
+            0,
+            1
+          ],
+          "style": "bond"
+        },
+        {
+          "atoms": [
+            0,
+            2
+          ],
+          "style": "bond"
+        },
+        {
+          "atoms": [
+            0,
+            3
+          ],
+          "style": "bond"
+        },
+        {
+          "atoms": [
+            0,
+            4
+          ],
+          "style": "guide"
+        }
+      ]
+    }
+  ]
+}

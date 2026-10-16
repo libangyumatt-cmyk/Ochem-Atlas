@@ -1,0 +1,433 @@
+{
+  "method": "RHF",
+  "basis": "6-31++G(d,p)",
+  "charge": -1,
+  "multiplicity": 1,
+  "environment": "isolated gas phase; bare hydride, no counterion or solvent",
+  "scf": {
+    "energyToleranceEh": 1e-11,
+    "orbitalGradientTolerance": 1e-07,
+    "maxCycles": 150,
+    "newtonFallback": true,
+    "stability": "internal and external RHF stability checked for every complex frame"
+  },
+  "frames": [
+    {
+      "id": "addition-0",
+      "atoms": [
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "label": "C",
+          "atomId": "C"
+        },
+        {
+          "element": "O",
+          "xyzAngstrom": [
+            1.1931244433425225,
+            0.0,
+            0.0
+          ],
+          "label": "O",
+          "atomId": "O"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.5779886143149698,
+            0.9223610829774072,
+            -0.0003001093190177389
+          ],
+          "label": "H1",
+          "atomId": "H1"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.5779886143149698,
+            -0.9223610829774072,
+            -0.0003001093190177389
+          ],
+          "label": "H2",
+          "atomId": "H2"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -1.0260604299770062,
+            0.0,
+            2.8190778623577253
+          ],
+          "label": "H nu",
+          "atomId": "Hnu"
+        }
+      ],
+      "fixedParameters": {
+        "distanceAngstrom": 3.0,
+        "angleDegree": 110.0
+      },
+      "symmetry": "Cs optimization parameterization; full Cartesian gradient/Hessian checked for product"
+    },
+    {
+      "id": "addition-1",
+      "atoms": [
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "label": "C",
+          "atomId": "C"
+        },
+        {
+          "element": "O",
+          "xyzAngstrom": [
+            1.2008678576163427,
+            0.0,
+            0.0
+          ],
+          "label": "O",
+          "atomId": "O"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.5786429310300534,
+            0.9189877226816321,
+            -0.044916450018953315
+          ],
+          "label": "H1",
+          "atomId": "H1"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.5786429310300534,
+            -0.9189877226816321,
+            -0.044916450018953315
+          ],
+          "label": "H2",
+          "atomId": "H2"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.8208483439816049,
+            0.0,
+            2.25526228988618
+          ],
+          "label": "H nu",
+          "atomId": "Hnu"
+        }
+      ],
+      "fixedParameters": {
+        "distanceAngstrom": 2.4,
+        "angleDegree": 110.0
+      },
+      "symmetry": "Cs optimization parameterization; full Cartesian gradient/Hessian checked for product"
+    },
+    {
+      "id": "addition-2",
+      "atoms": [
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "label": "C",
+          "atomId": "C"
+        },
+        {
+          "element": "O",
+          "xyzAngstrom": [
+            1.2262935840166382,
+            0.0,
+            0.0
+          ],
+          "label": "O",
+          "atomId": "O"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.5681136712314381,
+            0.9115358641393897,
+            -0.18462480499870002
+          ],
+          "label": "H1",
+          "atomId": "H1"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.5681136712314381,
+            -0.9115358641393897,
+            -0.18462480499870002
+          ],
+          "label": "H2",
+          "atomId": "H2"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.6498382723187706,
+            0.0,
+            1.7854159794932258
+          ],
+          "label": "H nu",
+          "atomId": "Hnu"
+        }
+      ],
+      "fixedParameters": {
+        "distanceAngstrom": 1.9,
+        "angleDegree": 110.0
+      },
+      "symmetry": "Cs optimization parameterization; full Cartesian gradient/Hessian checked for product"
+    },
+    {
+      "id": "addition-3",
+      "atoms": [
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "label": "C",
+          "atomId": "C"
+        },
+        {
+          "element": "O",
+          "xyzAngstrom": [
+            1.2800889669636546,
+            0.0,
+            0.0
+          ],
+          "label": "O",
+          "atomId": "O"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.5311321833772898,
+            0.8955987162996826,
+            -0.36943349090855143
+          ],
+          "label": "H1",
+          "atomId": "H1"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.5311321833772898,
+            -0.8955987162996826,
+            -0.36943349090855143
+          ],
+          "label": "H2",
+          "atomId": "H2"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.5130302149885031,
+            0.0,
+            1.4095389311788626
+          ],
+          "label": "H nu",
+          "atomId": "Hnu"
+        }
+      ],
+      "fixedParameters": {
+        "distanceAngstrom": 1.5,
+        "angleDegree": 110.0
+      },
+      "symmetry": "Cs optimization parameterization; full Cartesian gradient/Hessian checked for product"
+    },
+    {
+      "id": "product",
+      "atoms": [
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "label": "C",
+          "atomId": "C"
+        },
+        {
+          "element": "O",
+          "xyzAngstrom": [
+            1.3293591853122932,
+            0.0,
+            0.0
+          ],
+          "label": "O",
+          "atomId": "O"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.4771621058444914,
+            0.8801742975574433,
+            -0.5081693889017823
+          ],
+          "label": "H1",
+          "atomId": "H1"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.4771621058444914,
+            -0.8801742975574433,
+            -0.5081693889017823
+          ],
+          "label": "H2",
+          "atomId": "H2"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.47716250182818654,
+            0.0,
+            1.0163372369288153
+          ],
+          "label": "H nu",
+          "atomId": "Hnu"
+        }
+      ],
+      "fixedParameters": null,
+      "symmetry": "Cs optimization parameterization; full Cartesian gradient/Hessian checked for product"
+    },
+    {
+      "id": "angle-90",
+      "atoms": [
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "label": "C",
+          "atomId": "C"
+        },
+        {
+          "element": "O",
+          "xyzAngstrom": [
+            1.2229764010479791,
+            0.0,
+            0.0
+          ],
+          "label": "O",
+          "atomId": "O"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.5827898670346411,
+            0.9142457139698682,
+            -0.12845259058198397
+          ],
+          "label": "H1",
+          "atomId": "H1"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.5827898670346411,
+            -0.9142457139698682,
+            -0.12845259058198397
+          ],
+          "label": "H2",
+          "atomId": "H2"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            1.1634144591899854e-16,
+            0.0,
+            1.9
+          ],
+          "label": "H nu",
+          "atomId": "Hnu"
+        }
+      ],
+      "fixedParameters": {
+        "distanceAngstrom": 1.9,
+        "angleDegree": 90.0
+      },
+      "symmetry": "Cs optimization parameterization; full Cartesian gradient/Hessian checked for product"
+    },
+    {
+      "id": "angle-130",
+      "atoms": [
+        {
+          "element": "C",
+          "xyzAngstrom": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "label": "C",
+          "atomId": "C"
+        },
+        {
+          "element": "O",
+          "xyzAngstrom": [
+            1.2274726467990673,
+            0.0,
+            0.0
+          ],
+          "label": "O",
+          "atomId": "O"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.5469048649010044,
+            0.910782529918834,
+            -0.22267518493292693
+          ],
+          "label": "H1",
+          "atomId": "H1"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -0.5469048649010044,
+            -0.910782529918834,
+            -0.22267518493292693
+          ],
+          "label": "H2",
+          "atomId": "H2"
+        },
+        {
+          "element": "H",
+          "xyzAngstrom": [
+            -1.2212964584044248,
+            0.0,
+            1.4554844419260582
+          ],
+          "label": "H nu",
+          "atomId": "Hnu"
+        }
+      ],
+      "fixedParameters": {
+        "distanceAngstrom": 1.9,
+        "angleDegree": 130.0
+      },
+      "symmetry": "Cs optimization parameterization; full Cartesian gradient/Hessian checked for product"
+    }
+  ]
+}

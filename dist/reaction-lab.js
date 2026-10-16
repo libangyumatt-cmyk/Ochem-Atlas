@@ -1,67 +1,92 @@
-/* Synchronizes one catalog event with a separately identified calculated model. */
+/* Schema-2 laboratory: rendering consumes independently computed system records. */
 (async function(){
- 'use strict';const $=s=>document.querySelector(s),D=window.SORG;
- if(!D||!$('#reaction-lab'))return;
+ 'use strict';const $=s=>document.querySelector(s),D=window.SORG;if(!D||!$('#reaction-lab'))return;
+ const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const events=D.reactions.flatMap(r=>r.steps.map((s,i)=>({key:r.id+':'+i,r,s,i})));
- let selected=events.find(e=>e.key==='sn2:0'),data=null,frameIndex=0,mode='both',kind='total',level=1,reverse=false,playing=null,serial=0;
+ let selected=events.find(e=>e.key==='sn2:0'),registry=[],active=null,data=null,mode='both',playing=null,serial=0,loadTurn=0,geometryView=null,fieldView=null,createViewer=null;
  const route=location.hash.match(/^#reaction\/([^?]+)(?:\?step=(\d+))?/);if(route)selected=events.find(e=>e.key===route[1]+':'+(Number(route[2]||1)-1))||selected;
- const cache=new Map();let geometryView=null,fieldView=null;
- const sel=$('#rr-event');sel.replaceChildren(...events.map(e=>new Option(`${e.r.name} · ${e.i+1}. ${e.s.title}`,e.key)));sel.value=selected.key;
- function conventional(){
-  const e=selected,ef=e.s.eventFigure,f=e.r.figure;const source=ef?.src||(f.display?f.src:null);
-  $('#rr-event-title').textContent=`${e.r.name} · event ${e.i+1}`;$('#rr-equation').textContent=e.s.equation;
-  $('#rr-conventional').innerHTML=source?`<img src="${source}" alt="Conventional mechanism for selected ${e.r.name} event ${e.i+1}"><p>${ef?'Selected event image.':f.match+' '+f.coverage+' overview; it is not isolated to this event.'}</p>`:'<p>A reviewed exact structural figure is unavailable. The written event and the inventory identify the remaining gap.</p>';
-  $('#rr-flow').textContent=e.s.flow;$('#rr-sorg').textContent=`${e.s.code} · ${e.s.orbital}. ${e.s.geometry}. ${e.s.assignmentNote||''}`;
-  $('#rr-open').href=`#reaction/${e.r.id}?step=${e.i+1}`;
-  const computed=e.key==='sn2:0';$('#rr-calculated').hidden=!computed;$('#rr-unavailable').hidden=computed;
-  $('#rr-model-mechanism').hidden=!computed;
-  $('#rr-unavailable').textContent='No calculated reaction frames, density grids or quantitative energy profile are available for this selected event. Its written orbital account is conceptual interpretation; it is not an ab initio surface. Conventional illustrations and existing sourced evidence remain available.';
-  $('#rr-conventional-wrap').hidden=mode==='quantum';$('#rr-quantum-wrap').hidden=mode==='conventional';
- }
+ const datasets=new Map(),loading=new Map(),memories=new Map(),meshes=new Map(),compareViews=new Map();
+ $('#rr-event').replaceChildren(...events.map(e=>new Option(`${e.r.name} · ${e.i+1}. ${e.s.title}`,e.key)));$('#rr-event').value=selected.key;
+ const state=d=>{if(!memories.has(d.id))memories.set(d.id,{frameId:d.frames[0].id,series:d.series[0].id,kind:'total',level:1,orbitalId:d.orbitalDefinitions[0].id,reverse:false});return memories.get(d.id);};
+ const current=()=>state(data);const frame=d=>d.frames.find(f=>f.id===state(d).frameId);const series=d=>d.series.find(s=>s.id===state(d).series);
+ const getJSON=async path=>{const r=await fetch(path+'?v=0.3.6');if(!r.ok)throw Error('HTTP '+r.status+' '+path);return r.json();};
+ async function getData(r){if(datasets.has(r.id))return datasets.get(r.id);if(!loading.has(r.id))loading.set(r.id,getJSON(r.dataFile).then(d=>{if(d.schemaVersion!=='2.0'||d.id!==r.id||!d.frames.length)throw Error('Unsupported system record');datasets.set(r.id,d);state(d);return d;}).catch(e=>{loading.delete(r.id);throw e;}));return loading.get(r.id);}
  function stop(){if(playing){clearInterval(playing);playing=null;}$('#rr-play').textContent='Step through computed frames';}
- function onEvent(key){const e=events.find(e=>e.key===key);if(!e)return;selected=e;sel.value=key;stop();conventional();if(key==='sn2:0'&&data)render();}
- sel.addEventListener('change',()=>onEvent(sel.value));
- document.addEventListener('sorg:event-selected',e=>onEvent(e.detail));
- $('#rr-display').addEventListener('change',()=>{mode=$('#rr-display').value;conventional();});
- $('#rr-frame').addEventListener('input',()=>{frameIndex=Number($('#rr-frame').value);stop();render();});
- $('#rr-field').addEventListener('change',()=>{kind=$('#rr-field').value;reverse=false;render();});
- $('#rr-isovalue').addEventListener('input',()=>{level=Number($('#rr-isovalue').value);render();});
- $('#rr-phase').addEventListener('click',()=>{reverse=!reverse;render();});
- $('#rr-reset').addEventListener('click',()=>{geometryView?.reset();fieldView?.reset();});
- $('#rr-play').addEventListener('click',()=>{if(playing){stop();return;}$('#rr-play').textContent='Pause';playing=setInterval(()=>{frameIndex=(frameIndex+1)%data.frames.length;render();},2200);});
- document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();});
- function energy(f){
-  const base=data.frames[0].energyHartree;const values=data.frames.map(x=>(x.energyHartree-base)*27.211386245988);
-  const lo=Math.min(...values)-.05,hi=Math.max(...values)+.05,w=640,h=200;
-  const points=values.map((v,i)=>{const x=65+i*125,y=165-(v-lo)/(hi-lo)*130;return `<g><circle cx="${x}" cy="${y}" r="${i===frameIndex?7:5}" fill="${i===frameIndex?'#aa6a4e':'#397f79'}"/><text x="${x}" y="190" text-anchor="middle">${data.frames[i].qAngstrom.toFixed(2)}</text><text x="${x}" y="${y-14}" text-anchor="middle">${v.toFixed(3)}</text></g>`;}).join('');
-  $('#rr-energy').innerHTML=`<svg viewBox="0 0 ${w} ${h}" role="img" aria-label="Five separately computed constrained-frame energies in eV relative to first frame; no interpolated energy curve"><g font-size="13" fill="#203c43"><text x="20" y="18">ΔE / eV relative to frame 1</text><path d="M40 30V170H600" fill="none" stroke="#b8c3b6"/>${points}</g></svg>`;
+ function conventional(){
+  const e=selected,ef=e.s.eventFigure,f=e.r.figure,source=ef?.src||(f.display?f.src:null);
+  $('#rr-event-title').textContent=`${e.r.name} · event ${e.i+1}`;$('#rr-equation').textContent=e.s.equation;
+  $('#rr-conventional').innerHTML=source?`<img src="${esc(source)}" alt="Conventional mechanism for selected ${esc(e.r.name)} event ${e.i+1}"><p>${ef?'Selected event image.':esc(f.match+' '+f.coverage)+' overview; not isolated to this event.'}</p>`:'<p>A reviewed exact structural figure is unavailable. See the inventory for its remaining gap.</p>';
+  $('#rr-flow').textContent=e.s.flow;$('#rr-sorg').textContent=`${e.s.code} · ${e.s.orbital}. ${e.s.geometry}. ${e.s.assignmentNote||''}`;$('#rr-sorg-heading').textContent=`${e.s.code} · existing ${e.s.assignmentStatus||'teaching'} assignment`;
+  $('#rr-open').href=`#reaction/${e.r.id}?step=${e.i+1}`;
+  const available=registry.some(r=>r.event===e.key);$('#rr-calculated').hidden=!available;$('#rr-unavailable').hidden=available;$('#rr-model-mechanism').hidden=!available;
+  $('#rr-unavailable').textContent='No calculated reaction frames, density grids or quantitative energy profile are available for this selected event. Its written orbital account is conceptual interpretation; no ab initio surface is substituted.';
+  $('#rr-conventional-wrap').hidden=mode==='quantum';$('#rr-quantum-wrap').hidden=mode==='conventional';
+  if(!available){$('#rr-system').value='';$('#rr-evidence').replaceChildren();++serial;}
  }
- async function render(){
-  if(!data||selected.key!=='sn2:0')return;const turn=++serial,f=data.frames[frameIndex],physical=['occupied','virtual'].includes(kind),prob=kind==='probability';
-  $('#rr-frame').value=String(frameIndex);$('#rr-frame-value').textContent=`${frameIndex+1} / ${data.frames.length} · q = ${f.qAngstrom.toFixed(2)} Å`;
-  const sourceKind=prob?'occupied':kind;const threshold=data.levels[sourceKind][level];
-  $('#rr-isovalue-value').textContent=`${prob?(threshold*threshold).toPrecision(3):threshold} ${physical?'bohr⁻³ᐟ²':(prob?'bohr⁻³':'e bohr⁻³')}${prob?' (one-orbital probability; no electron occupancy factor)':''}`;
-  $('#rr-phase').disabled=!physical;$('#rr-phase').setAttribute('aria-pressed',String(physical&&reverse));
-  const label={total:'TOTAL ELECTRON DENSITY · ρ ≥ 0; one color; 44-electron complex',difference:'GEOMETRY DIFFERENCE · teal accumulation / amber depletion relative to frame 1 at fixed grid coordinates; includes nuclear motion',deformation:'DEFORMATION DENSITY · teal positive / amber negative relative to same-geometry Cl(in)⁻ + CH₃Cl(out) fragments; own fragment bases, no ghosts',occupied:'OCCUPIED CANONICAL ORBITAL · teal + / amber − amplitude; not a localized chloride donor',virtual:'VIRTUAL CANONICAL ORBITAL · teal + / amber − amplitude; not a localized substrate acceptor',probability:'ORBITAL PROBABILITY · |φ|², one spatial orbital normalized to 1; not total electron density'}[kind];
-  $('#rr-legend').textContent=label+'. Difference colors are not positive/negative electrical charges.';
-  $('#rr-descriptors').innerHTML=`<dt>Frame</dt><dd>${f.geometryKind}</dd><dt>Model / method</dt><dd>Cl⁻ + CH₃Cl · charge −1 · singlet · 44 electrons · ${data.method}/${data.basis} · isolated gas phase</dd><dt>Energy</dt><dd>${f.energyHartree.toFixed(9)} Eh; ${((f.energyHartree-data.frames[0].energyHartree)*27.211386245988).toFixed(4)} eV relative to frame 1</dd><dt>Distances</dt><dd>C···Cl(in) ${f.rinAngstrom.toFixed(4)} Å · C···Cl(out) ${f.routAngstrom.toFixed(4)} Å</dd><dt>Mayer bond indices</dt><dd>C/Cl(in) ${f.mayerCClIn.toFixed(4)} · C/Cl(out) ${f.mayerCClOut.toFixed(4)}; AO-density convention, basis dependent</dd><dt>Density validation</dt><dd>Tr(PS) ${f.electronCountAOMetric.toFixed(8)}; independent Becke quadrature ${f.quadratureElectronCount.toFixed(6)} electrons. Uniform display-grid integral ${f.uniformGridElectronEstimate.toFixed(3)}; nuclear cores are under-resolved, no rescaling.</dd><dt>Tracked canonical MOs</dt><dd>${f.orbitals.map((o,i)=>`${i?'Virtual':'Occupied'} MO ${o.index}, occupation ${o.occupation}, ε ${o.energyHartree.toFixed(5)} Eh`).join('; ')}. ${f.tracking.length?f.tracking.map(t=>`MO ${t.previousIndex}→${t.index}, aligned overlap ${t.alignedOverlap.toFixed(4)}, next candidate ${t.nextCandidate.toFixed(4)}${t.ambiguous?' · correspondence AMBIGUOUS':''}`).join('; '):'First-frame fragment-projection selection; largest AO coefficient positive.'}</dd>`;
-  $('#rr-downloads').innerHTML=`<a href="reaction-lab/${f.id}.xyz" download>Cartesian geometry ↓</a><a href="reaction-lab/${f.id}-scf.npz" download>Full SCF coefficients + density matrix ↓</a><a href="${f.fieldFile}" download>Volumetric fields + grid ↓</a><a href="reaction-lab/${f.id}-tracked.npz" download>Phase-aligned coefficients ↓</a><a href="reaction-lab/${f.id}.log" download>SCF output ↓</a><a href="reaction-lab/sn2.json" download>Metadata + references ↓</a>`;
-  energy(f);$('#rr-status').textContent='Loading calculated surfaces…';
-  try{
-   if(!cache.has(f.id))cache.set(f.id,fetch(f.meshFile+'?v=0.3.5').then(r=>{if(!r.ok)throw Error('surface HTTP '+r.status);return r.json();}).catch(e=>{cache.delete(f.id);throw e;}));
-   const meshes=await cache.get(f.id);if(turn!==serial)return;
-   const input={atoms:f.atoms,mesh:meshes[sourceKind][level],reverse:physical&&reverse,singleColor:kind==='total'||prob};
-   geometryView?.update(input);fieldView?.update(input);
-   $('#rr-status').textContent='CALCULATED DISCRETE FRAME · no interpolation of geometry, energy, orbital or density fields.';
-  }catch(e){if(turn===serial)$('#rr-status').textContent='Calculated surface unavailable: '+e.message+'. Use the raw-data downloads; no schematic cloud is substituted.';}
+ function syncControls(){const s=current(),ser=series(data);$('#rr-system').value=data.id;
+  $('#rr-series').replaceChildren(...data.series.map(x=>new Option(x.title,x.id)));$('#rr-series').value=s.series;
+  $('#rr-geometry').replaceChildren(...ser.frameIds.map(id=>new Option(data.frames.find(f=>f.id===id).label,id)));$('#rr-geometry').value=s.frameId;
+  $('#rr-frame').max=String(ser.frameIds.length-1);$('#rr-frame').value=String(ser.frameIds.indexOf(s.frameId));
+  $('#rr-field').replaceChildren(...data.fieldDefinitions.map(x=>new Option(x.label,x.id)),new Option('Selected canonical MO amplitude','amplitude'),new Option('Selected MO probability |φ|²','probability'));
+  $('#rr-field').value=s.kind;$('#rr-orbital').replaceChildren(...data.orbitalDefinitions.map(x=>new Option(x.title,x.id)));$('#rr-orbital').value=s.orbitalId;$('#rr-isovalue').value=String(s.level);
  }
- conventional();
- try{
-  const response=await fetch('reaction-lab/sn2.json?v=0.3.5');if(!response.ok)throw Error('data HTTP '+response.status);data=await response.json();
-  $('#rr-path-note').textContent=data.pathKind+` The symmetric center ${data.centerVerifiedTransitionState?'has a verified first-order saddle at this level':'is not a verified transition state'}; this scan is not an IRC. Endpoint energies are constrained-frame references, not separated-reactant energies or a measured barrier.`;
-  $('#rr-frame').max=String(data.frames.length-1);
-  try{const {createSurfaceViewer}=await import('./surface-viewer.js?v=0.3.5');geometryView=await createSurfaceViewer($('#rr-geometry-stage'),{geometryOnly:true});fieldView=await createSurfaceViewer($('#rr-field-stage'));}catch(e){$('#rr-status').textContent='Renderer unavailable: '+e.message+'. Raw computed data remain downloadable.';}
-  render();
- }catch(e){$('#rr-status').textContent='Calculated dataset unavailable: '+e.message;$('#rr-play').disabled=true;$('#rr-frame').disabled=true;}
- window.SorgReactionLab={selectEvent:onEvent,get state(){return {event:selected.key,frameIndex,mode,kind,level};}};
+ async function selectSystem(id,{selectEvent=true}={}){
+  const r=registry.find(x=>x.id===id);if(!r)return;const turn=++loadTurn;++serial;stop();
+  if(selectEvent){selected=events.find(e=>e.key===r.event);$('#rr-event').value=selected.key;}
+  conventional();$('#rr-system').value=id;$('#rr-status').textContent='Loading documented calculation system…';$('#rr-play').disabled=true;
+  try{const next=await getData(r);if(turn!==loadTurn)return;data=next;active=id;syncControls();$('#rr-play').disabled=false;render();}
+  catch(e){if(turn===loadTurn){data=null;active=null;$('#rr-status').textContent='Calculated dataset unavailable: '+e.message;}}
+ }
+ async function onEvent(key){const e=events.find(x=>x.key===key);if(!e)return;selected=e;$('#rr-event').value=key;stop();conventional();const r=registry.find(x=>x.event===key);if(r)return selectSystem(r.id,{selectEvent:false});++loadTurn;data=null;active=null;}
+ $('#rr-event').addEventListener('change',()=>onEvent($('#rr-event').value));document.addEventListener('sorg:event-selected',e=>onEvent(e.detail));
+ $('#rr-system').addEventListener('change',()=>selectSystem($('#rr-system').value));$('#rr-display').addEventListener('change',()=>{mode=$('#rr-display').value;conventional();});
+ $('#rr-series').addEventListener('change',()=>{if(!data)return;stop();current().series=$('#rr-series').value;current().frameId=series(data).frameIds[0];syncControls();render();});
+ const chooseFrame=id=>{if(!data)return;stop();current().frameId=id;render();};
+ $('#rr-geometry').addEventListener('change',()=>chooseFrame($('#rr-geometry').value));$('#rr-frame').addEventListener('input',()=>data&&chooseFrame(series(data).frameIds[Number($('#rr-frame').value)]));
+ $('#rr-field').addEventListener('change',()=>{if(!data)return;current().kind=$('#rr-field').value;current().reverse=false;render();});
+ $('#rr-orbital').addEventListener('change',()=>{if(!data)return;current().orbitalId=$('#rr-orbital').value;current().reverse=false;render();});
+ $('#rr-isovalue').addEventListener('input',()=>{if(!data)return;current().level=Number($('#rr-isovalue').value);render();});$('#rr-phase').addEventListener('click',()=>{if(!data)return;current().reverse=!current().reverse;render();});
+ $('#rr-reset').addEventListener('click',()=>{geometryView?.reset();fieldView?.reset();});$('#rr-play').addEventListener('click',()=>{if(!data)return;if(playing){stop();return;}$('#rr-play').textContent='Pause';playing=setInterval(()=>{const ids=series(data).frameIds,s=current();s.frameId=ids[(ids.indexOf(s.frameId)+1)%ids.length];render();},2200);});document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();});
+ function energy(){const ser=series(data),s=current(),base=data.frames.find(f=>f.id===data.energyReference.frameId).energyHartree;const fs=ser.frameIds.map(id=>data.frames.find(f=>f.id===id)),values=fs.map(f=>(f.energyHartree-base)*27.211386245988),lo=Math.min(...values)-.05,hi=Math.max(...values)+.05;
+  $('#rr-energy').innerHTML=`<svg viewBox="0 0 680 235" role="img" aria-label="Separately computed relative electronic energies in eV; categorical geometry spacing, no interpolated curve"><g fill="#203c43" font-size="13"><text x="20" y="18">ΔE / eV · own-system reference</text><path d="M40 30V180H655" fill="none" stroke="#b8c3b6"/>${fs.map((f,i)=>{const x=65+i*560/Math.max(1,fs.length-1),y=165-(values[i]-lo)/(hi-lo)*125;return `<circle cx="${x}" cy="${y}" r="${f.id===s.frameId?7:5}" fill="${f.id===s.frameId?'#aa6a4e':'#397f79'}"/><text x="${x}" y="${y-12}" text-anchor="middle">${values[i].toFixed(3)}</text><text x="${x}" y="203" text-anchor="middle">${esc(f.id)}</text>`;}).join('')}<text x="20" y="230">Discrete geometry categories; horizontal spacing is not a continuous coordinate.</text></g></svg><p class="small-note">Reference: ${esc(data.energyReference.label)}. ${esc(ser.coordinateLabel)}. Electronic energies include nuclear repulsion; no ZPE/free energy or experimental barrier.</p>`;
+ }
+ function fieldSpec(d){const s=state(d),o=d.orbitalDefinitions.find(o=>o.id===s.orbitalId),orb=['amplitude','probability'].includes(s.kind),prob=s.kind==='probability',key=orb?o.meshKey:s.kind,threshold=d.levels[key][s.level];return {o,orb,prob,key,threshold};}
+ async function mesh(d,f){const key=d.id+':'+f.id;if(!meshes.has(key))meshes.set(key,getJSON(f.meshFile).catch(e=>{meshes.delete(key);throw e;}));return meshes.get(key);}
+ const input=(d,f,m)=>{const s=state(d),sp=fieldSpec(d);return {atoms:f.atoms,connections:f.connections,mesh:m[sp.key][s.level],reverse:s.kind==='amplitude'&&s.reverse,singleColor:s.kind==='total'||sp.prob};};
+ async function render(){if(!data||data.event!==selected.key)return;const turn=++serial,d=data,s=current(),f=frame(d),sp=fieldSpec(d),ser=series(d);
+  $('#rr-frame').value=String(ser.frameIds.indexOf(f.id));$('#rr-geometry').value=f.id;$('#rr-frame-value').textContent=`${ser.frameIds.indexOf(f.id)+1} / ${ser.frameIds.length} · ${f.label}`;
+  $('#rr-method').textContent=`CALCULATED · ${d.method} / ${d.basis} · ${d.title}`;$('#rr-model-equation').textContent=d.modelEquation;$('#rr-path-note').textContent=d.pathKind;$('#rr-model-warning').hidden=!d.warnings?.length;$('#rr-model-warning').textContent=(d.warnings||[]).join(' ');
+  $('#rr-model-image').src=d.modelMechanism;$('#rr-model-scope').textContent=d.modelScope;
+  $('#rr-orbital-label').hidden=!sp.orb;$('#rr-orbital-note').textContent=sp.orb?sp.o.description:'';
+  $('#rr-isovalue-value').textContent=`${sp.prob?(sp.threshold**2).toPrecision(3):sp.threshold} ${s.kind==='amplitude'?'bohr⁻³ᐟ²':sp.prob?'bohr⁻³':'e bohr⁻³'}`;
+  $('#rr-phase').disabled=s.kind!=='amplitude';$('#rr-phase').setAttribute('aria-pressed',String(s.kind==='amplitude'&&s.reverse));
+  const legends={total:`TOTAL ELECTRON DENSITY · all occupied contributions, ${d.electronCount} electrons; nonnegative, one color.`,difference:'GEOMETRY DIFFERENCE · '+d.references.difference+' Includes nuclear motion.',deformation:'DEFORMATION DENSITY · same-geometry reference · '+d.references.deformation,amplitude:'CANONICAL ORBITAL AMPLITUDE · teal + / amber −; arbitrary global phase, not electron density or a localized fragment orbital.',probability:'ORBITAL PROBABILITY · |φ|² for one selected normalized spatial orbital, no occupation factor; not total electron density.'};
+  const unstableFragments=(f.fragments||[]).filter(x=>x.externalStable===false||x.internalStable===false);
+  if(s.kind==='deformation'&&unstableFragments.length)legends.deformation+=' WARNING: chosen RHF fragment reference has a reported determinant instability ('+unstableFragments.map(x=>x.id).join(', ')+'); it is not a verified fragment ground state.';
+  $('#rr-legend').textContent=(legends[s.kind]||d.fieldDefinitions.find(x=>x.id===s.kind)?.label)+ ' Signed colors do not mean positive/negative electrical charges.';
+  const orbRows=f.orbitals.map(o=>`${esc(d.orbitalDefinitions.find(x=>x.id===o.id)?.title||o.id)}: MO ${o.index}, f=${o.occupation}, ε=${o.energyHartree.toFixed(5)} Eh${o.nearDegenerate?' · near-degenerate: canonical partner not unique':''}`).join('<br>');
+  const rows=[['Geometry',f.geometryKind],['Model / method',`${d.modelEquation}; charge ${d.charge}, multiplicity ${d.multiplicity}, ${d.electronCount} electrons; ${d.method}/${d.basis}; ${d.environment}`],['Energy',`${f.energyHartree.toFixed(9)} Eh`],...f.bonds.map(b=>[b.label,`${b.distanceAngstrom.toFixed(4)} Å · Mayer ${b.mayer.toFixed(4)}${b.lowdinWiberg!==undefined?' · Löwdin Wiberg '+b.lowdinWiberg.toFixed(4):''}`]),...(f.geometryDescriptors||[]).map(x=>[x.label,`${x.value.toFixed(4)} ${x.unit}`]),...(f.frequenciesCm?[['Stationary-point validation',`max |gradient| ${f.maxNuclearGradientEhPerBohr.toExponential(3)} Eh/bohr; ${f.frequenciesCm.length} positive modes, ${Math.min(...f.frequenciesCm).toFixed(1)}–${Math.max(...f.frequenciesCm).toFixed(1)} cm⁻¹`]]:[]),['SCF checks',`Converged: ${f.scfConverged}; orbital gradient norm ${f.scfOrbitalGradientNorm.toExponential(3)}. ${f.internalStable!==undefined?'Internal/external RHF stability: '+f.internalStable+'/'+f.externalStable:'HF stability not established for retained dataset.'}`],['Density normalization',`Tr(PS) ${f.electronCountAOMetric.toFixed(8)}; independent Becke quadrature ${f.quadratureElectronCount.toFixed(6)} electrons. Coarse uniform grid ${f.uniformGridElectronEstimate.toFixed(3)}; under-resolved nuclear cores, no rescaling.`]];
+  $('#rr-descriptors').innerHTML=rows.map(([a,b])=>`<dt>${esc(a)}</dt><dd>${esc(b)}</dd>`).join('')+`<dt>Canonical orbitals</dt><dd>${orbRows}</dd><dt>Correspondence</dt><dd>${f.tracking.length?f.tracking.map(t=>`${esc(t.role||'MO')} ${t.previousIndex}→${t.index}, overlap ${t.alignedOverlap.toFixed(4)}, alternative ${t.nextCandidate.toFixed(4)}${t.ambiguous?' · AMBIGUOUS':''}${t.parentFrame?' from '+esc(t.parentFrame):''}`).join('<br>'):'Initial fragment-projection selection; largest AO coefficient made positive.'}</dd><dt>Mayer convention</dt><dd>Σ(PS)μν(PS)νμ over AO blocks on each atom; occupation-weighted closed-shell P. Basis dependent; not a literal bond count. Where reported, Löwdin Wiberg uses Σ|S½PS½|² over atom blocks, not NBO orbitals. Both indices can depend strongly on diffuse functions.</dd>`;
+  $('#rr-downloads').innerHTML=[...f.files,...d.sourceFiles].map(x=>`<a href="${esc(x.path)}" download>${esc(x.label)} ↓</a>`).join('');
+  $('#rr-protocol').innerHTML=`<p>Total density ρ = Σ fᵢ|φᵢ|²; amplitude φ has arbitrary phase; |φ|² for one spatial orbital integrates to 1. Probability is displayed using ±√(isovalue) amplitude contours; no extra electronic calculation is implied.</p><p>Grid: ${d.grid.shape.join(' × ')}; origin ${d.grid.originBohr.join(', ')} bohr; spacing ${d.grid.spacingBohr} bohr; ${esc(d.grid.order)}. Density: electron bohr⁻³; amplitude: bohr⁻³ᐟ²; mesh positions: Å. Float32 grids, full float64 coefficients retained.</p>${d.bondOrderConventions?'<p>Löwdin Wiberg convention: '+esc(d.bondOrderConventions.lowdinWiberg)+'</p>':''}${[...d.protocol,...d.limitations].map(x=>`<p>${esc(x)}</p>`).join('')}`;
+  $('#rr-evidence').innerHTML=d.evidence.map(x=>`<p>${esc(x)}</p>`).join('');energy();$('#rr-status').textContent='Loading calculated surfaces…';
+  try{const m=await mesh(d,f);if(turn!==serial||d!==data)return;geometryView?.update(input(d,f,m));fieldView?.update(input(d,f,m));$('#rr-status').textContent='CALCULATED DISCRETE GEOMETRY · no interpolation of coordinates, energies, orbitals or densities.';}catch(e){if(turn===serial)$('#rr-status').textContent='Calculated surface unavailable: '+e.message+'. Raw files remain available; no schematic cloud is substituted.';}
+  if($('#rr-comparison').open)compare();
+ }
+ async function compare(){
+  if(!$('#rr-comparison').open)return;
+  for(const r of registry){try{const d=await getData(r),f=frame(d),s=state(d);let card=document.getElementById('rr-card-'+d.id);
+    if(!card){card=document.createElement('article');card.id='rr-card-'+d.id;card.innerHTML='<h4></h4><p class="rr-compare-values"></p><div class="rr-compare-stage"></div><p class="rr-compare-quantity small-note"></p>';$('#rr-compare-cards').append(card);if(createViewer)compareViews.set(d.id,await createViewer(card.querySelector('.rr-compare-stage')));}
+    card.querySelector('h4').textContent=d.title+' · '+f.label;
+    const ref=d.frames.find(x=>x.id===d.energyReference.frameId);card.querySelector('.rr-compare-values').innerHTML=`${esc(d.modelEquation)}<br>${esc(f.geometryKind)}<br>ΔE ${((f.energyHartree-ref.energyHartree)*27.211386245988).toFixed(4)} eV vs own reference<br>${f.bonds.map(b=>`${esc(b.label)} ${b.distanceAngstrom.toFixed(3)} Å · Mayer ${b.mayer.toFixed(3)}`).join('<br>')}${(f.geometryDescriptors||[]).map(x=>`<br>${esc(x.label)} ${x.value.toFixed(3)} ${esc(x.unit)}`).join('')}`;
+    const sp=fieldSpec(d);card.querySelector('.rr-compare-quantity').textContent=`${s.kind}${sp.orb?' · '+sp.o.title:''}; threshold ${sp.prob?(sp.threshold**2).toPrecision(3):sp.threshold} ${s.kind==='amplitude'?'bohr⁻³ᐟ²':sp.prob?'bohr⁻³':'e bohr⁻³'}. ${s.kind==='total'||sp.prob?'Nonnegative, one color.':'Teal positive / amber negative; not electrical charge.'} Own energy reference: ${d.energyReference.label}. No cross-system energy comparison.`;
+    const id=f.id,m=await mesh(d,f);if(state(d).frameId===id)compareViews.get(d.id)?.update(input(d,f,m));
+   }catch(e){$('#rr-status').textContent='Comparison data unavailable: '+e.message;}}
+ }
+ $('#rr-comparison').addEventListener('toggle',compare);conventional();
+ try{const index=await getJSON('reaction-lab/index.json');registry=index.systems;$('#rr-system').replaceChildren(...registry.map(x=>new Option(x.title,x.id)));$('#rr-system').disabled=false;conventional();
+  try{const module=await import('./surface-viewer.js?v=0.3.6');createViewer=module.createSurfaceViewer;geometryView=await createViewer($('#rr-geometry-stage'),{geometryOnly:true});fieldView=await createViewer($('#rr-field-stage'));}catch(e){$('#rr-status').textContent='Renderer unavailable; raw calculated data remain downloadable.';}
+  const r=registry.find(x=>x.event===selected.key);if(r)await selectSystem(r.id,{selectEvent:false});
+ }catch(e){$('#rr-status').textContent='System registry unavailable: '+e.message;$('#rr-play').disabled=true;}
+ window.SorgReactionLab={selectEvent:onEvent,selectSystem,get state(){const s=data?current():null;return {event:selected.key,system:active,mode,frameId:s?.frameId,frameIndex:data?series(data).frameIds.indexOf(s.frameId):null,kind:s?.kind,level:s?.level,orbitalId:s?.orbitalId};}};
 })();

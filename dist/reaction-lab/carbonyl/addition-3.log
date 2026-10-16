@@ -1,0 +1,187 @@
+#INFO: **** input file is /workspace/scratch/69db76a371c7/Ochem-Atlas/research/carbonyl/compute.py ****
+"""Gas-phase H- + H2CO: RHF/6-31++G(d,p), charge -1, singlet, 18e.
+Four Cs-relaxed distance/angle constrained points; one separately optimized
+methoxide minimum; two alternative angles at the shared 1.9 A distance.
+No IRC or transition state is claimed. Run with OMP_NUM_THREADS=1.
+"""
+from pathlib import Path
+import json, platform, sys
+import numpy as np
+import scipy, pyscf
+from scipy.optimize import minimize
+from pyscf import gto,scf,lib
+from pyscf.hessian import thermo
+ROOT=Path(__file__).resolve().parents[2];OUT=ROOT/'dist/reaction-lab/carbonyl';OUT.mkdir(parents=True,exist_ok=True)
+BOHR=.529177210903;BASIS='6-31++g(d,p)'
+lib.num_threads(1)
+try:lib.current_memory()
+except FileNotFoundError:lib.current_memory=lambda:(0,0)
+def coords(p):
+    co,hx,hy,hz,r,t=p
+    return [('C',(0,0,0)),('O',(co,0,0)),('H',(hx,hy,hz)),('H',(hx,-hy,hz)),('H',(r*np.cos(t),0,r*np.sin(t)))]
+def solve(a,log=None,charge=-1):
+    m=gto.M(atom=a,basis=BASIS,unit='Angstrom',charge=charge,spin=0,verbose=4 if log else 0,output=str(log) if log else None)
+    f=scf.RHF(m);f.conv_tol=1e-11;f.conv_tol_grad=1e-7;f.max_cycle=150;f.kernel()
+    if not f.converged:f=f.newton();f.kernel()
+    assert f.converged
+    return m,f
+def opt(start,r=None,t=None):
+    fixed=r is not None
+    def fun(x):
+        p=np.r_[x,r,t] if fixed else x
+        m,f=solve(coords(p));g=f.nuc_grad_method().kernel()/BOHR
+        co,hx,hy,hz,rr,tt=p
+        j=np.array([g[1,0],g[2,0]+g[3,0],g[2,1]-g[3,1],g[2,2]+g[3,2],
+          g[4,0]*np.cos(tt)+g[4,2]*np.sin(tt),rr*(-g[4,0]*np.sin(tt)+g[4,2]*np.cos(tt))])
+        return f.e_tot,j[:4] if fixed else j
+    z=minimize(fun,np.array(start[:4] if fixed else start),jac=True,method='BFGS',options={'gtol':3e-7,'maxiter':100})
+    assert max(abs(z.jac))<1e-5,(z.message,z.jac)
+    return np.r_[z.x,r,t] if fixed else z.x,float(max(abs(z.jac)))
+def save(p,id,group,free_gradient,minimum=False):
+    a=coords(p);m,f=solve(a,OUT/(id+'.log'));c=f.mo_coeff;s=m.intor('int1e_ovlp');dm=f.make_rdm1();g=f.nuc_grad_method().kernel()
+    _,_,stable_i,stable_e=f.stability(internal=True,external=True,return_status=True)
+    assert stable_i and stable_e,(id,stable_i,stable_e)
+    np.savez_compressed(OUT/(id+'-scf.npz'),mo_coeff=c,mo_occ=f.mo_occ,mo_energy=f.mo_energy,overlap=s,density_matrix=dm,coordinates=m.atom_coords()*BOHR,gradient=g,parameters=p)
+    ps=dm@s;sl=m.aoslice_by_atom()
+    def bond(a,b):
+        i,j=sl[a,2:];k,l=sl[b,2:];return float(np.sum(ps[i:j,k:l]*ps[k:l,i:j].T))
+    xyz=np.array([v for _,v in a]);v=xyz[1:4]-xyz[0]
+    normal=np.cross(xyz[2]-xyz[1],xyz[3]-xyz[1]);height=abs(np.dot(xyz[0]-xyz[1],normal))/np.linalg.norm(normal)
+    angle_sum=sum(np.degrees(np.arccos(np.clip(np.dot(v[i],v[j])/np.linalg.norm(v[i])/np.linalg.norm(v[j]),-1,1))) for i,j in [(0,1),(1,2),(2,0)])
+    frame={'id':id,'group':group,'geometryKind':'constrained Cs-relaxed frame; not a stationary point',
+      'atoms':[dict(element=e,xyzAngstrom=list(map(float,v)),label=['C','O','H1','H2','H nu'][i],atomId=['C','O','H1','H2','Hnu'][i]) for i,(e,v) in enumerate(a)],
+      'energyHartree':float(f.e_tot),'scfConverged':bool(f.converged),'internalStable':bool(stable_i),'externalStable':bool(stable_e),
+      'orthonormalError':float(abs(c.T@s@c-np.eye(m.nao)).max()),'electronCountAOMetric':float(np.einsum('ij,ji',dm,s)),
+      'scfOrbitalGradientNorm':float(np.linalg.norm(f.get_grad(c,f.mo_occ,f.get_fock()))),'maxNuclearGradientEhPerBohr':float(abs(g).max()),
+      'maxFreeParameterGradientEhPerAngstromOrRadian':free_gradient,
+      'distanceAngstrom':float(p[4]),'angleDegree':float(np.degrees(p[5])),
+      'bonds':[dict(atoms=[0,1],label='C–O',distanceAngstrom=float(p[0]),mayer=bond(0,1)),dict(atoms=[0,4],label='C–H(nu)',distanceAngstrom=float(p[4]),mayer=bond(0,4))],
+      'geometryDescriptors':[dict(label='O–C–H(nu) approach angle',value=float(np.degrees(p[5])),unit='°'),dict(label='C displacement from O/H1/H2 plane',value=float(height),unit='Å'),dict(label='360° minus O–C–H1 / H1–C–H2 / H2–C–O sum',value=float(360-angle_sum),unit='°')],
+      'connections':[dict(atoms=[0,j],style='guide' if j==4 else 'bond') for j in range(1,5)]}
+    if minimum:
+        h=f.Hessian().kernel();ha=thermo.harmonic_analysis(m,h);fr=ha['freq_wavenumber']
+        np.savez_compressed(OUT/(id+'-hessian.npz'),hessian=h,gradient=g,frequencies=fr,normal_modes=ha['norm_mode'])
+        assert abs(g).max()<2e-5 and all(x.real>20 and abs(x.imag)<1 for x in fr),(g,fr)
+        frame.update(geometryKind='Hessian-verified methoxide minimum',frequenciesCm=[float(x.real) for x in fr],stationaryPointVerified=True)
+    (OUT/(id+'.xyz')).write_text('5\n'+frame['geometryKind']+'\n'+''.join(f'{e} {v[0]:.12f} {v[1]:.12f} {v[2]:.12f}\n' for e,v in a))
+    m.stdout.close();print(id,frame['energyHartree'],frame['distanceAngstrom'],frame['angleDegree'],height,flush=True)
+    return frame
+
+def main():
+    meta=dict(method='RHF',basis='6-31++G(d,p)',program='PySCF '+pyscf.__version__,python=platform.python_version(),numpy=np.__version__,scipy=scipy.__version__,charge=-1,multiplicity=1,electronCount=18,
+      environment='isolated gas phase; bare hydride, no counterion or solvent',
+      scfProtocol=dict(energyToleranceEh=1e-11,orbitalGradientTolerance=1e-7,maxCycles=150,newtonFallback=True,stability='internal and external RHF stability checked for every complex frame'),
+      pathKind='Four fixed C–H(nu) distance / 110° angle Cs-relaxed frames plus a separately optimized minimum; two matched-distance angle comparisons. Not an IRC. No transition state claimed.',
+      atomMapping='C, O, H1, H2, Hnu fixed identities. C at origin, O on +x, Hnu in xz with z>0; H1/H2 reflected across xz. No post-hoc fit.',
+      competingPathways='Bare gas-phase hydride is an idealized donor, not LiAlH4 or NaBH4. H abstraction (H2 + HCO−), detachment/other electronic states and solvent/counterion chemistry were not compared; the constrained addition branch does not establish global selectivity or kinetics.',frames=[])
+    start=[1.2,-.58,.94,0,3,np.radians(110)]
+    for i,r in enumerate([3.,2.4,1.9,1.5]):
+        p,err=opt(start,r,np.radians(110));meta['frames'].append(save(p,f'addition-{i}','addition',err));start=p
+        if r==1.9:middle=p.copy()
+    p,err=opt(start);meta['frames'].append(save(p,'product','addition',err,True))
+    for angle in [90,130]:
+        p,err=opt(middle,1.9,np.radians(angle));meta['frames'].append(save(p,f'angle-{angle}','angles',err))
+    (OUT/'calculation.json').write_text(json.dumps(meta,indent=2))
+if __name__=='__main__':main()
+#INFO: ******************** input file end ********************
+
+
+System: uname_result(system='Linux', node='4ebffb99bd8f', release='6.18.44', version='#1 SMP Sat Sep 26 20:02:31 UTC 2026', machine='x86_64')  Threads 1
+Python 3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]
+numpy 2.3.5  scipy 1.17.0  h5py 3.16.0
+Date: Thu Oct 15 23:56:39 2026
+PySCF version 2.14.0
+PySCF path  /root/.local/lib/python3.12/site-packages/pyscf
+
+[CONFIG] conf_file None
+[INPUT] verbose = 4
+[INPUT] num. atoms = 5
+[INPUT] num. electrons = 18
+[INPUT] charge = -1
+[INPUT] spin (= nelec alpha-beta = 2S) = 0
+[INPUT] symmetry False subgroup None
+[INPUT] Mole.unit = Angstrom
+[INPUT] Symbol           X                Y                Z      unit          X                Y                Z       unit  Magmom
+[INPUT]  1 C      0.000000000000   0.000000000000   0.000000000000 AA    0.000000000000   0.000000000000   0.000000000000 Bohr   0.0
+[INPUT]  2 O      1.280088966964   0.000000000000   0.000000000000 AA    2.419017562639   0.000000000000   0.000000000000 Bohr   0.0
+[INPUT]  3 H     -0.531132183377   0.895598716300  -0.369433490909 AA   -1.003694362525   1.692436291318  -0.698128119059 Bohr   0.0
+[INPUT]  4 H     -0.531132183377  -0.895598716300  -0.369433490909 AA   -1.003694362525  -1.692436291318  -0.698128119059 Bohr   0.0
+[INPUT]  5 H     -0.513030214989   0.000000000000   1.409538931179 AA   -0.969486599955   0.000000000000   2.663642541840 Bohr   0.0
+
+nuclear repulsion = 34.5119398900212
+number of shells = 28
+number of NR pGTOs = 86
+number of NR cGTOs = 54
+basis = 6-31++g(d,p)
+ecp = {}
+CPU time:        73.58
+
+
+******** <class 'pyscf.scf.hf.RHF'> ********
+method = RHF
+initial guess = minao
+damping factor = 0
+level_shift factor = 0
+DIIS = <class 'pyscf.scf.diis.CDIIS'>
+diis_start_cycle = 1
+diis_space = 8
+diis_damp = 0
+SCF conv_tol = 1e-11
+SCF conv_tol_grad = 1e-07
+SCF max_cycles = 150
+direct_scf = True
+direct_scf_tol = 1e-13
+chkfile to save SCF result = /tmp/tmpmt97geqz
+max_memory 4000 MB (current use 0 MB)
+Initial guess from minao.
+init E= -114.262352670771
+  HOMO = -0.256974588371145  LUMO = 0.033166244614879  gap/eV = 7.89513
+cycle= 1 E= -114.272285051065  delta_E= -0.00993  |g|= 0.712  |ddm|= 1.79
+  HOMO = 0.0296300285063672  LUMO = 0.168052550224777  gap/eV = 3.76667
+cycle= 2 E= -114.314979744005  delta_E= -0.0427  |g|= 0.607  |ddm|= 1.48
+  HOMO = -0.0874777858994786  LUMO = 0.172920436972999  gap/eV = 7.08580
+cycle= 3 E= -114.386685520915  delta_E= -0.0717  |g|= 0.0386  |ddm|= 0.71
+  HOMO = -0.0910827279154471  LUMO = 0.173925630234683  gap/eV = 7.21124
+cycle= 4 E= -114.387475156572  delta_E= -0.00079  |g|= 0.0107  |ddm|= 0.0989
+  HOMO = -0.0922648198655596  LUMO = 0.173616073880693  gap/eV = 7.23499
+cycle= 5 E= -114.387548513376  delta_E= -7.34e-05  |g|= 0.00391  |ddm|= 0.0318
+  HOMO = -0.0912234526705715  LUMO = 0.173520538943821  gap/eV = 7.20405
+cycle= 6 E= -114.387563850371  delta_E= -1.53e-05  |g|= 0.00151  |ddm|= 0.0165
+  HOMO = -0.0911764233664485  LUMO = 0.173462038861195  gap/eV = 7.20118
+cycle= 7 E= -114.387567460571  delta_E= -3.61e-06  |g|= 0.000454  |ddm|= 0.0114
+  HOMO = -0.0911411729179719  LUMO = 0.173454290279962  gap/eV = 7.20001
+cycle= 8 E= -114.387567763444  delta_E= -3.03e-07  |g|= 0.000137  |ddm|= 0.00417
+  HOMO = -0.0911374332623121  LUMO = 0.173452531718804  gap/eV = 7.19986
+cycle= 9 E= -114.387567788643  delta_E= -2.52e-08  |g|= 3.31e-05  |ddm|= 0.00134
+  HOMO = -0.091130940524577  LUMO = 0.173452386213778  gap/eV = 7.19968
+cycle= 10 E= -114.387567789907  delta_E= -1.26e-09  |g|= 5.98e-06  |ddm|= 0.000264
+  HOMO = -0.0911300655063503  LUMO = 0.173452517647538  gap/eV = 7.19966
+cycle= 11 E= -114.387567789939  delta_E= -3.12e-11  |g|= 1.57e-06  |ddm|= 2.82e-05
+  HOMO = -0.0911298482711258  LUMO = 0.173452519249899  gap/eV = 7.19965
+cycle= 12 E= -114.387567789941  delta_E= -1.93e-12  |g|= 4.33e-07  |ddm|= 1.68e-05
+  HOMO = -0.0911298871377699  LUMO = 0.173452516283085  gap/eV = 7.19965
+cycle= 13 E= -114.387567789941  delta_E= -1.42e-13  |g|= 1.39e-07  |ddm|= 2.77e-06
+  HOMO = -0.0911298685785971  LUMO = 0.173452516080335  gap/eV = 7.19965
+cycle= 14 E= -114.387567789941  delta_E= 2.84e-14  |g|= 4.12e-08  |ddm|= 1.35e-06
+  HOMO = -0.0911298745116254  LUMO = 0.173452515549051  gap/eV = 7.19965
+Extra cycle  E= -114.387567789941  delta_E= -2.56e-13  |g|= 2.23e-08  |ddm|= 2.44e-07
+converged SCF energy = -114.387567789941
+
+
+******** <class 'pyscf.grad.rhf.Gradients'> for <class 'pyscf.scf.hf.RHF'> ********
+unit = Eh/Bohr
+max_memory 4000 MB (current use 0 MB)
+--------------- RHF gradients ---------------
+         x                y                z
+0 C     0.0055155968     0.0000000000    -0.0533901670
+1 O    -0.0000000036    -0.0000000000     0.0109397713
+2 H     0.0000000034     0.0000000006    -0.0000000019
+3 H     0.0000000034    -0.0000000006    -0.0000000019
+4 H    -0.0055156000    -0.0000000000     0.0424503995
+----------------------------------------------
+rhf_internal: lowest eigs of H = [0.51743434 0.64399635 0.67650499]
+<class 'pyscf.scf.hf.RHF'> wavefunction is stable in the internal stability analysis
+rhf_real2complex: lowest eigs of H = [0.12272089 0.15645274 0.16429613]
+<class 'pyscf.scf.hf.RHF'> wavefunction is stable in the real -> complex stability analysis
+rhf_external: lowest eigs of H = [0.05393864 0.13633745 0.15090837]
+<class 'pyscf.scf.hf.RHF'> wavefunction is stable in the RHF/RKS -> UHF/UKS stability analysis
