@@ -1,0 +1,520 @@
+{
+  "id": "product",
+  "geometryKind": "Full-gradient and Hessian verified cyclohexene minimum",
+  "atoms": [
+    {
+      "element": "C",
+      "xyzAngstrom": [
+        -1.4982443169012032,
+        0.058968208646458145,
+        0.6553759277236166
+      ],
+      "label": "C1",
+      "atomId": "0"
+    },
+    {
+      "element": "C",
+      "xyzAngstrom": [
+        -0.6657527771060265,
+        -0.5180214878118466,
+        -0.464680238681923
+      ],
+      "label": "C2",
+      "atomId": "1"
+    },
+    {
+      "element": "C",
+      "xyzAngstrom": [
+        0.6657888972517727,
+        -0.41027043335603214,
+        -0.5266916540384871
+      ],
+      "label": "C3",
+      "atomId": "2"
+    },
+    {
+      "element": "C",
+      "xyzAngstrom": [
+        1.4979131230816776,
+        0.27206893861157705,
+        0.5327904102369164
+      ],
+      "label": "C4",
+      "atomId": "3"
+    },
+    {
+      "element": "C",
+      "xyzAngstrom": [
+        -0.7010010630245188,
+        1.0575798802237366,
+        1.5106833110650588
+      ],
+      "label": "C5",
+      "atomId": "4"
+    },
+    {
+      "element": "C",
+      "xyzAngstrom": [
+        0.7002337534898658,
+        0.5148847414804139,
+        1.8246932430800784
+      ],
+      "label": "C6",
+      "atomId": "5"
+    },
+    {
+      "element": "H",
+      "xyzAngstrom": [
+        -2.391677517840836,
+        0.5460105707687033,
+        0.2400262069958706
+      ],
+      "label": "H7",
+      "atomId": "6"
+    },
+    {
+      "element": "H",
+      "xyzAngstrom": [
+        -1.8789506477313977,
+        -0.7592222160724015,
+        1.2879060592515323
+      ],
+      "label": "H8",
+      "atomId": "7"
+    },
+    {
+      "element": "H",
+      "xyzAngstrom": [
+        -1.1986714162197238,
+        -1.0441571483350762,
+        -1.2562551977118348
+      ],
+      "label": "H9",
+      "atomId": "8"
+    },
+    {
+      "element": "H",
+      "xyzAngstrom": [
+        1.1990116688468695,
+        -0.833163353168308,
+        -1.3777188591771041
+      ],
+      "label": "H10",
+      "atomId": "9"
+    },
+    {
+      "element": "H",
+      "xyzAngstrom": [
+        1.8790080042464699,
+        1.2284609844948804,
+        0.1396783494066392
+      ],
+      "label": "H11",
+      "atomId": "10"
+    },
+    {
+      "element": "H",
+      "xyzAngstrom": [
+        2.3911163946756586,
+        -0.33115084253363325,
+        0.7478986454536282
+      ],
+      "label": "H12",
+      "atomId": "11"
+    },
+    {
+      "element": "H",
+      "xyzAngstrom": [
+        -0.6039937285616945,
+        2.00505658743036,
+        0.9622262292075586
+      ],
+      "label": "H13",
+      "atomId": "12"
+    },
+    {
+      "element": "H",
+      "xyzAngstrom": [
+        -1.245410598740306,
+        1.2825744107951345,
+        2.4360774443056683
+      ],
+      "label": "H14",
+      "atomId": "13"
+    },
+    {
+      "element": "H",
+      "xyzAngstrom": [
+        1.2443574986205523,
+        1.204648077773699,
+        2.481590256009005
+      ],
+      "label": "H15",
+      "atomId": "14"
+    },
+    {
+      "element": "H",
+      "xyzAngstrom": [
+        0.6032145433460002,
+        -0.433177406630805,
+        2.3721237181811734
+      ],
+      "label": "H16",
+      "atomId": "15"
+    }
+  ],
+  "energyHartree": -234.64397069834214,
+  "frequenciesCm": [
+    166.5315339225409,
+    277.3649756407963,
+    397.97666550443216,
+    456.5489485681045,
+    501.40388542962,
+    656.852057978974,
+    733.6766398496843,
+    828.3774995579375,
+    835.3711852049569,
+    889.0022696709002,
+    917.0335374012429,
+    943.7025180955143,
+    1001.4020463067707,
+    1022.4605155604119,
+    1055.754656068284,
+    1080.0897593149787,
+    1107.2100475256914,
+    1170.9237172476019,
+    1173.19937520453,
+    1260.0598588751095,
+    1282.1580852434806,
+    1305.6958458155864,
+    1368.7256737145321,
+    1390.5079549051757,
+    1392.4924063997123,
+    1404.7024756243363,
+    1437.8105558307307,
+    1504.4833656195758,
+    1511.6840848989607,
+    1520.2132151040494,
+    1531.0296653152368,
+    1736.3741227579417,
+    3003.6719809002716,
+    3003.7700608698883,
+    3029.4688306013,
+    3033.006727384014,
+    3048.667650907768,
+    3048.877406373405,
+    3077.257712867292,
+    3081.7726374280246,
+    3146.654835530781,
+    3170.1239840801613
+  ],
+  "maxNuclearGradientEhPerBohr": 2.047490810275221e-05,
+  "scfConverged": true,
+  "electronCountAOMetric": 45.999999999999986,
+  "orthonormalError": 1.7467008057550338e-13,
+  "scfOrbitalGradientNorm": 3.4972646843857195e-07,
+  "stationaryPointVerified": true,
+  "internalStable": true,
+  "externalStable": true,
+  "homoLumoGapHartree": 0.26753497115839675,
+  "fragments": [
+    {
+      "id": "butadiene",
+      "atomIndices": [
+        0,
+        1,
+        2,
+        3,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "charge": 0,
+      "multiplicity": 1,
+      "electronCount": 30,
+      "energyHartree": -155.81270467069476,
+      "scfConverged": true,
+      "internalStable": true,
+      "externalStable": false,
+      "quadratureElectronCount": 30.000000033869746
+    },
+    {
+      "id": "ethylene",
+      "atomIndices": [
+        4,
+        5,
+        12,
+        13,
+        14,
+        15
+      ],
+      "charge": 0,
+      "multiplicity": 1,
+      "electronCount": 16,
+      "energyHartree": -78.43920889428149,
+      "scfConverged": true,
+      "internalStable": true,
+      "externalStable": false,
+      "quadratureElectronCount": 15.999999979351019
+    }
+  ],
+  "maxProjectedFreeGradientEhPerBohr": 1.9520534603957145e-05,
+  "bonds": [
+    {
+      "atoms": [
+        0,
+        4
+      ],
+      "label": "C1\u00b7\u00b7\u00b7C5 forming",
+      "distanceAngstrom": 1.5376517149408817,
+      "mayer": 1.012988285979602,
+      "lowdinWiberg": 1.0779187683623785
+    },
+    {
+      "atoms": [
+        3,
+        5
+      ],
+      "label": "C4\u00b7\u00b7\u00b7C6 forming",
+      "distanceAngstrom": 1.5376166038071437,
+      "mayer": 1.012976075116162,
+      "lowdinWiberg": 1.0779336179870818
+    },
+    {
+      "atoms": [
+        0,
+        1
+      ],
+      "label": "C1\u2013C2 original \u03c0",
+      "distanceAngstrom": 1.5101275077133933,
+      "mayer": 1.0145170640232106,
+      "lowdinWiberg": 1.0925580512589514
+    },
+    {
+      "atoms": [
+        2,
+        3
+      ],
+      "label": "C3\u2013C4 original \u03c0",
+      "distanceAngstrom": 1.5101390632228013,
+      "mayer": 1.0145402866122808,
+      "lowdinWiberg": 1.0925494679329435
+    },
+    {
+      "atoms": [
+        4,
+        5
+      ],
+      "label": "C5\u2013C6 original \u03c0",
+      "distanceAngstrom": 1.535115390461516,
+      "mayer": 1.0120916232812276,
+      "lowdinWiberg": 1.0837737884169683
+    },
+    {
+      "atoms": [
+        1,
+        2
+      ],
+      "label": "C2\u2013C3 emerging \u03c0",
+      "distanceAngstrom": 1.3373327693294723,
+      "mayer": 1.9670171612393492,
+      "lowdinWiberg": 1.9939817086819054
+    }
+  ],
+  "connections": [
+    {
+      "atoms": [
+        0,
+        4
+      ],
+      "style": "guide"
+    },
+    {
+      "atoms": [
+        3,
+        5
+      ],
+      "style": "guide"
+    },
+    {
+      "atoms": [
+        0,
+        1
+      ],
+      "style": "bond"
+    },
+    {
+      "atoms": [
+        2,
+        3
+      ],
+      "style": "bond"
+    },
+    {
+      "atoms": [
+        4,
+        5
+      ],
+      "style": "bond"
+    },
+    {
+      "atoms": [
+        1,
+        2
+      ],
+      "style": "bond"
+    },
+    {
+      "atoms": [
+        0,
+        6
+      ],
+      "style": "bond"
+    },
+    {
+      "atoms": [
+        0,
+        7
+      ],
+      "style": "bond"
+    },
+    {
+      "atoms": [
+        1,
+        8
+      ],
+      "style": "bond"
+    },
+    {
+      "atoms": [
+        2,
+        9
+      ],
+      "style": "bond"
+    },
+    {
+      "atoms": [
+        3,
+        10
+      ],
+      "style": "bond"
+    },
+    {
+      "atoms": [
+        3,
+        11
+      ],
+      "style": "bond"
+    },
+    {
+      "atoms": [
+        4,
+        12
+      ],
+      "style": "bond"
+    },
+    {
+      "atoms": [
+        4,
+        13
+      ],
+      "style": "bond"
+    },
+    {
+      "atoms": [
+        5,
+        14
+      ],
+      "style": "bond"
+    },
+    {
+      "atoms": [
+        5,
+        15
+      ],
+      "style": "bond"
+    }
+  ],
+  "geometrySymmetryRmsdAngstrom": 0.00040004993212479925,
+  "geometryDescriptors": [
+    {
+      "label": "Forming-bond distance asymmetry",
+      "value": 3.5111133737997235e-05,
+      "unit": "\u00c5"
+    },
+    {
+      "label": "Forming-bond Mayer asymmetry",
+      "value": 1.2210863439943154e-05,
+      "unit": "dimensionless"
+    },
+    {
+      "label": "Kohn\u2013Sham frontier gap (not excitation energy)",
+      "value": 7.279997434500394,
+      "unit": "eV"
+    },
+    {
+      "label": "Max distance-constraint projected nuclear gradient",
+      "value": 1.9520534603957145e-05,
+      "unit": "Eh/bohr"
+    },
+    {
+      "label": "Mapped fragment-exchange reflection RMSD",
+      "value": 0.00040004993212479925,
+      "unit": "\u00c5"
+    }
+  ],
+  "label": "product \u00b7 1.538 \u00c5",
+  "coordinateLabel": "product",
+  "quadratureElectronCount": 46.00000134227301,
+  "uniformGridElectronEstimate": 45.42700567011719,
+  "maximumAbsoluteBoundaryField": {
+    "total": 1.2511478382059292e-05,
+    "difference": 1.165847573283067e-05,
+    "deformation": 7.633245885881553e-07,
+    "occupied": 0.0014058549563921543,
+    "virtual": 0.000537464666695621
+  },
+  "tracking": [
+    {
+      "role": "occupied",
+      "parentFrame": "post-ts",
+      "previousIndex": 22,
+      "index": 22,
+      "signedOverlapBeforeAlignment": 0.5400562970357791,
+      "alignedOverlap": 0.5400562970357791,
+      "nextCandidate": 0.38710355051129886,
+      "ambiguous": true
+    },
+    {
+      "role": "virtual",
+      "parentFrame": "post-ts",
+      "previousIndex": 24,
+      "index": 24,
+      "signedOverlapBeforeAlignment": -0.5078907576269459,
+      "alignedOverlap": 0.5078907576269459,
+      "nextCandidate": 0.1803358625325922,
+      "ambiguous": true
+    }
+  ],
+  "orbitals": [
+    {
+      "id": "occupied",
+      "index": 22,
+      "occupation": 2,
+      "energyHartree": -0.29920106699157323,
+      "nearDegenerate": false
+    },
+    {
+      "id": "virtual",
+      "index": 24,
+      "occupation": 0,
+      "energyHartree": 0.03412814123765573,
+      "nearDegenerate": false
+    }
+  ],
+  "meshFile": "reaction-lab/diels-alder/product-meshes.json",
+  "fieldFile": "reaction-lab/diels-alder/product-fields.npz"
+}

@@ -1,0 +1,480 @@
+{
+  "id": "post-ts",
+  "geometryKind": "Two equal 1.9 \u00c5 forming distances constrained; independently fresh-grid relaxed Cartesian geometry. Not a stationary point or IRC.",
+  "atoms": [
+    {
+      "element": "C",
+      "xyzAngstrom": [
+        -1.4198660937568977,
+        0.44320145660102217,
+        0.1955807787093958
+      ],
+      "label": "C1",
+      "atomId": "0"
+    },
+    {
+      "element": "C",
+      "xyzAngstrom": [
+        -0.6741807945932655,
+        -0.6877962415781893,
+        -0.37869582748354463
+      ],
+      "label": "C2",
+      "atomId": "1"
+    },
+    {
+      "element": "C",
+      "xyzAngstrom": [
+        0.6749149430192037,
+        -0.6862608096071556,
+        -0.3793116732871653
+      ],
+      "label": "C3",
+      "atomId": "2"
+    },
+    {
+      "element": "C",
+      "xyzAngstrom": [
+        1.418508692357281,
+        0.44634556654006635,
+        0.19448510801029792
+      ],
+      "label": "C4",
+      "atomId": "3"
+    },
+    {
+      "element": "C",
+      "xyzAngstrom": [
+        -0.7496189635610032,
+        0.729829406705364,
+        1.9501785118730943
+      ],
+      "label": "C5",
+      "atomId": "4"
+    },
+    {
+      "element": "C",
+      "xyzAngstrom": [
+        0.7491798333262497,
+        0.7298904691331994,
+        1.949934101563183
+      ],
+      "label": "C6",
+      "atomId": "5"
+    },
+    {
+      "element": "H",
+      "xyzAngstrom": [
+        -1.2101147265770662,
+        1.409631411576854,
+        -0.27060527729822037
+      ],
+      "label": "H7",
+      "atomId": "6"
+    },
+    {
+      "element": "H",
+      "xyzAngstrom": [
+        -2.4962851903195653,
+        0.2930382709710081,
+        0.2866816880181201
+      ],
+      "label": "H8",
+      "atomId": "7"
+    },
+    {
+      "element": "H",
+      "xyzAngstrom": [
+        -1.2217173444947407,
+        -1.570000581369068,
+        -0.7062885973093547
+      ],
+      "label": "H9",
+      "atomId": "8"
+    },
+    {
+      "element": "H",
+      "xyzAngstrom": [
+        1.2241552595630596,
+        -1.5672547695997874,
+        -0.7073100411431317
+      ],
+      "label": "H10",
+      "atomId": "9"
+    },
+    {
+      "element": "H",
+      "xyzAngstrom": [
+        2.4953859875351942,
+        0.2988247639908821,
+        0.2844251295155899
+      ],
+      "label": "H11",
+      "atomId": "10"
+    },
+    {
+      "element": "H",
+      "xyzAngstrom": [
+        1.205794848574131,
+        1.4124972212186198,
+        -0.27092309947972626
+      ],
+      "label": "H12",
+      "atomId": "11"
+    },
+    {
+      "element": "H",
+      "xyzAngstrom": [
+        -1.1955271864977344,
+        1.6825674891445521,
+        2.2410224369147342
+      ],
+      "label": "H13",
+      "atomId": "12"
+    },
+    {
+      "element": "H",
+      "xyzAngstrom": [
+        -1.1937206257304518,
+        -0.08578383611568115,
+        2.521179725772261
+      ],
+      "label": "H14",
+      "atomId": "13"
+    },
+    {
+      "element": "H",
+      "xyzAngstrom": [
+        1.193564811598912,
+        -0.08682486197864778,
+        2.5191320529274632
+      ],
+      "label": "H15",
+      "atomId": "14"
+    },
+    {
+      "element": "H",
+      "xyzAngstrom": [
+        1.195170545613758,
+        1.6820942013083395,
+        2.2423872105016125
+      ],
+      "label": "H16",
+      "atomId": "15"
+    }
+  ],
+  "energyHartree": -234.58180630317668,
+  "maxNuclearGradientEhPerBohr": 0.04896370961028684,
+  "scfConverged": true,
+  "electronCountAOMetric": 45.9999999999999,
+  "orthonormalError": 4.475977741156136e-14,
+  "scfOrbitalGradientNorm": 3.532981922323229e-07,
+  "refinementChecks": {
+    "defaultProjectedGradientEhPerBohr": 2.2865218532563958e-05,
+    "movingGridProjectedGradientEhPerBohr": 4.400749463062681e-06,
+    "maxConstraintDeviationAngstrom": 6.684315323468581e-10
+  },
+  "internalStable": true,
+  "externalStable": true,
+  "homoLumoGapHartree": 0.24503135736494785,
+  "fragments": [
+    {
+      "id": "butadiene",
+      "atomIndices": [
+        0,
+        1,
+        2,
+        3,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "charge": 0,
+      "multiplicity": 1,
+      "electronCount": 30,
+      "energyHartree": -155.88308863458985,
+      "scfConverged": true,
+      "internalStable": true,
+      "externalStable": false,
+      "quadratureElectronCount": 29.999999942699308
+    },
+    {
+      "id": "ethylene",
+      "atomIndices": [
+        4,
+        5,
+        12,
+        13,
+        14,
+        15
+      ],
+      "charge": 0,
+      "multiplicity": 1,
+      "electronCount": 16,
+      "energyHartree": -78.5217071364537,
+      "scfConverged": true,
+      "internalStable": true,
+      "externalStable": true,
+      "quadratureElectronCount": 15.99999999466154
+    }
+  ],
+  "maxProjectedFreeGradientEhPerBohr": 2.2865228661794745e-05,
+  "bonds": [
+    {
+      "atoms": [
+        0,
+        4
+      ],
+      "label": "C1\u00b7\u00b7\u00b7C5 forming",
+      "distanceAngstrom": 1.9000000006684314,
+      "mayer": 0.872382947376025,
+      "lowdinWiberg": 0.8791883102601497
+    },
+    {
+      "atoms": [
+        3,
+        5
+      ],
+      "label": "C4\u00b7\u00b7\u00b7C6 forming",
+      "distanceAngstrom": 1.900000000601097,
+      "mayer": 0.8724147977853005,
+      "lowdinWiberg": 0.8791828426314365
+    },
+    {
+      "atoms": [
+        0,
+        1
+      ],
+      "label": "C1\u2013C2 original \u03c0",
+      "distanceAngstrom": 1.4713925305967515,
+      "mayer": 1.105146785156259,
+      "lowdinWiberg": 1.1915886613239695
+    },
+    {
+      "atoms": [
+        2,
+        3
+      ],
+      "label": "C3\u2013C4 original \u03c0",
+      "distanceAngstrom": 1.4713842508234654,
+      "mayer": 1.1051452992414326,
+      "lowdinWiberg": 1.1915792705902983
+    },
+    {
+      "atoms": [
+        4,
+        5
+      ],
+      "label": "C5\u2013C6 original \u03c0",
+      "distanceAngstrom": 1.4987988180592138,
+      "mayer": 1.0696416344148472,
+      "lowdinWiberg": 1.1870068726749021
+    },
+    {
+      "atoms": [
+        1,
+        2
+      ],
+      "label": "C2\u2013C3 emerging \u03c0",
+      "distanceAngstrom": 1.3490967519275716,
+      "mayer": 1.8498202764138352,
+      "lowdinWiberg": 1.8825341173075396
+    }
+  ],
+  "connections": [
+    {
+      "atoms": [
+        0,
+        4
+      ],
+      "style": "guide"
+    },
+    {
+      "atoms": [
+        3,
+        5
+      ],
+      "style": "guide"
+    },
+    {
+      "atoms": [
+        0,
+        1
+      ],
+      "style": "bond"
+    },
+    {
+      "atoms": [
+        2,
+        3
+      ],
+      "style": "bond"
+    },
+    {
+      "atoms": [
+        4,
+        5
+      ],
+      "style": "bond"
+    },
+    {
+      "atoms": [
+        1,
+        2
+      ],
+      "style": "bond"
+    },
+    {
+      "atoms": [
+        0,
+        6
+      ],
+      "style": "bond"
+    },
+    {
+      "atoms": [
+        0,
+        7
+      ],
+      "style": "bond"
+    },
+    {
+      "atoms": [
+        1,
+        8
+      ],
+      "style": "bond"
+    },
+    {
+      "atoms": [
+        2,
+        9
+      ],
+      "style": "bond"
+    },
+    {
+      "atoms": [
+        3,
+        10
+      ],
+      "style": "bond"
+    },
+    {
+      "atoms": [
+        3,
+        11
+      ],
+      "style": "bond"
+    },
+    {
+      "atoms": [
+        4,
+        12
+      ],
+      "style": "bond"
+    },
+    {
+      "atoms": [
+        4,
+        13
+      ],
+      "style": "bond"
+    },
+    {
+      "atoms": [
+        5,
+        14
+      ],
+      "style": "bond"
+    },
+    {
+      "atoms": [
+        5,
+        15
+      ],
+      "style": "bond"
+    }
+  ],
+  "geometrySymmetryRmsdAngstrom": 0.002092583246753079,
+  "geometryDescriptors": [
+    {
+      "label": "Forming-bond distance asymmetry",
+      "value": 6.733436030970097e-11,
+      "unit": "\u00c5"
+    },
+    {
+      "label": "Forming-bond Mayer asymmetry",
+      "value": 3.185040927555782e-05,
+      "unit": "dimensionless"
+    },
+    {
+      "label": "Kohn\u2013Sham frontier gap (not excitation energy)",
+      "value": 6.667642907636313,
+      "unit": "eV"
+    },
+    {
+      "label": "Max distance-constraint projected nuclear gradient",
+      "value": 2.2865228661794745e-05,
+      "unit": "Eh/bohr"
+    },
+    {
+      "label": "Mapped fragment-exchange reflection RMSD",
+      "value": 0.002092583246753079,
+      "unit": "\u00c5"
+    }
+  ],
+  "label": "post-ts \u00b7 1.900 \u00c5",
+  "coordinateLabel": "post-ts",
+  "quadratureElectronCount": 45.999997397406744,
+  "uniformGridElectronEstimate": 45.97381978098768,
+  "maximumAbsoluteBoundaryField": {
+    "total": 6.534901109599053e-07,
+    "difference": 8.656892099728008e-07,
+    "deformation": 2.0910115454800913e-07,
+    "occupied": 0.0001337394507148777,
+    "virtual": 0.0004328887953366406
+  },
+  "tracking": [
+    {
+      "role": "occupied",
+      "parentFrame": "ts",
+      "previousIndex": 22,
+      "index": 22,
+      "signedOverlapBeforeAlignment": -0.8378249271522191,
+      "alignedOverlap": 0.8378249271522191,
+      "nextCandidate": 0.19654744974754976,
+      "ambiguous": false
+    },
+    {
+      "role": "virtual",
+      "parentFrame": "ts",
+      "previousIndex": 25,
+      "index": 24,
+      "signedOverlapBeforeAlignment": 0.8700489087992483,
+      "alignedOverlap": 0.8700489087992483,
+      "nextCandidate": 0.15301704760707538,
+      "ambiguous": false
+    }
+  ],
+  "orbitals": [
+    {
+      "id": "occupied",
+      "index": 22,
+      "occupation": 2,
+      "energyHartree": -0.2584974405733238,
+      "nearDegenerate": false
+    },
+    {
+      "id": "virtual",
+      "index": 24,
+      "occupation": 0,
+      "energyHartree": 0.02073359770239591,
+      "nearDegenerate": false
+    }
+  ],
+  "meshFile": "reaction-lab/diels-alder/post-ts-meshes.json",
+  "fieldFile": "reaction-lab/diels-alder/post-ts-fields.npz"
+}

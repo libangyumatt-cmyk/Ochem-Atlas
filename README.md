@@ -6,7 +6,7 @@ Each reaction panel presents the stated substrate, reagents, scoped sequential e
 
 Search, same-event S/O/R/G filters, saved items, and deep links such as `#reaction/sn2` work in the browser. Every reaction has an electronic-structure section that distinguishes proposed observables from literature findings and missing calculations.
 
-Current release work: v0.3.7 adds a reproducible butadiene + ethylene Diels–Alder electronic-structure case alongside the retained SN2 and carbonyl cases. See [V037_AUDIT.md](V037_AUDIT.md) and [reproduction instructions](research/diels-alder/README.md) for actual calculations and limitations. Earlier release notes below describe their historical scope.
+Current release work: v0.3.7 adds a reproducible butadiene + ethylene Diels–Alder electronic-structure case alongside the retained SN2 and carbonyl cases. See [V037_AUDIT.md](V037_AUDIT.md) and [reproduction instructions](research/diels-alder/README.md) for actual calculations and limitations. The [r1 verification follow-up](V037_FOLLOWUP_AUDIT.md) replaces the initially partially relaxed 1.9 Å point with an independently checked constrained geometry and regenerated electronic fields. Earlier release notes below describe their historical scope.
 
 ## Classification and evidence
 

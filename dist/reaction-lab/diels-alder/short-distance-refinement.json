@@ -1,0 +1,542 @@
+{
+  "method": "SLSQP with fresh RKS SCF and rebuilt level-3 grids at every trial",
+  "gradient": "analytic RKS including full moving-grid response",
+  "distanceAngstrom": 1.9,
+  "rigidGauge": "centroid translation and linear Eckart rotation constraints referenced to initial published geometry",
+  "scfEnergyToleranceEh": 1e-11,
+  "scfOrbitalGradientTolerance": 3e-07,
+  "optimizerReportedSuccess": false,
+  "stoppingReason": "Stopped after completed evaluations reached moving-grid projected gradient below 1e-5 Eh/bohr; the latest genuine SCF checkpoint was retained and independently rechecked. Acceptance is based on final force checks, not optimizer status.",
+  "history": [
+    {
+      "evaluation": 0,
+      "energyHartree": -234.58177052107195,
+      "maxMovingGridProjectedGradientEhPerBohr": 0.0008157045738912405,
+      "distancesAngstrom": [
+        1.9000000001963968,
+        1.9000000036314948
+      ]
+    },
+    {
+      "evaluation": 1,
+      "energyHartree": -234.58177784601125,
+      "maxMovingGridProjectedGradientEhPerBohr": 0.001420496162450425,
+      "distancesAngstrom": [
+        1.9000008565996775,
+        1.9000002434573584
+      ]
+    },
+    {
+      "evaluation": 2,
+      "energyHartree": -234.58178736408055,
+      "maxMovingGridProjectedGradientEhPerBohr": 0.0011086805255944299,
+      "distancesAngstrom": [
+        1.9000005974493313,
+        1.9000007519926048
+      ]
+    },
+    {
+      "evaluation": 3,
+      "energyHartree": -234.58178786225915,
+      "maxMovingGridProjectedGradientEhPerBohr": 0.0023905167942972483,
+      "distancesAngstrom": [
+        1.9000000858234767,
+        1.9000000780107549
+      ]
+    },
+    {
+      "evaluation": 4,
+      "energyHartree": -234.5817905534448,
+      "maxMovingGridProjectedGradientEhPerBohr": 0.0007414555002878132,
+      "distancesAngstrom": [
+        1.900000306846811,
+        1.9000003779100165
+      ]
+    },
+    {
+      "evaluation": 5,
+      "energyHartree": -234.58179815940386,
+      "maxMovingGridProjectedGradientEhPerBohr": 0.000338006269091173,
+      "distancesAngstrom": [
+        1.9000000815996252,
+        1.9000002141628822
+      ]
+    },
+    {
+      "evaluation": 6,
+      "energyHartree": -234.58180001525156,
+      "maxMovingGridProjectedGradientEhPerBohr": 0.0006247624637905087,
+      "distancesAngstrom": [
+        1.900000402379308,
+        1.9000000014157838
+      ]
+    },
+    {
+      "evaluation": 7,
+      "energyHartree": -234.5818017023292,
+      "maxMovingGridProjectedGradientEhPerBohr": 0.00031029450077553825,
+      "distancesAngstrom": [
+        1.9000000385071028,
+        1.900000118132051
+      ]
+    },
+    {
+      "evaluation": 8,
+      "energyHartree": -234.58180253682232,
+      "maxMovingGridProjectedGradientEhPerBohr": 0.0002269879499812548,
+      "distancesAngstrom": [
+        1.9000000455261592,
+        1.9000000480507444
+      ]
+    },
+    {
+      "evaluation": 9,
+      "energyHartree": -234.58180344543877,
+      "maxMovingGridProjectedGradientEhPerBohr": 0.00014879967942071914,
+      "distancesAngstrom": [
+        1.9000001001327331,
+        1.9000000126734913
+      ]
+    },
+    {
+      "evaluation": 10,
+      "energyHartree": -234.5818039974659,
+      "maxMovingGridProjectedGradientEhPerBohr": 0.0002881030348445505,
+      "distancesAngstrom": [
+        1.9000001259564545,
+        1.9000000236351282
+      ]
+    },
+    {
+      "evaluation": 11,
+      "energyHartree": -234.58180448644947,
+      "maxMovingGridProjectedGradientEhPerBohr": 0.00014716094878441943,
+      "distancesAngstrom": [
+        1.9000000319258301,
+        1.900000094760465
+      ]
+    },
+    {
+      "evaluation": 12,
+      "energyHartree": -234.58180498107424,
+      "maxMovingGridProjectedGradientEhPerBohr": 0.00015567725746423733,
+      "distancesAngstrom": [
+        1.9000000160783561,
+        1.900000019753878
+      ]
+    },
+    {
+      "evaluation": 13,
+      "energyHartree": -234.58180558199015,
+      "maxMovingGridProjectedGradientEhPerBohr": 0.0001873766309475472,
+      "distancesAngstrom": [
+        1.9000001017822994,
+        1.9000000797414769
+      ]
+    },
+    {
+      "evaluation": 14,
+      "energyHartree": -234.58180570287251,
+      "maxMovingGridProjectedGradientEhPerBohr": 0.00019188463202442045,
+      "distancesAngstrom": [
+        1.9000000288061059,
+        1.9000000086055961
+      ]
+    },
+    {
+      "evaluation": 15,
+      "energyHartree": -234.58180580531166,
+      "maxMovingGridProjectedGradientEhPerBohr": 0.000109664197450292,
+      "distancesAngstrom": [
+        1.9000000154500543,
+        1.9000000141700661
+      ]
+    },
+    {
+      "evaluation": 16,
+      "energyHartree": -234.5818058855807,
+      "maxMovingGridProjectedGradientEhPerBohr": 6.8887316544264e-05,
+      "distancesAngstrom": [
+        1.900000000251344,
+        1.9000000015955674
+      ]
+    },
+    {
+      "evaluation": 17,
+      "energyHartree": -234.58180592875155,
+      "maxMovingGridProjectedGradientEhPerBohr": 8.247771903580059e-05,
+      "distancesAngstrom": [
+        1.900000008488174,
+        1.9000000105811443
+      ]
+    },
+    {
+      "evaluation": 18,
+      "energyHartree": -234.58180600927398,
+      "maxMovingGridProjectedGradientEhPerBohr": 4.3199572307015856e-05,
+      "distancesAngstrom": [
+        1.900000002962419,
+        1.9000000062841387
+      ]
+    },
+    {
+      "evaluation": 19,
+      "energyHartree": -234.58180606859534,
+      "maxMovingGridProjectedGradientEhPerBohr": 4.446829672831616e-05,
+      "distancesAngstrom": [
+        1.9000000060825701,
+        1.9000000117500817
+      ]
+    },
+    {
+      "evaluation": 20,
+      "energyHartree": -234.5818060937081,
+      "maxMovingGridProjectedGradientEhPerBohr": 8.965878221946569e-05,
+      "distancesAngstrom": [
+        1.9000000115504794,
+        1.9000000217349482
+      ]
+    },
+    {
+      "evaluation": 21,
+      "energyHartree": -234.5818061363781,
+      "maxMovingGridProjectedGradientEhPerBohr": 3.571354142128946e-05,
+      "distancesAngstrom": [
+        1.9000000030059738,
+        1.9000000009272735
+      ]
+    },
+    {
+      "evaluation": 22,
+      "energyHartree": -234.58180616595072,
+      "maxMovingGridProjectedGradientEhPerBohr": 3.8309477933928804e-05,
+      "distancesAngstrom": [
+        1.90000000220534,
+        1.900000000200432
+      ]
+    },
+    {
+      "evaluation": 23,
+      "energyHartree": -234.5818062014538,
+      "maxMovingGridProjectedGradientEhPerBohr": 4.908840593342845e-05,
+      "distancesAngstrom": [
+        1.9000000021817667,
+        1.900000000681801
+      ]
+    },
+    {
+      "evaluation": 24,
+      "energyHartree": -234.58180624365318,
+      "maxMovingGridProjectedGradientEhPerBohr": 5.4347008677898406e-05,
+      "distancesAngstrom": [
+        1.9000000170497433,
+        1.9000000214347494
+      ]
+    },
+    {
+      "evaluation": 25,
+      "energyHartree": -234.58180629918056,
+      "maxMovingGridProjectedGradientEhPerBohr": 4.3338381713914353e-05,
+      "distancesAngstrom": [
+        1.900000008187274,
+        1.9000000159721357
+      ]
+    },
+    {
+      "evaluation": 26,
+      "energyHartree": -234.58180633384637,
+      "maxMovingGridProjectedGradientEhPerBohr": 2.268827927960626e-05,
+      "distancesAngstrom": [
+        1.9000000017542897,
+        1.9000000071814003
+      ]
+    },
+    {
+      "evaluation": 27,
+      "energyHartree": -234.58180635480736,
+      "maxMovingGridProjectedGradientEhPerBohr": 2.256466279626501e-05,
+      "distancesAngstrom": [
+        1.9000000014204257,
+        1.9000000044486087
+      ]
+    },
+    {
+      "evaluation": 28,
+      "energyHartree": -234.58180636534485,
+      "maxMovingGridProjectedGradientEhPerBohr": 1.5967881261458317e-05,
+      "distancesAngstrom": [
+        1.9000000007936635,
+        1.9000000011998426
+      ]
+    },
+    {
+      "evaluation": 29,
+      "energyHartree": -234.5818063701473,
+      "maxMovingGridProjectedGradientEhPerBohr": 5.730183265481581e-06,
+      "distancesAngstrom": [
+        1.9000000003646331,
+        1.900000000231554
+      ]
+    },
+    {
+      "evaluation": 30,
+      "energyHartree": -234.58180637079025,
+      "maxMovingGridProjectedGradientEhPerBohr": 3.0002740909473857e-06,
+      "distancesAngstrom": [
+        1.9000000000014032,
+        1.9000000000029726
+      ]
+    },
+    {
+      "evaluation": 31,
+      "energyHartree": -234.5818063709553,
+      "maxMovingGridProjectedGradientEhPerBohr": 3.0195308852176694e-06,
+      "distancesAngstrom": [
+        1.9000000000031385,
+        1.9000000000006565
+      ]
+    },
+    {
+      "evaluation": 32,
+      "energyHartree": -234.58180637113642,
+      "maxMovingGridProjectedGradientEhPerBohr": 2.921914965314798e-06,
+      "distancesAngstrom": [
+        1.9000000000099562,
+        1.9000000000053066
+      ]
+    },
+    {
+      "evaluation": 33,
+      "energyHartree": -234.58180637131971,
+      "maxMovingGridProjectedGradientEhPerBohr": 2.829405763682402e-06,
+      "distancesAngstrom": [
+        1.9000000000172266,
+        1.900000000022732
+      ]
+    },
+    {
+      "evaluation": 34,
+      "energyHartree": -234.5818063714736,
+      "maxMovingGridProjectedGradientEhPerBohr": 2.7859448756828442e-06,
+      "distancesAngstrom": [
+        1.9000000000180468,
+        1.9000000000328732
+      ]
+    },
+    {
+      "evaluation": 35,
+      "energyHartree": -234.58180637161487,
+      "maxMovingGridProjectedGradientEhPerBohr": 2.6451791812487357e-06,
+      "distancesAngstrom": [
+        1.9000000000221084,
+        1.9000000000311488
+      ]
+    },
+    {
+      "evaluation": 36,
+      "energyHartree": -234.58180637179433,
+      "maxMovingGridProjectedGradientEhPerBohr": 2.8250259482831552e-06,
+      "distancesAngstrom": [
+        1.90000000004585,
+        1.9000000000460044
+      ]
+    },
+    {
+      "evaluation": 37,
+      "energyHartree": -234.5818063720458,
+      "maxMovingGridProjectedGradientEhPerBohr": 3.178683219529077e-06,
+      "distancesAngstrom": [
+        1.9000000001269963,
+        1.9000000000961754
+      ]
+    },
+    {
+      "evaluation": 38,
+      "energyHartree": -234.58180637240514,
+      "maxMovingGridProjectedGradientEhPerBohr": 3.5981490327241517e-06,
+      "distancesAngstrom": [
+        1.9000000003295263,
+        1.900000000231278
+      ]
+    },
+    {
+      "evaluation": 39,
+      "energyHartree": -234.58180637287492,
+      "maxMovingGridProjectedGradientEhPerBohr": 3.7644442529849442e-06,
+      "distancesAngstrom": [
+        1.9000000006400195,
+        1.9000000004852409
+      ]
+    }
+  ],
+  "initialCoordinatesAngstrom": [
+    [
+      -1.417290110157,
+      0.445058831884,
+      0.194821115666
+    ],
+    [
+      -0.674064257845,
+      -0.689429685879,
+      -0.378695013436
+    ],
+    [
+      0.674827082361,
+      -0.687862863797,
+      -0.379013479225
+    ],
+    [
+      1.416027353547,
+      0.448246795779,
+      0.193514192555
+    ],
+    [
+      -0.750396972356,
+      0.729684760103,
+      1.951022022306
+    ],
+    [
+      0.749834521242,
+      0.729512009735,
+      1.950522161633
+    ],
+    [
+      -1.195992174901,
+      1.407218921266,
+      -0.277565556601
+    ],
+    [
+      -2.495362253532,
+      0.300313872365,
+      0.273487295524
+    ],
+    [
+      -1.223098509999,
+      -1.56729192806,
+      -0.715904941576
+    ],
+    [
+      1.225857744365,
+      -1.564170701402,
+      -0.716963363501
+    ],
+    [
+      2.494270160832,
+      0.304985882522,
+      0.274275483301
+    ],
+    [
+      1.192922917389,
+      1.411782383626,
+      -0.274528474469
+    ],
+    [
+      -1.192866520464,
+      1.68405482611,
+      2.244933054324
+    ],
+    [
+      -1.193707457492,
+      -0.086194961681,
+      2.523326136856
+    ],
+    [
+      1.191750251365,
+      -0.088765243417,
+      2.520939328992
+    ],
+    [
+      1.194303865694,
+      1.682012449465,
+      2.246508200188
+    ]
+  ],
+  "initialGuess": "short-distance-seed-scf.npz",
+  "coordinatesAngstrom": [
+    [
+      -1.4195871762020007,
+      0.4450886444614366,
+      0.19278466296602836
+    ],
+    [
+      -0.673994750045656,
+      -0.6854196748176177,
+      -0.38257509719483174
+    ],
+    [
+      0.6751014266309892,
+      -0.6841937142751231,
+      -0.38279760461252627
+    ],
+    [
+      1.4187884557442547,
+      0.44758142482255103,
+      0.19251644113792954
+    ],
+    [
+      -0.7497840201121613,
+      0.7295456444713272,
+      1.947905157539931
+    ],
+    [
+      0.7490147591959221,
+      0.7292623904992133,
+      1.9480958417824719
+    ],
+    [
+      -1.2094785156451267,
+      1.4120055230809498,
+      -0.2722293513974339
+    ],
+    [
+      -2.496067139787074,
+      0.29506834040280167,
+      0.2834004785808386
+    ],
+    [
+      -1.2216386307507423,
+      -1.5671210015868597,
+      -0.7113405819923346
+    ],
+    [
+      1.2242347330025158,
+      -1.5649363620478014,
+      -0.7116489580128217
+    ],
+    [
+      2.4956056803888003,
+      0.2997097598005772,
+      0.28259939815288315
+    ],
+    [
+      1.2064316443910463,
+      1.4143162406688214,
+      -0.2718426650580782
+    ],
+    [
+      -1.1955579749654301,
+      1.6820513113367275,
+      2.239714550362523
+    ],
+    [
+      -1.194238784960164,
+      -0.08662121444638739,
+      2.517839588082981
+    ],
+    [
+      1.1930468448185398,
+      -0.08820876033334567,
+      2.5164836262641788
+    ],
+    [
+      1.195139088345375,
+      1.6810267964396342,
+      2.2417726755609593
+    ]
+  ],
+  "independentFinalChecks": {
+    "defaultProjectedGradientEhPerBohr": 2.2865218532563958e-05,
+    "movingGridProjectedGradientEhPerBohr": 4.400749463062681e-06,
+    "maxConstraintDeviationAngstrom": 6.684315323468581e-10
+  }
+}

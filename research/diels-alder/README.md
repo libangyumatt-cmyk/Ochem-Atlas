@@ -119,4 +119,8 @@ The idempotent enrich.py independently projects retained nuclear gradients off t
 
 File ids pre-ts/post-ts name the long-/short-distance constrained inputs relative to the saddle distance; they do not imply IRC endpoint connectivity. UI labels state actual constrained distances.
 
-Independent final-gradient check: the 1.9 Å input has a projected residual about 7.90e-4 Eh/bohr, above the 3e-4 target despite optimizer termination. It is retained as a **partially relaxed constrained input**, not a fully relaxed point. Its SCF/densities are genuine; no stationary status or path connectivity follows. Other constrained points and all stationary claims are checked separately.
+Original-release check: the 1.9 Å input had a projected residual about 7.90e-4 Eh/bohr and was labeled partially relaxed. The r1 follow-up replaces it with a fresh-grid independently checked constrained geometry; see V037_FOLLOWUP_AUDIT.md. This does not make the point stationary or establish IRC connectivity.
+
+## r1 short-distance update
+
+Recheck the exact retained candidate with `python research/diels-alder/refine_short_distance.py --checkpoint`, then run `fields.py --refresh-tail`, `enrich.py`, `validate.py`, `build_reaction_systems.py`, and `npm test`. Omit --checkpoint to optimize anew from short-distance-seed.xyz / short-distance-seed-scf.npz. The original recorded run used ftol=1e-12/maxiter=80 and was stopped after the physical force target was met; --original-options selects those original optimizer options. Default reruns use an explicit force stop. Full moving-grid gradients drive the new optimization; final acceptance also requires the original default-gradient target to pass after alignment. Method, basis, electron count, volumetric grid and references are unchanged. The historical frozen-fragment stability warnings remain applicable.

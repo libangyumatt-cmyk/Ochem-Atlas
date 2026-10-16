@@ -11,6 +11,18 @@ def main():
  for f in d['frames']:
   id=f['id'];w=np.load(OUT/(id+'-scf.npz'));v=np.load(OUT/(id+'-fields.npz'));a=[(x['element'],x['xyzAngstrom']) for x in f['atoms']];m=gto.M(atom=a,basis=BASIS,verbose=0);s=m.intor('int1e_ovlp');c=w['mo_coeff'];dm=w['density_matrix'];assert m.nelectron==46
   assert abs(np.einsum('ij,ji',dm,s)-46)<1e-8;assert np.max(abs(c.T@s@c-np.eye(m.nao)))<1e-8;assert np.max(abs(w['coordinates']-m.atom_coords()*BOHR))<1e-9
+  ps=dm@s;ev,u=np.linalg.eigh(s);root=(u*np.sqrt(ev))@u.T;low=root@dm@root;sl=m.aoslice_by_atom()
+  for b in f['bonds']:
+   i,j=b['atoms'];aa,bb=sl[i,2:];cc,dd=sl[j,2:]
+   assert abs(b['distanceAngstrom']-np.linalg.norm(w['coordinates'][i]-w['coordinates'][j]))<1e-9
+   assert abs(b['mayer']-np.sum(ps[aa:bb,cc:dd]*ps[cc:dd,aa:bb].T))<1e-9
+   assert abs(b['lowdinWiberg']-np.sum(low[aa:bb,cc:dd]*low[cc:dd,aa:bb].T))<1e-9
+  if 'refinementChecks' in f:
+   xyz=w['coordinates'];jac=np.zeros((2,3*m.natm))
+   for row,(i,j) in enumerate([(0,4),(3,5)]):
+    direction=(xyz[i]-xyz[j])/np.linalg.norm(xyz[i]-xyz[j]);jac[row,3*i:3*i+3]=direction;jac[row,3*j:3*j+3]=-direction
+   g=w['gradient_full_grid_response'].ravel();res=float(max(abs(g-jac.T@np.linalg.solve(jac@jac.T,jac@g))))
+   assert res<3e-4 and abs(res-f['refinementChecks']['movingGridProjectedGradientEhPerBohr'])<1e-10
   assert f['scfConverged'] and f['scfOrbitalGradientNorm']<3e-6
   assert all(v[k].shape==N and np.isfinite(v[k]).all() for k in d['levels']);assert v['total'].min()>-1e-7
   diff=float(np.max(abs(v['difference']-(v['total']-ref))));assert diff<1e-4

@@ -32,4 +32,9 @@ def main():
   else:field(ax,m[key][1]);label=key+'\n'+str(d['levels'][key][1])+(' bohr⁻³ᐟ²' if key=='occupied' else ' e bohr⁻³')
   ax.set_title(label,fontsize=11)
  fig.suptitle('Actual TS meshes; signed colors denote field sign, never electrical charge');fig.tight_layout(rect=[0,0,1,.85]);fig.savefig(QA/'validation-surfaces.png',dpi=150);plt.close(fig)
+ # Independently inspect the regenerated short-distance surfaces, not only TS.
+ f=next(f for f in d['frames'] if f['id']=='post-ts');m=json.loads((OUT/'post-ts-meshes.json').read_text());fig=plt.figure(figsize=(16,5))
+ for i,key in enumerate(['total','difference','deformation','occupied']):
+  ax=fig.add_subplot(1,4,i+1,projection='3d');molecule(ax,f);field(ax,m[key][1]);ax.set_title(key+'\n'+str(d['levels'][key][1])+(' bohr⁻³ᐟ²' if key=='occupied' else ' e bohr⁻³'),fontsize=11)
+ fig.suptitle('Regenerated calculated 1.9 Å fields; constrained geometry, NOT IRC');fig.tight_layout(rect=[0,0,1,.85]);fig.savefig(QA/'validation-short-distance-surfaces.png',dpi=150);plt.close(fig)
 if __name__=='__main__':main()

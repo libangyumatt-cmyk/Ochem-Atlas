@@ -2,7 +2,7 @@
 Run after compute.py and study.py; no interpolated fields or rescaled densities.
 """
 from pathlib import Path
-import json,shutil,hashlib,time
+import json,shutil,hashlib,time,sys,io,os
 import numpy as np
 from scipy.optimize import linear_sum_assignment
 from pyscf import gto,dft,lib
@@ -13,6 +13,8 @@ N=(81,71,71);ORIGIN=np.array([-10.,-9.,-7.]);STEP=.28
 LEVELS={'total':[.02,.05,.1],'difference':[.002,.005,.01],'deformation':[.002,.005,.01],'occupied':[.025,.045,.065],'virtual':[.025,.045,.065]}
 PAIR=[(0,4,'C1···C5 forming'),(3,5,'C4···C6 forming'),(0,1,'C1–C2 original π'),(2,3,'C3–C4 original π'),(4,5,'C5–C6 original π'),(1,2,'C2–C3 emerging π')]
 FRAGS=[('butadiene',[0,1,2,3,6,7,8,9,10,11]),('ethylene',[4,5,12,13,14,15])]
+def atomic_npz(path,**arrays):
+ buffer=io.BytesIO();np.savez_compressed(buffer,**arrays);tmp=path.with_suffix(path.suffix+'.pending');tmp.write_bytes(buffer.getvalue());os.replace(tmp,path)
 def quadrature(m,dm):
  gr=dft.gen_grid.Grids(m);gr.level=5;gr.build();q=0.
  for i in range(0,len(gr.coords),10000):
@@ -35,7 +37,14 @@ def evaluate(m,dm,grid,c=None):
 def main():
  grid=np.stack(np.meshgrid(*[ORIGIN[k]+STEP*np.arange(N[k]) for k in range(3)],indexing='ij'),axis=-1).reshape(-1,3)
  fs=[];states={};reference=None
- for id in ['approach','pre-ts','ts','post-ts','product']:
+ ids=['approach','pre-ts','ts','post-ts','product']
+ if '--refresh-tail' in sys.argv:
+  old=json.loads((OUT/'diels-alder.json').read_text());fs=old['frames'][:3];initial=old['initialSelection'];symmetry=old['symmetry']
+  for f in fs:
+   m=gto.M(atom=[(a['element'],a['xyzAngstrom']) for a in f['atoms']],basis=BASIS,verbose=0);w=np.load(OUT/(f['id']+'-tracked.npz'));states[f['id']]=(m,w['mo_coeff'].copy(),[int(j) for j in w['indices']])
+  fm=states['approach'][0];fw=np.load(OUT/'approach-scf.npz');reference,_=evaluate(fm,fw['density_matrix'],grid)
+  ids=['post-ts','product']
+ for id in ids:
   if not (OUT/(id+'.json')).exists():print('Waiting for independently computed '+id,flush=True)
   while not (OUT/(id+'.json')).exists():time.sleep(3)
   f=json.loads((OUT/(id+'.json')).read_text());a=[(x['element'],x['xyzAngstrom']) for x in f['atoms']];m,mf=solve(a,OUT/(id+'-analysis.log'));w=np.load(OUT/(id+'-scf.npz'));c=w['mo_coeff'].copy();occ=w['mo_occ'];dm=w['density_matrix'];s=w['overlap']
@@ -47,7 +56,7 @@ def main():
   for name,inds in FRAGS:
    fm,ff=solve([a[i] for i in inds],OUT/(id+'-'+name+'.log'));fd=ff.make_rdm1();rr,_=evaluate(fm,fd,grid);frag_rho.append(rr);frag_states.append((fm,ff))
    _,_,fi,fe=ff.stability(internal=True,external=True,return_status=True);q=quadrature(fm,fd)
-   np.savez_compressed(OUT/(id+'-'+name+'-scf.npz'),mo_coeff=ff.mo_coeff,mo_occ=ff.mo_occ,mo_energy=ff.mo_energy,density_matrix=fd,coordinates=fm.atom_coords()*BOHR,overlap=fm.intor('int1e_ovlp'))
+   atomic_npz(OUT/(id+'-'+name+'-scf.npz'),mo_coeff=ff.mo_coeff,mo_occ=ff.mo_occ,mo_energy=ff.mo_energy,density_matrix=fd,coordinates=fm.atom_coords()*BOHR,overlap=fm.intor('int1e_ovlp'))
    f['fragments'].append(dict(id=name,atomIndices=inds,charge=0,multiplicity=1,electronCount=fm.nelectron,energyHartree=float(ff.e_tot),scfConverged=bool(ff.converged),internalStable=bool(fi),externalStable=bool(fe),quadratureElectronCount=q))
   tracking=[]
   if not states:
@@ -68,8 +77,8 @@ def main():
   rho,amp=evaluate(m,dm,grid,c[:,picks]);q=quadrature(m,dm);assert abs(q-46)<.001
   if reference is None:reference=rho.copy()
   fields=dict(total=rho.reshape(N),difference=(rho-reference).reshape(N),deformation=(rho-sum(frag_rho)).reshape(N),occupied=amp[:,0].reshape(N),virtual=amp[:,1].reshape(N))
-  np.savez_compressed(OUT/(id+'-fields.npz'),**{k:v.astype('float32') for k,v in fields.items()},origin_bohr=ORIGIN,spacing_bohr=STEP)
-  np.savez_compressed(OUT/(id+'-tracked.npz'),mo_coeff=c,indices=picks)
+  atomic_npz(OUT/(id+'-fields.npz'),**{k:v.astype('float32') for k,v in fields.items()},origin_bohr=ORIGIN,spacing_bohr=STEP)
+  atomic_npz(OUT/(id+'-tracked.npz'),mo_coeff=c,indices=picks)
   boundary={k:float(max(abs(v[0]).max(),abs(v[-1]).max(),abs(v[:,0]).max(),abs(v[:,-1]).max(),abs(v[:,:,0]).max(),abs(v[:,:,-1]).max())) for k,v in fields.items()}
   assert all(boundary[k]<min(LEVELS[k]) for k in fields),boundary
   meshes={k:[mesh(v,l) for l in LEVELS[k]] for k,v in fields.items()};(OUT/(id+'-meshes.json')).write_text(json.dumps(meshes,separators=(',',':')))
@@ -107,8 +116,9 @@ def main():
    # Spatially separate fields retain their actual values; combined display is a
    # superposition drawing, NOT a normalized full-system orbital or total density.
    sm={name:[mesh(v.reshape(N),l) for l in [.025,.045,.065]] for name,v in [('diene',dp),('dienophile',ep)]}
-   (OUT/'symmetry-meshes.json').write_text(json.dumps(sm,separators=(',',':')));np.savez_compressed(OUT/'symmetry-fields.npz',diene=dp.reshape(N).astype('float32'),dienophile=ep.reshape(N).astype('float32'),diene_coeff=dc,dienophile_coeff=ec,origin_bohr=ORIGIN,spacing_bohr=STEP)
+   (OUT/'symmetry-meshes.json').write_text(json.dumps(sm,separators=(',',':')));atomic_npz(OUT/'symmetry-fields.npz',diene=dp.reshape(N).astype('float32'),dienophile=ep.reshape(N).astype('float32'),diene_coeff=dc,dienophile_coeff=ec,origin_bohr=ORIGIN,spacing_bohr=STEP)
    symmetry=dict(frameId='ts',meshFile='reaction-lab/diels-alder/symmetry-meshes.json',fieldFile='reaction-lab/diels-alder/symmetry-fields.npz',dieneIndex=di+1,dienophileIndex=ei+1,midpointCoordinatesAngstrom=(mids*BOHR).tolist(),dieneMidpointAmplitudes=dv.tolist(),dienophileMidpointAmplitudes=ev.tolist(),samePhaseProducts=(dv*ev).tolist(),interfragmentOverlap=float(dc@gto.intor_cross('int1e_ovlp',dmol,emol)@ec))
+  (OUT/(id+'-analysis.json')).write_text(json.dumps(f,indent=2))
   fs.append(f);print('FIELDS',id,q,f['geometryDescriptors'][:2],flush=True)
  meta=dict(method='B3LYP (VWN-RPA)',basis='6-31G(d)',charge=0,multiplicity=1,electronCount=46,environment='Isolated gas-phase ground-state restricted Kohn–Sham model; no solvent/counterions',pathKind='Three relaxed equal-forming-distance constrained geometries around a full-Hessian verified saddle and an independently optimized cyclohexene minimum. Not an IRC; constrained points do not establish a minimum-energy path.',frames=fs,levels=LEVELS,initialSelection=initial,symmetry=symmetry,grid=dict(shape=N,originBohr=ORIGIN.tolist(),spacingBohr=STEP,order='C order, z fastest',alignment='Fixed atom mapping C1–C6 then H7–H16; each optimized frame rigidly aligned to the TS carbon skeleton before final SCF. No density alignment or grid interpolation.',densityUnits='electron bohr^-3',orbitalUnits='bohr^-3/2',meshCoordinates='angstrom',fieldPrecision='float32 grids; float64 coefficients'),references=dict(difference='rho(current) minus rho(approach), evaluated on identical lab-frame Cartesian points after documented geometry alignment. Includes nuclear displacement, not unique electron transfer.',deformation='rho(complex) minus frozen neutral singlet butadiene and ethylene densities at that exact geometry, each B3LYP/6-31G(d) in its own basis with no ghosts. Not a counterpoise or unique charge-transfer partition.',probability='Square of selected normalized complex canonical spatial orbital, no occupation factor.',signs='Teal positive / amber negative amplitude or electron-number difference, not electrical charges.'))
  meta['warnings']=[f"Restricted complex determinant instability reported at {f['id']}; converged SCF is not a verified stable determinant." for f in fs if not f['internalStable'] or not f['externalStable']]

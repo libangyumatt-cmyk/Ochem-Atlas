@@ -1,3 +1,5 @@
+> **Follow-up:** the 1.9 Å point now meets the independent force target. See [V037_FOLLOWUP_AUDIT.md](V037_FOLLOWUP_AUDIT.md) for current checks and regenerated fields. The original-release audit below is retained as a historical record.
+
 # Ochem Atlas v0.3.7 audit
 
 ## Scope and preservation

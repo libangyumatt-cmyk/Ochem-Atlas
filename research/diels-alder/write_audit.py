@@ -7,6 +7,8 @@ def main():
  d=json.loads((OUT/'diels-alder.json').read_text());v=json.loads((OUT/'validation.json').read_text());ts=next(f for f in d['frames'] if f['id']=='ts');pr=next(f for f in d['frames'] if f['id']=='product')
  rows='\n'.join(f"| {f['id']} | {f['energyHartree']:.10f} | {f['bonds'][0]['distanceAngstrom']:.5f} / {f['bonds'][1]['distanceAngstrom']:.5f} | {f['bonds'][0]['mayer']:.5f} / {f['bonds'][1]['mayer']:.5f} | {f['quadratureElectronCount']:.7f} | {f['internalStable']} / {f['externalStable']} |" for f in d['frames'])
  unstable=[f"{f['id']}/{x['id']}" for f in d['frames'] for x in f['fragments'] if not x['internalStable'] or not x['externalStable']]
+ point=next(f for f in d['frames'] if f['id']=='post-ts')
+ relaxation_note=('All three constrained points meet the unchanged independent projected-gradient target of 3e-4 Eh/bohr. The short-distance refinement is documented in V037_FOLLOWUP_AUDIT.md.' if point.get('constrainedGradientTargetMet') else 'The 1.9 Å point does not meet the independent projected-gradient target; it remains explicitly partially relaxed. Actual SCF fields at its documented coordinates are retained.')
  text=f'''# Ochem Atlas v0.3.7 audit
 
 ## Scope and preservation
@@ -53,13 +55,8 @@ Eh/bohr**, {len(pr['frequenciesCm'])} positive modes, lowest
 **{min(pr['frequenciesCm']):.2f} cm⁻¹**.
 
 Three other displayed geometries fix both forming distances at 3.0, 2.5 or 1.9 Å.
-The 3.0/2.5 Å points meet the independent projected-gradient target of 3e-4
-Eh/bohr. The 1.9 Å point does NOT: its independently recomputed projected
-residual is about 7.90e-4 Eh/bohr despite optimizer termination. It is explicitly
-retained as a partially relaxed constrained input, with a prominent UI warning,
-not a fully optimized constrained point. The cause of that optimizer/final-check
-discrepancy was not resolved. Actual SCF fields at its documented coordinates
-remain valid as fixed-geometry model results. **No IRC or dynamics was performed.**
+{relaxation_note}
+ **No IRC or dynamics was performed.**
 These points are not stationary points or independently verified minimum-energy
 path frames. Equal-distance constraints impose synchronous bond distances;
 they are not evidence that all Diels–Alder reactions are synchronous. The saddle's

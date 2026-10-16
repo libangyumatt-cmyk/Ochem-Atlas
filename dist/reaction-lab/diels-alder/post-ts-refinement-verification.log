@@ -1,0 +1,225 @@
+#INFO: **** input file is /workspace/scratch/69db76a371c7/Ochem-Atlas/research/diels-alder/refine_short_distance.py ****
+"""Independent fresh-grid constrained relaxation of the 1.9 Å input.
+SLSQP, all Cartesian coordinates, two exact distances and six rigid-frame gauges.
+Full moving-grid analytic RKS gradient drives optimization. A fresh final SCF at
+aligned geometry must also pass the original default-gradient projected target.
+This is a constrained geometry, never a stationary point or an IRC.
+"""
+from compute import *
+from study import aligned,single
+from scipy.optimize import minimize
+from types import SimpleNamespace
+import ast,sys
+
+def jac_dist(x):
+ x=x.reshape(-1,3);j=np.zeros((2,x.size))
+ for k,(a,b) in enumerate([(0,4),(3,5)]):
+  u=(x[a]-x[b])/np.linalg.norm(x[a]-x[b]);j[k,3*a:3*a+3]=u;j[k,3*b:3*b+3]=-u
+ return j
+
+def projected(g,x):
+ j=jac_dist(x);g=g.ravel();return float(max(abs(g-j.T@np.linalg.solve(j@j.T,j@g))))
+
+def main():
+ lib.num_threads(4)
+ lines=(OUT/'short-distance-seed.xyz').read_text().splitlines()[2:];els=[line.split()[0] for line in lines];x0=np.array([list(map(float,line.split()[1:4])) for line in lines]);ref=x0-x0.mean(0);rot=[]
+ for axis in np.eye(3):rot.append(np.cross(axis[None,:],ref).ravel())
+ gauges=np.vstack([np.tile(v,(len(x0),1)).ravel() for v in np.eye(3)]+rot);gauges/=np.linalg.norm(gauges,axis=1)[:,None]
+ guess=np.load(OUT/'short-distance-seed-scf.npz')['density_matrix'];cache={};history=[]
+ def evaluate(x):
+  nonlocal guess
+  if cache and np.array_equal(x,cache['x']):return cache['energy'],cache['gradient']
+  m=gto.M(atom=list(zip(els,x.reshape(-1,3))),basis=BASIS,charge=0,spin=0,verbose=0)
+  f=dft.RKS(m);f.xc=XC;f.grids.level=3;f.conv_tol=1e-11;f.conv_tol_grad=3e-7;f.max_cycle=120;f.kernel(dm0=guess);assert f.converged
+  guess=f.make_rdm1();gr=f.nuc_grad_method();gr.grid_response=True;g=gr.kernel()
+  row=dict(evaluation=len(history),energyHartree=float(f.e_tot),maxMovingGridProjectedGradientEhPerBohr=projected(g,x),distancesAngstrom=[float(np.linalg.norm(x.reshape(-1,3)[a]-x.reshape(-1,3)[b])) for a,b in [(0,4),(3,5)]])
+  history.append(row);print(row,flush=True);cache.update(x=x.copy(),energy=float(f.e_tot),gradient=g.ravel()/BOHR)
+  return cache['energy'],cache['gradient']
+ def constraint(x):
+  xx=x.reshape(-1,3);return np.r_[[np.linalg.norm(xx[a]-xx[b])-1.9 for a,b in [(0,4),(3,5)]],gauges@(x-x0.ravel())]
+ def constraint_jac(x):return np.vstack([jac_dist(x),gauges])
+ class ForceTargetReached(Exception):pass
+ def accepted(x):
+  evaluate(x)
+  if history[-1]['maxMovingGridProjectedGradientEhPerBohr']<1e-5 and max(abs(constraint(x)))<1e-7:raise ForceTargetReached
+ try:
+  z=minimize(evaluate,x0.ravel(),jac=True,method='SLSQP',constraints=[dict(type='eq',fun=constraint,jac=constraint_jac)],callback=accepted,options=dict(ftol=1e-10,maxiter=60,disp=True))
+ except ForceTargetReached:
+  z=SimpleNamespace(x=cache['x'],success=False,message='Stopped by declared projected-force criterion, not a SciPy convergence status')
+ (OUT/'short-distance-refinement.json').write_text(json.dumps(dict(method='SLSQP with fresh RKS SCF and rebuilt level-3 grids at every trial',gradient='analytic RKS including full moving-grid response',distanceAngstrom=1.9,rigidGauge='centroid translation and linear Eckart rotation constraints referenced to initial published geometry',scfEnergyToleranceEh=1e-11,scfOrbitalGradientTolerance=3e-7,success=bool(z.success),message=str(z.message),maxConstraintResidual=float(max(abs(constraint(z.x)))),history=history,initialCoordinatesAngstrom=x0.tolist(),initialGuess='short-distance-seed-scf.npz',coordinatesAngstrom=z.x.reshape(-1,3).tolist()),indent=2))
+ finish(z.x,els)
+
+def finish(x,els):
+ m=gto.M(atom=list(zip(els,x.reshape(-1,3))),basis=BASIS,verbose=0);ts=json.loads((OUT/'ts.json').read_text());m=aligned(m,ts)
+ # Validate independently before replacing the published point.
+ mm,ff=solve([(m.atom_symbol(i),v*BOHR) for i,v in enumerate(m.atom_coords())],OUT/'post-ts-refinement-verification.log');fixed=ff.nuc_grad_method().kernel();gr=ff.nuc_grad_method();gr.grid_response=True;moving=gr.kernel();xx=mm.atom_coords()*BOHR
+ checks=dict(defaultProjectedGradientEhPerBohr=projected(fixed,xx.ravel()),movingGridProjectedGradientEhPerBohr=projected(moving,xx.ravel()),maxConstraintDeviationAngstrom=float(max(abs(np.linalg.norm(xx[a]-xx[b])-1.9) for a,b in [(0,4),(3,5)])))
+ print('INDEPENDENT FINAL CHECKS',checks,flush=True)
+ p=OUT/'short-distance-refinement.json';report=json.loads(p.read_text());report['independentFinalChecks']=checks;p.write_text(json.dumps(report,indent=2))
+ assert checks['defaultProjectedGradientEhPerBohr']<3e-4 and checks['movingGridProjectedGradientEhPerBohr']<3e-4 and checks['maxConstraintDeviationAngstrom']<1e-5
+ rec=single('post-ts',mm);rec['geometryKind']='Two equal 1.9 Å forming distances constrained; independently fresh-grid relaxed Cartesian geometry. Not a stationary point or IRC.';rec['refinementChecks']=checks;(OUT/'post-ts.json').write_text(json.dumps(rec,indent=2))
+ w=np.load(OUT/'post-ts-scf.npz');data={k:w[k] for k in w.files};data['gradient_full_grid_response']=moving;np.savez_compressed(OUT/'post-ts-scf.npz',**data)
+
+def checkpoint_main():
+ candidate=json.loads((OUT/'short-distance-candidate.json').read_text());seed=(OUT/'short-distance-seed.xyz').read_text().splitlines()[2:];history=[]
+ for line in (OUT/'short-distance-optimization.log').read_text().splitlines():
+  if line.startswith("{'evaluation':"):history.append(ast.literal_eval(line))
+ report=dict(method='SLSQP with fresh RKS SCF and rebuilt level-3 grids at every trial',gradient='analytic RKS including full moving-grid response',distanceAngstrom=1.9,rigidGauge='centroid translation and linear Eckart rotation constraints referenced to initial published geometry',scfEnergyToleranceEh=1e-11,scfOrbitalGradientTolerance=3e-7,optimizerReportedSuccess=False,stoppingReason='Stopped after an actual SCF checkpoint had moving-grid projected gradient below 1e-5 Eh/bohr; independent final checks determine acceptance, not optimizer status.',history=history,initialCoordinatesAngstrom=[list(map(float,line.split()[1:4])) for line in seed],initialGuess='short-distance-seed-scf.npz',coordinatesAngstrom=candidate['coordinatesAngstrom'])
+ (OUT/'short-distance-refinement.json').write_text(json.dumps(report,indent=2));finish(np.array(candidate['coordinatesAngstrom']).ravel(),candidate['elements'])
+if __name__=='__main__':
+ if '--checkpoint' in sys.argv:checkpoint_main()
+ else:main()
+#INFO: ******************** input file end ********************
+
+
+System: uname_result(system='Linux', node='05675ef36769', release='6.18.44', version='#1 SMP Sat Sep 26 20:02:31 UTC 2026', machine='x86_64')  Threads 4
+Python 3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]
+numpy 2.3.5  scipy 1.17.0  h5py 3.16.0
+Date: Fri Oct 16 12:29:33 2026
+PySCF version 2.14.0
+PySCF path  /root/.local/lib/python3.12/site-packages/pyscf
+
+[CONFIG] conf_file None
+[INPUT] verbose = 4
+[INPUT] num. atoms = 16
+[INPUT] num. electrons = 46
+[INPUT] charge = 0
+[INPUT] spin (= nelec alpha-beta = 2S) = 0
+[INPUT] symmetry False subgroup None
+[INPUT] Mole.unit = Angstrom
+[INPUT] Symbol           X                Y                Z      unit          X                Y                Z       unit  Magmom
+[INPUT]  1 C     -1.419866093803   0.443201456615   0.195580778716 AA   -2.683158050843   0.837529371011   0.369594107002 Bohr   0.0
+[INPUT]  2 C     -0.674180794615  -0.687796241600  -0.378695827496 AA   -1.274017060264  -1.299746526130  -0.715631398482 Bohr   0.0
+[INPUT]  3 C      0.674914943041  -0.686260809629  -0.379311673299 AA    1.275404399724  -1.296844980221  -0.716795178386 Bohr   0.0
+[INPUT]  4 C      1.418508692403   0.446345566554   0.194485108017 AA    2.680592933956   0.843470877702   0.367523589458 Bohr   0.0
+[INPUT]  5 C     -0.749618963585   0.729829406729   1.950178511936 AA   -1.416574538956   1.379177696371   3.685303281570 Bohr   0.0
+[INPUT]  6 C      0.749179833350   0.729890469157   1.949934101626 AA    1.415744703079   1.379293087636   3.684841413023 Bohr   0.0
+[INPUT]  7 H     -1.210114726616   1.409631411622  -0.270605277307 AA   -2.286785412607   2.663817304550  -0.511369861972 Bohr   0.0
+[INPUT]  8 H     -2.496285190400   0.293038270980   0.286681688027 AA   -4.717295338663   0.553762076169   0.541749875300 Bohr   0.0
+[INPUT]  9 H     -1.221717344534  -1.570000581420  -0.706288597332 AA   -2.308711182800  -2.966871114291  -1.334692013861 Bohr   0.0
+[INPUT] 10 H      1.224155259602  -1.567254769650  -0.707310041166 AA    2.313318174594  -2.961682282057  -1.336622262958 Bohr   0.0
+[INPUT] 11 H      2.495385987615   0.298824764000   0.284425129525 AA    4.715596091670   0.564696963199   0.537485597746 Bohr   0.0
+[INPUT] 12 H      1.205794848613   1.412497221264  -0.270923099488 AA    2.278622026290   2.669232899898  -0.511970458851 Bohr   0.0
+[INPUT] 13 H     -1.195527186536   1.682567489199   2.241022436987 AA   -2.259218957025   3.179591740682   4.234918644910 Bohr   0.0
+[INPUT] 14 H     -1.193720625769  -0.085783836118   2.521179725853 AA   -2.255805051947  -0.162107956178   4.764339192669 Bohr   0.0
+[INPUT] 15 H      1.193564811637  -0.086824861981   2.519132053008 AA    2.255510605912  -0.164075209948   4.760469651799 Bohr   0.0
+[INPUT] 16 H      1.195170545652   1.682094201362   2.242387210574 AA    2.258545003430   3.178697356294   4.237497693212 Bohr   0.0
+
+nuclear repulsion = 227.788660810535
+number of shells = 56
+number of NR pGTOs = 202
+number of NR cGTOs = 104
+basis = 6-31g(d)
+ecp = {}
+CPU time:         0.46
+
+
+******** <class 'pyscf.dft.rks.RKS'> ********
+method = RKS
+initial guess = minao
+damping factor = 0
+level_shift factor = 0
+DIIS = <class 'pyscf.scf.diis.CDIIS'>
+diis_start_cycle = 1
+diis_space = 8
+diis_damp = 0
+SCF conv_tol = 1e-10
+SCF conv_tol_grad = 1e-06
+SCF max_cycles = 120
+direct_scf = True
+direct_scf_tol = 1e-13
+chkfile to save SCF result = /tmp/tmpz8amn28x
+max_memory 4000 MB (current use 0 MB)
+XC library pyscf.dft.libxc version 7.0.0
+    S. Lehtola, C. Steigemann, M. J.T. Oliveira, and M. A.L. Marques.,  SoftwareX 7, 1–5 (2018)
+XC functionals = b3lyp
+    P. J. Stephens, F. J. Devlin, C. F. Chabalowski, and M. J. Frisch.,  J. Phys. Chem. 98, 11623 (1994)
+radial grids: 
+    Treutler-Ahlrichs [JCP 102, 346 (1995); DOI:10.1063/1.469408] (M4) radial grids
+    
+becke partition: Becke, JCP 88, 2547 (1988); DOI:10.1063/1.454033
+pruning grids: <function nwchem_prune at 0x7f2eae93cd60>
+grids dens level: 3
+symmetrized grids: False
+atomic radii adjust function: <function treutler_atomic_radii_adjust at 0x7f2eae93d260>
+small_rho_cutoff = 0
+Initial guess from minao.
+tot grids = 182792
+init E= -234.780608409441
+  HOMO = -0.285394521903027  LUMO = -0.0769563553998451  gap/eV = 5.67189
+cycle= 1 E= -234.534066524023  delta_E= 0.247  |g|= 0.401  |ddm|= 3.44
+  HOMO = -0.151240037315432  LUMO = 0.0843959021147698  gap/eV = 6.41198
+cycle= 2 E= -234.525225730989  delta_E= 0.00884  |g|= 0.452  |ddm|=    1
+  HOMO = -0.224765033889876  LUMO = 0.0198721041644365  gap/eV = 6.65692
+cycle= 3 E= -234.581639846441  delta_E= -0.0564  |g|= 0.026  |ddm|= 0.56
+  HOMO = -0.224219033732026  LUMO = 0.0207415639580533  gap/eV = 6.66572
+cycle= 4 E= -234.581791626161  delta_E= -0.000152  |g|= 0.00749  |ddm|= 0.0406
+  HOMO = -0.224239090896358  LUMO = 0.0207615368355998  gap/eV = 6.66681
+cycle= 5 E= -234.581800533175  delta_E= -8.91e-06  |g|= 0.00463  |ddm|= 0.0124
+  HOMO = -0.22428441901627  LUMO = 0.0207483808723934  gap/eV = 6.66768
+cycle= 6 E= -234.581806199358  delta_E= -5.67e-06  |g|= 0.000583  |ddm|= 0.00409
+  HOMO = -0.224316143000676  LUMO = 0.0207140491642992  gap/eV = 6.66761
+cycle= 7 E= -234.581806286118  delta_E= -8.68e-08  |g|= 0.000235  |ddm|= 0.00093
+  HOMO = -0.224296183034958  LUMO = 0.0207330105019126  gap/eV = 6.66758
+cycle= 8 E= -234.5818063025  delta_E= -1.64e-08  |g|= 4.34e-05  |ddm|= 0.000286
+  HOMO = -0.224297601903385  LUMO = 0.0207336287849276  gap/eV = 6.66764
+cycle= 9 E= -234.581806303156  delta_E= -6.57e-10  |g|= 4.91e-06  |ddm|= 7.04e-05
+  HOMO = -0.22429775510437  LUMO = 0.0207335648580509  gap/eV = 6.66764
+cycle= 10 E= -234.581806303165  delta_E= -8.7e-12  |g|= 1.51e-06  |ddm|= 1e-05
+  HOMO = -0.224297808805138  LUMO = 0.0207335470117038  gap/eV = 6.66764
+cycle= 11 E= -234.581806303166  delta_E= -8.53e-13  |g|= 1.33e-06  |ddm|= 3.02e-06
+  HOMO = -0.224297804123315  LUMO = 0.0207335548093401  gap/eV = 6.66764
+cycle= 12 E= -234.581806303166  delta_E= -3.98e-13  |g|= 2.2e-07  |ddm|= 1.36e-06
+  HOMO = -0.224297759660323  LUMO = 0.0207335976903118  gap/eV = 6.66764
+Extra cycle  E= -234.581806303166  delta_E= 7.96e-13  |g|= 3.53e-07  |ddm|= 5.78e-07
+converged SCF energy = -234.581806303166
+
+
+******** <class 'pyscf.grad.rks.Gradients'> for <class 'pyscf.dft.rks.RKS'> ********
+unit = Eh/Bohr
+max_memory 4000 MB (current use 0 MB)
+grid_response = False
+--------------- RKS gradients ---------------
+         x                y                z
+0 C    -0.0186756099    -0.0079836810    -0.0489182360
+1 C    -0.0000169765    -0.0000083966    -0.0000093076
+2 C     0.0000168351    -0.0000086381    -0.0000071471
+3 C     0.0186581146    -0.0079001851    -0.0489637096
+4 C     0.0186921752     0.0079968796     0.0489100620
+5 C    -0.0186721797     0.0079126032     0.0489547587
+6 H     0.0000167834    -0.0000058519     0.0000214674
+7 H     0.0000004592    -0.0000023269    -0.0000041187
+8 H     0.0000016024    -0.0000012411    -0.0000002360
+9 H    -0.0000021654    -0.0000040289     0.0000057566
+10 H    -0.0000014182     0.0000017709    -0.0000020028
+11 H    -0.0000196446    -0.0000077447     0.0000228652
+12 H    -0.0000105185     0.0000014129    -0.0000142103
+13 H     0.0000056683    -0.0000027979     0.0000017701
+14 H    -0.0000028238    -0.0000059873    -0.0000012425
+15 H     0.0000099577    -0.0000014457    -0.0000136200
+----------------------------------------------
+
+
+******** <class 'pyscf.grad.rks.Gradients'> for <class 'pyscf.dft.rks.RKS'> ********
+unit = Eh/Bohr
+max_memory 4000 MB (current use 0 MB)
+grid_response = True
+--------------- RKS gradients ---------------
+         x                y                z
+0 C    -0.0186764353    -0.0079866565    -0.0488960816
+1 C     0.0000001708    -0.0000011747    -0.0000011340
+2 C    -0.0000000458    -0.0000009713     0.0000008264
+3 C     0.0186582399    -0.0079033194    -0.0489380344
+4 C     0.0186765346     0.0079890584     0.0488945007
+5 C    -0.0186572969     0.0079046987     0.0489383779
+6 H    -0.0000003564     0.0000007968    -0.0000004902
+7 H     0.0000017095    -0.0000022482    -0.0000005280
+8 H     0.0000008481    -0.0000004859    -0.0000015825
+9 H    -0.0000014092    -0.0000032627     0.0000044007
+10 H    -0.0000027030     0.0000019512     0.0000016847
+11 H    -0.0000014982    -0.0000017465    -0.0000025973
+12 H    -0.0000010537     0.0000015292    -0.0000026180
+13 H     0.0000018715     0.0000030833     0.0000038715
+14 H     0.0000010947    -0.0000001654     0.0000007888
+15 H     0.0000003293    -0.0000010870    -0.0000013848
+----------------------------------------------

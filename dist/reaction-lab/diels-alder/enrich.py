@@ -25,8 +25,10 @@ def main():
     f['label']=f['label'].replace('constrained','constrained, PARTIALLY RELAXED')
     f['geometryKind']='Fixed forming distances, partially relaxed geometry; independent projected gradient exceeds 3e-4 Eh/bohr target. Not a stationary point or IRC.'
   label='Max distance-constraint projected nuclear gradient';f['geometryDescriptors']=[q for q in f['geometryDescriptors'] if q['label']!=label]+[dict(label=label,value=f['maxProjectedFreeGradientEhPerBohr'],unit='Eh/bohr')]
+  if 'refinementChecks' in f:
+   label='Moving-grid response projected nuclear gradient';f['geometryDescriptors']=[q for q in f['geometryDescriptors'] if q['label']!=label]+[dict(label=label,value=f['refinementChecks']['movingGridProjectedGradientEhPerBohr'],unit='Eh/bohr')]
  partial=[f['id'] for f in d['frames'] if f.get('constrainedGradientTargetMet') is False]
- d['pathKind']='Two relaxed equal-distance constrained points, one partially relaxed short-distance input, a full-Hessian verified saddle and an independent product minimum. Not an IRC; no full endpoint connectivity established.' if partial else d['pathKind']
+ d['pathKind']='Two relaxed equal-distance constrained points, one partially relaxed short-distance input, a full-Hessian verified saddle and an independent product minimum. Not an IRC; no full endpoint connectivity established.' if partial else 'Three independently checked equal-distance constrained points, a full-Hessian verified saddle and an independent product minimum. Not an IRC; no full endpoint connectivity established.'
  warning='PARTIAL GEOMETRY RELAXATION: '+', '.join(partial)+' exceeds the independent projected-gradient target (3e-4 Eh/bohr); its electronic fields are calculated at the stated input, not a fully relaxed constrained point.'
  d['warnings']=[w for w in d.get('warnings',[]) if not w.startswith('PARTIAL GEOMETRY RELAXATION:')]
  if partial:d['warnings'].append(warning)

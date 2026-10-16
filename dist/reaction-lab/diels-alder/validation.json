@@ -67,20 +67,20 @@
     {
       "id": "post-ts",
       "passed": true,
-      "aoFieldReconstructionMaximumError": 7.578529270801937e-08,
-      "differenceMaximumFloat32Error": 3.814697265625e-06,
+      "aoFieldReconstructionMaximumError": 7.156870607261112e-08,
+      "differenceMaximumFloat32Error": 1.9073486328125e-06,
       "orbitalProbabilityIntegrals": [
-        1.0000000561183202,
-        1.0000001154597613
+        1.0000000495666221,
+        1.0000001334056965
       ],
-      "projectedGradientEhPerBohr": 0.0007897993776562195,
-      "relaxationTargetMet": false,
-      "mappedReflectionRmsdAngstrom": 0.003324824203804518,
-      "formingDistanceAsymmetryAngstrom": 3.4350979838393414e-09,
-      "formingMayerAsymmetry": 1.7392382521297378e-05,
+      "projectedGradientEhPerBohr": 2.2865228661794745e-05,
+      "relaxationTargetMet": true,
+      "mappedReflectionRmsdAngstrom": 0.002092583246753079,
+      "formingDistanceAsymmetryAngstrom": 6.733436030970097e-11,
+      "formingMayerAsymmetry": 3.185040927555782e-05,
       "internalStable": true,
       "externalStable": true,
-      "quadratureElectronCount": 45.99999762604194
+      "quadratureElectronCount": 45.999997397406744
     },
     {
       "id": "product",
