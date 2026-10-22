@@ -1,0 +1,25 @@
+{
+  "result": "partial",
+  "completedCases": 3,
+  "cases": [
+    {
+      "case": "reactant-ethylene-def2tzvp",
+      "numericalConsistencyPassed": true,
+      "referenceInternalStable": true,
+      "referenceExternalStable": true
+    },
+    {
+      "case": "reactant-ethylene-grid5",
+      "numericalConsistencyPassed": true,
+      "referenceInternalStable": true,
+      "referenceExternalStable": true
+    },
+    {
+      "case": "reactant-ethylene-ri-mp2-def2tzvp",
+      "numericalConsistencyPassed": true,
+      "referenceInternalStable": true,
+      "referenceExternalStable": true
+    }
+  ],
+  "interpretation": "Consistency of retained calculations. A pass does not validate an unstable reference or establish method convergence."
+}

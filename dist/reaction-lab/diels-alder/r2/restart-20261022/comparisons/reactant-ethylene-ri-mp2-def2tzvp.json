@@ -1,0 +1,28 @@
+{
+  "case": "reactant-ethylene",
+  "tag": "ri-mp2-def2tzvp",
+  "geometrySource": "reactant-ethylene.json (unchanged r1 optimized geometry)",
+  "geometrySha256": "50bdeb26a1d8f57130b0d2e106397536f0309bf27a3c6743c59c9a8cb0cb2886",
+  "method": "RI-RMP2",
+  "basis": "def2-tzvp",
+  "gridLevel": null,
+  "charge": 0,
+  "multiplicity": 1,
+  "scfConverged": true,
+  "scfOrbitalGradientNorm": 6.412436659617849e-08,
+  "referenceInternalStable": true,
+  "referenceExternalStable": true,
+  "referenceEnergyHartree": -78.06466099135997,
+  "referenceLimitation": "Determinant stability does not establish correlation/basis convergence or exclude multireference effects.",
+  "correlationEnergyHartree": -0.3592697495754263,
+  "densityConvention": "Unrelaxed MP2 one-particle density; HF canonical orbitals, not correlated natural orbitals.",
+  "hfAuxiliaryBasis": "def2-tzvp-jkfit",
+  "correlationAuxiliaryBasis": {
+    "H": "def2-tzvp-ri",
+    "C": "def2-tzvp-ri"
+  },
+  "frozenElectrons": 0,
+  "bonds": [],
+  "energyHartree": -78.4239307409354,
+  "electronCount": 15.999999999999954
+}

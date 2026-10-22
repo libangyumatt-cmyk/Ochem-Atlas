@@ -86,3 +86,15 @@ generation and correspondence, defined bond indices, basis/correlation/grid
 sensitivity, regression and published interaction checks. No overlap is
 converted to an orbital interaction energy. A limited comparison cannot
 establish method or basis convergence.
+
+## Saved restart checkpoint
+
+The first three ethylene fixed-geometry comparisons (B3LYP grid5,
+B3LYP/def2-TZVP, RI-RMP2/def2-TZVP) completed with internally and externally
+stable references. Independent coefficient normalization, AO electron-count,
+density-matrix and correlation-energy reconstruction passed. Both IRC
+branches remain running; their trial outputs and latest wavefunctions are
+checkpointed, not validated laboratory frames. See checkpoint-state.json and
+restart-20261022/comparisons/validation.json. The protected manifest covers 373
+original scientific payloads; mutable Diels–Alder system/index wrappers are
+excluded so later explanatory metadata can be updated without changing inputs.

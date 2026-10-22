@@ -1,0 +1,22 @@
+{
+  "case": "reactant-ethylene",
+  "tag": "grid5",
+  "geometrySource": "reactant-ethylene.json (unchanged r1 optimized geometry)",
+  "geometrySha256": "50bdeb26a1d8f57130b0d2e106397536f0309bf27a3c6743c59c9a8cb0cb2886",
+  "method": "B3LYP (VWN-RPA)",
+  "basis": "6-31g(d)",
+  "gridLevel": 5,
+  "charge": 0,
+  "multiplicity": 1,
+  "scfConverged": true,
+  "scfOrbitalGradientNorm": 5.341766727533148e-07,
+  "referenceInternalStable": true,
+  "referenceExternalStable": true,
+  "referenceEnergyHartree": -78.58582523545246,
+  "referenceLimitation": "Determinant stability does not establish correlation/basis convergence or exclude multireference effects.",
+  "maxFullResponseGradientEhPerBohr": 9.455177313988372e-06,
+  "densityConvention": "Restricted Kohn\u2013Sham occupation-weighted one-particle density.",
+  "bonds": [],
+  "energyHartree": -78.58582523545246,
+  "electronCount": 16.000000000000004
+}

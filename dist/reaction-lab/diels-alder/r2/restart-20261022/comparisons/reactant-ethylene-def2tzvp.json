@@ -1,0 +1,22 @@
+{
+  "case": "reactant-ethylene",
+  "tag": "def2tzvp",
+  "geometrySource": "reactant-ethylene.json (unchanged r1 optimized geometry)",
+  "geometrySha256": "50bdeb26a1d8f57130b0d2e106397536f0309bf27a3c6743c59c9a8cb0cb2886",
+  "method": "B3LYP (VWN-RPA)",
+  "basis": "def2-tzvp",
+  "gridLevel": 3,
+  "charge": 0,
+  "multiplicity": 1,
+  "scfConverged": true,
+  "scfOrbitalGradientNorm": 4.1850896154536227e-07,
+  "referenceInternalStable": true,
+  "referenceExternalStable": true,
+  "referenceEnergyHartree": -78.62365967460171,
+  "referenceLimitation": "Determinant stability does not establish correlation/basis convergence or exclude multireference effects.",
+  "maxFullResponseGradientEhPerBohr": 0.004154532777615572,
+  "densityConvention": "Restricted Kohn\u2013Sham occupation-weighted one-particle density.",
+  "bonds": [],
+  "energyHartree": -78.62365967460171,
+  "electronCount": 15.999999999999986
+}

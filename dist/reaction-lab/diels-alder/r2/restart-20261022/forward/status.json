@@ -1,0 +1,39 @@
+{
+  "complete": false,
+  "driverConverged": false,
+  "scientificValidation": "pending: independent descent and endpoint checks required",
+  "options": {
+    "irc": true,
+    "irc_direction": "forward",
+    "coordsys": "dlc",
+    "hessian": "file:/workspace/scratch/69db76a371c7/Ochem-Atlas/dist/reaction-lab/diels-alder/r2/restart-20261022/forward/initial-hessian.txt",
+    "trust": 0.05,
+    "tmin": 0.005,
+    "tmax": 0.05,
+    "maxiter": 160,
+    "convergence_energy": 1e-07,
+    "convergence_grms": 3e-05,
+    "convergence_gmax": 8e-05,
+    "convergence_drms": 0.0006,
+    "convergence_dmax": 0.001,
+    "subfrctor": 2
+  },
+  "gradientConvention": "Full moving-grid-response analytic B3LYP gradients; fresh level-3 grid each trial. Initial Hessian is unchanged r1 default-response analytic Hessian; subsequent BFGS updates. Not a full-response Hessian calculation.",
+  "model": {
+    "charge": 0,
+    "multiplicity": 1,
+    "electrons": 46,
+    "method": "B3LYP (VWN-RPA)",
+    "basis": "6-31G(d)",
+    "environment": "isolated gas phase"
+  },
+  "software": {
+    "pyscf": "2.14.0",
+    "geometric": "1.1.1"
+  },
+  "initialSources": {
+    "ts.json": "4d146491464f3ef339e7ac3d6cf47bc10d2be0c99b77e68da4c4d6137e701c2a",
+    "ts-scf.npz": "65b9b31fde69b63406e880c12523fa7e9faaa6b7ce631deb495366ddcdd1be2d",
+    "ts-hessian.npz": "7fcea8fc785d65dc80caf1e3bfd6cb69be9123fd882475df2c03efeb461b9896"
+  }
+}
