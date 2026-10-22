@@ -11,7 +11,7 @@ with zipfile.ZipFile(target, 'w', zipfile.ZIP_DEFLATED) as archive:
                  '.gitignore', '.github/workflows/pages.yml']:
         archive.write(root / name, 'sorg-atlas/' + name)
     for path in sorted((root / 'dist').rglob('*')):
-        if path.is_file() and path != target and '__pycache__' not in path.parts and not any(p.endswith('.tmp') for p in path.parts) and not path.name.endswith('.pending') and not ('r2' in path.parts and path.name.startswith('eval-') and path.suffix in ['.log','.json']):
+        if path.is_file() and path != target and not path.name.endswith('.run.lock') and '__pycache__' not in path.parts and not any(p.endswith('.tmp') for p in path.parts) and not path.name.endswith('.pending') and not ('r2' in path.parts and path.name.startswith('eval-') and path.suffix in ['.log','.json']):
             archive.write(path, 'sorg-atlas/' + str(path.relative_to(root)))
     for path in sorted((root / 'audit').rglob('*')):
         if path.is_file():archive.write(path, 'sorg-atlas/' + str(path.relative_to(root)))

@@ -1,0 +1,117 @@
+{
+  "points": [
+    {
+      "id": "grid3-step0.0",
+      "gridLevel": 3,
+      "displacementNormAngstrom": 0.0,
+      "energyHartree": -234.63483999347505,
+      "electronCount": 45.99999999999997,
+      "scfConverged": true,
+      "scfOrbitalGradientNorm": 3.180607558638372e-09
+    },
+    {
+      "id": "grid3-step-0.01",
+      "gridLevel": 3,
+      "displacementNormAngstrom": -0.01,
+      "energyHartree": -234.6348400214569,
+      "electronCount": 45.99999999999999,
+      "scfConverged": true,
+      "scfOrbitalGradientNorm": 7.733661833604027e-08
+    },
+    {
+      "id": "grid3-step0.01",
+      "gridLevel": 3,
+      "displacementNormAngstrom": 0.01,
+      "energyHartree": -234.6348399755974,
+      "electronCount": 46.00000000000001,
+      "scfConverged": true,
+      "scfOrbitalGradientNorm": 2.7346581525632685e-09
+    },
+    {
+      "id": "grid3-step-0.03",
+      "gridLevel": 3,
+      "displacementNormAngstrom": -0.03,
+      "energyHartree": -234.6348401018641,
+      "electronCount": 45.999999999999964,
+      "scfConverged": true,
+      "scfOrbitalGradientNorm": 3.6860157160117934e-08
+    },
+    {
+      "id": "grid3-step0.03",
+      "gridLevel": 3,
+      "displacementNormAngstrom": 0.03,
+      "energyHartree": -234.6348399640915,
+      "electronCount": 45.99999999999996,
+      "scfConverged": true,
+      "scfOrbitalGradientNorm": 5.655532345697037e-08
+    },
+    {
+      "id": "grid5-step0.0",
+      "gridLevel": 5,
+      "displacementNormAngstrom": 0.0,
+      "energyHartree": -234.63486188299476,
+      "electronCount": 46.0,
+      "scfConverged": true,
+      "scfOrbitalGradientNorm": 8.906188294876732e-08
+    },
+    {
+      "id": "grid5-step-0.01",
+      "gridLevel": 5,
+      "displacementNormAngstrom": -0.01,
+      "energyHartree": -234.6348618994577,
+      "electronCount": 45.999999999999964,
+      "scfConverged": true,
+      "scfOrbitalGradientNorm": 1.3534783026564254e-08
+    },
+    {
+      "id": "grid5-step0.01",
+      "gridLevel": 5,
+      "displacementNormAngstrom": 0.01,
+      "energyHartree": -234.63486188597852,
+      "electronCount": 45.99999999999996,
+      "scfConverged": true,
+      "scfOrbitalGradientNorm": 4.02870284476191e-09
+    },
+    {
+      "id": "grid5-step-0.03",
+      "gridLevel": 5,
+      "displacementNormAngstrom": -0.03,
+      "energyHartree": -234.63486198408103,
+      "electronCount": 46.000000000000085,
+      "scfConverged": true,
+      "scfOrbitalGradientNorm": 3.739919954424059e-08
+    },
+    {
+      "id": "grid5-step0.03",
+      "gridLevel": 5,
+      "displacementNormAngstrom": 0.03,
+      "energyHartree": -234.63486194346353,
+      "electronCount": 45.99999999999997,
+      "scfConverged": true,
+      "scfOrbitalGradientNorm": 3.7414032460653426e-08
+    }
+  ],
+  "directionalChecks": [
+    {
+      "gridLevel": 3,
+      "displacementNormAngstrom": 0.01,
+      "energyCurvatureEhPerBohr2": -2.8294647149563166e-05
+    },
+    {
+      "gridLevel": 3,
+      "displacementNormAngstrom": 0.03,
+      "energyCurvatureEhPerBohr2": -2.458200218167631e-05
+    },
+    {
+      "gridLevel": 5,
+      "displacementNormAngstrom": 0.01,
+      "energyCurvatureEhPerBohr2": -5.445631198186861e-05
+    },
+    {
+      "gridLevel": 5,
+      "displacementNormAngstrom": 0.03,
+      "energyCurvatureEhPerBohr2": -5.026668193840859e-05
+    }
+  ],
+  "interpretation": "Central finite energy curvature along one retained Cartesian mode only. Not a complete numerical Hessian, converged frequency spectrum or independently validated IRC."
+}

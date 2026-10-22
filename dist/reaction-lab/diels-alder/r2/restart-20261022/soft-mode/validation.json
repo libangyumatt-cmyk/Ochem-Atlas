@@ -1,0 +1,6 @@
+{
+  "result": "pass",
+  "pointCount": 10,
+  "curvatureRows": 4,
+  "scope": "Reconstruction/normalization of actual directional energy probes; not full Hessian or IRC validation."
+}

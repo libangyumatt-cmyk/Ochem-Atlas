@@ -1,0 +1,162 @@
+#INFO: **** input file is /workspace/scratch/69db76a371c7/Ochem-Atlas/research/diels-alder/r2/compare.py ****
+"""Targeted fixed-r1-geometry method/basis/grid diagnostics; no reoptimization.
+Run one case/tag at a time, or use --all for separately checkpointed processes.
+An unstable reference is retained and flagged, never treated as validation.
+"""
+from common import *
+import subprocess,fcntl
+from pyscf import scf
+from pyscf.mp.dfmp2_native import DFRMP2
+from pyscf.df.addons import make_auxbasis
+
+def main():
+ folder=OUT/'comparisons';folder.mkdir(exist_ok=True)
+ cases=['reactant-ethylene','reactant-butadiene','ts','product'];tags=['grid5','def2tzvp','ri-mp2-def2tzvp']
+ if '--all' in sys.argv:
+  for case in cases:
+   for tag in tags:subprocess.run([sys.executable,'-u',__file__,case,tag],check=True)
+  return
+ case,tag=sys.argv[1:3];assert case in cases and tag in tags;name=case+'-'+tag;target=folder/(name+'.json')
+ case_lock=(folder/(name+'.run.lock')).open('a');fcntl.flock(case_lock,fcntl.LOCK_EX)
+ if target.exists():print('Retained completed',name,flush=True);return
+ source=record(case);elements=[a['element'] for a in source['atoms']];x=np.array([a['xyzAngstrom'] for a in source['atoms']])/BOHR
+ basis='6-31g(d)' if tag=='grid5' else 'def2-tzvp';grid=5 if tag=='grid5' else 3
+ if tag=='ri-mp2-def2tzvp':
+  m=gto.M(atom=list(zip(elements,x)),unit='Bohr',basis=basis,charge=0,spin=0,max_memory=1200,verbose=4,output=str(folder/(name+'.log')))
+  f=scf.RHF(m).density_fit();f.conv_tol=1e-10;f.conv_tol_grad=1e-6;f.max_cycle=120;f.kernel();assert f.converged
+ else:m,f=solve(x,folder/(name+'.log'),grid=grid,basis=basis,elements=elements)
+ s=m.intor('int1e_ovlp');p=f.make_rdm1()
+ save_npz(folder/(name+'-scf.npz'),coordinatesAngstrom=x*BOHR,mo_coeff=f.mo_coeff,mo_occ=f.mo_occ,mo_energy=f.mo_energy,density_matrix=p,overlap=s)
+ write(folder/(name+'-progress.json'),dict(stage='SCF converged; stability and analysis pending',energyHartree=float(f.e_tot)))
+ _,_,si,se=f.stability(internal=True,external=True,return_status=True)
+ write(folder/(name+'-progress.json'),dict(stage='Reference stability completed; final analysis pending',internalStable=bool(si),externalStable=bool(se)))
+ result=dict(case=case,tag=tag,geometrySource=case+'.json (unchanged r1 optimized geometry)',geometrySha256=hashlib.sha256((BASE/(case+'.json')).read_bytes()).hexdigest(),method='RI-RMP2' if tag=='ri-mp2-def2tzvp' else 'B3LYP (VWN-RPA)',basis=basis,gridLevel=None if tag=='ri-mp2-def2tzvp' else grid,charge=0,multiplicity=1,scfConverged=bool(f.converged),scfOrbitalGradientNorm=float(np.linalg.norm(f.get_grad(f.mo_coeff,f.mo_occ,f.get_fock()))),referenceInternalStable=bool(si),referenceExternalStable=bool(se),referenceEnergyHartree=float(f.e_tot),referenceLimitation='Unstable reference: diagnostic only, not accepted as a validated correlated benchmark.' if not(si and se) else 'Determinant stability does not establish correlation/basis convergence or exclude multireference effects.')
+ energy=float(f.e_tot);arrays={}
+ if tag=='ri-mp2-def2tzvp':
+  mp=DFRMP2(f,auxbasis=make_auxbasis(m,mp2fit=True));mp.kernel();p=mp.make_rdm1(ao_repr=True);energy=float(mp.e_tot)
+  result.update(correlationEnergyHartree=float(mp.e_corr),densityConvention='Unrelaxed MP2 one-particle density; HF canonical orbitals, not correlated natural orbitals.',hfAuxiliaryBasis=f.with_df.auxbasis,correlationAuxiliaryBasis=mp.auxmol.basis,frozenElectrons=0)
+ elif case=='ts' or '--gradient' in sys.argv:
+  grad=f.nuc_grad_method();grad.grid_response=True;g=grad.kernel();arrays['fullResponseGradient']=g;result.update(maxFullResponseGradientEhPerBohr=float(abs(g).max()),densityConvention='Restricted Kohn–Sham occupation-weighted one-particle density.')
+ else:
+  result.update(gradientStatus='Not calculated in this fixed-geometry diagnostic; no alternative-level stationary point is claimed.',densityConvention='Restricted Kohn–Sham occupation-weighted one-particle density.')
+ result['bonds']=[]
+ if len(elements)==16:
+  ev,u=np.linalg.eigh(s);root=(u*np.sqrt(ev))@u.T;q=root@p@root;ps=p@s;slices=m.aoslice_by_atom()
+  for i,j in [(0,4),(3,5),(0,1),(2,3),(4,5),(1,2)]:
+   a,b=slices[i,2:];c,d=slices[j,2:];result['bonds'].append(dict(atoms=[i,j],distanceAngstrom=float(np.linalg.norm(x[i]-x[j])*BOHR),mayer=float(np.sum(ps[a:b,c:d]*ps[c:d,a:b].T)),lowdinWiberg=float(np.sum(q[a:b,c:d]**2))))
+  old=np.load(BASE/(case+'-scf.npz'));om=gto.M(atom=list(zip(elements,x)),unit='Bohr',basis='6-31g(d)',verbose=0)
+  tracked=np.load(BASE/(case+'-tracked.npz'));cross=gto.intor_cross('int1e_ovlp',om,m);matches=[]
+  for role,j in zip(['occupied','virtual'],tracked['indices']):
+   projection=tracked['mo_coeff'][:,j]@cross@f.mo_coeff;block=np.where(f.mo_occ>0 if role=='occupied' else f.mo_occ==0)[0];k=int(block[np.argmax(abs(projection[block]))]);matches.append(dict(role=role,r1Index=int(j)+1,comparisonIndex=k+1,absoluteSpatialOverlap=float(abs(projection[k])),phaseToMatchR1=1 if projection[k]>=0 else -1,interpretation='Same-geometry canonical spatial match; overlap is not an interaction energy.'))
+  result['orbitalMatches']=matches
+  nodes=np.stack(np.meshgrid(np.arange(-10,12,.56),np.arange(-9,11,.56),np.arange(-7,13,.56),indexing='ij'),axis=-1).reshape(-1,3);deltas=[]
+  for start in range(0,len(nodes),2000):
+   points=nodes[start:start+2000];a=m.eval_gto('GTOval_sph',points);b=om.eval_gto('GTOval_sph',points);deltas.append(np.einsum('pi,ij,pj->p',a,p,a)-np.einsum('pi,ij,pj->p',b,old['density_matrix'],b))
+  delta=np.concatenate(deltas);arrays.update(sampleCoordinatesBohr=nodes,sameGeometryDensityDifference=delta);result['densityComparison']=dict(reference='Unchanged r1 B3LYP/6-31G(d), grid3, at identical nuclei and laboratory coordinates; current minus reference.',units='electron bohr^-3',sampling='x[-10,12), y[-9,11), z[-7,13) bohr, spacing0.56bohr; z fastest. Coarse samples, not a quantitative core integral or unique transferred charge.',sampleRms=float(np.sqrt(np.mean(delta**2))))
+ save_npz(folder/(name+'-analysis.npz'),coordinatesAngstrom=x*BOHR,mo_coeff=f.mo_coeff,mo_occ=f.mo_occ,mo_energy=f.mo_energy,density_matrix=p,overlap=s,**arrays)
+ result.update(energyHartree=energy,electronCount=float(np.einsum('ij,ji',p,s)))
+ write(target,result);print('COMPLETED',name,energy,si,se,flush=True)
+
+if __name__=='__main__':main()
+#INFO: ******************** input file end ********************
+
+
+System: uname_result(system='Linux', node='13da51aa3ce8', release='6.18.55', version='#1 SMP Wed Oct 14 19:45:18 UTC 2026', machine='x86_64')  Threads 3
+Python 3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]
+numpy 2.3.5  scipy 1.17.0  h5py 3.16.0
+Date: Fri Oct 23 04:42:45 2026
+PySCF version 2.14.0
+PySCF path  /root/.local/lib/python3.12/site-packages/pyscf
+
+[CONFIG] conf_file None
+[INPUT] verbose = 4
+[INPUT] num. atoms = 16
+[INPUT] num. electrons = 46
+[INPUT] charge = 0
+[INPUT] spin (= nelec alpha-beta = 2S) = 0
+[INPUT] symmetry False subgroup None
+[INPUT] Mole.unit = Bohr
+[INPUT] Symbol           X                Y                Z      unit          X                Y                Z       unit  Magmom
+[INPUT]  1 C     -1.498244316901   0.058968208646   0.655375927724 AA   -2.831271426629   0.111433764398   1.238481012030 Bohr   0.0
+[INPUT]  2 C     -0.665752777106  -0.518021487812  -0.464680238682 AA   -1.258090415399  -0.978918738604  -0.878118386606 Bohr   0.0
+[INPUT]  3 C      0.665788897252  -0.410270433356  -0.526691654038 AA    1.258158672582  -0.775298756050  -0.995302978227 Bohr   0.0
+[INPUT]  4 C      1.497913123082   0.272068938612   0.532790410237 AA    2.830645561016   0.514135780977   1.006827957142 Bohr   0.0
+[INPUT]  5 C     -0.701001063025   1.057579880224   1.510683311065 AA   -1.324700022145   1.998536328473   2.854777718864 Bohr   0.0
+[INPUT]  6 C      0.700233753490   0.514884741480   1.824693243080 AA    1.323250017272   0.972991147115   3.448170490766 Bohr   0.0
+[INPUT]  7 H     -2.391677517841   0.546010570769   0.240026206996 AA   -4.519615486999   1.031810439870   0.453583793940 Bohr   0.0
+[INPUT]  8 H     -1.878950647731  -0.759222216072   1.287906059252 AA   -3.550702125786  -1.434722056062   2.433789726153 Bohr   0.0
+[INPUT]  9 H     -1.198671416220  -1.044157148335  -1.256255197712 AA   -2.265160690000  -1.973171041360  -2.373978266237 Bohr   0.0
+[INPUT] 10 H      1.199011668847  -0.833163353168  -1.377718859177 AA    2.265803674278  -1.574450554512  -2.603511320493 Bohr   0.0
+[INPUT] 11 H      1.879008004246   1.228460984495   0.139678349407 AA    3.550810513891   2.321454815409   0.263953825910 Bohr   0.0
+[INPUT] 12 H      2.391116394676  -0.331150842534   0.747898645454 AA    4.518555117894  -0.625784398308   1.413323608841 Bohr   0.0
+[INPUT] 13 H     -0.603993728562   2.005056587430   0.962226229208 AA   -1.141382727936   3.789007814498   1.818344043075 Bohr   0.0
+[INPUT] 14 H     -1.245410598740   1.282574410795   2.436077444306 AA   -2.353484944250   2.423714370778   4.603519187968 Bohr   0.0
+[INPUT] 15 H      1.244357498621   1.204648077774   2.481590256009 AA    2.351494873442   2.276454943476   4.689525937246 Bohr   0.0
+[INPUT] 16 H      0.603214543346  -0.433177406631   2.372123718181 AA    1.139910281279  -0.818586661882   4.482664160947 Bohr   0.0
+
+nuclear repulsion = 236.127437501051
+number of shells = 56
+number of NR pGTOs = 202
+number of NR cGTOs = 104
+basis = 6-31g(d)
+ecp = {}
+CPU time:         0.66
+
+
+******** <class 'pyscf.dft.rks.RKS'> ********
+method = RKS
+initial guess = minao
+damping factor = 0
+level_shift factor = 0
+DIIS = <class 'pyscf.scf.diis.CDIIS'>
+diis_start_cycle = 1
+diis_space = 8
+diis_damp = 0
+SCF conv_tol = 1e-10
+SCF conv_tol_grad = 1e-06
+SCF max_cycles = 120
+direct_scf = True
+direct_scf_tol = 1e-13
+chkfile to save SCF result = /tmp/tmp0bslfokm
+max_memory 1200 MB (current use 2 MB)
+XC library pyscf.dft.libxc version 7.0.0
+    S. Lehtola, C. Steigemann, M. J.T. Oliveira, and M. A.L. Marques.,  SoftwareX 7, 1–5 (2018)
+XC functionals = b3lyp
+    P. J. Stephens, F. J. Devlin, C. F. Chabalowski, and M. J. Frisch.,  J. Phys. Chem. 98, 11623 (1994)
+radial grids: 
+    Treutler-Ahlrichs [JCP 102, 346 (1995); DOI:10.1063/1.469408] (M4) radial grids
+    
+becke partition: Becke, JCP 88, 2547 (1988); DOI:10.1063/1.454033
+pruning grids: <function nwchem_prune at 0x7f4d7e5f4ea0>
+grids dens level: 5
+symmetrized grids: False
+atomic radii adjust function: <function treutler_atomic_radii_adjust at 0x7f4d7e5f53a0>
+small_rho_cutoff = 0
+Initial guess from minao.
+tot grids = 493272
+init E= -235.135016296039
+  HOMO = -0.291278775671856  LUMO = -0.062788139515479  gap/eV = 6.21755
+cycle= 1 E= -234.585662300203  delta_E= 0.549  |g|= 0.448  |ddm|= 3.49
+  HOMO = -0.161168075112331  LUMO = 0.09700510134304  gap/eV = 7.02525
+cycle= 2 E= -234.563114202153  delta_E= 0.0225  |g|= 0.546  |ddm|= 1.15
+  HOMO = -0.231883622337255  LUMO = 0.0349770582069242  gap/eV = 7.26165
+cycle= 3 E= -234.643649044178  delta_E= -0.0805  |g|= 0.0373  |ddm|= 0.663
+  HOMO = -0.234426285321761  LUMO = 0.033079380947413  gap/eV = 7.27920
+cycle= 4 E= -234.643950386564  delta_E= -0.000301  |g|= 0.00992  |ddm|= 0.0537
+  HOMO = -0.232785193976379  LUMO = 0.0347256554361062  gap/eV = 7.27934
+cycle= 5 E= -234.643969521194  delta_E= -1.91e-05  |g|= 0.00502  |ddm|= 0.015
+  HOMO = -0.233421656532506  LUMO = 0.0341184942853596  gap/eV = 7.28014
+cycle= 6 E= -234.643976244825  delta_E= -6.72e-06  |g|= 0.000173  |ddm|= 0.0058
+  HOMO = -0.233407898837517  LUMO = 0.0341248358138131  gap/eV = 7.27994
+cycle= 7 E= -234.643976252348  delta_E= -7.52e-09  |g|= 3.45e-05  |ddm|= 0.000248
+  HOMO = -0.233407030792087  LUMO = 0.0341261924062413  gap/eV = 7.27995
+cycle= 8 E= -234.643976252506  delta_E= -1.58e-10  |g|= 2.49e-05  |ddm|= 4.99e-05
+  HOMO = -0.233406884010142  LUMO = 0.0341264950590463  gap/eV = 7.27995
+cycle= 9 E= -234.643976252657  delta_E= -1.5e-10  |g|= 3.87e-06  |ddm|= 2.19e-05
+  HOMO = -0.233406837324773  LUMO = 0.0341265401582591  gap/eV = 7.27995
+cycle= 10 E= -234.643976252657  delta_E= -4.55e-13  |g|= 2.08e-06  |ddm|= 5.29e-06
+  HOMO = -0.23340676127482  LUMO = 0.0341266102242996  gap/eV = 7.27995
+cycle= 11 E= -234.643976252659  delta_E= -2.22e-12  |g|= 2.21e-07  |ddm|= 2.05e-06
+  HOMO = -0.233406812825403  LUMO = 0.0341265673539959  gap/eV = 7.27995
+Extra cycle  E= -234.643976252659  delta_E= 3.41e-13  |g|= 2.46e-07  |ddm|= 5.66e-07
+converged SCF energy = -234.643976252659

@@ -1,0 +1,9 @@
+{
+  "id": "grid3-step-0.01",
+  "gridLevel": 3,
+  "displacementNormAngstrom": -0.01,
+  "energyHartree": -234.6348400214569,
+  "electronCount": 45.99999999999999,
+  "scfConverged": true,
+  "scfOrbitalGradientNorm": 7.733661833604027e-08
+}

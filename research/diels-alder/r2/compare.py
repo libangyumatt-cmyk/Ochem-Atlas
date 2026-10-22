@@ -3,7 +3,7 @@ Run one case/tag at a time, or use --all for separately checkpointed processes.
 An unstable reference is retained and flagged, never treated as validation.
 """
 from common import *
-import subprocess
+import subprocess,fcntl
 from pyscf import scf
 from pyscf.mp.dfmp2_native import DFRMP2
 from pyscf.df.addons import make_auxbasis
@@ -16,6 +16,7 @@ def main():
    for tag in tags:subprocess.run([sys.executable,'-u',__file__,case,tag],check=True)
   return
  case,tag=sys.argv[1:3];assert case in cases and tag in tags;name=case+'-'+tag;target=folder/(name+'.json')
+ case_lock=(folder/(name+'.run.lock')).open('a');fcntl.flock(case_lock,fcntl.LOCK_EX)
  if target.exists():print('Retained completed',name,flush=True);return
  source=record(case);elements=[a['element'] for a in source['atoms']];x=np.array([a['xyzAngstrom'] for a in source['atoms']])/BOHR
  basis='6-31g(d)' if tag=='grid5' else 'def2-tzvp';grid=5 if tag=='grid5' else 3

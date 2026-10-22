@@ -451,3 +451,43 @@ IRC stuck with the minimum step-size and bad quality step. Forcing it to take a 
 => Total step mw-dx = 0.01088 Bohr*sqrt(amu)
 
 output file: /workspace/scratch/69db76a371c7/Ochem-Atlas/dist/reaction-lab/diels-alder/r2/restart-20261022/forward/eval-0041.log
+EVALUATION forward 41 -234.63483992786217
+Step   36 : Displace = [0m1.053e-03[0m/[0m1.715e-03[0m (rms/max) Trust = 5.000e-03 (=) Grad = [0m3.960e-05[0m/[92m7.188e-05[0m (rms/max) E (change) = -234.6348399279 ([0m-3.814e-07[0m) Quality = [0m0.774[0m
+=> Total step dy    = 0.00783 
+=> Total step mw-dx = 0.01055 Bohr*sqrt(amu)
+
+output file: /workspace/scratch/69db76a371c7/Ochem-Atlas/dist/reaction-lab/diels-alder/r2/restart-20261022/forward/eval-0042.log
+EVALUATION forward 42 -234.6348398477529
+Step   37 : Displace = [0m1.038e-03[0m/[0m1.802e-03[0m (rms/max) Trust = 7.071e-03 ([92m+[0m) Grad = [0m5.243e-05[0m/[0m1.267e-04[0m (rms/max) E (change) = -234.6348398478 ([92m+8.011e-08[0m) Quality = [91m-0.708[0m
+[93mRejecting step - low quality IRC step[0m
+Checking coordinate system
+=> Total step dy    = 0.00683 
+=> Total step mw-dx = 0.00904 Bohr*sqrt(amu)
+
+output file: /workspace/scratch/69db76a371c7/Ochem-Atlas/dist/reaction-lab/diels-alder/r2/restart-20261022/forward/eval-0043.log
+EVALUATION forward 43 -234.63483985805664
+Step   37 : Displace = [0m8.898e-04[0m/[0m1.534e-03[0m (rms/max) Trust = 5.000e-03 ([1;91mx[0m) Grad = [0m5.432e-05[0m/[0m1.290e-04[0m (rms/max) E (change) = -234.6348398581 ([92m+6.981e-08[0m) Quality = [91m-0.540[0m
+IRC stuck with the minimum step-size and bad quality step. Forcing it to take a step.
+=> Total step dy    = 0.00578 
+=> Total step mw-dx = 0.00829 Bohr*sqrt(amu)
+
+output file: /workspace/scratch/69db76a371c7/Ochem-Atlas/dist/reaction-lab/diels-alder/r2/restart-20261022/forward/eval-0044.log
+EVALUATION forward 44 -234.63483998620964
+Step   38 : Displace = [0m8.321e-04[0m/[0m1.382e-03[0m (rms/max) Trust = 5.000e-03 (=) Grad = [92m1.292e-05[0m/[92m2.107e-05[0m (rms/max) E (change) = -234.6348399862 ([0m-1.282e-07[0m) Quality = [0m0.849[0m
+=> Total step dy    = 0.00328 
+=> Total step mw-dx = 0.00518 Bohr*sqrt(amu)
+
+output file: /workspace/scratch/69db76a371c7/Ochem-Atlas/dist/reaction-lab/diels-alder/r2/restart-20261022/forward/eval-0045.log
+EVALUATION forward 45 -234.6348399879704
+Step   39 : Displace = [92m5.185e-04[0m/[92m9.406e-04[0m (rms/max) Trust = 7.071e-03 ([92m+[0m) Grad = [92m6.201e-06[0m/[92m1.216e-05[0m (rms/max) E (change) = -234.6348399880 ([92m-1.761e-09[0m) Quality = [0m0.384[0m
+Hessian Eigenvalues: 2.69857e-03 2.85530e-03 1.34701e-02 ... 4.75603e-01 4.84087e-01 5.48000e-01
+Converged! =D
+
+    #==========================================================================#
+    #| If this code has benefited your research, please support us by citing: |#
+    #|                                                                        |#
+    #| Wang, L.-P.; Song, C.C. (2016) "Geometry optimization made simple with |#
+    #| translation and rotation coordinates", J. Chem, Phys. 144, 214108.     |#
+    #| http://dx.doi.org/10.1063/1.4952956                                    |#
+    #==========================================================================#
+    Time elapsed since start of run_optimizer: 1458.687 seconds

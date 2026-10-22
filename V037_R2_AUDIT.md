@@ -1,7 +1,7 @@
 # Ochem Atlas v0.3.7-r2 — Diels–Alder scientific validation
 
 **Scientific status: INCOMPLETE: endpoint/path verification pending or failed.**
-Audit generated 2026-10-22T20:16:24.242897+00:00; this is an explicit
+Audit generated 2026-10-22T20:44:14.583309+00:00; this is an explicit
 checkpoint of actual files, not a promise that pending calculations completed.
 The original five displayed geometries remain separately calculated constrained
 study/saddle/minimum data. No new “Validated IRC” selector has been exposed.
@@ -24,7 +24,8 @@ outputs were committed before waiting for complete path validation.
 
 Neutral singlet C6H10, 46 electrons, ground-state restricted B3LYP (VWN-RPA),
 6-31G(d), gas phase, integration grid3. No solvent, dispersion, zero-point or
-thermal/free-energy corrections. Atom mapping is unchanged: diene C1–C4,
+thermal/free-energy corrections. SCF energies include nuclear repulsion
+(Born–Oppenheimer total energies). Atom mapping is unchanged: diene C1–C4,
 ethylene C5–C6, then H7–H16. Forming pairs C1–C5 and C4–C6.
 
 geomeTRIC1.1.1 Gonzalez–Schlegel mass-weighted internal-coordinate IRC;
@@ -49,8 +50,8 @@ mode sign, not a predefined chemical identity.
 
 | Branch | Driver complete / converged | SCF-gradient evaluations | Accepted IRC points | Largest accepted energy increment / Eh | Last accepted forming distances / Å |
 | --- | --- | ---: | ---: | ---: | --- |
-| forward | False / False | 40 | 35 | 6.231678639778693e-08 | [1.5495974134474493, 1.5495240188278236] |
-| backward | False / False | 41 | 39 | -0.00015182843003458402 | [3.416890970321173, 3.415692899316016] |
+| forward | True / True | 45 | 39 | 6.980553735047579e-08 | [1.5496383508946299, 1.549563120715225] |
+| backward | False / False | 111 | 106 | -4.300675584545388e-07 | [3.9255223898179725, 4.133577579366266] |
 
 An independent numerical descent check permits at most3e-6Eh positive change.
 Accepted/rejected steps are distinguished using retained program coordinates,
@@ -71,11 +72,26 @@ response force<2e-4Eh/bohr and stable reference. It remains model/numerics depen
 
 | Endpoint | E / Eh | Max full-response gradient / Eh bohr⁻¹ | Lowest frequency / cm⁻¹ | Internal / external stability | Minimum verified |
 | --- | ---: | ---: | ---: | --- | --- |
-| forward | pending | pending | pending | pending | pending |
-| backward | pending | pending | pending | pending | pending |
+| forward | -234.6348399935 | 7.79706e-06 | -31.79141 | True / True | False |
+| backward | pending | unavailable | unavailable | unavailable | unavailable |
 
 Endpoint frequencies are independently reconstructed from retained full
-Hessians. Cartesian inputs, orbitals, AO overlap/density matrices and gradients
+Hessians. The original forward analysis used the raw numerical Hessian. A small
+nonsymmetric residual made lower-triangle diagonalization slightly dependent on
+the arbitrary projected vibrational basis; strict1e-5cm⁻¹ reconstruction initially
+failed by about0.002cm⁻¹. We retained that result and explicitly analyzed
+(H+Hᵀ)/2. The driver now uses this symmetrized matrix for subsequent endpoint
+analyses while retaining raw matrices and each actual analysis convention.
+No physical recalculation is implied by this algebraic analysis.
+The validator requires transpose residual<1e-4Eh/bohr², raw-to-symmetrized shift
+<0.1cm⁻¹ and identical mode signs. Explicitly symmetrized results must reconstruct
+within1e-5cm⁻¹. These are consistency tolerances, not grid-convergence proof.
+
+| Endpoint | Hessian transpose residual / Eh bohr⁻² | Report reconstruction difference / cm⁻¹ | Max raw-to-symmetrized shift / cm⁻¹ | Symmetrized lowest frequency / cm⁻¹ |
+| --- | ---: | ---: | ---: | ---: |
+| forward | 2.104175e-06 | 0.001599 | 0.002562 | -31.790185 |
+
+Cartesian inputs, orbitals, AO overlap/density matrices and gradients
 are retained. Explicit carbon (1.85Å) and C–H (1.30Å) diagnostic connectivity
 cutoffs and proper-rotation fixed-map RMSD comparisons with independent r1
 minima are recorded separately when available. Those cutoffs are not bond-order
@@ -84,23 +100,33 @@ RMSD. No new isolated-reactant optimization or global conformer search is claime
 A finite-distance encounter region is never called infinitely separated reactants.
 
 Current unresolved path checks:
-- forward driver convergence incomplete
-- forward independent endpoint verification missing
+- forward endpoint failed minimum verification
 - backward driver convergence incomplete
-- backward independent endpoint verification missing
+- backward independent endpoint verification missing: pending or unavailable
+
+### Directional energy/grid checks
+
+Ten fresh tight-SCF energies probe zero and ±0.01/±0.03 Å total Cartesian norm along the stored unresolved mode, at grids3 and5. SCF thresholds1e-12Eh and1e-7 orbital gradient. Coordinates, logs, coefficients, density matrices and overlap matrices are retained. Independent position/normalization/curvature reconstruction passed. Probe determinant stability was not recomputed. These are directional energy tests, not IRC points, a full Hessian or a frequency spectrum.
+
+| Grid | Cartesian displacement norm / Å | Energy curvature / Eh bohr⁻² |
+| ---: | ---: | ---: |
+| 3 | 0.01 | -2.8294647e-05 |
+| 3 | 0.03 | -2.4582002e-05 |
+| 5 | 0.01 | -5.4456312e-05 |
+| 5 | 0.03 | -5.0266682e-05 |
 
 ## Method, basis and integration-grid sensitivity
 
-Completed fixed-geometry cases: 6/12. Independent retained-array
+Completed fixed-geometry cases: 7/12. Independent retained-array
 consistency result: partial;
-independently checked cases: 6.
+independently checked cases: 7.
 These are the unchanged independently optimized r1 geometries, not optimized
 alternative-method stationary points. No alternative-basis TS Hessian/IRC,
 geometry-convergence, multireference or coupled-cluster claim is made.
 
 | Level | Completed geometries | TS-geometry energy excess / kcal mol⁻¹ | Product−reactants / kcal mol⁻¹ | All references stable | Scope |
 | --- | --- | ---: | ---: | --- | --- |
-| grid5 | 2/4 | unavailable | unavailable | unavailable | rather than infer missing results |
+| grid5 | 3/4 | unavailable | unavailable | unavailable | rather than infer missing results |
 | def2tzvp | 2/4 | unavailable | unavailable | unavailable | rather than infer missing results |
 | ri-mp2-def2tzvp | 2/4 | unavailable | unavailable | unavailable | rather than infer missing results |
 
@@ -121,6 +147,7 @@ Finite comparisons do not establish basis, correlation or grid convergence.
 | reactant-ethylene-def2tzvp | -78.6236596746 | True / True | 16.000000000 |
 | reactant-ethylene-grid5 | -78.5858252355 | True / True | 16.000000000 |
 | reactant-ethylene-ri-mp2-def2tzvp | -78.4239307409 | True / True | 16.000000000 |
+| ts-grid5 | -234.5393373777 | True / True | 46.000000000 |
 
 TS/product comparisons retain six Mayer and Löwdin-Wiberg bond indices,
 same-geometry occupied/virtual canonical spatial matches, and actual density
@@ -186,6 +213,11 @@ Alder frames, orbital/density metadata, assets, asynchronous selector races and
 DOM interaction. Subsequent release-specific regression and published browser
 checks must be recorded separately before claiming completion. Native mobile
 touch and WebGL cannot be certified from DOM or static projections.
+
+Published desktop checkpoint checks passed: all three system selections,
+five retained Diels–Alder geometries, density-difference legend, occupied/virtual
+orbital and phase controls, and event/geometry/orbital retention across systems.
+No unverified IRC selector was present. Native mobile touch was not tested.
 
 All raw trial JSON/logs are retained in CRC-checked evaluations.zip archives,
 updated every five evaluations and upon termination. Latest-wavefunction and

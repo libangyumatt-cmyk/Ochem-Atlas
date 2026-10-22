@@ -12,12 +12,15 @@ def verify(folder,x):
  grad=f.nuc_grad_method();grad.grid_response=True;g=grad.kernel()
  save_npz(folder/'scf-checkpoint.npz',coordinatesAngstrom=x,gradient=g,mo_coeff=f.mo_coeff,mo_occ=f.mo_occ,mo_energy=f.mo_energy,density_matrix=p,overlap=s)
  write(folder/'progress.json',dict(stage='SCF/gradient complete; Hessian and determinant stability pending'))
- h=f.Hessian().kernel();vib=thermo.harmonic_analysis(m,h);freq=np.array([-abs(z.imag) if abs(z.imag)>1e-8 else z.real for z in vib['freq_wavenumber']])
- save_npz(folder/'wavefunction.npz',coordinatesAngstrom=x,gradient=g,hessian=h,frequenciesCm=freq,normal_modes=vib['norm_mode'],mo_coeff=f.mo_coeff,mo_occ=f.mo_occ,mo_energy=f.mo_energy,density_matrix=p,overlap=s)
+ h=f.Hessian().kernel();hs=(h+h.transpose(1,0,3,2))/2;vib=thermo.harmonic_analysis(m,hs);freq=np.array([-abs(z.imag) if abs(z.imag)>1e-8 else z.real for z in vib['freq_wavenumber']])
+ save_npz(folder/'wavefunction.npz',coordinatesAngstrom=x,gradient=g,hessian=h,hessianSymmetrized=hs,frequenciesCm=freq,normal_modes=vib['norm_mode'],mo_coeff=f.mo_coeff,mo_occ=f.mo_occ,mo_energy=f.mo_energy,density_matrix=p,overlap=s)
  write(folder/'progress.json',dict(stage='Full analytic Hessian complete; determinant stability pending',lowestFrequencyCm=float(min(freq))))
  _,_,si,se=f.stability(internal=True,external=True,return_status=True)
  r=dict(energyHartree=float(f.e_tot),coordinatesAngstrom=x.tolist(),elements=[m.atom_symbol(i) for i in range(m.natm)],electronCount=float(np.einsum('ij,ji',p,s)),maxFullResponseGradientEhPerBohr=float(abs(g).max()),frequenciesCm=freq.tolist(),internalStable=bool(si),externalStable=bool(se),scfConverged=bool(f.converged),minimumVerified=bool(abs(g).max()<2e-4 and min(freq)>0 and si and se),hessianConvention='Full all-nuclear-coordinate analytic PySCF Hessian with default grid-response approximation. Not a full moving-grid-response Hessian; full-response gradients used for optimization and final forces.')
- write(folder/'verification.json',r);return r
+ r['frequencyHessianConvention']='explicitly symmetrized raw analytic Hessian'
+ write(folder/'verification.json',r)
+ write(folder/'progress.json',dict(stage='Complete: minimum verified' if r['minimumVerified'] else 'Complete: minimum verification failed',lowestFrequencyCm=float(min(freq)),internalStable=bool(si),externalStable=bool(se)))
+ return r
 
 def main():
  direction=sys.argv[1];assert direction in ['forward','backward']

@@ -26,17 +26,26 @@ def main():
    cumulative+=float(np.sqrt(np.sum(mass[:,None]*(x-previous)**2)));uphill.append(e['energyHartree']-previous_energy)
    points.append(dict(evaluation=e['evaluation'],energyHartree=e['energyHartree'],coordinatesAngstrom=(x*BOHR).tolist(),formingDistancesAngstrom=[float(np.linalg.norm(x[i]-x[j])*BOHR) for i,j in [(0,4),(3,5)]],cumulativeChordLengthBohrSqrtAmu=cumulative));previous=x;previous_energy=e['energyHartree']
   largest=max(uphill) if uphill else None
-  report['branches'][direction]=dict(driverComplete=state['complete'],driverConverged=state['driverConverged'],rawEvaluations=len(ev),acceptedIRCPoints=points,maximumAcceptedEnergyIncreaseHartree=largest)
+  report['branches'][direction]=dict(driverComplete=state['complete'],driverConverged=state['driverConverged'],driverError=state.get('error'),rawEvaluations=len(ev),acceptedIRCPoints=points,maximumAcceptedEnergyIncreaseHartree=largest)
   if not state['complete'] or not state['driverConverged']:report['limitations'].append(direction+' driver convergence incomplete')
   if not points or largest>3e-6:report['limitations'].append(direction+' failed 3e-6 Eh accepted-step descent tolerance')
   folder=OUT/'endpoints'/direction;p=folder/'verification.json'
-  if not p.exists():report['limitations'].append(direction+' independent endpoint verification missing');continue
+  if not p.exists():
+   failure=folder/'failure.json';reason=json.loads(failure.read_text())['error'] if failure.exists() else 'pending or unavailable'
+   report['limitations'].append(direction+' independent endpoint verification missing: '+reason);continue
   v=json.loads(p.read_text());w=np.load(folder/'wavefunction.npz');assert v['elements']==elems
+  assert all(np.isfinite(w[key]).all() for key in w.files)
+  opt=json.loads((folder/'optimizer-status.json').read_text());assert opt['converged'] and np.max(abs(np.array(opt['finalCoordinatesAngstrom'])-v['coordinatesAngstrom']))<1e-10
+  endpoint_trials=evaluations(folder);x=np.array(v['coordinatesAngstrom'])/BOHR;matched=min(endpoint_trials,key=lambda e:np.max(abs(np.array(e['coordinatesBohr'])-x)))
+  assert np.max(abs(np.array(matched['coordinatesBohr'])-x))<1e-8
+  independent_energy_difference=abs(matched['energyHartree']-v['energyHartree']);assert independent_energy_difference<1e-8
   m=gto.M(atom=list(zip(elems,v['coordinatesAngstrom'])),basis='6-31g(d)',verbose=0);s=m.intor('int1e_ovlp');assert np.max(abs(w['mo_coeff'].T@s@w['mo_coeff']-np.eye(m.nao)))<1e-8
   assert abs(np.einsum('ij,ji',w['density_matrix'],s)-46)<1e-8
-  fr=thermo.harmonic_analysis(m,w['hessian'])['freq_wavenumber'];freq=np.array([-abs(z.imag) if abs(z.imag)>1e-8 else z.real for z in fr]);assert max(abs(freq-v['frequenciesCm']))<1e-5
+  h=w['hessian'];hs=(h+h.transpose(1,0,3,2))/2;raw=thermo.harmonic_analysis(m,h)['freq_wavenumber'];symmetric=thermo.harmonic_analysis(m,hs)['freq_wavenumber'];sym_convention=v.get('frequencyHessianConvention')=='explicitly symmetrized raw analytic Hessian';fr=symmetric if sym_convention else raw;freq=np.array([-abs(z.imag) if abs(z.imag)>1e-8 else z.real for z in fr]);frequency_difference=float(max(abs(freq-v['frequenciesCm'])));assert frequency_difference<(1e-5 if sym_convention else .1)
   assert abs(float(abs(w['gradient']).max())-v['maxFullResponseGradientEhPerBohr'])<1e-12
-  passed=bool(min(freq)>0 and abs(w['gradient']).max()<2e-4 and v['scfConverged'] and v['internalStable'] and v['externalStable']);report['endpoints'][direction]=dict(minimumVerified=passed,lowestFrequencyCm=float(min(freq)),energyHartree=v['energyHartree'])
+  residual=float(np.max(abs(h-h.transpose(1,0,3,2))));shift=float(max(abs(symmetric-raw)));sign_agreement=bool(np.array_equal(abs(symmetric.imag)>1e-8,abs(raw.imag)>1e-8));assert residual<1e-4 and shift<.1 and sign_agreement
+  symfreq=np.array([-abs(z.imag) if abs(z.imag)>1e-8 else z.real for z in symmetric]);assert np.array_equal(symfreq<0,np.array(v['frequenciesCm'])<0)
+  passed=bool(min(symfreq)>0 and abs(w['gradient']).max()<2e-4 and v['scfConverged'] and v['internalStable'] and v['externalStable']);report['endpoints'][direction]=dict(minimumVerified=passed,lowestFrequencyCm=float(min(freq)),symmetrizedLowestFrequencyCm=float(min(symfreq)),reportedFrequencyReconstructionDifferenceCm=frequency_difference,energyHartree=v['energyHartree'],independentSCFEnergyAgreementHartree=independent_energy_difference,hessianTransposeResidualEhPerBohr2=residual,hessianSymmetrizationMaximumFrequencyShiftCm=shift,hessianSymmetrizationPreservesModeSigns=sign_agreement)
   if not passed:report['limitations'].append(direction+' endpoint failed minimum verification')
  for name,sha in json.loads((ROOT/'audit/V037_R2_PRESERVED_DATA.json').read_text()).items():assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==sha,name
  report['preservation']='All protected scientific files match their baseline hashes.'

@@ -1,0 +1,132 @@
+#INFO: **** input file is /workspace/scratch/69db76a371c7/Ochem-Atlas/research/diels-alder/r2/soft_mode.py ****
+"""Ten actual tight-SCF finite-displacement energies on the unresolved mode.
+This is one directional curvature study, not a full numerical Hessian or IRC.
+"""
+from common import *
+import time
+
+def main():
+ source=OUT/'endpoints/forward/verification.json'
+ while not source.exists():
+  failure=source.parent/'failure.json'
+  if failure.exists():raise RuntimeError('Endpoint verification failed before mode study: '+failure.read_text())
+  time.sleep(5)
+ endpoint=json.loads(source.read_text())
+ if endpoint['minimumVerified']:print('Endpoint minimum passed; no unresolved-mode study needed.',flush=True);return
+ w=np.load(source.parent/'wavefunction.npz');x=w['coordinatesAngstrom'];mode=np.real_if_close(w['normal_modes'][np.argmin(w['frequenciesCm'])]);assert np.isrealobj(mode);mode=mode/np.linalg.norm(mode)
+ folder=OUT/'soft-mode';folder.mkdir(exist_ok=True)
+ definition=dict(sourceWavefunctionSha256=hashlib.sha256((source.parent/'wavefunction.npz').read_bytes()).hexdigest(),sourceLowestFrequencyCm=float(min(endpoint['frequenciesCm'])),coordinatesAngstrom=x.tolist(),cartesianUnitMode=mode.tolist(),coordinateConvention='R(s)=R0+s*v; sum|v|^2=1; s is total Cartesian norm in angstrom. Not a mass-weighted IRC displacement; direction sign inherited from retained eigenvector.',method='Restricted B3LYP (VWN-RPA)/6-31G(d), gas phase, neutral singlet, 46 electrons',scfEnergyToleranceHartree=1e-12,scfOrbitalGradientThreshold=1e-7,stability='Determinant stability not recomputed for these probes. SCF convergence/root continuity and the independently checked center endpoint are separate from a full stability analysis.')
+ write(folder/'definition.json',definition);results=[]
+ for grid in [3,5]:
+  for step in [0.,-.01,.01,-.03,.03]:
+   name=f'grid{grid}-step{step}';target=folder/(name+'.json')
+   if target.exists():results.append(json.loads(target.read_text()));continue
+   coords=x+step*mode
+   m=gto.M(atom=list(zip(endpoint['elements'],coords)),basis='6-31g(d)',charge=0,spin=0,max_memory=1200,verbose=4,output=str(folder/(name+'.log')))
+   f=dft.RKS(m);f.xc='b3lyp';f.grids.level=grid;f.conv_tol=1e-12;f.conv_tol_grad=1e-7;f.max_cycle=120;f.kernel(dm0=w['density_matrix']);assert f.converged
+   p=f.make_rdm1();s=m.intor('int1e_ovlp');save_npz(folder/(name+'.npz'),coordinatesAngstrom=coords,energyHartree=f.e_tot,mo_coeff=f.mo_coeff,mo_occ=f.mo_occ,mo_energy=f.mo_energy,density_matrix=p,overlap=s)
+   r=dict(id=name,gridLevel=grid,displacementNormAngstrom=step,energyHartree=float(f.e_tot),electronCount=float(np.einsum('ij,ji',p,s)),scfConverged=bool(f.converged),scfOrbitalGradientNorm=float(np.linalg.norm(f.get_grad(f.mo_coeff,f.mo_occ,f.get_fock()))))
+   write(target,r);results.append(r);print('MODE ENERGY',name,r['energyHartree'],flush=True)
+ checks=[]
+ for grid in [3,5]:
+  points={r['displacementNormAngstrom']:r['energyHartree'] for r in results if r['gridLevel']==grid}
+  for size in [.01,.03]:checks.append(dict(gridLevel=grid,displacementNormAngstrom=size,energyCurvatureEhPerBohr2=(points[size]+points[-size]-2*points[0.])/(size/BOHR)**2))
+ write(folder/'results.json',dict(points=results,directionalChecks=checks,interpretation='Central finite energy curvature along one retained Cartesian mode only. Not a complete numerical Hessian, converged frequency spectrum or independently validated IRC.'))
+ print('Directional energy study complete.',flush=True)
+
+if __name__=='__main__':main()
+#INFO: ******************** input file end ********************
+
+
+System: uname_result(system='Linux', node='13da51aa3ce8', release='6.18.55', version='#1 SMP Wed Oct 14 19:45:18 UTC 2026', machine='x86_64')  Threads 3
+Python 3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]
+numpy 2.3.5  scipy 1.17.0  h5py 3.16.0
+Date: Fri Oct 23 04:30:01 2026
+PySCF version 2.14.0
+PySCF path  /root/.local/lib/python3.12/site-packages/pyscf
+
+[CONFIG] conf_file None
+[INPUT] verbose = 4
+[INPUT] num. atoms = 16
+[INPUT] num. electrons = 46
+[INPUT] charge = 0
+[INPUT] spin (= nelec alpha-beta = 2S) = 0
+[INPUT] symmetry False subgroup None
+[INPUT] Mole.unit = angstrom
+[INPUT] Symbol           X                Y                Z      unit          X                Y                Z       unit  Magmom
+[INPUT]  1 C     -1.402687121302   0.419648154358   0.383052250792 AA   -2.650694497715   0.793020080415   0.723863845396 Bohr   0.0
+[INPUT]  2 C     -0.667852230932  -0.711156590729  -0.294010934881 AA   -1.262057808140  -1.343891188157  -0.555600144553 Bohr   0.0
+[INPUT]  3 C      0.669345154937  -0.708706324299  -0.295290340827 AA    1.264879025636  -1.339260855673  -0.558017871393 Bohr   0.0
+[INPUT]  4 C      1.401224830848   0.424002926951   0.381796591605 AA    2.647931169242   0.801249407952   0.721490993426 Bohr   0.0
+[INPUT]  5 C     -0.778121115448   0.752875865907   1.761648574744 AA   -1.470435799938   1.422729192359   3.329033333996 Bohr   0.0
+[INPUT]  6 C      0.777517930935   0.750593805419   1.762079672727 AA    1.469295946406   1.418416723037   3.329847991118 Bohr   0.0
+[INPUT]  7 H     -1.357088680073   1.315607243087  -0.256440997580 AA   -2.564525932085   2.486137376928  -0.484603252537 Bohr   0.0
+[INPUT]  8 H     -2.467312454652   0.189041565162   0.503605728860 AA   -4.662544803021   0.357236784315   0.951676902308 Bohr   0.0
+[INPUT]  9 H     -1.234224681612  -1.505778370388  -0.775743563851 AA   -2.332346624425  -2.845508724327  -1.465942878573 Bohr   0.0
+[INPUT] 10 H      1.237681778652  -1.501359509027  -0.777943769048 AA    2.338879591017  -2.837158286572  -1.470100663813 Bohr   0.0
+[INPUT] 11 H      2.466966039715   0.197336186466   0.499964815862 AA    4.661890173664   0.372911346887   0.944796573897 Bohr   0.0
+[INPUT] 12 H      1.350676075307   1.321275771246  -0.255500753746 AA    2.552407865333   2.496849342679  -0.482826449201 Bohr   0.0
+[INPUT] 13 H     -1.160894255651   1.722211882630   2.102585530499 AA   -2.193772202761   3.254508786643   3.973310806116 Bohr   0.0
+[INPUT] 14 H     -1.136443363502   0.010290733453   2.483605928719 AA   -2.147566713099   0.019446667847   4.693335006624 Bohr   0.0
+[INPUT] 15 H      1.133434779683   0.001921146958   2.478937432700 AA    2.141881313658   0.003630441595   4.684512827735 Bohr   0.0
+[INPUT] 16 H      1.162935784110   1.716480329903   2.109781239942 AA    2.197630132424   3.243677721720   3.986908726235 Bohr   0.0
+
+nuclear repulsion = 235.998007118637
+number of shells = 56
+number of NR pGTOs = 202
+number of NR cGTOs = 104
+basis = 6-31g(d)
+ecp = {}
+CPU time:        20.63
+
+
+******** <class 'pyscf.dft.rks.RKS'> ********
+method = RKS
+initial guess = minao
+damping factor = 0
+level_shift factor = 0
+DIIS = <class 'pyscf.scf.diis.CDIIS'>
+diis_start_cycle = 1
+diis_space = 8
+diis_damp = 0
+SCF conv_tol = 1e-12
+SCF conv_tol_grad = 1e-07
+SCF max_cycles = 120
+direct_scf = True
+direct_scf_tol = 1e-13
+chkfile to save SCF result = /tmp/tmpp9n6l8jw
+max_memory 1200 MB (current use 2 MB)
+XC library pyscf.dft.libxc version 7.0.0
+    S. Lehtola, C. Steigemann, M. J.T. Oliveira, and M. A.L. Marques.,  SoftwareX 7, 1–5 (2018)
+XC functionals = b3lyp
+    P. J. Stephens, F. J. Devlin, C. F. Chabalowski, and M. J. Frisch.,  J. Phys. Chem. 98, 11623 (1994)
+radial grids: 
+    Treutler-Ahlrichs [JCP 102, 346 (1995); DOI:10.1063/1.469408] (M4) radial grids
+    
+becke partition: Becke, JCP 88, 2547 (1988); DOI:10.1063/1.454033
+pruning grids: <function nwchem_prune at 0x7f4840e74cc0>
+grids dens level: 3
+symmetrized grids: False
+atomic radii adjust function: <function treutler_atomic_radii_adjust at 0x7f4840e751c0>
+small_rho_cutoff = 0
+tot grids = 182792
+init E= -234.634819561209
+  HOMO = -0.23353530025234  LUMO = 0.0287820835816617  gap/eV = 7.13802
+cycle= 1 E= -234.634839958491  delta_E= -2.04e-05  |g|= 0.000339  |ddm|= 0.00516
+  HOMO = -0.233528970516202  LUMO = 0.0287881643385686  gap/eV = 7.13801
+cycle= 2 E= -234.634840016336  delta_E= -5.78e-08  |g|= 0.000131  |ddm|= 0.000732
+  HOMO = -0.233530491602899  LUMO = 0.0287869030409329  gap/eV = 7.13802
+cycle= 3 E= -234.63484001833  delta_E= -1.99e-09  |g|= 0.000108  |ddm|= 0.000262
+  HOMO = -0.233529748110655  LUMO = 0.0287875327481686  gap/eV = 7.13802
+cycle= 4 E= -234.634840021308  delta_E= -2.98e-09  |g|= 2.41e-05  |ddm|= 0.000118
+  HOMO = -0.233529766852773  LUMO = 0.0287875129900343  gap/eV = 7.13802
+cycle= 5 E= -234.634840021416  delta_E= -1.08e-10  |g|= 1.25e-05  |ddm|= 3.04e-05
+  HOMO = -0.233529798405188  LUMO = 0.0287874846167115  gap/eV = 7.13802
+cycle= 6 E= -234.634840021458  delta_E= -4.19e-11  |g|= 8.28e-07  |ddm|= 1.16e-05
+  HOMO = -0.233529794967043  LUMO = 0.0287874874799616  gap/eV = 7.13802
+cycle= 7 E= -234.634840021458  delta_E= -5.68e-14  |g|= 3.45e-07  |ddm|= 1.28e-06
+  HOMO = -0.23352979549227  LUMO = 0.028787487328946  gap/eV = 7.13802
+cycle= 8 E= -234.634840021458  delta_E= -2.84e-13  |g|= 7.08e-08  |ddm|= 3.31e-07
+  HOMO = -0.23352979476304  LUMO = 0.0287874878870213  gap/eV = 7.13802
+Extra cycle  E= -234.634840021457  delta_E= 9.66e-13  |g|= 7.73e-08  |ddm|= 1.25e-07
+converged SCF energy = -234.634840021457

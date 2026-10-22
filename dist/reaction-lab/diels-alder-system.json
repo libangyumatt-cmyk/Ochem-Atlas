@@ -1022,7 +1022,7 @@
     },
     {
       "id": "ts",
-      "geometryKind": "Full-gradient and Hessian verified first-order saddle; IRC not performed",
+      "geometryKind": "Full-gradient and Hessian verified first-order saddle; original r1 saddle record; separate r2 IRC validation is documented in the audit",
       "atoms": [
         {
           "element": "C",
@@ -2910,7 +2910,7 @@
     "signs": "Teal positive / amber negative amplitude or electron-number difference, not electrical charges."
   },
   "warnings": [
-    "IRC VALIDATION IN PROGRESS: forward driver convergence incomplete; forward independent endpoint verification missing; backward driver convergence incomplete; backward independent endpoint verification missing Displayed geometries and electronic fields remain the original r1 constrained study, saddle and minimum.",
+    "IRC VALIDATION IN PROGRESS: forward endpoint failed minimum verification; backward driver convergence incomplete; backward independent endpoint verification missing: pending or unavailable Displayed geometries and electronic fields remain the original r1 constrained study, saddle and minimum.",
     "METHOD DIAGNOSTIC LIMITATION: unstable reference determinants in reactant-butadiene-ri-mp2-def2tzvp. These values are retained as diagnostics, not validated correlated benchmarks; they do not replace the displayed B3LYP fields."
   ],
   "schemaVersion": "2.0",
@@ -2983,7 +2983,7 @@
     "1333 is inherited in the authoritative codebook and this existing event is consistent-with-convention, not relabeled candidate. Qualitative classification omits correlation, energy, normal-mode curvature, density reference, orbital gauge, numerical bond indices and reaction timing."
   ],
   "limitations": [
-    "r2 retains 6/12 targeted fixed-r1-geometry grid/basis/RI-MP2 comparisons. These do not establish alternative-level stationary points or basis/correlation convergence. Displayed fields retain the original B3LYP/6-31G(d), grid3 model.",
+    "r2 retains 7/12 targeted fixed-r1-geometry grid/basis/RI-MP2 comparisons. These do not establish alternative-level stationary points or basis/correlation convergence. Displayed fields retain the original B3LYP/6-31G(d), grid3 model.",
     "r2 IRC-driver convergence and independently verified endpoint connectivity are separate tests. Until all path and selected-electronic-field checks pass, the original five displayed geometries remain separately calculated constrained/saddle/minimum structures. Consult the r2 audit for actual completed and missing calculations.",
     "Stability and the Kohn\u2013Sham gap are diagnostics, not multireference benchmarks. No CASSCF/natural-occupation or coupled-cluster diagnostic was calculated; a restricted determinant cannot establish the absence of static correlation.",
     "Frozen neutral fragments at product-like geometries are deliberately deformed reference states, not optimized reactants or a unique electron-transfer partition. Reported unstable references are flagged.",
@@ -3120,6 +3120,18 @@
       "path": "reaction-lab/diels-alder/r2/restart-20261022/forward/evaluations.zip"
     },
     {
+      "label": "forward Independent endpoint checks",
+      "path": "reaction-lab/diels-alder/r2/restart-20261022/endpoints/forward/verification.json"
+    },
+    {
+      "label": "forward Endpoint orbitals, density and full Hessian",
+      "path": "reaction-lab/diels-alder/r2/restart-20261022/endpoints/forward/wavefunction.npz"
+    },
+    {
+      "label": "forward Complete endpoint driver output",
+      "path": "reaction-lab/diels-alder/r2/restart-20261022/endpoints/forward/driver-stdout.log"
+    },
+    {
       "label": "backward IRC driver state and parameters",
       "path": "reaction-lab/diels-alder/r2/restart-20261022/backward/status.json"
     },
@@ -3130,6 +3142,18 @@
     {
       "label": "backward Raw SCF/gradient trial archive",
       "path": "reaction-lab/diels-alder/r2/restart-20261022/backward/evaluations.zip"
+    },
+    {
+      "label": "Soft-mode grid/energy tests",
+      "path": "reaction-lab/diels-alder/r2/restart-20261022/soft-mode/results.json"
+    },
+    {
+      "label": "Independent soft-mode reconstruction",
+      "path": "reaction-lab/diels-alder/r2/restart-20261022/soft-mode/validation.json"
+    },
+    {
+      "label": "Actual soft-mode inputs and wavefunctions",
+      "path": "reaction-lab/diels-alder/r2/restart-20261022/soft-mode/probes.zip"
     }
   ],
   "validationR2": {

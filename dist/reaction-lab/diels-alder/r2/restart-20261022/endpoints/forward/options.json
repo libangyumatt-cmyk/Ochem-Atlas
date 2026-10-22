@@ -1,0 +1,11 @@
+{
+  "coordsys": "dlc",
+  "trust": 0.05,
+  "tmax": 0.1,
+  "maxiter": 80,
+  "convergence_energy": 1e-08,
+  "convergence_grms": 1e-05,
+  "convergence_gmax": 3e-05,
+  "convergence_drms": 0.0003,
+  "convergence_dmax": 0.0005
+}

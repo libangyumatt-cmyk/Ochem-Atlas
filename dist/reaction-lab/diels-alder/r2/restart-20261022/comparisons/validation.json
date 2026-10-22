@@ -1,6 +1,6 @@
 {
   "result": "partial",
-  "completedCases": 6,
+  "completedCases": 7,
   "cases": [
     {
       "case": "reactant-butadiene-def2tzvp",
@@ -34,6 +34,12 @@
     },
     {
       "case": "reactant-ethylene-ri-mp2-def2tzvp",
+      "numericalConsistencyPassed": true,
+      "referenceInternalStable": true,
+      "referenceExternalStable": true
+    },
+    {
+      "case": "ts-grid5",
       "numericalConsistencyPassed": true,
       "referenceInternalStable": true,
       "referenceExternalStable": true

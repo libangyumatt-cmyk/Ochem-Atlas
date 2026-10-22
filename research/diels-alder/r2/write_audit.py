@@ -19,7 +19,9 @@ def main():
  endpoints=[]
  for d in ['forward','backward']:
   p=OUT/'endpoints'/d/'verification.json'
-  if not p.exists():endpoints.append(f'| {d} | pending | pending | pending | pending | pending |');continue
+  if not p.exists():
+   state='failed; see failure.json' if (p.parent/'failure.json').exists() else 'pending'
+   endpoints.append(f'| {d} | {state} | unavailable | unavailable | unavailable | unavailable |');continue
   r=json.loads(p.read_text());endpoints.append(f"| {d} | {r['energyHartree']:.10f} | {r['maxFullResponseGradientEhPerBohr']:.5e} | {min(r['frequenciesCm']):.5f} | {r['internalStable']} / {r['externalStable']} | {r['minimumVerified']} |")
  method_rows=[]
  for tag in ['grid5','def2tzvp','ri-mp2-def2tzvp']:
@@ -30,6 +32,13 @@ def main():
   method_rows.append(f"| {tag} | 4/4 | {(e['ts']-ref)*627.5094740631:.5f} | {(e['product']-ref)*627.5094740631:.5f} | {stable} | {'diagnostic only: unstable reference' if not stable else 'finite fixed-geometry comparison'} |")
  stability='\n'.join(f"| {k} | {r['energyHartree']:.10f} | {r['referenceInternalStable']} / {r['referenceExternalStable']} | {r['electronCount']:.9f} |" for k,r in sorted(comparisons.items()))
  limits='\n'.join('- '+v for v in (connectivity['limitations'] if connectivity else path['limitations'])) or '- See separate electronic-field and method-comparison validation gates.'
+ frequency_rows='\n'.join(f"| {d} | {r['hessianTransposeResidualEhPerBohr2']:.6e} | {r['reportedFrequencyReconstructionDifferenceCm']:.6f} | {r['hessianSymmetrizationMaximumFrequencyShiftCm']:.6f} | {r['symmetrizedLowestFrequencyCm']:.6f} |" for d,r in path['endpoints'].items())
+ soft_section='Directional finite-displacement grid checks are pending.'
+ soft=OUT/'soft-mode/results.json';soft_validation=OUT/'soft-mode/validation.json'
+ if soft.exists() and soft_validation.exists():
+  data=json.loads(soft.read_text());assert json.loads(soft_validation.read_text())['result']=='pass'
+  rows_soft='\n'.join(f"| {r['gridLevel']} | {r['displacementNormAngstrom']:.2f} | {r['energyCurvatureEhPerBohr2']:.7e} |" for r in data['directionalChecks'])
+  soft_section='Ten fresh tight-SCF energies probe zero and ±0.01/±0.03 Å total Cartesian norm along the stored unresolved mode, at grids3 and5. SCF thresholds1e-12Eh and1e-7 orbital gradient. Coordinates, logs, coefficients, density matrices and overlap matrices are retained. Independent position/normalization/curvature reconstruction passed. Probe determinant stability was not recomputed. These are directional energy tests, not IRC points, a full Hessian or a frequency spectrum.\n\n| Grid | Cartesian displacement norm / Å | Energy curvature / Eh bohr⁻² |\n| ---: | ---: | ---: |\n'+rows_soft
  text=f'''# Ochem Atlas v0.3.7-r2 — Diels–Alder scientific validation
 
 **Scientific status: {stage}.**
@@ -56,7 +65,8 @@ outputs were committed before waiting for complete path validation.
 
 Neutral singlet C6H10, 46 electrons, ground-state restricted B3LYP (VWN-RPA),
 6-31G(d), gas phase, integration grid3. No solvent, dispersion, zero-point or
-thermal/free-energy corrections. Atom mapping is unchanged: diene C1–C4,
+thermal/free-energy corrections. SCF energies include nuclear repulsion
+(Born–Oppenheimer total energies). Atom mapping is unchanged: diene C1–C4,
 ethylene C5–C6, then H7–H16. Forming pairs C1–C5 and C4–C6.
 
 geomeTRIC1.1.1 Gonzalez–Schlegel mass-weighted internal-coordinate IRC;
@@ -105,7 +115,22 @@ response force<2e-4Eh/bohr and stable reference. It remains model/numerics depen
 {chr(10).join(endpoints)}
 
 Endpoint frequencies are independently reconstructed from retained full
-Hessians. Cartesian inputs, orbitals, AO overlap/density matrices and gradients
+Hessians. The original forward analysis used the raw numerical Hessian. A small
+nonsymmetric residual made lower-triangle diagonalization slightly dependent on
+the arbitrary projected vibrational basis; strict1e-5cm⁻¹ reconstruction initially
+failed by about0.002cm⁻¹. We retained that result and explicitly analyzed
+(H+Hᵀ)/2. The driver now uses this symmetrized matrix for subsequent endpoint
+analyses while retaining raw matrices and each actual analysis convention.
+No physical recalculation is implied by this algebraic analysis.
+The validator requires transpose residual<1e-4Eh/bohr², raw-to-symmetrized shift
+<0.1cm⁻¹ and identical mode signs. Explicitly symmetrized results must reconstruct
+within1e-5cm⁻¹. These are consistency tolerances, not grid-convergence proof.
+
+| Endpoint | Hessian transpose residual / Eh bohr⁻² | Report reconstruction difference / cm⁻¹ | Max raw-to-symmetrized shift / cm⁻¹ | Symmetrized lowest frequency / cm⁻¹ |
+| --- | ---: | ---: | ---: | ---: |
+{frequency_rows}
+
+Cartesian inputs, orbitals, AO overlap/density matrices and gradients
 are retained. Explicit carbon (1.85Å) and C–H (1.30Å) diagnostic connectivity
 cutoffs and proper-rotation fixed-map RMSD comparisons with independent r1
 minima are recorded separately when available. Those cutoffs are not bond-order
@@ -115,6 +140,10 @@ A finite-distance encounter region is never called infinitely separated reactant
 
 Current unresolved path checks:
 {limits}
+
+### Directional energy/grid checks
+
+{soft_section}
 
 ## Method, basis and integration-grid sensitivity
 
@@ -206,6 +235,11 @@ Alder frames, orbital/density metadata, assets, asynchronous selector races and
 DOM interaction. Subsequent release-specific regression and published browser
 checks must be recorded separately before claiming completion. Native mobile
 touch and WebGL cannot be certified from DOM or static projections.
+
+Published desktop checkpoint checks passed: all three system selections,
+five retained Diels–Alder geometries, density-difference legend, occupied/virtual
+orbital and phase controls, and event/geometry/orbital retention across systems.
+No unverified IRC selector was present. Native mobile touch was not tested.
 
 All raw trial JSON/logs are retained in CRC-checked evaluations.zip archives,
 updated every five evaluations and upon termination. Latest-wavefunction and

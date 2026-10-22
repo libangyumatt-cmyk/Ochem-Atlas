@@ -1,12 +1,50 @@
 {
   "result": "incomplete",
   "pathValidationResult": "incomplete",
-  "endpoints": {},
+  "endpoints": {
+    "forward": {
+      "minimumVerified": false,
+      "mappedCarbonConnectivityMatchesExpected": true,
+      "mappedHydrogenParentsMatch": true,
+      "carbonEdges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "formingDistancesAngstrom": [
+        1.549629808387183,
+        1.5495619848671331
+      ],
+      "carbonRmsdToIndependentR1Angstrom": 0.32778226436093333,
+      "fixedLabelAllAtomRmsdToIndependentR1Angstrom": 1.1680870322412413,
+      "energyDifferenceFromIndependentR1Hartree": 0.009130704867658324
+    }
+  },
   "limitations": [
-    "forward driver convergence incomplete",
-    "forward independent endpoint verification missing",
+    "forward endpoint failed minimum verification",
     "backward driver convergence incomplete",
-    "backward independent endpoint verification missing"
+    "backward independent endpoint verification missing: pending or unavailable"
   ],
   "scope": "Verified connection toward stated bonding regions only when all checks pass. Endpoint minimizations are separate from IRC. No infinite separation, conformer global-minimum guarantee, competing-pathway exclusion or universal synchronicity is claimed."
 }

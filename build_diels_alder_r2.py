@@ -12,6 +12,8 @@ def extend(d):
  # and independent gate. A passing path report alone cannot expose a series.
  result='path-checks-pass-fields-pending' if c and c['result']=='pass' else 'incomplete'
  d['validationR2']=dict(result=result,pathResult=p['result'],connectivityResult=c['result'] if c else 'pending',validatedIRCSeriesExposed=False,report='reaction-lab/diels-alder/r2/V037_R2_AUDIT.md')
+ for frame in d['frames']:
+  if frame['id']=='ts':frame['geometryKind']=frame['geometryKind'].replace('IRC not performed','original r1 saddle record; separate r2 IRC validation is documented in the audit')
  d['pathKind']='Original constrained study: Not an IRC. Separate r2 bidirectional IRC calculations and endpoint checks are documented; a validated synchronized IRC series is not yet available.'
  complete=all(r['driverComplete'] for r in p['branches'].values())
  label='INCOMPLETE' if complete else 'IN PROGRESS'
@@ -30,6 +32,8 @@ def extend(d):
  links=[('r2 scientific validation and limitations','V037_R2_AUDIT.md'),('r2 exact software versions','software-versions.json'),('r2 reproduction dependencies','requirements.txt'),('r2 accepted-point/provenance checks','restart-20261022/path-validation.json'),('r2 independent endpoint comparisons','restart-20261022/connectivity-validation.json'),('r2 method diagnostic checks','restart-20261022/comparisons/validation.json'),('Actual calculated geometries (validation status labeled)','restart-20261022/geometry-validation.png'),('Actual calculated path energies/distances','restart-20261022/path-validation.png')]
  for direction in ['forward','backward']:
   for label,file in [('IRC driver state and parameters','status.json'),('Accepted/rejected-step provenance','step-provenance.json'),('Raw SCF/gradient trial archive','evaluations.zip')]:links.append((direction+' '+label,'restart-20261022/'+direction+'/'+file))
+  for label,file in [('Independent endpoint checks','verification.json'),('Endpoint orbitals, density and full Hessian','wavefunction.npz'),('Complete endpoint driver output','driver-stdout.log')]:links.append((direction+' '+label,'restart-20261022/endpoints/'+direction+'/'+file))
+ for label,file in [('Soft-mode grid/energy tests','results.json'),('Independent soft-mode reconstruction','validation.json'),('Actual soft-mode inputs and wavefunctions','probes.zip')]:links.append((label,'restart-20261022/soft-mode/'+file))
  for label,file in links:
   if (OUT/file).exists():d['sourceFiles'].append(dict(label=label,path='reaction-lab/diels-alder/r2/'+file))
  return d
