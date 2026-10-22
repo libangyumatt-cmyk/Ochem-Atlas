@@ -10,7 +10,7 @@
  $('#rr-event').replaceChildren(...events.map(e=>new Option(`${e.r.name} · ${e.i+1}. ${e.s.title}`,e.key)));$('#rr-event').value=selected.key;
  const state=d=>{if(!memories.has(d.id))memories.set(d.id,{frameId:d.frames[0].id,series:d.series[0].id,kind:'total',level:1,orbitalId:d.orbitalDefinitions[0].id,reverse:false});return memories.get(d.id);};
  const current=()=>state(data);const frame=d=>d.frames.find(f=>f.id===state(d).frameId);const series=d=>d.series.find(s=>s.id===state(d).series);
- const getJSON=async path=>{const r=await fetch(path+'?v=0.3.7-r1');if(!r.ok)throw Error('HTTP '+r.status+' '+path);return r.json();};
+ const getJSON=async path=>{const r=await fetch(path+'?v=0.3.7-r2');if(!r.ok)throw Error('HTTP '+r.status+' '+path);return r.json();};
  async function getData(r){if(datasets.has(r.id))return datasets.get(r.id);if(!loading.has(r.id))loading.set(r.id,getJSON(r.dataFile).then(d=>{if(d.schemaVersion!=='2.0'||d.id!==r.id||!d.frames.length)throw Error('Unsupported system record');datasets.set(r.id,d);state(d);return d;}).catch(e=>{loading.delete(r.id);throw e;}));return loading.get(r.id);}
  function stop(){if(playing){clearInterval(playing);playing=null;}$('#rr-play').textContent='Step through computed frames';}
  function conventional(){
@@ -113,7 +113,7 @@
  }
  $('#rr-comparison').addEventListener('toggle',compare);conventional();
  try{const index=await getJSON('reaction-lab/index.json');registry=index.systems;$('#rr-system').replaceChildren(...registry.map(x=>new Option(x.title,x.id)));$('#rr-system').disabled=false;conventional();
-  try{const module=await import('./surface-viewer.js?v=0.3.7-r1');createViewer=module.createSurfaceViewer;geometryView=await createViewer($('#rr-geometry-stage'),{geometryOnly:true});fieldView=await createViewer($('#rr-field-stage'));}catch(e){$('#rr-status').textContent='Renderer unavailable; raw calculated data remain downloadable.';}
+  try{const module=await import('./surface-viewer.js?v=0.3.7-r2');createViewer=module.createSurfaceViewer;geometryView=await createViewer($('#rr-geometry-stage'),{geometryOnly:true});fieldView=await createViewer($('#rr-field-stage'));}catch(e){$('#rr-status').textContent='Renderer unavailable; raw calculated data remain downloadable.';}
   const r=registry.find(x=>x.event===selected.key);if(r)await selectSystem(r.id,{selectEvent:false});
  }catch(e){$('#rr-status').textContent='System registry unavailable: '+e.message;$('#rr-play').disabled=true;}
  window.SorgReactionLab={selectEvent:onEvent,selectSystem,get state(){const s=data?current():null;return {event:selected.key,system:active,mode,frameId:s?.frameId,frameIndex:data?series(data).frameIds.indexOf(s.frameId):null,kind:s?.kind,level:s?.level,orbitalId:s?.orbitalId};}};

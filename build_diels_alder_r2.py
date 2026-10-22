@@ -15,11 +15,15 @@ def extend(d):
  for frame in d['frames']:
   if frame['id']=='ts':frame['geometryKind']=frame['geometryKind'].replace('IRC not performed','original r1 saddle record; separate r2 IRC validation is documented in the audit')
  d['pathKind']='Original constrained study: Not an IRC. Separate r2 bidirectional IRC calculations and endpoint checks are documented; a validated synchronized IRC series is not yet available.'
+ marker=OUT/'execution-interruption.json';interruption=json.loads(marker.read_text()) if marker.exists() else None
+ if interruption:
+  d['validationR2'].update(executionStatus='interrupted',sourceSnapshotCommit=interruption['sourceSnapshotCommit'])
+  d['protocol'].append(interruption['scope'])
  complete=all(r['driverComplete'] for r in p['branches'].values())
- label='INCOMPLETE' if complete else 'IN PROGRESS'
- d['warnings'].append('IRC VALIDATION '+label+': '+('; '.join(c['limitations'] if c else p['limitations']) or 'Path checks passed; selected-point electronic fields and independent field validation remain pending.')+' Displayed geometries and electronic fields remain the original r1 constrained study, saddle and minimum.')
+ label='INTERRUPTED' if interruption else ('INCOMPLETE' if complete else 'IN PROGRESS')
+ d['warnings'].append('IRC VALIDATION '+label+': '+(interruption['summary'] if interruption else ('; '.join(c['limitations'] if c else p['limitations']) or 'Path checks passed; selected-point electronic fields and independent field validation remain pending.'))+' Displayed geometries and electronic fields remain the original r1 constrained study, saddle and minimum.')
  comparisons=[]
- for f in (run/'comparisons').glob('*.json'):
+ for f in sorted((run/'comparisons').glob('*.json')):
   if f.name.endswith('-progress.json') or f.name=='validation.json':continue
   r=json.loads(f.read_text())
   if 'energyHartree' in r:comparisons.append((f.stem,r))
@@ -29,7 +33,7 @@ def extend(d):
  if unstable:d['warnings'].append('METHOD DIAGNOSTIC LIMITATION: unstable reference determinants in '+', '.join(unstable)+'. These values are retained as diagnostics, not validated correlated benchmarks; they do not replace the displayed B3LYP fields.')
  for source in (ROOT/'research/diels-alder/r2').glob('*'):
   if source.is_file() and source.suffix in ['.py','.txt']:shutil.copy2(source,OUT/source.name)
- links=[('r2 scientific validation and limitations','V037_R2_AUDIT.md'),('r2 exact software versions','software-versions.json'),('r2 reproduction dependencies','requirements.txt'),('r2 accepted-point/provenance checks','restart-20261022/path-validation.json'),('r2 independent endpoint comparisons','restart-20261022/connectivity-validation.json'),('r2 method diagnostic checks','restart-20261022/comparisons/validation.json'),('Actual calculated geometries (validation status labeled)','restart-20261022/geometry-validation.png'),('Actual calculated path energies/distances','restart-20261022/path-validation.png')]
+ links=[('Execution interruption and final release scope','execution-interruption.json'),('r2 scientific validation and limitations','V037_R2_AUDIT.md'),('r2 exact software versions','software-versions.json'),('r2 reproduction dependencies','requirements.txt'),('r2 accepted-point/provenance checks','restart-20261022/path-validation.json'),('r2 independent endpoint comparisons','restart-20261022/connectivity-validation.json'),('r2 method diagnostic checks','restart-20261022/comparisons/validation.json'),('Actual calculated geometries (validation status labeled)','restart-20261022/geometry-validation.png'),('Actual calculated path energies/distances','restart-20261022/path-validation.png')]
  for direction in ['forward','backward']:
   for label,file in [('IRC driver state and parameters','status.json'),('Accepted/rejected-step provenance','step-provenance.json'),('Raw SCF/gradient trial archive','evaluations.zip')]:links.append((direction+' '+label,'restart-20261022/'+direction+'/'+file))
   for label,file in [('Independent endpoint checks','verification.json'),('Endpoint orbitals, density and full Hessian','wavefunction.npz'),('Complete endpoint driver output','driver-stdout.log')]:links.append((direction+' '+label,'restart-20261022/endpoints/'+direction+'/'+file))
