@@ -229,6 +229,9 @@ DOM interaction. Subsequent release-specific regression and published browser
 checks must be recorded separately before claiming completion. Native mobile
 touch and WebGL cannot be certified from DOM or static projections.
 
+
+Release-candidate CI 39855711907 passed on commit 42c7bc2a64fcb5c1310f49126a34bf3e38a31c78 (2026-10-22). The full npm suite and JavaScript syntax checks passed. Independent Node reconstruction covered 31 retained wavefunctions and 145 documented IRC-attempt points; all 373 protected original payload hashes matched. Test success verifies retained-data consistency and regressions, not minimum-to-minimum IRC connectivity. CI evidence: https://github.com/libangyumatt-cmyk/Ochem-Atlas/actions/runs/39855711907 .
+
 Published desktop checkpoint checks passed: all three system selections,
 five retained Diels–Alder geometries, density-difference legend, occupied/virtual
 orbital and phase controls, and event/geometry/orbital retention across systems.
