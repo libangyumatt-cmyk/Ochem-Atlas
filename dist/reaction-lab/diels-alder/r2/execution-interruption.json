@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-22",
+  "scientificOutcome": "incomplete",
+  "executionStatus": "interrupted",
+  "sourceSnapshotCommit": "5299e1846e85783dd85cd5588144c4f0affda376",
+  "reason": "The selected execution environment became unavailable; exec-server recovery timed out. Final states of unfinished jobs could not be recovered.",
+  "summary": "The product-like endpoint failed minimum verification; final reactant-branch convergence and its endpoint checks are unconfirmed after execution interruption.",
+  "scope": "Raw driver status files are archived checkpoint records, not claims that jobs remain active. Only retained, independently checked outputs count as release evidence. Later unrecovered session progress is excluded.",
+  "completedMethodCases": 7,
+  "plannedMethodCases": 12,
+  "partialSCFCheckpoints": [
+    {
+      "case": "ts-def2tzvp",
+      "stage": "SCF converged; stability and analysis pending",
+      "energyHartree": -234.63982800758023,
+      "scope": "SCF checkpoint only; not counted as a completed stability/descriptor comparison."
+    },
+    {
+      "case": "product-grid5",
+      "stage": "SCF converged; stability and analysis pending",
+      "energyHartree": -234.64397625265883,
+      "scope": "SCF checkpoint only; not counted as a completed stability/descriptor comparison."
+    }
+  ],
+  "branches": {
+    "forward": {
+      "savedEvaluations": 45,
+      "documentedAcceptedIRCPoints": 39,
+      "driverCompleteAtSnapshot": true,
+      "driverConvergedAtSnapshot": true
+    },
+    "backward": {
+      "savedEvaluations": 111,
+      "documentedAcceptedIRCPoints": 106,
+      "driverCompleteAtSnapshot": false,
+      "driverConvergedAtSnapshot": false
+    }
+  },
+  "missing": [
+    "Confirmed completion of reactant IRC branch and independent reactant endpoint",
+    "Five complete method-comparison analyses",
+    "Verified minimum-to-minimum IRC connectivity",
+    "Selected IRC density/orbital fields and cross-IRC orbital tracking",
+    "Final native mobile and post-interruption browser interaction checks"
+  ]
+}

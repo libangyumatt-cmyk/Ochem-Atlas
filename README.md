@@ -8,7 +8,7 @@ Search, same-event S/O/R/G filters, saved items, and deep links such as `#reacti
 
 Current release work: v0.3.7 adds a reproducible butadiene + ethylene Diels–Alder electronic-structure case alongside the retained SN2 and carbonyl cases. See [V037_AUDIT.md](V037_AUDIT.md) and [reproduction instructions](research/diels-alder/README.md) for actual calculations and limitations. The [r1 verification follow-up](V037_FOLLOWUP_AUDIT.md) replaces the initially partially relaxed 1.9 Å point with an independently checked constrained geometry and regenerated electronic fields. Earlier release notes below describe their historical scope.
 
-The [r2 scientific validation audit](V037_R2_AUDIT.md) records newly checkpointed bidirectional IRC attempts, independent endpoint/path checks and targeted method diagnostics. Validation is currently incomplete; the laboratory retains the original constrained series and exposes the actual validation status and source records. A “Validated IRC” series requires separate path, endpoint and electronic-field verification.
+The [r2 scientific validation audit](V037_R2_AUDIT.md) records newly checkpointed bidirectional IRC attempts, independent endpoint/path checks and targeted method diagnostics. The v0.3.7-r2 report records a failed product-endpoint minimum check and interruption of remaining computations; the laboratory retains the original constrained series and exposes the interruption and verified source records. A “Validated IRC” series requires separate path, endpoint and electronic-field verification.
 
 ## Classification and evidence
 

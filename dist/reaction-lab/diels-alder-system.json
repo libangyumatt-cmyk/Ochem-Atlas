@@ -4,12 +4,12 @@
   "charge": 0,
   "multiplicity": 1,
   "electronCount": 46,
-  "environment": "Isolated gas-phase ground-state restricted Kohn\u2013Sham model; no solvent/counterions",
+  "environment": "Isolated gas-phase ground-state restricted Kohn–Sham model; no solvent/counterions",
   "pathKind": "Original constrained study: Not an IRC. Separate r2 bidirectional IRC calculations and endpoint checks are documented; a validated synchronized IRC series is not yet available.",
   "frames": [
     {
       "id": "approach",
-      "geometryKind": "Two equal C\u2013C distances constrained; all other coordinates relaxed. Not a stationary point or IRC.",
+      "geometryKind": "Two equal C–C distances constrained; all other coordinates relaxed. Not a stationary point or IRC.",
       "atoms": [
         {
           "element": "C",
@@ -177,7 +177,7 @@
       "scfConverged": true,
       "electronCountAOMetric": 46.00000000000006,
       "orthonormalError": 6.347825407635059e-14,
-      "scfOrbitalGradientNorm": 1.8691914272840603e-06,
+      "scfOrbitalGradientNorm": 0.0000018691914272840603,
       "internalStable": true,
       "externalStable": true,
       "homoLumoGapHartree": 0.1984067697230527,
@@ -231,7 +231,7 @@
             0,
             4
           ],
-          "label": "C1\u00b7\u00b7\u00b7C5 forming",
+          "label": "C1···C5 forming",
           "distanceAngstrom": 2.999999999861783,
           "mayer": 0.02676355539634656,
           "lowdinWiberg": 0.036513248768142034
@@ -241,7 +241,7 @@
             3,
             5
           ],
-          "label": "C4\u00b7\u00b7\u00b7C6 forming",
+          "label": "C4···C6 forming",
           "distanceAngstrom": 2.999999995472199,
           "mayer": 0.026755951591208645,
           "lowdinWiberg": 0.03651098477598141
@@ -251,7 +251,7 @@
             0,
             1
           ],
-          "label": "C1\u2013C2 original \u03c0",
+          "label": "C1–C2 original π",
           "distanceAngstrom": 1.3431462867608364,
           "mayer": 1.8835685419391093,
           "lowdinWiberg": 1.9679778682607445
@@ -261,7 +261,7 @@
             2,
             3
           ],
-          "label": "C3\u2013C4 original \u03c0",
+          "label": "C3–C4 original π",
           "distanceAngstrom": 1.3431485716672564,
           "mayer": 1.883585104668536,
           "lowdinWiberg": 1.9679806628226244
@@ -271,7 +271,7 @@
             4,
             5
           ],
-          "label": "C5\u2013C6 original \u03c0",
+          "label": "C5–C6 original π",
           "distanceAngstrom": 1.3343113932448207,
           "mayer": 1.9933770534280002,
           "lowdinWiberg": 2.114235572798814
@@ -281,7 +281,7 @@
             1,
             2
           ],
-          "label": "C2\u2013C3 emerging \u03c0",
+          "label": "C2–C3 emerging π",
           "distanceAngstrom": 1.4645256958313,
           "mayer": 1.1505489838553726,
           "lowdinWiberg": 1.185163939747712
@@ -405,23 +405,23 @@
       "geometryDescriptors": [
         {
           "label": "Forming-bond distance asymmetry",
-          "value": 4.389583807551389e-09,
-          "unit": "\u00c5"
+          "value": 4.389583807551389e-9,
+          "unit": "Å"
         },
         {
           "label": "Forming-bond Mayer asymmetry",
-          "value": 7.6038051379165306e-06,
+          "value": 0.0000076038051379165306,
           "unit": "dimensionless"
         },
         {
-          "label": "Kohn\u2013Sham frontier gap (not excitation energy)",
+          "label": "Kohn–Sham frontier gap (not excitation energy)",
           "value": 5.398923244752785,
           "unit": "eV"
         },
         {
           "label": "Mapped fragment-exchange reflection RMSD",
           "value": 0.0004646340080596262,
-          "unit": "\u00c5"
+          "unit": "Å"
         },
         {
           "label": "Max distance-constraint projected nuclear gradient",
@@ -429,14 +429,14 @@
           "unit": "Eh/bohr"
         }
       ],
-      "label": "3.0 \u00c5 constrained \u00b7 C1\u2013C5 3.000 \u00c5",
+      "label": "3.0 Å constrained · C1–C5 3.000 Å",
       "coordinateLabel": "approach",
       "quadratureElectronCount": 46.00000263380423,
       "uniformGridElectronEstimate": 45.72638303933272,
       "maximumAbsoluteBoundaryField": {
-        "total": 1.2611546806755029e-06,
-        "difference": 0.0,
-        "deformation": 3.38457917584895e-08,
+        "total": 0.0000012611546806755029,
+        "difference": 0,
+        "deformation": 3.38457917584895e-8,
         "occupied": 0.0003981279916382824,
         "virtual": 0.0002673133712029588
       },
@@ -505,7 +505,7 @@
     },
     {
       "id": "pre-ts",
-      "geometryKind": "Two equal C\u2013C distances constrained; all other coordinates relaxed. Not a stationary point or IRC.",
+      "geometryKind": "Two equal C–C distances constrained; all other coordinates relaxed. Not a stationary point or IRC.",
       "atoms": [
         {
           "element": "C",
@@ -673,7 +673,7 @@
       "scfConverged": true,
       "electronCountAOMetric": 46.00000000000011,
       "orthonormalError": 9.712868791489985e-14,
-      "scfOrbitalGradientNorm": 1.5472747091749753e-07,
+      "scfOrbitalGradientNorm": 1.5472747091749753e-7,
       "internalStable": true,
       "externalStable": true,
       "homoLumoGapHartree": 0.20206994965631964,
@@ -727,7 +727,7 @@
             0,
             4
           ],
-          "label": "C1\u00b7\u00b7\u00b7C5 forming",
+          "label": "C1···C5 forming",
           "distanceAngstrom": 2.49999999982208,
           "mayer": 0.14213474647503838,
           "lowdinWiberg": 0.16571027070593142
@@ -737,7 +737,7 @@
             3,
             5
           ],
-          "label": "C4\u00b7\u00b7\u00b7C6 forming",
+          "label": "C4···C6 forming",
           "distanceAngstrom": 2.5000000000319034,
           "mayer": 0.14208695495858528,
           "lowdinWiberg": 0.16568011333376198
@@ -747,7 +747,7 @@
             0,
             1
           ],
-          "label": "C1\u2013C2 original \u03c0",
+          "label": "C1–C2 original π",
           "distanceAngstrom": 1.3557297073095753,
           "mayer": 1.7567023206442738,
           "lowdinWiberg": 1.8341138864415212
@@ -757,7 +757,7 @@
             2,
             3
           ],
-          "label": "C3\u2013C4 original \u03c0",
+          "label": "C3–C4 original π",
           "distanceAngstrom": 1.3556980348872687,
           "mayer": 1.7567546660241318,
           "lowdinWiberg": 1.8341745472545319
@@ -767,7 +767,7 @@
             4,
             5
           ],
-          "label": "C5\u2013C6 original \u03c0",
+          "label": "C5–C6 original π",
           "distanceAngstrom": 1.3509909270059137,
           "mayer": 1.8362846401696293,
           "lowdinWiberg": 1.9420177787569552
@@ -777,7 +777,7 @@
             1,
             2
           ],
-          "label": "C2\u2013C3 emerging \u03c0",
+          "label": "C2–C3 emerging π",
           "distanceAngstrom": 1.4404976920594912,
           "mayer": 1.2337756538062123,
           "lowdinWiberg": 1.2675093438357283
@@ -902,22 +902,22 @@
         {
           "label": "Forming-bond distance asymmetry",
           "value": 2.0982326986995758e-10,
-          "unit": "\u00c5"
+          "unit": "Å"
         },
         {
           "label": "Forming-bond Mayer asymmetry",
-          "value": 4.7791516453093985e-05,
+          "value": 0.000047791516453093985,
           "unit": "dimensionless"
         },
         {
-          "label": "Kohn\u2013Sham frontier gap (not excitation energy)",
+          "label": "Kohn–Sham frontier gap (not excitation energy)",
           "value": 5.498603448805463,
           "unit": "eV"
         },
         {
           "label": "Mapped fragment-exchange reflection RMSD",
           "value": 0.0009091418404338591,
-          "unit": "\u00c5"
+          "unit": "Å"
         },
         {
           "label": "Max distance-constraint projected nuclear gradient",
@@ -925,14 +925,14 @@
           "unit": "Eh/bohr"
         }
       ],
-      "label": "2.5 \u00c5 constrained \u00b7 C1\u2013C5 2.500 \u00c5",
+      "label": "2.5 Å constrained · C1–C5 2.500 Å",
       "coordinateLabel": "pre-ts",
       "quadratureElectronCount": 45.99999843075671,
       "uniformGridElectronEstimate": 45.03421151473115,
       "maximumAbsoluteBoundaryField": {
-        "total": 8.987229450293124e-07,
-        "difference": 6.174392633595738e-07,
-        "deformation": 6.7055674923734e-08,
+        "total": 8.987229450293124e-7,
+        "difference": 6.174392633595738e-7,
+        "deformation": 6.7055674923734e-8,
         "occupied": 0.00022114511178412887,
         "virtual": 0.0003175660643927457
       },
@@ -1230,11 +1230,11 @@
         3247.9708620696597,
         3264.2996125381483
       ],
-      "maxNuclearGradientEhPerBohr": 1.0327877137505936e-05,
+      "maxNuclearGradientEhPerBohr": 0.000010327877137505936,
       "scfConverged": true,
       "electronCountAOMetric": 45.9999999999999,
       "orthonormalError": 1.1191048088221578e-13,
-      "scfOrbitalGradientNorm": 3.2250495334856544e-07,
+      "scfOrbitalGradientNorm": 3.2250495334856544e-7,
       "stationaryPointVerified": true,
       "internalStable": true,
       "externalStable": true,
@@ -1289,7 +1289,7 @@
             0,
             4
           ],
-          "label": "C1\u00b7\u00b7\u00b7C5 forming",
+          "label": "C1···C5 forming",
           "distanceAngstrom": 2.2734838306296044,
           "mayer": 0.36123680368736993,
           "lowdinWiberg": 0.38001240400901437
@@ -1299,7 +1299,7 @@
             3,
             5
           ],
-          "label": "C4\u00b7\u00b7\u00b7C6 forming",
+          "label": "C4···C6 forming",
           "distanceAngstrom": 2.273479209896705,
           "mayer": 0.3612373792672706,
           "lowdinWiberg": 0.38001387571577405
@@ -1309,7 +1309,7 @@
             0,
             1
           ],
-          "label": "C1\u2013C2 original \u03c0",
+          "label": "C1–C2 original π",
           "distanceAngstrom": 1.383227356982921,
           "mayer": 1.5437469080688413,
           "lowdinWiberg": 1.620780272525898
@@ -1319,7 +1319,7 @@
             2,
             3
           ],
-          "label": "C3\u2013C4 original \u03c0",
+          "label": "C3–C4 original π",
           "distanceAngstrom": 1.3832281249486496,
           "mayer": 1.5437444314367588,
           "lowdinWiberg": 1.6207794212710787
@@ -1329,7 +1329,7 @@
             4,
             5
           ],
-          "label": "C5\u2013C6 original \u03c0",
+          "label": "C5–C6 original π",
           "distanceAngstrom": 1.3862114889812533,
           "mayer": 1.567690355266727,
           "lowdinWiberg": 1.6763074563016112
@@ -1339,7 +1339,7 @@
             1,
             2
           ],
-          "label": "C2\u2013C3 emerging \u03c0",
+          "label": "C2–C3 emerging π",
           "distanceAngstrom": 1.4076973576337148,
           "mayer": 1.399562459043355,
           "lowdinWiberg": 1.4328236648614083
@@ -1459,53 +1459,53 @@
           "style": "bond"
         }
       ],
-      "geometrySymmetryRmsdAngstrom": 1.501882553831439e-05,
+      "geometrySymmetryRmsdAngstrom": 0.00001501882553831439,
       "geometryDescriptors": [
         {
           "label": "Forming-bond distance asymmetry",
-          "value": 4.620732899418556e-06,
-          "unit": "\u00c5"
+          "value": 0.000004620732899418556,
+          "unit": "Å"
         },
         {
           "label": "Forming-bond Mayer asymmetry",
-          "value": 5.755799006856854e-07,
+          "value": 5.755799006856854e-7,
           "unit": "dimensionless"
         },
         {
-          "label": "Kohn\u2013Sham frontier gap (not excitation energy)",
+          "label": "Kohn–Sham frontier gap (not excitation energy)",
           "value": 5.720649634276262,
           "unit": "eV"
         },
         {
           "label": "Mapped fragment-exchange reflection RMSD",
-          "value": 1.501882553831439e-05,
-          "unit": "\u00c5"
+          "value": 0.00001501882553831439,
+          "unit": "Å"
         },
         {
-          "label": "Imaginary-mode dr(C1\u2013C5)/ds",
+          "label": "Imaginary-mode dr(C1–C5)/ds",
           "value": -0.8018360345452964,
           "unit": "dimensionless"
         },
         {
-          "label": "Imaginary-mode dr(C4\u2013C6)/ds",
+          "label": "Imaginary-mode dr(C4–C6)/ds",
           "value": -0.8018439357282945,
           "unit": "dimensionless"
         },
         {
           "label": "Max distance-constraint projected nuclear gradient",
-          "value": 7.70089894562179e-06,
+          "value": 0.00000770089894562179,
           "unit": "Eh/bohr"
         }
       ],
       "unstableMode": {
-        "definition": "r(s)=r(TS)+s*v; v is the imaginary Cartesian normal-mode vector scaled to sum_atom |v|\u00b2=1; s in angstrom, dr/ds dimensionless. Sign chosen to shorten C1\u2013C5. Local harmonic direction only, NOT IRC.",
+        "definition": "r(s)=r(TS)+s*v; v is the imaginary Cartesian normal-mode vector scaled to sum_atom |v|²=1; s in angstrom, dr/ds dimensionless. Sign chosen to shorten C1–C5. Local harmonic direction only, NOT IRC.",
         "bonds": [
           {
             "atoms": [
               0,
               4
             ],
-            "label": "C1\u00b7\u00b7\u00b7C5 forming",
+            "label": "C1···C5 forming",
             "drds": -0.8018360345452964
           },
           {
@@ -1513,7 +1513,7 @@
               3,
               5
             ],
-            "label": "C4\u00b7\u00b7\u00b7C6 forming",
+            "label": "C4···C6 forming",
             "drds": -0.8018439357282945
           },
           {
@@ -1521,7 +1521,7 @@
               0,
               1
             ],
-            "label": "C1\u2013C2 original \u03c0",
+            "label": "C1–C2 original π",
             "drds": 0.1494572985188912
           },
           {
@@ -1529,7 +1529,7 @@
               2,
               3
             ],
-            "label": "C3\u2013C4 original \u03c0",
+            "label": "C3–C4 original π",
             "drds": 0.14945878326981774
           },
           {
@@ -1537,7 +1537,7 @@
               4,
               5
             ],
-            "label": "C5\u2013C6 original \u03c0",
+            "label": "C5–C6 original π",
             "drds": 0.20766855871150247
           },
           {
@@ -1545,7 +1545,7 @@
               1,
               2
             ],
-            "label": "C2\u2013C3 emerging \u03c0",
+            "label": "C2–C3 emerging π",
             "drds": -0.13686698973841527
           }
         ],
@@ -1632,14 +1632,14 @@
           ]
         ]
       },
-      "label": "Verified saddle \u00b7 C1\u2013C5 2.273 \u00c5",
+      "label": "Verified saddle · C1–C5 2.273 Å",
       "coordinateLabel": "ts",
       "quadratureElectronCount": 46.00000011880587,
       "uniformGridElectronEstimate": 46.41750278905836,
       "maximumAbsoluteBoundaryField": {
-        "total": 7.12467602739055e-07,
-        "difference": 7.316001408808099e-07,
-        "deformation": 1.1994372028805446e-07,
+        "total": 7.12467602739055e-7,
+        "difference": 7.316001408808099e-7,
+        "deformation": 1.1994372028805446e-7,
         "occupied": 0.00016012422413822465,
         "virtual": 0.00035807637785332744
       },
@@ -1684,7 +1684,7 @@
       "meshFile": "reaction-lab/diels-alder/ts-meshes.json",
       "fieldFile": "reaction-lab/diels-alder/ts-fields.npz",
       "plotLabel": "TS",
-      "maxProjectedFreeGradientEhPerBohr": 7.70089894562179e-06,
+      "maxProjectedFreeGradientEhPerBohr": 0.00000770089894562179,
       "files": [
         {
           "label": "Cartesian geometry",
@@ -1726,7 +1726,7 @@
     },
     {
       "id": "post-ts",
-      "geometryKind": "Two equal 1.9 \u00c5 forming distances constrained; independently fresh-grid relaxed Cartesian geometry. Not a stationary point or IRC.",
+      "geometryKind": "Two equal 1.9 Å forming distances constrained; independently fresh-grid relaxed Cartesian geometry. Not a stationary point or IRC.",
       "atoms": [
         {
           "element": "C",
@@ -1894,10 +1894,10 @@
       "scfConverged": true,
       "electronCountAOMetric": 45.9999999999999,
       "orthonormalError": 4.475977741156136e-14,
-      "scfOrbitalGradientNorm": 3.532981922323229e-07,
+      "scfOrbitalGradientNorm": 3.532981922323229e-7,
       "refinementChecks": {
-        "defaultProjectedGradientEhPerBohr": 2.2865218532563958e-05,
-        "movingGridProjectedGradientEhPerBohr": 4.400749463062681e-06,
+        "defaultProjectedGradientEhPerBohr": 0.000022865218532563958,
+        "movingGridProjectedGradientEhPerBohr": 0.000004400749463062681,
         "maxConstraintDeviationAngstrom": 6.684315323468581e-10
       },
       "internalStable": true,
@@ -1947,14 +1947,14 @@
           "quadratureElectronCount": 15.99999999466154
         }
       ],
-      "maxProjectedFreeGradientEhPerBohr": 2.2865228661794745e-05,
+      "maxProjectedFreeGradientEhPerBohr": 0.000022865228661794745,
       "bonds": [
         {
           "atoms": [
             0,
             4
           ],
-          "label": "C1\u00b7\u00b7\u00b7C5 forming",
+          "label": "C1···C5 forming",
           "distanceAngstrom": 1.9000000006684314,
           "mayer": 0.872382947376025,
           "lowdinWiberg": 0.8791883102601497
@@ -1964,7 +1964,7 @@
             3,
             5
           ],
-          "label": "C4\u00b7\u00b7\u00b7C6 forming",
+          "label": "C4···C6 forming",
           "distanceAngstrom": 1.900000000601097,
           "mayer": 0.8724147977853005,
           "lowdinWiberg": 0.8791828426314365
@@ -1974,7 +1974,7 @@
             0,
             1
           ],
-          "label": "C1\u2013C2 original \u03c0",
+          "label": "C1–C2 original π",
           "distanceAngstrom": 1.4713925305967515,
           "mayer": 1.105146785156259,
           "lowdinWiberg": 1.1915886613239695
@@ -1984,7 +1984,7 @@
             2,
             3
           ],
-          "label": "C3\u2013C4 original \u03c0",
+          "label": "C3–C4 original π",
           "distanceAngstrom": 1.4713842508234654,
           "mayer": 1.1051452992414326,
           "lowdinWiberg": 1.1915792705902983
@@ -1994,7 +1994,7 @@
             4,
             5
           ],
-          "label": "C5\u2013C6 original \u03c0",
+          "label": "C5–C6 original π",
           "distanceAngstrom": 1.4987988180592138,
           "mayer": 1.0696416344148472,
           "lowdinWiberg": 1.1870068726749021
@@ -2004,7 +2004,7 @@
             1,
             2
           ],
-          "label": "C2\u2013C3 emerging \u03c0",
+          "label": "C2–C3 emerging π",
           "distanceAngstrom": 1.3490967519275716,
           "mayer": 1.8498202764138352,
           "lowdinWiberg": 1.8825341173075396
@@ -2129,42 +2129,42 @@
         {
           "label": "Forming-bond distance asymmetry",
           "value": 6.733436030970097e-11,
-          "unit": "\u00c5"
+          "unit": "Å"
         },
         {
           "label": "Forming-bond Mayer asymmetry",
-          "value": 3.185040927555782e-05,
+          "value": 0.00003185040927555782,
           "unit": "dimensionless"
         },
         {
-          "label": "Kohn\u2013Sham frontier gap (not excitation energy)",
+          "label": "Kohn–Sham frontier gap (not excitation energy)",
           "value": 6.667642907636313,
           "unit": "eV"
         },
         {
           "label": "Mapped fragment-exchange reflection RMSD",
           "value": 0.002092583246753079,
-          "unit": "\u00c5"
+          "unit": "Å"
         },
         {
           "label": "Max distance-constraint projected nuclear gradient",
-          "value": 2.2865228661794745e-05,
+          "value": 0.000022865228661794745,
           "unit": "Eh/bohr"
         },
         {
           "label": "Moving-grid response projected nuclear gradient",
-          "value": 4.400749463062681e-06,
+          "value": 0.000004400749463062681,
           "unit": "Eh/bohr"
         }
       ],
-      "label": "1.9 \u00c5 constrained \u00b7 C1\u2013C5 1.900 \u00c5",
+      "label": "1.9 Å constrained · C1–C5 1.900 Å",
       "coordinateLabel": "post-ts",
       "quadratureElectronCount": 45.999997397406744,
       "uniformGridElectronEstimate": 45.97381978098768,
       "maximumAbsoluteBoundaryField": {
-        "total": 6.534901109599053e-07,
-        "difference": 8.656892099728008e-07,
-        "deformation": 2.0910115454800913e-07,
+        "total": 6.534901109599053e-7,
+        "difference": 8.656892099728008e-7,
+        "deformation": 2.0910115454800913e-7,
         "occupied": 0.0001337394507148777,
         "virtual": 0.0004328887953366406
       },
@@ -2461,11 +2461,11 @@
         3146.654835530781,
         3170.1239840801613
       ],
-      "maxNuclearGradientEhPerBohr": 2.047490810275221e-05,
+      "maxNuclearGradientEhPerBohr": 0.00002047490810275221,
       "scfConverged": true,
       "electronCountAOMetric": 45.999999999999986,
       "orthonormalError": 1.7467008057550338e-13,
-      "scfOrbitalGradientNorm": 3.4972646843857195e-07,
+      "scfOrbitalGradientNorm": 3.4972646843857195e-7,
       "stationaryPointVerified": true,
       "internalStable": true,
       "externalStable": true,
@@ -2514,14 +2514,14 @@
           "quadratureElectronCount": 15.999999979351019
         }
       ],
-      "maxProjectedFreeGradientEhPerBohr": 1.9520534603957145e-05,
+      "maxProjectedFreeGradientEhPerBohr": 0.000019520534603957145,
       "bonds": [
         {
           "atoms": [
             0,
             4
           ],
-          "label": "C1\u00b7\u00b7\u00b7C5 forming",
+          "label": "C1···C5 forming",
           "distanceAngstrom": 1.5376517149408817,
           "mayer": 1.012988285979602,
           "lowdinWiberg": 1.0779187683623785
@@ -2531,7 +2531,7 @@
             3,
             5
           ],
-          "label": "C4\u00b7\u00b7\u00b7C6 forming",
+          "label": "C4···C6 forming",
           "distanceAngstrom": 1.5376166038071437,
           "mayer": 1.012976075116162,
           "lowdinWiberg": 1.0779336179870818
@@ -2541,7 +2541,7 @@
             0,
             1
           ],
-          "label": "C1\u2013C2 original \u03c0",
+          "label": "C1–C2 original π",
           "distanceAngstrom": 1.5101275077133933,
           "mayer": 1.0145170640232106,
           "lowdinWiberg": 1.0925580512589514
@@ -2551,7 +2551,7 @@
             2,
             3
           ],
-          "label": "C3\u2013C4 original \u03c0",
+          "label": "C3–C4 original π",
           "distanceAngstrom": 1.5101390632228013,
           "mayer": 1.0145402866122808,
           "lowdinWiberg": 1.0925494679329435
@@ -2561,7 +2561,7 @@
             4,
             5
           ],
-          "label": "C5\u2013C6 original \u03c0",
+          "label": "C5–C6 original π",
           "distanceAngstrom": 1.535115390461516,
           "mayer": 1.0120916232812276,
           "lowdinWiberg": 1.0837737884169683
@@ -2571,7 +2571,7 @@
             1,
             2
           ],
-          "label": "C2\u2013C3 emerging \u03c0",
+          "label": "C2–C3 emerging π",
           "distanceAngstrom": 1.3373327693294723,
           "mayer": 1.9670171612393492,
           "lowdinWiberg": 1.9939817086819054
@@ -2695,38 +2695,38 @@
       "geometryDescriptors": [
         {
           "label": "Forming-bond distance asymmetry",
-          "value": 3.5111133737997235e-05,
-          "unit": "\u00c5"
+          "value": 0.000035111133737997235,
+          "unit": "Å"
         },
         {
           "label": "Forming-bond Mayer asymmetry",
-          "value": 1.2210863439943154e-05,
+          "value": 0.000012210863439943154,
           "unit": "dimensionless"
         },
         {
-          "label": "Kohn\u2013Sham frontier gap (not excitation energy)",
+          "label": "Kohn–Sham frontier gap (not excitation energy)",
           "value": 7.279997434500394,
           "unit": "eV"
         },
         {
           "label": "Mapped fragment-exchange reflection RMSD",
           "value": 0.00040004993212479925,
-          "unit": "\u00c5"
+          "unit": "Å"
         },
         {
           "label": "Max distance-constraint projected nuclear gradient",
-          "value": 1.9520534603957145e-05,
+          "value": 0.000019520534603957145,
           "unit": "Eh/bohr"
         }
       ],
-      "label": "Verified cyclohexene minimum \u00b7 C1\u2013C5 1.538 \u00c5",
+      "label": "Verified cyclohexene minimum · C1–C5 1.538 Å",
       "coordinateLabel": "product",
       "quadratureElectronCount": 46.00000134227301,
       "uniformGridElectronEstimate": 45.42700567011719,
       "maximumAbsoluteBoundaryField": {
-        "total": 1.2511478382059292e-05,
-        "difference": 1.165847573283067e-05,
-        "deformation": 7.633245885881553e-07,
+        "total": 0.000012511478382059292,
+        "difference": 0.00001165847573283067,
+        "deformation": 7.633245885881553e-7,
         "occupied": 0.0014058549563921543,
         "virtual": 0.000537464666695621
       },
@@ -2891,13 +2891,13 @@
       71
     ],
     "originBohr": [
-      -10.0,
-      -9.0,
-      -7.0
+      -10,
+      -9,
+      -7
     ],
     "spacingBohr": 0.28,
     "order": "C order, z fastest",
-    "alignment": "Fixed atom mapping C1\u2013C6 then H7\u2013H16; each optimized frame rigidly aligned to the TS carbon skeleton before final SCF. No density alignment or grid interpolation.",
+    "alignment": "Fixed atom mapping C1–C6 then H7–H16; each optimized frame rigidly aligned to the TS carbon skeleton before final SCF. No density alignment or grid interpolation.",
     "densityUnits": "electron bohr^-3",
     "orbitalUnits": "bohr^-3/2",
     "meshCoordinates": "angstrom",
@@ -2910,19 +2910,19 @@
     "signs": "Teal positive / amber negative amplitude or electron-number difference, not electrical charges."
   },
   "warnings": [
-    "IRC VALIDATION IN PROGRESS: forward endpoint failed minimum verification; backward driver convergence incomplete; backward independent endpoint verification missing: pending or unavailable Displayed geometries and electronic fields remain the original r1 constrained study, saddle and minimum.",
+    "IRC VALIDATION INTERRUPTED: The product-like endpoint failed minimum verification; final reactant-branch convergence and its endpoint checks are unconfirmed after execution interruption. Displayed geometries and electronic fields remain the original r1 constrained study, saddle and minimum.",
     "METHOD DIAGNOSTIC LIMITATION: unstable reference determinants in reactant-butadiene-ri-mp2-def2tzvp. These values are retained as diagnostics, not validated correlated benchmarks; they do not replace the displayed B3LYP fields."
   ],
   "schemaVersion": "2.0",
   "id": "butadiene-ethylene",
-  "title": "Diels\u2013Alder \u00b7 butadiene + ethylene",
+  "title": "Diels–Alder · butadiene + ethylene",
   "event": "diels-alder:0",
-  "modelEquation": "1,3-butadiene + ethylene \u2192 cyclohexene",
+  "modelEquation": "1,3-butadiene + ethylene → cyclohexene",
   "modelScope": "Exact unsubstituted pair in the existing event. Separate from the retained acrolein/radical-cation literature dataset. Thermal singlet model; s-cis reactive conformation.",
   "modelMechanism": "mechanisms/diels-alder.svg",
   "energyReference": {
     "frameId": "approach",
-    "label": "3.0 \u00c5 equal-distance constrained s-cis complex, not separated optimized reactants"
+    "label": "3.0 Å equal-distance constrained s-cis complex, not separated optimized reactants"
   },
   "orbitalDefinitions": [
     {
@@ -2935,29 +2935,29 @@
       "id": "virtual",
       "title": "Ethylene-LUMO-projected virtual complex MO",
       "meshKey": "virtual",
-      "description": "Initial projection of frozen neutral ethylene \u03c0* LUMO, then canonical virtual-space overlap tracking. Not necessarily the complex LUMO at later geometries."
+      "description": "Initial projection of frozen neutral ethylene π* LUMO, then canonical virtual-space overlap tracking. Not necessarily the complex LUMO at later geometries."
     }
   ],
   "fieldDefinitions": [
     {
       "id": "total",
-      "label": "Total electron density \u03c1",
+      "label": "Total electron density ρ",
       "kind": "electron-density",
-      "units": "e bohr\u207b\u00b3",
+      "units": "e bohr⁻³",
       "signed": false
     },
     {
       "id": "difference",
       "label": "Geometry density difference",
       "kind": "density-difference",
-      "units": "e bohr\u207b\u00b3",
+      "units": "e bohr⁻³",
       "signed": true
     },
     {
       "id": "deformation",
       "label": "Same-geometry fragment deformation density",
       "kind": "deformation-density",
-      "units": "e bohr\u207b\u00b3",
+      "units": "e bohr⁻³",
       "signed": true
     }
   ],
@@ -2978,14 +2978,14 @@
   "evidence": [
     "S1: code 1333 starts with closed-shell electron pairs. Repository S3 means excited-state/state change; it is NOT the thermal assignment. SCF stability tests qualify the restricted singlet model, not all possible electronic states.",
     "O3: concerted cyclic interaction. Computed two-bond evolution and the separately labeled fragment phase laboratory support cooperative six-center organization. A frontier picture alone proves neither a path nor concertedness.",
-    "R3: multiple-bond reorganization. Two new C\u2013C indices increase while three original \u03c0 bonds change and the middle diene bond gains \u03c0 character; all six distances and basis-dependent indices are shown.",
+    "R3: multiple-bond reorganization. Two new C–C indices increase while three original π bonds change and the middle diene bond gains π character; all six distances and basis-dependent indices are shown.",
     "G3: collective geometric reorganization. Both ends of a reactive s-cis diene approach the alkene; the Hessian imaginary-mode bond derivatives test coupled local motion independently of a single orbital picture. Equal-distance constraints impose synchronicity at the scan points; symmetry of the unconstrained saddle is an independent check. Concerted does not universally mean synchronous.",
     "1333 is inherited in the authoritative codebook and this existing event is consistent-with-convention, not relabeled candidate. Qualitative classification omits correlation, energy, normal-mode curvature, density reference, orbital gauge, numerical bond indices and reaction timing."
   ],
   "limitations": [
     "r2 retains 7/12 targeted fixed-r1-geometry grid/basis/RI-MP2 comparisons. These do not establish alternative-level stationary points or basis/correlation convergence. Displayed fields retain the original B3LYP/6-31G(d), grid3 model.",
     "r2 IRC-driver convergence and independently verified endpoint connectivity are separate tests. Until all path and selected-electronic-field checks pass, the original five displayed geometries remain separately calculated constrained/saddle/minimum structures. Consult the r2 audit for actual completed and missing calculations.",
-    "Stability and the Kohn\u2013Sham gap are diagnostics, not multireference benchmarks. No CASSCF/natural-occupation or coupled-cluster diagnostic was calculated; a restricted determinant cannot establish the absence of static correlation.",
+    "Stability and the Kohn–Sham gap are diagnostics, not multireference benchmarks. No CASSCF/natural-occupation or coupled-cluster diagnostic was calculated; a restricted determinant cannot establish the absence of static correlation.",
     "Frozen neutral fragments at product-like geometries are deliberately deformed reference states, not optimized reactants or a unique electron-transfer partition. Reported unstable references are flagged.",
     "The uniform display grid under-resolves nuclear cores: use independent Becke quadrature and Tr(PS) for normalization. No charge transfer is integrated on the display grid."
   ],
@@ -2993,12 +2993,17 @@
     "B3LYP with PySCF default VWN-RPA correlation convention; restricted neutral singlet, 46 electrons; 6-31G(d), grid level 3, SCF energy tolerance 1e-10 Eh and orbital gradient tolerance 1e-6.",
     "TS optimization uses full analytic nuclear gradients and an initial analytic Hessian, followed by a full final Hessian. Signed frequencies: negative numbers denote imaginary modes. Minima require no imaginary vibrational modes.",
     "Constraints, Cartesian inputs/outputs, coefficients, Hessians and logs are downloadable. Isolated optimized reactants are distinct from the frozen s-cis fragments used for deformation density.",
-    "Fixed atom mapping C1\u2013C6 then H7\u2013H16; each optimized frame rigidly aligned to the TS carbon skeleton before final SCF. No density alignment or grid interpolation.",
+    "Fixed atom mapping C1–C6 then H7–H16; each optimized frame rigidly aligned to the TS carbon skeleton before final SCF. No density alignment or grid interpolation.",
     "rho(current) minus rho(approach), evaluated on identical lab-frame Cartesian points after documented geometry alignment. Includes nuclear displacement, not unique electron transfer.",
     "rho(complex) minus frozen neutral singlet butadiene and ethylene densities at that exact geometry, each B3LYP/6-31G(d) in its own basis with no ghosts. Not a counterpoise or unique charge-transfer partition.",
-    "Complex canonical orbital tracking: occupied and virtual blocks independently assigned one-to-one by maximum absolute cross-geometry AO-metric overlap (Hungarian), then sign aligned. <0.7 overlap or a larger alternative is flagged. Near-degenerate partners remain gauge dependent; no subspace continuity claim."
+    "Complex canonical orbital tracking: occupied and virtual blocks independently assigned one-to-one by maximum absolute cross-geometry AO-metric overlap (Hungarian), then sign aligned. <0.7 overlap or a larger alternative is flagged. Near-degenerate partners remain gauge dependent; no subspace continuity claim.",
+    "Raw driver status files are archived checkpoint records, not claims that jobs remain active. Only retained, independently checked outputs count as release evidence. Later unrecovered session progress is excluded."
   ],
   "sourceFiles": [
+    {
+      "label": "Execution interruption and final release scope",
+      "path": "reaction-lab/diels-alder/r2/execution-interruption.json"
+    },
     {
       "label": "Complete calculated metadata",
       "path": "reaction-lab/diels-alder/diels-alder.json"
@@ -3161,6 +3166,8 @@
     "pathResult": "incomplete",
     "connectivityResult": "incomplete",
     "validatedIRCSeriesExposed": false,
-    "report": "reaction-lab/diels-alder/r2/V037_R2_AUDIT.md"
+    "report": "reaction-lab/diels-alder/r2/V037_R2_AUDIT.md",
+    "executionStatus": "interrupted",
+    "sourceSnapshotCommit": "5299e1846e85783dd85cd5588144c4f0affda376"
   }
 }

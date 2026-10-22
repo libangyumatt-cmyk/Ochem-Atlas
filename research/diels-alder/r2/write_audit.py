@@ -12,6 +12,7 @@ def main():
  independent=json.loads((comparison_dir/'validation.json').read_text()) if (comparison_dir/'validation.json').exists() else None
  stage='INCOMPLETE: endpoint/path verification pending or failed'
  if connectivity and connectivity['result']=='pass':stage='Path/connectivity checks passed; selected IRC electronic-field integration still requires its own validation'
+ if OUT==BASE/'r2/restart-20261022' and (BASE/'r2/execution-interruption.json').exists():stage='INCOMPLETE: execution interrupted; product-endpoint minimum check failed'
  rows=[]
  for d,r in path['branches'].items():
   last=r['acceptedIRCPoints'][-1] if r['acceptedIRCPoints'] else None

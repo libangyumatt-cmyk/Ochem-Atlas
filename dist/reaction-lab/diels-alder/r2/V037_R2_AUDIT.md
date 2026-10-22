@@ -1,10 +1,25 @@
 # Ochem Atlas v0.3.7-r2 — Diels–Alder scientific validation
 
-**Scientific status: INCOMPLETE: endpoint/path verification pending or failed.**
+**Scientific status: INCOMPLETE — product-endpoint minimum check failed; remaining calculations interrupted.**
 Audit generated 2026-10-22T20:44:14.583309+00:00; this is an explicit
 checkpoint of actual files, not a promise that pending calculations completed.
 The original five displayed geometries remain separately calculated constrained
 study/saddle/minimum data. No new “Validated IRC” selector has been exposed.
+
+
+## Release status after execution interruption
+
+This release publishes checked findings and explicit validation failures; it does not meet the full validated-IRC/electronic-structure success criterion.
+
+The execution environment became unavailable after the saved snapshot 5299e1846e85783dd85cd5588144c4f0affda376. Unfinished jobs have no confirmed final outcome. Raw status files are historical checkpoints, not statements that calculations continue in the background. Later unrecovered session progress is excluded from release evidence.
+
+- Forward driver: converged, 45 saved SCF/gradient evaluations and 39 documented accepted IRC points. Independent endpoint optimization has an electronically stable determinant but one imaginary nuclear mode near 31.8i cm⁻¹; it is not a verified minimum.
+- Reactant direction: 111 saved evaluations and 106 documented accepted points in the retained report. Final convergence and an independently verified endpoint remain unavailable.
+- Ten tight-SCF displacement probes and four negative directional energy curvatures were independently checked at grids 3 and 5.
+- Seven of twelve planned complete fixed-geometry comparison analyses were retained and independently checked. Additional converged SCF checkpoints for TS/def2-TZVP and product/grid5 remain partial analyses; their stability/descriptor completion is not claimed.
+- No synchronized IRC density/orbital series was generated. The original five laboratory frames remain unchanged and no “Validated IRC” selector is exposed.
+
+The release adds an independent Node reconstruction test for saved ZIP CRCs, SCF coefficient normalization, electron counts, density-matrix Hermiticity, documented IRC-point provenance, negative Hessian curvature and finite-displacement curvatures. This is numerical consistency verification, not proof of a complete IRC. Existing regression tests run in repository CI before Pages deployment. Final post-interruption browser/mobile checks could not be performed; the prior published desktop checkpoint checks are recorded below.
 
 ## Retention and recovery
 
@@ -124,7 +139,7 @@ These are the unchanged independently optimized r1 geometries, not optimized
 alternative-method stationary points. No alternative-basis TS Hessian/IRC,
 geometry-convergence, multireference or coupled-cluster claim is made.
 
-| Level | Completed geometries | TS-geometry energy excess / kcal mol⁻¹ | Product−reactants / kcal mol⁻¹ | All references stable | Scope |
+| Level | Completed full analyses | TS-geometry energy excess / kcal mol⁻¹ | Product−reactants / kcal mol⁻¹ | All references stable | Scope |
 | --- | --- | ---: | ---: | --- | --- |
 | grid5 | 3/4 | unavailable | unavailable | unavailable | rather than infer missing results |
 | def2tzvp | 2/4 | unavailable | unavailable | unavailable | rather than infer missing results |
