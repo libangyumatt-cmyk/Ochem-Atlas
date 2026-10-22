@@ -2,7 +2,7 @@
   "name": "ochem-atlas-qc",
   "private": true,
   "scripts": {
-    "test": "node verify-volume-archives.cjs && node verify.cjs && node verify-foundations.cjs && node verify-orbitals.cjs && node verify-ui.cjs && node verify-diversity.cjs && node verify-reaction-lab.cjs && node verify-carbonyl.cjs && node verify-diels-alder.cjs"
+    "test": "node verify-volume-archives.cjs && node verify.cjs && node verify-foundations.cjs && node verify-orbitals.cjs && node verify-ui.cjs && node verify-diversity.cjs && node verify-reaction-lab.cjs && node verify-carbonyl.cjs && node verify-diels-alder.cjs && node verify-diels-alder-r2.cjs"
   },
   "devDependencies": {
     "jsdom": "30.1.2",

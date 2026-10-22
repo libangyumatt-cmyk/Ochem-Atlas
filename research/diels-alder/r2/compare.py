@@ -33,8 +33,10 @@ def main():
  if tag=='ri-mp2-def2tzvp':
   mp=DFRMP2(f,auxbasis=make_auxbasis(m,mp2fit=True));mp.kernel();p=mp.make_rdm1(ao_repr=True);energy=float(mp.e_tot)
   result.update(correlationEnergyHartree=float(mp.e_corr),densityConvention='Unrelaxed MP2 one-particle density; HF canonical orbitals, not correlated natural orbitals.',hfAuxiliaryBasis=f.with_df.auxbasis,correlationAuxiliaryBasis=mp.auxmol.basis,frozenElectrons=0)
- else:
+ elif case=='ts' or '--gradient' in sys.argv:
   grad=f.nuc_grad_method();grad.grid_response=True;g=grad.kernel();arrays['fullResponseGradient']=g;result.update(maxFullResponseGradientEhPerBohr=float(abs(g).max()),densityConvention='Restricted Kohn–Sham occupation-weighted one-particle density.')
+ else:
+  result.update(gradientStatus='Not calculated in this fixed-geometry diagnostic; no alternative-level stationary point is claimed.',densityConvention='Restricted Kohn–Sham occupation-weighted one-particle density.')
  result['bonds']=[]
  if len(elements)==16:
   ev,u=np.linalg.eigh(s);root=(u*np.sqrt(ev))@u.T;q=root@p@root;ps=p@s;slices=m.aoslice_by_atom()

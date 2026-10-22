@@ -1,4 +1,5 @@
 {
-  "stage": "SCF converged; stability and analysis pending",
-  "energyHartree": -155.98888059124076
+  "stage": "Reference stability completed; final analysis pending",
+  "internalStable": true,
+  "externalStable": true
 }

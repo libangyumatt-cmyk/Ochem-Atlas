@@ -1,0 +1,28 @@
+{
+  "case": "reactant-butadiene",
+  "tag": "ri-mp2-def2tzvp",
+  "geometrySource": "reactant-butadiene.json (unchanged r1 optimized geometry)",
+  "geometrySha256": "1e44bce0bd6fe48767e84d476cb44fae8aeb10a442f014748ac8222d3f3ffc8f",
+  "method": "RI-RMP2",
+  "basis": "def2-tzvp",
+  "gridLevel": null,
+  "charge": 0,
+  "multiplicity": 1,
+  "scfConverged": true,
+  "scfOrbitalGradientNorm": 1.0560739795720782e-07,
+  "referenceInternalStable": true,
+  "referenceExternalStable": false,
+  "referenceEnergyHartree": -154.97946517526552,
+  "referenceLimitation": "Unstable reference: diagnostic only, not accepted as a validated correlated benchmark.",
+  "correlationEnergyHartree": -0.7044226880569071,
+  "densityConvention": "Unrelaxed MP2 one-particle density; HF canonical orbitals, not correlated natural orbitals.",
+  "hfAuxiliaryBasis": "def2-tzvp-jkfit",
+  "correlationAuxiliaryBasis": {
+    "H": "def2-tzvp-ri",
+    "C": "def2-tzvp-ri"
+  },
+  "frozenElectrons": 0,
+  "bonds": [],
+  "energyHartree": -155.6838878633224,
+  "electronCount": 30.000000000000018
+}

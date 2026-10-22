@@ -5,7 +5,7 @@
   "multiplicity": 1,
   "electronCount": 46,
   "environment": "Isolated gas-phase ground-state restricted Kohn\u2013Sham model; no solvent/counterions",
-  "pathKind": "Three independently checked equal-distance constrained points, a full-Hessian verified saddle and an independent product minimum. Not an IRC; no full endpoint connectivity established.",
+  "pathKind": "Original constrained study: Not an IRC. Separate r2 bidirectional IRC calculations and endpoint checks are documented; a validated synchronized IRC series is not yet available.",
   "frames": [
     {
       "id": "approach",
@@ -2909,7 +2909,10 @@
     "probability": "Square of selected normalized complex canonical spatial orbital, no occupation factor.",
     "signs": "Teal positive / amber negative amplitude or electron-number difference, not electrical charges."
   },
-  "warnings": [],
+  "warnings": [
+    "IRC VALIDATION IN PROGRESS: forward driver convergence incomplete; forward independent endpoint verification missing; backward driver convergence incomplete; backward independent endpoint verification missing Displayed geometries and electronic fields remain the original r1 constrained study, saddle and minimum.",
+    "METHOD DIAGNOSTIC LIMITATION: unstable reference determinants in reactant-butadiene-ri-mp2-def2tzvp. These values are retained as diagnostics, not validated correlated benchmarks; they do not replace the displayed B3LYP fields."
+  ],
   "schemaVersion": "2.0",
   "id": "butadiene-ethylene",
   "title": "Diels\u2013Alder \u00b7 butadiene + ethylene",
@@ -2980,8 +2983,8 @@
     "1333 is inherited in the authoritative codebook and this existing event is consistent-with-convention, not relabeled candidate. Qualitative classification omits correlation, energy, normal-mode curvature, density reference, orbital gauge, numerical bond indices and reaction timing."
   ],
   "limitations": [
-    "B3LYP includes approximate electron correlation, not a systematically converged correlated wavefunction. One finite basis and numerical integration grid; no dispersion correction, solvent, ZPE/free energy, basis or functional benchmark.",
-    "No IRC or dynamical trajectory was computed. Equal-distance constrained points plus a first-order saddle and product minimum are consistent with the model cycloaddition branch, but do not verify full endpoint connectivity or exclude competing asynchronous pathways.",
+    "r2 retains 6/12 targeted fixed-r1-geometry grid/basis/RI-MP2 comparisons. These do not establish alternative-level stationary points or basis/correlation convergence. Displayed fields retain the original B3LYP/6-31G(d), grid3 model.",
+    "r2 IRC-driver convergence and independently verified endpoint connectivity are separate tests. Until all path and selected-electronic-field checks pass, the original five displayed geometries remain separately calculated constrained/saddle/minimum structures. Consult the r2 audit for actual completed and missing calculations.",
     "Stability and the Kohn\u2013Sham gap are diagnostics, not multireference benchmarks. No CASSCF/natural-occupation or coupled-cluster diagnostic was calculated; a restricted determinant cannot establish the absence of static correlation.",
     "Frozen neutral fragments at product-like geometries are deliberately deformed reference states, not optimized reactants or a unique electron-transfer partition. Reported unstable references are flagged.",
     "The uniform display grid under-resolves nuclear cores: use independent Becke quadrature and Tr(PS) for normalization. No charge transfer is integrated on the display grid."
@@ -3071,6 +3074,69 @@
     {
       "label": "Optimized ethylene coordinates",
       "path": "reaction-lab/diels-alder/reactant-ethylene.xyz"
+    },
+    {
+      "label": "r2 scientific validation and limitations",
+      "path": "reaction-lab/diels-alder/r2/V037_R2_AUDIT.md"
+    },
+    {
+      "label": "r2 exact software versions",
+      "path": "reaction-lab/diels-alder/r2/software-versions.json"
+    },
+    {
+      "label": "r2 reproduction dependencies",
+      "path": "reaction-lab/diels-alder/r2/requirements.txt"
+    },
+    {
+      "label": "r2 accepted-point/provenance checks",
+      "path": "reaction-lab/diels-alder/r2/restart-20261022/path-validation.json"
+    },
+    {
+      "label": "r2 independent endpoint comparisons",
+      "path": "reaction-lab/diels-alder/r2/restart-20261022/connectivity-validation.json"
+    },
+    {
+      "label": "r2 method diagnostic checks",
+      "path": "reaction-lab/diels-alder/r2/restart-20261022/comparisons/validation.json"
+    },
+    {
+      "label": "Actual calculated geometries (validation status labeled)",
+      "path": "reaction-lab/diels-alder/r2/restart-20261022/geometry-validation.png"
+    },
+    {
+      "label": "Actual calculated path energies/distances",
+      "path": "reaction-lab/diels-alder/r2/restart-20261022/path-validation.png"
+    },
+    {
+      "label": "forward IRC driver state and parameters",
+      "path": "reaction-lab/diels-alder/r2/restart-20261022/forward/status.json"
+    },
+    {
+      "label": "forward Accepted/rejected-step provenance",
+      "path": "reaction-lab/diels-alder/r2/restart-20261022/forward/step-provenance.json"
+    },
+    {
+      "label": "forward Raw SCF/gradient trial archive",
+      "path": "reaction-lab/diels-alder/r2/restart-20261022/forward/evaluations.zip"
+    },
+    {
+      "label": "backward IRC driver state and parameters",
+      "path": "reaction-lab/diels-alder/r2/restart-20261022/backward/status.json"
+    },
+    {
+      "label": "backward Accepted/rejected-step provenance",
+      "path": "reaction-lab/diels-alder/r2/restart-20261022/backward/step-provenance.json"
+    },
+    {
+      "label": "backward Raw SCF/gradient trial archive",
+      "path": "reaction-lab/diels-alder/r2/restart-20261022/backward/evaluations.zip"
     }
-  ]
+  ],
+  "validationR2": {
+    "result": "incomplete",
+    "pathResult": "incomplete",
+    "connectivityResult": "incomplete",
+    "validatedIRCSeriesExposed": false,
+    "report": "reaction-lab/diels-alder/r2/V037_R2_AUDIT.md"
+  }
 }

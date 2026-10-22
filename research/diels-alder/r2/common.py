@@ -34,7 +34,7 @@ def solve(x_bohr,log,dm=None,grid=3,basis='6-31g(d)',elements=None):
 
 def archive(folder,pattern,name):
  files=sorted(p for p in folder.glob(pattern) if p.suffix in ['.json','.log','.npz'])
- temp=folder/(name+'.pending')
+ temp=folder/(name+'.'+str(os.getpid())+'.pending')
  with zipfile.ZipFile(temp,'w',zipfile.ZIP_DEFLATED) as z:
   for p in files:z.write(p,p.name)
  with zipfile.ZipFile(temp) as z:assert z.testzip() is None and len(z.namelist())==len(files)

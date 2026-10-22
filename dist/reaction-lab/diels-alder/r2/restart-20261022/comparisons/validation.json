@@ -1,7 +1,25 @@
 {
   "result": "partial",
-  "completedCases": 3,
+  "completedCases": 6,
   "cases": [
+    {
+      "case": "reactant-butadiene-def2tzvp",
+      "numericalConsistencyPassed": true,
+      "referenceInternalStable": true,
+      "referenceExternalStable": true
+    },
+    {
+      "case": "reactant-butadiene-grid5",
+      "numericalConsistencyPassed": true,
+      "referenceInternalStable": true,
+      "referenceExternalStable": true
+    },
+    {
+      "case": "reactant-butadiene-ri-mp2-def2tzvp",
+      "numericalConsistencyPassed": true,
+      "referenceInternalStable": true,
+      "referenceExternalStable": false
+    },
     {
       "case": "reactant-ethylene-def2tzvp",
       "numericalConsistencyPassed": true,

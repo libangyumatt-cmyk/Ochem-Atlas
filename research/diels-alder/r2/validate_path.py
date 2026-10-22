@@ -14,13 +14,13 @@ def main():
  elems=[a['element'] for a in record()['atoms']];mass=np.array([PeriodicTable[e] for e in elems]);start=np.array([a['xyzAngstrom'] for a in record()['atoms']])/BOHR
  report['coordinateConvention']=dict(massesAmu=mass.tolist(),units='bohr sqrt(amu)',metric='Sum of sqrt(sum_i mass_i * |delta Cartesian r_i|^2) over accepted points. Discrete chord length, not exact analytic arc length. No step interpolation. Fixed r1 atom mapping; native laboratory coordinates with no independent per-point rotation.')
  for direction in ['forward','backward']:
-  folder=OUT/direction;state=json.loads((folder/'status.json').read_text());ev=evaluations(folder)
+  folder=OUT/direction;state=json.loads((folder/'status.json').read_text());rows=json.loads((folder/'step-provenance.json').read_text());ev=evaluations(folder)
   assert ev and np.max(abs(np.array(ev[0]['coordinatesBohr'])-start))<1e-8
   for name,sha in state['initialSources'].items():assert hashlib.sha256((BASE/name).read_bytes()).hexdigest()==sha
   for e in ev:
    assert e['scfConverged'] and abs(e['electronCount']-46)<1e-8 and e['orbitalGradientNorm']<3e-6
    assert np.array(e['coordinatesBohr']).shape==(16,3) and np.isfinite(e['coordinatesBohr']).all() and np.isfinite(e['gradientEhPerBohr']).all()
-  rows=json.loads((folder/'step-provenance.json').read_text());accepted=[r for r in rows if r['accepted'] and not r['endpointOptimization']];points=[];previous=start;cumulative=0.;previous_energy=record()['energyHartree'];uphill=[]
+  accepted=[r for r in rows if r['accepted'] and not r['endpointOptimization']];points=[];previous=start;cumulative=0.;previous_energy=record()['energyHartree'];uphill=[]
   for r in accepted:
    x=np.array(r['coordinatesBohr']);e=min(ev,key=lambda e:np.max(abs(np.array(e['coordinatesBohr'])-x)));assert np.max(abs(np.array(e['coordinatesBohr'])-x))<1e-8
    cumulative+=float(np.sqrt(np.sum(mass[:,None]*(x-previous)**2)));uphill.append(e['energyHartree']-previous_energy)

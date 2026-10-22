@@ -1,0 +1,12 @@
+{
+  "result": "incomplete",
+  "pathValidationResult": "incomplete",
+  "endpoints": {},
+  "limitations": [
+    "forward driver convergence incomplete",
+    "forward independent endpoint verification missing",
+    "backward driver convergence incomplete",
+    "backward independent endpoint verification missing"
+  ],
+  "scope": "Verified connection toward stated bonding regions only when all checks pass. Endpoint minimizations are separate from IRC. No infinite separation, conformer global-minimum guarantee, competing-pathway exclusion or universal synchronicity is claimed."
+}

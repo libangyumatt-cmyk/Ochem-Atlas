@@ -1,0 +1,22 @@
+{
+  "case": "reactant-butadiene",
+  "tag": "def2tzvp",
+  "geometrySource": "reactant-butadiene.json (unchanged r1 optimized geometry)",
+  "geometrySha256": "1e44bce0bd6fe48767e84d476cb44fae8aeb10a442f014748ac8222d3f3ffc8f",
+  "method": "B3LYP (VWN-RPA)",
+  "basis": "def2-tzvp",
+  "gridLevel": 3,
+  "charge": 0,
+  "multiplicity": 1,
+  "scfConverged": true,
+  "scfOrbitalGradientNorm": 1.4149451842275722e-07,
+  "referenceInternalStable": true,
+  "referenceExternalStable": true,
+  "referenceEnergyHartree": -156.05758411804166,
+  "referenceLimitation": "Determinant stability does not establish correlation/basis convergence or exclude multireference effects.",
+  "maxFullResponseGradientEhPerBohr": 0.0038386381566333228,
+  "densityConvention": "Restricted Kohn\u2013Sham occupation-weighted one-particle density.",
+  "bonds": [],
+  "energyHartree": -156.05758411804166,
+  "electronCount": 29.99999999999996
+}

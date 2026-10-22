@@ -1,0 +1,159 @@
+#INFO: **** input file is /workspace/scratch/69db76a371c7/Ochem-Atlas/research/diels-alder/r2/compare.py ****
+"""Targeted fixed-r1-geometry method/basis/grid diagnostics; no reoptimization.
+Run one case/tag at a time, or use --all for separately checkpointed processes.
+An unstable reference is retained and flagged, never treated as validation.
+"""
+from common import *
+import subprocess
+from pyscf import scf
+from pyscf.mp.dfmp2_native import DFRMP2
+from pyscf.df.addons import make_auxbasis
+
+def main():
+ folder=OUT/'comparisons';folder.mkdir(exist_ok=True)
+ cases=['reactant-ethylene','reactant-butadiene','ts','product'];tags=['grid5','def2tzvp','ri-mp2-def2tzvp']
+ if '--all' in sys.argv:
+  for case in cases:
+   for tag in tags:subprocess.run([sys.executable,'-u',__file__,case,tag],check=True)
+  return
+ case,tag=sys.argv[1:3];assert case in cases and tag in tags;name=case+'-'+tag;target=folder/(name+'.json')
+ if target.exists():print('Retained completed',name,flush=True);return
+ source=record(case);elements=[a['element'] for a in source['atoms']];x=np.array([a['xyzAngstrom'] for a in source['atoms']])/BOHR
+ basis='6-31g(d)' if tag=='grid5' else 'def2-tzvp';grid=5 if tag=='grid5' else 3
+ if tag=='ri-mp2-def2tzvp':
+  m=gto.M(atom=list(zip(elements,x)),unit='Bohr',basis=basis,charge=0,spin=0,max_memory=1200,verbose=4,output=str(folder/(name+'.log')))
+  f=scf.RHF(m).density_fit();f.conv_tol=1e-10;f.conv_tol_grad=1e-6;f.max_cycle=120;f.kernel();assert f.converged
+ else:m,f=solve(x,folder/(name+'.log'),grid=grid,basis=basis,elements=elements)
+ s=m.intor('int1e_ovlp');p=f.make_rdm1()
+ save_npz(folder/(name+'-scf.npz'),coordinatesAngstrom=x*BOHR,mo_coeff=f.mo_coeff,mo_occ=f.mo_occ,mo_energy=f.mo_energy,density_matrix=p,overlap=s)
+ write(folder/(name+'-progress.json'),dict(stage='SCF converged; stability and analysis pending',energyHartree=float(f.e_tot)))
+ _,_,si,se=f.stability(internal=True,external=True,return_status=True)
+ write(folder/(name+'-progress.json'),dict(stage='Reference stability completed; final analysis pending',internalStable=bool(si),externalStable=bool(se)))
+ result=dict(case=case,tag=tag,geometrySource=case+'.json (unchanged r1 optimized geometry)',geometrySha256=hashlib.sha256((BASE/(case+'.json')).read_bytes()).hexdigest(),method='RI-RMP2' if tag=='ri-mp2-def2tzvp' else 'B3LYP (VWN-RPA)',basis=basis,gridLevel=None if tag=='ri-mp2-def2tzvp' else grid,charge=0,multiplicity=1,scfConverged=bool(f.converged),scfOrbitalGradientNorm=float(np.linalg.norm(f.get_grad(f.mo_coeff,f.mo_occ,f.get_fock()))),referenceInternalStable=bool(si),referenceExternalStable=bool(se),referenceEnergyHartree=float(f.e_tot),referenceLimitation='Unstable reference: diagnostic only, not accepted as a validated correlated benchmark.' if not(si and se) else 'Determinant stability does not establish correlation/basis convergence or exclude multireference effects.')
+ energy=float(f.e_tot);arrays={}
+ if tag=='ri-mp2-def2tzvp':
+  mp=DFRMP2(f,auxbasis=make_auxbasis(m,mp2fit=True));mp.kernel();p=mp.make_rdm1(ao_repr=True);energy=float(mp.e_tot)
+  result.update(correlationEnergyHartree=float(mp.e_corr),densityConvention='Unrelaxed MP2 one-particle density; HF canonical orbitals, not correlated natural orbitals.',hfAuxiliaryBasis=f.with_df.auxbasis,correlationAuxiliaryBasis=mp.auxmol.basis,frozenElectrons=0)
+ elif case=='ts':
+  grad=f.nuc_grad_method();grad.grid_response=True;g=grad.kernel();arrays['fullResponseGradient']=g;result.update(maxFullResponseGradientEhPerBohr=float(abs(g).max()),densityConvention='Restricted Kohn–Sham occupation-weighted one-particle density.')
+ else:
+  result.update(gradientStatus='Not calculated in this fixed-geometry diagnostic; no alternative-level stationary point is claimed.',densityConvention='Restricted Kohn–Sham occupation-weighted one-particle density.')
+ result['bonds']=[]
+ if len(elements)==16:
+  ev,u=np.linalg.eigh(s);root=(u*np.sqrt(ev))@u.T;q=root@p@root;ps=p@s;slices=m.aoslice_by_atom()
+  for i,j in [(0,4),(3,5),(0,1),(2,3),(4,5),(1,2)]:
+   a,b=slices[i,2:];c,d=slices[j,2:];result['bonds'].append(dict(atoms=[i,j],distanceAngstrom=float(np.linalg.norm(x[i]-x[j])*BOHR),mayer=float(np.sum(ps[a:b,c:d]*ps[c:d,a:b].T)),lowdinWiberg=float(np.sum(q[a:b,c:d]**2))))
+  old=np.load(BASE/(case+'-scf.npz'));om=gto.M(atom=list(zip(elements,x)),unit='Bohr',basis='6-31g(d)',verbose=0)
+  tracked=np.load(BASE/(case+'-tracked.npz'));cross=gto.intor_cross('int1e_ovlp',om,m);matches=[]
+  for role,j in zip(['occupied','virtual'],tracked['indices']):
+   projection=tracked['mo_coeff'][:,j]@cross@f.mo_coeff;block=np.where(f.mo_occ>0 if role=='occupied' else f.mo_occ==0)[0];k=int(block[np.argmax(abs(projection[block]))]);matches.append(dict(role=role,r1Index=int(j)+1,comparisonIndex=k+1,absoluteSpatialOverlap=float(abs(projection[k])),phaseToMatchR1=1 if projection[k]>=0 else -1,interpretation='Same-geometry canonical spatial match; overlap is not an interaction energy.'))
+  result['orbitalMatches']=matches
+  nodes=np.stack(np.meshgrid(np.arange(-10,12,.56),np.arange(-9,11,.56),np.arange(-7,13,.56),indexing='ij'),axis=-1).reshape(-1,3);deltas=[]
+  for start in range(0,len(nodes),2000):
+   points=nodes[start:start+2000];a=m.eval_gto('GTOval_sph',points);b=om.eval_gto('GTOval_sph',points);deltas.append(np.einsum('pi,ij,pj->p',a,p,a)-np.einsum('pi,ij,pj->p',b,old['density_matrix'],b))
+  delta=np.concatenate(deltas);arrays.update(sampleCoordinatesBohr=nodes,sameGeometryDensityDifference=delta);result['densityComparison']=dict(reference='Unchanged r1 B3LYP/6-31G(d), grid3, at identical nuclei and laboratory coordinates; current minus reference.',units='electron bohr^-3',sampling='x[-10,12), y[-9,11), z[-7,13) bohr, spacing0.56bohr; z fastest. Coarse samples, not a quantitative core integral or unique transferred charge.',sampleRms=float(np.sqrt(np.mean(delta**2))))
+ save_npz(folder/(name+'-analysis.npz'),coordinatesAngstrom=x*BOHR,mo_coeff=f.mo_coeff,mo_occ=f.mo_occ,mo_energy=f.mo_energy,density_matrix=p,overlap=s,**arrays)
+ result.update(energyHartree=energy,electronCount=float(np.einsum('ij,ji',p,s)))
+ write(target,result);print('COMPLETED',name,energy,si,se,flush=True)
+
+if __name__=='__main__':main()
+#INFO: ******************** input file end ********************
+
+
+System: uname_result(system='Linux', node='13da51aa3ce8', release='6.18.55', version='#1 SMP Wed Oct 14 19:45:18 UTC 2026', machine='x86_64')  Threads 2
+Python 3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]
+numpy 2.3.5  scipy 1.17.0  h5py 3.16.0
+Date: Fri Oct 23 04:11:08 2026
+PySCF version 2.14.0
+PySCF path  /root/.local/lib/python3.12/site-packages/pyscf
+
+[CONFIG] conf_file None
+[INPUT] verbose = 4
+[INPUT] num. atoms = 16
+[INPUT] num. electrons = 46
+[INPUT] charge = 0
+[INPUT] spin (= nelec alpha-beta = 2S) = 0
+[INPUT] symmetry False subgroup None
+[INPUT] Mole.unit = Bohr
+[INPUT] Symbol           X                Y                Z      unit          X                Y                Z       unit  Magmom
+[INPUT]  1 C     -1.437919904584   0.415190895370   0.013133033517 AA   -2.717274808724   0.784597081662   0.024817836531 Bohr   0.0
+[INPUT]  2 C     -0.703558351930  -0.689264194643  -0.379562758714 AA   -1.329532597799  -1.302520555344  -0.717269661054 Bohr   0.0
+[INPUT]  3 C      0.704138274491  -0.687920685484  -0.380066380706 AA    1.330628492611  -1.299981690988  -0.718221368689 Bohr   0.0
+[INPUT]  4 C      1.436670249566   0.417935283009   0.012106448656 AA    2.714913302989   0.789783222680   0.022877872302 Bohr   0.0
+[INPUT]  5 C     -0.693301699936   0.758963924674   2.133532185036 AA   -1.310150334574   1.434233956059   4.031791507663 Bohr   0.0
+[INPUT]  6 C      0.692909049185   0.760304624931   2.133028471823 AA    1.309408332193   1.436767512360   4.030839627645 Bohr   0.0
+[INPUT]  7 H     -1.069138242484   1.417896573435  -0.170255397639 AA   -2.020378467593   2.679436196752  -0.321736072767 Bohr   0.0
+[INPUT]  8 H     -2.518211005313   0.343046097414   0.113151151481 AA   -4.758729123908   0.648263172213   0.213824686979 Bohr   0.0
+[INPUT]  9 H     -1.212591745585  -1.646886002429  -0.478878294887 AA   -2.291466300063  -3.112163502971  -0.904948824336 Bohr   0.0
+[INPUT] 10 H      1.214928050906  -1.644568447391  -0.479749091906 AA    2.295881277264  -3.107783958670  -0.906594392212 Bohr   0.0
+[INPUT] 11 H      2.517169024786   0.347839802159   0.111337909568 AA    4.756760066084   0.657321961303   0.210398156365 Bohr   0.0
+[INPUT] 12 H      1.065856800844   1.419941531249  -0.171011331934 AA    2.014177441600   2.683300606956  -0.323164581552 Bohr   0.0
+[INPUT] 13 H     -1.237034224883   1.697821501217   2.187581078028 AA   -2.337655891742   3.208417645698   4.133929112754 Bohr   0.0
+[INPUT] 14 H     -1.235374975439  -0.109292724711   2.490995636460 AA   -2.334520364721  -0.206533317112   4.707299530396 Bohr   0.0
+[INPUT] 15 H      1.236894606974  -0.106915469827   2.490103404420 AA    2.337392052133  -0.202040956452   4.705613456202 Bohr   0.0
+[INPUT] 16 H      1.234891024260   1.700196713115   2.186681796775 AA    2.333605829534   3.212906145673   4.132229717477 Bohr   0.0
+
+nuclear repulsion = 223.94268717048
+number of shells = 56
+number of NR pGTOs = 202
+number of NR cGTOs = 104
+basis = 6-31g(d)
+ecp = {}
+CPU time:         0.49
+
+
+******** <class 'pyscf.dft.rks.RKS'> ********
+method = RKS
+initial guess = minao
+damping factor = 0
+level_shift factor = 0
+DIIS = <class 'pyscf.scf.diis.CDIIS'>
+diis_start_cycle = 1
+diis_space = 8
+diis_damp = 0
+SCF conv_tol = 1e-10
+SCF conv_tol_grad = 1e-06
+SCF max_cycles = 120
+direct_scf = True
+direct_scf_tol = 1e-13
+chkfile to save SCF result = /tmp/tmpujk3kn4g
+max_memory 1200 MB (current use 0 MB)
+XC library pyscf.dft.libxc version 7.0.0
+    S. Lehtola, C. Steigemann, M. J.T. Oliveira, and M. A.L. Marques.,  SoftwareX 7, 1–5 (2018)
+XC functionals = b3lyp
+    P. J. Stephens, F. J. Devlin, C. F. Chabalowski, and M. J. Frisch.,  J. Phys. Chem. 98, 11623 (1994)
+radial grids: 
+    Treutler-Ahlrichs [JCP 102, 346 (1995); DOI:10.1063/1.469408] (M4) radial grids
+    
+becke partition: Becke, JCP 88, 2547 (1988); DOI:10.1063/1.454033
+pruning grids: <function nwchem_prune at 0x7f3f57348e00>
+grids dens level: 5
+symmetrized grids: False
+atomic radii adjust function: <function treutler_atomic_radii_adjust at 0x7f3f57349300>
+small_rho_cutoff = 0
+Initial guess from minao.
+tot grids = 493272
+init E= -234.845530081498
+  HOMO = -0.281531319735742  LUMO = -0.106691758468338  gap/eV = 4.75763
+cycle= 1 E= -234.482501172458  delta_E= 0.363  |g|= 0.442  |ddm|= 3.47
+  HOMO = -0.144460136834516  LUMO = 0.0553132689413651  gap/eV = 5.43611
+cycle= 2 E= -234.473944849079  delta_E= 0.00856  |g|= 0.486  |ddm|= 1.06
+  HOMO = -0.220045304825436  LUMO = -0.00861402207325268  gap/eV = 5.75334
+cycle= 3 E= -234.539192664162  delta_E= -0.0652  |g|= 0.0241  |ddm|= 0.59
+  HOMO = -0.218157855374894  LUMO = -0.00921622728727511  gap/eV = 5.68559
+cycle= 4 E= -234.539260042075  delta_E= -6.74e-05  |g|= 0.0173  |ddm|= 0.038
+  HOMO = -0.218918770459596  LUMO = -0.00836387333285371  gap/eV = 5.72949
+cycle= 5 E= -234.53932661212  delta_E= -6.66e-05  |g|= 0.00634  |ddm|= 0.0192
+  HOMO = -0.218903957812419  LUMO = -0.00862053121461726  gap/eV = 5.72210
+cycle= 6 E= -234.539336954034  delta_E= -1.03e-05  |g|= 0.00113  |ddm|= 0.0076
+  HOMO = -0.218857248870845  LUMO = -0.00864539180035395  gap/eV = 5.72016
+cycle= 7 E= -234.539337357753  delta_E= -4.04e-07  |g|= 0.000257  |ddm|= 0.00147
+  HOMO = -0.218859432652194  LUMO = -0.00862946151429966  gap/eV = 5.72065
+cycle= 8 E= -234.539337377558  delta_E= -1.98e-08  |g|= 2.16e-05  |ddm|= 0.000264
+  HOMO = -0.218858800083882  LUMO = -0.00862978472120046  gap/eV = 5.72062
+cycle= 9 E= -234.539337377698  delta_E= -1.4e-10  |g|= 2.76e-06  |ddm|= 3.63e-05
+  HOMO = -0.218858605373745  LUMO = -0.00862962325270145  gap/eV = 5.72062
+cycle= 10 E= -234.539337377701  delta_E= -2.9e-12  |g|= 4.91e-07  |ddm|= 4.12e-06
+  HOMO = -0.218858514432703  LUMO = -0.00862954342217703  gap/eV = 5.72062
+Extra cycle  E= -234.539337377701  delta_E= -2.84e-13  |g|= 3.15e-07  |ddm|= 1.26e-06
+converged SCF energy = -234.539337377701

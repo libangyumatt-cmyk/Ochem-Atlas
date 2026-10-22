@@ -147,3 +147,28 @@ cycle= 9 E= -155.98888059124  delta_E=    0  |g|= 1.68e-07  |ddm|= 2.21e-06
   HOMO = -0.228925302145837  LUMO = -0.0225251894734884  gap/eV = 5.61643
 Extra cycle  E= -155.988880591241  delta_E= -3.41e-13  |g|= 1.97e-07  |ddm|= 5.23e-07
 converged SCF energy = -155.988880591241
+rhf_internal: lowest eigs of H = [1.05306736 1.1000456  1.11588023]
+<class 'pyscf.dft.rks.RKS'> wavefunction is stable in the internal stability analysis
+rhf_real2complex: lowest eigs of H = [0.16031736 0.24135256 0.26586164]
+<class 'pyscf.dft.rks.RKS'> wavefunction is stable in the real -> complex stability analysis
+rhf_external: lowest eigs of H = [0.06254525 0.13549999 0.25309914]
+<class 'pyscf.dft.rks.RKS'> wavefunction is stable in the RHF/RKS -> UHF/UKS stability analysis
+
+
+******** <class 'pyscf.grad.rks.Gradients'> for <class 'pyscf.dft.rks.RKS'> ********
+unit = Eh/Bohr
+max_memory 1200 MB (current use 0 MB)
+grid_response = True
+--------------- RKS gradients ---------------
+         x                y                z
+0 C     0.0000036287     0.0000061882    -0.0000044736
+1 C     0.0000054272     0.0000010935     0.0000046855
+2 C    -0.0000054380    -0.0000010760    -0.0000046671
+3 C    -0.0000036207    -0.0000062076     0.0000044728
+4 H    -0.0000024074    -0.0000027222     0.0000018241
+5 H    -0.0000016934    -0.0000012428    -0.0000019784
+6 H    -0.0000005297    -0.0000023703     0.0000019540
+7 H     0.0000005302     0.0000023748    -0.0000019574
+8 H     0.0000024111     0.0000027164    -0.0000018362
+9 H     0.0000016919     0.0000012460     0.0000019763
+----------------------------------------------

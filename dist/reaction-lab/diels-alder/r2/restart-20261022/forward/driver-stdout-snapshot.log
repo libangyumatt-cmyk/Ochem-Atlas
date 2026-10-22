@@ -235,3 +235,219 @@ Step   10 : Displace = [0m1.257e-02[0m/[0m2.026e-02[0m (rms/max) Trust = 5.0
 => Total step mw-dx = 0.27062 Bohr*sqrt(amu)
 
 output file: /workspace/scratch/69db76a371c7/Ochem-Atlas/dist/reaction-lab/diels-alder/r2/restart-20261022/forward/eval-0012.log
+EVALUATION forward 12 -234.5907851935939
+Step   11 : Displace = [0m1.275e-02[0m/[0m2.014e-02[0m (rms/max) Trust = 5.000e-02 (=) Grad = [0m2.448e-02[0m/[0m5.037e-02[0m (rms/max) E (change) = -234.5907851936 ([0m-7.858e-03[0m) Quality = [0m0.988[0m
+=> Total step dy    = 0.12618 
+=> Total step mw-dx = 0.27057 Bohr*sqrt(amu)
+
+output file: /workspace/scratch/69db76a371c7/Ochem-Atlas/dist/reaction-lab/diels-alder/r2/restart-20261022/forward/eval-0013.log
+EVALUATION forward 13 -234.59857609917455
+Step   12 : Displace = [0m1.340e-02[0m/[0m2.019e-02[0m (rms/max) Trust = 5.000e-02 (=) Grad = [0m2.405e-02[0m/[0m4.940e-02[0m (rms/max) E (change) = -234.5985760992 ([0m-7.791e-03[0m) Quality = [0m0.984[0m
+=> Total step dy    = 0.12876 
+=> Total step mw-dx = 0.27065 Bohr*sqrt(amu)
+
+output file: /workspace/scratch/69db76a371c7/Ochem-Atlas/dist/reaction-lab/diels-alder/r2/restart-20261022/forward/eval-0014.log
+EVALUATION forward 14 -234.60615957573515
+Step   13 : Displace = [0m1.316e-02[0m/[0m2.025e-02[0m (rms/max) Trust = 5.000e-02 (=) Grad = [0m2.279e-02[0m/[0m4.706e-02[0m (rms/max) E (change) = -234.6061595757 ([0m-7.583e-03[0m) Quality = [0m0.987[0m
+=> Total step dy    = 0.12144 
+=> Total step mw-dx = 0.27091 Bohr*sqrt(amu)
+
+output file: /workspace/scratch/69db76a371c7/Ochem-Atlas/dist/reaction-lab/diels-alder/r2/restart-20261022/forward/eval-0015.log
+EVALUATION forward 15 -234.61327720153272
+Step   14 : Displace = [0m1.373e-02[0m/[0m1.996e-02[0m (rms/max) Trust = 5.000e-02 (=) Grad = [0m2.088e-02[0m/[0m4.331e-02[0m (rms/max) E (change) = -234.6132772015 ([0m-7.118e-03[0m) Quality = [0m0.985[0m
+=> Total step dy    = 0.11957 
+=> Total step mw-dx = 0.27113 Bohr*sqrt(amu)
+
+output file: /workspace/scratch/69db76a371c7/Ochem-Atlas/dist/reaction-lab/diels-alder/r2/restart-20261022/forward/eval-0016.log
+EVALUATION forward 16 -234.61969723979388
+Step   15 : Displace = [0m1.422e-02[0m/[0m1.968e-02[0m (rms/max) Trust = 5.000e-02 (=) Grad = [0m1.819e-02[0m/[0m3.800e-02[0m (rms/max) E (change) = -234.6196972398 ([0m-6.420e-03[0m) Quality = [0m0.983[0m
+=> Total step dy    = 0.11875 
+=> Total step mw-dx = 0.27148 Bohr*sqrt(amu)
+
+output file: /workspace/scratch/69db76a371c7/Ochem-Atlas/dist/reaction-lab/diels-alder/r2/restart-20261022/forward/eval-0017.log
+EVALUATION forward 17 -234.62516859190217
+Step   16 : Displace = [0m1.498e-02[0m/[0m2.125e-02[0m (rms/max) Trust = 5.000e-02 (=) Grad = [0m1.474e-02[0m/[0m3.104e-02[0m (rms/max) E (change) = -234.6251685919 ([0m-5.471e-03[0m) Quality = [0m0.978[0m
+=> Total step dy    = 0.12274 
+=> Total step mw-dx = 0.27191 Bohr*sqrt(amu)
+
+output file: /workspace/scratch/69db76a371c7/Ochem-Atlas/dist/reaction-lab/diels-alder/r2/restart-20261022/forward/eval-0018.log
+EVALUATION forward 18 -234.62944186292694
+Step   17 : Displace = [0m1.594e-02[0m/[0m2.344e-02[0m (rms/max) Trust = 5.000e-02 (=) Grad = [0m1.058e-02[0m/[0m2.264e-02[0m (rms/max) E (change) = -234.6294418629 ([0m-4.273e-03[0m) Quality = [0m0.970[0m
+=> Total step dy    = 0.13449 
+=> Total step mw-dx = 0.27230 Bohr*sqrt(amu)
+
+output file: /workspace/scratch/69db76a371c7/Ochem-Atlas/dist/reaction-lab/diels-alder/r2/restart-20261022/forward/eval-0019.log
+EVALUATION forward 19 -234.63230554241574
+Step   18 : Displace = [0m1.748e-02[0m/[0m2.672e-02[0m (rms/max) Trust = 5.000e-02 (=) Grad = [0m6.032e-03[0m/[0m1.327e-02[0m (rms/max) E (change) = -234.6323055424 ([0m-2.864e-03[0m) Quality = [0m0.953[0m
+=> Total step dy    = 0.15675 
+=> Total step mw-dx = 0.26963 Bohr*sqrt(amu)
+
+output file: /workspace/scratch/69db76a371c7/Ochem-Atlas/dist/reaction-lab/diels-alder/r2/restart-20261022/forward/eval-0020.log
+EVALUATION forward 20 -234.63373409865287
+Step   19 : Displace = [0m1.987e-02[0m/[0m3.175e-02[0m (rms/max) Trust = 5.000e-02 (=) Grad = [0m2.237e-03[0m/[0m4.371e-03[0m (rms/max) E (change) = -234.6337340987 ([0m-1.429e-03[0m) Quality = [0m0.932[0m
+=> Total step dy    = 0.12331 
+=> Total step mw-dx = 0.24027 Bohr*sqrt(amu)
+
+output file: /workspace/scratch/69db76a371c7/Ochem-Atlas/dist/reaction-lab/diels-alder/r2/restart-20261022/forward/eval-0021.log
+EVALUATION forward 21 -234.6342547428761
+Step   20 : Displace = [0m2.167e-02[0m/[0m3.982e-02[0m (rms/max) Trust = 5.000e-02 (=) Grad = [0m1.218e-03[0m/[0m2.798e-03[0m (rms/max) E (change) = -234.6342547429 ([0m-5.206e-04[0m) Quality = [0m0.999[0m
+=> Total step dy    = 0.14086 
+=> Total step mw-dx = 0.22069 Bohr*sqrt(amu)
+
+output file: /workspace/scratch/69db76a371c7/Ochem-Atlas/dist/reaction-lab/diels-alder/r2/restart-20261022/forward/eval-0022.log
+EVALUATION forward 22 -234.63418279388972
+Step   21 : Displace = [0m2.383e-02[0m/[0m4.182e-02[0m (rms/max) Trust = 5.000e-02 (=) Grad = [0m2.827e-03[0m/[0m5.995e-03[0m (rms/max) E (change) = -234.6341827939 ([91m+7.195e-05[0m) Quality = [91m-0.227[0m
+[93mRejecting step - low quality IRC step[0m
+Checking coordinate system
+[1;94mInternal coordinate system may have changed[0m
+-- Added: --
+Distance 1-5
+Angle 2-1-5
+Angle 2-1-7
+Angle 5-1-7
+Angle 5-1-8
+Angle 3-4-11
+Angle 1-5-6
+Angle 1-5-13
+Angle 1-5-14
+Angle 6-5-13
+Angle 5-6-15
+Dihedral 5-1-2-3
+Dihedral 5-1-2-9
+Dihedral 2-1-5-6
+Dihedral 2-1-5-13
+Dihedral 2-1-5-14
+Dihedral 7-1-5-6
+Dihedral 7-1-5-13
+Dihedral 7-1-5-14
+Dihedral 8-1-5-6
+Dihedral 8-1-5-13
+Dihedral 8-1-5-14
+Dihedral 1-5-6-4
+Dihedral 1-5-6-15
+Dihedral 1-5-6-16
+-- Deleted: --
+Out-of-Plane 1-2-7-8
+Out-of-Plane 4-3-11-12
+Out-of-Plane 5-6-13-14
+Out-of-Plane 6-5-15-16
+Refreshing coordinate system and resetting rotations
+=> Total step dy    = 0.05727 
+=> Total step mw-dx = 0.05957 Bohr*sqrt(amu)
+
+output file: /workspace/scratch/69db76a371c7/Ochem-Atlas/dist/reaction-lab/diels-alder/r2/restart-20261022/forward/eval-0023.log
+EVALUATION forward 23 -234.63430571644463
+Step   21 : Displace = [0m5.275e-03[0m/[0m9.180e-03[0m (rms/max) Trust = 1.192e-02 ([1;91mx[0m) Grad = [0m1.483e-03[0m/[0m2.535e-03[0m (rms/max) E (change) = -234.6343057164 ([0m-5.097e-05[0m) Quality = [0m0.228[0m
+[93mRejecting step - low quality IRC step[0m
+Checking coordinate system
+=> Total step dy    = 0.02492 
+=> Total step mw-dx = 0.02597 Bohr*sqrt(amu)
+
+output file: /workspace/scratch/69db76a371c7/Ochem-Atlas/dist/reaction-lab/diels-alder/r2/restart-20261022/forward/eval-0024.log
+EVALUATION forward 24 -234.6342976629646
+Step   21 : Displace = [0m2.448e-03[0m/[0m4.317e-03[0m (rms/max) Trust = 5.000e-03 ([1;91mx[0m) Grad = [0m8.228e-04[0m/[0m1.970e-03[0m (rms/max) E (change) = -234.6342976630 ([0m-4.292e-05[0m) Quality = [0m0.608[0m
+=> Total step dy    = 0.02241 
+=> Total step mw-dx = 0.02680 Bohr*sqrt(amu)
+
+output file: /workspace/scratch/69db76a371c7/Ochem-Atlas/dist/reaction-lab/diels-alder/r2/restart-20261022/forward/eval-0025.log
+EVALUATION forward 25 -234.6343386859531
+Step   22 : Displace = [0m2.982e-03[0m/[0m5.222e-03[0m (rms/max) Trust = 5.000e-03 (=) Grad = [0m7.814e-04[0m/[0m1.897e-03[0m (rms/max) E (change) = -234.6343386860 ([0m-4.102e-05[0m) Quality = [0m1.001[0m
+=> Total step dy    = 0.02820 
+=> Total step mw-dx = 0.03815 Bohr*sqrt(amu)
+
+output file: /workspace/scratch/69db76a371c7/Ochem-Atlas/dist/reaction-lab/diels-alder/r2/restart-20261022/forward/eval-0026.log
+EVALUATION forward 26 -234.63439138833806
+Step   23 : Displace = [0m4.042e-03[0m/[0m7.175e-03[0m (rms/max) Trust = 7.071e-03 ([92m+[0m) Grad = [0m7.759e-04[0m/[0m1.885e-03[0m (rms/max) E (change) = -234.6343913883 ([0m-5.270e-05[0m) Quality = [0m0.996[0m
+=> Total step dy    = 0.03570 
+=> Total step mw-dx = 0.05408 Bohr*sqrt(amu)
+
+output file: /workspace/scratch/69db76a371c7/Ochem-Atlas/dist/reaction-lab/diels-alder/r2/restart-20261022/forward/eval-0027.log
+EVALUATION forward 27 -234.63445890337158
+Step   24 : Displace = [0m5.537e-03[0m/[0m9.534e-03[0m (rms/max) Trust = 1.000e-02 ([92m+[0m) Grad = [0m7.382e-04[0m/[0m1.772e-03[0m (rms/max) E (change) = -234.6344589034 ([0m-6.752e-05[0m) Quality = [0m0.999[0m
+=> Total step dy    = 0.04812 
+=> Total step mw-dx = 0.07648 Bohr*sqrt(amu)
+
+output file: /workspace/scratch/69db76a371c7/Ochem-Atlas/dist/reaction-lab/diels-alder/r2/restart-20261022/forward/eval-0028.log
+EVALUATION forward 28 -234.6345422125292
+Step   25 : Displace = [0m7.585e-03[0m/[0m1.321e-02[0m (rms/max) Trust = 1.414e-02 ([92m+[0m) Grad = [0m6.490e-04[0m/[0m1.533e-03[0m (rms/max) E (change) = -234.6345422125 ([0m-8.331e-05[0m) Quality = [0m0.990[0m
+=> Total step dy    = 0.06492 
+=> Total step mw-dx = 0.10725 Bohr*sqrt(amu)
+
+output file: /workspace/scratch/69db76a371c7/Ochem-Atlas/dist/reaction-lab/diels-alder/r2/restart-20261022/forward/eval-0029.log
+EVALUATION forward 29 -234.63463149768182
+Step   26 : Displace = [0m1.045e-02[0m/[0m1.743e-02[0m (rms/max) Trust = 2.000e-02 ([92m+[0m) Grad = [0m8.351e-04[0m/[0m1.781e-03[0m (rms/max) E (change) = -234.6346314977 ([0m-8.929e-05[0m) Quality = [0m0.876[0m
+=> Total step dy    = 0.07997 
+=> Total step mw-dx = 0.12731 Bohr*sqrt(amu)
+
+output file: /workspace/scratch/69db76a371c7/Ochem-Atlas/dist/reaction-lab/diels-alder/r2/restart-20261022/forward/eval-0030.log
+EVALUATION forward 30 -234.634701049127
+Step   27 : Displace = [0m1.230e-02[0m/[0m2.033e-02[0m (rms/max) Trust = 2.828e-02 ([92m+[0m) Grad = [0m1.148e-03[0m/[0m2.594e-03[0m (rms/max) E (change) = -234.6347010491 ([0m-6.955e-05[0m) Quality = [0m0.632[0m
+=> Total step dy    = 0.06329 
+=> Total step mw-dx = 0.10634 Bohr*sqrt(amu)
+
+output file: /workspace/scratch/69db76a371c7/Ochem-Atlas/dist/reaction-lab/diels-alder/r2/restart-20261022/forward/eval-0031.log
+EVALUATION forward 31 -234.63476360933612
+Step   28 : Displace = [0m9.757e-03[0m/[0m1.658e-02[0m (rms/max) Trust = 2.828e-02 (=) Grad = [0m4.025e-04[0m/[0m8.010e-04[0m (rms/max) E (change) = -234.6347636093 ([0m-6.256e-05[0m) Quality = [0m0.859[0m
+=> Total step dy    = 0.08990 
+=> Total step mw-dx = 0.13785 Bohr*sqrt(amu)
+
+output file: /workspace/scratch/69db76a371c7/Ochem-Atlas/dist/reaction-lab/diels-alder/r2/restart-20261022/forward/eval-0032.log
+EVALUATION forward 32 -234.63478124828856
+Step   29 : Displace = [0m1.424e-02[0m/[0m2.499e-02[0m (rms/max) Trust = 4.000e-02 ([92m+[0m) Grad = [0m1.198e-03[0m/[0m2.608e-03[0m (rms/max) E (change) = -234.6347812483 ([0m-1.764e-05[0m) Quality = [0m0.274[0m
+[93mRejecting step - low quality IRC step[0m
+Checking coordinate system
+=> Total step dy    = 0.02616 
+=> Total step mw-dx = 0.03458 Bohr*sqrt(amu)
+
+output file: /workspace/scratch/69db76a371c7/Ochem-Atlas/dist/reaction-lab/diels-alder/r2/restart-20261022/forward/eval-0033.log
+EVALUATION forward 33 -234.63477804292324
+Step   29 : Displace = [0m3.890e-03[0m/[0m7.507e-03[0m (rms/max) Trust = 7.118e-03 ([1;91mx[0m) Grad = [0m5.113e-04[0m/[0m9.993e-04[0m (rms/max) E (change) = -234.6347780429 ([0m-1.443e-05[0m) Quality = [0m0.586[0m
+=> Total step dy    = 0.02184 
+=> Total step mw-dx = 0.02996 Bohr*sqrt(amu)
+
+output file: /workspace/scratch/69db76a371c7/Ochem-Atlas/dist/reaction-lab/diels-alder/r2/restart-20261022/forward/eval-0034.log
+EVALUATION forward 34 -234.63479228125854
+Step   30 : Displace = [0m2.917e-03[0m/[0m5.285e-03[0m (rms/max) Trust = 7.118e-03 (=) Grad = [0m2.468e-04[0m/[0m5.362e-04[0m (rms/max) E (change) = -234.6347922813 ([0m-1.424e-05[0m) Quality = [0m0.988[0m
+=> Total step dy    = 0.03236 
+=> Total step mw-dx = 0.05086 Bohr*sqrt(amu)
+
+output file: /workspace/scratch/69db76a371c7/Ochem-Atlas/dist/reaction-lab/diels-alder/r2/restart-20261022/forward/eval-0035.log
+EVALUATION forward 35 -234.634808229166
+Step   31 : Displace = [0m5.000e-03[0m/[0m8.637e-03[0m (rms/max) Trust = 1.007e-02 ([92m+[0m) Grad = [0m1.944e-04[0m/[0m3.792e-04[0m (rms/max) E (change) = -234.6348082292 ([0m-1.595e-05[0m) Quality = [0m0.952[0m
+=> Total step dy    = 0.03796 
+=> Total step mw-dx = 0.06155 Bohr*sqrt(amu)
+
+output file: /workspace/scratch/69db76a371c7/Ochem-Atlas/dist/reaction-lab/diels-alder/r2/restart-20261022/forward/eval-0036.log
+EVALUATION forward 36 -234.6348223068731
+Step   32 : Displace = [0m6.262e-03[0m/[0m1.062e-02[0m (rms/max) Trust = 1.424e-02 ([92m+[0m) Grad = [0m2.468e-04[0m/[0m5.216e-04[0m (rms/max) E (change) = -234.6348223069 ([0m-1.408e-05[0m) Quality = [0m0.834[0m
+=> Total step dy    = 0.03864 
+=> Total step mw-dx = 0.06005 Bohr*sqrt(amu)
+
+output file: /workspace/scratch/69db76a371c7/Ochem-Atlas/dist/reaction-lab/diels-alder/r2/restart-20261022/forward/eval-0037.log
+EVALUATION forward 37 -234.63483335935035
+Step   33 : Displace = [0m5.933e-03[0m/[0m1.020e-02[0m (rms/max) Trust = 2.013e-02 ([92m+[0m) Grad = [0m1.195e-04[0m/[0m2.694e-04[0m (rms/max) E (change) = -234.6348333594 ([0m-1.105e-05[0m) Quality = [0m0.991[0m
+=> Total step dy    = 0.05585 
+=> Total step mw-dx = 0.08874 Bohr*sqrt(amu)
+
+output file: /workspace/scratch/69db76a371c7/Ochem-Atlas/dist/reaction-lab/diels-alder/r2/restart-20261022/forward/eval-0038.log
+EVALUATION forward 38 -234.63483960879188
+Step   34 : Displace = [0m8.839e-03[0m/[0m1.522e-02[0m (rms/max) Trust = 2.847e-02 ([92m+[0m) Grad = [0m7.243e-05[0m/[0m1.084e-04[0m (rms/max) E (change) = -234.6348396088 ([0m-6.249e-06[0m) Quality = [0m0.973[0m
+=> Total step dy    = 0.03569 
+=> Total step mw-dx = 0.05200 Bohr*sqrt(amu)
+
+output file: /workspace/scratch/69db76a371c7/Ochem-Atlas/dist/reaction-lab/diels-alder/r2/restart-20261022/forward/eval-0039.log
+EVALUATION forward 39 -234.63483674579024
+Step   35 : Displace = [0m5.019e-03[0m/[0m8.627e-03[0m (rms/max) Trust = 4.027e-02 ([92m+[0m) Grad = [0m1.987e-04[0m/[0m3.170e-04[0m (rms/max) E (change) = -234.6348367458 ([91m+2.863e-06[0m) Quality = [91m-3.217[0m
+[93mRejecting step - low quality IRC step[0m
+Checking coordinate system
+=> Total step dy    = 0.00922 
+=> Total step mw-dx = 0.01373 Bohr*sqrt(amu)
+
+output file: /workspace/scratch/69db76a371c7/Ochem-Atlas/dist/reaction-lab/diels-alder/r2/restart-20261022/forward/eval-0040.log
+EVALUATION forward 40 -234.6348395464751
+Step   35 : Displace = [0m1.314e-03[0m/[0m2.263e-03[0m (rms/max) Trust = 5.000e-03 ([1;91mx[0m) Grad = [0m8.610e-05[0m/[0m1.303e-04[0m (rms/max) E (change) = -234.6348395465 ([92m+6.232e-08[0m) Quality = [91m-0.082[0m
+IRC stuck with the minimum step-size and bad quality step. Forcing it to take a step.
+=> Total step dy    = 0.00800 
+=> Total step mw-dx = 0.01088 Bohr*sqrt(amu)
+
+output file: /workspace/scratch/69db76a371c7/Ochem-Atlas/dist/reaction-lab/diels-alder/r2/restart-20261022/forward/eval-0041.log
