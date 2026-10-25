@@ -1,0 +1,10 @@
+{
+  "phase": "after evaluateStep; recalcHess pending if set",
+  "iteration": 149,
+  "state": 2,
+  "evaluations": 156,
+  "sha256": "7857f52cea0e40d667b2632525d1633fa6e92b946141f24d2f3c9654c5999b79",
+  "recalcHess": false,
+  "format": "Python pickle5, trusted local input only; geomeTRIC1.1.1/PySCF2.14.0",
+  "roundTripValidation": "X,G,H,state,iteration,engine count and density matrix exact"
+}

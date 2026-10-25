@@ -1,0 +1,6 @@
+{
+  "source": "dist/reaction-lab/diels-alder/r2/restart-20261022/backward",
+  "sourceArchiveSha256": "8a0d2d5c609bb81e9ef6eb55fa1a249917f1759198d1353911a5fa3bd4400e33",
+  "maximumCoordinateDifferenceBohr": 1e-12,
+  "convention": "Fresh TS-started driver; reuse only geometry-identical retained evaluations to numerical precision. No interpolation. Original source geometry and actual query residual retained. Cache miss invokes new full-response grid3 SCF/gradient. Cached points have no new wavefunction claim. Density guess starts from retained TS; reused trials do not update it. Full optimizer states are saved after evaluated steps."
+}

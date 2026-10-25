@@ -1,0 +1,23 @@
+{
+  "stage": "C",
+  "uphillStepsExceedingTolerance": [
+    {
+      "previousEvaluation": 135,
+      "evaluation": 138,
+      "energyIncreaseHartree": 5.808700393572508e-06
+    }
+  ],
+  "driverForcedMinimumStepObserved": true,
+  "driverComplete": true,
+  "driverConverged": true,
+  "driverError": null,
+  "evaluations": 156,
+  "reusedEvaluations": 1,
+  "newScfGradientEvaluations": 155,
+  "maximumAcceptedEnergyIncreaseHartree": 5.808700393572508e-06,
+  "descentToleranceHartree": 3e-06,
+  "descentCheckPassed": false,
+  "atomMapping": "C1-C4 butadiene, C5-C6 ethylene, H7-H16; neutral singlet C6H10, 46 electrons",
+  "endpointMinimumVerification": "Separate endpoint optimization/Hessian/stability required; convergence alone is insufficient.",
+  "strictTwoMinimumIrcConnectivityVerified": false
+}

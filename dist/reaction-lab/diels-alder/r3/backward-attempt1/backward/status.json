@@ -1,0 +1,122 @@
+{
+  "complete": true,
+  "driverConverged": true,
+  "scientificValidation": "pending: independent descent and endpoint checks required",
+  "options": {
+    "irc": true,
+    "irc_direction": "backward",
+    "coordsys": "dlc",
+    "hessian": "file:/workspace/Ochem-Atlas/dist/reaction-lab/diels-alder/r3/backward-attempt1/backward/initial-hessian.txt",
+    "trust": 0.05,
+    "tmin": 0.005,
+    "tmax": 0.05,
+    "maxiter": 160,
+    "convergence_energy": 1e-07,
+    "convergence_grms": 3e-05,
+    "convergence_gmax": 8e-05,
+    "convergence_drms": 0.0006,
+    "convergence_dmax": 0.001,
+    "subfrctor": 2
+  },
+  "gradientConvention": "Full moving-grid-response analytic B3LYP gradients; fresh level-3 grid each trial. Initial Hessian is unchanged r1 default-response analytic Hessian; subsequent BFGS updates. Not a full-response Hessian calculation.",
+  "model": {
+    "charge": 0,
+    "multiplicity": 1,
+    "electrons": 46,
+    "method": "B3LYP (VWN-RPA)",
+    "basis": "6-31G(d)",
+    "environment": "isolated gas phase"
+  },
+  "software": {
+    "pyscf": "2.14.0",
+    "geometric": "1.1.1"
+  },
+  "initialSources": {
+    "ts.json": "4d146491464f3ef339e7ac3d6cf47bc10d2be0c99b77e68da4c4d6137e701c2a",
+    "ts-scf.npz": "65b9b31fde69b63406e880c12523fa7e9faaa6b7ce631deb495366ddcdd1be2d",
+    "ts-hessian.npz": "7fcea8fc785d65dc80caf1e3bfd6cb69be9123fd882475df2c03efeb461b9896"
+  },
+  "finalCoordinatesAngstrom": [
+    [
+      -1.4857459841461458,
+      0.2846576206337796,
+      -0.6963064821479771
+    ],
+    [
+      -0.7270672957859569,
+      -0.8187593498798764,
+      -0.6409295311226506
+    ],
+    [
+      0.735142733621843,
+      -0.8517849869866018,
+      -0.48484186643382776
+    ],
+    [
+      1.5913990171233827,
+      0.08295758167217321,
+      -0.920207326467508
+    ],
+    [
+      -0.7057071117493842,
+      1.0039824711626513,
+      3.2188602139794775
+    ],
+    [
+      0.5953529869457213,
+      1.2531076545988278,
+      3.081712895820697
+    ],
+    [
+      -1.0597108693192252,
+      1.2793836813586261,
+      -0.5921754686308329
+    ],
+    [
+      -2.5611181172490523,
+      0.22566184480863782,
+      -0.837729496029299
+    ],
+    [
+      -1.2168732934938353,
+      -1.7914090650247136,
+      -0.697176549882175
+    ],
+    [
+      1.1368483388773312,
+      -1.7362964530627771,
+      0.010314277492191942
+    ],
+    [
+      2.6610242761766587,
+      -0.0073522711405315895,
+      -0.7541805646770001
+    ],
+    [
+      1.2535164994411347,
+      0.9582328152990256,
+      -1.4694389026837333
+    ],
+    [
+      -1.251035178437976,
+      1.2750066379016205,
+      4.120290771562075
+    ],
+    [
+      -1.2769486890087063,
+      0.5190585259350196,
+      2.4309600291687263
+    ],
+    [
+      1.1341975081982605,
+      0.9788665482762473,
+      2.1779060488089352
+    ],
+    [
+      1.1730521096634907,
+      1.7389761665353056,
+      3.8650698112215833
+    ]
+  ],
+  "evaluations": 156
+}

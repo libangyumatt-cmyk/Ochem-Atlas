@@ -18,3 +18,6 @@ dist/reaction-lab/diels-alder/r2/**/*.tmp/
 # r3 completed trial JSON/logs are retained in CRC-checked evaluations archives.
 dist/reaction-lab/diels-alder/r3/**/eval-*.json
 dist/reaction-lab/diels-alder/r3/**/eval-*.log
+
+# Complete new backward wavefunctions are preserved in small CRC-checked ZIPs.
+dist/reaction-lab/diels-alder/r3/backward-attempt1/backward/wavefunction-*.npz
