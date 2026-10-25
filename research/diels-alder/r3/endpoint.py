@@ -19,6 +19,8 @@ def main():
  x=w['coordinatesAngstrom']+step*mode
  write(folder/'input.json',dict(sourceSha256=hashlib.sha256(source.read_bytes()).hexdigest(),coordinatesAngstrom=x.tolist(),cartesianUnitMode=mode.tolist(),displacementNormAngstrom=step,interpretation='Unconstrained endpoint optimization from retained negative mode; not an IRC extension.',software=dict(pyscf=__import__('pyscf').__version__,geometric=__import__('geometric').__version__,numpy=np.__version__)))
  molecule=Molecule();molecule.elem=[a['element'] for a in record()['atoms']];molecule.xyzs=[x];molecule.comms=['r3 displaced endpoint'];molecule.build_topology()
+ from optimizer_state import install
+ install(folder)
  engine=FreshEngine(molecule,folder);engine.dm=w['density_matrix']
  options=dict(coordsys='dlc',trust=.05,tmax=.1,maxiter=100,convergence_energy=1e-9,convergence_grms=3e-6,convergence_gmax=1e-5,convergence_drms=.0001,convergence_dmax=.0003)
  write(folder/'options.json',options)
