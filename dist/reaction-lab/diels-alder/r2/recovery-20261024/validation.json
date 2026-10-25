@@ -1,0 +1,18 @@
+{
+  "numericalConsistency": "pass",
+  "rawEvaluations": 148,
+  "acceptedIRCPoints": 142,
+  "maximumAcceptedEnergyIncreaseHartree": -5.719829232475604e-08,
+  "lastAcceptedPoint": {
+    "evaluation": 148,
+    "energyHartree": -234.57054990315643,
+    "energyIncrementHartree": -5.39118815368056e-07,
+    "formingDistancesAngstrom": [
+      4.012670929030441,
+      4.250273020563609
+    ]
+  },
+  "driverComplete": false,
+  "driverConverged": false,
+  "scope": "Recovered interrupted branch only. No endpoint verification, infinite separation or completed IRC connection is claimed."
+}

@@ -1,7 +1,13 @@
 {
   "result": "partial",
-  "completedCases": 7,
+  "completedCases": 8,
   "cases": [
+    {
+      "case": "product-grid5",
+      "numericalConsistencyPassed": true,
+      "referenceInternalStable": true,
+      "referenceExternalStable": true
+    },
     {
       "case": "reactant-butadiene-def2tzvp",
       "numericalConsistencyPassed": true,

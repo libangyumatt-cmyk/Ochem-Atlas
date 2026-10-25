@@ -1,0 +1,101 @@
+{
+  "case": "product",
+  "tag": "grid5",
+  "geometrySource": "product.json (unchanged r1 optimized geometry)",
+  "geometrySha256": "aa3d354300b66268ad905668fb1a96665f60dd506b278deaad3110427b9e6407",
+  "method": "B3LYP (VWN-RPA)",
+  "basis": "6-31g(d)",
+  "gridLevel": 5,
+  "charge": 0,
+  "multiplicity": 1,
+  "scfConverged": true,
+  "scfOrbitalGradientNorm": 2.463995451577327e-07,
+  "referenceInternalStable": true,
+  "referenceExternalStable": true,
+  "referenceEnergyHartree": -234.64397625265883,
+  "referenceLimitation": "Determinant stability does not establish correlation/basis convergence or exclude multireference effects.",
+  "gradientStatus": "Not calculated in this fixed-geometry diagnostic; no alternative-level stationary point is claimed.",
+  "densityConvention": "Restricted Kohn\u2013Sham occupation-weighted one-particle density.",
+  "bonds": [
+    {
+      "atoms": [
+        0,
+        4
+      ],
+      "distanceAngstrom": 1.5376517149408817,
+      "mayer": 1.0130064818832398,
+      "lowdinWiberg": 1.0779187735907219
+    },
+    {
+      "atoms": [
+        3,
+        5
+      ],
+      "distanceAngstrom": 1.537616603807144,
+      "mayer": 1.0130067714342137,
+      "lowdinWiberg": 1.0779356539572984
+    },
+    {
+      "atoms": [
+        0,
+        1
+      ],
+      "distanceAngstrom": 1.510127507713393,
+      "mayer": 1.0145323597405036,
+      "lowdinWiberg": 1.0925557935594559
+    },
+    {
+      "atoms": [
+        2,
+        3
+      ],
+      "distanceAngstrom": 1.5101390632228016,
+      "mayer": 1.0145404708078103,
+      "lowdinWiberg": 1.092554358729178
+    },
+    {
+      "atoms": [
+        4,
+        5
+      ],
+      "distanceAngstrom": 1.5351153904615158,
+      "mayer": 1.0120829233047024,
+      "lowdinWiberg": 1.0837716257268086
+    },
+    {
+      "atoms": [
+        1,
+        2
+      ],
+      "distanceAngstrom": 1.3373327693294723,
+      "mayer": 1.9669898513392345,
+      "lowdinWiberg": 1.993974990805899
+    }
+  ],
+  "orbitalMatches": [
+    {
+      "role": "occupied",
+      "r1Index": 22,
+      "comparisonIndex": 22,
+      "absoluteSpatialOverlap": 0.9999999978860646,
+      "phaseToMatchR1": 1,
+      "interpretation": "Same-geometry canonical spatial match; overlap is not an interaction energy."
+    },
+    {
+      "role": "virtual",
+      "r1Index": 24,
+      "comparisonIndex": 24,
+      "absoluteSpatialOverlap": 0.9999999994447545,
+      "phaseToMatchR1": -1,
+      "interpretation": "Same-geometry canonical spatial match; overlap is not an interaction energy."
+    }
+  ],
+  "densityComparison": {
+    "reference": "Unchanged r1 B3LYP/6-31G(d), grid3, at identical nuclei and laboratory coordinates; current minus reference.",
+    "units": "electron bohr^-3",
+    "sampling": "x[-10,12), y[-9,11), z[-7,13) bohr, spacing0.56bohr; z fastest. Coarse samples, not a quantitative core integral or unique transferred charge.",
+    "sampleRms": 1.9113081087932062e-07
+  },
+  "energyHartree": -234.64397625265883,
+  "electronCount": 46.0
+}

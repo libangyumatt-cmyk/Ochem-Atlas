@@ -1,0 +1,11 @@
+{
+  "source": "Local original-workspace recovery 2026-10-24 after interruption. Original published checkpoint unchanged; no driver convergence claimed.",
+  "files": {
+    "backward/evaluations.zip": "36c3fb6c41a8bfe400e08ea733fbea4c7a548d5e2ab0b0c309eeb76f87529c59",
+    "backward/path_backward_irc.xyz": "60cb02aa67461530cf993c90e2bfc5e4bf80d6db8ea5fac4b7b0f4b766f70cd3",
+    "backward/step-provenance.json": "847211b6564d35c07610fc9f035d20755f308abfef2f80f0411e7f672ec96f98",
+    "backward/latest-wavefunction.npz": "56997527f6080884b29b5d7dcb4da8e34eb46ee70a06f860fba51bc9a8bc5910",
+    "backward/status.json": "bbe2504af8e6a691846b7c92d1c7835ca4ff1aa827735d96466fe0268e7ce63f",
+    "backward/path.log": "ff451306ca8ac4b7f2b165d15d2d4a4e00739f2116623c99122ad1242a48f9da"
+  }
+}
