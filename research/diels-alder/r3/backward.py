@@ -4,7 +4,7 @@ B3LYP calculation. Reused results retain their original geometry and provenance.
 """
 from pathlib import Path
 import sys,os,json,zipfile,hashlib
-os.environ['OCHEM_R2_OUTPUT']=str(Path(__file__).resolve().parents[3]/'dist/reaction-lab/diels-alder/r3/backward-attempt1')
+os.environ['OCHEM_R2_OUTPUT']=os.environ.get('OCHEM_R3_BACKWARD_OUTPUT',str(Path(__file__).resolve().parents[3]/'dist/reaction-lab/diels-alder/r3/backward-attempt1'))
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'r2'))
 import common,irc
 from common import np,write,save_npz,archive,BASE,OUT

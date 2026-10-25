@@ -8,6 +8,7 @@
   "carbonRmsdAngstrom": 0.3955316942267366,
   "fixedMapAllAtomRmsdAngstrom": 1.200028361170012,
   "equivalentHydrogenAllAtomRmsdAngstrom": 1.044307270414478,
+  "mirrorReferenceEquivalentHydrogenAllAtomRmsdDiagnosticAngstrom": 0.0012201114914719175,
   "mirrorReferenceCarbonRmsdDiagnosticAngstrom": 0.0004680412440804396,
   "carbonReverseAutomorphismRmsdAngstrom": 0.39553151545060067,
   "energyDifferenceFromIndependentProductHartree": 5.676702613754969e-06,
@@ -15,5 +16,5 @@
     1.5375065050226089,
     1.5375948020320107
   ],
-  "scope": "Proper rotations and translations removed; four same-carbon H pairs enumerated. Distinct conformers are not identified as identical. Saved stability flags retained, not recomputed by this algebraic validator. This endpoint optimization alone does not verify IRC connectivity."
+  "scope": "Proper rotations and translations removed; four same-carbon H pairs enumerated. Distinct conformers are not identified as identical. Reflection is reported only as a separate conformational diagnostic. Saved stability flags retained, not recomputed by this algebraic validator. This endpoint optimization alone does not verify IRC connectivity."
 }

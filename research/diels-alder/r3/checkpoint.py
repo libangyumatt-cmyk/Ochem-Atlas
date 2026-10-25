@@ -3,7 +3,7 @@ from pathlib import Path
 import json,zipfile,hashlib,io,sys
 import numpy as np
 ROOT=Path(__file__).resolve().parents[3]
-folder=ROOT/'dist/reaction-lab/diels-alder/r3'/('endpoint-'+sys.argv[1])
+folder=Path(sys.argv[2]) if sys.argv[1]=='--folder' else ROOT/'dist/reaction-lab/diels-alder/r3'/('endpoint-'+sys.argv[1])
 rows={p.name:json.loads(p.read_text()) for p in sorted(folder.glob('eval-*.json'))}
 assert rows
 for r in rows.values():
@@ -15,8 +15,10 @@ assert matched,'Retry snapshot: newest wavefunction not yet in trial snapshot'
 name=f'checkpoint-{max(r["evaluation"] for r in rows.values()):04d}.zip';dest=folder/name;temp=folder/(name+'.pending')
 with zipfile.ZipFile(temp,'w',zipfile.ZIP_DEFLATED) as z:
  for n in rows:
-  z.write(folder/n,n);p=folder/n.replace('.json','.log');z.write(p,p.name)
- for n in ['input.json','options.json','optimizer-status.json','progress.json','verification.json','wavefunction.npz','scf-checkpoint.npz','independent-validation.json','failure.json']:
+  z.write(folder/n,n);p=folder/n.replace('.json','.log')
+  if p.exists():z.write(p,p.name)
+  else:assert rows[n].get('resultOrigin')=='reused-r2-evaluation','New calculation log missing: '+n
+ for n in ['input.json','options.json','optimizer-status.json','progress.json','verification.json','wavefunction.npz','scf-checkpoint.npz','independent-validation.json','failure.json','initial-hessian.txt','reuse-definition.json','reuse-progress.json','status.json','step-provenance.json']:
   p=folder/n
   if p.exists():z.write(p,n)
  state=folder/'optimizer-state.pkl'

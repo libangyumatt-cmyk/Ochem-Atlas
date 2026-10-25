@@ -1,0 +1,49 @@
+{
+  "stage": "B",
+  "result": "two independently relaxed product-region minima verified",
+  "originalEndpointMinimumVerified": false,
+  "strictTwoMinimumIrcConnectivityVerified": false,
+  "endpoints": {
+    "plus": {
+      "minimumVerified": true,
+      "lowestFrequencyCm": 166.94186316812113,
+      "energyHartree": -234.64396502163953,
+      "maxGradientEhPerBohr": 4.060472138744942e-06,
+      "mappedCarbonConnectivityMatches": true,
+      "mappedHydrogenConnectivityMatches": true,
+      "carbonRmsdAngstrom": 0.3955316942267366,
+      "fixedMapAllAtomRmsdAngstrom": 1.200028361170012,
+      "equivalentHydrogenAllAtomRmsdAngstrom": 1.044307270414478,
+      "mirrorReferenceEquivalentHydrogenAllAtomRmsdDiagnosticAngstrom": 0.0012201114914719175,
+      "mirrorReferenceCarbonRmsdDiagnosticAngstrom": 0.0004680412440804396,
+      "carbonReverseAutomorphismRmsdAngstrom": 0.39553151545060067,
+      "energyDifferenceFromIndependentProductHartree": 5.676702613754969e-06,
+      "formingDistancesAngstrom": [
+        1.5375065050226089,
+        1.5375948020320107
+      ],
+      "scope": "Proper rotations and translations removed; four same-carbon H pairs enumerated. Distinct conformers are not identified as identical. Reflection is reported only as a separate conformational diagnostic. Saved stability flags retained, not recomputed by this algebraic validator. This endpoint optimization alone does not verify IRC connectivity."
+    },
+    "minus-retry1": {
+      "minimumVerified": true,
+      "lowestFrequencyCm": 166.94439635962615,
+      "energyHartree": -234.64396494708842,
+      "maxGradientEhPerBohr": 3.899059959122653e-06,
+      "mappedCarbonConnectivityMatches": true,
+      "mappedHydrogenConnectivityMatches": true,
+      "carbonRmsdAngstrom": 0.0006376327297664352,
+      "fixedMapAllAtomRmsdAngstrom": 0.878255660139637,
+      "equivalentHydrogenAllAtomRmsdAngstrom": 0.0016158518525208757,
+      "mirrorReferenceEquivalentHydrogenAllAtomRmsdDiagnosticAngstrom": 1.0442783145967018,
+      "mirrorReferenceCarbonRmsdDiagnosticAngstrom": 0.39552025403487706,
+      "carbonReverseAutomorphismRmsdAngstrom": 0.000483800233614933,
+      "energyDifferenceFromIndependentProductHartree": 5.7512537239290396e-06,
+      "formingDistancesAngstrom": [
+        1.5376030957415876,
+        1.5375060961386526
+      ],
+      "scope": "Proper rotations and translations removed; four same-carbon H pairs enumerated. Distinct conformers are not identified as identical. Reflection is reported only as a separate conformational diagnostic. Saved stability flags retained, not recomputed by this algebraic validator. This endpoint optimization alone does not verify IRC connectivity."
+    }
+  },
+  "interpretation": "Retained negative energy curvature at grids 3 and 5 and separate +/- mode relaxations to stable product-region minima support a genuine model-level ring conformational instability. A precise valley-ridge bifurcation location has not been computed. Relaxations are separate from the original IRC."
+}

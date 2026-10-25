@@ -8,7 +8,7 @@ from irc import FreshEngine
 from geometric.molecule import Molecule
 from geometric.optimize import run_optimizer
 OLD=BASE/'r2/restart-20261022'
-NEW=BASE/'r3'
+NEW=Path(os.environ.get('OCHEM_R3_OUTPUT',str(BASE/'r3')))
 def main():
  sign=sys.argv[1];assert sign in ['plus','minus']
  retry='--from-checkpoint' in sys.argv
@@ -20,7 +20,7 @@ def main():
  x=w['coordinatesAngstrom']+step*mode
  seed=w['density_matrix'];restartSource=None
  if retry:
-  previous=NEW/('endpoint-'+sign)/'latest-wavefunction.npz';restartSource=str(previous.relative_to(ROOT));old=np.load(previous);x=old['coordinatesBohr']*BOHR;seed=old['density_matrix']
+  previous=NEW/('endpoint-'+sign)/'latest-wavefunction.npz';restartSource=str(previous.resolve());old=np.load(previous);x=old['coordinatesBohr']*BOHR;seed=old['density_matrix']
  write(folder/'input.json',dict(sourceSha256=hashlib.sha256(source.read_bytes()).hexdigest(),coordinatesAngstrom=x.tolist(),cartesianUnitMode=mode.tolist(),displacementNormAngstrom=step,restartGeometrySource=restartSource,restartConvention='New ordinary optimization from saved geometry, not faithful optimizer continuation' if retry else None,interpretation='Unconstrained endpoint optimization from retained negative mode; not an IRC extension.',software=dict(pyscf=__import__('pyscf').__version__,geometric=__import__('geometric').__version__,numpy=np.__version__)))
  molecule=Molecule();molecule.elem=[a['element'] for a in record()['atoms']];molecule.xyzs=[x];molecule.comms=['r3 displaced endpoint'];molecule.build_topology()
  from optimizer_state import install
