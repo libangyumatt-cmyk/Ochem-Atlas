@@ -1,0 +1,17 @@
+
+> test
+> node verify-volume-archives.cjs && node verify.cjs && node verify-foundations.cjs && node verify-orbitals.cjs && node verify-ui.cjs && node verify-diversity.cjs && node verify-reaction-lab.cjs && node verify-carbonyl.cjs && node verify-diels-alder.cjs && node verify-diels-alder-r2.cjs && node verify-diels-alder-r2-numerical.cjs
+
+PASS: 145 NPZ archives / 860 arrays: ZIP directories, decompression, NPY headers and CRC integrity.
+PASS: 31 entries / 69 listed events; two numerical cases, seven mapped literature conclusions, 31 proposed computational protocols, pathway review metadata, figure states, diagrams, assets and same-event filters. This is a structural test, not independent scientific verification.
+PASS: corrected epoxide, nitrate octet, figure provenance, Unicode search, 70-event baseline ledger and documented 1113/1133 clarification.
+PASS: v0.2.8 figure labels, arrow inventories, unique descriptors, comparison markup and iminium notation. Visual and scientific figure review are recorded separately.
+PASS: 4038 analytic/grid model cases: Hermitian eigenvalue identities, mixing bounds, PES gradients/Hessian, normalized density and zero-integral difference. No molecular calculation.
+PASS: 7 PySCF orbital cubes, mesh topology, electron counts, z parity (1109 points), phase invariance and scalar SCF recurrence. No independent high-level-method validation.
+PASS: DOM integration (283 parameterized cases plus storage, routes, errors and keyboard checks). Native dialog, network image loading, CSS layout, mobile touch and browser console remain UNTESTED.
+PASS: 22 new grids and meshes; molecule/orbital/scan selection, spin labels, downloads, reset, missing-data and WebGL fallback DOM integration. This is not a 3D/mobile browser test.
+PASS: 31/69 illustration inventory, authored-arrow structure, five retained SN2 frames, multi-system loading races/state retention, carbonyl frame/orbital/angle controls, density metadata, Hessian records, meshes and synchronized event/quantity/representation DOM integration. Native WebGL/touch are separate checks.
+PASS: schema-2 systems, seven computed carbonyl geometries, matched angle branch, orbitals/meshes, minimum validation, SORG and original scientific data preservation.
+PASS: 5 computed Diels–Alder geometries, full Hessian saddle/minimum, six bond descriptors, genuine grids, phase references, schema3 systems and preserved original scientific data.
+PASS: r2 actual validation status, no premature IRC selector, unchanged original fields and 373 scientific payload hashes.
+PASS: independent saved-array reconstruction: 31 wavefunctions, 145 documented IRC-attempt points, ZIP CRCs, electron counts, MO normalization, density Hermiticity and four negative energy curvatures. This does NOT establish a validated IRC.

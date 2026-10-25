@@ -12,11 +12,15 @@ The archive contains 45 forward and 112 backward trial JSON records; the histori
 
 ## Stage B — forward endpoint
 
-Pending displaced optimizations. Existing independent probes at grids 3 and 5 show negative energy curvature; the approximately 31.8i cm^-1 mode must not be discarded. Existing endpoint E=-234.6348399934745 Eh, maximum full-response force 7.797064832e-6 Eh/bohr; stable electronic determinant, nuclear minimum check failed. Raw Hessian uses PySCF default grid-response approximation. No new minimum or grid convergence claimed.
+Mode reconstructed from symmetrized Hessian: 31.7901851921i cm^-1. Atom-mapped ring torsions identify ring twisting/puckering (see audit/V037_R3_MODE.json); this is a diagnostic assignment, not a verified conformational minimum. Positive 0.15 Angstrom total Cartesian-norm displacement relaxation started with SCF 1e-10 Eh, orbital-gradient threshold 1e-6, grid3 and full moving-grid-response gradients. Both displaced optimizations remain pending verification. Existing independent probes at grids 3 and 5 show negative energy curvature; the approximately 31.8i cm^-1 mode must not be discarded. Existing endpoint E=-234.6348399934745 Eh, maximum full-response force 7.797064832e-6 Eh/bohr; stable electronic determinant, nuclear minimum check failed. Raw Hessian uses PySCF default grid-response approximation. No new minimum or grid convergence claimed.
 
 ## Stages C–F
 
 Not started. Connectivity unresolved. Electronic fields deferred until connectivity passes. Original laboratory frames and all SN2/carbonyl functionality preserved. No release deployment claimed.
+
+## Regression verification
+
+Full existing npm suite passed on 2026-10-25; actual output retained in audit/V037_R3_REGRESSION.log. Browser/native mobile behavior has not been retested.
 
 ## Reproduction
 
