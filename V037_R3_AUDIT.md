@@ -2,8 +2,8 @@
 
 Scientific status: **IRC validation incomplete**. Stage A recovery and Stage B
 forward-endpoint diagnosis are complete. The backward driver converged but failed independent descent validation.
-Stage D assessment is complete; Stage E is deferred. Stage F release checks are
-in progress; no r3 deployment is yet claimed.
+Stage D assessment is complete; Stage E is deferred. Stage F regression and Pages deployment passed for the release candidate;
+confirmed evidence is recorded below. Native browser checks remain blocked.
 
 ## Stage A — recovered and independently checked
 
@@ -254,5 +254,19 @@ for reproduction with Playwright and Chromium in a suitable environment.
 
 Local full adapter rebuild encountered missing RDKit; the Diels–Alder adapter was
 rebuilt independently and tested. Existing Pages CI installs pinned RDKit and
-rebuilds all adapters before deployment. CI/deployment remain pending until
-recorded as successful; source version is v0.3.7-r3.
+rebuilds all adapters before deployment. CI/deployment results are recorded below; source version is v0.3.7-r3.
+
+## Confirmed release evidence
+
+Release commit: `72ee751ea2d974275f29e67b2bda51a6483da00c`. GitHub Validate
+Ochem Atlas passed: https://github.com/libangyumatt-cmyk/Ochem-Atlas/actions/runs/40232591668 .
+The complete Pages rebuild and deployment passed:
+https://github.com/libangyumatt-cmyk/Ochem-Atlas/actions/runs/40232591736 .
+This verifies the full pinned-dependency build, regressions and hosting deployment,
+not strict IRC connectivity or published browser interactions.
+
+Published release: https://libangyumatt-cmyk.github.io/Ochem-Atlas/?v=0.3.7-r3#reaction-lab .
+Scientific outcome remains incomplete IRC validation, with recovered product and
+finite reactant-encounter minima. All calculations reported as completed have
+retained outputs; Stage E remains deferred. No unfinished job is claimed to
+continue in the background.

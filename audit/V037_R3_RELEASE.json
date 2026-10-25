@@ -1,0 +1,11 @@
+{
+  "version": "0.3.7-r3",
+  "verifiedReleaseCommit": "72ee751ea2d974275f29e67b2bda51a6483da00c",
+  "validationRun": 40232591668,
+  "validationConclusion": "success",
+  "pagesRun": 40232591736,
+  "pagesConclusion": "success",
+  "scientificStatus": "IRC validation incomplete",
+  "browserStatus": "blocked before launch by sandbox socket permission",
+  "validatedIrcSeriesExposed": false
+}
