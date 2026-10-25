@@ -1,0 +1,147 @@
+#INFO: **** input file is /workspace/Ochem-Atlas/research/diels-alder/r3/reactant_endpoint.py ****
+"""Independent reactant endpoint check after actual backward-driver convergence."""
+from pathlib import Path
+import os,sys
+root=Path(__file__).resolve().parents[3]
+os.environ['OCHEM_R2_OUTPUT']=os.environ.get('OCHEM_R3_BACKWARD_OUTPUT',str(root/'dist/reaction-lab/diels-alder/r3/backward-attempt1'))
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'r2'))
+from common import OUT
+from optimizer_state import install
+from endpoints import main
+if __name__=='__main__':
+ install(OUT/'endpoints/backward');sys.argv=[sys.argv[0],'backward'];main()
+#INFO: ******************** input file end ********************
+
+
+System: uname_result(system='Linux', node='b87e0031b265', release='6.18.55', version='#1 SMP Wed Oct 14 19:45:18 UTC 2026', machine='x86_64')  Threads 2
+Python 3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]
+numpy 2.3.5  scipy 1.17.0  h5py 3.16.0
+Date: Sun Oct 25 07:20:30 2026
+PySCF version 2.14.0
+PySCF path  /workspace/ochem-venv/lib/python3.12/site-packages/pyscf
+
+[CONFIG] conf_file None
+[INPUT] verbose = 4
+[INPUT] num. atoms = 16
+[INPUT] num. electrons = 46
+[INPUT] charge = 0
+[INPUT] spin (= nelec alpha-beta = 2S) = 0
+[INPUT] symmetry False subgroup None
+[INPUT] Mole.unit = Bohr
+[INPUT] Symbol           X                Y                Z      unit          X                Y                Z       unit  Magmom
+[INPUT]  1 C     -1.489265442357   0.283482786348  -0.701608436113 AA   -2.814303812834   0.535704827226  -1.325847790938 Bohr   0.0
+[INPUT]  2 C     -0.729810837068  -0.819246781090  -0.643296535013 AA   -1.379142604798  -1.548152044691  -1.215654268057 Bohr   0.0
+[INPUT]  3 C      0.731822257253  -0.850957440422  -0.481640413422 AA    1.382943638070  -1.608076506058  -0.910168471890 Bohr   0.0
+[INPUT]  4 C      1.588937483824   0.084401736672  -0.913993659620 AA    3.002656673483   0.159496166747  -1.727197696270 Bohr   0.0
+[INPUT]  5 C     -0.700517564243   1.002234851301   3.217022849971 AA   -1.323786341866   1.893949381454   6.079292122913 Bohr   0.0
+[INPUT]  6 C      0.600199659126   1.254352204482   3.082091652570 AA    1.134212975806   2.370382130216   5.824309114166 Bohr   0.0
+[INPUT]  7 H     -1.064491963077   1.278583809104  -0.595900322897 AA   -2.011598272017   2.416173226510  -1.126088407815 Bohr   0.0
+[INPUT]  8 H     -2.564039598370   0.223520875874  -0.847103736925 AA   -4.845332613458   0.422393238524  -1.600794061884 Bohr   0.0
+[INPUT]  9 H     -1.218512400246  -1.792344286589  -0.701410523576 AA   -2.302654715852  -3.387039822583  -1.325473790446 Bohr   0.0
+[INPUT] 10 H      1.132406484865  -1.734998229236   0.015262211450 AA    2.139938118077  -3.278671479862   0.028841399696 Bohr   0.0
+[INPUT] 11 H      2.658003047846  -0.005021157892  -0.743907317745 AA    5.022897798688  -0.009488613243  -1.405781092599 Bohr   0.0
+[INPUT] 12 H      1.252415960220   0.959268122774  -1.464702475664 AA    2.366723158849   1.812754032069  -2.767886532977 Bohr   0.0
+[INPUT] 13 H     -1.247918369009   1.271778508045   4.117645629576 AA   -2.358223943240   2.403313071313   7.781222517910 Bohr   0.0
+[INPUT] 14 H     -1.269468509774   0.516309698169   2.428080861146 AA   -2.398947807232   0.975683924996   4.588407835864 Bohr   0.0
+[INPUT] 15 H      1.141067420246   0.981624854853   2.179047974351 AA    2.156304913928   1.855002132739   4.117803883812 Bohr   0.0
+[INPUT] 16 H      1.175499301620   1.741299869694   3.866540101889 AA    2.221371739679   3.290579854462   7.306701842218 Bohr   0.0
+
+nuclear repulsion = 195.839874849043
+number of shells = 56
+number of NR pGTOs = 202
+number of NR cGTOs = 104
+basis = 6-31g(d)
+ecp = {}
+CPU time:       367.10
+
+
+******** <class 'pyscf.dft.rks.RKS'> ********
+method = RKS
+initial guess = minao
+damping factor = 0
+level_shift factor = 0
+DIIS = <class 'pyscf.scf.diis.CDIIS'>
+diis_start_cycle = 1
+diis_space = 8
+diis_damp = 0
+SCF conv_tol = 1e-10
+SCF conv_tol_grad = 1e-06
+SCF max_cycles = 120
+direct_scf = True
+direct_scf_tol = 1e-13
+chkfile to save SCF result = /tmp/tmpmr9_khi3
+max_memory 1200 MB (current use 178 MB)
+XC library pyscf.dft.libxc version 7.0.0
+    S. Lehtola, C. Steigemann, M. J.T. Oliveira, and M. A.L. Marques.,  SoftwareX 7, 1–5 (2018)
+XC functionals = b3lyp
+    P. J. Stephens, F. J. Devlin, C. F. Chabalowski, and M. J. Frisch.,  J. Phys. Chem. 98, 11623 (1994)
+radial grids: 
+    Treutler-Ahlrichs [JCP 102, 346 (1995); DOI:10.1063/1.469408] (M4) radial grids
+    
+becke partition: Becke, JCP 88, 2547 (1988); DOI:10.1063/1.454033
+pruning grids: <function nwchem_prune at 0x7f38e2494d60>
+grids dens level: 3
+symmetrized grids: False
+atomic radii adjust function: <function treutler_atomic_radii_adjust at 0x7f38e2495260>
+small_rho_cutoff = 0
+Initial guess from minao.
+tot grids = 182792
+init E= -234.784288489676
+  HOMO = -0.2853348726858  LUMO = -0.114330303867814  gap/eV = 4.65327
+cycle= 1 E= -234.508268454576  delta_E= 0.276  |g|= 0.465  |ddm|= 3.45
+  HOMO = -0.17179784237191  LUMO = 0.0270984775249499  gap/eV = 5.41224
+cycle= 2 E= -234.507853440517  delta_E= 0.000415  |g|= 0.473  |ddm|= 0.968
+  HOMO = -0.234780568088422  LUMO = -0.0276348016123773  gap/eV = 5.63672
+cycle= 3 E= -234.570514084162  delta_E= -0.0627  |g|= 0.0117  |ddm|= 0.503
+  HOMO = -0.234522314296774  LUMO = -0.0270216648321422  gap/eV = 5.64638
+cycle= 4 E= -234.570515824972  delta_E= -1.74e-06  |g|= 0.0116  |ddm|= 0.0239
+  HOMO = -0.23447448882141  LUMO = -0.0268935917422324  gap/eV = 5.64856
+cycle= 5 E= -234.57054681238  delta_E= -3.1e-05  |g|= 0.00499  |ddm|= 0.0143
+  HOMO = -0.234516461183742  LUMO = -0.0269907355196284  gap/eV = 5.64706
+cycle= 6 E= -234.570553280623  delta_E= -6.47e-06  |g|= 0.000198  |ddm|= 0.00448
+  HOMO = -0.234508476474152  LUMO = -0.0269841673302649  gap/eV = 5.64702
+cycle= 7 E= -234.570553287276  delta_E= -6.65e-09  |g|= 0.000131  |ddm|= 0.000334
+  HOMO = -0.234511966819136  LUMO = -0.02698642946108  gap/eV = 5.64706
+cycle= 8 E= -234.570553291394  delta_E= -4.12e-09  |g|= 4.75e-05  |ddm|= 0.000148
+  HOMO = -0.234512904331205  LUMO = -0.0269862412029727  gap/eV = 5.64709
+cycle= 9 E= -234.57055329203  delta_E= -6.36e-10  |g|= 9.64e-06  |ddm|= 5.18e-05
+  HOMO = -0.234512051028524  LUMO = -0.0269853865945882  gap/eV = 5.64709
+cycle= 10 E= -234.570553292056  delta_E= -2.59e-11  |g|= 1.97e-06  |ddm|= 1.14e-05
+  HOMO = -0.234512046295985  LUMO = -0.0269853438872913  gap/eV = 5.64709
+cycle= 11 E= -234.570553292059  delta_E= -2.5e-12  |g|= 1.29e-06  |ddm|= 2.82e-06
+  HOMO = -0.234512098576196  LUMO = -0.0269853792476162  gap/eV = 5.64709
+cycle= 12 E= -234.570553292056  delta_E= 2.5e-12  |g|= 2.87e-07  |ddm|= 1.22e-06
+  HOMO = -0.234512101080584  LUMO = -0.02698537201436  gap/eV = 5.64709
+Extra cycle  E= -234.570553292057  delta_E= -1.14e-12  |g|= 4.9e-07  |ddm|= 6.29e-07
+converged SCF energy = -234.570553292057
+
+
+******** <class 'pyscf.grad.rks.Gradients'> for <class 'pyscf.dft.rks.RKS'> ********
+unit = Eh/Bohr
+max_memory 1200 MB (current use 290 MB)
+grid_response = True
+--------------- RKS gradients ---------------
+         x                y                z
+0 C     0.0000013822    -0.0000000148    -0.0000017259
+1 C     0.0000002543    -0.0000004430    -0.0000001890
+2 C    -0.0000004604     0.0000000612     0.0000025417
+3 C     0.0000013453    -0.0000013630    -0.0000012412
+4 C     0.0000026635     0.0000032602    -0.0000023947
+5 C    -0.0000007597    -0.0000005407    -0.0000006825
+6 H     0.0000006704     0.0000001890     0.0000001384
+7 H     0.0000010453     0.0000002896    -0.0000008361
+8 H     0.0000002332    -0.0000002928    -0.0000016081
+9 H     0.0000001301    -0.0000003075     0.0000019181
+10 H     0.0000004332    -0.0000018552     0.0000021190
+11 H     0.0000009928    -0.0000010390     0.0000006084
+12 H    -0.0000031228     0.0000018380    -0.0000011275
+13 H    -0.0000026592    -0.0000008269     0.0000021051
+14 H     0.0000000169     0.0000006284     0.0000001644
+15 H    -0.0000021649     0.0000004166     0.0000002099
+----------------------------------------------
+rhf_internal: lowest eigs of H = [0.83132975 0.94217218 0.99291613]
+<class 'pyscf.dft.rks.RKS'> wavefunction is stable in the internal stability analysis
+rhf_real2complex: lowest eigs of H = [0.15873332 0.20763244 0.22426599]
+<class 'pyscf.dft.rks.RKS'> wavefunction is stable in the real -> complex stability analysis
+rhf_external: lowest eigs of H = [0.06655078 0.09962776 0.12371997]
+<class 'pyscf.dft.rks.RKS'> wavefunction is stable in the RHF/RKS -> UHF/UKS stability analysis

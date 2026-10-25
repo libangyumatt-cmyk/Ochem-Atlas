@@ -83,13 +83,14 @@ async function domTests(){
 
  await w.SorgReactionLab.selectSystem('butadiene-ethylene');
  assert.equal(w.SorgReactionLab.state.event,'diels-alder:0');assert.equal($('#rr-system').options.length,3);
+ assert.equal($('#rr-validation').hidden,false);assert.match($('#rr-validation').textContent,/IRC validation incomplete/);assert.match($('#rr-validation').textContent,/Verified constrained geometry/);assert.equal($('#rr-series').options.length,1);
  assert.match($('#rr-bond-plots').textContent,/C1···C5 forming/);assert.match($('#rr-evidence').textContent,/S1/);
- change('#rr-geometry','ts');assert.match($('#rr-descriptors').textContent,/1 imaginary modes/);
+ change('#rr-geometry','ts');assert.match($('#rr-descriptors').textContent,/1 imaginary modes/);assert.match($('#rr-validation').textContent,/Verified stationary point/);
  assert.equal($('#rr-symmetry').hidden,false);assert.match($('#rr-symmetry-values').textContent,/Same sign at both regions: true/);
  change('#rr-field','deformation');assert.match($('#rr-legend').textContent,/neutral singlet butadiene/);
  change('#rr-field','amplitude');change('#rr-orbital','virtual');assert.match($('#rr-orbital-note').textContent,/canonical/);
  change('#rr-display','conventional');assert.equal(w.SorgReactionLab.state.frameId,'ts');change('#rr-display','both');
- await w.SorgReactionLab.selectSystem('chloride-identity-sn2');assert.equal($('#rr-symmetry').hidden,true);
+ await w.SorgReactionLab.selectSystem('chloride-identity-sn2');assert.equal($('#rr-symmetry').hidden,true);assert.equal($('#rr-validation').hidden,true);
  await w.SorgReactionLab.selectSystem('butadiene-ethylene');assert.equal(w.SorgReactionLab.state.frameId,'ts');
  assert.equal(w.SorgReactionLab.state.orbitalId,'virtual');
  await w.SorgReactionLab.selectEvent('e2:0');assert.equal($('#rr-unavailable').hidden,false);

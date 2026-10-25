@@ -1,0 +1,54 @@
+{
+  "minimumVerified": true,
+  "energyHartree": -234.5705532920574,
+  "maxFullResponseGradientEhPerBohr": 3.2602244803559e-06,
+  "lowestFrequencyCm": 16.085082277867826,
+  "internalStable": true,
+  "externalStable": true,
+  "mappedCarbonConnectivityMatchesExpected": true,
+  "mappedHydrogenParentsMatch": true,
+  "carbonEdgesOneBased": [
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      5,
+      6
+    ]
+  ],
+  "formingDistancesAngstrom": [
+    4.06132969634087,
+    4.27961264665638
+  ],
+  "fragments": [
+    {
+      "reference": "reactant-butadiene",
+      "carbonRmsdAngstrom": 0.6073508200372112,
+      "fixedMapAllAtomRmsdAngstrom": 1.3766485072784895,
+      "equivalentHydrogenAllAtomRmsdAngstrom": 1.273240604345135,
+      "endpointDieneTorsionDegrees": -30.16139709673969,
+      "referenceDieneTorsionDegrees": 179.9999907569079
+    },
+    {
+      "reference": "reactant-ethylene",
+      "carbonRmsdAngstrom": 0.00023164375116789543,
+      "fixedMapAllAtomRmsdAngstrom": 0.0038241574064847273,
+      "equivalentHydrogenAllAtomRmsdAngstrom": 0.0038241574064847273
+    }
+  ],
+  "energyRelativeToIndependentIsolatedR1ReactantsHartree": 0.004150211914009105,
+  "finiteDistanceEncounterRegion": true,
+  "infinitelySeparatedReactants": false,
+  "referenceLimitation": "Independent isolated butadiene reference is s-trans; a different diene conformer contributes deformation energy. No universal experimental activation baseline.",
+  "strictTwoMinimumIrcConnectivityVerified": false,
+  "interpretation": "Endpoint checks do not repair the accepted uphill IRC step or convert subsequent forward-ring relaxations into IRC points."
+}

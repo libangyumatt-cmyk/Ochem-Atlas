@@ -1,9 +1,9 @@
 # Ochem Atlas v0.3.7-r3 — IRC recovery and validation
 
 Scientific status: **IRC validation incomplete**. Stage A recovery and Stage B
-forward-endpoint diagnosis are complete. Stage C has started, but no converged
-backward branch or complete minimum-to-minimum IRC is claimed at this checkpoint.
-Stages D–F remain pending; no r3 release deployment is claimed.
+forward-endpoint diagnosis are complete. The backward driver converged but failed independent descent validation.
+Stage D assessment is complete; Stage E is deferred. Stage F release checks are
+in progress; no r3 deployment is yet claimed.
 
 ## Stage A — recovered and independently checked
 
@@ -86,27 +86,56 @@ geometries. No precise valley–ridge bifurcation location has been calculated.
 A first-order reaction saddle plus these relaxations does not by itself certify
 a strict two-minimum IRC.
 
-## Stage C — fresh backward driver; convergence pending
+## Stage C — driver converged; independent descent check failed
 
-`research/diels-alder/r3/backward.py` starts a fresh driver at the verified TS.
-It can reuse an actual r2 SCF/gradient evaluation only when the requested
-geometry differs by at most1e-12 bohr per Cartesian component. Reused rows retain
-the original coordinates, energy, gradient and source evaluation number. No new
-wavefunction is claimed for a reused row. A cache miss performs a new calculation.
+The fresh TS-started backward driver converged after156 evaluations: one strictly
+reused r2 TS evaluation and155 new SCF/gradient calculations. It retained143
+accepted IRC points, excluding six ordinary endpoint-optimization trace rows.
+All new wavefunctions passed independent normalization/electron-count/density
+checks directly from16 CRC-checked archives, with per-wavefunction SHA256 hashes.
+The strict cache tolerance remained1e-12 bohr; the second requested geometry
+missed by4.418273125e-8 bohr and was freshly computed.
 
-The TS evaluation was reused. The next requested geometry differed from r2 by
-4.418273125e-8 bohr, so it failed the strict cache test and was freshly computed.
-The tolerance was not relaxed to assign old electronic results to new geometries.
-Initial forming-distance changes confirm the physical reactant direction; the
-arbitrary imaginary-mode sign is not a chemical identifier.
+The independent descent check **failed**. Accepted evaluation138 is
+5.8087003936e-6 Eh above accepted evaluation135, exceeding the preset3e-6 Eh
+limit. The driver log explicitly reports: “IRC stuck with the minimum step-size
+and bad quality step. Forcing it to take a step.” Two preceding trial steps were
+rejected; the forced step used the0.005 Angstrom minimum trust radius. It remains
+in the record. The tolerance was not relaxed and the step was not silently
+removed. Driver convergence therefore does not establish a verified IRC.
 
-The first independent checkpoint check passed descent, mapping/provenance,
-electron counts, density-matrix Hermiticity and orbital normalization for
-11 evaluated geometries (one reused, ten new). This is not a convergence claim.
-Current outputs are under `r3/backward-attempt1/backward`; only saved, independently
-checked milestones should be counted as retained evidence. No promise of continued
-execution after an interruption is made. New SCF wavefunctions and full optimizer
-states are saved atomically after meaningful evaluations.
+Independent ordinary relaxation of its endpoint converged after13 SCF/gradient
+evaluations. Fresh verification gives E=-234.5705532920574 Eh, maximum full-response
+force3.2602244804e-6 Eh/bohr, lowest vibration16.0850822779 cm^-1, and stable
+internal/external SCF tests. Both mapped carbon and hydrogen connectivity checks
+pass. Forming distances4.0613296963/4.2796126467 Angstrom identify a **finite-distance
+butadiene–ethylene encounter minimum**, not infinitely separated reactants.
+Its soft modes and shallow intermolecular binding remain grid/model dependent.
+
+Ethylene carbon/all-atom RMSDs to the independently optimized isolated reference
+are0.0002316438/0.0038241574 Angstrom. The diene torsion is-30.1613971 degrees,
+versus179.9999908 degrees for the s-trans reference; its carbon RMSD0.6073508200
+Angstrom reflects a different conformer. Proper rotations and equivalent-H
+permutations are explicit in the comparison. The encounter energy lies
+0.004150211914 Eh above the sum of isolated r1 references; conformational
+deformation contributes, so this is not an experimental activation baseline.
+
+Raw outputs and independent reports: `r3/backward-attempt1/backward` and
+`r3/backward-attempt1/endpoints/backward`; summary `audit/V037_R3_CONNECTIVITY.json`.
+
+## Stages D and E — assessment complete; electronic series deferred
+
+Computed structures support the intended reactant and cyclohexene product
+regions. Strict two-minimum IRC connectivity remains **unverified**: the backward
+path fails the fixed descent test, and the original forward IRC ends at an
+unstable ring conformation whose subsequent ordinary relaxations must remain
+separate from IRC points. No precise valley–ridge bifurcation is established.
+
+Stage E is deferred in its entirety. No selected-IRC Mayer/Löwdin/orbital/density
+series was generated, interpolated or published. Original electronic fields,
+constrained study and verified r1 saddle/minimum remain unchanged. The compact
+Scientific Validation Status section reports the incomplete IRC and separately
+identifies original constrained and stationary geometries.
 
 ## Model and numerical conventions
 
@@ -149,7 +178,7 @@ From repository root, create a separate Python3.12 environment:
 ```sh
 python3.12 -m venv .venv
 .venv/bin/pip install pyscf==2.14.0 geometric==1.1.1 numpy==2.3.5 scipy==1.17.0
-python research/diels-alder/r3/recover.py
+.venv/bin/python research/diels-alder/r3/recover.py
 node verify-diels-alder-r2-numerical.cjs
 OPENBLAS_NUM_THREADS=1 .venv/bin/python research/diels-alder/r3/check_restart.py
 OPENBLAS_NUM_THREADS=1 .venv/bin/python research/diels-alder/r3/check_replay.py
@@ -165,7 +194,9 @@ OPENBLAS_NUM_THREADS=1 .venv/bin/python research/diels-alder/r3/validate_endpoin
 OPENBLAS_NUM_THREADS=1 .venv/bin/python research/diels-alder/r3/validate_endpoint.py minus
 export OCHEM_R3_BACKWARD_OUTPUT=/tmp/ochem-r3-independent-backward
 OPENBLAS_NUM_THREADS=1 OCHEM_THREADS=2 .venv/bin/python research/diels-alder/r3/backward.py
-OPENBLAS_NUM_THREADS=1 .venv/bin/python research/diels-alder/r3/validate_backward.py
+OPENBLAS_NUM_THREADS=1 .venv/bin/python research/diels-alder/r3/reactant_endpoint.py
+OPENBLAS_NUM_THREADS=1 OCHEM_R3_ARCHIVES_ONLY=1 .venv/bin/python research/diels-alder/r3/validate_backward.py
+OPENBLAS_NUM_THREADS=1 .venv/bin/python research/diels-alder/r3/assess_connectivity.py
 ```
 
 The published negative retry retains its actual restart history; an independent
@@ -193,13 +224,35 @@ mobile touch, WebGL rendering or published desktop behavior; those require
 separate release checks. No new interface or orbital/density series has been
 integrated at this checkpoint.
 
-Remaining sequential work: finish backward convergence and independent endpoint
-assessment; compare both chemical regions and classify strict IRC connectivity;
-generate limited electronic fields only if those checks justify it; then compact
-status integration, final regression and release verification. Finite-distance
-encounter structures must not be called infinitely separated reactants.
+Remaining scientific work: resolve the forced minimum-trust-radius step with a
+documented integration repair; establish the forward IRC relation to the unstable
+ring conformation and relaxed minima; test numerical/grid sensitivity of the
+soft encounter modes where needed. Only after those checks should a limited IRC
+electronic-field series be considered. No jobs are described as continuing after
+this checkpoint. Final browser/regression and deployment evidence is recorded
+below when actually completed.
 
 SORG1333 remains unchanged. Concerted bond formation is distinct from strict
 synchronicity, and a constrained equal-distance scan cannot establish either a
 complete IRC or unique orbital interaction energies. No interaction energy is
 inferred from overlap, and no uncomputed electronic fields are interpolated.
+
+## Stage F — release-candidate verification
+
+Full npm regression passed after status integration, including focused assertions
+for incomplete IRC status, original constrained/stationary frame labels, one
+retained series and status hiding when switching to SN2. Actual output is
+`audit/V037_R3_FINAL_REGRESSION.log`. All373 protected original payload hashes
+matched. Independent endpoint/Hessian and all155 archived new-wavefunction
+checks passed; the backward descent check remains explicitly failed.
+
+Chromium desktop/mobile-emulation launch was attempted but the execution sandbox
+denied a required socket operation before a browser page opened. Actual failure:
+`audit/V037_R3_BROWSER_ATTEMPT.log`. No browser, native touch, WebGL, screenshot or
+published interaction success is claimed. `verify-browser-r3.cjs` is retained
+for reproduction with Playwright and Chromium in a suitable environment.
+
+Local full adapter rebuild encountered missing RDKit; the Diels–Alder adapter was
+rebuilt independently and tested. Existing Pages CI installs pinned RDKit and
+rebuilds all adapters before deployment. CI/deployment remain pending until
+recorded as successful; source version is v0.3.7-r3.

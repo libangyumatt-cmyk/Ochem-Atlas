@@ -1,5 +1,7 @@
 # SORG · Organic Reaction Atlas
 
+v0.3.7-r3 recovers Diels–Alder product and finite reactant-encounter minima. The backward driver converged but failed a fixed IRC descent check; no validated IRC electronic series is exposed. See [the r3 scientific audit](V037_R3_AUDIT.md) for actual calculations, reproducibility and limitations.
+
 A responsive, English-language teaching atlas of organic reaction mechanisms. The published site contains 31 reaction entries and 69 listed mechanistic events (including three explicitly grouped stages).
 
 Each reaction panel presents the stated substrate, reagents, scoped sequential equations and intermediates, specific electron-flow prose, orbital and geometry notes, a reviewed credited image or explicit pending-illustration notice, and source and scope information. Reference images have separate exact/representative/partial/pending match and coverage fields. Images with unconfirmed reuse permission are withheld while their source and attribution remain recorded. Four original SVGs replace broken or unsuitable references. Solvent-mediated proton relays may be grouped as net teaching events. The in-page SVGs show local motifs, whereas the step sequence describes the named example.
