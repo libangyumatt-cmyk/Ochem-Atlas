@@ -1,0 +1,69 @@
+{
+  "sourceSha256": "18b9777fe3162643eff699908215f99fa2734d2ff3b7b3cad12927f70f1e6cca",
+  "symmetrizedImaginaryFrequencyCm": 31.790185192103245,
+  "modeMetric": "Cartesian unit norm, displacement in angstrom; arbitrary sign",
+  "carbonSquaredAmplitudeFraction": 0.05756782688168135,
+  "ringTorsions": [
+    {
+      "atomsOneBased": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "torsionDegrees": 0.01658265972318701,
+      "derivativeDegreesPerAngstrom": -5.408768589722968
+    },
+    {
+      "atomsOneBased": [
+        2,
+        3,
+        4,
+        6
+      ],
+      "torsionDegrees": 44.64900137796038,
+      "derivativeDegreesPerAngstrom": -1.9727170693812468
+    },
+    {
+      "atomsOneBased": [
+        3,
+        4,
+        6,
+        5
+      ],
+      "torsionDegrees": -42.203079515079914,
+      "derivativeDegreesPerAngstrom": 18.681734027803998
+    },
+    {
+      "atomsOneBased": [
+        4,
+        6,
+        5,
+        1
+      ],
+      "torsionDegrees": 0.09035266756333941,
+      "derivativeDegreesPerAngstrom": -26.143879350661337
+    },
+    {
+      "atomsOneBased": [
+        6,
+        5,
+        1,
+        2
+      ],
+      "torsionDegrees": 42.07372003267924,
+      "derivativeDegreesPerAngstrom": 18.775760957622367
+    },
+    {
+      "atomsOneBased": [
+        5,
+        1,
+        2,
+        3
+      ],
+      "torsionDegrees": -44.63149857950884,
+      "derivativeDegreesPerAngstrom": -2.075054027727674
+    }
+  ],
+  "interpretation": "Ring torsional/puckering direction based on internal torsion derivatives. Genuine negative directional energy curvature retained at both grids in r2; displaced minimizations needed to distinguish conformational instability from numerical/optimization effects. No harmless-mode assumption."
+}
