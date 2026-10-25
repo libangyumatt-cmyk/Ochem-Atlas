@@ -1,5 +1,5 @@
 """Cheap analytic H2 stretch tests serialization and interrupted continuation."""
-import tempfile
+import tempfile,sys,subprocess,json
 from pathlib import Path
 import numpy as np
 from geometric.engine import Engine
@@ -22,8 +22,18 @@ def main():
   try:run_optimizer(customengine=Stretch(m),input=str(folder/'input.xyz'),prefix=str(folder/'test'),maxiter=40)
   except InterruptedError:pass
   else:raise AssertionError('Interruption not exercised')
+  snapshot={n:(folder/n).read_bytes() for n in ['optimizer-state.pkl','optimizer-state.json']}
+  subprocess.run([sys.executable,__file__,'--child',str(folder)],check=True,stdout=subprocess.DEVNULL)
+  child=json.loads((folder/'child-result.json').read_text())
+  for n,data in snapshot.items():(folder/n).write_bytes(data)
   Optimizer.evaluateStep=original;install(folder)
   final=resume(folder);distance=np.linalg.norm(final.xyzs[-1][1]-final.xyzs[-1][0])/.52917721092
   assert abs(distance-1.4)<1e-4,distance
-  print('PASS: optimizer pickle round-trip and interrupted analytic continuation',distance)
-if __name__=='__main__':main()
+  assert np.max(abs(np.array(child)-final.xyzs[-1]))<1e-12
+  print('PASS: optimizer pickle round-trip and matching fresh-process/parent interrupted analytic continuations',distance)
+Stretch.__module__='check_restart'
+if __name__=='__main__':
+ sys.modules['check_restart']=sys.modules[__name__]
+ if '--child' in sys.argv:
+  folder=Path(sys.argv[2]);install(folder);final=resume(folder);(folder/'child-result.json').write_text(json.dumps(final.xyzs[-1].tolist()))
+ else:main()

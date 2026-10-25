@@ -19,6 +19,11 @@ with zipfile.ZipFile(temp,'w',zipfile.ZIP_DEFLATED) as z:
  for n in ['input.json','options.json','optimizer-status.json','progress.json','verification.json','wavefunction.npz','scf-checkpoint.npz','independent-validation.json','failure.json']:
   p=folder/n
   if p.exists():z.write(p,n)
+ state=folder/'optimizer-state.pkl'
+ if state.exists():
+  data=state.read_bytes();meta=json.loads((folder/'optimizer-state.json').read_text());assert hashlib.sha256(data).hexdigest()==meta['sha256']
+  assert meta['evaluations']<=max(r['evaluation'] for r in rows.values())
+  z.writestr('optimizer-state.pkl',data);z.writestr('optimizer-state.json',json.dumps(meta,indent=2))
  z.writestr('latest-wavefunction.npz',wave)
 with zipfile.ZipFile(temp) as z:assert z.testzip() is None
 temp.replace(dest)

@@ -32,14 +32,14 @@ research/diels-alder/r3/check_restart.py
                                          [91m())))))))))))))),[0m                     
 
 -=# [1;94m geomeTRIC started. Version: 1.1.1 [0m #=-
-Current date and time: 2026-10-25 03:43:44
+Current date and time: 2026-10-25 03:56:12
 #========================================================#
 #| [92m    Arguments passed to driver run_optimizer():     [0m |#
 #========================================================#
-customengine              <__main__.Stretch object at 0x7f1ceb823d40> 
-input                     /tmp/tmpkvj622ml/input.xyz 
+customengine              <check_restart.Stretch object at 0x7f0987d14350> 
+input                     /tmp/tmpaojmfg3_/input.xyz 
 maxiter                   40 
-prefix                    /tmp/tmpkvj622ml/test 
+prefix                    /tmp/tmpaojmfg3_/test 
 ----------------------------------------------------------
 Custom engine selected.
 Bonds will be generated from interatomic distances less than 1.20 times sum of covalent radii
@@ -78,6 +78,10 @@ Hessian Eigenvalues: 5.00000e-02 5.00000e-02 5.00000e-02 ... 5.00000e-02 5.00000
 Step    1 : Displace = [0m1.000e-01[0m/[0m1.000e-01[0m (rms/max) Trust = 1.000e-01 (=) Grad = [0m1.357e-01[0m/[0m1.357e-01[0m (rms/max) E (change) =  0.0460631976 ([0m-6.559e-02[0m) Quality = [0m0.902[0m
 Hessian Eigenvalues: 5.00000e-02 5.00000e-02 5.00000e-02 ... 5.00000e-02 5.00000e-02 2.00000e-01
 Step    2 : Displace = [0m1.414e-01[0m/[0m1.414e-01[0m (rms/max) Trust = 1.414e-01 ([92m+[0m) Grad = [0m2.884e-02[0m/[0m2.884e-02[0m (rms/max) E (change) =  0.0020794642 ([0m-4.398e-02[0m) Quality = [0m1.000[0m
+/workspace/ochem-venv/lib/python3.12/site-packages/geometric/step.py:478: RuntimeWarning: invalid value encountered in scalar divide
+  dy_prime = np.dot(dy,d_prime)/np.linalg.norm(dy)
+/workspace/ochem-venv/lib/python3.12/site-packages/geometric/optimize.py:872: RuntimeWarning: invalid value encountered in scalar divide
+  Quality = del_E/self.expect
 Hessian Eigenvalues: 5.00000e-02 5.00000e-02 5.00000e-02 ... 5.00000e-02 5.00000e-02 2.00000e-01
 Step    3 : Displace = [0m3.815e-02[0m/[0m3.815e-02[0m (rms/max) Trust = 2.000e-01 ([92m+[0m) Grad = [92m0.000e+00[0m/[92m0.000e+00[0m (rms/max) E (change) =  0.0000000000 ([0m-2.079e-03[0m) Quality = [0m1.000[0m
 Hessian Eigenvalues: 5.00000e-02 5.00000e-02 5.00000e-02 ... 5.00000e-02 5.00000e-02 2.00000e-01
@@ -88,4 +92,4 @@ Hessian Eigenvalues: 5.00000e-02 5.00000e-02 5.00000e-02 ... 5.00000e-02 5.00000
 Step    4 : Displace = [92m0.000e+00[0m/[92m0.000e+00[0m (rms/max) Trust = 2.828e-01 ([92m+[0m) Grad = [92m0.000e+00[0m/[92m0.000e+00[0m (rms/max) E (change) =  0.0000000000 ([92m+0.000e+00[0m) Quality = [91mnan[0m
 Hessian Eigenvalues: 5.00000e-02 5.00000e-02 5.00000e-02 ... 5.00000e-02 5.00000e-02 2.00000e-01
 Converged! =D
-PASS: optimizer pickle round-trip and interrupted analytic continuation 1.3999999999550246
+PASS: optimizer pickle round-trip and matching fresh-process/parent interrupted analytic continuations 1.3999999999550246

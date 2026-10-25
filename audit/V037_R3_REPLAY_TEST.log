@@ -1,0 +1,1 @@
+PASS: two exact geometry-keyed retained SCF/gradient reuses, no new SCF or wavefunction claim, preserved TS guess, importable replay-engine round trip.

@@ -8,6 +8,8 @@
   "carbonRmsdAngstrom": 0.3955316942267366,
   "fixedMapAllAtomRmsdAngstrom": 1.200028361170012,
   "equivalentHydrogenAllAtomRmsdAngstrom": 1.044307270414478,
+  "mirrorReferenceCarbonRmsdDiagnosticAngstrom": 0.0004680412440804396,
+  "carbonReverseAutomorphismRmsdAngstrom": 0.39553151545060067,
   "energyDifferenceFromIndependentProductHartree": 5.676702613754969e-06,
   "formingDistancesAngstrom": [
     1.5375065050226089,
