@@ -6,6 +6,14 @@ import pickle,hashlib,json,os
 from pathlib import Path
 import numpy as np
 from geometric.optimize import Optimizer
+from geometric.molecule import Molecule
+
+# Molecule.__getattr__ accesses Data before pickle restores it unless an explicit
+# state handler is available on the class. Preserve its entire instance dict.
+def _molecule_getstate(self):return object.__getattribute__(self,"__dict__")
+def _molecule_setstate(self,state):object.__getattribute__(self,"__dict__").update(state)
+Molecule.__getstate__=_molecule_getstate
+Molecule.__setstate__=_molecule_setstate
 
 def install(folder):
  original=Optimizer.evaluateStep

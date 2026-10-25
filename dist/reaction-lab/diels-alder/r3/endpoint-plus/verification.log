@@ -1,0 +1,168 @@
+#INFO: **** input file is /workspace/Ochem-Atlas/research/diels-alder/r3/endpoint.py ****
+"""Separate +/- soft-mode endpoint relaxations; never IRC points. Atomic milestones."""
+from pathlib import Path
+import sys,os
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'r2'))
+from common import *
+from endpoints import verify
+from irc import FreshEngine
+from geometric.molecule import Molecule
+from geometric.optimize import run_optimizer
+OLD=BASE/'r2/restart-20261022'
+NEW=BASE/'r3'
+def main():
+ sign=sys.argv[1];assert sign in ['plus','minus']
+ folder=NEW/('endpoint-'+sign);folder.mkdir(parents=True,exist_ok=True)
+ assert not (folder/'input.json').exists(),'Retain attempt; do not overwrite.'
+ source=OLD/'endpoints/forward/wavefunction.npz';w=np.load(source)
+ mode=np.real_if_close(w['normal_modes'][np.argmin(w['frequenciesCm'])]);assert np.isrealobj(mode)
+ mode/=np.linalg.norm(mode);step=.15 if sign=='plus' else -.15
+ x=w['coordinatesAngstrom']+step*mode
+ write(folder/'input.json',dict(sourceSha256=hashlib.sha256(source.read_bytes()).hexdigest(),coordinatesAngstrom=x.tolist(),cartesianUnitMode=mode.tolist(),displacementNormAngstrom=step,interpretation='Unconstrained endpoint optimization from retained negative mode; not an IRC extension.',software=dict(pyscf=__import__('pyscf').__version__,geometric=__import__('geometric').__version__,numpy=np.__version__)))
+ molecule=Molecule();molecule.elem=[a['element'] for a in record()['atoms']];molecule.xyzs=[x];molecule.comms=['r3 displaced endpoint'];molecule.build_topology()
+ from optimizer_state import install
+ install(folder)
+ engine=FreshEngine(molecule,folder);engine.dm=w['density_matrix']
+ options=dict(coordsys='dlc',trust=.05,tmax=.1,maxiter=100,convergence_energy=1e-9,convergence_grms=3e-6,convergence_gmax=1e-5,convergence_drms=.0001,convergence_dmax=.0003)
+ write(folder/'options.json',options)
+ try:
+  final=run_optimizer(customengine=engine,input=str(BASE/'ts.xyz'),prefix=str(folder/'optimization'),**options)
+  write(folder/'optimizer-status.json',dict(converged=True,finalCoordinatesAngstrom=final.xyzs[-1].tolist(),evaluations=engine.count))
+  r=verify(folder,np.array(final.xyzs[-1]));print('VERIFICATION',r['minimumVerified'],min(r['frequenciesCm']),flush=True)
+ except BaseException as exc:
+  write(folder/'failure.json',dict(error=type(exc).__name__+': '+str(exc),evaluations=engine.count));raise
+ finally:archive(folder,'eval-*.*','evaluations.zip')
+if __name__=='__main__':main()
+#INFO: ******************** input file end ********************
+
+
+System: uname_result(system='Linux', node='b87e0031b265', release='6.18.55', version='#1 SMP Wed Oct 14 19:45:18 UTC 2026', machine='x86_64')  Threads 3
+Python 3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]
+numpy 2.3.5  scipy 1.17.0  h5py 3.16.0
+Date: Sun Oct 25 03:35:55 2026
+PySCF version 2.14.0
+PySCF path  /workspace/ochem-venv/lib/python3.12/site-packages/pyscf
+
+[CONFIG] conf_file None
+[INPUT] verbose = 4
+[INPUT] num. atoms = 16
+[INPUT] num. electrons = 46
+[INPUT] charge = 0
+[INPUT] spin (= nelec alpha-beta = 2S) = 0
+[INPUT] symmetry False subgroup None
+[INPUT] Mole.unit = Bohr
+[INPUT] Symbol           X                Y                Z      unit          X                Y                Z       unit  Magmom
+[INPUT]  1 C     -1.498203361227   0.333783332636   0.563356546284 AA   -2.831194031622   0.630759083626   1.064589582958 Bohr   0.0
+[INPUT]  2 C     -0.693457491917  -0.400869959384  -0.482242956670 AA   -1.310444738750  -0.757534434802  -0.911307113607 Bohr   0.0
+[INPUT]  3 C      0.636153886587  -0.535326092655  -0.431341765498 AA    1.202156618727  -1.011619702451  -0.815117802879 Bohr   0.0
+[INPUT]  4 C      1.493806419521   0.059703365589   0.660033845570 AA    2.822885016011   0.112823009678   1.247283201071 Bohr   0.0
+[INPUT]  5 C     -0.680892299247   0.598576110911   1.838430530618 AA   -1.286699965902   1.131144914330   3.474130201908 Bohr   0.0
+[INPUT]  6 C      0.727660693144   1.101284255797   1.492096193201 AA    1.375079421654   2.081125628751   2.819653156657 Bohr   0.0
+[INPUT]  7 H     -1.861089015402   1.286126303586   0.144046293857 AA   -3.516948532547   2.430426475378   0.272208044648 Bohr   0.0
+[INPUT]  8 H     -2.402811605765  -0.241102995466   0.806559191562 AA   -4.540655863822  -0.455618629243   1.524175975303 Bohr   0.0
+[INPUT]  9 H     -1.245491382892  -0.839761817875  -1.312928079875 AA   -2.353637604172  -1.586919845652  -2.481074492215 Bohr   0.0
+[INPUT] 10 H      1.148567871474  -1.098549578910  -1.210834205040 AA    2.170478712560  -2.075957838396  -2.288145029781 Bohr   0.0
+[INPUT] 11 H      1.865601684617  -0.745955939083   1.313651941719 AA    3.525476241453  -1.409652425860   2.482442392852 Bohr   0.0
+[INPUT] 12 H      2.391911742737   0.514588411766   0.219047899056 AA    4.520058107905   0.972431165113   0.413940537377 Bohr   0.0
+[INPUT] 13 H     -1.202583351339   1.319495870166   2.479876818362 AA   -2.272553175991   2.493485817108   4.686288009362 Bohr   0.0
+[INPUT] 14 H     -0.596870327240  -0.334306018430   2.413351006774 AA   -1.127921450363  -0.631746816627   4.560572445247 Bohr   0.0
+[INPUT] 15 H      1.287373785512   1.343677452192   2.403897738498 AA    2.432783874562   2.539182384396   4.542708357222 Bohr   0.0
+[INPUT] 16 H      0.644176579910   2.032995796096   0.915133663523 AA    1.217317311890   3.841805267013   1.729351991428 Bohr   0.0
+
+nuclear repulsion = 236.132288015291
+number of shells = 56
+number of NR pGTOs = 202
+number of NR cGTOs = 104
+basis = 6-31g(d)
+ecp = {}
+CPU time:      1679.78
+
+
+******** <class 'pyscf.dft.rks.RKS'> ********
+method = RKS
+initial guess = minao
+damping factor = 0
+level_shift factor = 0
+DIIS = <class 'pyscf.scf.diis.CDIIS'>
+diis_start_cycle = 1
+diis_space = 8
+diis_damp = 0
+SCF conv_tol = 1e-10
+SCF conv_tol_grad = 1e-06
+SCF max_cycles = 120
+direct_scf = True
+direct_scf_tol = 1e-13
+chkfile to save SCF result = /tmp/tmpwu29x9sq
+max_memory 1200 MB (current use 185 MB)
+XC library pyscf.dft.libxc version 7.0.0
+    S. Lehtola, C. Steigemann, M. J.T. Oliveira, and M. A.L. Marques.,  SoftwareX 7, 1–5 (2018)
+XC functionals = b3lyp
+    P. J. Stephens, F. J. Devlin, C. F. Chabalowski, and M. J. Frisch.,  J. Phys. Chem. 98, 11623 (1994)
+radial grids: 
+    Treutler-Ahlrichs [JCP 102, 346 (1995); DOI:10.1063/1.469408] (M4) radial grids
+    
+becke partition: Becke, JCP 88, 2547 (1988); DOI:10.1063/1.454033
+pruning grids: <function nwchem_prune at 0x7ffb3ef44f40>
+grids dens level: 3
+symmetrized grids: False
+atomic radii adjust function: <function treutler_atomic_radii_adjust at 0x7ffb3ef45440>
+small_rho_cutoff = 0
+Initial guess from minao.
+tot grids = 182792
+init E= -235.134982799522
+  HOMO = -0.291271343474405  LUMO = -0.0627979061200779  gap/eV = 6.21708
+cycle= 1 E= -234.585650814822  delta_E= 0.549  |g|= 0.448  |ddm|= 3.49
+  HOMO = -0.16117434466575  LUMO = 0.0969817030936615  gap/eV = 7.02478
+cycle= 2 E= -234.563097646975  delta_E= 0.0226  |g|= 0.546  |ddm|= 1.15
+  HOMO = -0.231882682507846  LUMO = 0.0349597667372183  gap/eV = 7.26115
+cycle= 3 E= -234.643637791027  delta_E= -0.0805  |g|= 0.0373  |ddm|= 0.663
+  HOMO = -0.234426314290086  LUMO = 0.0330613158635042  gap/eV = 7.27871
+cycle= 4 E= -234.64393915151  delta_E= -0.000301  |g|= 0.00992  |ddm|= 0.0537
+  HOMO = -0.232784908076679  LUMO = 0.0347077982303476  gap/eV = 7.27885
+cycle= 5 E= -234.643958288988  delta_E= -1.91e-05  |g|= 0.00502  |ddm|= 0.015
+  HOMO = -0.233421392738647  LUMO = 0.034100648315412  gap/eV = 7.27965
+cycle= 6 E= -234.643965013415  delta_E= -6.72e-06  |g|= 0.000177  |ddm|= 0.0058
+  HOMO = -0.233407756349727  LUMO = 0.034106897172296  gap/eV = 7.27944
+cycle= 7 E= -234.643965020578  delta_E= -7.16e-09  |g|= 6.34e-05  |ddm|= 0.00026
+  HOMO = -0.233406906182216  LUMO = 0.0341080724068106  gap/eV = 7.27945
+cycle= 8 E= -234.643965021106  delta_E= -5.28e-10  |g|= 4.5e-05  |ddm|= 9.44e-05
+  HOMO = -0.233406665034084  LUMO = 0.0341085839652133  gap/eV = 7.27946
+cycle= 9 E= -234.643965021624  delta_E= -5.18e-10  |g|= 8.02e-06  |ddm|= 4.38e-05
+  HOMO = -0.2334066180573  LUMO = 0.0341086511866027  gap/eV = 7.27946
+cycle= 10 E= -234.643965021639  delta_E= -1.47e-11  |g|= 1e-06  |ddm|= 7.39e-06
+  HOMO = -0.233406519689084  LUMO = 0.0341087408457046  gap/eV = 7.27946
+cycle= 11 E= -234.64396502164  delta_E= -1.71e-12  |g|= 2.24e-07  |ddm|= 1.33e-06
+  HOMO = -0.233406575370137  LUMO = 0.0341086942369251  gap/eV = 7.27946
+Extra cycle  E= -234.64396502164  delta_E= 7.39e-13  |g|= 2.32e-07  |ddm|= 5.72e-07
+converged SCF energy = -234.64396502164
+
+
+******** <class 'pyscf.grad.rks.Gradients'> for <class 'pyscf.dft.rks.RKS'> ********
+unit = Eh/Bohr
+max_memory 1200 MB (current use 340 MB)
+grid_response = True
+--------------- RKS gradients ---------------
+         x                y                z
+0 C    -0.0000002422     0.0000015536    -0.0000005088
+1 C    -0.0000000673    -0.0000009585     0.0000008217
+2 C     0.0000007028    -0.0000025090     0.0000008215
+3 C    -0.0000009145    -0.0000014543     0.0000011870
+4 C     0.0000000267     0.0000020418    -0.0000008323
+5 C     0.0000006170     0.0000005721    -0.0000010358
+6 H     0.0000012967     0.0000010002    -0.0000023159
+7 H    -0.0000004558     0.0000024470    -0.0000004343
+8 H    -0.0000000221    -0.0000018965     0.0000009459
+9 H    -0.0000003862    -0.0000040605     0.0000025347
+10 H    -0.0000014027    -0.0000010546     0.0000024005
+11 H     0.0000003147    -0.0000032081     0.0000006971
+12 H     0.0000003299     0.0000037654    -0.0000019557
+13 H    -0.0000015975     0.0000030118     0.0000007111
+14 H     0.0000000315     0.0000011314    -0.0000007916
+15 H     0.0000017690    -0.0000003819    -0.0000022451
+----------------------------------------------
+rhf_internal: lowest eigs of H = [1.13900435 1.15668272 1.20844909]
+<class 'pyscf.dft.rks.RKS'> wavefunction is stable in the internal stability analysis
+rhf_real2complex: lowest eigs of H = [0.21237152 0.28014738 0.28472267]
+<class 'pyscf.dft.rks.RKS'> wavefunction is stable in the real -> complex stability analysis
+rhf_external: lowest eigs of H = [0.10198073 0.26282451 0.27355685]
+<class 'pyscf.dft.rks.RKS'> wavefunction is stable in the RHF/RKS -> UHF/UKS stability analysis

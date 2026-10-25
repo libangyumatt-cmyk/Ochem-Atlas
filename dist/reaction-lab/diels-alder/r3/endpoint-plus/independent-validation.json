@@ -1,0 +1,17 @@
+{
+  "minimumVerified": true,
+  "lowestFrequencyCm": 166.94186316812113,
+  "energyHartree": -234.64396502163953,
+  "maxGradientEhPerBohr": 4.060472138744942e-06,
+  "mappedCarbonConnectivityMatches": true,
+  "mappedHydrogenConnectivityMatches": true,
+  "carbonRmsdAngstrom": 0.3955316942267366,
+  "fixedMapAllAtomRmsdAngstrom": 1.200028361170012,
+  "equivalentHydrogenAllAtomRmsdAngstrom": 1.044307270414478,
+  "energyDifferenceFromIndependentProductHartree": 5.676702613754969e-06,
+  "formingDistancesAngstrom": [
+    1.5375065050226089,
+    1.5375948020320107
+  ],
+  "scope": "Proper rotations and translations removed; four same-carbon H pairs enumerated. Distinct conformers are not identified as identical. Saved stability flags retained, not recomputed by this algebraic validator. This endpoint optimization alone does not verify IRC connectivity."
+}

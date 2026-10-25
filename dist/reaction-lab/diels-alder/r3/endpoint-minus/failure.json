@@ -1,0 +1,4 @@
+{
+  "error": "RecursionError: maximum recursion depth exceeded",
+  "evaluations": 2
+}

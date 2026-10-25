@@ -14,3 +14,7 @@ dist/reaction-lab/diels-alder/r2/**/eval-*.log
 dist/reaction-lab/diels-alder/r2/**/*.tmp/
 *.pending
 *.run.lock
+
+# r3 completed trial JSON/logs are retained in CRC-checked evaluations archives.
+dist/reaction-lab/diels-alder/r3/**/eval-*.json
+dist/reaction-lab/diels-alder/r3/**/eval-*.log
