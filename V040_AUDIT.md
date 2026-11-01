@@ -40,3 +40,13 @@ is established; grouped stages and undefined SORG boundaries are explicit.
 SVG XML/arrow inventories passed. A rasterized aromatic-step sample was inspected;
 this is not a claim of full native/mobile browser testing. Actual log:
 audit/V040_BATCH1_TESTS.log.
+
+## Batch2 completed
+
+24 further entries /106 events; catalog79 entries /259 events. Full regression and
+new integrity checks pass. Review corrected oxime/hydrazone nitrogen proton
+inventories, distinguished iminium pi* from carbonyl pi*, and made Wittig/Swern
+key bond-change arrows explicit. Ester aminolysis, saponification, DIBAL versus
+LAH endpoints, selective NaBH4 reduction, chromate redox limitations, Claisen
+product trapping and Michael/Robinson bond origins were checked at teaching-model
+resolution. Actual log:audit/V040_BATCH2_TESTS.log. No new quantum data were created.

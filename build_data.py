@@ -292,6 +292,8 @@ apply_v029(reactions,codebook)
 from v035_mechanisms import apply_v035
 apply_v035(reactions)
 payload={'version':'0.3.7','updated':'2026-10-16','axes':axes,'codebook':codebook,'sources':sources,'reactions':reactions}
+from build_v040 import apply as apply_v040
+payload=apply_v040(payload)
 (ROOT/'dist'/'data.json').write_text(json.dumps(payload,ensure_ascii=False,indent=2))
 (ROOT/'dist'/'data.js').write_text('window.SORG = '+json.dumps(payload,ensure_ascii=False)+';\n')
 print(f'Created {len(reactions)} reaction records, {sum(len(r["steps"]) for r in reactions)} coded events.')

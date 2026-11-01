@@ -2715,6 +2715,1330 @@
           "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
         }
       ]
+    },
+    {
+      "id": "enamine-formation",
+      "name": "Enamine formation",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/enamine-formation.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "Me2C=O: + H–OH2+ → Me2C=OH+ + H2O",
+          "focusedImage": "mechanisms/v040/enamine-formation-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 2,
+          "code": "1113",
+          "title": "Nucleophilic carbonyl addition",
+          "equation": "Me2C=OH+ + :HNMe2 → Me2C(OH)(NH+Me2)",
+          "focusedImage": "mechanisms/v040/enamine-formation-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 3,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "Me2C(OH)–N+(Me)(Me)–H + :OH2 → Me2C(OH)(NMe2) + H3O+",
+          "focusedImage": "mechanisms/v040/enamine-formation-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 4,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "Me2C(O:H)(NMe2) + H–OH2+ → Me2C(OH2+)(NMe2) + H2O",
+          "focusedImage": "mechanisms/v040/enamine-formation-4.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 5,
+          "code": "1113",
+          "title": "Tetrahedral intermediate collapse",
+          "equation": "Me2C(OH2+)–N:(Me)Me → Me2C=N+Me2 + H2O",
+          "focusedImage": "mechanisms/v040/enamine-formation-5.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 6,
+          "code": "1133",
+          "title": "Alpha deprotonation",
+          "equation": "CH2(H)–C(=N+Me2)–CH3 + :OH2 → CH2=C(CH3)NMe2 + H3O+",
+          "focusedImage": "mechanisms/v040/enamine-formation-6.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        }
+      ]
+    },
+    {
+      "id": "acetal-equilibrium",
+      "name": "Acetal formation and hydrolysis",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/acetal-equilibrium.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "CH3CH=O: + H–OH2+ → CH3CH=OH+ + H2O",
+          "focusedImage": "mechanisms/v040/acetal-equilibrium-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 2,
+          "code": "1113",
+          "title": "Nucleophilic carbonyl addition",
+          "equation": "CH3CH=OH+ + MeO:H → CH3CH(OH)(O+HMe)",
+          "focusedImage": "mechanisms/v040/acetal-equilibrium-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 3,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "CH3CH(OH)(O+Me–H) + :MeOH → CH3CH(OH)(OMe) + MeOH2+",
+          "focusedImage": "mechanisms/v040/acetal-equilibrium-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 4,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "CH3CH(O:H)(OMe) + H–OMeH+ → CH3CH(OH2+)(OMe) + MeOH",
+          "focusedImage": "mechanisms/v040/acetal-equilibrium-4.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 5,
+          "code": "1111",
+          "title": "Heterolytic ionization",
+          "equation": "CH3CH(OMe)–OH2+ → [CH3CH(OMe)]+ + H2O",
+          "focusedImage": "mechanisms/v040/acetal-equilibrium-5.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 6,
+          "code": "1111",
+          "title": "Lone-pair capture",
+          "equation": "[CH3CH(OMe)]+ + MeO:H → CH3CH(OMe)(O+HMe)",
+          "focusedImage": "mechanisms/v040/acetal-equilibrium-6.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 7,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "CH3CH(OMe)(O+Me–H) + :MeOH → CH3CH(OMe)2 + MeOH2+",
+          "focusedImage": "mechanisms/v040/acetal-equilibrium-7.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        }
+      ]
+    },
+    {
+      "id": "oxime-formation",
+      "name": "Oxime formation",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/oxime-formation.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "Me2C=O: + H–OH2+ → Me2C=OH+ + H2O",
+          "focusedImage": "mechanisms/v040/oxime-formation-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 2,
+          "code": "1113",
+          "title": "Nucleophilic carbonyl addition",
+          "equation": "Me2C=OH+ + :NH2OH → Me2C(OH)(NH2+–OH)",
+          "focusedImage": "mechanisms/v040/oxime-formation-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 3,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "Me2C(OH)–N+(H)(OH)–H + :OH2 → Me2C(OH)(NH–OH) + H3O+",
+          "focusedImage": "mechanisms/v040/oxime-formation-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 4,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "Me2C(O:H)(NH–OH) + H–OH2+ → Me2C(OH2+)(NH–OH) + H2O",
+          "focusedImage": "mechanisms/v040/oxime-formation-4.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 5,
+          "code": "1113",
+          "title": "Tetrahedral intermediate collapse",
+          "equation": "Me2C(OH2+)–N:(H)–OH → Me2C=N+(H)–OH + H2O",
+          "focusedImage": "mechanisms/v040/oxime-formation-5.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 6,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "Me2C=N+(OH)–H + :OH2 → Me2C=N–OH + H3O+",
+          "focusedImage": "mechanisms/v040/oxime-formation-6.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        }
+      ]
+    },
+    {
+      "id": "hydrazone-formation",
+      "name": "Hydrazone formation",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/hydrazone-formation.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "Me2C=O: + H–OH2+ → Me2C=OH+ + H2O",
+          "focusedImage": "mechanisms/v040/hydrazone-formation-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 2,
+          "code": "1113",
+          "title": "Nucleophilic carbonyl addition",
+          "equation": "Me2C=OH+ + :NH2NH2 → Me2C(OH)(NH2+–NH2)",
+          "focusedImage": "mechanisms/v040/hydrazone-formation-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 3,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "Me2C(OH)–N+(H)(NH2)–H + :OH2 → Me2C(OH)(NH–NH2) + H3O+",
+          "focusedImage": "mechanisms/v040/hydrazone-formation-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 4,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "Me2C(O:H)(NH–NH2) + H–OH2+ → Me2C(OH2+)(NH–NH2) + H2O",
+          "focusedImage": "mechanisms/v040/hydrazone-formation-4.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 5,
+          "code": "1113",
+          "title": "Tetrahedral intermediate collapse",
+          "equation": "Me2C(OH2+)–N:(H)–NH2 → Me2C=N+(H)–NH2 + H2O",
+          "focusedImage": "mechanisms/v040/hydrazone-formation-5.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 6,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "Me2C=N+(NH2)–H + :OH2 → Me2C=N–NH2 + H3O+",
+          "focusedImage": "mechanisms/v040/hydrazone-formation-6.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        }
+      ]
+    },
+    {
+      "id": "reductive-amination",
+      "name": "Reductive amination",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/reductive-amination.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "Me2CO + MeNH2 + catalytic acid → Me2C=NMe / Me2C=N+HMe + H2O",
+          "focusedImage": "mechanisms/v040/reductive-amination-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Grouped imine-formation stage with explicit cross-reference; no claim that this is one elementary event."
+        },
+        {
+          "index": 2,
+          "code": "1113",
+          "title": "Nucleophilic carbonyl addition",
+          "equation": "Me2C=N+HMe + B–H → Me2CH–NHMe + boron-derived species",
+          "focusedImage": "mechanisms/v040/reductive-amination-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "1113 is a candidate extension from C=O addition to C=N; a boron-bound hydride, not free aqueous H−, is the donor."
+        }
+      ]
+    },
+    {
+      "id": "wittig",
+      "name": "Wittig olefination",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/wittig.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "Ph3P+–CH2–H + :base− → Ph3P+–CH2− + H–base",
+          "focusedImage": "mechanisms/v040/wittig-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 2,
+          "code": "1133",
+          "title": "Oxaphosphetane formation",
+          "equation": "Ph–CH=O + Ph3P+–CH2− → Oxaphosphetane: PhCH–O–PPh3–CH2 four-membered ring",
+          "focusedImage": "mechanisms/v040/wittig-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 3,
+          "code": "1133",
+          "title": "Oxaphosphetane fragmentation",
+          "equation": "Ring Ph–CH–O–P(Ph)3–CH2–(back to a) → PhCH=CH2 + Ph3P=O",
+          "focusedImage": "mechanisms/v040/wittig-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        }
+      ]
+    },
+    {
+      "id": "horner-wadsworth-emmons",
+      "name": "Horner–Wadsworth–Emmons olefination",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/horner-wadsworth-emmons.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "(EtO)2P(O)–CH(CO2Et)–H + :H− → (EtO)2P(O)–C−HCO2Et + H2",
+          "focusedImage": "mechanisms/v040/horner-wadsworth-emmons-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 2,
+          "code": "1113",
+          "title": "Nucleophilic carbonyl addition",
+          "equation": "(EtO)2P(O)–C−HCO2Et + Ph–CH=O → PhCH(O−)–CH[P(O)(OEt)2]CO2Et",
+          "focusedImage": "mechanisms/v040/horner-wadsworth-emmons-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 3,
+          "code": "1133",
+          "title": "Coupled polar bond reorganization",
+          "equation": "PhCH(O−)–CH–P(O)(OEt)2 → PhCH–O–P(OEt)2–CH(CO2Et) cyclic intermediate",
+          "focusedImage": "mechanisms/v040/horner-wadsworth-emmons-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 4,
+          "code": "1133",
+          "title": "Phosphate elimination",
+          "equation": "Cyclic phosphonate adduct → (E)-PhCH=CHCO2Et + phosphate anion",
+          "focusedImage": "mechanisms/v040/horner-wadsworth-emmons-4.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        }
+      ]
+    },
+    {
+      "id": "benzoin",
+      "name": "Benzoin condensation",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/benzoin.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": "1113",
+          "title": "Nucleophilic carbonyl addition",
+          "equation": "Ph–CH=O + :CN− → PhCH(O−)CN",
+          "focusedImage": "mechanisms/v040/benzoin-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 2,
+          "code": "1122",
+          "title": "Alkoxide protonation",
+          "equation": "PhCH(O−)CN + H–solvent → PhCH(OH)CN + solvent−",
+          "focusedImage": "mechanisms/v040/benzoin-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 3,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "Ph–C(OH)(CN)–H + :base → Ph–C−(OH)CN + H–base+",
+          "focusedImage": "mechanisms/v040/benzoin-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 4,
+          "code": "1113",
+          "title": "Nucleophilic carbonyl addition",
+          "equation": "Ph–C−(OH)CN + Ph–CH=O → PhC(OH)(CN)–CH(O−)Ph",
+          "focusedImage": "mechanisms/v040/benzoin-4.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 5,
+          "code": "1122",
+          "title": "Internal proton inventory redistribution",
+          "equation": "PhC(O–H)(CN)–CH(O−)Ph → PhC(O−)(CN)–CH(OH)Ph",
+          "focusedImage": "mechanisms/v040/benzoin-5.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 6,
+          "code": "1113",
+          "title": "Tetrahedral intermediate collapse",
+          "equation": "Ph–C(O−)–CN attached to CH(OH)Ph → PhCOCH(OH)Ph + CN−",
+          "focusedImage": "mechanisms/v040/benzoin-6.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        }
+      ]
+    },
+    {
+      "id": "cannizzaro",
+      "name": "Cannizzaro disproportionation",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/cannizzaro.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": "1113",
+          "title": "Nucleophilic carbonyl addition",
+          "equation": "Ph–CH=O + :OH− → PhCH(OH)O−",
+          "focusedImage": "mechanisms/v040/cannizzaro-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 2,
+          "code": "1133",
+          "title": "Intermolecular hydride transfer",
+          "equation": "Ph–C(O−)(OH)–H + Ph–CH=O → PhCO2H + PhCH2O−",
+          "focusedImage": "mechanisms/v040/cannizzaro-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 3,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "PhCO2–H + PhCH2O− → PhCO2− + PhCH2OH",
+          "focusedImage": "mechanisms/v040/cannizzaro-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        }
+      ]
+    },
+    {
+      "id": "ester-saponification",
+      "name": "Ester saponification",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/ester-saponification.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": "1113",
+          "title": "Nucleophilic carbonyl addition",
+          "equation": "CH3–C(=O)OEt + :OH− → CH3C(O−)(OH)OEt",
+          "focusedImage": "mechanisms/v040/ester-saponification-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 2,
+          "code": "1113",
+          "title": "Tetrahedral intermediate collapse",
+          "equation": "CH3–C(O−)(OH)–OEt → CH3CO2H + EtO−",
+          "focusedImage": "mechanisms/v040/ester-saponification-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 3,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "CH3CO2–H + EtO− → CH3CO2− + EtOH",
+          "focusedImage": "mechanisms/v040/ester-saponification-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        }
+      ]
+    },
+    {
+      "id": "amide-hydrolysis",
+      "name": "Acid-catalyzed amide hydrolysis",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/amide-hydrolysis.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "CH3C(=O:)NH2 + H–OH2+ → CH3C(=OH+)NH2 + H2O",
+          "focusedImage": "mechanisms/v040/amide-hydrolysis-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 2,
+          "code": "1113",
+          "title": "Nucleophilic carbonyl addition",
+          "equation": "CH3–C(=OH+)NH2 + :OH2 → CH3C(OH)(OH2+)NH2",
+          "focusedImage": "mechanisms/v040/amide-hydrolysis-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 3,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "CH3C(OH)(OH2+)NH2 + water → CH3C(OH)2NH3+",
+          "focusedImage": "mechanisms/v040/amide-hydrolysis-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 4,
+          "code": "1113",
+          "title": "Tetrahedral intermediate collapse",
+          "equation": "CH3–C(O:H)(OH)–NH3+ → CH3C(=OH+)OH + NH3",
+          "focusedImage": "mechanisms/v040/amide-hydrolysis-4.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 5,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "CH3C(=O+–H)OH + :OH2 → CH3CO2H + H3O+",
+          "focusedImage": "mechanisms/v040/amide-hydrolysis-5.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 6,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": ":NH3 + H–OH2+ → NH4+ + H2O",
+          "focusedImage": "mechanisms/v040/amide-hydrolysis-6.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        }
+      ]
+    },
+    {
+      "id": "ester-aminolysis",
+      "name": "Ester aminolysis",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/ester-aminolysis.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": "1113",
+          "title": "Nucleophilic carbonyl addition",
+          "equation": "CH3–C(=O)OEt + :NH3 → CH3C(O−)(OEt)(NH3+)",
+          "focusedImage": "mechanisms/v040/ester-aminolysis-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 2,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "CH3C(O−)(OEt)–NH2+–H + :NH3 → CH3C(O−)(OEt)NH2 + NH4+",
+          "focusedImage": "mechanisms/v040/ester-aminolysis-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 3,
+          "code": "1113",
+          "title": "Tetrahedral intermediate collapse",
+          "equation": "CH3–C(O−)(NH2)–OEt → CH3CONH2 + EtO−",
+          "focusedImage": "mechanisms/v040/ester-aminolysis-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 4,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "EtO− + H–NH3+ → EtOH + NH3",
+          "focusedImage": "mechanisms/v040/ester-aminolysis-4.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        }
+      ]
+    },
+    {
+      "id": "transesterification",
+      "name": "Base-catalyzed transesterification",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/transesterification.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": "1113",
+          "title": "Nucleophilic carbonyl addition",
+          "equation": "CH3–C(=O)OEt + :OMe− → CH3C(O−)(OEt)(OMe)",
+          "focusedImage": "mechanisms/v040/transesterification-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 2,
+          "code": "1113",
+          "title": "Tetrahedral intermediate collapse",
+          "equation": "CH3–C(O−)(OMe)–OEt → CH3CO2Me + EtO−",
+          "focusedImage": "mechanisms/v040/transesterification-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 3,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "EtO− + MeO–H → EtOH + MeO−",
+          "focusedImage": "mechanisms/v040/transesterification-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        }
+      ]
+    },
+    {
+      "id": "acyl-chloride-formation",
+      "name": "Carboxylic acid conversion to acyl chloride",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/acyl-chloride-formation.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": "1122",
+          "title": "Bond-replacing displacement",
+          "equation": "CH3C(=O)–O:H + S(=O)(Cl)–Cl → [CH3CO2(H)SOCl]+ + Cl−",
+          "focusedImage": "mechanisms/v040/acyl-chloride-formation-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Proposed sulfur-substitution extension of1122; no stable sulfurane is required."
+        },
+        {
+          "index": 2,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "CH3C(=O)–O+(SOCl)–H + :Cl− → CH3C(=O)–O–SOCl + HCl",
+          "focusedImage": "mechanisms/v040/acyl-chloride-formation-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 3,
+          "code": "1113",
+          "title": "Nucleophilic carbonyl addition",
+          "equation": "CH3–C(=O)OSOCl + :Cl− → CH3C(O−)(Cl)OSOCl",
+          "focusedImage": "mechanisms/v040/acyl-chloride-formation-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 4,
+          "code": "1113",
+          "title": "Tetrahedral intermediate collapse",
+          "equation": "CH3–C(O−)(Cl)–OSOCl → CH3COCl + chlorosulfite-derived anion",
+          "focusedImage": "mechanisms/v040/acyl-chloride-formation-4.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 5,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "Chlorosulfite-derived leaving group → SO2 + Cl−",
+          "focusedImage": "mechanisms/v040/acyl-chloride-formation-5.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+        }
+      ]
+    },
+    {
+      "id": "anhydride-alcoholysis",
+      "name": "Anhydride alcoholysis",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/anhydride-alcoholysis.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": "1113",
+          "title": "Nucleophilic carbonyl addition",
+          "equation": "CH3–C(=O)OAc + MeO:H → CH3C(O−)(OAc)(O+HMe)",
+          "focusedImage": "mechanisms/v040/anhydride-alcoholysis-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 2,
+          "code": "1113",
+          "title": "Tetrahedral intermediate collapse",
+          "equation": "CH3–C(O−)(O+HMe)–OAc → CH3C(=O)O+HMe + AcO−",
+          "focusedImage": "mechanisms/v040/anhydride-alcoholysis-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 3,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "CH3CO–O+Me–H + :OAc− → CH3CO2Me + HOAc",
+          "focusedImage": "mechanisms/v040/anhydride-alcoholysis-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        }
+      ]
+    },
+    {
+      "id": "dibal-ester-reduction",
+      "name": "DIBAL-H partial ester reduction",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/dibal-ester-reduction.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "PhCO2Et + iBu2AlH → O→Al ester complex",
+          "focusedImage": "mechanisms/v040/dibal-ester-reduction-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 2,
+          "code": "1113",
+          "title": "Nucleophilic carbonyl addition",
+          "equation": "Ph–C(=O)OEt + iBu2Al–H → PhCH(O–Al species)OEt",
+          "focusedImage": "mechanisms/v040/dibal-ester-reduction-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 3,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "Aluminum-bound tetrahedral intermediate + water → PhCH(OH)OEt + hydrated aluminum species",
+          "focusedImage": "mechanisms/v040/dibal-ester-reduction-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 4,
+          "code": "1113",
+          "title": "Tetrahedral intermediate collapse",
+          "equation": "Ph–CH(O:H)–OEt + proton relays → PhCHO + EtOH",
+          "focusedImage": "mechanisms/v040/dibal-ester-reduction-4.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        }
+      ]
+    },
+    {
+      "id": "selective-borohydride",
+      "name": "Chemoselective borohydride ketone reduction",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/selective-borohydride.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": "1113",
+          "title": "Nucleophilic carbonyl addition",
+          "equation": "EtO2C–C6H4–C(=O)Me + B–H → EtO2C–C6H4–CH(O−)Me + boron species",
+          "focusedImage": "mechanisms/v040/selective-borohydride-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 2,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "EtO2C–C6H4–CH(O−)Me + MeO–H → EtO2C–C6H4–CH(OH)Me + MeO−",
+          "focusedImage": "mechanisms/v040/selective-borohydride-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        }
+      ]
+    },
+    {
+      "id": "ester-lah-reduction",
+      "name": "Lithium aluminum hydride ester reduction",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/ester-lah-reduction.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "CH3CO2Et + LiAlH4 → Ester–aluminum encounter ensemble",
+          "focusedImage": "mechanisms/v040/ester-lah-reduction-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 2,
+          "code": "1113",
+          "title": "Nucleophilic carbonyl addition",
+          "equation": "CH3–C(=O)OEt + Al–H → CH3CH(O−)OEt (Al-bound)",
+          "focusedImage": "mechanisms/v040/ester-lah-reduction-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 3,
+          "code": "1113",
+          "title": "Tetrahedral intermediate collapse",
+          "equation": "CH3–CH(O−)–OEt → CH3CHO + EtO− (Al-bound forms)",
+          "focusedImage": "mechanisms/v040/ester-lah-reduction-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 4,
+          "code": "1113",
+          "title": "Nucleophilic carbonyl addition",
+          "equation": "CH3–CH=O + Al–H → CH3CH2O− (Al-bound)",
+          "focusedImage": "mechanisms/v040/ester-lah-reduction-4.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 5,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "Aluminum-bound ethoxide products + aqueous work-up → 2 EtOH + hydrated aluminum/lithium species",
+          "focusedImage": "mechanisms/v040/ester-lah-reduction-5.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+        }
+      ]
+    },
+    {
+      "id": "pcc-oxidation",
+      "name": "PCC alcohol oxidation",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/pcc-oxidation.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "PhCH2OH + Cr(VI) reagent → PhCH2–O–Cr(VI) ester model",
+          "focusedImage": "mechanisms/v040/pcc-oxidation-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 2,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "Ph–CH(O–Cr)–H + :base → PhCHO + reduced chromium species + H–base",
+          "focusedImage": "mechanisms/v040/pcc-oxidation-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+        }
+      ]
+    },
+    {
+      "id": "jones-oxidation",
+      "name": "Jones oxidation of a primary alcohol",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/jones-oxidation.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "PhCH2OH + Cr(VI) → PhCH2O–Cr(VI) ester",
+          "focusedImage": "mechanisms/v040/jones-oxidation-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 2,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "PhCH2O–Cr(VI) + base → PhCHO + reduced chromium species",
+          "focusedImage": "mechanisms/v040/jones-oxidation-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 3,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "PhCHO + H2O / acid → PhCH(OH)2",
+          "focusedImage": "mechanisms/v040/jones-oxidation-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 4,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "PhCH(OH)2 + Cr(VI) → PhCH(OH)O–Cr(VI) ester",
+          "focusedImage": "mechanisms/v040/jones-oxidation-4.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 5,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "Hydrate chromate ester + base → PhCO2H + reduced chromium species",
+          "focusedImage": "mechanisms/v040/jones-oxidation-5.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+        }
+      ]
+    },
+    {
+      "id": "swern-oxidation",
+      "name": "Swern oxidation",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/swern-oxidation.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "Me2SO + (COCl)2 → Me2SCl+ Cl− + CO + CO2",
+          "focusedImage": "mechanisms/v040/swern-oxidation-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 2,
+          "code": "1122",
+          "title": "Bond-replacing displacement",
+          "equation": "PhCH2–O:H + Me2S+–Cl → PhCH2O(H)–SMe2 dicationic adduct + Cl−",
+          "focusedImage": "mechanisms/v040/swern-oxidation-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "A proposed sulfur-substitution extension; the short-lived O-protonated adduct and counterions are model-level bookkeeping."
+        },
+        {
+          "index": 3,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "PhCH2–O+(SMe2+)–H + :NEt3 → PhCH2O–SMe2+ + Et3NH+",
+          "focusedImage": "mechanisms/v040/swern-oxidation-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 4,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "PhCH2O–S+(Me)–CH2–H + :NEt3 → PhCH2O–S+(Me)–CH2− + Et3NH+",
+          "focusedImage": "mechanisms/v040/swern-oxidation-4.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 5,
+          "code": "1133",
+          "title": "Ylide-assisted carbonyl formation",
+          "equation": "Ph–CH(O–S+(Me)–CH2−)–H → PhCHO + Me2S",
+          "focusedImage": "mechanisms/v040/swern-oxidation-5.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        }
+      ]
+    },
+    {
+      "id": "claisen-condensation",
+      "name": "Claisen ester condensation",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/claisen-condensation.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "EtO2C–CH2–H + :OEt− → EtO2CCH2− + EtOH",
+          "focusedImage": "mechanisms/v040/claisen-condensation-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 2,
+          "code": "1113",
+          "title": "Nucleophilic carbonyl addition",
+          "equation": "EtO2C–CH2− + CH3–C(=O)OEt → EtO2CCH2C(O−)(OEt)CH3",
+          "focusedImage": "mechanisms/v040/claisen-condensation-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 3,
+          "code": "1113",
+          "title": "Tetrahedral intermediate collapse",
+          "equation": "EtO2CCH2–C(O−)(CH3)–OEt → EtO2CCH2COCH3 + EtO−",
+          "focusedImage": "mechanisms/v040/claisen-condensation-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 4,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "EtO2C–CH(COCH3)–H + :OEt− → [EtO2CCHCOCH3]− + EtOH",
+          "focusedImage": "mechanisms/v040/claisen-condensation-4.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 5,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "[EtO2C–CH–COCH3]− + H–OH2+ → EtO2CCH2COCH3 + H2O",
+          "focusedImage": "mechanisms/v040/claisen-condensation-5.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        }
+      ]
+    },
+    {
+      "id": "michael-addition",
+      "name": "Michael conjugate addition",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/michael-addition.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "CH3CO–CH2–H + :OH− → CH3COCH2− + H2O",
+          "focusedImage": "mechanisms/v040/michael-addition-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 2,
+          "code": "1133",
+          "title": "Conjugate C–C bond formation",
+          "equation": "CH3CO–CH2− + CH2=CH–COCH3 → CH3COCH2CH2CH−COCH3",
+          "focusedImage": "mechanisms/v040/michael-addition-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 3,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "CH3COCH2CH2–CH−–COCH3 + H–OH → CH3COCH2CH2CH2COCH3 + OH−",
+          "focusedImage": "mechanisms/v040/michael-addition-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        }
+      ]
+    },
+    {
+      "id": "robinson-annulation",
+      "name": "Robinson annulation",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/robinson-annulation.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "Cyclohexanone alpha-CH–H + :OH− → Cyclohexanone carbon enolate + H2O",
+          "focusedImage": "mechanisms/v040/robinson-annulation-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 2,
+          "code": "1133",
+          "title": "Coupled polar bond reorganization",
+          "equation": "Ring alpha-C:− + CH2=CH–COCH3 → Ring–CH2CH−COCH3 (acceptor enolate)",
+          "focusedImage": "mechanisms/v040/robinson-annulation-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 3,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "Acceptor enolate + H2O → 2-(3-Oxobutyl)cyclohexanone + OH−",
+          "focusedImage": "mechanisms/v040/robinson-annulation-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 4,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "Ring–CH2CH2CO–CH2–H + :OH− → Terminal side-chain ketone enolate + H2O",
+          "focusedImage": "mechanisms/v040/robinson-annulation-4.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 5,
+          "code": "1113",
+          "title": "Nucleophilic carbonyl addition",
+          "equation": "Side-chain C:− approaching original ring C=O → Fused6/6 bicyclic beta-alkoxide ketone",
+          "focusedImage": "mechanisms/v040/robinson-annulation-5.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 6,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "Bicyclic alkoxide + H2O → Bicyclic beta-hydroxy ketone + OH−",
+          "focusedImage": "mechanisms/v040/robinson-annulation-6.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 7,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "Bicyclic beta-hydroxy ketone alpha-C–H + OH− → Bicyclic enolate + H2O",
+          "focusedImage": "mechanisms/v040/robinson-annulation-7.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 8,
+          "code": "1133",
+          "title": "E1cB dehydration",
+          "equation": "Bicyclic enolate bearing beta-OH → Fused bicyclic enone (octalone) + OH−",
+          "focusedImage": "mechanisms/v040/robinson-annulation-8.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        }
+      ]
     }
   ]
 }

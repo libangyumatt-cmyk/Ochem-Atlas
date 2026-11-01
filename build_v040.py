@@ -35,5 +35,6 @@ def main():
  parser=argparse.ArgumentParser();parser.add_argument('--batches',type=int,default=3);args=parser.parse_args()
  baseline=json.loads((ROOT/'audit/V040_BASELINE.json').read_text());payload=apply(baseline,args.batches)
  (ROOT/'dist/data.json').write_text(json.dumps(payload,ensure_ascii=False,indent=2)+'\n');(ROOT/'dist/data.js').write_text('window.SORG = '+json.dumps(payload,ensure_ascii=False)+';\n')
+ html=ROOT/'dist/index.html';text=html.read_text();text=re.sub(r'\d+ reactions / \d+ listed events',str(len(payload['reactions']))+' reactions / '+str(sum(len(r['steps']) for r in payload['reactions']))+' listed events',text);html.write_text(text)
  print(len(payload['reactions']),'entries;',sum(len(r['steps']) for r in payload['reactions']),'events')
 if __name__=='__main__':main()
