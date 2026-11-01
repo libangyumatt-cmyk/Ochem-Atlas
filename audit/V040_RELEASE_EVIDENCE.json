@@ -1,0 +1,30 @@
+{
+  "release": "0.4.0",
+  "releaseCommit": "c27794a369eee97dddaaf137503ab717924ac2df",
+  "deploymentRun": 41361392672,
+  "deploymentUrl": "https://github.com/libangyumatt-cmyk/Ochem-Atlas/actions/runs/41361392672",
+  "deploymentConclusion": "success",
+  "unchangedScientificFiles": 510,
+  "milestones": [
+    {
+      "local": "1f335af",
+      "remote": "b19a42c4280bdb4edad564b21bb24f1de5182c0b"
+    },
+    {
+      "local": "6ad78af",
+      "remote": "99a11350fd920a40a65ebc664812a8bf58755ac3"
+    },
+    {
+      "local": "9757e12",
+      "remote": "486e1b98ef4fbfecb16e34cfb4e31a6aa1d7634b"
+    },
+    {
+      "local": "6274faa",
+      "remote": "c27794a369eee97dddaaf137503ab717924ac2df"
+    }
+  ],
+  "validationRun": 41361392904,
+  "validationConclusion": "success",
+  "nativeBrowser": "Launch blocked before page load; no native/mobile layout claim",
+  "newQuantumCalculations": 0
+}

@@ -236,3 +236,26 @@ The exact output is in `audit/V040_FINAL_TESTS.log`; batch logs are retained too
 Python compilation, JavaScript syntax and `git diff --check` pass. All new SVGs
 rasterized successfully. Source archive construction and remote deployment are
 recorded separately below when confirmed.
+
+## Confirmed publication
+
+The verified release commit is `c27794a369eee97dddaaf137503ab717924ac2df`.
+Both GitHub workflows completed successfully:
+
+- [Validate Ochem Atlas, run 41361392904](https://github.com/libangyumatt-cmyk/Ochem-Atlas/actions/runs/41361392904).
+- [Full rebuild and Pages deployment, run 41361392672](https://github.com/libangyumatt-cmyk/Ochem-Atlas/actions/runs/41361392672).
+
+The Pages workflow successfully regenerated legacy and expanded content, built
+laboratory adapters/research evidence, passed all regressions, packaged source,
+and deployed. The published URL is
+https://libangyumatt-cmyk.github.io/Ochem-Atlas/?v=0.4.0#atlas . This confirms the
+workflow deployment; native interaction with the published site was not tested.
+
+Remote tree comparison verifies that **510 existing scientific files** under
+`dist/reaction-lab/` and `dist/orbitals/` retain their prior Git blob hashes.
+`audit/V040_RELEASE_EVIDENCE.json` records the four published inventory/batch
+milestone commits and workflow identifiers. `audit/V040_RENDER_PACKAGE.json`
+records actual SVG rasterization and source-archive membership checks. The source
+archive was built successfully and checked for all new modules, the audit,
+baseline snapshot and the 100-entry dataset. Remaining limitations above still
+apply; successful CI is not independent experimental validation of every mechanism.

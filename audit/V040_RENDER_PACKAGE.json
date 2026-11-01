@@ -1,0 +1,7 @@
+{
+  "svgFiles": 338,
+  "rasterResult": "All 338 new SVGs rasterized with Sharp; representative outputs inspected.",
+  "nativeBrowserResult": "Launch failed: sandbox denied Crashpad setsockopt; no page loaded.",
+  "sourceArchiveResult": "Archive built; all new modules, report, baseline and 100-entry dataset are present.",
+  "newQuantumCalculations": 0
+}
