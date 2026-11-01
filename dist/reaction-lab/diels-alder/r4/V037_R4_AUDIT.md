@@ -142,4 +142,16 @@ Release checks: the full existing npm suite passed after status integration. The
 added dependency-free archive check validates every archived SHA256/CRC, inner NPZ
 CRCs, bounded-segment descent, rejected trust trials, numerical-gradient checks
 and all364 prior-data hashes. Actual regression output: audit/V037_R4_REGRESSION.log.
-Full Pages build/deployment remains pending until CI confirms it.
+Full Pages build and deployment passed on 2026-11-01; confirmed evidence follows.
+
+## Confirmed publication
+
+Diagnostic release commit: `57ff2f3aa0a978823deacc7736cbda8f0ba9c533`.
+Validation passed: https://github.com/libangyumatt-cmyk/Ochem-Atlas/actions/runs/41290465691 .
+Pages build and deployment passed: https://github.com/libangyumatt-cmyk/Ochem-Atlas/actions/runs/41290465677 .
+Published URL: https://libangyumatt-cmyk.github.io/Ochem-Atlas/?v=0.3.7-r4#reaction-lab .
+
+These checks certify the release build, archive/preservation regressions and
+deployment, not full independent IRC connectivity or native browser behavior.
+The complete independent TS-to-endpoint path and repaired-terminal stationary-point
+verification remain incomplete. No validated IRC electronic series is exposed.

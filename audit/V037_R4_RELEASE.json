@@ -1,0 +1,10 @@
+{
+  "version": "0.3.7-r4",
+  "verifiedReleaseCommit": "57ff2f3aa0a978823deacc7736cbda8f0ba9c533",
+  "validationRun": 41290465691,
+  "pagesRun": 41290465677,
+  "conclusion": "success",
+  "scientificStatus": "Connectivity supported but numerical integration remains unresolved",
+  "fullIndependentIrcVerified": false,
+  "browserStatus": "No new native/browser certification; prior sandbox launch limitation retained"
+}
