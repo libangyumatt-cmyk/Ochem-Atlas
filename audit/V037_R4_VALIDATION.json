@@ -1,0 +1,16 @@
+{
+  "priorFilesUnchanged": 364,
+  "wavefunctionsChecked": 22,
+  "independentAcceptedSteps": 6,
+  "independentFreshEvaluations": 8,
+  "imaginaryModeMassWeightedOverlap": 1.0000000000000004,
+  "initialStepMassWeightedBohrSqrtAmu": 0.020000000000000875,
+  "forwardTransportedCurvatureEhPerBohr2": 0.006575007291684241,
+  "scientificClassification": "2: connectivity supported but numerical integration remains unresolved",
+  "completeIndependentIrcVerified": false,
+  "limitations": [
+    "Independent integration covers only six accepted initial steps, not endpoints.",
+    "Smaller geomeTRIC continuation terminates after one accepted step; endpoint verification is not complete.",
+    "Directional ring curvature is not a full Hessian spectrum or VRI demonstration."
+  ]
+}

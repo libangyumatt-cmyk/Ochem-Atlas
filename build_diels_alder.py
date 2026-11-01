@@ -19,6 +19,8 @@ def extend():
  d=extend_r2(d)
  from build_diels_alder_r3 import extend as extend_r3
  d=extend_r3(d)
+ from build_diels_alder_r4 import extend as extend_r4
+ d=extend_r4(d)
  (OUT/'diels-alder-system.json').write_text(json.dumps(d,indent=2))
  idx=json.loads((OUT/'index.json').read_text());idx['systems'].append(dict(id=d['id'],event=d['event'],title=d['title'],dataFile='reaction-lab/diels-alder-system.json'));idx['futureDatasets']='E2 and radical reaction datasets are NOT implemented. Spin fields require actual computed data.';(OUT/'index.json').write_text(json.dumps(idx,indent=2))
 if __name__=='__main__':extend()

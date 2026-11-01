@@ -3168,6 +3168,14 @@
     {
       "label": "r3 independent connectivity assessment",
       "path": "reaction-lab/diels-alder/r3/connectivity-assessment.json"
+    },
+    {
+      "label": "r4 path-repair audit and limitations",
+      "path": "reaction-lab/diels-alder/r4/V037_R4_AUDIT.md"
+    },
+    {
+      "label": "r4 complete calculation records and checkpoints",
+      "path": "reaction-lab/diels-alder/r4/calculations.zip"
     }
   ],
   "validationR2": {
@@ -3191,5 +3199,12 @@
     "reactantEndpointMinimumVerified": true,
     "report": "reaction-lab/diels-alder/r3/V037_R3_AUDIT.md",
     "summary": "Two independently relaxed cyclohexene minima and a finite butadiene\u2013ethylene encounter minimum passed checks. The backward driver forced one uphill step beyond the fixed descent tolerance; the original forward endpoint is a ring conformational saddle. Strict two-minimum IRC connectivity remains unverified."
+  },
+  "validationR4": {
+    "overallStatus": "IRC validation incomplete",
+    "strictIrcConnectivityVerified": false,
+    "validatedIRCSeriesExposed": false,
+    "report": "reaction-lab/diels-alder/r4/V037_R4_AUDIT.md",
+    "summary": "Fresh grid3/grid5 probes reproduce the uphill step and support integration overshoot rather than SCF noise. Smaller-step trials and six independent TS-started descending steps are diagnostic tests only; full independent endpoint connectivity remains unresolved."
   }
 }

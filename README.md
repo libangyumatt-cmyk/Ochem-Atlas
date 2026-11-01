@@ -1,5 +1,7 @@
 # SORG · Organic Reaction Atlas
 
+v0.3.7-r4 independently reproduces the IRC overshoot and tests smaller steps and an independent initial segment. Full IRC validation remains incomplete; see [the r4 audit](V037_R4_AUDIT.md).
+
 v0.3.7-r3 recovers Diels–Alder product and finite reactant-encounter minima. The backward driver converged but failed a fixed IRC descent check; no validated IRC electronic series is exposed. See [the r3 scientific audit](V037_R3_AUDIT.md) for actual calculations, reproducibility and limitations.
 
 A responsive, English-language teaching atlas of organic reaction mechanisms. The published site contains 31 reaction entries and 69 listed mechanistic events (including three explicitly grouped stages).
