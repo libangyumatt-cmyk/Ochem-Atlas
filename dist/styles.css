@@ -122,3 +122,7 @@ dialog{border:1px solid #d2dace;border-radius:12px;background:var(--paper);color
 
 #rr-bond-plots svg{width:100%;height:auto}#rr-symmetry-stage{max-width:760px}.rr-comparison-grid{grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr))}
 @media(max-width:700px){#rr-energy,#rr-bond-plots{overflow-x:auto;max-width:100%}#rr-energy svg,#rr-bond-plots svg{min-width:500px}#rr-symmetry-stage .reaction-stage{height:300px}}
+
+/* Expanded-library boundary labels and readable scrollable structural sheets. */
+.code-unassigned{display:inline-block;border:1px solid #a8b4ac;border-radius:6px;padding:4px 7px;font-size:.75rem;color:#52655f;background:#f0f2eb}
+.figure-viewport img[src*="/v040/"]{min-width:1200px;max-width:none}

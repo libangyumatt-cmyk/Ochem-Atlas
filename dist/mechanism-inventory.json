@@ -1865,7 +1865,7 @@
           "focusedImage": "mechanisms/v040/catalytic-hydrogenation-1.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
-          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
         },
         {
           "index": 2,
@@ -1875,7 +1875,7 @@
           "focusedImage": "mechanisms/v040/catalytic-hydrogenation-2.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
-          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
         },
         {
           "index": 3,
@@ -1885,7 +1885,7 @@
           "focusedImage": "mechanisms/v040/catalytic-hydrogenation-3.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
-          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
         },
         {
           "index": 4,
@@ -1895,7 +1895,7 @@
           "focusedImage": "mechanisms/v040/catalytic-hydrogenation-4.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
-          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
         }
       ]
     },
@@ -1912,11 +1912,11 @@
           "index": 1,
           "code": "1133",
           "title": "Concerted oxygen-transfer model",
-          "equation": "CH2=CH2 + ArC(=O)–O–O–H → (CH2CH2)O ring + ArCO2H",
+          "equation": "CH2=CH2 + Ar–C(=O)–O–O–H → (CH2CH2)O ring + ArCO2H",
           "focusedImage": "mechanisms/v040/peracid-epoxidation-1.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
-          "limitations": "Ar=3-chlorophenyl. The drawn key arrows summarize oxygen transfer; internal proton/carbonyl bond-order relay is specified in the text and is not a separate intermediate."
+          "limitations": "Ar=3-chlorophenyl. The drawn key arrows summarize oxygen transfer; the internal proton/carbonyl relay is included in the five arrows, not split into an intermediate."
         }
       ]
     },
@@ -1937,7 +1937,7 @@
           "focusedImage": "mechanisms/v040/syn-dihydroxylation-1.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
-          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
         },
         {
           "index": 2,
@@ -1947,7 +1947,7 @@
           "focusedImage": "mechanisms/v040/syn-dihydroxylation-2.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
-          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
         },
         {
           "index": 3,
@@ -1957,7 +1957,7 @@
           "focusedImage": "mechanisms/v040/syn-dihydroxylation-3.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
-          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
         }
       ]
     },
@@ -1974,7 +1974,7 @@
           "index": 1,
           "code": "1333",
           "title": "Primary ozonide formation",
-          "equation": "CH3–CH=CH–CH3 + O–O+–O− → Five-membered primary ozonide (molozonide)",
+          "equation": "CH3–CH=CH–CH3 + O=O+–O− → Five-membered primary ozonide (molozonide)",
           "focusedImage": "mechanisms/v040/ozonolysis-1.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
@@ -1984,7 +1984,7 @@
           "index": 2,
           "code": "1333",
           "title": "Molozonide cycloreversion",
-          "equation": "Molozonide: C–C–O–O–O ring → CH3CHO + CH3CHOO (carbonyl oxide)",
+          "equation": "ring Me–CH–CH(Me)–O–O–O–(back to a) → MeCH=O + MeCH=O+–O−",
           "focusedImage": "mechanisms/v040/ozonolysis-2.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
@@ -1994,7 +1994,7 @@
           "index": 3,
           "code": "1333",
           "title": "Secondary ozonide formation",
-          "equation": "CH3CHO + CH3CHOO → Secondary ozonide: C–O–C–O–O ring",
+          "equation": "Me–CH=O + Me–CH=O+–O− → Secondary ozonide: ring MeCH–O–CH(Me)–O–O–(back)",
           "focusedImage": "mechanisms/v040/ozonolysis-3.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
@@ -2008,7 +2008,7 @@
           "focusedImage": "mechanisms/v040/ozonolysis-4.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
-          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
         }
       ]
     },
@@ -2029,7 +2029,7 @@
           "focusedImage": "mechanisms/v040/oxidative-alkene-cleavage-1.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
-          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
         },
         {
           "index": 2,
@@ -2039,7 +2039,7 @@
           "focusedImage": "mechanisms/v040/oxidative-alkene-cleavage-2.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
-          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
         },
         {
           "index": 3,
@@ -2049,7 +2049,7 @@
           "focusedImage": "mechanisms/v040/oxidative-alkene-cleavage-3.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
-          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
         },
         {
           "index": 4,
@@ -2059,7 +2059,7 @@
           "focusedImage": "mechanisms/v040/oxidative-alkene-cleavage-4.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
-          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
         }
       ]
     },
@@ -2080,7 +2080,7 @@
           "focusedImage": "mechanisms/v040/alkyne-hydration-1.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
-          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
         },
         {
           "index": 2,
@@ -2090,7 +2090,7 @@
           "focusedImage": "mechanisms/v040/alkyne-hydration-2.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
-          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
         },
         {
           "index": 3,
@@ -2100,7 +2100,7 @@
           "focusedImage": "mechanisms/v040/alkyne-hydration-3.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
-          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
         },
         {
           "index": 4,
@@ -2171,7 +2171,7 @@
           "focusedImage": "mechanisms/v040/alkyne-hydroboration-4.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
-          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
         },
         {
           "index": 5,
@@ -2212,7 +2212,7 @@
           "focusedImage": "mechanisms/v040/lindlar-reduction-1.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
-          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
         },
         {
           "index": 2,
@@ -2222,7 +2222,7 @@
           "focusedImage": "mechanisms/v040/lindlar-reduction-2.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
-          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
         },
         {
           "index": 3,
@@ -2232,7 +2232,7 @@
           "focusedImage": "mechanisms/v040/lindlar-reduction-3.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
-          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
         },
         {
           "index": 4,
@@ -2242,7 +2242,7 @@
           "focusedImage": "mechanisms/v040/lindlar-reduction-4.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
-          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
         }
       ]
     },
@@ -2263,7 +2263,7 @@
           "focusedImage": "mechanisms/v040/dissolving-metal-reduction-1.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
-          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
         },
         {
           "index": 2,
@@ -2273,7 +2273,7 @@
           "focusedImage": "mechanisms/v040/dissolving-metal-reduction-2.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
-          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
         },
         {
           "index": 3,
@@ -2283,7 +2283,7 @@
           "focusedImage": "mechanisms/v040/dissolving-metal-reduction-3.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
-          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
         },
         {
           "index": 4,
@@ -2293,7 +2293,7 @@
           "focusedImage": "mechanisms/v040/dissolving-metal-reduction-4.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
-          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
         }
       ]
     },
@@ -2508,7 +2508,7 @@
           "focusedImage": "mechanisms/v040/friedel-crafts-acylation-5.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
-          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
         }
       ]
     },
@@ -2586,7 +2586,7 @@
           "index": 4,
           "code": "1122",
           "title": "Proton transfer",
-          "equation": "H2N–C6H4–C:− + H–NH2 → C6H5NH2 + NH2−",
+          "equation": "ring C(NH2)=CH–CH=CH–CH=C:−–(back) + H–NH2 → C6H5NH2 + NH2−",
           "focusedImage": "mechanisms/v040/benzyne-substitution-4.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
@@ -2611,7 +2611,7 @@
           "focusedImage": "mechanisms/v040/benzylic-oxidation-1.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
-          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
         },
         {
           "index": 2,
@@ -2621,7 +2621,7 @@
           "focusedImage": "mechanisms/v040/benzylic-oxidation-2.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
-          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
         },
         {
           "index": 3,
@@ -2631,7 +2631,7 @@
           "focusedImage": "mechanisms/v040/benzylic-oxidation-3.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
-          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
         },
         {
           "index": 4,
@@ -2662,7 +2662,7 @@
           "focusedImage": "mechanisms/v040/sandmeyer-1.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
-          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
         },
         {
           "index": 2,
@@ -2682,7 +2682,7 @@
           "focusedImage": "mechanisms/v040/sandmeyer-3.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
-          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
         },
         {
           "index": 4,
@@ -2692,7 +2692,7 @@
           "focusedImage": "mechanisms/v040/sandmeyer-4.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
-          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
         },
         {
           "index": 5,
@@ -2702,7 +2702,7 @@
           "focusedImage": "mechanisms/v040/sandmeyer-5.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
-          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
         },
         {
           "index": 6,
@@ -2712,7 +2712,7 @@
           "focusedImage": "mechanisms/v040/sandmeyer-6.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
-          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
         }
       ]
     },
@@ -3323,7 +3323,7 @@
           "focusedImage": "mechanisms/v040/amide-hydrolysis-3.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
-          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
         },
         {
           "index": 4,
@@ -3506,7 +3506,7 @@
           "focusedImage": "mechanisms/v040/acyl-chloride-formation-5.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
-          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
         }
       ]
     },
@@ -3568,7 +3568,7 @@
           "focusedImage": "mechanisms/v040/dibal-ester-reduction-1.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
-          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
         },
         {
           "index": 2,
@@ -3588,7 +3588,7 @@
           "focusedImage": "mechanisms/v040/dibal-ester-reduction-3.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
-          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
         },
         {
           "index": 4,
@@ -3650,7 +3650,7 @@
           "focusedImage": "mechanisms/v040/ester-lah-reduction-1.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
-          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
         },
         {
           "index": 2,
@@ -3690,7 +3690,7 @@
           "focusedImage": "mechanisms/v040/ester-lah-reduction-5.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
-          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
         }
       ]
     },
@@ -3711,7 +3711,7 @@
           "focusedImage": "mechanisms/v040/pcc-oxidation-1.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
-          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
         },
         {
           "index": 2,
@@ -3721,7 +3721,7 @@
           "focusedImage": "mechanisms/v040/pcc-oxidation-2.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
-          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
         }
       ]
     },
@@ -3742,7 +3742,7 @@
           "focusedImage": "mechanisms/v040/jones-oxidation-1.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
-          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
         },
         {
           "index": 2,
@@ -3752,7 +3752,7 @@
           "focusedImage": "mechanisms/v040/jones-oxidation-2.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
-          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
         },
         {
           "index": 3,
@@ -3762,7 +3762,7 @@
           "focusedImage": "mechanisms/v040/jones-oxidation-3.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
-          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
         },
         {
           "index": 4,
@@ -3772,7 +3772,7 @@
           "focusedImage": "mechanisms/v040/jones-oxidation-4.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
-          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
         },
         {
           "index": 5,
@@ -3782,7 +3782,7 @@
           "focusedImage": "mechanisms/v040/jones-oxidation-5.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
-          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
         }
       ]
     },
@@ -3803,7 +3803,7 @@
           "focusedImage": "mechanisms/v040/swern-oxidation-1.svg",
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
-          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
         },
         {
           "index": 2,
@@ -4037,6 +4037,1027 @@
           "afterStatus": "teaching-model",
           "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
           "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        }
+      ]
+    },
+    {
+      "id": "dieckmann",
+      "name": "Dieckmann cyclization",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/dieckmann.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "EtO2C–CH(H)–(CH2)3–CO2Et + :OEt− → Diester carbon enolate + EtOH",
+          "focusedImage": "mechanisms/v040/dieckmann-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 2,
+          "code": "1113",
+          "title": "Nucleophilic carbonyl addition",
+          "equation": "EtO2C–CH−–(CH2)3–C(=O)OEt → Ring C(O−)(OEt)–CH(CO2Et)–CH2–CH2–CH2–(back)",
+          "focusedImage": "mechanisms/v040/dieckmann-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 3,
+          "code": "1113",
+          "title": "Tetrahedral intermediate collapse",
+          "equation": "Ring C(O−)(OEt)–CH(CO2Et)–(CH2)3–(back) → Ring C(=O)–CH(CO2Et)–(CH2)3–(back) + EtO−",
+          "focusedImage": "mechanisms/v040/dieckmann-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 4,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "Cyclic beta-keto ester + EtO− → Cyclic beta-keto-ester enolate + EtOH",
+          "focusedImage": "mechanisms/v040/dieckmann-4.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 5,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "Cyclic enolate + H3O+ → Ethyl 2-oxocyclopentane-1-carboxylate + H2O",
+          "focusedImage": "mechanisms/v040/dieckmann-5.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        }
+      ]
+    },
+    {
+      "id": "malonic-ester-synthesis",
+      "name": "Malonic ester synthesis",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/malonic-ester-synthesis.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "EtO2C–CH(H)–CO2Et + :OEt− → [EtO2CCHCO2Et]− + EtOH",
+          "focusedImage": "mechanisms/v040/malonic-ester-synthesis-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 2,
+          "code": "1122",
+          "title": "Bond-replacing displacement",
+          "equation": "EtO2C–CH−–CO2Et + CH3–CH2–Br → EtO2CCH(Et)CO2Et + Br−",
+          "focusedImage": "mechanisms/v040/malonic-ester-synthesis-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 3,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "EtO2CCH(Et)CO2Et + hydrolysis / acidification → HO2CCH(Et)CO2H + 2 EtOH",
+          "focusedImage": "mechanisms/v040/malonic-ester-synthesis-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 4,
+          "code": "1333",
+          "title": "Thermal malonic-acid decarboxylation",
+          "equation": "HO2C–CH(Et)–CO2H → EtCH=C(OH)2 + CO2",
+          "focusedImage": "mechanisms/v040/malonic-ester-synthesis-4.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "1333 is a provisional cyclic-reorganization model, not a claim all solution decarboxylations are pericyclic."
+        },
+        {
+          "index": 5,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "EtCH=C(OH)2 + acid/base proton relays → EtCH2CO2H",
+          "focusedImage": "mechanisms/v040/malonic-ester-synthesis-5.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
+        }
+      ]
+    },
+    {
+      "id": "acetoacetic-ester-synthesis",
+      "name": "Acetoacetic ester synthesis",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/acetoacetic-ester-synthesis.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "CH3CO–CH(CO2Et)–H + :OEt− → [CH3COCHCO2Et]− + EtOH",
+          "focusedImage": "mechanisms/v040/acetoacetic-ester-synthesis-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 2,
+          "code": "1122",
+          "title": "Bond-replacing displacement",
+          "equation": "CH3CO–CH−–CO2Et + CH3–CH2–Br → CH3COCH(Et)CO2Et + Br−",
+          "focusedImage": "mechanisms/v040/acetoacetic-ester-synthesis-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 3,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "CH3COCH(Et)CO2Et + hydrolysis / acidification → CH3COCH(Et)CO2H + EtOH",
+          "focusedImage": "mechanisms/v040/acetoacetic-ester-synthesis-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 4,
+          "code": "1333",
+          "title": "Beta-keto-acid decarboxylation",
+          "equation": "CH3COCH(Et)CO2H → CH3C(OH)=CHEt + CO2",
+          "focusedImage": "mechanisms/v040/acetoacetic-ester-synthesis-4.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Cyclic thermal teaching model; solvent-mediated alternatives are not excluded."
+        },
+        {
+          "index": 5,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "CH3C(OH)=CHEt + proton relays → CH3COCH2Et",
+          "focusedImage": "mechanisms/v040/acetoacetic-ester-synthesis-5.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
+        }
+      ]
+    },
+    {
+      "id": "pinacol",
+      "name": "Pinacol rearrangement",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/pinacol.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "Me2C(O:H)C(OH)Me2 + H–OH2+ → Me2C(OH2+)C(OH)Me2 + H2O",
+          "focusedImage": "mechanisms/v040/pinacol-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 2,
+          "code": "1111",
+          "title": "Heterolytic ionization",
+          "equation": "Me2C(OH2+)C(OH)Me2 → Me2C+–C(OH)Me2 + H2O",
+          "focusedImage": "mechanisms/v040/pinacol-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 3,
+          "code": "1133",
+          "title": "1,2 migration with carbonyl formation",
+          "equation": "Me2C+–C(OH:)(Me)–Me → Me3C–C(=OH+)Me",
+          "focusedImage": "mechanisms/v040/pinacol-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 4,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "Me3CC(=O+–H)Me + :OH2 → Me3CC(=O)Me + H3O+",
+          "focusedImage": "mechanisms/v040/pinacol-4.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        }
+      ]
+    },
+    {
+      "id": "beckmann",
+      "name": "Beckmann rearrangement",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/beckmann.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "Ring (CH2)5C=N–O:H + H–OH2+ → Ring (CH2)5C=N–OH2+ + H2O",
+          "focusedImage": "mechanisms/v040/beckmann-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 2,
+          "code": "1133",
+          "title": "Anti migration and water departure",
+          "equation": "Ring (CH2)4–CH2–C=N–OH2+ → Ring C≡N+–(CH2)5–(back) + H2O",
+          "focusedImage": "mechanisms/v040/beckmann-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 3,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "Ring-expanded nitrilium + water → Ring C(OH)=N–(CH2)5–(back)",
+          "focusedImage": "mechanisms/v040/beckmann-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 4,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "Cyclic imidic acid + acid/base proton relays → Ring C(=O)–NH–(CH2)5–(back)",
+          "focusedImage": "mechanisms/v040/beckmann-4.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
+        }
+      ]
+    },
+    {
+      "id": "baeyer-villiger",
+      "name": "Baeyer–Villiger oxidation",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/baeyer-villiger.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "PhC(=O:)Me + H–acid → PhC(=OH+)Me + base−",
+          "focusedImage": "mechanisms/v040/baeyer-villiger-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 2,
+          "code": "1113",
+          "title": "Nucleophilic carbonyl addition",
+          "equation": "Ph–C(=OH+)Me + ArCO2–O:H → PhC(OH)(Me)–O+H–OCOAr",
+          "focusedImage": "mechanisms/v040/baeyer-villiger-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 3,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "PhC(OH)(Me)–O+(OCOAr)–H + :base− → PhC(OH)(Me)–O–OCOAr + H–base",
+          "focusedImage": "mechanisms/v040/baeyer-villiger-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 4,
+          "code": "1133",
+          "title": "Coupled polar bond reorganization",
+          "equation": "Ph–C(O:H)(Me)–O–OCOAr → MeC(=OH+)OPh + ArCO2−",
+          "focusedImage": "mechanisms/v040/baeyer-villiger-4.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 5,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "MeC(=O+–H)OPh + :O2CAr− → MeCO2Ph + ArCO2H",
+          "focusedImage": "mechanisms/v040/baeyer-villiger-5.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        }
+      ]
+    },
+    {
+      "id": "wagner-meerwein",
+      "name": "Wagner–Meerwein skeletal rearrangement",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/wagner-meerwein.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "CH3CH(O:H)CMe3 + H–OH2+ → CH3CH(OH2+)CMe3 + H2O",
+          "focusedImage": "mechanisms/v040/wagner-meerwein-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 2,
+          "code": "1111",
+          "title": "Heterolytic ionization",
+          "equation": "CH3–CH(OH2+)CMe3 → CH3CH+–CMe3 + H2O",
+          "focusedImage": "mechanisms/v040/wagner-meerwein-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 3,
+          "code": "1133",
+          "title": "1,2 methyl migration",
+          "equation": "CH3–CH+–C(Me)2–Me → (Me)2CH–C+(Me)2",
+          "focusedImage": "mechanisms/v040/wagner-meerwein-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "1133 is provisional multi-center sigma reorganization;1122 bond-replacement bookkeeping is an alternative interpretation, not a new code."
+        },
+        {
+          "index": 4,
+          "code": "1133",
+          "title": "Coupled polar bond reorganization",
+          "equation": "Me2C(H)–C+Me2 + :OH2 → Me2C=CMe2 + H3O+",
+          "focusedImage": "mechanisms/v040/wagner-meerwein-4.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        }
+      ]
+    },
+    {
+      "id": "hofmann-rearrangement",
+      "name": "Hofmann amide rearrangement",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/hofmann-rearrangement.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "PhCO–NH–H + :OH− → PhCONH− + H2O",
+          "focusedImage": "mechanisms/v040/hofmann-rearrangement-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 2,
+          "code": "1122",
+          "title": "Bond-replacing displacement",
+          "equation": "PhCO–NH:− + Br–Br → PhCONHBr + Br−",
+          "focusedImage": "mechanisms/v040/hofmann-rearrangement-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 3,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "PhCO–N(Br)–H + :OH− → PhCON−Br + H2O",
+          "focusedImage": "mechanisms/v040/hofmann-rearrangement-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 4,
+          "code": "1133",
+          "title": "Coupled polar bond reorganization",
+          "equation": "Ph–C(=O)–N−–Br → PhN=C=O + Br−",
+          "focusedImage": "mechanisms/v040/hofmann-rearrangement-4.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 5,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "PhN=C=O + H2O → PhNHCO2H",
+          "focusedImage": "mechanisms/v040/hofmann-rearrangement-5.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 6,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "PhNHCO2H → PhNH2 + CO2",
+          "focusedImage": "mechanisms/v040/hofmann-rearrangement-6.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
+        }
+      ]
+    },
+    {
+      "id": "curtius",
+      "name": "Curtius rearrangement",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/curtius.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": "1133",
+          "title": "Concerted migration / nitrogen extrusion",
+          "equation": "Ph–C(=O)–N–N2 → PhN=C=O + N2",
+          "focusedImage": "mechanisms/v040/curtius-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 2,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "PhN=C=O + H2O → PhNHCO2H",
+          "focusedImage": "mechanisms/v040/curtius-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 3,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "PhNHCO2H → PhNH2 + CO2",
+          "focusedImage": "mechanisms/v040/curtius-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
+        }
+      ]
+    },
+    {
+      "id": "cope-rearrangement",
+      "name": "Cope rearrangement",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/cope-rearrangement.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": "1333",
+          "title": "Thermal [3,3] carbon-skeleton rearrangement",
+          "equation": "CH2=CH–CH(Me)–CH2–CH=CH2 → CH2=CH–CH2–CH2–CH=CH–CH3",
+          "focusedImage": "mechanisms/v040/cope-rearrangement-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        }
+      ]
+    },
+    {
+      "id": "ene-reaction",
+      "name": "Carbonyl–ene reaction",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/ene-reaction.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": "1333",
+          "title": "Concerted bond formation and allylic-H transfer",
+          "equation": "H–CH2–CH=CH2 + CH2=O → HOCH2CH2CH=CH2",
+          "focusedImage": "mechanisms/v040/ene-reaction-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        }
+      ]
+    },
+    {
+      "id": "dipolar-cycloaddition",
+      "name": "Nitrone 1,3-dipolar cycloaddition",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/dipolar-cycloaddition.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": "1333",
+          "title": "Concerted [3+2] cycloaddition",
+          "equation": "Ph–CH=N+(Me)–O− + CH2=CH2 → Ring O–N(Me)–CH(Ph)–CH2–CH2–(back to O)",
+          "focusedImage": "mechanisms/v040/dipolar-cycloaddition-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        }
+      ]
+    },
+    {
+      "id": "photochemical-cycloaddition",
+      "name": "Triplet-sensitized enone [2+2] cycloaddition",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/photochemical-cycloaddition.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "Cyclopentenone + sensitizer* → Triplet cyclopentenone + sensitizer",
+          "focusedImage": "mechanisms/v040/photochemical-cycloaddition-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 2,
+          "code": "2211",
+          "title": "Radical bond formation",
+          "equation": "Enone alpha-C•–beta-C• + CH2=CH2 → Ring O=C–CH•–CH(CH2CH2•)–CH2–CH2–(back)",
+          "focusedImage": "mechanisms/v040/photochemical-cycloaddition-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "2211 describes this bond-forming open-shell stage only; it does not encode the preceding excitation."
+        },
+        {
+          "index": 3,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "Triplet1,4-diradical → Singlet1,4-diradical",
+          "focusedImage": "mechanisms/v040/photochemical-cycloaddition-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 4,
+          "code": "2211",
+          "title": "Spin-compatible diradical closure",
+          "equation": "Ring alpha-C• ... tether ... •CH2 → Cyclopentanone fused across alpha/beta to a cyclobutane ring",
+          "focusedImage": "mechanisms/v040/photochemical-cycloaddition-4.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        }
+      ]
+    },
+    {
+      "id": "six-pi-electrocyclization",
+      "name": "Thermal 6π electrocyclic closure",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/six-pi-electrocyclization.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": "1333",
+          "title": "Disrotatory six-electron closure",
+          "equation": "CH2=CH–CH=CH–CH=CH2 → Ring CH2–CH=CH–CH=CH–CH2–(back)",
+          "focusedImage": "mechanisms/v040/six-pi-electrocyclization-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        }
+      ]
+    },
+    {
+      "id": "radical-hbr",
+      "name": "Peroxide-initiated radical HBr addition",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/radical-hbr.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": null,
+          "title": "Initiator homolysis",
+          "equation": "R–O–O–R → 2 RO•",
+          "focusedImage": "mechanisms/v040/radical-hbr-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 2,
+          "code": "2222",
+          "title": "Radical atom transfer",
+          "equation": "RO• + H–Br → ROH + Br•",
+          "focusedImage": "mechanisms/v040/radical-hbr-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 3,
+          "code": "2211",
+          "title": "Radical bond formation",
+          "equation": "Br• + CH3–CH=CH2 → CH3CH•CH2Br",
+          "focusedImage": "mechanisms/v040/radical-hbr-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 4,
+          "code": "2222",
+          "title": "Radical atom transfer",
+          "equation": "CH3–CH•–CH2Br + H–Br → CH3CH2CH2Br + Br•",
+          "focusedImage": "mechanisms/v040/radical-hbr-4.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        }
+      ]
+    },
+    {
+      "id": "nbs-bromination",
+      "name": "NBS allylic bromination",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/nbs-bromination.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "NBS + HBr → Succinimide + Br2",
+          "focusedImage": "mechanisms/v040/nbs-bromination-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 2,
+          "code": null,
+          "title": "Photochemical initiation",
+          "equation": "Br–Br + light → 2 Br•",
+          "focusedImage": "mechanisms/v040/nbs-bromination-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 3,
+          "code": "2222",
+          "title": "Radical atom transfer",
+          "equation": "Br• + ring CH=CH–CH(H)–(CH2)3–(back) → HBr + delocalized cyclohexenyl radical",
+          "focusedImage": "mechanisms/v040/nbs-bromination-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 4,
+          "code": "2222",
+          "title": "Radical atom transfer",
+          "equation": "Cyclohexenyl C• + Br–Br → 3-Bromocyclohexene + Br•",
+          "focusedImage": "mechanisms/v040/nbs-bromination-4.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        }
+      ]
+    },
+    {
+      "id": "radical-cyclization",
+      "name": "5-Hexenyl radical cyclization",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/radical-cyclization.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "Initiator (e.g. AIBN) + heat → Initiator radicals + N2",
+          "focusedImage": "mechanisms/v040/radical-cyclization-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 2,
+          "code": "2222",
+          "title": "Radical atom transfer",
+          "equation": "Initiator R• + Bu3Sn–H → RH + Bu3Sn•",
+          "focusedImage": "mechanisms/v040/radical-cyclization-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 3,
+          "code": "2222",
+          "title": "Radical atom transfer",
+          "equation": "Bu3Sn• + Br–CH2(CH2)3CH=CH2 → Bu3SnBr + •CH2(CH2)3CH=CH2",
+          "focusedImage": "mechanisms/v040/radical-cyclization-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 4,
+          "code": "2211",
+          "title": "5-exo-trig ring closure",
+          "equation": "•CH2–(CH2)3–CH=CH2 → Cyclopentyl–CH2•",
+          "focusedImage": "mechanisms/v040/radical-cyclization-4.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 5,
+          "code": "2222",
+          "title": "Radical atom transfer",
+          "equation": "Cyclopentyl–CH2• + Bu3Sn–H → Methylcyclopentane + Bu3Sn•",
+          "focusedImage": "mechanisms/v040/radical-cyclization-5.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        }
+      ]
+    },
+    {
+      "id": "suzuki-miyaura",
+      "name": "Suzuki–Miyaura coupling",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/suzuki-miyaura.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": null,
+          "title": "Oxidative addition",
+          "equation": "LnPd(0) + Ph–Br → LnPd(II)(Ph)(Br)",
+          "focusedImage": "mechanisms/v040/suzuki-miyaura-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 2,
+          "code": null,
+          "title": "Base-assisted ligand exchange",
+          "equation": "LnPd(II)(Ph)(Br) + OH− → LnPd(II)(Ph)(OH) + Br−",
+          "focusedImage": "mechanisms/v040/suzuki-miyaura-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 3,
+          "code": null,
+          "title": "Transmetalation",
+          "equation": "LnPd(II)(Ph)(OH) + ArB(OH)2 → LnPd(II)(Ph)(Ar) + B(OH)3",
+          "focusedImage": "mechanisms/v040/suzuki-miyaura-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 4,
+          "code": null,
+          "title": "Reductive elimination",
+          "equation": "cis-LnPd(II)(Ph)(Ar) → Ph–Ar + LnPd(0)",
+          "focusedImage": "mechanisms/v040/suzuki-miyaura-4.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
+        }
+      ]
+    },
+    {
+      "id": "heck",
+      "name": "Mizoroki–Heck coupling",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/heck.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": null,
+          "title": "Oxidative addition",
+          "equation": "LnPd(0) + Ph–Br → LnPd(II)(Ph)(Br)",
+          "focusedImage": "mechanisms/v040/heck-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 2,
+          "code": null,
+          "title": "Alkene coordination",
+          "equation": "LnPd(II)(Ph)(Br) + CH2=CHCO2Et → Pi-alkene palladium complex",
+          "focusedImage": "mechanisms/v040/heck-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 3,
+          "code": null,
+          "title": "Migratory insertion",
+          "equation": "Pd–Ph with coordinated CH2=CHCO2Et → PhCH2–CH(PdBrLn)CO2Et",
+          "focusedImage": "mechanisms/v040/heck-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 4,
+          "code": null,
+          "title": "Beta-hydride elimination",
+          "equation": "PhCH2–CH(PdBrLn)CO2Et → (E)-PhCH=CHCO2Et bound to LnPd(H)(Br)",
+          "focusedImage": "mechanisms/v040/heck-4.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 5,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "Alkene–LnPd(H)(Br) complex → PhCH=CHCO2Et + LnPd(H)(Br)",
+          "focusedImage": "mechanisms/v040/heck-5.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 6,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "LnPd(H)(Br) + base → LnPd(0) + base·HBr",
+          "focusedImage": "mechanisms/v040/heck-6.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
+        }
+      ]
+    },
+    {
+      "id": "sonogashira",
+      "name": "Sonogashira coupling",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/sonogashira.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": null,
+          "title": "Copper-assisted alkyne activation",
+          "equation": "HC≡CPh + Cu(I) halide + amine → Copper phenylacetylide ensemble + ammonium halide",
+          "focusedImage": "mechanisms/v040/sonogashira-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 2,
+          "code": null,
+          "title": "Oxidative addition",
+          "equation": "LnPd(0) + Ph–Br → LnPd(II)(Ph)(Br)",
+          "focusedImage": "mechanisms/v040/sonogashira-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 3,
+          "code": null,
+          "title": "Alkynyl transmetalation",
+          "equation": "LnPd(II)(Ph)(Br) + Cu–C≡CPh → LnPd(II)(Ph)(C≡CPh) + CuBr",
+          "focusedImage": "mechanisms/v040/sonogashira-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 4,
+          "code": null,
+          "title": "Reductive elimination",
+          "equation": "cis-LnPd(II)(Ph)(C≡CPh) → PhC≡CPh + LnPd(0)",
+          "focusedImage": "mechanisms/v040/sonogashira-4.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
+        }
+      ]
+    },
+    {
+      "id": "negishi",
+      "name": "Negishi coupling",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/negishi.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": null,
+          "title": "Oxidative addition",
+          "equation": "LnPd(0) + Ph–Br → LnPd(II)(Ph)(Br)",
+          "focusedImage": "mechanisms/v040/negishi-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 2,
+          "code": null,
+          "title": "Organozinc transmetalation",
+          "equation": "LnPd(II)(Ph)(Br) + EtZnBr → LnPd(II)(Ph)(Et) + ZnBr2",
+          "focusedImage": "mechanisms/v040/negishi-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 3,
+          "code": null,
+          "title": "Reductive elimination",
+          "equation": "cis-LnPd(II)(Ph)(Et) → PhCH2CH3 + LnPd(0)",
+          "focusedImage": "mechanisms/v040/negishi-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as 1111 association omit the defining redox/spin process; no new code is introduced."
         }
       ]
     }

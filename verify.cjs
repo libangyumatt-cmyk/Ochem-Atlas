@@ -63,7 +63,7 @@ for(const r of D.reactions.filter(r=>!r.releaseAdded)){
 for(const f of ['dist/index.html','dist/app.js','dist/diagrams.js','dist/data.json'])assert.doesNotMatch(fs.readFileSync(f,'utf8'),/[\u3400-\u9fff]/,'all visible content must be English: '+f);
 assert.equal(D.reactions.filter(r=>match(r,{})).length,D.reactions.length);
 assert.equal(D.reactions.filter(r=>match(r,{query:'SN2'})).some(r=>r.id==='sn2'),true);
-assert.ok(D.reactions.filter(r=>match(r,{axes:['2','','','']})).every(r=>r.family==='Radical reactions'));
+assert.ok(D.reactions.filter(r=>match(r,{axes:['2','','','']})).every(r=>r.steps.some(s=>s.code?.[0]==='2')));
 assert.equal(D.reactions.filter(r=>match(r,{axes:['3','','','']})).length,0);
 assert.ok(D.reactions.filter(r=>match(r,{steps:'2'})).every(r=>r.steps.length===2));
 assert.ok(D.reactions.filter(r=>match(r,{candidate:true})).every(r=>r.steps.some(s=>C.isCandidate(s,D.codebook))));

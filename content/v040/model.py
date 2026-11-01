@@ -24,6 +24,7 @@ KINDS={
 def E(kind,left,right,flow,moves=(),title=None,scope=None):
  code,default,orb,geo=KINDS[kind]
  if kind=='add' and 'N+' in left and '=O' not in left:orb='The reagent sigma donor transfers to iminium pi*(C=N); C=N pi electrons return to nitrogen.';geo='Approach to a planar iminium carbon produces a tetrahedral amine carbon; facial selectivity depends on substrate.'
+ if kind=='sn2' and ('|S}' in left or '|Br}' in left):geo='Approach to the named sulfur or bromine acceptor follows its bond-substitution geometry; carbon inversion is not implied.'
  return dict(kind=kind,title=title or default,code=code,left=left,right=right,flow=flow,moves=list(moves),orbital=orb,geometry=geo,scope=scope)
 def R(rid,name,family,equation,conditions,selectivity,steps,aliases=(),scope='',source='v4-openstax',topic=''):
  return dict(id=rid,name=name,family=family,equation=equation,conditions=conditions,selectivity=selectivity,events=steps,aliases=list(aliases),scope=scope,reference=source,referenceTopic=topic)
@@ -52,8 +53,8 @@ def render(r,event,i):
   body+=f'<path data-electrons="{electrons}" d="M{x:.2f},{y-5:.2f} Q{(x+u)/2:.2f},{y+bend:.2f} {u:.2f},{v-9:.2f}" fill="none" stroke="#aa6a4e" stroke-width="2.3" marker-end="url(#{ident}-'+('fish' if electrons==1 else 'pair')+')"/>'
  if not event['moves']:
   # Explicitly model-level stages use process arrows, not fictitious electron arrows.
-  body+='<text x="30" y="202" font-size="16">Process model: no unique microscopic electron-arrow sequence asserted.</text>'
- for n,line in enumerate(textwrap.wrap(event['flow'],132)):body+=f'<text x="24" y="{235+n*23}" font-size="16">{escape(line)}</text>'
- height=290+23*max(0,len(textwrap.wrap(event['flow'],132))-2)
+  body+='<text x="30" y="202" font-size="16">'+('Process model: no unique microscopic electron-arrow sequence asserted.' if event['kind']=='open' else 'Condensed structural stage; electron changes are specified below.')+'</text>'
+ for n,line in enumerate(textwrap.wrap(event['flow'],108)):body+=f'<text x="24" y="{235+n*23}" font-size="16">{escape(line)}</text>'
+ height=290+23*max(0,len(textwrap.wrap(event['flow'],108))-2)
  header=f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 {height}" role="img"><title>{escape(r["name"]+": "+event["title"])}</title><desc>{escape(plain(event["left"])+" → "+plain(event["right"])+". "+event["flow"])}</desc><rect width="1200" height="{height}" fill="#fffefa"/><defs><marker id="{ident}-pair" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 1L9 5L1 9" fill="none" stroke="#aa6a4e"/></marker><marker id="{ident}-fish" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 1L9 5" fill="none" stroke="#aa6a4e"/></marker></defs><g fill="#203c43" font-family="DejaVu Sans Mono,monospace"><text x="24" y="32" font-size="21">{escape(r["name"])} · {i+1}</text><text x="24" y="65" font-size="17">{escape(event["title"])}</text><text x="585" y="155" font-size="28">→</text>'
  svg=header+body+'</g></svg>';p=ROOT/'dist/mechanisms/v040'/f'{ident}.svg';p.parent.mkdir(parents=True,exist_ok=True);p.write_text(svg);return str(p.relative_to(ROOT/'dist')),svg,height

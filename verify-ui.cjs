@@ -129,6 +129,7 @@ for(const r of D.reactions){
  assert.equal(t.$$('.source-figure img').length,r.figure.display?1:0);
  for(let i=0;i<r.steps.length;i++){t.click(`[data-step="${i}"]`);assert.equal(t.$('.step-equation').textContent,r.steps[i].equation);assert.equal(t.$$('.why-item').length,4);assertions++;}
  for(const tab of ['data','sources','mechanism']){t.click(`[data-tab="${tab}"]`);assert.equal(t.$('#panel-'+tab).hidden,false);assertions++;}
+ if(r.releaseAdded){assert.ok(t.$('#panel-sources').textContent.includes(r.referenceLocators[0]));assert.ok(!/undefined|null/.test(t.$('#panel-sources').textContent));if(r.aliases.length)assert.ok(t.$('#dialog-zh').textContent.includes(r.aliases[0]));assertions++;}
  const img=t.$('.source-figure img');if(img){img.dispatchEvent(new t.w.Event('error'));assert.equal(img.hidden,true);assert.equal(t.$('.source-figure .image-error').hidden,false);}
  t.click('#close-dialog');assert.equal(t.$('#reaction-dialog').open,false);assert.equal(t.d.body.classList.contains('dialog-open'),false);
 }
