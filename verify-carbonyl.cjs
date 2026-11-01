@@ -24,6 +24,6 @@ for(const f of c.frames){
 }
 const product=c.frames.find(f=>f.id==='product');assert.equal(product.stationaryPointVerified,true);assert.ok(product.maxNuclearGradientEhPerBohr<2e-5);assert.equal(product.frequenciesCm.length,9);assert.ok(product.frequenciesCm.every(x=>x>20));
 const validation=read('dist/reaction-lab/carbonyl/validation.json');assert.equal(validation.result,'pass');assert.equal(validation.frames.length,7);assert.ok(validation.frames.every(f=>f.passed));
-const D=read('dist/data.json');assert.equal(D.reactions.find(r=>r.id==='carbonyl-add').steps[0].code,'1113');assert.equal(D.reactions.length,31);
+const D=read('dist/data.json');assert.equal(D.reactions.find(r=>r.id==='carbonyl-add').steps[0].code,'1113');assert.equal(D.reactions.filter(r=>!r.releaseAdded).length,31);
 for(const r of index.systems){const d=read('dist/'+r.dataFile);assert.equal(d.id,r.id);assert.equal(d.event,r.event);assert.ok(D.reactions.some(x=>r.event===x.id+':0'));}
 console.log('PASS: schema-2 systems, seven computed carbonyl geometries, matched angle branch, orbitals/meshes, minimum validation, SORG and original scientific data preservation.');

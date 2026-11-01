@@ -3,7 +3,7 @@
 const assert=require('node:assert/strict'),fs=require('node:fs');
 const {JSDOM,VirtualConsole}=require('jsdom');
 const D=JSON.parse(fs.readFileSync('dist/data.json','utf8'));
-assert.match(fs.readFileSync('dist/index.html','utf8'),/app\.js\?v=0\.3\.7/);
+assert.match(fs.readFileSync('dist/index.html','utf8'),/app\.js\?v=0\.4\.0/);
 let assertions=0;
 function app({storage='[]',blocked=false,hash=''}={}){
  const errors=[],vc=new VirtualConsole();vc.on('jsdomError',e=>errors.push(String(e)));
@@ -21,7 +21,7 @@ function app({storage='[]',blocked=false,hash=''}={}){
  const ids=()=>$$('.card-title').map(e=>e.dataset.open);
  return {w,d,$,$$,click,change,ids,errors,close:()=>w.close()};
 }
-let t=app();assert.equal(t.ids().length,31);
+let t=app();assert.equal(t.ids().length,D.reactions.length);
 assert.equal(t.$$('.foundation-lesson').length,5);
 assert.match(t.$('#scf-readout').textContent,/scalar model is not a molecular calculation/);
 t.change('#scf-feedback','0.8','input');t.change('#scf-mix','1','input');assert.match(t.$('#scf-feedback-value').textContent,/0.80 eV/);assert.match(t.$('#scf-mix-value').textContent,/1.00/);
@@ -50,7 +50,7 @@ assert.equal(t.$('[data-research-point="2"]').getAttribute('aria-pressed'),'true
 assert.match(t.$('.research-focus').textContent,/From stated TS symmetry/);
 assert.match(t.$('.research-section').textContent,/no Atlas quantum calculation/);
 assert.equal(t.$$('#research-descriptors article').length,9);
-assert.equal(t.$$('#reason-case option').length,4);assert.equal(t.$$('#map-focus option').length,69);
+assert.equal(t.$$('#reason-case option').length,4);assert.equal(t.$$('#map-focus option').length,D.reactions.reduce((n,r)=>n+r.steps.length,0));
 for(const id of ['sn2','e2','carbonyl-add','diels-alder']){
  t.change('#reason-case',id);assert.match(t.$('#reason-output').textContent,/TEACHING MODEL/);
  for(let i=0;i<5;i++){
@@ -61,11 +61,11 @@ for(const id of ['sn2','e2','carbonyl-add','diels-alder']){
  }
  assert.match(t.$('#reason-output').textContent,/Mechanistic chain complete/);t.click('#reason-open');assert.equal(t.$('#dialog-title').textContent,t.w.SORG.reactions.find(r=>r.id===id).name);t.click('#close-dialog');assertions+=5;
 }
-t.change('#map-focus','hbr:0');t.click('#map-next');assert.match(t.$('.map-list').textContent,/Feature only/);
+t.change('#map-focus','hbr:0');while(!/Feature only/.test(t.$('.map-list').textContent)&&!t.$('#map-next').disabled)t.click('#map-next');assert.match(t.$('.map-list').textContent,/Feature only/);
 assert.match(t.$('.map-list').textContent,/Proton transfer/);
 const totalWithFeature=t.$('.map-neighbors h3').textContent;
 t.change('#map-feature-toggle',false);assert.doesNotMatch(t.$('.map-list').textContent,/Feature only/);assert.notEqual(t.$('.map-neighbors h3').textContent,totalWithFeature);
-t.change('#map-feature-toggle',true);t.change('#map-focus','sn2:0');assert.match(t.$('#map-output').textContent,/Williamson ether synthesis/);
+t.change('#map-feature-toggle',true);t.change('#map-focus','sn2:0');while(!/Williamson ether synthesis/.test(t.$('#map-output').textContent)&&!t.$('#map-next').disabled)t.click('#map-next');assert.match(t.$('#map-output').textContent,/Williamson ether synthesis/);t.change('#map-focus','sn2:0');
 t.click('#map-next');assert.equal(t.$('#map-prev').disabled,false);
 t.change('#map-focus','fischer-esterification:2');t.click('#map-open');assert.equal(t.$('.step-button.active').dataset.step,'2');assert.match(t.w.location.hash,/step=3/);t.click('#close-dialog');
 for(const key of [...t.$$('#map-focus option')].map(o=>o.value)){
@@ -134,7 +134,7 @@ for(const r of D.reactions){
 }
 // Keyboard tab cycling, search shortcut, and direct route.
 t.click('[data-open="sn2"]');t.$('[data-tab="mechanism"]').dispatchEvent(new t.w.KeyboardEvent('keydown',{key:'ArrowRight',bubbles:true}));assert.equal(t.$('#panel-data').hidden,false);t.click('#close-dialog');t.d.body.focus();t.d.dispatchEvent(new t.w.KeyboardEvent('keydown',{key:'/',bubbles:true}));assert.equal(t.d.activeElement.id,'search');assert.deepEqual(t.errors,[]);t.close();
-for(const storage of ['broken JSON','{}','["sn2","sn2","unknown-id"]']){t=app({storage});assert.equal(t.ids().length,31);assert.equal(t.$('#saved-count').textContent,storage.includes('sn2')?'1':'0');assert.deepEqual(t.errors,[]);t.close();}
+for(const storage of ['broken JSON','{}','["sn2","sn2","unknown-id"]']){t=app({storage});assert.equal(t.ids().length,D.reactions.length);assert.equal(t.$('#saved-count').textContent,storage.includes('sn2')?'1':'0');assert.deepEqual(t.errors,[]);t.close();}
 t=app({blocked:true});t.click('[data-save="sn2"]');t.click('#show-saved');assert.deepEqual(t.ids(),['sn2']);assert.match(t.$('#toast').textContent,/session/);assert.deepEqual(t.errors,[]);t.close();
 t=app({hash:'#reaction/acid-epoxide'});assert.equal(t.$('#reaction-dialog').open,true);assert.equal(t.$$('.full-step').length,2);assert.deepEqual(t.errors,[]);t.close();
 t=app({hash:'#reaction/imine-formation?step=5'});assert.equal(t.$('.step-button.active').dataset.step,'4');assert.equal(t.$('.event-focus img').getAttribute('src'),'mechanisms/imine-formation-step-5.svg');assert.deepEqual(t.errors,[]);t.close();

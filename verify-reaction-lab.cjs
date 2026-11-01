@@ -2,7 +2,7 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),{JSDOM,VirtualConsole}=require('jsdom');
 const D=JSON.parse(fs.readFileSync('dist/data.json','utf8'));
 const inventory=JSON.parse(fs.readFileSync('dist/mechanism-inventory.json','utf8'));
-assert.equal(inventory.reactions.length,31);assert.equal(inventory.reactions.reduce((n,r)=>n+r.events.length,0),69);
+assert.equal(inventory.reactions.filter(r=>r.beforeStatus!=='new').length,31);assert.equal(inventory.reactions.filter(r=>r.beforeStatus!=='new').reduce((n,r)=>n+r.events.length,0),69);
 assert.equal(inventory.reactions.filter(r=>r.afterStatus==='complete').length,29);
 for(const r of inventory.reactions){
  const actual=D.reactions.find(x=>x.id===r.id);assert.equal(actual.steps.length,r.events.length);
@@ -50,7 +50,7 @@ async function domTests(){
  for(const file of ['data.js','core.js','diagrams.js','learning.js','research-data.js','foundations.js','scf-demo.js','research.js','app.js'])w.eval(fs.readFileSync('dist/'+file,'utf8'));
  await w.eval(fs.readFileSync('dist/reaction-lab.js','utf8'));
  const change=(id,v,type='change')=>{$(id).value=String(v);$(id).dispatchEvent(new w.Event(type));};
- assert.equal($('#rr-event').options.length,69);assert.equal(w.SorgReactionLab.state.event,'sn2:0');
+ assert.equal($('#rr-event').options.length,D.reactions.reduce((n,r)=>n+r.steps.length,0));assert.equal(w.SorgReactionLab.state.event,'sn2:0');
  change('#rr-frame',2,'input');assert.match($('#rr-descriptors').textContent,/Hessian-verified/);
  change('#rr-field','amplitude');change('#rr-orbital','occupied');assert.equal($('#rr-phase').disabled,false);$('#rr-phase').click();assert.equal($('#rr-phase').getAttribute('aria-pressed'),'true');
  change('#rr-field','difference');assert.equal($('#rr-phase').disabled,true);assert.match($('#rr-legend').textContent,/nuclear motion/);

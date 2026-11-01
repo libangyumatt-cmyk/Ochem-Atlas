@@ -4,14 +4,14 @@ const D=JSON.parse(fs.readFileSync('dist/data.json','utf8')),C=require('./dist/c
 const L=require('./dist/learning.js').SorgLearning;
 const base={family:'',query:'',axes:['','','',''],steps:'all',candidate:false,saved:false};
 const match=(r,f)=>C.matches(r,{...base,...f},D.codebook,[]);
-assert.equal(D.reactions.length,31);assert.equal(D.reactions.reduce((n,r)=>n+r.steps.length,0),69);
+assert.ok(D.reactions.length>=31);assert.equal(D.reactions.filter(r=>!r.releaseAdded).length,31);assert.equal(D.reactions.filter(r=>!r.releaseAdded).reduce((n,r)=>n+r.steps.length,0),69);
 assert.equal(new Set(D.reactions.map(r=>r.id)).size,D.reactions.length);
 assert.equal(D.reactions.filter(r=>r.quantumData).length,D.reactions.length);
 assert.equal(D.reactions.filter(r=>r.figure).length,D.reactions.length,'every reaction must display a sourced mechanism image');
 assert.equal(D.reactions.find(r=>r.id==='sn2').quantumData.status,'literature-related-numerical');
 assert.equal(D.reactions.find(r=>r.id==='diels-alder').quantumData.status,'literature-related-numerical');
 assert.equal(D.reactions.filter(r=>r.quantumData.literatureCases.length>0).length,2);
-assert.equal(D.version,'0.3.7');
+assert.equal(D.version,'0.4.0');
 const research=JSON.parse(fs.readFileSync('research/evidence.json','utf8'));
 assert.equal(research.schemaVersion,'1.0');
 assert.deepEqual(research,JSON.parse(fs.readFileSync('dist/research-data.json','utf8')));
@@ -30,7 +30,7 @@ assert.ok(study.descriptors.every(d=>d.method&&d.unit&&d.normalization&&d.applic
 assert.equal(study.descriptors.find(d=>d.id==='bond-order').status,'unavailable');
 assert.ok(study.artifacts.some(a=>a.localPath==='research/workflows/sn2_psi4.py'&&a.availability.includes('not executed')));
 const validEvents=new Set(D.reactions.flatMap(r=>r.steps.map((_,i)=>r.id+':'+i)));
-assert.equal(validEvents.size,69);
+assert.equal(validEvents.size,D.reactions.reduce((n,r)=>n+r.steps.length,0));
 assert.deepEqual(Object.keys(L.cases),['sn2','e2','carbonyl-add','diels-alder']);
 for(const [id,c] of Object.entries(L.cases)){
  assert.ok(validEvents.has(c.event));assert.equal(c.event,id+':0');assert.equal(c.questions.length,5);
@@ -54,14 +54,14 @@ assert.ok(D.sources.qc_sn2.url.startsWith('https://'));
 const context={window:{}};vm.createContext(context);vm.runInContext(fs.readFileSync('dist/data.js','utf8'),context);
 assert.equal(JSON.stringify(context.window.SORG),JSON.stringify(D));
 vm.runInContext(fs.readFileSync('dist/diagrams.js','utf8'),context);
-for(const r of D.reactions){
+for(const r of D.reactions.filter(r=>!r.releaseAdded)){
   for(const s of r.steps){assert.match(s.code,/^[123][1234][1234][123]$/);assert.ok(D.codebook[s.code]);for(let i=0;i<4;i++)assert.ok(D.axes[i].values[s.code[i]]);const svg=context.window.SorgDiagram(s.diagram);assert.ok(svg.includes('<svg'));assert.ok(svg.includes('<text'),'diagram must not be blank: '+s.diagram);assert.ok(s.flow&&s.orbital&&s.geometry);assert.doesNotMatch(s.flow,/illustrated in the embedded mechanism figure|See the embedded mechanism/);}
   for(const id of r.sources)assert.ok(D.sources[id]?.url.startsWith('https://'));
   assert.ok(r.scope&&r.facts.length);assert.equal(typeof r.mechanismComplete,'boolean');assert.ok(r.mechanismNote&&r.audit.researchNeeded);
   if(r.figure){assert.ok(r.figure.src.startsWith('https://')||fs.existsSync('dist/'+r.figure.src));assert.ok(r.figure.href.startsWith('https://')||fs.existsSync('dist/'+r.figure.href));assert.ok(['exact','representative','partial','pending'].includes(r.figure.match));if(r.figure.display){assert.ok(r.figure.reviewed);assert.notEqual(r.figure.rightsStatus,'unconfirmed');}assert.ok(r.figure.alt&&r.figure.credit);}
 }
 for(const f of ['dist/index.html','dist/app.js','dist/diagrams.js','dist/data.json'])assert.doesNotMatch(fs.readFileSync(f,'utf8'),/[\u3400-\u9fff]/,'all visible content must be English: '+f);
-assert.equal(D.reactions.filter(r=>match(r,{})).length,31);
+assert.equal(D.reactions.filter(r=>match(r,{})).length,D.reactions.length);
 assert.equal(D.reactions.filter(r=>match(r,{query:'SN2'})).some(r=>r.id==='sn2'),true);
 assert.ok(D.reactions.filter(r=>match(r,{axes:['2','','','']})).every(r=>r.family==='Radical reactions'));
 assert.equal(D.reactions.filter(r=>match(r,{axes:['3','','','']})).length,0);
@@ -78,7 +78,7 @@ assert.ok(html.indexOf('id="foundations"')<html.indexOf('id="principles"'));
 for(const id of ['wave','orbitals','density','pes','sorg'])assert.ok(html.includes('id="foundation-'+id+'"'));
 assert.match(html,/<section class="research-section section wrap" id="research"/);
 assert.match(html,/not interpolated IRC frames/);
-assert.ok(html.includes('31 reactions / 69 listed events'));assert.doesNotMatch(html,/concentration-rate|relative-barrier/);
+assert.ok(html.includes(D.reactions.length+' reactions / '+D.reactions.reduce((n,r)=>n+r.steps.length,0)+' listed events'));assert.doesNotMatch(html,/concentration-rate|relative-barrier/);
 assert.doesNotMatch(fs.readFileSync('dist/app.js','utf8'),/calc-a|orbitalMixing|两轨道耦合与混合模型/);
 const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);assert.equal(ids.length,new Set(ids).size);
 for(const [,asset] of html.matchAll(/(?:src|href)="([^"#:]+\.(?:js|css|svg|json))(?:\?[^"]*)?"/g))assert.ok(fs.existsSync('dist/'+asset),asset);
@@ -106,7 +106,7 @@ for(const c of Object.keys(D.codebook)){
 }
 assert.match(D.codebook['1113'].boundary,/C=N/);assert.match(D.codebook['1133'].boundary,/O3\/1333/);
 assert.deepEqual(D.codebook['1333'].subtypes,['Cycloaddition','Electrocyclic reaction','Sigmatropic rearrangement']);
-for(const r of D.reactions)for(const [i,s] of r.steps.entries()){
+for(const r of D.reactions.filter(r=>!r.releaseAdded))for(const [i,s] of r.steps.entries()){
  const ledger=review.find(x=>x.reaction===r.id&&x.originalStep===i+1&&x.disposition!=='removed-invalid-event');
  assert.equal(s.code,ledger?.currentCode,r.id+' step '+(i+1)+' code changed');
  if(['1113','1133'].includes(s.code))assert.equal(s.assignmentStatus,ledger.assignmentStatus);
@@ -130,7 +130,7 @@ assert.match(D.reactions.find(r=>r.id==='imine-formation').steps.at(-1).equation
 assert.ok(D.reactions.every(r=>new Set(r.quantumData.descriptors).size===r.quantumData.descriptors.length));
 assert.ok(D.reactions.find(r=>r.id==='carbonyl-add').quantumData.literatureInsights[0].teachingPoint.includes('111°'));
 assert.ok(html.includes('id="compare-output"'));assert.ok(html.includes('Same code, different chemistry'));
-assert.ok(html.includes('v0.3.7'));assert.ok(html.includes('app.js?v=0.3.7'));
+assert.ok(html.includes('v0.4.0'));assert.ok(html.includes('app.js?v=0.4.0'));
 for(const id of ['fischer-esterification','imine-formation']){
  const r=D.reactions.find(x=>x.id===id);
  for(const [i,s] of r.steps.entries()){

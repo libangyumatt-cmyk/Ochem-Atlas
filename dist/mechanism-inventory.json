@@ -1,5 +1,5 @@
 {
-  "version": "0.3.5",
+  "version": "0.4.0",
   "reactions": [
     {
       "id": "proton-transfer",
@@ -1611,6 +1611,1110 @@
       "afterStatus": "complete",
       "afterFigure": "mechanisms/acid-epoxide.svg",
       "afterDisplayed": true
+    },
+    {
+      "id": "neighboring-sulfur",
+      "name": "Neighboring sulfur participation",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/neighboring-sulfur.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": "1122",
+          "title": "Bond-replacing displacement",
+          "equation": "Me–S:–CH2–CH2–Cl → [Me–S+(CH2CH2 ring)] + Cl−",
+          "focusedImage": "mechanisms/v040/neighboring-sulfur-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 2,
+          "code": "1122",
+          "title": "Bond-replacing displacement",
+          "equation": "[Me–S+(CH2–CH2 ring)] + :OH2 → MeS–CH2CH2–OH2+",
+          "focusedImage": "mechanisms/v040/neighboring-sulfur-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 3,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "MeS–CH2CH2–O+H–H + :OH2 → MeS–CH2CH2OH + H3O+",
+          "focusedImage": "mechanisms/v040/neighboring-sulfur-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        }
+      ]
+    },
+    {
+      "id": "hofmann-elimination",
+      "name": "Hofmann elimination",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/hofmann-elimination.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": "1133",
+          "title": "Concerted ammonium beta-elimination",
+          "equation": ":OH− + H–CH(CH2CH3)–CH2–NMe3+ → H2O + CH3CH2CH=CH2 + NMe3",
+          "focusedImage": "mechanisms/v040/hofmann-elimination-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        }
+      ]
+    },
+    {
+      "id": "alcohol-dehydration",
+      "name": "Acid-catalyzed alcohol dehydration",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/alcohol-dehydration.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "(CH3)3C–O:H + H–OH2+ → (CH3)3COH2+ + H2O",
+          "focusedImage": "mechanisms/v040/alcohol-dehydration-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 2,
+          "code": "1111",
+          "title": "Heterolytic ionization",
+          "equation": "(CH3)3C–OH2+ → (CH3)3C+ + H2O",
+          "focusedImage": "mechanisms/v040/alcohol-dehydration-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 3,
+          "code": "1133",
+          "title": "Coupled polar bond reorganization",
+          "equation": ":OH2 + H–CH2–C+(CH3)2 → H3O+ + CH2=C(CH3)2",
+          "focusedImage": "mechanisms/v040/alcohol-dehydration-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        }
+      ]
+    },
+    {
+      "id": "tosylation",
+      "name": "Alcohol tosylation",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/tosylation.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": "1122",
+          "title": "Bond-replacing displacement",
+          "equation": "Et–O:H + p-MeC6H4–S(=O)2–Cl → Et–O+(H)–SO2–C6H4Me-p + Cl−",
+          "focusedImage": "mechanisms/v040/tosylation-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "1122 is a proposed extension of the pair-substitution convention to sulfur; addition/elimination timing is substrate dependent."
+        },
+        {
+          "index": 2,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "Et–O+(Ts)–H + :pyridine → Et–OTs + pyridinium+",
+          "focusedImage": "mechanisms/v040/tosylation-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        }
+      ]
+    },
+    {
+      "id": "hydroboration-oxidation",
+      "name": "Alkene hydroboration–oxidation",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/hydroboration-oxidation.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": "1133",
+          "title": "Concerted hydroboration",
+          "equation": "CH3–CH=CH2 + R2B–H → CH3CH2CH2–BR2",
+          "focusedImage": "mechanisms/v040/hydroboration-oxidation-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 2,
+          "code": "1111",
+          "title": "Lone-pair capture",
+          "equation": "R2B–Pr + :O−–OH → [R2B(Pr)(OOH)]−",
+          "focusedImage": "mechanisms/v040/hydroboration-oxidation-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 3,
+          "code": "1133",
+          "title": "Coupled polar bond reorganization",
+          "equation": "[R2B(Pr)–O–OH]− → R2B–OPr + OH−",
+          "focusedImage": "mechanisms/v040/hydroboration-oxidation-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 4,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "R2B–OPr + H2O / OH− → PrOH + borate-derived products",
+          "focusedImage": "mechanisms/v040/hydroboration-oxidation-4.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Grouped hydrolysis/work-up; no unique elementary SORG code assigned."
+        }
+      ]
+    },
+    {
+      "id": "oxymercuration",
+      "name": "Oxymercuration–demercuration",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/oxymercuration.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": "1133",
+          "title": "Coupled polar bond reorganization",
+          "equation": "CH3–CH=CH2 + HgOAc+ → [CH3CH–CH2 bridged by HgOAc]+",
+          "focusedImage": "mechanisms/v040/oxymercuration-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Candidate polar bridging model; actual ion pairing is not encoded."
+        },
+        {
+          "index": 2,
+          "code": "1122",
+          "title": "Bond-replacing displacement",
+          "equation": "[CH3–CH–CH2–HgOAc bridge]+ + :OH2 → CH3CH(OH2+)CH2HgOAc",
+          "focusedImage": "mechanisms/v040/oxymercuration-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 3,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "CH3CH(O+H–H)CH2HgOAc + :OAc− → CH3CH(OH)CH2HgOAc + HOAc",
+          "focusedImage": "mechanisms/v040/oxymercuration-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 4,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "CH3CH(OH)CH2HgOAc + NaBH4 → CH3CH(OH)CH3 + mercury/boron products",
+          "focusedImage": "mechanisms/v040/oxymercuration-4.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Grouped reduction; no fabricated elementary intermediates or SORG assignment."
+        }
+      ]
+    },
+    {
+      "id": "catalytic-hydrogenation",
+      "name": "Catalytic alkene hydrogenation",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/catalytic-hydrogenation.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "H2 + 2* → 2 H–*",
+          "focusedImage": "mechanisms/v040/catalytic-hydrogenation-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 2,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "CH2=CH2 + * → (CH2=CH2)–*",
+          "focusedImage": "mechanisms/v040/catalytic-hydrogenation-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 3,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "(CH2=CH2)–* + H–* → CH3CH2–* + *",
+          "focusedImage": "mechanisms/v040/catalytic-hydrogenation-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 4,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "CH3CH2–* + H–* → CH3CH3 + 2*",
+          "focusedImage": "mechanisms/v040/catalytic-hydrogenation-4.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+        }
+      ]
+    },
+    {
+      "id": "peracid-epoxidation",
+      "name": "Peracid epoxidation",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/peracid-epoxidation.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": "1133",
+          "title": "Concerted oxygen-transfer model",
+          "equation": "CH2=CH2 + ArC(=O)–O–O–H → (CH2CH2)O ring + ArCO2H",
+          "focusedImage": "mechanisms/v040/peracid-epoxidation-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Ar=3-chlorophenyl. The drawn key arrows summarize oxygen transfer; internal proton/carbonyl bond-order relay is specified in the text and is not a separate intermediate."
+        }
+      ]
+    },
+    {
+      "id": "syn-dihydroxylation",
+      "name": "Osmium-catalyzed syn dihydroxylation",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/syn-dihydroxylation.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "CH2=CH2 + OsO4 → Cyclic osmate ester: Os–O–CH2–CH2–O ring",
+          "focusedImage": "mechanisms/v040/syn-dihydroxylation-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 2,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "Cyclic osmate ester + water / reductive work-up → HOCH2CH2OH + reduced osmium species",
+          "focusedImage": "mechanisms/v040/syn-dihydroxylation-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 3,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "Reduced osmium species + NMO → OsO4 + N-methylmorpholine-derived products",
+          "focusedImage": "mechanisms/v040/syn-dihydroxylation-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+        }
+      ]
+    },
+    {
+      "id": "ozonolysis",
+      "name": "Reductive ozonolysis",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/ozonolysis.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": "1333",
+          "title": "Primary ozonide formation",
+          "equation": "CH3–CH=CH–CH3 + O–O+–O− → Five-membered primary ozonide (molozonide)",
+          "focusedImage": "mechanisms/v040/ozonolysis-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 2,
+          "code": "1333",
+          "title": "Molozonide cycloreversion",
+          "equation": "Molozonide: C–C–O–O–O ring → CH3CHO + CH3CHOO (carbonyl oxide)",
+          "focusedImage": "mechanisms/v040/ozonolysis-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 3,
+          "code": "1333",
+          "title": "Secondary ozonide formation",
+          "equation": "CH3CHO + CH3CHOO → Secondary ozonide: C–O–C–O–O ring",
+          "focusedImage": "mechanisms/v040/ozonolysis-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 4,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "Secondary ozonide + Me2S → 2 CH3CHO + Me2SO",
+          "focusedImage": "mechanisms/v040/ozonolysis-4.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+        }
+      ]
+    },
+    {
+      "id": "oxidative-alkene-cleavage",
+      "name": "Permanganate oxidative alkene cleavage",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/oxidative-alkene-cleavage.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "CH3CH=CHCH3 + MnO4− → Cyclic manganate-derived adduct",
+          "focusedImage": "mechanisms/v040/oxidative-alkene-cleavage-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 2,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "Manganate-derived adduct + water → CH3CH(OH)CH(OH)CH3 + reduced Mn species",
+          "focusedImage": "mechanisms/v040/oxidative-alkene-cleavage-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 3,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "CH3CH(OH)CH(OH)CH3 + oxidant → 2 CH3CHO + reduced Mn / water",
+          "focusedImage": "mechanisms/v040/oxidative-alkene-cleavage-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 4,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "2 CH3CHO + oxidant / water → 2 CH3CO2H",
+          "focusedImage": "mechanisms/v040/oxidative-alkene-cleavage-4.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+        }
+      ]
+    },
+    {
+      "id": "alkyne-hydration",
+      "name": "Mercury-catalyzed alkyne hydration",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/alkyne-hydration.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "CH3C≡CH + Hg2+ → Pi-coordinated alkyne–Hg2+ model",
+          "focusedImage": "mechanisms/v040/alkyne-hydration-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 2,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "Activated alkyne + H2O → Hydroxyvinylmercury intermediate + H+",
+          "focusedImage": "mechanisms/v040/alkyne-hydration-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 3,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "Hydroxyvinylmercury intermediate + H+ → CH3C(OH)=CH2 + Hg2+",
+          "focusedImage": "mechanisms/v040/alkyne-hydration-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 4,
+          "code": "1133",
+          "title": "Coupled polar bond reorganization",
+          "equation": "CH3–C(OH)=CH2 + H–OH2+ → CH3C(=OH+)CH3 + H2O",
+          "focusedImage": "mechanisms/v040/alkyne-hydration-4.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 5,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "CH3C(=O+–H)CH3 + :OH2 → CH3COCH3 + H3O+",
+          "focusedImage": "mechanisms/v040/alkyne-hydration-5.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        }
+      ]
+    },
+    {
+      "id": "alkyne-hydroboration",
+      "name": "Alkyne hydroboration–oxidation",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/alkyne-hydroboration.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": "1133",
+          "title": "Vinylborane formation",
+          "equation": "CH3–C≡CH + R2B–H → CH3CH=CHBR2",
+          "focusedImage": "mechanisms/v040/alkyne-hydroboration-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 2,
+          "code": "1111",
+          "title": "Lone-pair capture",
+          "equation": "CH3CH=CH–BR2 + :O−–OH → [R2B(CH=CHCH3)(OOH)]−",
+          "focusedImage": "mechanisms/v040/alkyne-hydroboration-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 3,
+          "code": "1133",
+          "title": "Coupled polar bond reorganization",
+          "equation": "[R2B(CH=CHCH3)–O–OH]− → R2B–O–CH=CHCH3 + OH−",
+          "focusedImage": "mechanisms/v040/alkyne-hydroboration-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 4,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "R2B–O–CH=CHCH3 + water → HO–CH=CHCH3 + borate-derived products",
+          "focusedImage": "mechanisms/v040/alkyne-hydroboration-4.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 5,
+          "code": "1122",
+          "title": "Enolate-mediated tautomerization",
+          "equation": "HO–CH=CHCH3 + :OH− → −O–CH=CHCH3 + H2O",
+          "focusedImage": "mechanisms/v040/alkyne-hydroboration-5.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 6,
+          "code": "1133",
+          "title": "Carbon protonation gives propanal",
+          "equation": "−O–CH=CHCH3 + H–OH → O=CH–CH2CH3 + OH−",
+          "focusedImage": "mechanisms/v040/alkyne-hydroboration-6.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        }
+      ]
+    },
+    {
+      "id": "lindlar-reduction",
+      "name": "Lindlar partial alkyne hydrogenation",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/lindlar-reduction.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "H2 + 2* → 2 H–*",
+          "focusedImage": "mechanisms/v040/lindlar-reduction-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 2,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "CH3C≡CCH3 + * → Adsorbed 2-butyne–*",
+          "focusedImage": "mechanisms/v040/lindlar-reduction-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 3,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "Adsorbed 2-butyne + H–* → Surface vinyl intermediate",
+          "focusedImage": "mechanisms/v040/lindlar-reduction-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 4,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "Surface vinyl + H–* → cis-(Z)-CH3CH=CHCH3 + sites",
+          "focusedImage": "mechanisms/v040/lindlar-reduction-4.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+        }
+      ]
+    },
+    {
+      "id": "dissolving-metal-reduction",
+      "name": "Dissolving-metal alkyne reduction",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/dissolving-metal-reduction.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "CH3C≡CCH3 + e− → [CH3C= CCH3]•−",
+          "focusedImage": "mechanisms/v040/dissolving-metal-reduction-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 2,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "Alkyne radical anion + NH3 → CH3CH=C•CH3 + NH2−",
+          "focusedImage": "mechanisms/v040/dissolving-metal-reduction-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 3,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "CH3CH=C•CH3 + e− → CH3CH=C−CH3",
+          "focusedImage": "mechanisms/v040/dissolving-metal-reduction-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 4,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "CH3CH=C−CH3 + NH3 → trans-(E)-CH3CH=CHCH3 + NH2−",
+          "focusedImage": "mechanisms/v040/dissolving-metal-reduction-4.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+        }
+      ]
+    },
+    {
+      "id": "acetylide-alkylation",
+      "name": "Acetylide alkylation",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/acetylide-alkylation.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "H–C≡C–H + :NH2− → HC≡C− + NH3",
+          "focusedImage": "mechanisms/v040/acetylide-alkylation-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 2,
+          "code": "1122",
+          "title": "Bond-replacing displacement",
+          "equation": "HC≡C:− + CH3–CH2–Br → HC≡CCH2CH3 + Br−",
+          "focusedImage": "mechanisms/v040/acetylide-alkylation-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        }
+      ]
+    },
+    {
+      "id": "aromatic-bromination",
+      "name": "Electrophilic aromatic bromination",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/aromatic-bromination.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": "1111",
+          "title": "Lone-pair capture",
+          "equation": "Br–Br: + FeBr3 → Br2·FeBr3",
+          "focusedImage": "mechanisms/v040/aromatic-bromination-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 2,
+          "code": "1133",
+          "title": "Coupled polar bond reorganization",
+          "equation": "ring CH=CH–CH=CH–CH=CH–(back) + Br–Br·FeBr3 → ring CH(Br)–CH+–CH=CH–CH=CH–(back) + FeBr4−",
+          "focusedImage": "mechanisms/v040/aromatic-bromination-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 3,
+          "code": "1133",
+          "title": "Coupled polar bond reorganization",
+          "equation": "ring C(H)(Br)–CH+–CH=CH–CH=CH–(back) + FeBr4− → C6H5Br + HBr + FeBr3",
+          "focusedImage": "mechanisms/v040/aromatic-bromination-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        }
+      ]
+    },
+    {
+      "id": "aromatic-sulfonation",
+      "name": "Aromatic sulfonation",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/aromatic-sulfonation.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": "1133",
+          "title": "Coupled polar bond reorganization",
+          "equation": "ring CH=CH–CH=CH–CH=CH–(back) + S(=O)(=O)=O → [C6H6–SO3] zwitterionic sigma complex",
+          "focusedImage": "mechanisms/v040/aromatic-sulfonation-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 2,
+          "code": "1133",
+          "title": "Coupled polar bond reorganization",
+          "equation": "ring C(H)(SO3−)–CH+–CH=CH–CH=CH–(back) + :solvent → C6H5SO3H + solvent",
+          "focusedImage": "mechanisms/v040/aromatic-sulfonation-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        }
+      ]
+    },
+    {
+      "id": "friedel-crafts-alkylation",
+      "name": "Friedel–Crafts alkylation",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/friedel-crafts-alkylation.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": "1111",
+          "title": "Lone-pair capture",
+          "equation": "(CH3)3C–Cl: + AlCl3 → (CH3)3CCl·AlCl3",
+          "focusedImage": "mechanisms/v040/friedel-crafts-alkylation-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 2,
+          "code": "1111",
+          "title": "Heterolytic ionization",
+          "equation": "(CH3)3C–Cl·AlCl3 → (CH3)3C+ + AlCl4−",
+          "focusedImage": "mechanisms/v040/friedel-crafts-alkylation-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 3,
+          "code": "1133",
+          "title": "Coupled polar bond reorganization",
+          "equation": "ring CH=CH–CH=CH–CH=CH–(back) + (CH3)3C+ → [C6H6–C(CH3)3]+",
+          "focusedImage": "mechanisms/v040/friedel-crafts-alkylation-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 4,
+          "code": "1133",
+          "title": "Coupled polar bond reorganization",
+          "equation": "ring C(H)(tBu)–CH+–CH=CH–CH=CH–(back) + AlCl4− → C6H5tBu + HCl + AlCl3",
+          "focusedImage": "mechanisms/v040/friedel-crafts-alkylation-4.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        }
+      ]
+    },
+    {
+      "id": "friedel-crafts-acylation",
+      "name": "Friedel–Crafts acylation",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/friedel-crafts-acylation.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": "1111",
+          "title": "Lone-pair capture",
+          "equation": "CH3CO–Cl: + AlCl3 → CH3COCl·AlCl3",
+          "focusedImage": "mechanisms/v040/friedel-crafts-acylation-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 2,
+          "code": "1111",
+          "title": "Heterolytic ionization",
+          "equation": "CH3–C(=O)–Cl·AlCl3 → CH3–C+=O + AlCl4−",
+          "focusedImage": "mechanisms/v040/friedel-crafts-acylation-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 3,
+          "code": "1133",
+          "title": "Coupled polar bond reorganization",
+          "equation": "ring CH=CH–CH=CH–CH=CH–(back) + CH3–C+=O → [C6H6–COCH3]+",
+          "focusedImage": "mechanisms/v040/friedel-crafts-acylation-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 4,
+          "code": "1133",
+          "title": "Coupled polar bond reorganization",
+          "equation": "ring C(H)(COCH3)–CH+–CH=CH–CH=CH–(back) + AlCl4− → C6H5COCH3·AlCl3 + HCl",
+          "focusedImage": "mechanisms/v040/friedel-crafts-acylation-4.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 5,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "C6H5COCH3·AlCl3 + aqueous work-up → C6H5COCH3 + hydrated aluminum species",
+          "focusedImage": "mechanisms/v040/friedel-crafts-acylation-5.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+        }
+      ]
+    },
+    {
+      "id": "snar-addition-elimination",
+      "name": "Activated nucleophilic aromatic substitution",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/snar-addition-elimination.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": "1133",
+          "title": "Coupled polar bond reorganization",
+          "equation": "ring C(F)=CH–CH=C(NO2)–CH=CH–(back) + :OMe− → ring C(F)(OMe)–CH−–CH=C(NO2)–CH=CH–(back)",
+          "focusedImage": "mechanisms/v040/snar-addition-elimination-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 2,
+          "code": "1133",
+          "title": "Coupled polar bond reorganization",
+          "equation": "ring C(OMe)(F)–CH−–CH=C(NO2)–CH=CH–(back) → p-NO2C6H4OMe + F−",
+          "focusedImage": "mechanisms/v040/snar-addition-elimination-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        }
+      ]
+    },
+    {
+      "id": "benzyne-substitution",
+      "name": "Benzyne elimination–addition substitution",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/benzyne-substitution.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "ring C(Br)=C(H)–CH=CH–CH=CH–(back) + :NH2− → ortho-bromophenyl anion + NH3",
+          "focusedImage": "mechanisms/v040/benzyne-substitution-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 2,
+          "code": "1133",
+          "title": "Coupled polar bond reorganization",
+          "equation": "ortho-C:−–C–Br within arene → Benzyne + Br−",
+          "focusedImage": "mechanisms/v040/benzyne-substitution-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 3,
+          "code": "1133",
+          "title": "Coupled polar bond reorganization",
+          "equation": "Benzyne C≡C + :NH2− → Aminophenyl carbanion",
+          "focusedImage": "mechanisms/v040/benzyne-substitution-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 4,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "H2N–C6H4–C:− + H–NH2 → C6H5NH2 + NH2−",
+          "focusedImage": "mechanisms/v040/benzyne-substitution-4.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        }
+      ]
+    },
+    {
+      "id": "benzylic-oxidation",
+      "name": "Benzylic side-chain oxidation",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/benzylic-oxidation.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "PhCH3 + manganese oxidant → Benzylic oxygenated/metal-bound intermediates",
+          "focusedImage": "mechanisms/v040/benzylic-oxidation-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 2,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "Benzylic oxygenated intermediates + oxidant → PhCHO / hydrated aldehyde-derived species",
+          "focusedImage": "mechanisms/v040/benzylic-oxidation-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 3,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "PhCHO-derived species + oxidant / water → PhCO2−",
+          "focusedImage": "mechanisms/v040/benzylic-oxidation-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 4,
+          "code": "1122",
+          "title": "Proton transfer",
+          "equation": "PhCO2:− + H–OH2+ → PhCO2H + H2O",
+          "focusedImage": "mechanisms/v040/benzylic-oxidation-4.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        }
+      ]
+    },
+    {
+      "id": "sandmeyer",
+      "name": "Sandmeyer chlorination",
+      "beforeStatus": "new",
+      "beforeFigure": null,
+      "afterStatus": "teaching-model",
+      "afterFigure": "mechanisms/v040/sandmeyer.svg",
+      "afterDisplayed": true,
+      "events": [
+        {
+          "index": 1,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "NO2− + acid → Nitrosating species (NO+ equivalent) + water",
+          "focusedImage": "mechanisms/v040/sandmeyer-1.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 2,
+          "code": "1111",
+          "title": "Lone-pair capture",
+          "equation": "Ph–NH2: + NO+ → Ph–NH2+–N=O",
+          "focusedImage": "mechanisms/v040/sandmeyer-2.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "Assignment follows the unchanged project convention at teaching-event resolution; it is not a computed descriptor or proof of a unique microscopic mechanism."
+        },
+        {
+          "index": 3,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "Ph–NH2+–N=O + proton relays → Ph–N=N–OH + acid",
+          "focusedImage": "mechanisms/v040/sandmeyer-3.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 4,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "Ph–N=N–OH + acid → Ph–N≡N+ + H2O",
+          "focusedImage": "mechanisms/v040/sandmeyer-4.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 5,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "PhN2+ + Cu(I) → Ph• + N2 + Cu(II) species",
+          "focusedImage": "mechanisms/v040/sandmeyer-5.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+        },
+        {
+          "index": 6,
+          "code": null,
+          "title": "Mechanistic boundary / grouped stage",
+          "equation": "Ph• + Cu(II)–Cl species → PhCl + Cu(I)",
+          "focusedImage": "mechanisms/v040/sandmeyer-6.svg",
+          "afterStatus": "teaching-model",
+          "coverageBasis": "Authored condensed structural teaching event; grouped-stage limitations explicit",
+          "limitations": "No unique existing SORG code: surface/metal-redox/SET or grouped microscopic sequence is outside the defined codebook. Alternatives such as1111 association omit the defining redox/spin process; no new code is introduced."
+        }
+      ]
     }
   ]
 }

@@ -12,7 +12,7 @@ for(const f of d.frames){
 }
 const partial=d.frames.find(f=>f.id==='post-ts');assert.equal(partial.constrainedGradientTargetMet,true);assert.ok(partial.maxProjectedFreeGradientEhPerBohr<3e-4);assert.ok(partial.refinementChecks.movingGridProjectedGradientEhPerBohr<3e-4);assert.doesNotMatch(partial.geometryKind,/partially relaxed/);assert.doesNotMatch(d.warnings.join(' '),/PARTIAL GEOMETRY RELAXATION/);
 const validation=read('dist/reaction-lab/diels-alder/validation.json');assert.equal(validation.result,'pass');assert.ok(validation.frames.every(f=>f.passed));assert.ok(d.symmetry.samePhaseProducts.every(x=>x>0));
-const D=read('dist/data.json');assert.equal(D.reactions.length,31);assert.equal(D.reactions.reduce((n,r)=>n+r.steps.length,0),69);assert.equal(D.reactions.find(r=>r.id==='diels-alder').steps[0].code,'1333');assert.match(d.evidence[0],/S1/);assert.match(d.evidence[0],/NOT/);
+const D=read('dist/data.json');assert.equal(D.reactions.filter(r=>!r.releaseAdded).length,31);assert.equal(D.reactions.filter(r=>!r.releaseAdded).reduce((n,r)=>n+r.steps.length,0),69);assert.equal(D.reactions.find(r=>r.id==='diels-alder').steps[0].code,'1333');assert.match(d.evidence[0],/S1/);assert.match(d.evidence[0],/NOT/);
 for(const [path,sha] of Object.entries(read('audit/V037_PRESERVED_DATA.json')))assert.equal(crypto.createHash('sha256').update(fs.readFileSync(path)).digest('hex'),sha,path+' preserved');
 for(const [path,sha] of Object.entries(read('audit/V037_R1_PRESERVED_DATA.json')))assert.equal(crypto.createHash('sha256').update(fs.readFileSync(path)).digest('hex'),sha,path+' original computed data preserved');
 for(const file of d.sourceFiles)assert.ok(fs.statSync('dist/'+file.path).size>0);

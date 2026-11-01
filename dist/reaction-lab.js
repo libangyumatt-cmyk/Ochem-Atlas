@@ -17,7 +17,7 @@
   const e=selected,ef=e.s.eventFigure,f=e.r.figure,source=ef?.src||(f.display?f.src:null);
   $('#rr-event-title').textContent=`${e.r.name} · event ${e.i+1}`;$('#rr-equation').textContent=e.s.equation;
   $('#rr-conventional').innerHTML=source?`<img src="${esc(source)}" alt="Conventional mechanism for selected ${esc(e.r.name)} event ${e.i+1}"><p>${ef?'Selected event image.':esc(f.match+' '+f.coverage)+' overview; not isolated to this event.'}</p>`:'<p>A reviewed exact structural figure is unavailable. See the inventory for its remaining gap.</p>';
-  $('#rr-flow').textContent=e.s.flow;$('#rr-sorg').textContent=`${e.s.code} · ${e.s.orbital}. ${e.s.geometry}. ${e.s.assignmentNote||''}${e.key==='diels-alder:0'?' This retained note describes the published acrolein dataset; the independent new laboratory case uses ethylene.':''}`;$('#rr-sorg-heading').textContent=`${e.s.code} · existing ${e.s.assignmentStatus||'teaching'} assignment`;
+  $('#rr-flow').textContent=e.s.flow;$('#rr-sorg').textContent=`${e.s.code||"Unassigned"} · ${e.s.orbital}. ${e.s.geometry}. ${e.s.assignmentNote||''}${e.key==='diels-alder:0'?' This retained note describes the published acrolein dataset; the independent new laboratory case uses ethylene.':''}`;$('#rr-sorg-heading').textContent=`${e.s.code||"Unassigned"} · existing ${e.s.assignmentStatus||'teaching'} assignment`;
   $('#rr-open').href=`#reaction/${e.r.id}?step=${e.i+1}`;
   const available=registry.some(r=>r.event===e.key);$('#rr-calculated').hidden=!available;$('#rr-unavailable').hidden=available;$('#rr-model-mechanism').hidden=!available;
   $('#rr-symmetry').hidden=!available||!data?.symmetry;

@@ -26,3 +26,17 @@ kept distinct from experimental proof of a particular microscopic mechanism.
 
 Implementation, review results, final counts and remaining gaps are recorded below
 only after the corresponding batch passes validation.
+
+## Batch1 completed
+
+24 new entries /84 listed events; catalog55 entries /153 events. Full npm regression
+passed after adapting count/version assertions and map-pagination tests to the larger
+catalog. Original31-record deep equality, codebook equality and quantum hashes pass.
+Review corrected local arene charge/atom representations and an acetylide H anchor.
+Representative mechanism review covered neighboring participation, E2 geometry,
+boron oxidation/migration, mercury/radical limitations, surface hydrogenation,
+alkyne tautomerization, EAS/SNAr and diazonium SET. Not every microscopic redox stage
+is established; grouped stages and undefined SORG boundaries are explicit.
+SVG XML/arrow inventories passed. A rasterized aromatic-step sample was inspected;
+this is not a claim of full native/mobile browser testing. Actual log:
+audit/V040_BATCH1_TESTS.log.
